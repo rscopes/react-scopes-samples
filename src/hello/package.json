@@ -1,0 +1,14 @@
+{
+  "name": "hello-sample",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Nathan Braun <caipilabs@gmail.com>",
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-rescope": "^1.0.2",
+    "rescope": "^3.4.5"
+  },
+  "devDependencies": {}
+}
