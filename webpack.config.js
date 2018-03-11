@@ -25,11 +25,15 @@
  * @contact : caipilabs@gmail.com
  */
 
-var fs      = require("fs");
-var webpack = require("webpack");
-var path    = require("path");
-var glob    = require("glob");
-
+var fs          = require("fs");
+var webpack     = require("webpack");
+var path        = require("path");
+var glob        = require("glob");
+const isChildOf = ( child, parent ) => {
+    if ( child === parent ) return false
+    const parentTokens = parent.split('/').filter(i => i.length)
+    return parentTokens.every(( t, i ) => child.split('/')[i] === t)
+}
 
 var production    = process.argv.indexOf("--production") > -1
     || process.argv.indexOf("-p") > -1;
@@ -39,7 +43,7 @@ var nodeExternals = require('webpack-node-externals'),
         return {
             entry  : entries,
             output : {
-                path      : "dist/" + name + "",
+                path      : __dirname + "/dist/" + name + "",
                 filename  : "[name]",
                 publicPath: "/",
             },
@@ -48,7 +52,7 @@ var nodeExternals = require('webpack-node-externals'),
             //externals: [nodeExternals()],
             resolve: {
                 extensions: [
-                    "",
+                    ".",
                     ".js",
                     ".json",
                 ],
@@ -59,7 +63,16 @@ var nodeExternals = require('webpack-node-externals'),
                 loaders: [
                     {
                         test   : /\.js$/,
-                        exclude: /node_modules/,
+                        exclude: {
+                            test( str ) {
+                                let filep = path.resolve(str).substr(0, __dirname.length)==__dirname;
+                                !(!filep || filep && /node_modules/.test(str))
+                                &&
+                                console.log(path.resolve(str), __dirname)
+                                return (!filep || filep && /node_modules/.test(str))
+                            
+                            }
+                        },
                         loader : 'babel-loader',
                         query  : {
                             cacheDirectory: true, //important for performance

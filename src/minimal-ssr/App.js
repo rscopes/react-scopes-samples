@@ -26,12 +26,11 @@
  */
 
 import React from "react";
-import "rescope-wired";
 
-import Rescope, {Scope, reScope, scopeToProps, decorators} from "react-rescope";
-import {stateMap} from "rescope-wired";
+import Rescope, {Scope, reScope, scopeToProps, decorators} from "rescope";
+//import {stateMap} from "rescope-spells";
 
-let { asRouter, asStateMap, asScope } = decorators;
+let { asStateMap } = decorators;
 let ReactDom                          = require('react-dom');
 
 let MyScope = Scope.bind({

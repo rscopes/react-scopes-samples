@@ -7,7 +7,7 @@
   "mainHtml": "./index.html",
   "author": "Nathan Braun <caipilabs@gmail.com>",
   "dependencies": {
-    "rescope-wired": "^1.1.1",
+    "rescope-spells": "^0.0.1",
     "react-rescope": "^1.1.1",
     "rescope": "^3.6.1",
     "prop-types": "^15.6.0",
