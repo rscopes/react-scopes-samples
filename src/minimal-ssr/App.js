@@ -29,9 +29,9 @@ import React from "react";
 
 import "react-rescope";
 import "rescope-spells";
-import Rescope, {Scope, reScope, scopeToProps, scopeToState, decorators} from "rescope";
+import Rescope, {Scope, reScope, scopeToProps, scopeToState, spells} from "rescope";
 
-let { asStateMap, asScope } = decorators;
+let { asStateMap, asScope } = spells;
 let ReactDom                = require('react-dom');
 
 //let MyScope = Scope.bind(null,);
