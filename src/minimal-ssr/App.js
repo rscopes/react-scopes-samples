@@ -27,24 +27,26 @@
 
 import React from "react";
 
-import Rescope, {Scope, reScope, scopeToProps, decorators} from "rescope";
-//import {stateMap} from "rescope-spells";
+import "react-rescope";
+import "rescope-spells";
+import Rescope, {Scope, reScope, scopeToProps, scopeToState, decorators} from "rescope";
 
 let { asStateMap } = decorators;
-let ReactDom                          = require('react-dom');
+let ReactDom       = require('react-dom');
 
-let MyScope = Scope.bind({
-                             @asStateMap
-                             appState: {
-                                 selectedItemId: null
-                             },
-                             @asStateMap
-                             someData: {
-                                 src: "/api/hello"
-                             }
-                         });
+let MyScope = Scope.bind(null, {
+    @asStateMap
+    appState: {
+        selectedItemId: null
+    },
+    @asStateMap
+    someData: {
+        src  : "/api/hello",
+        items: [{ text: 'test' }]
+    }
+});
 
-@scopeToProps(["appState", "someData"])
+@scopeToState(["appState", "someData"])
 class App extends React.Component {
     
     static renderTo  = ( node ) => {
@@ -53,7 +55,7 @@ class App extends React.Component {
             ["appState", "someData"]
         ).then(
             ( err, state, context ) => {
-                ReactDom.render(<App/>, node);
+                ReactDom.render(<App __scope={ cScope }/>, node);
             }
         )
     }
@@ -70,7 +72,7 @@ class App extends React.Component {
     render() {
         let {
                 someData, appState
-            } = this.props;
+            } = this.state;
         return (
             <div>
                 <h1>Really basic drafty rescope SSR example</h1>
@@ -115,4 +117,5 @@ class PostIt extends React.Component {
     }
 }
 
+window.App = App;
 export default App

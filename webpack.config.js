@@ -25,15 +25,10 @@
  * @contact : caipilabs@gmail.com
  */
 
-var fs          = require("fs");
-var webpack     = require("webpack");
-var path        = require("path");
-var glob        = require("glob");
-const isChildOf = ( child, parent ) => {
-    if ( child === parent ) return false
-    const parentTokens = parent.split('/').filter(i => i.length)
-    return parentTokens.every(( t, i ) => child.split('/')[i] === t)
-}
+var fs      = require("fs");
+var webpack = require("webpack");
+var path    = require("path");
+var glob    = require("glob");
 
 var production    = process.argv.indexOf("--production") > -1
     || process.argv.indexOf("-p") > -1;
@@ -65,12 +60,8 @@ var nodeExternals = require('webpack-node-externals'),
                         test   : /\.js$/,
                         exclude: {
                             test( str ) {
-                                let filep = path.resolve(str).substr(0, __dirname.length)==__dirname;
-                                !(!filep || filep && /node_modules/.test(str))
-                                &&
-                                console.log(path.resolve(str), __dirname)
+                                let filep = path.resolve(str).substr(0, __dirname.length) == __dirname;
                                 return (!filep || filep && /node_modules/.test(str))
-                            
                             }
                         },
                         loader : 'babel-loader',
@@ -136,12 +127,12 @@ var nodeExternals = require('webpack-node-externals'),
             } catch ( e ) {
                 return null;
             }
-            console.warn(sample.name, [path.dirname(pathname) + '/' + sample.main, path.dirname(pathname) + '/' + sample.mainHtml])
+            console.info(sample.name, [path.dirname(pathname) + '/' + sample.main, path.dirname(pathname) + '/' + sample.mainHtml])
             return mkConf(sample.name, {
                 [sample.main]: [path.dirname(pathname) + '/' + sample.main, path.dirname(pathname) + '/' + sample.mainHtml]
             })
         }
     )
 ;
-console.warn(entries)
+//console.warn(entries)
 module.exports = entries
