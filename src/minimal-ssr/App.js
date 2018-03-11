@@ -31,26 +31,27 @@ import "react-rescope";
 import "rescope-spells";
 import Rescope, {Scope, reScope, scopeToProps, scopeToState, decorators} from "rescope";
 
-let { asStateMap } = decorators;
-let ReactDom       = require('react-dom');
+let { asStateMap, asScope } = decorators;
+let ReactDom                = require('react-dom');
 
-let MyScope = Scope.bind(null, {
-    @asStateMap
-    appState: {
-        selectedItemId: null
-    },
-    @asStateMap
-    someData: {
-        src  : "/api/hello",
-        items: [{ text: 'test' }]
-    }
-});
+//let MyScope = Scope.bind(null,);
 
 @scopeToState(["appState", "someData"])
 class App extends React.Component {
-    
+    @asScope
+    static AppScope  = {
+        @asStateMap
+        appState: {
+            selectedItemId: null
+        },
+        @asStateMap
+        someData: {
+            src  : "/api/hello",
+            items: [{ text: 'test' }]
+        }
+    };
     static renderTo  = ( node ) => {
-        let cScope = new MyScope();
+        let cScope = new App.AppScope();
         cScope.mount(
             ["appState", "someData"]
         ).then(
@@ -60,13 +61,14 @@ class App extends React.Component {
         )
     }
     static renderSSR = ( req ) => {
-        MyScope.mount(
-            ["appState", "someData"]
-        ).then(
-            ( err, state, context ) => {
-                ReactDom.render(<App/>, node);
-            }
-        )
+        //let cScope = new App.AppScope();
+        //MyScope.mount(
+        //    ["appState", "someData"]
+        //).then(
+        //    ( err, state, context ) => {
+        //        ReactDom.render(<App __scope={ cScope }/>, node);
+        //    }
+        //)
     }
     
     render() {
