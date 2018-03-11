@@ -1,0 +1,12 @@
+{
+  "name": "hello-vanilla",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./App.js",
+  "mainHtml": "./index.html",
+  "author": "Nathan Braun <caipilabs@gmail.com>",
+  "dependencies": {
+    "rescope": "^3.6.1"
+  },
+  "devDependencies": {}
+}
