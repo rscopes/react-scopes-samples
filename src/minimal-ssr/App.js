@@ -34,7 +34,6 @@ import Rescope, {Scope, reScope, scopeToProps, scopeToState, spells} from "resco
 let { asStateMap, asScope } = spells;
 let ReactDom                = require('react-dom');
 
-//let MyScope = Scope.bind(null,);
 
 @scopeToState(["appState", "someData"])
 class App extends React.Component {
