@@ -25,33 +25,51 @@
  * @contact : caipilabs@gmail.com
  */
 
-'use strict';
-
-import React from "react";
-import Rescope, {reScopeState, reScopeProps} from "rescope";
-
-@reScopeProps(["userEvents"])
-class NewsListComp extends React.Component {
-    render() {
-        return (
-            <div className="NewsListComp container" style={ { minHeight: "100%" } }>
-                <h1>Mes events</h1>
-                {
-                    this.props.userEvents &&
-                    this.props.userEvents.events.map(
-                        ( evt, i ) =>
-                            <div style={ { border: "solid 1px lightgrey", borderRadius: "3px" } } key={ i }>
-                                <b><u>
-                                    <center>Event type : { evt.type }</center>
-                                </u></b>
-                                <p>{ evt.text }</p>
-                            </div>
-                    )
-                }
-            
-            </div>
-        );
-    }
-};
-
-export default NewsListComp;
+/**
+ * @author Nathanael BRAUN
+ *
+ * Date: 25/01/2017
+ * Time: 09:16
+ */
+export default {
+    "MrNice" : [
+        {
+            type : "event",
+            text : "nice event"
+        },
+        {
+            type : "news",
+            text : "nice news"
+        },
+        {
+            type : "poke",
+            text : "some poke"
+        },
+        {
+            type : "event",
+            text : "another event"
+        },
+        {
+            type : "comment",
+            text : "another comment"
+        }
+    ],
+    "MissTick" : [
+        {
+            type : "event",
+            text : "some events"
+        },
+        {
+            type : "news",
+            text : "some news"
+        },
+        {
+            type : "poke",
+            text : "some poke"
+        },
+        {
+            type : "event",
+            text : "another event"
+        }
+    ]
+}

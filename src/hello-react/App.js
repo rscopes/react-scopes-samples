@@ -27,7 +27,7 @@
 
 import React from "react";
 
-import Rescope, {reScopeState, reScopeProps} from "rescope";
+import Rescope, {reScopeState, reScopeProps} from "react-rescope";
 
 let ReactDom      = require('react-dom'),
     Scope         = Rescope.Scope,
@@ -41,53 +41,53 @@ let GlobalStaticContext = new Scope({}, { id: "static", defaultMaxListeners: 500
 // create "appContext" with the stores
 new Scope(StoresContext, { id: "appContext", parent: GlobalStaticContext, defaultMaxListeners: 500 });
 
-const App = reScopeState(
+@reScopeState(
     Scope.scopes.appContext,
     ["status", "appState"]
-      )(
-    class _App extends React.Component {
-        
-        static renderTo = ( node ) => {
-            Scope.scopes.appContext.mount(
-                ["userEvents"]
-            ).then(
-                ( err, state, context ) => {
-                    ReactDom.render(<App/>, node);
-                }
-            )
-        }
-        
-        
-        render() {
-            let {
-                    status
-                } = this.state;
-            return (
-                <div>
-                    <h1>Really basic drafty rescope + react mini app example</h1>
-                    
-                    <div style={ { border: "solid 1px lightgrey", borderRadius: "3px" } }>
-                        <b><u>
-                            <button
-                                onClick={ () => this.$dispatch('switchUser', 'MissTick') }>
-                                MissTick events
-                            </button>
-                        </u></b>&nbsp;&nbsp;
-                        <b><u>
-                            <button
-                                onClick={ () => this.$dispatch('switchUser', 'MrNice') }>
-                                MrNice events
-                            </button>
-                        </u></b>
-                    </div>
-                    <pre>
+)
+class App extends React.Component {
+    
+    static renderTo = ( node ) => {
+        Scope.scopes.appContext.mount(
+            ["userEvents"]
+        ).then(
+            ( err, state, context ) => {
+                ReactDom.render(<App/>, node);
+            }
+        )
+    }
+    
+    
+    render() {
+        let {
+                status
+            } = this.state;
+        return (
+            <div>
+                <h1>Really basic drafty rescope + react mini app example</h1>
+                
+                <div style={ { border: "solid 1px lightgrey", borderRadius: "3px" } }>
+                    <b><u>
+                        <button
+                            onClick={ () => this.$dispatch('switchUser', 'MissTick') }>
+                            MissTick events
+                        </button>
+                    </u></b>&nbsp;&nbsp;
+                    <b><u>
+                        <button
+                            onClick={ () => this.$dispatch('switchUser', 'MrNice') }>
+                            MrNice events
+                        </button>
+                    </u></b>
+                </div>
+                <pre>
                       { status && JSON.stringify(status, null, 2) }
                     </pre>
-                    <NewsListComp/>
-                
-                </div>
-            );
-        }
-    })
+                <NewsListComp/>
+            
+            </div>
+        );
+    }
+}
 ;
-window.App              = App;
+window.App = App;
