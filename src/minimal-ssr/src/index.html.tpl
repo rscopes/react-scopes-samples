@@ -31,6 +31,7 @@
     <meta charset="UTF-8">
     <title>Really basic drafty rescope + react component example</title>
     <script>window.CaipiStore ={{=it.state || "{}"}};</script>
+    <link rel="stylesheet" type="text/css" href="./App.css">
 </head>
 <body>
 <div id="app">{{=it.app || ''}}</div>

@@ -27,10 +27,13 @@
 
 import React from "react";
 import shortid from "shortid";
-import "react-rescope";
 import "rescope-spells";
-import Rescope, {Store, reScope, scopeToProps, scopeToState, spells} from "rescope";
+import "react-rescope";
+import Draggable from 'react-draggable'; // The default
+import Rescope, {Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, spells, Scope} from "rescope";
 import {renderToString} from "react-dom/server"
+
+import "./App.scss"
 
 var indexTpl = require('./index.html.tpl');
 
@@ -40,7 +43,6 @@ let ReactDom                = require('react-dom');
 
 @scopeToState(["appState", "someData"])
 class App extends React.Component {
-    @asScope
     static AppScope  = {
         @asStateMap
         appState: {
@@ -59,17 +61,28 @@ class App extends React.Component {
                             style: {
                                 background: "red",
                             },
-                            text: "New Post It"
+                            text : "New Post It"
                         }
                     return {
                         items: [...items, newPostIt]
                     }
+                },
+                updatePostIt( postIt ) {
+                    let { items } = this.nextState;
+                    items         = items.map(it => (it._id === postIt._id) ? postIt : it);
+                    
+                    return {
+                        items
+                    }
+                },
+                saveState() {
+                    console.log(this.scopeObj.serialize())
                 }
             }
         }
     };
     static renderTo  = ( node ) => {
-        let cScope = new App.AppScope();
+        let cScope = new Scope(App.AppScope);
         cScope.mount(
             ["appState", "someData"]
         ).then(
@@ -79,7 +92,7 @@ class App extends React.Component {
         )
     }
     static renderSSR = ( cfg, cb ) => {
-        let cScope = new App.AppScope();
+        let cScope = new Scope(App.AppScope);
         cScope.mount(
             ["appState", "someData"]
         ).then(
@@ -105,46 +118,67 @@ class App extends React.Component {
         let {
                 someData, appState
             } = this.state;
-        return (
-            <div>
-                <h1>Really basic drafty rescope SSR example</h1>
-                {
-                    someData.items.map(
-                        note => <PostIt record={ note } selected={ note._id == appState.selectedItemId }/>
-                    )
-                }
-                <div onClick={ this.$actions.newPostIt }>Add Post It</div>
+        return [
+            <h1>Really basic drafty rescope SSR example</h1>,
+            someData.items.map(
+                note => <PostIt record={ note } selected={ note._id == appState.selectedItemId }/>
+            ),
+            <div
+                className={ "newBtn button" }
+                onClick={ this.$actions.newPostIt }>
+                Add Post It
+            </div>,
+            <div
+                className={ "saveBtn button" }
+                onClick={ this.$actions.saveState }>
+                Save state
             </div>
-        );
+        ];
     }
 }
 
-@reScope(
-    {
-        @asStateMap
-        props: {},
-        
-        @asStateMap
-        record: "props.record"
-    }
-)
+@propsToScope(["record"], { key: 'postIt' })
 @scopeToProps(
     {
-        style: "record.style",
-        text : "record.text"
+        @scopeRef
+        pos : "record.pos",
+        @scopeRef
+        text: "record.text"
     })
 class PostIt extends React.Component {
+    handleStop = ( e, pos ) => {
+        debugger;
+        
+        let {
+                style, text, $actions, record
+            } = this.props;
+        $actions.updatePostIt(
+            {
+                ...record,
+                pos: { x: pos.x, y: pos.y }
+            }
+        )
+    }
     
     render() {
         let {
-                style, text
+                pos, text, style
             } = this.props;
         return (
-            <div style={ style }>
-                {
+            <Draggable
+                axis="both"
+                handle=".handle"
+                defaultPosition={ pos || { x: 0, y: 0 } }
+                //position={ null }
+                grid={ [25, 25] }
+                onStart={ this.handleStart }
+                onDrag={ this.handleDrag }
+                onStop={ this.handleStop }>
+                <div className={ "postit handle" }> {
                     text
                 }!!!
-            </div>
+                </div>
+            </Draggable>
         );
     }
 }

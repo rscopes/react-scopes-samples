@@ -30,6 +30,8 @@ var webpack = require("webpack");
 var path    = require("path");
 var glob    = require("glob");
 
+
+var autoprefixer  = require('autoprefixer');
 var production    = process.argv.indexOf("--production") > -1
     || process.argv.indexOf("-p") > -1;
 var nodeExternals = require('webpack-node-externals');
@@ -54,19 +56,18 @@ module.exports    = [
                 ".js",
                 ".json",
             ],
-            modules   : [__dirname + '/node_modules', 'node_modules']
+            modules   : [__dirname + '/node_modules', 'node_modules'],
+            alias     : {
+                // webpack bug : all modules deps can be duplicated if there are required in sub dir modules :(
+                //'rescope': path.join(__dirname, 'node_modules', 'rescope'),
+            },
         },
         
         module : {
             loaders: [
                 {
                     test   : /\.js$/,
-                    exclude: {
-                        test( str ) {
-                            let filep = path.resolve(str).substr(0, __dirname.length) == __dirname;
-                            return (!filep || filep && /node_modules/.test(str))
-                        }
-                    },
+                    exclude: /node_modules/,
                     loader : 'babel-loader',
                     query  : {
                         cacheDirectory: true, //important for performance
@@ -86,6 +87,37 @@ module.exports    = [
                     loaders: [
                         "json-loader",
                     ],
+                },
+                {
+                    test: /\.(scss|css)$/,
+                    use : [
+                        "style-loader",
+                        
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
+                        {
+                            loader : 'postcss-loader',
+                            options: {
+                                plugins: function () {
+                                    return [
+                                        autoprefixer({
+                                                         browsers: [
+                                                             '>1%',
+                                                             'last 4 versions',
+                                                             'Firefox ESR',
+                                                             'not ie < 9', // React doesn't support IE8 anyway
+                                                         ]
+                                                     }),
+                                    ];
+                                }
+                            }
+                        },
+                        {
+                            loader : "sass-loader",
+                            options: {
+                                sourceMaps: true
+                            }
+                        }
+                    ]
                 },
                 { test: /\.tpl$/, loader: "dot-tpl-loader?append=true" },
                 //{
@@ -123,26 +155,36 @@ module.exports    = [
         ),
     },
     {
-        entry    : {
+        entry  : {
             App: './src/App.js'
         },
-        target   : 'node',
-        output   : {
+        target : 'node',
+        output : {
             path         : __dirname + "/dist/",
             filename     : "[name].server.js",
             publicPath   : "/",
             libraryTarget: "commonjs2"
         },
-        devtool  : 'inline-source-map',
+        devtool: 'source-map',
         //target   : 'node', // in order to ignore built-in modules like path, fs, etc.
-        externals: [nodeExternals(), 'rescope-spells'],
-        resolve  : {
+        //externals:  ( str ) =>{
+        //        let filep = path.resolve(str).substr(0, __dirname.length) == __dirname;
+        //    console.log(str, __dirname, filep && !/node_modules/.test(str))
+        //        return (filep && !/node_modules/.test(str))
+        //    }
+        //,//
+        //externals:  [nodeExternals(), 'rescope-spells', 'rescope', 'react'],
+        resolve: {
             extensions: [
                 ".",
                 ".js",
                 ".json",
             ],
-            modules   : [__dirname + '/node_modules', 'node_modules']
+            modules   : [__dirname + '/node_modules', 'node_modules'],
+            alias     : {
+                // webpack bug : all modules deps can be duplicated if there are required in sub dir modules :(
+                //'rescope': path.join(__dirname, 'node_modules', 'rescope'),
+            },
         },
         
         module : {
@@ -176,6 +218,10 @@ module.exports    = [
                     ],
                 },
                 { test: /\.tpl$/, loader: "dot-tpl-loader?append=true" },
+                {
+                    test  : /\.(scss|css|less|woff2|ttf|eot)(\?.*$|$)$/,
+                    loader: 'null-loader'
+                },
                 //{
                 //    test   : /.*/,
                 //    loaders: [
