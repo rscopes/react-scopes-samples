@@ -82,7 +82,7 @@ class App extends React.Component {
         }
     };
     static renderTo  = ( node ) => {
-        let cScope = new Scope(App.AppScope);
+        let cScope = new Scope(App.AppScope, { id: "App" });
         cScope.mount(
             ["appState", "someData"]
         ).then(
@@ -102,7 +102,7 @@ class App extends React.Component {
                     html = indexTpl.render(
                         {
                             app  : renderToString(<App __scope={ cScope }/>),
-                            state: JSON.stringify(cScope.serialize())
+                            state: JSON.stringify(cScope.serialize({ alias: "App" }))
                         }
                     );
                     console.log(html)
@@ -147,11 +147,10 @@ class App extends React.Component {
     })
 class PostIt extends React.Component {
     handleStop = ( e, pos ) => {
-        debugger;
-        
         let {
                 style, text, $actions, record
             } = this.props;
+        
         $actions.updatePostIt(
             {
                 ...record,
