@@ -26,10 +26,13 @@
  */
 
 import React from "react";
-
+import shortid from "shortid";
 import "react-rescope";
 import "rescope-spells";
-import Rescope, {Scope, reScope, scopeToProps, scopeToState, spells} from "rescope";
+import Rescope, {Store, reScope, scopeToProps, scopeToState, spells} from "rescope";
+import {renderToString} from "react-dom/server"
+
+var indexTpl = require('./index.html.tpl');
 
 let { asStateMap, asScope } = spells;
 let ReactDom                = require('react-dom');
@@ -43,10 +46,26 @@ class App extends React.Component {
         appState: {
             selectedItemId: null
         },
-        @asStateMap
-        someData: {
-            src  : "/api/hello",
-            items: [{ text: 'test' }]
+        someData: class extends Store {
+            static state = {
+                src  : "/api/hello",
+                items: []
+            };
+            static actions = {
+                newPostIt() {
+                    let { items } = this.nextState,
+                        newPostIt = {
+                            _id  : shortid.generate(),
+                            style: {
+                                background: "red",
+                            },
+                            text: "New Post It"
+                        }
+                    return {
+                        items: [...items, newPostIt]
+                    }
+                }
+            }
         }
     };
     static renderTo  = ( node ) => {
@@ -59,15 +78,27 @@ class App extends React.Component {
             }
         )
     }
-    static renderSSR = ( req ) => {
-        //let cScope = new App.AppScope();
-        //MyScope.mount(
-        //    ["appState", "someData"]
-        //).then(
-        //    ( err, state, context ) => {
-        //        ReactDom.render(<App __scope={ cScope }/>, node);
-        //    }
-        //)
+    static renderSSR = ( cfg, cb ) => {
+        let cScope = new App.AppScope();
+        cScope.mount(
+            ["appState", "someData"]
+        ).then(
+            ( err, state, context ) => {
+                let html;
+                try {
+                    html = indexTpl.render(
+                        {
+                            app  : renderToString(<App __scope={ cScope }/>),
+                            state: JSON.stringify(cScope.serialize())
+                        }
+                    );
+                    console.log(html)
+                } catch ( e ) {
+                    return cb(e)
+                }
+                cb(null, html)
+            }
+        )
     }
     
     render() {
@@ -82,7 +113,7 @@ class App extends React.Component {
                         note => <PostIt record={ note } selected={ note._id == appState.selectedItemId }/>
                     )
                 }
-            
+                <div onClick={ this.$actions.newPostIt }>Add Post It</div>
             </div>
         );
     }
@@ -112,11 +143,13 @@ class PostIt extends React.Component {
             <div style={ style }>
                 {
                     text
-                }
+                }!!!
             </div>
         );
     }
 }
 
-window.App = App;
+if ( typeof window != 'undefined' ) {
+    window.App = App;
+}
 export default App

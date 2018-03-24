@@ -34,7 +34,6 @@ var production    = process.argv.indexOf("--production") > -1
     || process.argv.indexOf("-p") > -1;
 var nodeExternals = require('webpack-node-externals'),
     mkConf        = ( name, entries ) => {
-    
         return {
             entry  : entries,
             output : {
@@ -81,15 +80,16 @@ var nodeExternals = require('webpack-node-externals'),
                     {
                         test   : /\.json$/,
                         loaders: [
-                            "json",
+                            "json-loader",
                         ],
                     },
+                    { test: /\.tpl$/, loader: "dot-tpl-loader?append=true" },
                     {
-                        test   : /\.(html|txt)$/,
+                        test   : /.*/,
                         loaders: [
                             "file-loader?name=[name].[ext]&context=./src",
                         ],
-                    },
+                    }
                 ],
             },
             plugins: (
@@ -119,20 +119,33 @@ var nodeExternals = require('webpack-node-externals'),
             ),
         }
     },
-    entries       = glob.sync('./src/*/package.json').map(
-        ( pathname ) => {
-            let sample;
+    entries       = glob.sync('./src/*/package.json').reduce(
+        ( confs, pathname ) => {
+            let sample, target;
             try {
                 sample = JSON.parse(fs.readFileSync(pathname) + "");
             } catch ( e ) {
                 return null;
             }
-            console.info(sample.name, [path.dirname(pathname) + '/' + sample.main, path.dirname(pathname) + '/' + sample.mainHtml])
-            return mkConf(sample.name, {
-                [sample.main]: [path.dirname(pathname) + '/' + sample.main, path.dirname(pathname) + '/' + sample.mainHtml]
-            })
-        }
+            target = [path.dirname(pathname) + '/' + sample.main];
+            sample.mainHtml && target.push(path.dirname(pathname) + '/' + sample.mainHtml);
+            console.info(sample.name, target)
+            confs.push(mkConf(sample.name, {
+                [sample.main]: target
+            }))
+            if ( sample.mainNode ) {
+                sample.mainBash && target.push(path.dirname(pathname) + '/' + sample.mainBash);
+                sample.mainCmd && target.push(path.dirname(pathname) + '/' + sample.mainCmd);
+                let cfg                  = mkConf(sample.name, {
+                    [sample.mainNode]: [path.dirname(pathname) + '/' + sample.mainNode]
+                });
+                cfg.target               = 'node';
+                cfg.output.libraryTarget = "commonjs2";
+                confs.push(cfg)
+            }
+            return confs;
+        }, []
     )
 ;
 //console.warn(entries)
-module.exports = entries
+module.exports    = entries

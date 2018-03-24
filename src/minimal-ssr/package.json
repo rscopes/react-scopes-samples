@@ -4,15 +4,41 @@
   "license": "MIT",
   "main": "./App.js",
   "mainNode": "./Server.js",
-  "mainHtml": "./index.html",
+  "mainBash": "./Server",
+  "mainCmd": "./Server.cmd",
   "author": "Nathan Braun <caipilabs@gmail.com>",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack -w",
+    "run": "node ./Server.js"
+  },
   "dependencies": {
-    "rescope-spells": "^0.0.1",
-    "react-rescope": "^1.1.1",
-    "rescope": "^3.6.1",
+    "dot-tpl-loader": "^1.2.1",
+    "express": "^4.16.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-rescope": "^1.1.1",
+    "rescope": "^3.6.1",
+    "rescope-spells": "^0.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "eslint": "^3.14.1",
+    "events": "^1.1.1",
+    "file-loader": "^0.9.0",
+    "mocha": "^3.5.1",
+    "recursive-install": "^1.3.0",
+    "webpack": "^2.7.0",
+    "webpack-closure-compiler": "^1.1.2",
+    "webpack-node-externals": "^1.6.0"
+  }
 }

@@ -30,13 +30,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Really basic drafty rescope + react component example</title>
+    <script>window.CaipiStore ={{=it.state || "{}"}};</script>
 </head>
 <body>
-<div id="app">Preloading...</div>
+<div id="app">{{=it.app || ''}}</div>
 
 <script src="./App.js"></script>
 <script>
-   App.renderTo(document.getElementById('app'));
+    App.renderTo(document.getElementById('app'));
 </script>
 </body>
 </html>
