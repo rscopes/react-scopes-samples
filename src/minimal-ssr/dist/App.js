@@ -7976,7 +7976,6 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
 }, _class2.renderSSR = function (cfg, cb) {
     var cScope = new _rescope.Scope(App.AppScope, { id: "App" });
     cfg.state && cScope.restore(cfg.state);
-    console.log("!!", cScope.data.someData);
     cScope.then(function (err, state, context) {
         var html = void 0;
         try {

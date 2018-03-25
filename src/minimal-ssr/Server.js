@@ -3,20 +3,12 @@ var express      = require("express"),
     App          = require('./dist/App.server').default,
     fs           = require("fs"),
     server       = express(),
-    currentState = {};
+    currentState = {},
+    http         = require('http').Server(server);
 
-
-var http       = require('http').Server(server);
-var bodyParser = require('body-parser')
-//server.use(bodyParser.json());       // to support JSON-encoded bodies
-//server.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-//                                     //extended: true
-//                                 }));
 server.use(express.json());       // to support JSON-encoded bodies
 server.use(express.urlencoded()); // to support URL-encoded bodies
 server.get('/', function ( req, res, next ) {
-    //console.log(currentState)
-    
     App.renderSSR(
         {
             url  : req.url,

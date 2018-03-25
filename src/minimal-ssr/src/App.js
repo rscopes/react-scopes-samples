@@ -99,7 +99,6 @@ class App extends React.Component {
     static renderSSR = ( cfg, cb ) => {
         let cScope = new Scope(App.AppScope, { id: "App" });
         cfg.state && cScope.restore(cfg.state)
-        console.log("!!", cScope.data.someData)
         cScope.then(
             ( err, state, context ) => {
                 let html;
