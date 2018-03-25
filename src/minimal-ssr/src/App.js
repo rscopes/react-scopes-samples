@@ -51,38 +51,35 @@ class App extends React.Component {
         appState: {
             selectedItemId: null
         },
-        someData: class extends Store {
-            static state = {
-                src  : "/api/hello",
-                items: []
-            };
-            static actions = {
-                newPostIt() {
-                    return {
-                        items: [...this.nextState.items, {
-                            _id : shortid.generate(),
-                            size: {
-                                width : 200,
-                                height: 200
-                            },
-                            text: "New Post It #" + this.nextState.items.length
-                        }]
-                    }
-                },
-                updatePostIt( postIt ) {
-                    let { items } = this.nextState;
-                    items         = items.map(it => (it._id === postIt._id) ? postIt : it);
-                    
-                    return {
-                        items
-                    }
-                },
-                saveState() {
-                    superagent.post('/', this.scopeObj.serialize())
-                              .then(( e, r ) => {
-                                  console.log(e, r)
-                              })
+        @asStateMap
+        someData: {
+            src  : "/api/hello",
+            items: [],
+            newPostIt() {
+                return {
+                    items: [...this.nextState.items, {
+                        _id : shortid.generate(),
+                        size: {
+                            width : 200,
+                            height: 200
+                        },
+                        text: "New Post It #" + this.nextState.items.length
+                    }]
                 }
+            },
+            updatePostIt( postIt ) {
+                let { items } = this.nextState;
+                items         = items.map(it => (it._id === postIt._id) ? postIt : it);
+                
+                return {
+                    items
+                }
+            },
+            saveState() {
+                superagent.post('/', this.scopeObj.serialize())
+                          .then(( e, r ) => {
+                              console.log(e, r)
+                          })
             }
         }
     };
@@ -189,14 +186,15 @@ class PostIt extends React.Component {
                         </div>
                         ||
                         <div className={ "editor" }>
-                            <textarea onChange={ e => {
-                                $actions.updatePostIt(
-                                    {
-                                        ...record,
-                                        text: e.target.value
-                                    });
-                            } }
-                                      onMouseDown={ e => e.stopPropagation() }
+                            <textarea
+                                onChange={ e => {
+                                    $actions.updatePostIt(
+                                        {
+                                            ...record,
+                                            text: e.target.value
+                                        });
+                                } }
+                                onMouseDown={ e => e.stopPropagation() }
                             >{ text }</textarea>
                             <button onClick={ e => this.setState({ editing: false }) }>💾</button>
                         </div>
