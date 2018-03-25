@@ -9958,13 +9958,13 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
     }, _class3.actions = {
         newPostIt: function newPostIt() {
             return {
-                items: [].concat(_toConsumableArray(undefined.nextState.items), [{
+                items: [].concat(_toConsumableArray(this.nextState.items), [{
                     _id: _shortid2.default.generate(),
                     size: {
                         width: 200,
                         height: 200
                     },
-                    text: "New Post It #" + undefined.nextState.items.length
+                    text: "New Post It #" + this.nextState.items.length
                 }])
             };
         },
@@ -10064,7 +10064,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
         //
         //    return super.shouldComponentUpdate ? super.shouldComponentUpdate() : true;
         //}
-        //
+
         value: function render() {
             var _props = this.props,
                 position = _props.position,

@@ -57,16 +57,18 @@ class App extends React.Component {
                 items: []
             };
             static actions = {
-                newPostIt: () => ({
-                    items: [...this.nextState.items, {
-                        _id : shortid.generate(),
-                        size: {
-                            width : 200,
-                            height: 200
-                        },
-                        text: "New Post It #" + this.nextState.items.length
-                    }]
-                }),
+                newPostIt() {
+                    return {
+                        items: [...this.nextState.items, {
+                            _id : shortid.generate(),
+                            size: {
+                                width : 200,
+                                height: 200
+                            },
+                            text: "New Post It #" + this.nextState.items.length
+                        }]
+                    }
+                },
                 updatePostIt( postIt ) {
                     let { items } = this.nextState;
                     items         = items.map(it => (it._id === postIt._id) ? postIt : it);
@@ -163,7 +165,7 @@ class PostIt extends React.Component {
     //
     //    return super.shouldComponentUpdate ? super.shouldComponentUpdate() : true;
     //}
-    //
+    
     render() {
         let {
                 position, text, style, size, $actions, record
