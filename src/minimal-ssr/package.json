@@ -13,6 +13,7 @@
     "run": "node ./Server.js"
   },
   "dependencies": {
+    "react-rnd": "https://github.com/n8tz/react-rnd.git",
     "body-parser": "^1.18.2",
     "dot-tpl-loader": "^1.2.1",
     "express": "^4.16.3",

@@ -87,7 +87,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 24);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -104,6 +104,97 @@ module.exports = require("url");
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var jsonSafeStringify = __webpack_require__(46)
+var crypto = __webpack_require__(9)
+var Buffer = __webpack_require__(0).Buffer
+
+var defer = typeof setImmediate === 'undefined'
+  ? process.nextTick
+  : setImmediate
+
+function paramsHaveRequestBody (params) {
+  return (
+    params.body ||
+    params.requestBodyStream ||
+    (params.json && typeof params.json !== 'boolean') ||
+    params.multipart
+  )
+}
+
+function safeStringify (obj, replacer) {
+  var ret
+  try {
+    ret = JSON.stringify(obj, replacer)
+  } catch (e) {
+    ret = jsonSafeStringify(obj, replacer)
+  }
+  return ret
+}
+
+function md5 (str) {
+  return crypto.createHash('md5').update(str).digest('hex')
+}
+
+function isReadStream (rs) {
+  return rs.readable && rs.path && rs.mode
+}
+
+function toBase64 (str) {
+  return Buffer.from(str || '', 'utf8').toString('base64')
+}
+
+function copy (obj) {
+  var o = {}
+  Object.keys(obj).forEach(function (i) {
+    o[i] = obj[i]
+  })
+  return o
+}
+
+function version () {
+  var numbers = process.version.replace('v', '').split('.')
+  return {
+    major: parseInt(numbers[0], 10),
+    minor: parseInt(numbers[1], 10),
+    patch: parseInt(numbers[2], 10)
+  }
+}
+
+exports.paramsHaveRequestBody = paramsHaveRequestBody
+exports.safeStringify = safeStringify
+exports.md5 = md5
+exports.isReadStream = isReadStream
+exports.toBase64 = toBase64
+exports.copy = copy
+exports.version = version
+exports.defer = defer
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("caseless");
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("extend");
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("uuid");
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -251,7 +342,7 @@ module.exports =
 /* 1 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(11);
+	module.exports = __webpack_require__(33);
 
 /***/ }),
 /* 2 */
@@ -1440,7 +1531,7 @@ module.exports =
 /* 3 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(10);
 
 /***/ }),
 /* 4 */
@@ -1570,7 +1661,7 @@ module.exports =
 /* 5 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(9);
+	module.exports = __webpack_require__(7);
 
 /***/ }),
 /* 6 */
@@ -2880,122 +2971,19 @@ module.exports =
 //# sourceMappingURL=ReScope.js.map
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var jsonSafeStringify = __webpack_require__(46)
-var crypto = __webpack_require__(12)
-var Buffer = __webpack_require__(0).Buffer
-
-var defer = typeof setImmediate === 'undefined'
-  ? process.nextTick
-  : setImmediate
-
-function paramsHaveRequestBody (params) {
-  return (
-    params.body ||
-    params.requestBodyStream ||
-    (params.json && typeof params.json !== 'boolean') ||
-    params.multipart
-  )
-}
-
-function safeStringify (obj, replacer) {
-  var ret
-  try {
-    ret = JSON.stringify(obj, replacer)
-  } catch (e) {
-    ret = jsonSafeStringify(obj, replacer)
-  }
-  return ret
-}
-
-function md5 (str) {
-  return crypto.createHash('md5').update(str).digest('hex')
-}
-
-function isReadStream (rs) {
-  return rs.readable && rs.path && rs.mode
-}
-
-function toBase64 (str) {
-  return Buffer.from(str || '', 'utf8').toString('base64')
-}
-
-function copy (obj) {
-  var o = {}
-  Object.keys(obj).forEach(function (i) {
-    o[i] = obj[i]
-  })
-  return o
-}
-
-function version () {
-  var numbers = process.version.replace('v', '').split('.')
-  return {
-    major: parseInt(numbers[0], 10),
-    minor: parseInt(numbers[1], 10),
-    patch: parseInt(numbers[2], 10)
-  }
-}
-
-exports.paramsHaveRequestBody = paramsHaveRequestBody
-exports.safeStringify = safeStringify
-exports.md5 = md5
-exports.isReadStream = isReadStream
-exports.toBase64 = toBase64
-exports.copy = copy
-exports.version = version
-exports.defer = defer
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("caseless");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("extend");
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("is");
-
-/***/ }),
 /* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("uuid");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("shortid");
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var tough = __webpack_require__(53)
+var tough = __webpack_require__(52)
 
 var Cookie = tough.Cookie
 var CookieJar = tough.CookieJar
@@ -3034,898 +3022,43 @@ exports.jar = function (store) {
 
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	/*
-	 * Copyright (c)  2018 Wise Wild Web .
-	 *
-	 *  MIT License
-	 *
-	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	 *  of this software and associated documentation files (the "Software"), to deal
-	 *  in the Software without restriction, including without limitation the rights
-	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 *  copies of the Software, and to permit persons to whom the Software is
-	 *  furnished to do so, subject to the following conditions:
-	 *
-	 *  The above copyright notice and this permission notice shall be included in all
-	 *  copies or substantial portions of the Software.
-	 *
-	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	 *  SOFTWARE.
-	 *
-	 * @author : Nathanael Braun
-	 * @contact : caipilabs@gmail.com
-	 */
-	// Common rescope modules int
-	exports.default = {};
-	module.exports = exports["default"];
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 12 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("crypto");
 
 /***/ }),
-/* 13 */
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("is");
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = require("isstream");
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("qs");
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("querystring");
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	__webpack_require__(1);
-	
-	var _index = __webpack_require__(2);
-	
-	var _index2 = _interopRequireDefault(_index);
-	
-	var _ReactHocs = __webpack_require__(3);
-	
-	var RTools = _interopRequireWildcard(_ReactHocs);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	_index2.default.Component = RTools.Component; /*
-	                                               * Copyright (c)  2018 Wise Wild Web .
-	                                               *
-	                                               *  MIT License
-	                                               *
-	                                               *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                               *  of this software and associated documentation files (the "Software"), to deal
-	                                               *  in the Software without restriction, including without limitation the rights
-	                                               *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                               *  copies of the Software, and to permit persons to whom the Software is
-	                                               *  furnished to do so, subject to the following conditions:
-	                                               *
-	                                               *  The above copyright notice and this permission notice shall be included in all
-	                                               *  copies or substantial portions of the Software.
-	                                               *
-	                                               *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                               *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                               *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                               *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                               *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                               *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                               *  SOFTWARE.
-	                                               *
-	                                               * @author : Nathanael Braun
-	                                               * @contact : caipilabs@gmail.com
-	                                               */
-	
-	_index2.default.reScopeProps = RTools.reScopeProps;
-	_index2.default.scopeToProps = RTools.reScopeProps;
-	_index2.default.propsToScope = RTools.propsToScope;
-	exports.default = _index2.default;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(2);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(11);
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.propsToScope = exports.reScopeProps = exports.Component = exports.default = undefined;
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _class, _temp; /*
-	                    * Copyright (c)  2018 Wise Wild Web .
-	                    *
-	                    *  MIT License
-	                    *  
-	                    *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                    *  of this software and associated documentation files (the "Software"), to deal
-	                    *  in the Software without restriction, including without limitation the rights
-	                    *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                    *  copies of the Software, and to permit persons to whom the Software is
-	                    *  furnished to do so, subject to the following conditions:
-	                    *  
-	                    *  The above copyright notice and this permission notice shall be included in all
-	                    *  copies or substantial portions of the Software.
-	                    *  
-	                    *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                    *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                    *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                    *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                    *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                    *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                    *  SOFTWARE.
-	                    *  
-	                    * @author : Nathanael Braun
-	                    * @contact : caipilabs@gmail.com
-	                    */
-	
-	__webpack_require__(1);
-	
-	var _react = __webpack_require__(4);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _is = __webpack_require__(5);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	var _propTypes = __webpack_require__(6);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _index = __webpack_require__(2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var SimpleObjectProto = {}.constructor;
-	
-	/**
-	 * Inheritable ReScope "HOC" (High Order Component)
-	 *
-	 * @class Component
-	 * @desc Parent React Component with store injection in its state
-	 */
-	var Component = (_temp = _class = function (_React$Component) {
-	    _inherits(Component, _React$Component);
-	
-	    function Component(p, ctx, q) {
-	        _classCallCheck(this, Component);
-	
-	        var _this = _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).call(this, p, ctx, q));
-	
-	        var scope = p.__scope || ctx.rescope;
-	        _this.$scope = scope;
-	
-	        if (_this.$scope && _this.$scope.dead) {
-	            console.error("ReScoping using dead scope");
-	            _this.$scope = null;
-	        }
-	
-	        _this.$stores = _this.$scope && _this.$scope.stores;
-	        if (_this.constructor.use) {
-	            _this.state = _extends({}, _this.state, scope.map(_this, _this.constructor.use || [], false));
-	        } else if (!_this.$scope) _this.render = function () {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                'No Rescope here ',
-	                _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'name', _this)
-	            );
-	        };
-	        return _this;
-	    }
-	
-	    _createClass(Component, [{
-	        key: 'dispatch',
-	        value: function dispatch() {
-	            var _$scope;
-	
-	            this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
-	        }
-	    }, {
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            if (this.constructor.use) {
-	                this.$scope.bind(this, this.constructor.use || [], false);
-	            }
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            this.constructor.use && this.$scope.unBind(this, this.constructor.use || []);
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(np, nc) {
-	            var nScope = np.__scope || nc.rescope || this.$scope;
-	
-	            if (nScope != this.$scope) {
-	                this.constructor.use && this.$scope.unBind(this, this.constructor.use);
-	                this.$scope = nScope;
-	
-	                if (this.$scope && this.$scope.dead) {
-	                    console.error("ReScoping using dead scope");
-	                    this.$stores = this.$scope = null;
-	                } else {
-	                    this.$stores = this.$scope.stores;
-	                    this.constructor.use && nScope.bind(this, this.constructor.use);
-	                }
-	            }
-	        }
-	    }, {
-	        key: 'getChildContext',
-	        value: function getChildContext() {
-	            return {
-	                rescope: this.$scope || this.context.rescope,
-	                $stores: this.$scope.stores || this.context.$stores
-	            };
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return this.props.children || _react2.default.createElement('div', null);
-	        }
-	    }]);
-	
-	    return Component;
-	}(_react2.default.Component), _class.childContextTypes = {
-	    rescope: _propTypes2.default.object,
-	    $stores: _propTypes2.default.object
-	}, _class.contextTypes = {
-	    rescope: _propTypes2.default.object,
-	    $stores: _propTypes2.default.object
-	}, _temp);
-	;
-	
-	/**
-	 * Return a React "HOC" (High Order Component) that :
-	 *  - Inject & maintain the stores listed baseComponent::use and/or (use) in the instances props.
-	 *  - Propag (scope) in the returned React Component context
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-	 * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched ( default : the default
-	 *     ReScope::Scope::scopes.static scope )
-	 * @param use {array} the list of stores to inject from the current scope
-	 * @returns {ReScopeProvider}
-	 */
-	function reScopeProps() {
-	    var _class2, _temp2;
-	
-	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-	        argz[_key] = arguments[_key];
-	    }
-	
-	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-	        scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-	        use = (!argz[0] || _is2.default.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
-	
-	    if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
-	        return function (BaseComponent) {
-	            return reScopeProps(BaseComponent, scope, use);
-	        };
-	    }
-	
-	    var provider = reScopeToState((_temp2 = _class2 = function (_React$Component2) {
-	        _inherits(ReScopePropsProvider, _React$Component2);
-	
-	        function ReScopePropsProvider() {
-	            _classCallCheck(this, ReScopePropsProvider);
-	
-	            return _possibleConstructorReturn(this, (ReScopePropsProvider.__proto__ || Object.getPrototypeOf(ReScopePropsProvider)).apply(this, arguments));
-	        }
-	
-	        _createClass(ReScopePropsProvider, [{
-	            key: 'getChildContext',
-	            value: function getChildContext() {
-	                return this.context;
-	            }
-	        }, {
-	            key: 'render',
-	            value: function render() {
-	                return _react2.default.createElement(BaseComponent, _extends({}, this.props, this.state, {
-	                    $dispatch: this.$dispatch,
-	                    $actions: this.$actions,
-	                    $stores: this.$stores }));
-	            }
-	        }]);
-	
-	        return ReScopePropsProvider;
-	    }(_react2.default.Component), _class2.use = BaseComponent.use, _class2.childContextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _class2.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _temp2), scope, use);
-	    provider.displayName = "propsScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")";
-	    return provider;
-	}
-	
-	/**
-	 * Return a React "HOC" (High Order Component) that :
-	 *  - Inherit BaseComponent,
-	 *  - Inject & maintain the stores in BaseComponent::use and/or (use) in the instances state.
-	 *  - Propag (scope) in the returned React Component context
-	 *
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-	 * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched
-	 * @param use {array} the list of stores injected from the current scope
-	 * @param additionalContext {Object} context to be propagated
-	 * @returns {ReScopeProvider}
-	 */
-	function reScopeToState() {
-	    var _class3, _temp3;
-	
-	    for (var _len2 = arguments.length, argz = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	        argz[_key2] = arguments[_key2];
-	    }
-	
-	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-	        scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-	        use = _is2.default.array(argz[0]) && argz.shift(),
-	        stateMap = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-	        additionalContext = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-	        initialState = {};
-	
-	    use = [].concat(_toConsumableArray(BaseComponent.use || []), _toConsumableArray(use || []));
-	    stateMap && _index.Scope.stateMapToRefList(stateMap, initialState, use);
-	
-	    additionalContext = additionalContext && Object.keys(additionalContext).reduce(function (h, k) {
-	        return h[k] = _propTypes2.default.any, h;
-	    }, {}) || {};
-	
-	    var ReScopeProvider = (_temp3 = _class3 = function (_BaseComponent) {
-	        _inherits(ReScopeProvider, _BaseComponent);
-	
-	        function ReScopeProvider(p, ctx, q) {
-	            _classCallCheck(this, ReScopeProvider);
-	
-	            var _this3 = _possibleConstructorReturn(this, (ReScopeProvider.__proto__ || Object.getPrototypeOf(ReScopeProvider)).call(this, p, ctx, q));
-	
-	            _this3.$scope = _this3.$scope || p.__scope || _is2.default.fn(scope) && scope(_this3, p, ctx) || scope || ctx.rescope;
-	
-	            if (_this3.$scope && _this3.$scope.dead) {
-	                console.error("ReScoping using dead scope");
-	                _this3.$scope = null;
-	            }
-	
-	            _this3.$scope && _is2.default.fn(scope) && _this3.$scope.retain("hoc");
-	
-	            _this3.$stores = _this3.$scope && _this3.$scope.stores;
-	            _this3.$actions = _this3.$scope && _this3.$scope.actions;
-	            if (_this3.$scope && use.length) {
-	                _this3.state = _extends({}, _this3.state, initialState, _this3.$scope.map(_this3, use, false));
-	            } else if (!_this3.$scope) _this3.render = function () {
-	                return _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    'No Scope found in ',
-	                    BaseComponent.name
-	                );
-	            };
-	
-	            _this3.$dispatch = _this3.$dispatch.bind(_this3);
-	            return _this3;
-	        }
-	
-	        _createClass(ReScopeProvider, [{
-	            key: '$dispatch',
-	            value: function $dispatch() {
-	                var _$scope2;
-	
-	                this.$scope && (_$scope2 = this.$scope).dispatch.apply(_$scope2, arguments);
-	            }
-	        }, {
-	            key: 'componentWillMount',
-	            value: function componentWillMount() {
-	                if (use.length) {
-	                    this.$scope.bind(this, use, false);
-	                }
-	                _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this).call(this);
-	            }
-	        }, {
-	            key: 'componentWillUnmount',
-	            value: function componentWillUnmount() {
-	
-	                _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-	                if (this.$scope && !this.$scope.dead) {
-	                    use.length && this.$scope.unBind(this, use);
-	                    _is2.default.fn(scope) && this.$scope.dispose("hoc");
-	                }
-	            }
-	        }, {
-	            key: 'componentWillReceiveProps',
-	            value: function componentWillReceiveProps(np, nc) {
-	                var nScope = np.__scope || scope && this.$scope || nc.rescope || this.$scope;
-	
-	                if (nScope != this.$scope) {
-	                    use.length && this.$scope.unBind(this, use);
-	                    this.$scope = nScope;
-	
-	                    if (this.$scope && this.$scope.dead) {
-	                        console.error("ReScoping using dead scope");
-	                        this.$actions = this.$stores = this.$scope = null;
-	                    } else {
-	                        this.$actions = this.$scope.actions;
-	                        this.$stores = this.$scope.stores;
-	                        use.length && nScope.bind(this, use);
-	                    }
-	                }
-	                _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this).call(this, np, nc);
-	            }
-	        }, {
-	            key: 'getChildContext',
-	            value: function getChildContext() {
-	                var ctx = _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-	                return _extends({}, ctx, {
-	                    rescope: this.$scope || this.context.rescope,
-	                    $stores: this.$scope.stores || this.context.$stores
-	                });
-	            }
-	        }]);
-	
-	        return ReScopeProvider;
-	    }(BaseComponent), _class3.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, additionalContext, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _class3.contextTypes = _extends({}, BaseComponent.contextTypes || {}, additionalContext, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _class3.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class3.displayName = "stateScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")", _temp3);
-	
-	
-	    return ReScopeProvider;
-	}
-	
-	(0, _index.addScopableType)(function (Comp) {
-	    return Comp && Comp.prototype instanceof _react2.default.Component;
-	}, reScopeToState, false, true);
-	
-	/**
-	 * Return a React "HOC" (High Order Component) that :
-	 *  - Render BaseComponent with new scope that inherit the given scope or context scope
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-	 * @param storesMap {Object} the propagated Scope where the stores will be searched
-	 * @param parentScope {Scope} the propagated Scope where the stores will be searched
-	 * @param parentScopeId {string} the propagated Scope where the stores will be searched
-	 * @param additionalContext {Object} context to be propagated
-	 * @returns {*}
-	 */
-	function reScope() {
-	    var _class4, _temp4;
-	
-	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	        argz[_key3] = arguments[_key3];
-	    }
-	
-	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-	        scoped = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(argz[0] instanceof _index.Scope)) && argz.shift(),
-	        scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-	        parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
-	        parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-	
-	    var compName = BaseComponent.displayName || BaseComponent.name;
-	
-	    var ScopeProvider = (_temp4 = _class4 = function (_BaseComponent2) {
-	        _inherits(ScopeProvider, _BaseComponent2);
-	
-	        function ScopeProvider(p, ctx, q) {
-	            _classCallCheck(this, ScopeProvider);
-	
-	            var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-	                $scope = new _index.Scope(scoped || {}, _extends({
-	                autoDestroy: true,
-	                key: compName,
-	                parent: _parent
-	            }, scopeCfg));
-	
-	            var _this4 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-	
-	            _this4.$scope = _this4.$scope || $scope;
-	
-	            if (!_this4.$scope) {
-	                if (_this4.$scope && _this4.$scope.dead) {
-	                    console.error("Scoping using dead scope parent");
-	                    _this4.$scope = null;
-	                }
-	
-	                _this4.$scope = new _index.Scope(scoped || {}, {
-	                    autoDestroy: true,
-	                    key: compName,
-	                    parent: _this4.$scope
-	                });
-	
-	                _this4.$actions = _this4.$scope && _this4.$scope.actions;
-	                _this4.$stores = _this4.$scope && _this4.$scope.stores;
-	            }
-	            _this4.$scope.retain();
-	            return _this4;
-	        }
-	
-	        _createClass(ScopeProvider, [{
-	            key: 'componentWillUnmount',
-	            value: function componentWillUnmount() {
-	                _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-	                this.$scope && this.$scope.dispose();
-	            }
-	        }, {
-	            key: 'getChildContext',
-	            value: function getChildContext() {
-	                var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-	                return _extends({}, ctx, {
-	                    rescope: this.$scope,
-	                    $stores: this.$scope.stores
-	                });
-	            }
-	        }]);
-	
-	        return ScopeProvider;
-	    }(BaseComponent), _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _class4.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class4.displayName = "scoped(" + compName + ")", _temp4);
-	
-	
-	    return ScopeProvider;
-	}
-	
-	/**
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-	 * @param storesMap {Object} the propagated Scope where the stores will be searched
-	 * @param parentScope {Scope} the propagated Scope where the stores will be searched
-	 * @param parentScopeId {string} the propagated Scope where the stores will be searched
-	 * @param additionalContext {Object} context to be propagated
-	 * @returns {*}
-	 */
-	function propsToScope() {
-	    var _class5, _temp5;
-	
-	    for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	        argz[_key4] = arguments[_key4];
-	    }
-	
-	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-	        scopedProps = (!argz[0] || _is2.default.array(argz[0])) && argz.shift() || [],
-	        scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-	        parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
-	        parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-	
-	    var compName = BaseComponent.displayName || BaseComponent.name;
-	
-	    if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
-	        return function (BaseComponent) {
-	            return propsToScope(BaseComponent, scopedProps, scopeCfg, parent, parentId);
-	        };
-	    }
-	
-	    var ScopeProvider = (_temp5 = _class5 = function (_React$Component3) {
-	        _inherits(ScopeProvider, _React$Component3);
-	
-	        function ScopeProvider(p, ctx, q) {
-	            _classCallCheck(this, ScopeProvider);
-	
-	            var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-	                $scope = new _index.Scope(_extends({}, scopedProps.reduce(function (h, k) {
-	                return h[k] = _index.Store, h;
-	            }, {})), _extends({
-	                autoDestroy: true,
-	                key: compName,
-	                parent: _parent
-	            }, scopeCfg, {
-	                state: scopedProps.reduce(function (h, k) {
-	                    return h[k] = p[k], h;
-	                }, {})
-	            }));
-	
-	            var _this5 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-	
-	            _this5.$scope = _this5.$scope || $scope;
-	            _this5.$actions = _this5.$scope && _this5.$scope.actions;
-	            _this5.$stores = _this5.$scope && _this5.$scope.stores;
-	            _this5.$scope.retain();
-	            return _this5;
-	        }
-	
-	        _createClass(ScopeProvider, [{
-	            key: 'componentWillReceiveProps',
-	            value: function componentWillReceiveProps(np) {
-	                var _this6 = this;
-	
-	                scopedProps.forEach(function (p) {
-	                    return _this6.props[p] !== np[p] && _this6.$stores[p].setState(np[p]);
-	                });
-	                _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
-	            }
-	        }, {
-	            key: 'componentWillUnmount',
-	            value: function componentWillUnmount() {
-	                _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-	                this.$scope && this.$scope.dispose();
-	            }
-	        }, {
-	            key: 'getChildContext',
-	            value: function getChildContext() {
-	                var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-	                return _extends({}, ctx, {
-	                    rescope: this.$scope,
-	                    $stores: this.$scope.stores
-	                });
-	            }
-	        }, {
-	            key: 'render',
-	            value: function render() {
-	                var _this7 = this;
-	
-	                var fProps = Object.keys(this.props).reduce(function (h, k) {
-	                    return !scopedProps.includes(k) && (h[k] = _this7.props[k]), h;
-	                }, {});
-	                return _react2.default.createElement(BaseComponent, _extends({}, fProps, this.state, {
-	                    $dispatch: this.$dispatch,
-	                    $actions: this.$actions,
-	                    $stores: this.$stores }));
-	            }
-	        }]);
-	
-	        return ScopeProvider;
-	    }(_react2.default.Component), _class5.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _class5.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-	        rescope: _propTypes2.default.object,
-	        $stores: _propTypes2.default.object
-	    }), _class5.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class5.displayName = "scoped(" + compName + ")", _temp5);
-	
-	
-	    return ScopeProvider;
-	}
-	
-	(0, _index.addScopableType)(function (Comp) {
-	    return Comp && Comp.prototype instanceof _react2.default.Component;
-	}, reScope);
-	
-	exports.default = Component;
-	exports.Component = Component;
-	exports.reScopeProps = reScopeProps;
-	exports.propsToScope = propsToScope;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(8);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(6);
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(50);
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay9ib290c3RyYXAgZGU4YzU2MjdmMjZkOTcwMTBiNGEiLCJ3ZWJwYWNrOi8vLy4vc3JjL2luZGV4LmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlc2NvcGVcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZXNjb3BlL2Rpc3QvaW5kZXhcIiIsIndlYnBhY2s6Ly8vLi9zcmMvUmVhY3RIb2NzLmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiaXNcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJwcm9wLXR5cGVzXCIiXSwibmFtZXMiOlsiUlRvb2xzIiwiQ29tcG9uZW50IiwicmVTY29wZVByb3BzIiwic2NvcGVUb1Byb3BzIiwicHJvcHNUb1Njb3BlIiwiU2ltcGxlT2JqZWN0UHJvdG8iLCJjb25zdHJ1Y3RvciIsInAiLCJjdHgiLCJxIiwic2NvcGUiLCJfX3Njb3BlIiwicmVzY29wZSIsIiRzY29wZSIsImRlYWQiLCJjb25zb2xlIiwiZXJyb3IiLCIkc3RvcmVzIiwic3RvcmVzIiwidXNlIiwic3RhdGUiLCJtYXAiLCJyZW5kZXIiLCJkaXNwYXRjaCIsImJpbmQiLCJ1bkJpbmQiLCJucCIsIm5jIiwiblNjb3BlIiwiY29udGV4dCIsInByb3BzIiwiY2hpbGRyZW4iLCJjaGlsZENvbnRleHRUeXBlcyIsIm9iamVjdCIsImNvbnRleHRUeXBlcyIsImFyZ3oiLCJCYXNlQ29tcG9uZW50IiwicHJvdG90eXBlIiwic2hpZnQiLCJmbiIsImFycmF5IiwicHJvdmlkZXIiLCJyZVNjb3BlVG9TdGF0ZSIsIiRkaXNwYXRjaCIsIiRhY3Rpb25zIiwiZGlzcGxheU5hbWUiLCJuYW1lIiwic3RhdGVNYXAiLCJhZGRpdGlvbmFsQ29udGV4dCIsImluaXRpYWxTdGF0ZSIsInN0YXRlTWFwVG9SZWZMaXN0IiwiT2JqZWN0Iiwia2V5cyIsInJlZHVjZSIsImgiLCJrIiwiYW55IiwiUmVTY29wZVByb3ZpZGVyIiwicmV0YWluIiwiYWN0aW9ucyIsImxlbmd0aCIsImRpc3Bvc2UiLCJkZWZhdWx0UHJvcHMiLCJDb21wIiwicmVTY29wZSIsInNjb3BlZCIsInNjb3BlQ2ZnIiwicGFyZW50IiwicGFyZW50SWQiLCJzdHJpbmciLCJjb21wTmFtZSIsIlNjb3BlUHJvdmlkZXIiLCJfcGFyZW50IiwiZ2V0U2NvcGUiLCJhdXRvRGVzdHJveSIsImtleSIsInNjb3BlZFByb3BzIiwiZm9yRWFjaCIsInNldFN0YXRlIiwiYXJndW1lbnRzIiwiZlByb3BzIiwiaW5jbHVkZXMiLCJkZWZhdWx0Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EsdUJBQWU7QUFDZjtBQUNBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7O0FBR0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7Ozs7Ozs7Ozs7OztBQ1ZBOztBQUNBOzs7O0FBQ0E7O0tBQVlBLE07Ozs7OztBQUVaLGlCQUFNQyxTQUFOLEdBQXFCRCxPQUFPQyxTQUE1QixDLENBaENBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFpQ0EsaUJBQU1DLFlBQU4sR0FBcUJGLE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1DLFlBQU4sR0FBcUJILE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1FLFlBQU4sR0FBcUJKLE9BQU9JLFlBQTVCOzs7Ozs7OztBQ25DQSxxQzs7Ozs7O0FDQUEsZ0Q7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQTJCQTs7QUFDQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFDQTs7Ozs7Ozs7Ozs7O0FBRUEsS0FBTUMsb0JBQXFCLEVBQUQsQ0FBS0MsV0FBL0I7O0FBRUE7Ozs7OztLQU1NTCxTOzs7QUFVRix3QkFBYU0sQ0FBYixF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QUFBQSxPQWVELGdCQUFNaEIsU0FmTCxXQWdCbEIrQixpQkFoQmtCLGdCQWlCakJJLGNBQWNKLGlCQUFkLElBQW1DLEVBakJsQjtBQWtCckJwQixrQkFBUyxvQkFBVXFCLE1BbEJFO0FBbUJyQmhCLGtCQUFTLG9CQUFVZ0I7QUFuQkUsaUJBcUJsQkMsWUFyQmtCLGdCQXNCakJFLGNBQWNGLFlBQWQsSUFBOEIsRUF0QmI7QUF1QnJCdEIsa0JBQVMsb0JBQVVxQixNQXZCRTtBQXdCckJoQixrQkFBUyxvQkFBVWdCO0FBeEJFLGlCQTBCbEI2QixZQTFCa0IsZ0JBMkJqQjFCLGNBQWMwQixZQUFkLElBQThCLEVBM0JiLFdBNkJsQmpCLFdBN0JrQixHQTZCRSxZQUFZeUIsUUFBWixHQUF1QixHQTdCekI7OztBQTJGN0IsWUFBT0MsYUFBUDtBQUNIOztBQUVELDZCQUNJLFVBQUVSLElBQUY7QUFBQSxZQUFhQSxRQUFRQSxLQUFLMUIsU0FBTCxZQUEwQixnQkFBTXBDLFNBQXJEO0FBQUEsRUFESixFQUVJK0QsT0FGSjs7U0FNaUJrQixPLEdBQWJqRixTO1NBQ0FBLFMsR0FBQUEsUztTQUNBQyxZLEdBQUFBLFk7U0FDQUUsWSxHQUFBQSxZOzs7Ozs7QUNoZ0JKLG1DOzs7Ozs7QUNBQSxnQzs7Ozs7O0FDQUEsd0MiLCJmaWxlIjoiZGlzdC9SZWFjdFJlU2NvcGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyIgXHQvLyBUaGUgbW9kdWxlIGNhY2hlXG4gXHR2YXIgaW5zdGFsbGVkTW9kdWxlcyA9IHt9O1xuXG4gXHQvLyBUaGUgcmVxdWlyZSBmdW5jdGlvblxuIFx0ZnVuY3Rpb24gX193ZWJwYWNrX3JlcXVpcmVfXyhtb2R1bGVJZCkge1xuXG4gXHRcdC8vIENoZWNrIGlmIG1vZHVsZSBpcyBpbiBjYWNoZVxuIFx0XHRpZihpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSlcbiBcdFx0XHRyZXR1cm4gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0uZXhwb3J0cztcblxuIFx0XHQvLyBDcmVhdGUgYSBuZXcgbW9kdWxlIChhbmQgcHV0IGl0IGludG8gdGhlIGNhY2hlKVxuIFx0XHR2YXIgbW9kdWxlID0gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0gPSB7XG4gXHRcdFx0ZXhwb3J0czoge30sXG4gXHRcdFx0aWQ6IG1vZHVsZUlkLFxuIFx0XHRcdGxvYWRlZDogZmFsc2VcbiBcdFx0fTtcblxuIFx0XHQvLyBFeGVjdXRlIHRoZSBtb2R1bGUgZnVuY3Rpb25cbiBcdFx0bW9kdWxlc1ttb2R1bGVJZF0uY2FsbChtb2R1bGUuZXhwb3J0cywgbW9kdWxlLCBtb2R1bGUuZXhwb3J0cywgX193ZWJwYWNrX3JlcXVpcmVfXyk7XG5cbiBcdFx0Ly8gRmxhZyB0aGUgbW9kdWxlIGFzIGxvYWRlZFxuIFx0XHRtb2R1bGUubG9hZGVkID0gdHJ1ZTtcblxuIFx0XHQvLyBSZXR1cm4gdGhlIGV4cG9ydHMgb2YgdGhlIG1vZHVsZVxuIFx0XHRyZXR1cm4gbW9kdWxlLmV4cG9ydHM7XG4gXHR9XG5cblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGVzIG9iamVjdCAoX193ZWJwYWNrX21vZHVsZXNfXylcbiBcdF9fd2VicGFja19yZXF1aXJlX18ubSA9IG1vZHVsZXM7XG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlIGNhY2hlXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLmMgPSBpbnN0YWxsZWRNb2R1bGVzO1xuXG4gXHQvLyBfX3dlYnBhY2tfcHVibGljX3BhdGhfX1xuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5wID0gXCIvXCI7XG5cbiBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oMCk7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gd2VicGFjay9ib290c3RyYXAgZGU4YzU2MjdmMjZkOTcwMTBiNGEiLCIvKlxuICogQ29weXJpZ2h0IChjKSAgMjAxOCBXaXNlIFdpbGQgV2ViIC5cbiAqXG4gKiAgTUlUIExpY2Vuc2VcbiAqXG4gKiAgUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weVxuICogIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcbiAqICBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4gKiAgdG8gdXNlLCBjb3B5LCBtb2RpZnksIG1lcmdlLCBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbFxuICogIGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuICogIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4gKlxuICogIFRoZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxsIGJlIGluY2x1ZGVkIGluIGFsbFxuICogIGNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuXG4gKlxuICogIFRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCBcIkFTIElTXCIsIFdJVEhPVVQgV0FSUkFOVFkgT0YgQU5ZIEtJTkQsIEVYUFJFU1MgT1JcbiAqICBJTVBMSUVELCBJTkNMVURJTkcgQlVUIE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSxcbiAqICBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQgTk9OSU5GUklOR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEVcbiAqICBBVVRIT1JTIE9SIENPUFlSSUdIVCBIT0xERVJTIEJFIExJQUJMRSBGT1IgQU5ZIENMQUlNLCBEQU1BR0VTIE9SIE9USEVSXG4gKiAgTElBQklMSVRZLCBXSEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUiBPVEhFUldJU0UsIEFSSVNJTkcgRlJPTSxcbiAqICBPVVQgT0YgT1IgSU4gQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOIFRIRVxuICogIFNPRlRXQVJFLlxuICpcbiAqIEBhdXRob3IgOiBOYXRoYW5hZWwgQnJhdW5cbiAqIEBjb250YWN0IDogY2FpcGlsYWJzQGdtYWlsLmNvbVxuICovXG5cblxuaW1wb3J0IFwicmVzY29wZVwiO1xuaW1wb3J0IGluZGV4IGZyb20gXCJyZXNjb3BlL2Rpc3QvaW5kZXhcIjtcbmltcG9ydCAqIGFzIFJUb29scyBmcm9tIFwiLi9SZWFjdEhvY3NcIjtcblxuaW5kZXguQ29tcG9uZW50ICAgID0gUlRvb2xzLkNvbXBvbmVudDtcbmluZGV4LnJlU2NvcGVQcm9wcyA9IFJUb29scy5yZVNjb3BlUHJvcHM7XG5pbmRleC5zY29wZVRvUHJvcHMgPSBSVG9vbHMucmVTY29wZVByb3BzO1xuaW5kZXgucHJvcHNUb1Njb3BlID0gUlRvb2xzLnByb3BzVG9TY29wZTtcbmV4cG9ydCBkZWZhdWx0IGluZGV4O1xuXG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9zcmMvaW5kZXguanMiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZXNjb3BlXCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVzY29wZVwiXG4vLyBtb2R1bGUgaWQgPSAxXG4vLyBtb2R1bGUgY2h1bmtzID0gMCIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlc2NvcGUvZGlzdC9pbmRleFwiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcInJlc2NvcGUvZGlzdC9pbmRleFwiXG4vLyBtb2R1bGUgaWQgPSAyXG4vLyBtb2R1bGUgY2h1bmtzID0gMCIsIi8qXG4gKiBDb3B5cmlnaHQgKGMpICAyMDE4IFdpc2UgV2lsZCBXZWIgLlxuICpcbiAqICBNSVQgTGljZW5zZVxuICogIFxuICogIFBlcm1pc3Npb24gaXMgaGVyZWJ5IGdyYW50ZWQsIGZyZWUgb2YgY2hhcmdlLCB0byBhbnkgcGVyc29uIG9idGFpbmluZyBhIGNvcHlcbiAqICBvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZSBcIlNvZnR3YXJlXCIpLCB0byBkZWFsXG4gKiAgaW4gdGhlIFNvZnR3YXJlIHdpdGhvdXQgcmVzdHJpY3Rpb24sIGluY2x1ZGluZyB3aXRob3V0IGxpbWl0YXRpb24gdGhlIHJpZ2h0c1xuICogIHRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwgcHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGxcbiAqICBjb3BpZXMgb2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMgdG8gd2hvbSB0aGUgU29mdHdhcmUgaXNcbiAqICBmdXJuaXNoZWQgdG8gZG8gc28sIHN1YmplY3QgdG8gdGhlIGZvbGxvd2luZyBjb25kaXRpb25zOlxuICogIFxuICogIFRoZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxsIGJlIGluY2x1ZGVkIGluIGFsbFxuICogIGNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuXG4gKiAgXG4gKiAgVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuICogIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuICogIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRVxuICogIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcbiAqICBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuICogIE9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFXG4gKiAgU09GVFdBUkUuXG4gKiAgXG4gKiBAYXV0aG9yIDogTmF0aGFuYWVsIEJyYXVuXG4gKiBAY29udGFjdCA6IGNhaXBpbGFic0BnbWFpbC5jb21cbiAqL1xuXG5pbXBvcnQgXCJyZXNjb3BlXCI7XG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnXG5pbXBvcnQgaXMgZnJvbSAnaXMnXG5pbXBvcnQgUHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHtTY29wZSwgU3RvcmUsIGFkZFNjb3BhYmxlVHlwZX0gZnJvbSBcInJlc2NvcGUvZGlzdC9pbmRleFwiO1xuXG5jb25zdCBTaW1wbGVPYmplY3RQcm90byA9ICh7fSkuY29uc3RydWN0b3I7XG5cbi8qKlxuICogSW5oZXJpdGFibGUgUmVTY29wZSBcIkhPQ1wiIChIaWdoIE9yZGVyIENvbXBvbmVudClcbiAqXG4gKiBAY2xhc3MgQ29tcG9uZW50XG4gKiBAZGVzYyBQYXJlbnQgUmVhY3QgQ29tcG9uZW50IHdpdGggc3RvcmUgaW5qZWN0aW9uIGluIGl0cyBzdGF0ZVxuICovXG5jbGFzcyBDb21wb25lbnQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgIH1cbiAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICB9XG4gICAgXG4gICAgY29uc3RydWN0b3IoIHAsIGN0eCwgcSApIHtcbiAgICAgICAgc3VwZXIocCwgY3R4LCBxKTtcbiAgICAgICAgbGV0IHNjb3BlICAgPVxuICAgICAgICAgICAgICAgIHAuX19zY29wZVxuICAgICAgICAgICAgICAgIHx8IGN0eC5yZXNjb3BlO1xuICAgICAgICB0aGlzLiRzY29wZSA9IHNjb3BlO1xuICAgICAgICBcbiAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIlJlU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlXCIpXG4gICAgICAgICAgICB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIHRoaXMuJHN0b3JlcyA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgaWYgKCB0aGlzLmNvbnN0cnVjdG9yLnVzZSApIHtcbiAgICAgICAgICAgIHRoaXMuc3RhdGUgPSB7XG4gICAgICAgICAgICAgICAgLi4udGhpcy5zdGF0ZSxcbiAgICAgICAgICAgICAgICAuLi5zY29wZS5tYXAodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UgfHwgW10sIGZhbHNlKS8vIGRvbid0IGJpbmRcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICBlbHNlIGlmICggIXRoaXMuJHNjb3BlIClcbiAgICAgICAgICAgIHRoaXMucmVuZGVyID0gKCkgPT4gPGRpdj5ObyBSZXNjb3BlIGhlcmUgeyBzdXBlci5uYW1lIH08L2Rpdj5cbiAgICB9XG4gICAgXG4gICAgZGlzcGF0Y2goIC4uLmFyZ3ogKSB7XG4gICAgICAgIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3BhdGNoKC4uLmFyZ3opXG4gICAgfVxuICAgIFxuICAgIGNvbXBvbmVudFdpbGxNb3VudCgpIHtcbiAgICAgICAgaWYgKCB0aGlzLmNvbnN0cnVjdG9yLnVzZSApIHtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlLmJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UgfHwgW10sIGZhbHNlKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICB0aGlzLmNvbnN0cnVjdG9yLnVzZVxuICAgICAgICAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UgfHwgW10pO1xuICAgIH1cbiAgICBcbiAgICBjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCwgbmMgKSB7XG4gICAgICAgIGxldCBuU2NvcGUgPSBucC5fX3Njb3BlXG4gICAgICAgICAgICB8fCBuYy5yZXNjb3BlIHx8IHRoaXMuJHNjb3BlO1xuICAgICAgICBcbiAgICAgICAgaWYgKCBuU2NvcGUgIT0gdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICB0aGlzLmNvbnN0cnVjdG9yLnVzZSAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSBuU2NvcGU7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiUmVTY29waW5nIHVzaW5nIGRlYWQgc2NvcGVcIilcbiAgICAgICAgICAgICAgICB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBlbHNlIHtcbiAgICAgICAgICAgICAgICB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICAgICAgdGhpcy5jb25zdHJ1Y3Rvci51c2UgJiYgblNjb3BlLmJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UpO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIGdldENoaWxkQ29udGV4dCgpIHtcbiAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlIHx8IHRoaXMuY29udGV4dC5yZXNjb3BlLFxuICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzIHx8IHRoaXMuY29udGV4dC4kc3RvcmVzXG4gICAgICAgIH07XG4gICAgfVxuICAgIFxuICAgIHJlbmRlcigpIHtcbiAgICAgICAgcmV0dXJuIHRoaXMucHJvcHMuY2hpbGRyZW4gfHwgPGRpdi8+XG4gICAgfVxufTtcblxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIEluamVjdCAmIG1haW50YWluIHRoZSBzdG9yZXMgbGlzdGVkIGJhc2VDb21wb25lbnQ6OnVzZSBhbmQvb3IgKHVzZSkgaW4gdGhlIGluc3RhbmNlcyBwcm9wcy5cbiAqICAtIFByb3BhZyAoc2NvcGUpIGluIHRoZSByZXR1cm5lZCBSZWFjdCBDb21wb25lbnQgY29udGV4dFxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6IFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc2NvcGUge1JlU2NvcGUuU2NvcGV8ZnVuY3Rpb259IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZCAoIGRlZmF1bHQgOiB0aGUgZGVmYXVsdFxuICogICAgIFJlU2NvcGU6OlNjb3BlOjpzY29wZXMuc3RhdGljIHNjb3BlIClcbiAqIEBwYXJhbSB1c2Uge2FycmF5fSB0aGUgbGlzdCBvZiBzdG9yZXMgdG8gaW5qZWN0IGZyb20gdGhlIGN1cnJlbnQgc2NvcGVcbiAqIEByZXR1cm5zIHtSZVNjb3BlUHJvdmlkZXJ9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGVQcm9wcyggLi4uYXJneiApIHtcbiAgICBsZXQgQmFzZUNvbXBvbmVudCA9ICghYXJnelswXSB8fCBhcmd6WzBdLnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZSAgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSB8fCBpcy5mbihhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICB1c2UgICAgICAgICAgID0gKCFhcmd6WzBdIHx8IGlzLmFycmF5KGFyZ3pbMF0pIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpO1xuICAgIFxuICAgIGlmICggIShCYXNlQ29tcG9uZW50ICYmIEJhc2VDb21wb25lbnQucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSApIHtcbiAgICAgICAgcmV0dXJuIGZ1bmN0aW9uICggQmFzZUNvbXBvbmVudCApIHtcbiAgICAgICAgICAgIHJldHVybiByZVNjb3BlUHJvcHMoQmFzZUNvbXBvbmVudCwgc2NvcGUsIHVzZSlcbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICBcbiAgICBsZXQgcHJvdmlkZXIgPSByZVNjb3BlVG9TdGF0ZShjbGFzcyBSZVNjb3BlUHJvcHNQcm92aWRlciBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgICAgIHN0YXRpYyB1c2UgICAgICAgICAgICAgICA9IEJhc2VDb21wb25lbnQudXNlO1xuICAgICAgICBzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfTtcbiAgICAgICAgc3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH07XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICByZXR1cm4gdGhpcy5jb250ZXh0O1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICByZXR1cm4gPEJhc2VDb21wb25lbnQgeyAuLi50aGlzLnByb3BzIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7IC4uLnRoaXMuc3RhdGUgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRkaXNwYXRjaD17IHRoaXMuJGRpc3BhdGNoIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkYWN0aW9ucz17IHRoaXMuJGFjdGlvbnMgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRzdG9yZXM9eyB0aGlzLiRzdG9yZXMgfS8+XG4gICAgICAgIH1cbiAgICB9LCBzY29wZSwgdXNlKTtcbiAgICBwcm92aWRlci5kaXNwbGF5TmFtZSAgICAgICAgID0gXCJwcm9wc1Njb3BlZChcIiArIChCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZSkgKyBcIilcIjtcbiAgICByZXR1cm4gcHJvdmlkZXI7XG59XG5cbi8qKlxuICogUmV0dXJuIGEgUmVhY3QgXCJIT0NcIiAoSGlnaCBPcmRlciBDb21wb25lbnQpIHRoYXQgOlxuICogIC0gSW5oZXJpdCBCYXNlQ29tcG9uZW50LFxuICogIC0gSW5qZWN0ICYgbWFpbnRhaW4gdGhlIHN0b3JlcyBpbiBCYXNlQ29tcG9uZW50Ojp1c2UgYW5kL29yICh1c2UpIGluIHRoZSBpbnN0YW5jZXMgc3RhdGUuXG4gKiAgLSBQcm9wYWcgKHNjb3BlKSBpbiB0aGUgcmV0dXJuZWQgUmVhY3QgQ29tcG9uZW50IGNvbnRleHRcbiAqXG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDogUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzY29wZSB7UmVTY29wZS5TY29wZXxmdW5jdGlvbn0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gdXNlIHthcnJheX0gdGhlIGxpc3Qgb2Ygc3RvcmVzIGluamVjdGVkIGZyb20gdGhlIGN1cnJlbnQgc2NvcGVcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHtSZVNjb3BlUHJvdmlkZXJ9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGVUb1N0YXRlKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdLnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZSAgICAgICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUgfHwgaXMuZm4oYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgdXNlICAgICAgICAgICAgICAgPSAoaXMuYXJyYXkoYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgc3RhdGVNYXAgICAgICAgICAgPSAhdXNlICYmICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgYWRkaXRpb25hbENvbnRleHQgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIGluaXRpYWxTdGF0ZSAgICAgID0ge307XG4gICAgXG4gICAgdXNlID0gWy4uLihCYXNlQ29tcG9uZW50LnVzZSB8fCBbXSksIC4uLih1c2UgfHwgW10pXTtcbiAgICBzdGF0ZU1hcCAmJiBTY29wZS5zdGF0ZU1hcFRvUmVmTGlzdChzdGF0ZU1hcCwgaW5pdGlhbFN0YXRlLCB1c2UpO1xuICAgIFxuICAgIGFkZGl0aW9uYWxDb250ZXh0ID0gYWRkaXRpb25hbENvbnRleHQgJiYgT2JqZWN0LmtleXMoYWRkaXRpb25hbENvbnRleHQpLnJlZHVjZSgoIGgsIGsgKSA9PiAoaFtrXSA9IFByb3BUeXBlcy5hbnksIGgpLCB7fSkgfHwge307XG4gICAgXG4gICAgY2xhc3MgUmVTY29wZVByb3ZpZGVyIGV4dGVuZHMgQmFzZUNvbXBvbmVudCB7XG4gICAgICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNoaWxkQ29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIC4uLihhZGRpdGlvbmFsQ29udGV4dCksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICAuLi4oYWRkaXRpb25hbENvbnRleHQpLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGVmYXVsdFByb3BzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30pLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwic3RhdGVTY29wZWQoXCIgKyAoQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWUpICsgXCIpXCI7XG4gICAgICAgIFxuICAgICAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICAgICAgc3VwZXIocCwgY3R4LCBxKTtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gdGhpcy4kc2NvcGUgfHxcbiAgICAgICAgICAgICAgICBwLl9fc2NvcGVcbiAgICAgICAgICAgICAgICB8fCBpcy5mbihzY29wZSkgJiYgc2NvcGUodGhpcywgcCwgY3R4KSB8fCBzY29wZVxuICAgICAgICAgICAgICAgIHx8IGN0eC5yZXNjb3BlO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIlJlU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlXCIpXG4gICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSBudWxsO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzY29wZSAmJiBpcy5mbihzY29wZSlcbiAgICAgICAgICAgICYmIHRoaXMuJHNjb3BlLnJldGFpbihcImhvY1wiKTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB1c2UubGVuZ3RoICkge1xuICAgICAgICAgICAgICAgIHRoaXMuc3RhdGUgPSB7XG4gICAgICAgICAgICAgICAgICAgIC4uLnRoaXMuc3RhdGUsXG4gICAgICAgICAgICAgICAgICAgIC4uLmluaXRpYWxTdGF0ZSxcbiAgICAgICAgICAgICAgICAgICAgLi4udGhpcy4kc2NvcGUubWFwKHRoaXMsIHVzZSwgZmFsc2UpLy8gZG9uJ3QgYmluZCBub3cgZHVlIHRvIFNTUlxuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGVsc2UgaWYgKCAhdGhpcy4kc2NvcGUgKVxuICAgICAgICAgICAgICAgIHRoaXMucmVuZGVyID0gKCkgPT4gPGRpdj5ObyBTY29wZSBmb3VuZCBpbiB7IEJhc2VDb21wb25lbnQubmFtZSB9PC9kaXY+XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJGRpc3BhdGNoID0gdGhpcy4kZGlzcGF0Y2guYmluZCh0aGlzKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgJGRpc3BhdGNoKCAuLi5hcmd6ICkge1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcGF0Y2goLi4uYXJneilcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbE1vdW50KCkge1xuICAgICAgICAgICAgaWYgKCB1c2UubGVuZ3RoICkge1xuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlLmJpbmQodGhpcywgdXNlLCBmYWxzZSlcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxNb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsTW91bnQoKVxuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQgJiYgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQoKTtcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgIXRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdXNlKTtcbiAgICAgICAgICAgICAgICBpcy5mbihzY29wZSkgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZShcImhvY1wiKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyggbnAsIG5jICkge1xuICAgICAgICAgICAgbGV0IG5TY29wZSA9IG5wLl9fc2NvcGVcbiAgICAgICAgICAgICAgICB8fCBzY29wZSAmJiB0aGlzLiRzY29wZVxuICAgICAgICAgICAgICAgIHx8IG5jLnJlc2NvcGVcbiAgICAgICAgICAgICAgICB8fCB0aGlzLiRzY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCBuU2NvcGUgIT0gdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdXNlKTtcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG5TY29wZTtcbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgICAgIGNvbnNvbGUuZXJyb3IoXCJSZVNjb3BpbmcgdXNpbmcgZGVhZCBzY29wZVwiKVxuICAgICAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc3RvcmVzID0gdGhpcy4kc2NvcGUgPSBudWxsO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBlbHNlIHtcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlLmFjdGlvbnM7XG4gICAgICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICAgICAgICAgIHVzZS5sZW5ndGggJiYgblNjb3BlLmJpbmQodGhpcywgdXNlKTtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzICYmIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMobnAsIG5jKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICAgICAgbGV0IGN0eCA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fTtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgLi4uY3R4LFxuICAgICAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlIHx8IHRoaXMuY29udGV4dC5yZXNjb3BlLFxuICAgICAgICAgICAgICAgICRzdG9yZXM6IHRoaXMuJHNjb3BlLnN0b3JlcyB8fCB0aGlzLmNvbnRleHQuJHN0b3Jlc1xuICAgICAgICAgICAgfTtcbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICByZXR1cm4gUmVTY29wZVByb3ZpZGVyO1xufVxuXG5hZGRTY29wYWJsZVR5cGUoXG4gICAgKCBDb21wICkgPT4gKENvbXAgJiYgQ29tcC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpLFxuICAgIHJlU2NvcGVUb1N0YXRlLCBmYWxzZSwgdHJ1ZVxuKVxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIFJlbmRlciBCYXNlQ29tcG9uZW50IHdpdGggbmV3IHNjb3BlIHRoYXQgaW5oZXJpdCB0aGUgZ2l2ZW4gc2NvcGUgb3IgY29udGV4dCBzY29wZVxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6IFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc3RvcmVzTWFwIHtPYmplY3R9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlIHtTY29wZX0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGVJZCB7c3RyaW5nfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHsqfVxuICovXG5mdW5jdGlvbiByZVNjb3BlKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlZCAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvICYmICEoYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZUNmZyAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpIHx8IHt9LFxuICAgICAgICBwYXJlbnQgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBwYXJlbnRJZCAgICAgID0gKCFhcmd6WzBdIHx8IGlzLnN0cmluZyhhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpO1xuICAgIFxuICAgIGxldCBjb21wTmFtZSA9IEJhc2VDb21wb25lbnQuZGlzcGxheU5hbWUgfHwgQmFzZUNvbXBvbmVudC5uYW1lO1xuICAgIFxuICAgIFxuICAgIGNsYXNzIFNjb3BlUHJvdmlkZXIgZXh0ZW5kcyBCYXNlQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGVmYXVsdFByb3BzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30pLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwic2NvcGVkKFwiICsgY29tcE5hbWUgKyBcIilcIjtcbiAgICAgICAgXG4gICAgICAgIGNvbnN0cnVjdG9yKCBwLCBjdHgsIHEgKSB7XG4gICAgICAgICAgICBsZXQgX3BhcmVudCA9IHBhcmVudCB8fCBwYXJlbnRJZCAmJiBTY29wZS5nZXRTY29wZShwYXJlbnRJZCkgfHwgcC5fX3Njb3BlIHx8IGN0eC5yZXNjb3BlLFxuICAgICAgICAgICAgICAgICRzY29wZSAgPSBuZXcgU2NvcGUoXG4gICAgICAgICAgICAgICAgICAgIHNjb3BlZCB8fCB7fSxcbiAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0Rlc3Ryb3k6IHRydWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBrZXkgICAgICAgIDogY29tcE5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBwYXJlbnQgICAgIDogX3BhcmVudCxcbiAgICAgICAgICAgICAgICAgICAgICAgIC4uLnNjb3BlQ2ZnXG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHN1cGVyKHAsIHsgLi4uY3R4LCByZXNjb3BlOiAkc2NvcGUsICRzdG9yZXM6ICRzY29wZS5zdG9yZXMgfSwgcSk7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gdGhpcy4kc2NvcGUgfHwgJHNjb3BlO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBpZiAoICF0aGlzLiRzY29wZSApIHtcbiAgICAgICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgICAgIGNvbnNvbGUuZXJyb3IoXCJTY29waW5nIHVzaW5nIGRlYWQgc2NvcGUgcGFyZW50XCIpO1xuICAgICAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gbmV3IFNjb3BlKFxuICAgICAgICAgICAgICAgICAgICBzY29wZWQgfHwge30sXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9EZXN0cm95OiB0cnVlLFxuICAgICAgICAgICAgICAgICAgICAgICAga2V5ICAgICAgICA6IGNvbXBOYW1lLFxuICAgICAgICAgICAgICAgICAgICAgICAgcGFyZW50ICAgICA6IHRoaXMuJHNjb3BlXG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICB0aGlzLiRzY29wZS5yZXRhaW4oKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZSgpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG4vKipcbiAqXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOiBSZWFjdC5Db21wb25lbnQgKVxuICogQHBhcmFtIHN0b3Jlc01hcCB7T2JqZWN0fSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZSB7U2NvcGV9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlSWQge3N0cmluZ30gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gYWRkaXRpb25hbENvbnRleHQge09iamVjdH0gY29udGV4dCB0byBiZSBwcm9wYWdhdGVkXG4gKiBAcmV0dXJucyB7Kn1cbiAqL1xuZnVuY3Rpb24gcHJvcHNUb1Njb3BlKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlZFByb3BzICAgPSAoIWFyZ3pbMF0gfHwgaXMuYXJyYXkoYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKSB8fCBbXSxcbiAgICAgICAgc2NvcGVDZmcgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSB8fCB7fSxcbiAgICAgICAgcGFyZW50ICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgcGFyZW50SWQgICAgICA9ICghYXJnelswXSB8fCBpcy5zdHJpbmcoYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKTtcbiAgICBcbiAgICBsZXQgY29tcE5hbWUgPSBCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZTtcbiAgICBcbiAgICBpZiAoICEoQmFzZUNvbXBvbmVudCAmJiBCYXNlQ29tcG9uZW50LnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCkgKSB7XG4gICAgICAgIHJldHVybiBmdW5jdGlvbiAoIEJhc2VDb21wb25lbnQgKSB7XG4gICAgICAgICAgICByZXR1cm4gcHJvcHNUb1Njb3BlKEJhc2VDb21wb25lbnQsIHNjb3BlZFByb3BzLCBzY29wZUNmZywgcGFyZW50LCBwYXJlbnRJZClcbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICBjbGFzcyBTY29wZVByb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGVmYXVsdFByb3BzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30pLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwic2NvcGVkKFwiICsgY29tcE5hbWUgKyBcIilcIjtcbiAgICAgICAgXG4gICAgICAgIGNvbnN0cnVjdG9yKCBwLCBjdHgsIHEgKSB7XG4gICAgICAgICAgICBsZXQgX3BhcmVudCA9IHBhcmVudCB8fCBwYXJlbnRJZCAmJiBTY29wZS5nZXRTY29wZShwYXJlbnRJZCkgfHwgcC5fX3Njb3BlIHx8IGN0eC5yZXNjb3BlLFxuICAgICAgICAgICAgICAgICRzY29wZSAgPSBuZXcgU2NvcGUoXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIC4uLnNjb3BlZFByb3BzLnJlZHVjZShcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAoIGgsIGsgKSA9PiAoaFtrXSA9IFN0b3JlLCBoKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7fVxuICAgICAgICAgICAgICAgICAgICAgICAgKSxcbiAgICAgICAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0Rlc3Ryb3k6IHRydWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBrZXkgICAgICAgIDogY29tcE5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBwYXJlbnQgICAgIDogX3BhcmVudCxcbiAgICAgICAgICAgICAgICAgICAgICAgIC4uLnNjb3BlQ2ZnLFxuICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUgICAgICA6IHNjb3BlZFByb3BzLnJlZHVjZShcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAoIGgsIGsgKSA9PiAoaFtrXSA9IHBba10sIGgpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt9XG4gICAgICAgICAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHN1cGVyKHAsIHsgLi4uY3R4LCByZXNjb3BlOiAkc2NvcGUsICRzdG9yZXM6ICRzY29wZS5zdG9yZXMgfSwgcSk7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICAgPSB0aGlzLiRzY29wZSB8fCAkc2NvcGU7XG4gICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgIHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICB0aGlzLiRzY29wZS5yZXRhaW4oKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyggbnAgKSB7XG4gICAgICAgICAgICBzY29wZWRQcm9wcy5mb3JFYWNoKFxuICAgICAgICAgICAgICAgIHAgPT4gKHRoaXMucHJvcHNbcF0gIT09IG5wW3BdICYmIHRoaXMuJHN0b3Jlc1twXS5zZXRTdGF0ZShucFtwXSkpXG4gICAgICAgICAgICApXG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzICYmIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoLi4uYXJndW1lbnRzKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZSgpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICBsZXQgZlByb3BzID0gT2JqZWN0LmtleXModGhpcy5wcm9wcykucmVkdWNlKCggaCwgayApID0+ICghc2NvcGVkUHJvcHMuaW5jbHVkZXMoaykgJiYgKGhba10gPSB0aGlzLnByb3BzW2tdKSwgaCksIHt9KTtcbiAgICAgICAgICAgIHJldHVybiA8QmFzZUNvbXBvbmVudCB7IC4uLmZQcm9wcyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyAuLi50aGlzLnN0YXRlIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkc3RvcmVzPXsgdGhpcy4kc3RvcmVzIH0vPlxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG5hZGRTY29wYWJsZVR5cGUoXG4gICAgKCBDb21wICkgPT4gKENvbXAgJiYgQ29tcC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpLFxuICAgIHJlU2NvcGVcbilcblxuZXhwb3J0IHtcbiAgICBDb21wb25lbnQgYXMgZGVmYXVsdCxcbiAgICBDb21wb25lbnQsXG4gICAgcmVTY29wZVByb3BzLFxuICAgIHByb3BzVG9TY29wZVxufTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9zcmMvUmVhY3RIb2NzLmpzIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVhY3RcIik7XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gZXh0ZXJuYWwgXCJyZWFjdFwiXG4vLyBtb2R1bGUgaWQgPSA0XG4vLyBtb2R1bGUgY2h1bmtzID0gMCIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcImlzXCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwiaXNcIlxuLy8gbW9kdWxlIGlkID0gNVxuLy8gbW9kdWxlIGNodW5rcyA9IDAiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJwcm9wLXR5cGVzXCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicHJvcC10eXBlc1wiXG4vLyBtb2R1bGUgaWQgPSA2XG4vLyBtb2R1bGUgY2h1bmtzID0gMCJdLCJzb3VyY2VSb290IjoiIn0=
-
-/***/ }),
-/* 17 */
+/* 14 */
 /***/ (function(module, exports) {
 
 // empty (null-loader)
 
 /***/ }),
-/* 18 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = (function () {
@@ -3938,7 +3071,7 @@ var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT Lice
 })();
 
 /***/ }),
-/* 19 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3958,9 +3091,9 @@ var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT Lice
 
 
 
-var extend = __webpack_require__(5)
-var cookies = __webpack_require__(10)
-var helpers = __webpack_require__(3)
+var extend = __webpack_require__(4)
+var cookies = __webpack_require__(8)
+var helpers = __webpack_require__(2)
 
 var paramsHaveRequestBody = helpers.paramsHaveRequestBody
 
@@ -4084,7 +3217,7 @@ request.forever = function (agentOptions, optionsArg) {
 // Exports
 
 module.exports = request
-request.Request = __webpack_require__(33)
+request.Request = __webpack_require__(32)
 request.initParams = initParams
 
 // Backwards compatibility for request.debug
@@ -4100,7 +3233,7 @@ Object.defineProperty(request, 'debug', {
 
 
 /***/ }),
-/* 20 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -4328,13 +3461,13 @@ module.exports =
 /* 2 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(6);
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(10);
 
 /***/ }),
 /* 4 */
@@ -4450,25 +3583,37 @@ module.exports =
 //# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
-/* 21 */
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 23 */
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-rescope");
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-rnd");
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4509,33 +3654,33 @@ var _dec, _class, _class2, _temp, _desc, _value, _obj, _init, _class3, _temp2, _
                                                                                                                                                        * @contact : caipilabs@gmail.com
                                                                                                                                                        */
 
-var _react = __webpack_require__(8);
+var _react = __webpack_require__(18);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _shortid = __webpack_require__(9);
+var _shortid = __webpack_require__(7);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-__webpack_require__(20);
+__webpack_require__(17);
 
-__webpack_require__(16);
+__webpack_require__(21);
 
-var _reactRnd = __webpack_require__(23);
+var _reactRnd = __webpack_require__(22);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _superagent = __webpack_require__(19);
+var _superagent = __webpack_require__(16);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _rescope = __webpack_require__(2);
+var _rescope = __webpack_require__(6);
 
 var _rescope2 = _interopRequireDefault(_rescope);
 
-var _server = __webpack_require__(22);
+var _server = __webpack_require__(20);
 
-__webpack_require__(17);
+__webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4576,12 +3721,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var indexTpl = __webpack_require__(18);
+var indexTpl = __webpack_require__(15);
 
 var asStateMap = _rescope.spells.asStateMap,
     asScope = _rescope.spells.asScope;
 
-var ReactDom = __webpack_require__(21);
+var ReactDom = __webpack_require__(19);
 
 var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_class = (_temp = _class2 = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -4801,15 +3946,15 @@ if (typeof window != 'undefined') {
 exports.default = App;
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var caseless = __webpack_require__(4)
-var uuid = __webpack_require__(7)
-var helpers = __webpack_require__(3)
+var caseless = __webpack_require__(3)
+var uuid = __webpack_require__(5)
+var helpers = __webpack_require__(2)
 
 var md5 = helpers.md5
 var toBase64 = helpers.toBase64
@@ -4975,7 +4120,7 @@ exports.Auth = Auth
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5061,16 +4206,16 @@ module.exports = getProxyFromURI
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var fs = __webpack_require__(39)
-var qs = __webpack_require__(15)
+var qs = __webpack_require__(13)
 var validate = __webpack_require__(40)
-var extend = __webpack_require__(5)
+var extend = __webpack_require__(4)
 
 function Har (request) {
   this.request = request
@@ -5273,15 +4418,15 @@ exports.Har = Har
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var uuid = __webpack_require__(7)
+var uuid = __webpack_require__(5)
 var CombinedStream = __webpack_require__(36)
-var isstream = __webpack_require__(13)
+var isstream = __webpack_require__(11)
 var Buffer = __webpack_require__(0).Buffer
 
 function Multipart (request) {
@@ -5392,18 +4537,18 @@ exports.Multipart = Multipart
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(1)
-var qs = __webpack_require__(14)
-var caseless = __webpack_require__(4)
-var uuid = __webpack_require__(7)
+var qs = __webpack_require__(12)
+var caseless = __webpack_require__(3)
+var uuid = __webpack_require__(5)
 var oauth = __webpack_require__(48)
-var crypto = __webpack_require__(12)
+var crypto = __webpack_require__(9)
 var Buffer = __webpack_require__(0).Buffer
 
 function OAuth (request) {
@@ -5547,14 +4692,14 @@ exports.OAuth = OAuth
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var qs = __webpack_require__(14)
-var querystring = __webpack_require__(15)
+var qs = __webpack_require__(12)
+var querystring = __webpack_require__(13)
 
 function Querystring (request) {
   this.request = request
@@ -5604,7 +4749,7 @@ exports.Querystring = Querystring
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5765,14 +4910,14 @@ exports.Redirect = Redirect
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(1)
-var tunnel = __webpack_require__(54)
+var tunnel = __webpack_require__(53)
 
 var defaultProxyHeaderWhiteList = [
   'accept',
@@ -5947,7 +5092,7 @@ exports.Tunnel = Tunnel
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5956,31 +5101,31 @@ exports.Tunnel = Tunnel
 var http = __webpack_require__(42)
 var https = __webpack_require__(44)
 var url = __webpack_require__(1)
-var util = __webpack_require__(55)
-var stream = __webpack_require__(51)
-var zlib = __webpack_require__(56)
+var util = __webpack_require__(54)
+var stream = __webpack_require__(50)
+var zlib = __webpack_require__(55)
 var hawk = __webpack_require__(41)
 var aws2 = __webpack_require__(34)
 var aws4 = __webpack_require__(35)
 var httpSignature = __webpack_require__(43)
 var mime = __webpack_require__(47)
-var stringstream = __webpack_require__(52)
-var caseless = __webpack_require__(4)
+var stringstream = __webpack_require__(51)
+var caseless = __webpack_require__(3)
 var ForeverAgent = __webpack_require__(37)
 var FormData = __webpack_require__(38)
-var extend = __webpack_require__(5)
-var isstream = __webpack_require__(13)
+var extend = __webpack_require__(4)
+var isstream = __webpack_require__(11)
 var isTypedArray = __webpack_require__(45).strict
-var helpers = __webpack_require__(3)
-var cookies = __webpack_require__(10)
-var getProxyFromURI = __webpack_require__(26)
-var Querystring = __webpack_require__(30).Querystring
-var Har = __webpack_require__(27).Har
-var Auth = __webpack_require__(25).Auth
-var OAuth = __webpack_require__(29).OAuth
-var Multipart = __webpack_require__(28).Multipart
-var Redirect = __webpack_require__(31).Redirect
-var Tunnel = __webpack_require__(32).Tunnel
+var helpers = __webpack_require__(2)
+var cookies = __webpack_require__(8)
+var getProxyFromURI = __webpack_require__(25)
+var Querystring = __webpack_require__(29).Querystring
+var Har = __webpack_require__(26).Har
+var Auth = __webpack_require__(24).Auth
+var OAuth = __webpack_require__(28).OAuth
+var Multipart = __webpack_require__(27).Multipart
+var Redirect = __webpack_require__(30).Redirect
+var Tunnel = __webpack_require__(31).Tunnel
 var now = __webpack_require__(49)
 var Buffer = __webpack_require__(0).Buffer
 
@@ -7506,6 +6651,119 @@ module.exports = Request
 
 
 /***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/*
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	// Common rescope modules int
+	exports.default = {};
+	module.exports = exports["default"];
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
 /* 34 */
 /***/ (function(module, exports) {
 
@@ -7605,40 +6863,34 @@ module.exports = require("performance-now");
 /* 50 */
 /***/ (function(module, exports) {
 
-module.exports = require("prop-types");
+module.exports = require("stream");
 
 /***/ }),
 /* 51 */
 /***/ (function(module, exports) {
 
-module.exports = require("stream");
+module.exports = require("stringstream");
 
 /***/ }),
 /* 52 */
 /***/ (function(module, exports) {
 
-module.exports = require("stringstream");
+module.exports = require("tough-cookie");
 
 /***/ }),
 /* 53 */
 /***/ (function(module, exports) {
 
-module.exports = require("tough-cookie");
+module.exports = require("tunnel-agent");
 
 /***/ }),
 /* 54 */
 /***/ (function(module, exports) {
 
-module.exports = require("tunnel-agent");
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
 module.exports = require("util");
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = require("zlib");
