@@ -29608,28 +29608,24 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
     _inherits(PostIt, _React$Component2);
 
     function PostIt() {
+        var _ref;
+
+        var _temp3, _this3, _ret;
+
         _classCallCheck(this, PostIt);
 
-        return _possibleConstructorReturn(this, (PostIt.__proto__ || Object.getPrototypeOf(PostIt)).apply(this, arguments));
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp3 = (_this3 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this3), _this3.state = {}, _temp3), _possibleConstructorReturn(_this3, _ret);
     }
 
     _createClass(PostIt, [{
         key: "render",
-
-
-        //shouldComponentUpdate( np ) {
-        //    console.warn("update");
-        //    Object.keys(np).forEach(
-        //        k => {
-        //            if ( np[k] !== this.props[k] )
-        //                console.warn(k);
-        //        }
-        //    )
-        //
-        //    return super.shouldComponentUpdate ? super.shouldComponentUpdate() : true;
-        //}
-
         value: function render() {
+            var _this4 = this;
+
             var _props = this.props,
                 position = _props.position,
                 text = _props.text,
@@ -29637,7 +29633,6 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                 $actions = _props.$actions,
                 record = _props.record;
 
-            console.log(position, text, size);
             return _react2.default.createElement(
                 _reactRnd2.default,
                 {
@@ -29661,8 +29656,41 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                 _react2.default.createElement(
                     "div",
                     { className: "postit handle" },
-                    text,
-                    "!!!"
+                    !this.state.editing && _react2.default.createElement(
+                        "div",
+                        { className: "text" },
+                        text,
+                        _react2.default.createElement(
+                            "button",
+                            { onClick: function onClick(e) {
+                                    return _this4.setState({ editing: true });
+                                } },
+                            "\uD83D\uDD8B"
+                        )
+                    ) || _react2.default.createElement(
+                        "div",
+                        { className: "editor" },
+                        _react2.default.createElement(
+                            "textarea",
+                            { onKeyPress: function onKeyPress(e) {
+                                    $actions.updatePostIt(_extends({}, record, {
+                                        text: e.target.value
+                                    }));
+                                },
+                                onMouseDown: function onMouseDown(e) {
+                                    return e.stopPropagation();
+                                }
+                            },
+                            text
+                        ),
+                        _react2.default.createElement(
+                            "button",
+                            { onClick: function onClick(e) {
+                                    return _this4.setState({ editing: false });
+                                } },
+                            "\uD83D\uDCBE"
+                        )
+                    )
                 )
             );
         }

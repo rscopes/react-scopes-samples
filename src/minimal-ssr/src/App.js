@@ -99,7 +99,7 @@ class App extends React.Component {
     static renderSSR = ( cfg, cb ) => {
         let cScope = new Scope(App.AppScope, { id: "App" });
         cfg.state && cScope.restore(cfg.state)
-        console.log("!!",cScope.data.someData)
+        console.log("!!", cScope.data.someData)
         cScope.then(
             ( err, state, context ) => {
                 let html;
@@ -152,24 +152,12 @@ class App extends React.Component {
         text    : "record.text"
     })
 class PostIt extends React.Component {
-    
-    //shouldComponentUpdate( np ) {
-    //    console.warn("update");
-    //    Object.keys(np).forEach(
-    //        k => {
-    //            if ( np[k] !== this.props[k] )
-    //                console.warn(k);
-    //        }
-    //    )
-    //
-    //    return super.shouldComponentUpdate ? super.shouldComponentUpdate() : true;
-    //}
+    state = {}
     
     render() {
         let {
                 position, text, size, $actions, record
             } = this.props;
-        console.log( position, text, size)
         return (
             <Rnd
                 absolutePos
@@ -194,8 +182,26 @@ class PostIt extends React.Component {
                         });
                 } }>
                 <div className={ "postit handle" }>
-                    { text
-                    }!!!
+                    {
+                        !this.state.editing &&
+                        <div className={ "text" }>
+                            { text }
+                            <button onClick={ e => this.setState({ editing: true }) }>🖋</button>
+                        </div>
+                        ||
+                        <div className={ "editor" }>
+                            <textarea onKeyPress={ e => {
+                                $actions.updatePostIt(
+                                    {
+                                        ...record,
+                                        text: e.target.value
+                                    });
+                            } }
+                                      onMouseDown={ e => e.stopPropagation() }
+                            >{ text }</textarea>
+                            <button onClick={ e => this.setState({ editing: false }) }>💾</button>
+                        </div>
+                    }
                 </div>
             </Rnd>
         );

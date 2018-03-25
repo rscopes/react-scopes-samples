@@ -6,14 +6,10 @@
   "license": "MIT",
   "author": "Nathan Braun <caipilabs@gmail.com>",
   "scripts": {
-    "dev": "webpack -w",
     "test": "mocha --compilers js:babel-core/register ./test/*.test.js -b",
     "install": "npm-recursive-install --skip-root"
   },
   "dependencies": {
-    "crypto": "^1.0.1",
-    "dot-tpl-loader": "^1.2.1",
-    "superagent": "^3.8.2"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",
