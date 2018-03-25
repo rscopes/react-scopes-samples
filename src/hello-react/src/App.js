@@ -27,29 +27,33 @@
 
 import React from "react";
 
-import Rescope, {reScopeState, reScopeProps} from "react-rescope";
+import Rescope, { reScopeState, reScopeProps } from "react-rescope";
 
 let ReactDom      = require('react-dom'),
     Scope         = Rescope.Scope,
     NewsListComp  = require('./NewsListComp'),
-    StoresContext = require('../StoresContext');
+    StoresContext = require('./StoresContext');
 
 // create empty global context for fun
 let GlobalStaticContext = new Scope({}, { id: "static", defaultMaxListeners: 500 });
 
 
 // create "appContext" with the stores
-new Scope(StoresContext, { id: "appContext", parent: GlobalStaticContext, defaultMaxListeners: 500 });
+new Scope(StoresContext, {
+    id                 : "appContext",
+    parent             : GlobalStaticContext,
+    defaultMaxListeners: 500
+});
 
 @reScopeState(
     Scope.scopes.appContext,
-    ["status", "appState"]
+    [ "status", "appState" ]
 )
 class App extends React.Component {
     
     static renderTo = ( node ) => {
         Scope.scopes.appContext.mount(
-            ["userEvents"]
+            [ "userEvents" ]
         ).then(
             ( err, state, context ) => {
                 ReactDom.render(<App/>, node);

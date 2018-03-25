@@ -1056,7 +1056,7 @@ module.exports =
 
 				Object.keys(sm).forEach(function (key) {
 					var cpath = path ? path + '.' + key : key;
-					sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Function ? actions[key] = sm[key] : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
+					sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : sm[key] && sm[key] instanceof Function ? actions[key] = sm[key] : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
 					//: this.stateMapToRefList(sm[key], _refs, path + '.' + key)
 				});
 				return _refs;
@@ -6043,13 +6043,61 @@ module.exports =
 
 	"use strict";
 
-	__webpack_require__(1);
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	__webpack_require__(2);
 
 	__webpack_require__(4);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	exports.default = _rescope2.default.spells; /*
+                                              * Copyright (c)  2018 Wise Wild Web .
+                                              *
+                                              *  MIT License
+                                              *
+                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                              *  of this software and associated documentation files (the "Software"), to deal
+                                              *  in the Software without restriction, including without limitation the rights
+                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                              *  copies of the Software, and to permit persons to whom the Software is
+                                              *  furnished to do so, subject to the following conditions:
+                                              *
+                                              *  The above copyright notice and this permission notice shall be included in all
+                                              *  copies or substantial portions of the Software.
+                                              *
+                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                              *  SOFTWARE.
+                                              *
+                                              * @author : Nathanael Braun
+                                              * @contact : caipilabs@gmail.com
+                                              */
+
+	module.exports = exports["default"];
 
 	/***/
 },
 /* 1 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(9);
+
+	/***/
+},
+/* 2 */
 /***/function (module, exports, __webpack_require__) {
 
 	"use strict";
@@ -6058,7 +6106,7 @@ module.exports =
 		value: true
 	});
 
-	var _rescope = __webpack_require__(2);
+	var _rescope = __webpack_require__(1);
 
 	var _rescope2 = _interopRequireDefault(_rescope);
 
@@ -6197,13 +6245,6 @@ module.exports =
 
 	/***/
 },
-/* 2 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(9);
-
-	/***/
-},
 /* 3 */
 /***/function (module, exports) {
 
@@ -6215,6 +6256,10 @@ module.exports =
 /***/function (module, exports, __webpack_require__) {
 
 	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 
 	var _dec, _dec2, _desc, _value, _obj; /*
                                         * Copyright (c)  2018 Wise Wild Web .
@@ -6247,7 +6292,7 @@ module.exports =
 
 	var _is2 = _interopRequireDefault(_is);
 
-	var _rescope = __webpack_require__(2);
+	var _rescope = __webpack_require__(1);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -6300,7 +6345,7 @@ module.exports =
 		return desc;
 	}
 
-	var all = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
+	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
 		return _is2.default.object(v) || _is2.default.string(v);
 	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
 		return _is2.default.object(v);
@@ -6332,6 +6377,7 @@ module.exports =
 			return _rescope.Scope.bind(null, obj, cfg);
 		}
 	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
+	module.exports = exports["default"];
 
 	/***/
 }]
@@ -7809,8 +7855,6 @@ var _shortid = __webpack_require__(14);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-__webpack_require__(27);
-
 __webpack_require__(26);
 
 var _reactRnd = __webpack_require__(30);
@@ -7823,7 +7867,7 @@ var _superagent2 = _interopRequireDefault(_superagent);
 
 var _rescope = __webpack_require__(9);
 
-var _rescope2 = _interopRequireDefault(_rescope);
+var _rescopeSpells = __webpack_require__(27);
 
 var _server = __webpack_require__(29);
 
@@ -7869,9 +7913,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var indexTpl = __webpack_require__(28);
-
-var asStateMap = _rescope.spells.asStateMap,
-    asScope = _rescope.spells.asScope;
 
 var ReactDom = __webpack_require__(10);
 
@@ -7929,7 +7970,7 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
         }, {
             "_id": "r1bcuMrcM",
             "size": { "width": 200, "height": 200 },
-            "text": "do something",
+            "text": "do somethink",
             "position": { "x": 260, "y": 576 }
         }],
         newPostIt: function newPostIt() {
@@ -7961,14 +8002,14 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
             });
         }
     }
-}, (_applyDecoratedDescriptor(_obj, "appState", [asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "appState"), _init = _init ? _init.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj, "appState", [_rescopeSpells.asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "appState"), _init = _init ? _init.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init;
     }
-}), _obj), _applyDecoratedDescriptor(_obj, "someData", [asStateMap], (_init2 = Object.getOwnPropertyDescriptor(_obj, "someData"), _init2 = _init2 ? _init2.value : undefined, {
+}), _obj), _applyDecoratedDescriptor(_obj, "someData", [_rescopeSpells.asStateMap], (_init2 = Object.getOwnPropertyDescriptor(_obj, "someData"), _init2 = _init2 ? _init2.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,

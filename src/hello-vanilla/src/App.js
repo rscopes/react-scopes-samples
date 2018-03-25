@@ -32,7 +32,7 @@
  * Time: 11:08
  */
 import Rescope from "rescope";
-import StoreContext from "../StoresContext";
+import StoreContext from "./StoresContext";
 
 function NewsListComp( target = document.createElement('div') ) {
     

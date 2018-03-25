@@ -25,26 +25,26 @@
  * @contact : caipilabs@gmail.com
  */
 
-import React from "react";
-import shortid from "shortid";
-import "rescope-spells";
+import React              from "react";
+import shortid            from "shortid";
 import "react-rescope";
-import Rnd from 'react-rnd';
-import superagent from 'superagent';
-
-
-import Rescope, {Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, spells, Scope} from "rescope";
-import {renderToString} from "react-dom/server"
+import Rnd                from 'react-rnd';
+import superagent         from 'superagent';
+import {
+    Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, Scope
+}                         from "rescope";
+import {
+    asStateMap, asScope
+}                         from "rescope-spells";
+import { renderToString } from "react-dom/server"
 
 import "./App.scss"
 
 var indexTpl = require('./index.html.tpl');
-
-let { asStateMap, asScope } = spells;
-let ReactDom                = require('react-dom');
+let ReactDom = require('react-dom');
 
 
-@scopeToState(["appState", "someData"])
+@scopeToState([ "appState", "someData" ])
 class App extends React.Component {
     static AppScope  = {
         @asStateMap
@@ -54,7 +54,7 @@ class App extends React.Component {
         @asStateMap
         someData: {
             src  : "/api/hello",
-            items: [{
+            items: [ {
                 "_id"     : "rkUQHZrqM",
                 "size"    : { "width": 200, "height": 200 },
                 "text"    : "New Post It #0 somewhere we wait some new shit out there !",
@@ -62,24 +62,24 @@ class App extends React.Component {
             }, {
                 "_id"     : "r1bcuMrcM",
                 "size"    : { "width": 200, "height": 200 },
-                "text"    : "do something",
+                "text"    : "do somethink",
                 "position": { "x": 260, "y": 576 }
-            }],
+            } ],
             newPostIt() {
                 return {
-                    items: [...this.nextState.items, {
+                    items: [ ...this.nextState.items, {
                         _id : shortid.generate(),
                         size: {
                             width : 200,
                             height: 200
                         },
                         text: "New Post It #" + this.nextState.items.length
-                    }]
+                    } ]
                 }
             },
             updatePostIt( postIt ) {
                 let { items } = this.nextState;
-                items         = items.map(it => (it._id === postIt._id) ? postIt : it);
+                items         = items.map(it => ( it._id === postIt._id ) ? postIt : it);
                 
                 return {
                     items
@@ -131,7 +131,8 @@ class App extends React.Component {
         return [
             <h1>Really basic drafty rescope SSR example</h1>,
             someData.items.map(
-                note => <PostIt key={ note._id } record={ note } selected={ note._id == appState.selectedItemId }/>
+                note => <PostIt key={ note._id } record={ note }
+                                selected={ note._id == appState.selectedItemId }/>
             ),
             <div
                 className={ "newBtn button" }
@@ -147,7 +148,7 @@ class App extends React.Component {
     }
 }
 
-@propsToScope(["record"], { key: 'postIt' })
+@propsToScope([ "record" ], { key: 'postIt' })
 @scopeToProps(
     {
         @scopeRef// for fun
@@ -192,7 +193,8 @@ class PostIt extends React.Component {
                         !this.state.editing &&
                         <div className={ "text" }>
                             { text }
-                            <button onClick={ e => this.setState({ editing: true }) }>🖋</button>
+                            <button onClick={ e => this.setState({ editing: true }) }>🖋
+                            </button>
                         </div>
                         ||
                         <div className={ "editor" }>
@@ -206,7 +208,9 @@ class PostIt extends React.Component {
                                 } }
                                 onMouseDown={ e => e.stopPropagation() }
                             >{ text }</textarea>
-                            <button onClick={ e => this.setState({ editing: false }) }>💾</button>
+                            <button
+                                onClick={ e => this.setState({ editing: false }) }>💾
+                            </button>
                         </div>
                     }
                 </div>
