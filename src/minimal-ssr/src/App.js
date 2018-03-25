@@ -29,7 +29,10 @@ import React from "react";
 import shortid from "shortid";
 import "rescope-spells";
 import "react-rescope";
-import Draggable from 'react-draggable'; // The default
+import Rnd from 'react-rnd';
+import superagent from 'superagent';
+
+
 import Rescope, {Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, spells, Scope} from "rescope";
 import {renderToString} from "react-dom/server"
 
@@ -54,19 +57,16 @@ class App extends React.Component {
                 items: []
             };
             static actions = {
-                newPostIt() {
-                    let { items } = this.nextState,
-                        newPostIt = {
-                            _id  : shortid.generate(),
-                            style: {
-                                background: "red",
-                            },
-                            text : "New Post It"
-                        }
-                    return {
-                        items: [...items, newPostIt]
-                    }
-                },
+                newPostIt: () => ({
+                    items: [...this.nextState.items, {
+                        _id : shortid.generate(),
+                        size: {
+                            width : 200,
+                            height: 200
+                        },
+                        text: "New Post It #" + this.nextState.items.length
+                    }]
+                }),
                 updatePostIt( postIt ) {
                     let { items } = this.nextState;
                     items         = items.map(it => (it._id === postIt._id) ? postIt : it);
@@ -76,7 +76,10 @@ class App extends React.Component {
                     }
                 },
                 saveState() {
-                    console.log(this.scopeObj.serialize())
+                    superagent.post('/', this.scopeObj.serialize())
+                              .then(( e, r ) => {
+                                  console.log(e, r)
+                              })
                 }
             }
         }
@@ -140,44 +143,59 @@ class App extends React.Component {
 @propsToScope(["record"], { key: 'postIt' })
 @scopeToProps(
     {
+        @scopeRef// for fun
+        size    : "record.size",
         @scopeRef
-        pos : "record.pos",
+        position: "record.position",
         @scopeRef
-        text: "record.text"
+        text    : "record.text"
     })
 class PostIt extends React.Component {
-    handleStop = ( e, pos ) => {
-        let {
-                style, text, $actions, record
-            } = this.props;
-        
-        $actions.updatePostIt(
-            {
-                ...record,
-                pos: { x: pos.x, y: pos.y }
-            }
-        )
-    }
     
+    //shouldComponentUpdate( np ) {
+    //    console.warn("update");
+    //    Object.keys(np).forEach(
+    //        k => {
+    //            if ( np[k] !== this.props[k] )
+    //                console.warn(k);
+    //        }
+    //    )
+    //
+    //    return super.shouldComponentUpdate ? super.shouldComponentUpdate() : true;
+    //}
+    //
     render() {
         let {
-                pos, text, style
+                position, text, style, size, $actions, record
             } = this.props;
         return (
-            <Draggable
-                axis="both"
-                handle=".handle"
-                defaultPosition={ pos || { x: 0, y: 0 } }
-                //position={ null }
-                grid={ [25, 25] }
-                onStart={ this.handleStart }
-                onDrag={ this.handleDrag }
-                onStop={ this.handleStop }>
-                <div className={ "postit handle" }> {
-                    text
-                }!!!
+            <Rnd
+                style={ style }
+                size={ size }
+                position={ position }
+                onDragStop={ ( e, d ) => {
+                    $actions.updatePostIt(
+                        {
+                            ...record,
+                            position: { x: d.x, y: d.y }
+                        });
+                } }
+                onResize={ ( e, direction, ref, delta, position ) => {
+                    $actions.updatePostIt(
+                        {
+                            ...record,
+                            position,
+                            size: {
+                                width : ref.offsetWidth,
+                                height: ref.offsetHeight
+                            }
+                        });
+                } }>
+                <div className={ "postit handle" }>
+                    { text
+                    }!!!
                 </div>
-            </Draggable>
+            </Rnd>
         );
     }
 }
