@@ -54,7 +54,17 @@ class App extends React.Component {
         @asStateMap
         someData: {
             src  : "/api/hello",
-            items: [],
+            items: [{
+                "_id"     : "rkUQHZrqM",
+                "size"    : { "width": 200, "height": 200 },
+                "text"    : "New Post It #0 somewhere we wait some new shit out there !",
+                "position": { "x": 321, "y": 167 }
+            }, {
+                "_id"     : "r1bcuMrcM",
+                "size"    : { "width": 200, "height": 200 },
+                "text"    : "do something",
+                "position": { "x": 260, "y": 576 }
+            }],
             newPostIt() {
                 return {
                     items: [...this.nextState.items, {
@@ -159,7 +169,7 @@ class PostIt extends React.Component {
                 absolutePos
                 size={ size }
                 position={ position }
-                onDragStop={ ( e, d ) => {
+                onDrag={ ( e, d ) => {
                     $actions.updatePostIt(
                         {
                             ...record,

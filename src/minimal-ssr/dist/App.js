@@ -7921,7 +7921,17 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
 
     someData: {
         src: "/api/hello",
-        items: [],
+        items: [{
+            "_id": "rkUQHZrqM",
+            "size": { "width": 200, "height": 200 },
+            "text": "New Post It #0 somewhere we wait some new shit out there !",
+            "position": { "x": 321, "y": 167 }
+        }, {
+            "_id": "r1bcuMrcM",
+            "size": { "width": 200, "height": 200 },
+            "text": "do something",
+            "position": { "x": 260, "y": 576 }
+        }],
         newPostIt: function newPostIt() {
             return {
                 items: [].concat(_toConsumableArray(this.nextState.items), [{
@@ -8050,7 +8060,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                     absolutePos: true,
                     size: size,
                     position: position,
-                    onDragStop: function onDragStop(e, d) {
+                    onDrag: function onDrag(e, d) {
                         $actions.updatePostIt(_extends({}, record, {
                             position: { x: d.x, y: d.y }
                         }));
