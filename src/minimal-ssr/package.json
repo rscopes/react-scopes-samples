@@ -21,8 +21,8 @@
     "react-dom": "^16.2.0",
     "react-rescope": "^1.1.2",
     "request": "^2.85.0",
-    "rescope": "^3.6.5",
-    "rescope-spells": "^0.1.1",
+    "rescope": "^3.6.6",
+    "rescope-spells": "^0.1.2",
     "dot-tpl-loader": "^1.2.1",
     "superagent": "^3.8.2"
   },
