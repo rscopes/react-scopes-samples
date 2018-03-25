@@ -189,7 +189,7 @@ class PostIt extends React.Component {
                         </div>
                         ||
                         <div className={ "editor" }>
-                            <textarea onKeyPress={ e => {
+                            <textarea onChange={ e => {
                                 $actions.updatePostIt(
                                     {
                                         ...record,

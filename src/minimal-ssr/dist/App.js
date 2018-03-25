@@ -8084,7 +8084,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                         { className: "editor" },
                         _react2.default.createElement(
                             "textarea",
-                            { onKeyPress: function onKeyPress(e) {
+                            { onChange: function onChange(e) {
                                     $actions.updatePostIt(_extends({}, record, {
                                         text: e.target.value
                                     }));
