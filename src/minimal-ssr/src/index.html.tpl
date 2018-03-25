@@ -29,38 +29,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Really basic drafty vanilla JS example</title>
-    <script src="./App.js"></script>
+    <title>Really basic drafty rescope + react component example</title>
+    <script>window.__scopesState ={{=it.state || "{}"}};</script>
 </head>
 <body>
-<h1>Really basic drafty vanilla JS example</h1>
+<div id="app">{{=it.app || ''}}</div>
 
-<div style="border: solid 1px lightgrey;border-radius: 3px">
-    <b><u>
-        <button onclick="App.state.appState = {currentUserId:'MissTick'}">MissTick events</button>
-    </u></b>
-    <b><u>
-        <button onclick="App.state.appState = {currentUserId:'MrNice'}">MrNice events</button>
-    </u></b>
-</div>
-<pre id="status">Preloading...</pre>
-<div id="events"></div>
+<script src="./App.js"></script>
 <script>
-    var NewsList = new NewsListComp(document.getElementById("events"));
-    window.App   = new Rescope.Scope(StoreContext);
-
-
-    App.state.appState = { currentUserId: "MissTick" }
-
-    App.mount("userEvents").then(
-        function ( err, datas ) {
-
-            App.bind(NewsList, 'userEvents', true);
-            App.bind(function ( datas ) {
-                document.getElementById("status").innerHTML = JSON.stringify(datas, true, 2)
-            }, 'status', true);
-        }
-    );
+    App.renderTo(document.getElementById('app'));
 </script>
 </body>
 </html>
