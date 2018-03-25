@@ -155,35 +155,36 @@ module.exports    = [
         ),
     },
     {
-        entry  : {
+        entry    : {
             App: './src/App.js'
         },
-        target : 'node',
-        output : {
+        target   : 'node',
+        output   : {
             path         : __dirname + "/dist/",
             filename     : "[name].server.js",
             publicPath   : "/",
             libraryTarget: "commonjs2"
         },
-        devtool: 'source-map',
-        //target   : 'node', // in order to ignore built-in modules like path, fs, etc.
+        devtool  : 'source-map',
+        target   : 'async-node', // in order to ignore built-in modules like path, fs, etc.
         //externals:  ( str ) =>{
         //        let filep = path.resolve(str).substr(0, __dirname.length) == __dirname;
         //    console.log(str, __dirname, filep && !/node_modules/.test(str))
         //        return (filep && !/node_modules/.test(str))
         //    }
         //,//
-        //externals:  [nodeExternals(), 'rescope-spells', 'rescope', 'react'],
-        resolve: {
+        externals: [nodeExternals({ whitelist: ['rescope-spells', 'rescope'] })],
+        resolve  : {
             extensions: [
                 ".",
                 ".js",
                 ".json",
             ],
             modules   : [__dirname + '/node_modules', 'node_modules'],
-            alias     : {
-                // webpack bug : all modules deps can be duplicated if there are required in sub dir modules :(
-                //'rescope': path.join(__dirname, 'node_modules', 'rescope'),
+            alias: {
+                'inherits': 'inherits/inherits_browser.js',
+                'superagent': 'request',
+                'emitter': 'component-emitter',
             },
         },
         

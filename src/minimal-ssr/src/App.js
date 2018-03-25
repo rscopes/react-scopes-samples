@@ -88,29 +88,28 @@ class App extends React.Component {
     };
     static renderTo  = ( node ) => {
         let cScope = new Scope(App.AppScope, { id: "App" });
-        cScope.mount(
-            ["appState", "someData"]
-        ).then(
+        window.__scopesState && cScope.restore(window.__scopesState)
+        window.context = Scope.scopes;
+        cScope.then(
             ( err, state, context ) => {
                 ReactDom.render(<App __scope={ cScope }/>, node);
             }
         )
     }
     static renderSSR = ( cfg, cb ) => {
-        let cScope = new Scope(App.AppScope);
-        cScope.mount(
-            ["appState", "someData"]
-        ).then(
+        let cScope = new Scope(App.AppScope, { id: "App" });
+        cfg.state && cScope.restore(cfg.state)
+        console.log("!!",cScope.data.someData)
+        cScope.then(
             ( err, state, context ) => {
                 let html;
                 try {
                     html = indexTpl.render(
                         {
                             app  : renderToString(<App __scope={ cScope }/>),
-                            state: JSON.stringify(cScope.serialize({ alias: "App" }))
+                            state: JSON.stringify(cfg.state || cScope.serialize({ alias: "App" }))
                         }
                     );
-                    console.log(html)
                 } catch ( e ) {
                     return cb(e)
                 }
@@ -126,7 +125,7 @@ class App extends React.Component {
         return [
             <h1>Really basic drafty rescope SSR example</h1>,
             someData.items.map(
-                note => <PostIt record={ note } selected={ note._id == appState.selectedItemId }/>
+                note => <PostIt key={ note._id } record={ note } selected={ note._id == appState.selectedItemId }/>
             ),
             <div
                 className={ "newBtn button" }
@@ -168,11 +167,12 @@ class PostIt extends React.Component {
     
     render() {
         let {
-                position, text, style, size, $actions, record
+                position, text, size, $actions, record
             } = this.props;
+        console.log( position, text, size)
         return (
             <Rnd
-                style={ style }
+                absolutePos
                 size={ size }
                 position={ position }
                 onDragStop={ ( e, d ) => {
