@@ -173,7 +173,7 @@ module.exports    = [
         //        return (filep && !/node_modules/.test(str))
         //    }
         //,//
-        externals: [nodeExternals({ whitelist: ['rescope-spells', 'rescope'] })],
+        //externals: [nodeExternals({ whitelist: ['rescope-spells', 'rescope'] })],
         resolve  : {
             extensions: [
                 ".",

@@ -86,7 +86,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 33);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -329,9 +329,9 @@ module.exports = emptyFunction;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(57);
+  module.exports = __webpack_require__(51);
 } else {
-  module.exports = __webpack_require__(56);
+  module.exports = __webpack_require__(50);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -660,7 +660,7 @@ module.exports = checkPropTypes;
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(63);
+var randomFromSeed = __webpack_require__(57);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -918,7 +918,7 @@ module.exports =
 /* 1 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(16);
+	module.exports = __webpack_require__(15);
 
 	/***/
 },
@@ -3711,9 +3711,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(54);
+  module.exports = __webpack_require__(48);
 } else {
-  module.exports = __webpack_require__(53);
+  module.exports = __webpack_require__(47);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -3734,7 +3734,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-var hyphenate = __webpack_require__(44);
+var hyphenate = __webpack_require__(38);
 
 var msPattern = /^ms-/;
 
@@ -4592,33 +4592,11 @@ module.exports = ReactPropTypesSecret;
 
 "use strict";
 
-module.exports = __webpack_require__(60);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Check if `obj` is an object.
- *
- * @param {Object} obj
- * @return {Boolean}
- * @api private
- */
-
-function isObject(obj) {
-  return null !== obj && 'object' === typeof obj;
-}
-
-module.exports = isObject;
-
-
-/***/ }),
-/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4738,7 +4716,7 @@ module.exports =
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4819,7 +4797,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4858,7 +4836,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4873,7 +4851,7 @@ module.exports = ExecutionEnvironment;
 
 
 
-var camelize = __webpack_require__(43);
+var camelize = __webpack_require__(37);
 
 var msPattern = /^-ms-/;
 
@@ -4901,7 +4879,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4916,7 +4894,7 @@ module.exports = camelizeStyleName;
  * 
  */
 
-var isTextNode = __webpack_require__(46);
+var isTextNode = __webpack_require__(40);
 
 /*eslint-disable no-bitwise */
 
@@ -4944,7 +4922,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4974,7 +4952,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5016,7 +4994,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5049,7 +5027,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5120,13 +5098,13 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var randomByte = __webpack_require__(62);
+var randomByte = __webpack_require__(56);
 
 function encode(lookup, number) {
     var loopCounter = 0;
@@ -5146,11 +5124,1669 @@ module.exports = encode;
 
 
 /***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Check if `obj` is an object.
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isObject(obj) {
+  return null !== obj && 'object' === typeof obj;
+}
+
+module.exports = isObject;
+
+
+/***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
-var content = __webpack_require__(33);
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/function (modules) {
+	// webpackBootstrap
+	/******/ // The module cache
+	/******/var installedModules = {};
+	/******/
+	/******/ // The require function
+	/******/function __webpack_require__(moduleId) {
+		/******/
+		/******/ // Check if module is in cache
+		/******/if (installedModules[moduleId])
+			/******/return installedModules[moduleId].exports;
+		/******/
+		/******/ // Create a new module (and put it into the cache)
+		/******/var module = installedModules[moduleId] = {
+			/******/exports: {},
+			/******/id: moduleId,
+			/******/loaded: false
+			/******/ };
+		/******/
+		/******/ // Execute the module function
+		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+		/******/
+		/******/ // Flag the module as loaded
+		/******/module.loaded = true;
+		/******/
+		/******/ // Return the exports of the module
+		/******/return module.exports;
+		/******/
+	}
+	/******/
+	/******/
+	/******/ // expose the modules object (__webpack_modules__)
+	/******/__webpack_require__.m = modules;
+	/******/
+	/******/ // expose the module cache
+	/******/__webpack_require__.c = installedModules;
+	/******/
+	/******/ // __webpack_public_path__
+	/******/__webpack_require__.p = "/";
+	/******/
+	/******/ // Load entry module and return exports
+	/******/return __webpack_require__(0);
+	/******/
+}(
+/************************************************************************/
+/******/[
+/* 0 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	__webpack_require__(1);
+
+	var _index = __webpack_require__(2);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	var _ReactHocs = __webpack_require__(3);
+
+	var RTools = _interopRequireWildcard(_ReactHocs);
+
+	function _interopRequireWildcard(obj) {
+		if (obj && obj.__esModule) {
+			return obj;
+		} else {
+			var newObj = {};if (obj != null) {
+				for (var key in obj) {
+					if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+				}
+			}newObj.default = obj;return newObj;
+		}
+	}
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	_index2.default.Component = RTools.Component; /*
+                                                * Copyright (c)  2018 Wise Wild Web .
+                                                *
+                                                *  MIT License
+                                                *
+                                                *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                *  of this software and associated documentation files (the "Software"), to deal
+                                                *  in the Software without restriction, including without limitation the rights
+                                                *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                *  copies of the Software, and to permit persons to whom the Software is
+                                                *  furnished to do so, subject to the following conditions:
+                                                *
+                                                *  The above copyright notice and this permission notice shall be included in all
+                                                *  copies or substantial portions of the Software.
+                                                *
+                                                *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                                *  SOFTWARE.
+                                                *
+                                                * @author : Nathanael Braun
+                                                * @contact : caipilabs@gmail.com
+                                                */
+
+	_index2.default.reScopeProps = RTools.reScopeProps;
+	_index2.default.scopeToProps = RTools.reScopeProps;
+	_index2.default.propsToScope = RTools.propsToScope;
+	exports.default = _index2.default;
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 1 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(9);
+
+	/***/
+},
+/* 2 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(15);
+
+	/***/
+},
+/* 3 */
+/***/function (module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.propsToScope = exports.reScopeProps = exports.Component = exports.default = undefined;
+
+	var _extends = Object.assign || function (target) {
+		for (var i = 1; i < arguments.length; i++) {
+			var source = arguments[i];for (var key in source) {
+				if (Object.prototype.hasOwnProperty.call(source, key)) {
+					target[key] = source[key];
+				}
+			}
+		}return target;
+	};
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
+
+	var _get = function get(object, property, receiver) {
+		if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				return get(parent, property, receiver);
+			}
+		} else if ("value" in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	};
+
+	var _class, _temp; /*
+                     * Copyright (c)  2018 Wise Wild Web .
+                     *
+                     *  MIT License
+                     *  
+                     *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                     *  of this software and associated documentation files (the "Software"), to deal
+                     *  in the Software without restriction, including without limitation the rights
+                     *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                     *  copies of the Software, and to permit persons to whom the Software is
+                     *  furnished to do so, subject to the following conditions:
+                     *  
+                     *  The above copyright notice and this permission notice shall be included in all
+                     *  copies or substantial portions of the Software.
+                     *  
+                     *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                     *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                     *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                     *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                     *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                     *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                     *  SOFTWARE.
+                     *  
+                     * @author : Nathanael Braun
+                     * @contact : caipilabs@gmail.com
+                     */
+
+	__webpack_require__(1);
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _is = __webpack_require__(5);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	var _propTypes = __webpack_require__(6);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	var _index = __webpack_require__(2);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _toConsumableArray(arr) {
+		if (Array.isArray(arr)) {
+			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+				arr2[i] = arr[i];
+			}return arr2;
+		} else {
+			return Array.from(arr);
+		}
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var SimpleObjectProto = {}.constructor;
+
+	/**
+  * Inheritable ReScope "HOC" (High Order Component)
+  *
+  * @class Component
+  * @desc Parent React Component with store injection in its state
+  */
+	var Component = (_temp = _class = function (_React$Component) {
+		_inherits(Component, _React$Component);
+
+		function Component(p, ctx, q) {
+			_classCallCheck(this, Component);
+
+			var _this = _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).call(this, p, ctx, q));
+
+			var scope = p.__scope || ctx.rescope;
+			_this.$scope = scope;
+
+			if (_this.$scope && _this.$scope.dead) {
+				console.error("ReScoping using dead scope");
+				_this.$scope = null;
+			}
+
+			_this.$stores = _this.$scope && _this.$scope.stores;
+			if (_this.constructor.use) {
+				_this.state = _extends({}, _this.state, scope.map(_this, _this.constructor.use || [], false));
+			} else if (!_this.$scope) _this.render = function () {
+				return _react2.default.createElement('div', null, 'No Rescope here ', _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'name', _this));
+			};
+			return _this;
+		}
+
+		_createClass(Component, [{
+			key: 'dispatch',
+			value: function dispatch() {
+				var _$scope;
+
+				this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
+			}
+		}, {
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				if (this.constructor.use) {
+					this.$scope.bind(this, this.constructor.use || [], false);
+				}
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				this.constructor.use && this.$scope.unBind(this, this.constructor.use || []);
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(np, nc) {
+				var nScope = np.__scope || nc.rescope || this.$scope;
+
+				if (nScope != this.$scope) {
+					this.constructor.use && this.$scope.unBind(this, this.constructor.use);
+					this.$scope = nScope;
+
+					if (this.$scope && this.$scope.dead) {
+						console.error("ReScoping using dead scope");
+						this.$stores = this.$scope = null;
+					} else {
+						this.$stores = this.$scope.stores;
+						this.constructor.use && nScope.bind(this, this.constructor.use);
+					}
+				}
+			}
+		}, {
+			key: 'getChildContext',
+			value: function getChildContext() {
+				return {
+					rescope: this.$scope || this.context.rescope,
+					$stores: this.$scope.stores || this.context.$stores
+				};
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return this.props.children || _react2.default.createElement('div', null);
+			}
+		}]);
+
+		return Component;
+	}(_react2.default.Component), _class.childContextTypes = {
+		rescope: _propTypes2.default.object,
+		$stores: _propTypes2.default.object
+	}, _class.contextTypes = {
+		rescope: _propTypes2.default.object,
+		$stores: _propTypes2.default.object
+	}, _temp);
+	;
+
+	/**
+  * Return a React "HOC" (High Order Component) that :
+  *  - Inject & maintain the stores listed baseComponent::use and/or (use) in the instances props.
+  *  - Propag (scope) in the returned React Component context
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched ( default : the default
+  *     ReScope::Scope::scopes.static scope )
+  * @param use {array} the list of stores to inject from the current scope
+  * @returns {ReScopeProvider}
+  */
+	function reScopeProps() {
+		var _class2, _temp2;
+
+		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+			argz[_key] = arguments[_key];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+		    scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
+		    use = (!argz[0] || _is2.default.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
+
+		if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
+			return function (BaseComponent) {
+				return reScopeProps(BaseComponent, scope, use);
+			};
+		}
+
+		var provider = reScopeToState((_temp2 = _class2 = function (_React$Component2) {
+			_inherits(ReScopePropsProvider, _React$Component2);
+
+			function ReScopePropsProvider() {
+				_classCallCheck(this, ReScopePropsProvider);
+
+				return _possibleConstructorReturn(this, (ReScopePropsProvider.__proto__ || Object.getPrototypeOf(ReScopePropsProvider)).apply(this, arguments));
+			}
+
+			_createClass(ReScopePropsProvider, [{
+				key: 'getChildContext',
+				value: function getChildContext() {
+					return this.context;
+				}
+			}, {
+				key: 'render',
+				value: function render() {
+					return _react2.default.createElement(BaseComponent, _extends({}, this.props, this.state, {
+						$dispatch: this.$dispatch,
+						$actions: this.$actions,
+						$stores: this.$stores }));
+				}
+			}]);
+
+			return ReScopePropsProvider;
+		}(_react2.default.Component), _class2.use = BaseComponent.use, _class2.childContextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class2.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _temp2), scope, use);
+		provider.displayName = "propsScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")";
+		return provider;
+	}
+
+	/**
+  * Return a React "HOC" (High Order Component) that :
+  *  - Inherit BaseComponent,
+  *  - Inject & maintain the stores in BaseComponent::use and/or (use) in the instances state.
+  *  - Propag (scope) in the returned React Component context
+  *
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched
+  * @param use {array} the list of stores injected from the current scope
+  * @param additionalContext {Object} context to be propagated
+  * @returns {ReScopeProvider}
+  */
+	function reScopeToState() {
+		var _class3, _temp3;
+
+		for (var _len2 = arguments.length, argz = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+			argz[_key2] = arguments[_key2];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+		    scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
+		    use = _is2.default.array(argz[0]) && argz.shift(),
+		    stateMap = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
+		    additionalContext = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
+		    initialState = {};
+
+		use = [].concat(_toConsumableArray(BaseComponent.use || []), _toConsumableArray(use || []));
+		stateMap && _index.Scope.stateMapToRefList(stateMap, initialState, use);
+
+		additionalContext = additionalContext && Object.keys(additionalContext).reduce(function (h, k) {
+			return h[k] = _propTypes2.default.any, h;
+		}, {}) || {};
+
+		var ReScopeProvider = (_temp3 = _class3 = function (_BaseComponent) {
+			_inherits(ReScopeProvider, _BaseComponent);
+
+			function ReScopeProvider(p, ctx, q) {
+				_classCallCheck(this, ReScopeProvider);
+
+				var _this3 = _possibleConstructorReturn(this, (ReScopeProvider.__proto__ || Object.getPrototypeOf(ReScopeProvider)).call(this, p, ctx, q));
+
+				_this3.$scope = _this3.$scope || p.__scope || _is2.default.fn(scope) && scope(_this3, p, ctx) || scope || ctx.rescope;
+
+				if (_this3.$scope && _this3.$scope.dead) {
+					console.error("ReScoping using dead scope");
+					_this3.$scope = null;
+				}
+
+				_this3.$scope && _is2.default.fn(scope) && _this3.$scope.retain("hoc");
+
+				_this3.$stores = _this3.$scope && _this3.$scope.stores;
+				_this3.$actions = _this3.$scope && _this3.$scope.actions;
+				if (_this3.$scope && use.length) {
+					_this3.state = _extends({}, _this3.state, initialState, _this3.$scope.map(_this3, use, false));
+				} else if (!_this3.$scope) _this3.render = function () {
+					return _react2.default.createElement('div', null, 'No Scope found in ', BaseComponent.name);
+				};
+
+				_this3.$dispatch = _this3.$dispatch.bind(_this3);
+				return _this3;
+			}
+
+			_createClass(ReScopeProvider, [{
+				key: '$dispatch',
+				value: function $dispatch() {
+					var _$scope2;
+
+					this.$scope && (_$scope2 = this.$scope).dispatch.apply(_$scope2, arguments);
+				}
+			}, {
+				key: 'componentWillMount',
+				value: function componentWillMount() {
+					if (use.length) {
+						this.$scope.bind(this, use, false);
+					}
+					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this).call(this);
+				}
+			}, {
+				key: 'componentWillUnmount',
+				value: function componentWillUnmount() {
+
+					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+					if (this.$scope && !this.$scope.dead) {
+						use.length && this.$scope.unBind(this, use);
+						_is2.default.fn(scope) && this.$scope.dispose("hoc");
+					}
+				}
+			}, {
+				key: 'componentWillReceiveProps',
+				value: function componentWillReceiveProps(np, nc) {
+					var nScope = np.__scope || scope && this.$scope || nc.rescope || this.$scope;
+
+					if (nScope != this.$scope) {
+						use.length && this.$scope.unBind(this, use);
+						this.$scope = nScope;
+
+						if (this.$scope && this.$scope.dead) {
+							console.error("ReScoping using dead scope");
+							this.$actions = this.$stores = this.$scope = null;
+						} else {
+							this.$actions = this.$scope.actions;
+							this.$stores = this.$scope.stores;
+							use.length && nScope.bind(this, use);
+						}
+					}
+					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this).call(this, np, nc);
+				}
+			}, {
+				key: 'getChildContext',
+				value: function getChildContext() {
+					var ctx = _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+					return _extends({}, ctx, {
+						rescope: this.$scope || this.context.rescope,
+						$stores: this.$scope.stores || this.context.$stores
+					});
+				}
+			}]);
+
+			return ReScopeProvider;
+		}(BaseComponent), _class3.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, additionalContext, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class3.contextTypes = _extends({}, BaseComponent.contextTypes || {}, additionalContext, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class3.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class3.displayName = "stateScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")", _temp3);
+
+		return ReScopeProvider;
+	}
+
+	(0, _index.addScopableType)(function (Comp) {
+		return Comp && Comp.prototype instanceof _react2.default.Component;
+	}, reScopeToState, false, true);
+
+	/**
+  * Return a React "HOC" (High Order Component) that :
+  *  - Render BaseComponent with new scope that inherit the given scope or context scope
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+  * @param storesMap {Object} the propagated Scope where the stores will be searched
+  * @param parentScope {Scope} the propagated Scope where the stores will be searched
+  * @param parentScopeId {string} the propagated Scope where the stores will be searched
+  * @param additionalContext {Object} context to be propagated
+  * @returns {*}
+  */
+	function reScope() {
+		var _class4, _temp4;
+
+		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			argz[_key3] = arguments[_key3];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+		    scoped = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(argz[0] instanceof _index.Scope)) && argz.shift(),
+		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
+		    parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
+		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
+
+		var compName = BaseComponent.displayName || BaseComponent.name;
+
+		var ScopeProvider = (_temp4 = _class4 = function (_BaseComponent2) {
+			_inherits(ScopeProvider, _BaseComponent2);
+
+			function ScopeProvider(p, ctx, q) {
+				_classCallCheck(this, ScopeProvider);
+
+				var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
+				    $scope = new _index.Scope(scoped || {}, _extends({
+					autoDestroy: true,
+					key: compName,
+					parent: _parent
+				}, scopeCfg));
+
+				var _this4 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
+
+				_this4.$scope = _this4.$scope || $scope;
+
+				if (!_this4.$scope) {
+					if (_this4.$scope && _this4.$scope.dead) {
+						console.error("Scoping using dead scope parent");
+						_this4.$scope = null;
+					}
+
+					_this4.$scope = new _index.Scope(scoped || {}, {
+						autoDestroy: true,
+						key: compName,
+						parent: _this4.$scope
+					});
+
+					_this4.$actions = _this4.$scope && _this4.$scope.actions;
+					_this4.$stores = _this4.$scope && _this4.$scope.stores;
+				}
+				_this4.$scope.retain();
+				return _this4;
+			}
+
+			_createClass(ScopeProvider, [{
+				key: 'componentWillUnmount',
+				value: function componentWillUnmount() {
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+					this.$scope && this.$scope.dispose();
+				}
+			}, {
+				key: 'getChildContext',
+				value: function getChildContext() {
+					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+					return _extends({}, ctx, {
+						rescope: this.$scope,
+						$stores: this.$scope.stores
+					});
+				}
+			}]);
+
+			return ScopeProvider;
+		}(BaseComponent), _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class4.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class4.displayName = "scoped(" + compName + ")", _temp4);
+
+		return ScopeProvider;
+	}
+
+	/**
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+  * @param storesMap {Object} the propagated Scope where the stores will be searched
+  * @param parentScope {Scope} the propagated Scope where the stores will be searched
+  * @param parentScopeId {string} the propagated Scope where the stores will be searched
+  * @param additionalContext {Object} context to be propagated
+  * @returns {*}
+  */
+	function propsToScope() {
+		var _class5, _temp5;
+
+		for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+			argz[_key4] = arguments[_key4];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+		    scopedProps = (!argz[0] || _is2.default.array(argz[0])) && argz.shift() || [],
+		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
+		    parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
+		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
+
+		var compName = BaseComponent.displayName || BaseComponent.name;
+
+		if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
+			return function (BaseComponent) {
+				return propsToScope(BaseComponent, scopedProps, scopeCfg, parent, parentId);
+			};
+		}
+
+		var ScopeProvider = (_temp5 = _class5 = function (_React$Component3) {
+			_inherits(ScopeProvider, _React$Component3);
+
+			function ScopeProvider(p, ctx, q) {
+				_classCallCheck(this, ScopeProvider);
+
+				var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
+				    $scope = new _index.Scope(_extends({}, scopedProps.reduce(function (h, k) {
+					return h[k] = _index.Store, h;
+				}, {})), _extends({
+					autoDestroy: true,
+					key: compName,
+					parent: _parent
+				}, scopeCfg, {
+					state: scopedProps.reduce(function (h, k) {
+						return h[k] = p[k], h;
+					}, {})
+				}));
+
+				var _this5 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
+
+				_this5.$scope = _this5.$scope || $scope;
+				_this5.$actions = _this5.$scope && _this5.$scope.actions;
+				_this5.$stores = _this5.$scope && _this5.$scope.stores;
+				_this5.$scope.retain();
+				return _this5;
+			}
+
+			_createClass(ScopeProvider, [{
+				key: 'componentWillReceiveProps',
+				value: function componentWillReceiveProps(np) {
+					var _this6 = this;
+
+					scopedProps.forEach(function (p) {
+						return _this6.props[p] !== np[p] && _this6.$stores[p].setState(np[p]);
+					});
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
+				}
+			}, {
+				key: 'componentWillUnmount',
+				value: function componentWillUnmount() {
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+					this.$scope && this.$scope.dispose();
+				}
+			}, {
+				key: 'getChildContext',
+				value: function getChildContext() {
+					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+					return _extends({}, ctx, {
+						rescope: this.$scope,
+						$stores: this.$scope.stores
+					});
+				}
+			}, {
+				key: 'render',
+				value: function render() {
+					var _this7 = this;
+
+					var fProps = Object.keys(this.props).reduce(function (h, k) {
+						return !scopedProps.includes(k) && (h[k] = _this7.props[k]), h;
+					}, {});
+					return _react2.default.createElement(BaseComponent, _extends({}, fProps, this.state, {
+						$dispatch: this.$dispatch,
+						$actions: this.$actions,
+						$stores: this.$stores }));
+				}
+			}]);
+
+			return ScopeProvider;
+		}(_react2.default.Component), _class5.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class5.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class5.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class5.displayName = "scoped(" + compName + ")", _temp5);
+
+		return ScopeProvider;
+	}
+
+	(0, _index.addScopableType)(function (Comp) {
+		return Comp && Comp.prototype instanceof _react2.default.Component;
+	}, reScope);
+
+	exports.default = Component;
+	exports.Component = Component;
+	exports.reScopeProps = reScopeProps;
+	exports.propsToScope = propsToScope;
+
+	/***/
+},
+/* 4 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(2);
+
+	/***/
+},
+/* 5 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(12);
+
+	/***/
+},
+/* 6 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(43);
+
+	/***/
+}]
+/******/);
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/function (modules) {
+	// webpackBootstrap
+	/******/ // The module cache
+	/******/var installedModules = {};
+	/******/
+	/******/ // The require function
+	/******/function __webpack_require__(moduleId) {
+		/******/
+		/******/ // Check if module is in cache
+		/******/if (installedModules[moduleId])
+			/******/return installedModules[moduleId].exports;
+		/******/
+		/******/ // Create a new module (and put it into the cache)
+		/******/var module = installedModules[moduleId] = {
+			/******/exports: {},
+			/******/id: moduleId,
+			/******/loaded: false
+			/******/ };
+		/******/
+		/******/ // Execute the module function
+		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+		/******/
+		/******/ // Flag the module as loaded
+		/******/module.loaded = true;
+		/******/
+		/******/ // Return the exports of the module
+		/******/return module.exports;
+		/******/
+	}
+	/******/
+	/******/
+	/******/ // expose the modules object (__webpack_modules__)
+	/******/__webpack_require__.m = modules;
+	/******/
+	/******/ // expose the module cache
+	/******/__webpack_require__.c = installedModules;
+	/******/
+	/******/ // __webpack_public_path__
+	/******/__webpack_require__.p = "/";
+	/******/
+	/******/ // Load entry module and return exports
+	/******/return __webpack_require__(0);
+	/******/
+}(
+/************************************************************************/
+/******/[
+/* 0 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	__webpack_require__(1);
+
+	__webpack_require__(4);
+
+	/***/
+},
+/* 1 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(2);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	// will use as external the index in dist
+
+	/*
+  * Copyright (c)  2018 Wise Wild Web .
+  *
+  *  MIT License
+  *
+  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+  *  of this software and associated documentation files (the "Software"), to deal
+  *  in the Software without restriction, including without limitation the rights
+  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  *  copies of the Software, and to permit persons to whom the Software is
+  *  furnished to do so, subject to the following conditions:
+  *
+  *  The above copyright notice and this permission notice shall be included in all
+  *  copies or substantial portions of the Software.
+  *
+  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  *  SOFTWARE.
+  *
+  * @author : Nathanael Braun
+  * @contact : caipilabs@gmail.com
+  */
+	var SimpleObjectProto = {}.constructor;
+	_rescope2.default.spells = {};
+
+	var castTypesToAppliable = {};
+	var castTypes = {};
+
+	_rescope2.default.isSpell = function caster() {
+		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+			argz[_key] = arguments[_key];
+		}
+
+		// are we decorating a member / without argz
+		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+			argz[2].value = addCaster(argz[0][argz[1]], argz);
+			return argz[0];
+		} else if (!_is2.default.fn(argz[0])) {
+			return function () {
+				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+					argz2[_key2] = arguments[_key2];
+				}
+
+				// are we decorating a member / with argz
+				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+					return argz2[0];
+				} else return caster.apply(undefined, [argz2[0]].concat(argz));
+			};
+		}
+		return addCaster.apply(undefined, argz);
+	};
+
+	function addCaster() {
+		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			argz[_key3] = arguments[_key3];
+		}
+
+		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+		if (!cast) throw "ReScope cast : bad decorator function";
+		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+
+		if (!castTypesToAppliable[typeName]) {
+			castTypesToAppliable[typeName] = [];
+
+			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+					argz[_key4] = arguments[_key4];
+				}
+
+				// are we decorating a member / without argz
+				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+					return argz[0];
+				} else if (!isCastableType(typeName, argz[0])) {
+					return function () {
+						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+							argz2[_key5] = arguments[_key5];
+						}
+
+						// are we decorating a member / with argz
+						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+							return argz2[0];
+						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
+					};
+				}
+				return applyCastableType(typeName, argz[0], argz.slice(1));
+			};
+		}
+		castTypesToAppliable[typeName].unshift({
+			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+		});
+		return cast;
+	}
+
+	function isCastableType(typeName, Comp, member, stateScope) {
+		var castable = castTypesToAppliable[typeName];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+		}return false;
+	}
+
+	function applyCastableType(typeName, Comp, argz, member, stateScope) {
+
+		var castable = castTypesToAppliable[typeName] || [];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+		}console.warn("reScope cast : Unknown type", typeName, Comp);
+		return false;
+	}
+
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 2 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(9);
+
+	/***/
+},
+/* 3 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(12);
+
+	/***/
+},
+/* 4 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _dec, _dec2, _desc, _value, _obj; /*
+                                        * Copyright (c)  2018 Wise Wild Web .
+                                        *
+                                        *  MIT License
+                                        *
+                                        *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                        *  of this software and associated documentation files (the "Software"), to deal
+                                        *  in the Software without restriction, including without limitation the rights
+                                        *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                        *  copies of the Software, and to permit persons to whom the Software is
+                                        *  furnished to do so, subject to the following conditions:
+                                        *
+                                        *  The above copyright notice and this permission notice shall be included in all
+                                        *  copies or substantial portions of the Software.
+                                        *
+                                        *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                        *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                        *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                        *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                        *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                        *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                        *  SOFTWARE.
+                                        *
+                                        * @author : Nathanael Braun
+                                        * @contact : caipilabs@gmail.com
+                                        */
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	var _rescope = __webpack_require__(2);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+		var desc = {};
+		Object['ke' + 'ys'](descriptor).forEach(function (key) {
+			desc[key] = descriptor[key];
+		});
+		desc.enumerable = !!desc.enumerable;
+		desc.configurable = !!desc.configurable;
+
+		if ('value' in desc || desc.initializer) {
+			desc.writable = true;
+		}
+
+		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+			return decorator(target, property, desc) || desc;
+		}, desc);
+
+		if (context && desc.initializer !== void 0) {
+			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+			desc.initializer = undefined;
+		}
+
+		if (desc.initializer === void 0) {
+			Object['define' + 'Property'](target, property, desc);
+			desc = null;
+		}
+
+		return desc;
+	}
+
+	var all = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
+		return _is2.default.object(v) || _is2.default.string(v);
+	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
+		return _is2.default.object(v);
+	}), (_obj = {
+		stateMap: function stateMap(obj, _ref, ref) {
+			var _class, _temp;
+
+			var cfg = _ref[0];
+
+			var use = [],
+			    state = {};
+			_rescope.Scope.stateMapToRefList(obj, state, use);
+			return _temp = _class = function (_Store) {
+				_inherits(StateMap, _Store);
+
+				function StateMap() {
+					_classCallCheck(this, StateMap);
+
+					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
+				}
+
+				return StateMap;
+			}(_rescope.Store), _class.use = use, _class.state = state, _class.displayName = ref[1], _temp;
+		},
+		scope: function scope(obj, _ref2, ref) {
+			var cfg = _ref2[0];
+
+			return _rescope.Scope.bind(null, obj, cfg);
+		}
+	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
+
+	/***/
+}]
+/******/);
+//# sourceMappingURL=rescopeSpells.js.map
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports = (function () {
+  var fn = function anonymous(it
+/**/) {
+var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT License ~ ~  Permission is hereby granted, free of charge, to any person obtaining a copy ~  of this software and associated documentation files (the "Software"), to deal ~  in the Software without restriction, including without limitation the rights ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell ~  copies of the Software, and to permit persons to whom the Software is ~  furnished to do so, subject to the following conditions: ~ ~  The above copyright notice and this permission notice shall be included in all ~  copies or substantial portions of the Software. ~ ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE ~  SOFTWARE. ~ ~ @author : Nathanael Braun ~ @contact : caipilabs@gmail.com --><html lang="en"><head> <meta charset="UTF-8"> <title>Really basic drafty rescope + react component example</title> <script>window.__scopesState ='+(it.state || "{}")+';</script></head><body><div id="app">'+(it.app || '')+'</div><script src="./App.js"></script><script> App.renderTo(document.getElementById(\'app\'));</script></body></html>';return out;
+};
+  fn.render = fn;
+  return fn;
+})();
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(46);
+} else {
+  module.exports = __webpack_require__(45);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(44);
+
+
+
+
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+var resizableStyle = {
+  width: 'auto',
+  height: 'auto',
+  display: 'inline-block',
+  position: 'absolute',
+  top: 0,
+  left: 0
+};
+
+var Rnd = function (_React$Component) {
+  inherits(Rnd, _React$Component);
+
+  function Rnd(props) {
+    classCallCheck(this, Rnd);
+
+    var _this = possibleConstructorReturn(this, (Rnd.__proto__ || Object.getPrototypeOf(Rnd)).call(this, props));
+
+    _this.state = {
+      z: props.z,
+      original: {
+        x: 0,
+        y: 0
+      },
+      bounds: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+      },
+      maxWidth: props.maxWidth,
+      maxHeight: props.maxHeight,
+      isMounted: false
+    };
+    _this.onResizeStart = _this.onResizeStart.bind(_this);
+    _this.onResize = _this.onResize.bind(_this);
+    _this.onResizeStop = _this.onResizeStop.bind(_this);
+    _this.onDragStart = _this.onDragStart.bind(_this);
+    _this.onDrag = _this.onDrag.bind(_this);
+    _this.onDragStop = _this.onDragStop.bind(_this);
+    _this.getMaxSizesFromProps = _this.getMaxSizesFromProps.bind(_this);
+    return _this;
+  }
+
+  createClass(Rnd, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.props.z !== nextProps.z) {
+        this.setState({ z: nextProps.z });
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.setParentPosition();
+    }
+  }, {
+    key: 'getParentSize',
+    value: function getParentSize() {
+      return this.resizable.getParentSize();
+    }
+  }, {
+    key: 'getMaxSizesFromProps',
+    value: function getMaxSizesFromProps() {
+      var maxWidth = typeof this.props.maxWidth === 'undefined' ? Number.MAX_SAFE_INTEGER : this.props.maxWidth;
+      var maxHeight = typeof this.props.maxHeight === 'undefined' ? Number.MAX_SAFE_INTEGER : this.props.maxHeight;
+      return { maxWidth: maxWidth, maxHeight: maxHeight };
+    }
+  }, {
+    key: 'getSelfElement',
+    value: function getSelfElement() {
+      if (!this) return null;
+      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_dom__["findDOMNode"])(this);
+    }
+  }, {
+    key: 'setParentPosition',
+    value: function setParentPosition() {
+      var element = this.getSelfElement();
+      if (element instanceof Element) {
+        var parent = element.parentNode;
+        if (!parent || typeof window === 'undefined') return;
+        if (!(parent instanceof HTMLElement)) return;
+        if (getComputedStyle(parent).position !== 'static') {
+          this.setState({ isMounted: true });
+          return;
+        }
+        parent.style.position = 'relative';
+        this.setState({ isMounted: true });
+      }
+    }
+  }, {
+    key: 'onDragStart',
+    value: function onDragStart(e, data) {
+      if (this.props.onDragStart) {
+        this.props.onDragStart(e, data);
+      }
+      if (!this.props.bounds) return;
+      var parent = this.resizable && this.resizable.parentNode;
+      var target = this.props.bounds === 'parent' ? parent : document.querySelector(this.props.bounds);
+      if (!(target instanceof HTMLElement) || !(parent instanceof HTMLElement)) {
+        return;
+      }
+      var targetRect = target.getBoundingClientRect();
+      var targetLeft = targetRect.left;
+      var targetTop = targetRect.top;
+      var parentRect = parent.getBoundingClientRect();
+      var parentLeft = parentRect.left;
+      var parentTop = parentRect.top;
+      var left = targetLeft - parentLeft;
+      var top = targetTop - parentTop;
+      if (!this.resizable) return;
+      this.setState({
+        bounds: {
+          top: top,
+          right: left + (target.offsetWidth - this.resizable.size.width),
+          bottom: this.props._freeBottomBounds // eslint-disable-line
+          ? 2147483647 : top + (target.offsetHeight - this.resizable.size.height),
+          left: left
+        }
+      });
+    }
+  }, {
+    key: 'onDrag',
+    value: function onDrag(e, data) {
+      if (this.props.onDrag) {
+        this.props.onDrag(e, data);
+      }
+    }
+  }, {
+    key: 'onDragStop',
+    value: function onDragStop(e, data) {
+      if (this.props.onDragStop) {
+        this.props.onDragStop(e, data);
+      }
+    }
+  }, {
+    key: 'onResizeStart',
+    value: function onResizeStart(e, dir, refToElement) {
+      e.stopPropagation();
+      this.setState({
+        original: { x: this.draggable.state.x, y: this.draggable.state.y }
+      });
+      if (this.props.bounds) {
+        var parent = this.resizable && this.resizable.parentNode;
+        var target = this.props.bounds === 'parent' ? parent : document.querySelector(this.props.bounds);
+        var self = this.getSelfElement();
+        if (self instanceof Element && target instanceof HTMLElement && parent instanceof HTMLElement) {
+          var _getMaxSizesFromProps = this.getMaxSizesFromProps(),
+              _maxWidth = _getMaxSizesFromProps.maxWidth,
+              _maxHeight = _getMaxSizesFromProps.maxHeight;
+
+          var parentSize = this.getParentSize();
+          if (_maxWidth && typeof _maxWidth === 'string') {
+            if (_maxWidth.endsWith('%')) {
+              var ratio = Number(_maxWidth.replace('%', '')) / 100;
+              _maxWidth = parentSize.width * ratio;
+            } else if (_maxWidth.endsWith('px')) {
+              _maxWidth = Number(_maxWidth.replace('px', ''));
+            }
+          }
+          if (_maxHeight && typeof _maxHeight === 'string') {
+            if (_maxHeight.endsWith('%')) {
+              var _ratio = Number(_maxHeight.replace('%', '')) / 100;
+              _maxHeight = parentSize.width * _ratio;
+            } else if (_maxHeight.endsWith('px')) {
+              _maxHeight = Number(_maxHeight.replace('px', ''));
+            }
+          }
+          var selfRect = self.getBoundingClientRect();
+          var selfLeft = selfRect.left;
+          var selfTop = selfRect.top;
+          var targetRect = target.getBoundingClientRect();
+          var targetLeft = targetRect.left;
+          var targetTop = targetRect.top;
+          if (/left/i.test(dir) && this.resizable) {
+            var max = selfLeft - targetLeft + this.resizable.size.width;
+            this.setState({ maxWidth: max > Number(_maxWidth) ? _maxWidth : max });
+          }
+          if (/right/i.test(dir)) {
+            var _max = target.offsetWidth + (targetLeft - selfLeft);
+            this.setState({ maxWidth: _max > Number(_maxWidth) ? _maxWidth : _max });
+          }
+          if (/top/i.test(dir) && this.resizable) {
+            var _max2 = selfTop - targetTop + this.resizable.size.height;
+            this.setState({
+              maxHeight: _max2 > Number(_maxHeight) ? _maxHeight : _max2
+            });
+          }
+          if (/bottom/i.test(dir)) {
+            var _max3 = target.offsetHeight + (targetTop - selfTop);
+            this.setState({
+              maxHeight: _max3 > Number(_maxHeight) ? _maxHeight : _max3
+            });
+          }
+        }
+      } else {
+        this.setState({
+          maxWidth: this.props.maxWidth,
+          maxHeight: this.props.maxHeight
+        });
+      }
+      if (this.props.onResizeStart) {
+        this.props.onResizeStart(e, dir, refToElement);
+      }
+    }
+  }, {
+    key: 'onResize',
+    value: function onResize(e, direction, refToResizableElement, delta) {
+      var x = void 0;
+      var y = void 0;
+      if (/left/i.test(direction)) {
+        x = this.state.original.x - delta.width;
+        this.draggable.setState({ x: x });
+      }
+      if (/top/i.test(direction)) {
+        y = this.state.original.y - delta.height;
+        this.draggable.setState({ y: y });
+      }
+      if (this.props.onResize) {
+        this.props.onResize(e, direction, refToResizableElement, delta, {
+          x: x || this.draggable.state.x,
+          y: y || this.draggable.state.y
+        });
+      }
+    }
+  }, {
+    key: 'onResizeStop',
+    value: function onResizeStop(e, direction, refToResizableElement, delta) {
+      var _getMaxSizesFromProps2 = this.getMaxSizesFromProps(),
+          maxWidth = _getMaxSizesFromProps2.maxWidth,
+          maxHeight = _getMaxSizesFromProps2.maxHeight;
+
+      this.setState({ maxWidth: maxWidth, maxHeight: maxHeight });
+      if (this.props.onResizeStop) {
+        var _position = {
+          x: this.draggable.state.x,
+          y: this.draggable.state.y
+        };
+        this.props.onResizeStop(e, direction, refToResizableElement, delta, _position);
+      }
+    }
+  }, {
+    key: 'updateSize',
+    value: function updateSize(size) {
+      if (!this.resizable) return;
+      this.resizable.updateSize({ width: size.width, height: size.height });
+    }
+  }, {
+    key: 'updatePosition',
+    value: function updatePosition(position) {
+      this.draggable.setState(position);
+    }
+  }, {
+    key: 'updateZIndex',
+    value: function updateZIndex(z) {
+      this.setState({ z: z });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var cursorStyle = this.props.disableDragging || this.props.dragHandleClassName ? { cursor: 'normal' } : { cursor: 'move' };
+      var innerStyle = _extends({}, resizableStyle, {
+        zIndex: this.state.z
+      }, cursorStyle, this.props.style);
+      // HACK: Wait for setting relative to parent element, if props.absolutePos was not set ( SSR need initial render ). 
+      if (!this.state.isMounted && !this.props.hasOwnProperty("absolutePos")) return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])('div', null);
+      var maxHeight = this.props._freeBottomBounds ? 2147483647 : this.state.maxHeight; // eslint-disable-line
+      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(
+        __WEBPACK_IMPORTED_MODULE_2_react_draggable___default.a,
+        {
+          ref: function ref(c) {
+            _this2.draggable = c;
+          },
+          handle: this.props.dragHandleClassName,
+          defaultPosition: this.props.default,
+          onStart: this.onDragStart,
+          onDrag: this.onDrag,
+          onStop: this.onDragStop,
+          axis: this.props.dragAxis,
+          disabled: this.props.disableDragging,
+          grid: this.props.dragGrid,
+          bounds: this.props.bounds ? this.state.bounds : undefined,
+          position: this.props.position,
+          enableUserSelectHack: this.props.enableUserSelectHack,
+          cancel: this.props.cancel
+        },
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(
+          __WEBPACK_IMPORTED_MODULE_3_re_resizable__["a" /* default */],
+          _extends({}, this.props.extendsProps, {
+            className: this.props.className,
+            ref: function ref(c) {
+              _this2.resizable = c;
+            },
+            defaultSize: this.props.default,
+            size: this.props.size,
+            enable: this.props.enableResizing,
+            onResizeStart: this.onResizeStart,
+            onResize: this.onResize,
+            onResizeStop: this.onResizeStop,
+            style: innerStyle,
+            minWidth: this.props.minWidth,
+            minHeight: this.props.minHeight,
+            maxWidth: this.state.maxWidth,
+            maxHeight: maxHeight,
+            grid: this.props.resizeGrid,
+            handleWrapperClass: this.props.resizeHandleWrapperClass,
+            handleWrapperStyle: this.props.resizeHandleWrapperStyle,
+            lockAspectRatio: this.props.lockAspectRatio,
+            lockAspectRatioExtraWidth: this.props.lockAspectRatioExtraWidth,
+            lockAspectRatioExtraHeight: this.props.lockAspectRatioExtraHeight,
+            handleStyles: this.props.resizeHandleStyles,
+            handleClasses: this.props.resizeHandleClasses
+          }),
+          this.props.children
+        )
+      );
+    }
+  }]);
+  return Rnd;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+Rnd.defaultProps = {
+  maxWidth: Number.MAX_SAFE_INTEGER,
+  maxHeight: Number.MAX_SAFE_INTEGER,
+  onResizeStart: function onResizeStart() {},
+  onResize: function onResize() {},
+  onResizeStop: function onResizeStop() {},
+  onDragStart: function onDragStart() {},
+  onDrag: function onDrag() {},
+  onDragStop: function onDragStop() {}
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Rnd);
+//# sourceMappingURL=index.js.map
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(35);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -5164,13 +6800,13 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(35)(content, options);
+var update = __webpack_require__(59)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
 if(false) {
-	module.hot.accept("!!../../../node_modules/css-loader/index.js??ref--2-1!../../../node_modules/postcss-loader/lib/index.js??ref--2-2!../../../node_modules/sass-loader/lib/loader.js??ref--2-3!./App.scss", function() {
-		var newContent = require("!!../../../node_modules/css-loader/index.js??ref--2-1!../../../node_modules/postcss-loader/lib/index.js??ref--2-2!../../../node_modules/sass-loader/lib/loader.js??ref--2-3!./App.scss");
+	module.hot.accept("!!../node_modules/css-loader/index.js??ref--2-1!../node_modules/postcss-loader/lib/index.js??ref--2-2!../node_modules/sass-loader/lib/loader.js??ref--2-3!./App.scss", function() {
+		var newContent = require("!!../node_modules/css-loader/index.js??ref--2-1!../node_modules/postcss-loader/lib/index.js??ref--2-2!../node_modules/sass-loader/lib/loader.js??ref--2-3!./App.scss");
 
 		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 
@@ -5196,7 +6832,7 @@ if(false) {
 }
 
 /***/ }),
-/* 27 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -5213,11 +6849,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(42);
-var RequestBase = __webpack_require__(38);
-var isObject = __webpack_require__(15);
-var ResponseBase = __webpack_require__(39);
-var Agent = __webpack_require__(37);
+var Emitter = __webpack_require__(34);
+var RequestBase = __webpack_require__(62);
+var isObject = __webpack_require__(25);
+var ResponseBase = __webpack_require__(63);
+var Agent = __webpack_require__(61);
 
 /**
  * Noop.
@@ -6122,3086 +7758,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-	/******/
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-		/******/
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-		/******/
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-		/******/
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-		/******/
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-		/******/
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-	/******/
-	/******/
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-	/******/
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-	/******/
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "/";
-	/******/
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-}(
-/************************************************************************/
-/******/[
-/* 0 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	__webpack_require__(1);
-
-	var _index = __webpack_require__(2);
-
-	var _index2 = _interopRequireDefault(_index);
-
-	var _ReactHocs = __webpack_require__(3);
-
-	var RTools = _interopRequireWildcard(_ReactHocs);
-
-	function _interopRequireWildcard(obj) {
-		if (obj && obj.__esModule) {
-			return obj;
-		} else {
-			var newObj = {};if (obj != null) {
-				for (var key in obj) {
-					if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-				}
-			}newObj.default = obj;return newObj;
-		}
-	}
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	_index2.default.Component = RTools.Component; /*
-                                                * Copyright (c)  2018 Wise Wild Web .
-                                                *
-                                                *  MIT License
-                                                *
-                                                *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                *  of this software and associated documentation files (the "Software"), to deal
-                                                *  in the Software without restriction, including without limitation the rights
-                                                *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                *  copies of the Software, and to permit persons to whom the Software is
-                                                *  furnished to do so, subject to the following conditions:
-                                                *
-                                                *  The above copyright notice and this permission notice shall be included in all
-                                                *  copies or substantial portions of the Software.
-                                                *
-                                                *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                                *  SOFTWARE.
-                                                *
-                                                * @author : Nathanael Braun
-                                                * @contact : caipilabs@gmail.com
-                                                */
-
-	_index2.default.reScopeProps = RTools.reScopeProps;
-	_index2.default.scopeToProps = RTools.reScopeProps;
-	_index2.default.propsToScope = RTools.propsToScope;
-	exports.default = _index2.default;
-	module.exports = exports["default"];
-
-	/***/
-},
-/* 1 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(9);
-
-	/***/
-},
-/* 2 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(16);
-
-	/***/
-},
-/* 3 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.propsToScope = exports.reScopeProps = exports.Component = exports.default = undefined;
-
-	var _extends = Object.assign || function (target) {
-		for (var i = 1; i < arguments.length; i++) {
-			var source = arguments[i];for (var key in source) {
-				if (Object.prototype.hasOwnProperty.call(source, key)) {
-					target[key] = source[key];
-				}
-			}
-		}return target;
-	};
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _get = function get(object, property, receiver) {
-		if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				return get(parent, property, receiver);
-			}
-		} else if ("value" in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	};
-
-	var _class, _temp; /*
-                     * Copyright (c)  2018 Wise Wild Web .
-                     *
-                     *  MIT License
-                     *  
-                     *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                     *  of this software and associated documentation files (the "Software"), to deal
-                     *  in the Software without restriction, including without limitation the rights
-                     *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                     *  copies of the Software, and to permit persons to whom the Software is
-                     *  furnished to do so, subject to the following conditions:
-                     *  
-                     *  The above copyright notice and this permission notice shall be included in all
-                     *  copies or substantial portions of the Software.
-                     *  
-                     *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                     *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                     *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                     *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                     *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                     *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                     *  SOFTWARE.
-                     *  
-                     * @author : Nathanael Braun
-                     * @contact : caipilabs@gmail.com
-                     */
-
-	__webpack_require__(1);
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _is = __webpack_require__(5);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	var _propTypes = __webpack_require__(6);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _index = __webpack_require__(2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _toConsumableArray(arr) {
-		if (Array.isArray(arr)) {
-			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-				arr2[i] = arr[i];
-			}return arr2;
-		} else {
-			return Array.from(arr);
-		}
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var SimpleObjectProto = {}.constructor;
-
-	/**
-  * Inheritable ReScope "HOC" (High Order Component)
-  *
-  * @class Component
-  * @desc Parent React Component with store injection in its state
-  */
-	var Component = (_temp = _class = function (_React$Component) {
-		_inherits(Component, _React$Component);
-
-		function Component(p, ctx, q) {
-			_classCallCheck(this, Component);
-
-			var _this = _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).call(this, p, ctx, q));
-
-			var scope = p.__scope || ctx.rescope;
-			_this.$scope = scope;
-
-			if (_this.$scope && _this.$scope.dead) {
-				console.error("ReScoping using dead scope");
-				_this.$scope = null;
-			}
-
-			_this.$stores = _this.$scope && _this.$scope.stores;
-			if (_this.constructor.use) {
-				_this.state = _extends({}, _this.state, scope.map(_this, _this.constructor.use || [], false));
-			} else if (!_this.$scope) _this.render = function () {
-				return _react2.default.createElement('div', null, 'No Rescope here ', _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'name', _this));
-			};
-			return _this;
-		}
-
-		_createClass(Component, [{
-			key: 'dispatch',
-			value: function dispatch() {
-				var _$scope;
-
-				this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
-			}
-		}, {
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				if (this.constructor.use) {
-					this.$scope.bind(this, this.constructor.use || [], false);
-				}
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				this.constructor.use && this.$scope.unBind(this, this.constructor.use || []);
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(np, nc) {
-				var nScope = np.__scope || nc.rescope || this.$scope;
-
-				if (nScope != this.$scope) {
-					this.constructor.use && this.$scope.unBind(this, this.constructor.use);
-					this.$scope = nScope;
-
-					if (this.$scope && this.$scope.dead) {
-						console.error("ReScoping using dead scope");
-						this.$stores = this.$scope = null;
-					} else {
-						this.$stores = this.$scope.stores;
-						this.constructor.use && nScope.bind(this, this.constructor.use);
-					}
-				}
-			}
-		}, {
-			key: 'getChildContext',
-			value: function getChildContext() {
-				return {
-					rescope: this.$scope || this.context.rescope,
-					$stores: this.$scope.stores || this.context.$stores
-				};
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return this.props.children || _react2.default.createElement('div', null);
-			}
-		}]);
-
-		return Component;
-	}(_react2.default.Component), _class.childContextTypes = {
-		rescope: _propTypes2.default.object,
-		$stores: _propTypes2.default.object
-	}, _class.contextTypes = {
-		rescope: _propTypes2.default.object,
-		$stores: _propTypes2.default.object
-	}, _temp);
-	;
-
-	/**
-  * Return a React "HOC" (High Order Component) that :
-  *  - Inject & maintain the stores listed baseComponent::use and/or (use) in the instances props.
-  *  - Propag (scope) in the returned React Component context
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched ( default : the default
-  *     ReScope::Scope::scopes.static scope )
-  * @param use {array} the list of stores to inject from the current scope
-  * @returns {ReScopeProvider}
-  */
-	function reScopeProps() {
-		var _class2, _temp2;
-
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-		    use = (!argz[0] || _is2.default.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
-
-		if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
-			return function (BaseComponent) {
-				return reScopeProps(BaseComponent, scope, use);
-			};
-		}
-
-		var provider = reScopeToState((_temp2 = _class2 = function (_React$Component2) {
-			_inherits(ReScopePropsProvider, _React$Component2);
-
-			function ReScopePropsProvider() {
-				_classCallCheck(this, ReScopePropsProvider);
-
-				return _possibleConstructorReturn(this, (ReScopePropsProvider.__proto__ || Object.getPrototypeOf(ReScopePropsProvider)).apply(this, arguments));
-			}
-
-			_createClass(ReScopePropsProvider, [{
-				key: 'getChildContext',
-				value: function getChildContext() {
-					return this.context;
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					return _react2.default.createElement(BaseComponent, _extends({}, this.props, this.state, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-						$stores: this.$stores }));
-				}
-			}]);
-
-			return ReScopePropsProvider;
-		}(_react2.default.Component), _class2.use = BaseComponent.use, _class2.childContextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class2.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _temp2), scope, use);
-		provider.displayName = "propsScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")";
-		return provider;
-	}
-
-	/**
-  * Return a React "HOC" (High Order Component) that :
-  *  - Inherit BaseComponent,
-  *  - Inject & maintain the stores in BaseComponent::use and/or (use) in the instances state.
-  *  - Propag (scope) in the returned React Component context
-  *
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched
-  * @param use {array} the list of stores injected from the current scope
-  * @param additionalContext {Object} context to be propagated
-  * @returns {ReScopeProvider}
-  */
-	function reScopeToState() {
-		var _class3, _temp3;
-
-		for (var _len2 = arguments.length, argz = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-			argz[_key2] = arguments[_key2];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-		    use = _is2.default.array(argz[0]) && argz.shift(),
-		    stateMap = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-		    additionalContext = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-		    initialState = {};
-
-		use = [].concat(_toConsumableArray(BaseComponent.use || []), _toConsumableArray(use || []));
-		stateMap && _index.Scope.stateMapToRefList(stateMap, initialState, use);
-
-		additionalContext = additionalContext && Object.keys(additionalContext).reduce(function (h, k) {
-			return h[k] = _propTypes2.default.any, h;
-		}, {}) || {};
-
-		var ReScopeProvider = (_temp3 = _class3 = function (_BaseComponent) {
-			_inherits(ReScopeProvider, _BaseComponent);
-
-			function ReScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ReScopeProvider);
-
-				var _this3 = _possibleConstructorReturn(this, (ReScopeProvider.__proto__ || Object.getPrototypeOf(ReScopeProvider)).call(this, p, ctx, q));
-
-				_this3.$scope = _this3.$scope || p.__scope || _is2.default.fn(scope) && scope(_this3, p, ctx) || scope || ctx.rescope;
-
-				if (_this3.$scope && _this3.$scope.dead) {
-					console.error("ReScoping using dead scope");
-					_this3.$scope = null;
-				}
-
-				_this3.$scope && _is2.default.fn(scope) && _this3.$scope.retain("hoc");
-
-				_this3.$stores = _this3.$scope && _this3.$scope.stores;
-				_this3.$actions = _this3.$scope && _this3.$scope.actions;
-				if (_this3.$scope && use.length) {
-					_this3.state = _extends({}, _this3.state, initialState, _this3.$scope.map(_this3, use, false));
-				} else if (!_this3.$scope) _this3.render = function () {
-					return _react2.default.createElement('div', null, 'No Scope found in ', BaseComponent.name);
-				};
-
-				_this3.$dispatch = _this3.$dispatch.bind(_this3);
-				return _this3;
-			}
-
-			_createClass(ReScopeProvider, [{
-				key: '$dispatch',
-				value: function $dispatch() {
-					var _$scope2;
-
-					this.$scope && (_$scope2 = this.$scope).dispatch.apply(_$scope2, arguments);
-				}
-			}, {
-				key: 'componentWillMount',
-				value: function componentWillMount() {
-					if (use.length) {
-						this.$scope.bind(this, use, false);
-					}
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this).call(this);
-				}
-			}, {
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					if (this.$scope && !this.$scope.dead) {
-						use.length && this.$scope.unBind(this, use);
-						_is2.default.fn(scope) && this.$scope.dispose("hoc");
-					}
-				}
-			}, {
-				key: 'componentWillReceiveProps',
-				value: function componentWillReceiveProps(np, nc) {
-					var nScope = np.__scope || scope && this.$scope || nc.rescope || this.$scope;
-
-					if (nScope != this.$scope) {
-						use.length && this.$scope.unBind(this, use);
-						this.$scope = nScope;
-
-						if (this.$scope && this.$scope.dead) {
-							console.error("ReScoping using dead scope");
-							this.$actions = this.$stores = this.$scope = null;
-						} else {
-							this.$actions = this.$scope.actions;
-							this.$stores = this.$scope.stores;
-							use.length && nScope.bind(this, use);
-						}
-					}
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this).call(this, np, nc);
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope || this.context.rescope,
-						$stores: this.$scope.stores || this.context.$stores
-					});
-				}
-			}]);
-
-			return ReScopeProvider;
-		}(BaseComponent), _class3.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, additionalContext, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class3.contextTypes = _extends({}, BaseComponent.contextTypes || {}, additionalContext, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class3.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class3.displayName = "stateScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")", _temp3);
-
-		return ReScopeProvider;
-	}
-
-	(0, _index.addScopableType)(function (Comp) {
-		return Comp && Comp.prototype instanceof _react2.default.Component;
-	}, reScopeToState, false, true);
-
-	/**
-  * Return a React "HOC" (High Order Component) that :
-  *  - Render BaseComponent with new scope that inherit the given scope or context scope
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param storesMap {Object} the propagated Scope where the stores will be searched
-  * @param parentScope {Scope} the propagated Scope where the stores will be searched
-  * @param parentScopeId {string} the propagated Scope where the stores will be searched
-  * @param additionalContext {Object} context to be propagated
-  * @returns {*}
-  */
-	function reScope() {
-		var _class4, _temp4;
-
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scoped = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(argz[0] instanceof _index.Scope)) && argz.shift(),
-		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-		    parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
-		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-
-		var compName = BaseComponent.displayName || BaseComponent.name;
-
-		var ScopeProvider = (_temp4 = _class4 = function (_BaseComponent2) {
-			_inherits(ScopeProvider, _BaseComponent2);
-
-			function ScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ScopeProvider);
-
-				var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-				    $scope = new _index.Scope(scoped || {}, _extends({
-					autoDestroy: true,
-					key: compName,
-					parent: _parent
-				}, scopeCfg));
-
-				var _this4 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-
-				_this4.$scope = _this4.$scope || $scope;
-
-				if (!_this4.$scope) {
-					if (_this4.$scope && _this4.$scope.dead) {
-						console.error("Scoping using dead scope parent");
-						_this4.$scope = null;
-					}
-
-					_this4.$scope = new _index.Scope(scoped || {}, {
-						autoDestroy: true,
-						key: compName,
-						parent: _this4.$scope
-					});
-
-					_this4.$actions = _this4.$scope && _this4.$scope.actions;
-					_this4.$stores = _this4.$scope && _this4.$scope.stores;
-				}
-				_this4.$scope.retain();
-				return _this4;
-			}
-
-			_createClass(ScopeProvider, [{
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					this.$scope && this.$scope.dispose();
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope,
-						$stores: this.$scope.stores
-					});
-				}
-			}]);
-
-			return ScopeProvider;
-		}(BaseComponent), _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class4.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class4.displayName = "scoped(" + compName + ")", _temp4);
-
-		return ScopeProvider;
-	}
-
-	/**
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param storesMap {Object} the propagated Scope where the stores will be searched
-  * @param parentScope {Scope} the propagated Scope where the stores will be searched
-  * @param parentScopeId {string} the propagated Scope where the stores will be searched
-  * @param additionalContext {Object} context to be propagated
-  * @returns {*}
-  */
-	function propsToScope() {
-		var _class5, _temp5;
-
-		for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-			argz[_key4] = arguments[_key4];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scopedProps = (!argz[0] || _is2.default.array(argz[0])) && argz.shift() || [],
-		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-		    parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
-		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-
-		var compName = BaseComponent.displayName || BaseComponent.name;
-
-		if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
-			return function (BaseComponent) {
-				return propsToScope(BaseComponent, scopedProps, scopeCfg, parent, parentId);
-			};
-		}
-
-		var ScopeProvider = (_temp5 = _class5 = function (_React$Component3) {
-			_inherits(ScopeProvider, _React$Component3);
-
-			function ScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ScopeProvider);
-
-				var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-				    $scope = new _index.Scope(_extends({}, scopedProps.reduce(function (h, k) {
-					return h[k] = _index.Store, h;
-				}, {})), _extends({
-					autoDestroy: true,
-					key: compName,
-					parent: _parent
-				}, scopeCfg, {
-					state: scopedProps.reduce(function (h, k) {
-						return h[k] = p[k], h;
-					}, {})
-				}));
-
-				var _this5 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-
-				_this5.$scope = _this5.$scope || $scope;
-				_this5.$actions = _this5.$scope && _this5.$scope.actions;
-				_this5.$stores = _this5.$scope && _this5.$scope.stores;
-				_this5.$scope.retain();
-				return _this5;
-			}
-
-			_createClass(ScopeProvider, [{
-				key: 'componentWillReceiveProps',
-				value: function componentWillReceiveProps(np) {
-					var _this6 = this;
-
-					scopedProps.forEach(function (p) {
-						return _this6.props[p] !== np[p] && _this6.$stores[p].setState(np[p]);
-					});
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
-				}
-			}, {
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					this.$scope && this.$scope.dispose();
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope,
-						$stores: this.$scope.stores
-					});
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					var _this7 = this;
-
-					var fProps = Object.keys(this.props).reduce(function (h, k) {
-						return !scopedProps.includes(k) && (h[k] = _this7.props[k]), h;
-					}, {});
-					return _react2.default.createElement(BaseComponent, _extends({}, fProps, this.state, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-						$stores: this.$stores }));
-				}
-			}]);
-
-			return ScopeProvider;
-		}(_react2.default.Component), _class5.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class5.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class5.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class5.displayName = "scoped(" + compName + ")", _temp5);
-
-		return ScopeProvider;
-	}
-
-	(0, _index.addScopableType)(function (Comp) {
-		return Comp && Comp.prototype instanceof _react2.default.Component;
-	}, reScope);
-
-	exports.default = Component;
-	exports.Component = Component;
-	exports.reScopeProps = reScopeProps;
-	exports.propsToScope = propsToScope;
-
-	/***/
-},
-/* 4 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(2);
-
-	/***/
-},
-/* 5 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(12);
-
-	/***/
-},
-/* 6 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(49);
-
-	/***/
-}]
-/******/);
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-	/******/
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-		/******/
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-		/******/
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-		/******/
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-		/******/
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-		/******/
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-	/******/
-	/******/
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-	/******/
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-	/******/
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "/";
-	/******/
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-}(
-/************************************************************************/
-/******/[
-/* 0 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	__webpack_require__(1);
-
-	__webpack_require__(4);
-
-	/***/
-},
-/* 1 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _rescope = __webpack_require__(2);
-
-	var _rescope2 = _interopRequireDefault(_rescope);
-
-	var _is = __webpack_require__(3);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	// will use as external the index in dist
-
-	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
-	var SimpleObjectProto = {}.constructor;
-	_rescope2.default.spells = {};
-
-	var castTypesToAppliable = {};
-	var castTypes = {};
-
-	_rescope2.default.isSpell = function caster() {
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-
-		// are we decorating a member / without argz
-		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-			argz[2].value = addCaster(argz[0][argz[1]], argz);
-			return argz[0];
-		} else if (!_is2.default.fn(argz[0])) {
-			return function () {
-				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-					argz2[_key2] = arguments[_key2];
-				}
-
-				// are we decorating a member / with argz
-				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-					return argz2[0];
-				} else return caster.apply(undefined, [argz2[0]].concat(argz));
-			};
-		}
-		return addCaster.apply(undefined, argz);
-	};
-
-	function addCaster() {
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-
-		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-		if (!cast) throw "ReScope cast : bad decorator function";
-		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
-
-		if (!castTypesToAppliable[typeName]) {
-			castTypesToAppliable[typeName] = [];
-
-			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-					argz[_key4] = arguments[_key4];
-				}
-
-				// are we decorating a member / without argz
-				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-					return argz[0];
-				} else if (!isCastableType(typeName, argz[0])) {
-					return function () {
-						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-							argz2[_key5] = arguments[_key5];
-						}
-
-						// are we decorating a member / with argz
-						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-							return argz2[0];
-						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
-					};
-				}
-				return applyCastableType(typeName, argz[0], argz.slice(1));
-			};
-		}
-		castTypesToAppliable[typeName].unshift({
-			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-		});
-		return cast;
-	}
-
-	function isCastableType(typeName, Comp, member, stateScope) {
-		var castable = castTypesToAppliable[typeName];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-		}return false;
-	}
-
-	function applyCastableType(typeName, Comp, argz, member, stateScope) {
-
-		var castable = castTypesToAppliable[typeName] || [];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-		}console.warn("reScope cast : Unknown type", typeName, Comp);
-		return false;
-	}
-
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-	/***/
-},
-/* 2 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(9);
-
-	/***/
-},
-/* 3 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(12);
-
-	/***/
-},
-/* 4 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _dec, _dec2, _desc, _value, _obj; /*
-                                        * Copyright (c)  2018 Wise Wild Web .
-                                        *
-                                        *  MIT License
-                                        *
-                                        *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                        *  of this software and associated documentation files (the "Software"), to deal
-                                        *  in the Software without restriction, including without limitation the rights
-                                        *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                        *  copies of the Software, and to permit persons to whom the Software is
-                                        *  furnished to do so, subject to the following conditions:
-                                        *
-                                        *  The above copyright notice and this permission notice shall be included in all
-                                        *  copies or substantial portions of the Software.
-                                        *
-                                        *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                        *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                        *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                        *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                        *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                        *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                        *  SOFTWARE.
-                                        *
-                                        * @author : Nathanael Braun
-                                        * @contact : caipilabs@gmail.com
-                                        */
-
-	var _is = __webpack_require__(3);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	var _rescope = __webpack_require__(2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-		var desc = {};
-		Object['ke' + 'ys'](descriptor).forEach(function (key) {
-			desc[key] = descriptor[key];
-		});
-		desc.enumerable = !!desc.enumerable;
-		desc.configurable = !!desc.configurable;
-
-		if ('value' in desc || desc.initializer) {
-			desc.writable = true;
-		}
-
-		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-			return decorator(target, property, desc) || desc;
-		}, desc);
-
-		if (context && desc.initializer !== void 0) {
-			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-			desc.initializer = undefined;
-		}
-
-		if (desc.initializer === void 0) {
-			Object['define' + 'Property'](target, property, desc);
-			desc = null;
-		}
-
-		return desc;
-	}
-
-	var all = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
-		return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
-		return _is2.default.object(v);
-	}), (_obj = {
-		stateMap: function stateMap(obj, _ref, ref) {
-			var _class, _temp;
-
-			var cfg = _ref[0];
-
-			var use = [],
-			    state = {};
-			_rescope.Scope.stateMapToRefList(obj, state, use);
-			return _temp = _class = function (_Store) {
-				_inherits(StateMap, _Store);
-
-				function StateMap() {
-					_classCallCheck(this, StateMap);
-
-					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-				}
-
-				return StateMap;
-			}(_rescope.Store), _class.use = use, _class.state = state, _class.displayName = ref[1], _temp;
-		},
-		scope: function scope(obj, _ref2, ref) {
-			var cfg = _ref2[0];
-
-			return _rescope.Scope.bind(null, obj, cfg);
-		}
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
-
-	/***/
-}]
-/******/);
-//# sourceMappingURL=rescopeSpells.js.map
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-module.exports = (function () {
-  var fn = function anonymous(it
-/**/) {
-var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT License ~ ~  Permission is hereby granted, free of charge, to any person obtaining a copy ~  of this software and associated documentation files (the "Software"), to deal ~  in the Software without restriction, including without limitation the rights ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell ~  copies of the Software, and to permit persons to whom the Software is ~  furnished to do so, subject to the following conditions: ~ ~  The above copyright notice and this permission notice shall be included in all ~  copies or substantial portions of the Software. ~ ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE ~  SOFTWARE. ~ ~ @author : Nathanael Braun ~ @contact : caipilabs@gmail.com --><html lang="en"><head> <meta charset="UTF-8"> <title>Really basic drafty rescope + react component example</title> <script>window.__scopesState ='+(it.state || "{}")+';</script></head><body><div id="app">'+(it.app || '')+'</div><script src="./App.js"></script><script> App.renderTo(document.getElementById(\'app\'));</script></body></html>';return out;
-};
-  fn.render = fn;
-  return fn;
-})();
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(52);
-} else {
-  module.exports = __webpack_require__(51);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 32 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(50);
-
-
-
-
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
-
-var inherits = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-};
-
-var possibleConstructorReturn = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
-};
-
-var resizableStyle = {
-  width: 'auto',
-  height: 'auto',
-  display: 'inline-block',
-  position: 'absolute',
-  top: 0,
-  left: 0
-};
-
-var Rnd = function (_React$Component) {
-  inherits(Rnd, _React$Component);
-
-  function Rnd(props) {
-    classCallCheck(this, Rnd);
-
-    var _this = possibleConstructorReturn(this, (Rnd.__proto__ || Object.getPrototypeOf(Rnd)).call(this, props));
-
-    _this.state = {
-      z: props.z,
-      original: {
-        x: 0,
-        y: 0
-      },
-      bounds: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0
-      },
-      maxWidth: props.maxWidth,
-      maxHeight: props.maxHeight,
-      isMounted: false
-    };
-    _this.onResizeStart = _this.onResizeStart.bind(_this);
-    _this.onResize = _this.onResize.bind(_this);
-    _this.onResizeStop = _this.onResizeStop.bind(_this);
-    _this.onDragStart = _this.onDragStart.bind(_this);
-    _this.onDrag = _this.onDrag.bind(_this);
-    _this.onDragStop = _this.onDragStop.bind(_this);
-    _this.getMaxSizesFromProps = _this.getMaxSizesFromProps.bind(_this);
-    return _this;
-  }
-
-  createClass(Rnd, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (this.props.z !== nextProps.z) {
-        this.setState({ z: nextProps.z });
-      }
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.setParentPosition();
-    }
-  }, {
-    key: 'getParentSize',
-    value: function getParentSize() {
-      return this.resizable.getParentSize();
-    }
-  }, {
-    key: 'getMaxSizesFromProps',
-    value: function getMaxSizesFromProps() {
-      var maxWidth = typeof this.props.maxWidth === 'undefined' ? Number.MAX_SAFE_INTEGER : this.props.maxWidth;
-      var maxHeight = typeof this.props.maxHeight === 'undefined' ? Number.MAX_SAFE_INTEGER : this.props.maxHeight;
-      return { maxWidth: maxWidth, maxHeight: maxHeight };
-    }
-  }, {
-    key: 'getSelfElement',
-    value: function getSelfElement() {
-      if (!this) return null;
-      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_dom__["findDOMNode"])(this);
-    }
-  }, {
-    key: 'setParentPosition',
-    value: function setParentPosition() {
-      var element = this.getSelfElement();
-      if (element instanceof Element) {
-        var parent = element.parentNode;
-        if (!parent || typeof window === 'undefined') return;
-        if (!(parent instanceof HTMLElement)) return;
-        if (getComputedStyle(parent).position !== 'static') {
-          this.setState({ isMounted: true });
-          return;
-        }
-        parent.style.position = 'relative';
-        this.setState({ isMounted: true });
-      }
-    }
-  }, {
-    key: 'onDragStart',
-    value: function onDragStart(e, data) {
-      if (this.props.onDragStart) {
-        this.props.onDragStart(e, data);
-      }
-      if (!this.props.bounds) return;
-      var parent = this.resizable && this.resizable.parentNode;
-      var target = this.props.bounds === 'parent' ? parent : document.querySelector(this.props.bounds);
-      if (!(target instanceof HTMLElement) || !(parent instanceof HTMLElement)) {
-        return;
-      }
-      var targetRect = target.getBoundingClientRect();
-      var targetLeft = targetRect.left;
-      var targetTop = targetRect.top;
-      var parentRect = parent.getBoundingClientRect();
-      var parentLeft = parentRect.left;
-      var parentTop = parentRect.top;
-      var left = targetLeft - parentLeft;
-      var top = targetTop - parentTop;
-      if (!this.resizable) return;
-      this.setState({
-        bounds: {
-          top: top,
-          right: left + (target.offsetWidth - this.resizable.size.width),
-          bottom: this.props._freeBottomBounds // eslint-disable-line
-          ? 2147483647 : top + (target.offsetHeight - this.resizable.size.height),
-          left: left
-        }
-      });
-    }
-  }, {
-    key: 'onDrag',
-    value: function onDrag(e, data) {
-      if (this.props.onDrag) {
-        this.props.onDrag(e, data);
-      }
-    }
-  }, {
-    key: 'onDragStop',
-    value: function onDragStop(e, data) {
-      if (this.props.onDragStop) {
-        this.props.onDragStop(e, data);
-      }
-    }
-  }, {
-    key: 'onResizeStart',
-    value: function onResizeStart(e, dir, refToElement) {
-      e.stopPropagation();
-      this.setState({
-        original: { x: this.draggable.state.x, y: this.draggable.state.y }
-      });
-      if (this.props.bounds) {
-        var parent = this.resizable && this.resizable.parentNode;
-        var target = this.props.bounds === 'parent' ? parent : document.querySelector(this.props.bounds);
-        var self = this.getSelfElement();
-        if (self instanceof Element && target instanceof HTMLElement && parent instanceof HTMLElement) {
-          var _getMaxSizesFromProps = this.getMaxSizesFromProps(),
-              _maxWidth = _getMaxSizesFromProps.maxWidth,
-              _maxHeight = _getMaxSizesFromProps.maxHeight;
-
-          var parentSize = this.getParentSize();
-          if (_maxWidth && typeof _maxWidth === 'string') {
-            if (_maxWidth.endsWith('%')) {
-              var ratio = Number(_maxWidth.replace('%', '')) / 100;
-              _maxWidth = parentSize.width * ratio;
-            } else if (_maxWidth.endsWith('px')) {
-              _maxWidth = Number(_maxWidth.replace('px', ''));
-            }
-          }
-          if (_maxHeight && typeof _maxHeight === 'string') {
-            if (_maxHeight.endsWith('%')) {
-              var _ratio = Number(_maxHeight.replace('%', '')) / 100;
-              _maxHeight = parentSize.width * _ratio;
-            } else if (_maxHeight.endsWith('px')) {
-              _maxHeight = Number(_maxHeight.replace('px', ''));
-            }
-          }
-          var selfRect = self.getBoundingClientRect();
-          var selfLeft = selfRect.left;
-          var selfTop = selfRect.top;
-          var targetRect = target.getBoundingClientRect();
-          var targetLeft = targetRect.left;
-          var targetTop = targetRect.top;
-          if (/left/i.test(dir) && this.resizable) {
-            var max = selfLeft - targetLeft + this.resizable.size.width;
-            this.setState({ maxWidth: max > Number(_maxWidth) ? _maxWidth : max });
-          }
-          if (/right/i.test(dir)) {
-            var _max = target.offsetWidth + (targetLeft - selfLeft);
-            this.setState({ maxWidth: _max > Number(_maxWidth) ? _maxWidth : _max });
-          }
-          if (/top/i.test(dir) && this.resizable) {
-            var _max2 = selfTop - targetTop + this.resizable.size.height;
-            this.setState({
-              maxHeight: _max2 > Number(_maxHeight) ? _maxHeight : _max2
-            });
-          }
-          if (/bottom/i.test(dir)) {
-            var _max3 = target.offsetHeight + (targetTop - selfTop);
-            this.setState({
-              maxHeight: _max3 > Number(_maxHeight) ? _maxHeight : _max3
-            });
-          }
-        }
-      } else {
-        this.setState({
-          maxWidth: this.props.maxWidth,
-          maxHeight: this.props.maxHeight
-        });
-      }
-      if (this.props.onResizeStart) {
-        this.props.onResizeStart(e, dir, refToElement);
-      }
-    }
-  }, {
-    key: 'onResize',
-    value: function onResize(e, direction, refToResizableElement, delta) {
-      var x = void 0;
-      var y = void 0;
-      if (/left/i.test(direction)) {
-        x = this.state.original.x - delta.width;
-        this.draggable.setState({ x: x });
-      }
-      if (/top/i.test(direction)) {
-        y = this.state.original.y - delta.height;
-        this.draggable.setState({ y: y });
-      }
-      if (this.props.onResize) {
-        this.props.onResize(e, direction, refToResizableElement, delta, {
-          x: x || this.draggable.state.x,
-          y: y || this.draggable.state.y
-        });
-      }
-    }
-  }, {
-    key: 'onResizeStop',
-    value: function onResizeStop(e, direction, refToResizableElement, delta) {
-      var _getMaxSizesFromProps2 = this.getMaxSizesFromProps(),
-          maxWidth = _getMaxSizesFromProps2.maxWidth,
-          maxHeight = _getMaxSizesFromProps2.maxHeight;
-
-      this.setState({ maxWidth: maxWidth, maxHeight: maxHeight });
-      if (this.props.onResizeStop) {
-        var _position = {
-          x: this.draggable.state.x,
-          y: this.draggable.state.y
-        };
-        this.props.onResizeStop(e, direction, refToResizableElement, delta, _position);
-      }
-    }
-  }, {
-    key: 'updateSize',
-    value: function updateSize(size) {
-      if (!this.resizable) return;
-      this.resizable.updateSize({ width: size.width, height: size.height });
-    }
-  }, {
-    key: 'updatePosition',
-    value: function updatePosition(position) {
-      this.draggable.setState(position);
-    }
-  }, {
-    key: 'updateZIndex',
-    value: function updateZIndex(z) {
-      this.setState({ z: z });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var cursorStyle = this.props.disableDragging || this.props.dragHandleClassName ? { cursor: 'normal' } : { cursor: 'move' };
-      var innerStyle = _extends({}, resizableStyle, {
-        zIndex: this.state.z
-      }, cursorStyle, this.props.style);
-      // HACK: Wait for setting relative to parent element, if props.absolutePos was not set ( SSR need initial render ). 
-      if (!this.state.isMounted && !this.props.hasOwnProperty("absolutePos")) return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])('div', null);
-      var maxHeight = this.props._freeBottomBounds ? 2147483647 : this.state.maxHeight; // eslint-disable-line
-      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(
-        __WEBPACK_IMPORTED_MODULE_2_react_draggable___default.a,
-        {
-          ref: function ref(c) {
-            _this2.draggable = c;
-          },
-          handle: this.props.dragHandleClassName,
-          defaultPosition: this.props.default,
-          onStart: this.onDragStart,
-          onDrag: this.onDrag,
-          onStop: this.onDragStop,
-          axis: this.props.dragAxis,
-          disabled: this.props.disableDragging,
-          grid: this.props.dragGrid,
-          bounds: this.props.bounds ? this.state.bounds : undefined,
-          position: this.props.position,
-          enableUserSelectHack: this.props.enableUserSelectHack,
-          cancel: this.props.cancel
-        },
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"])(
-          __WEBPACK_IMPORTED_MODULE_3_re_resizable__["a" /* default */],
-          _extends({}, this.props.extendsProps, {
-            className: this.props.className,
-            ref: function ref(c) {
-              _this2.resizable = c;
-            },
-            defaultSize: this.props.default,
-            size: this.props.size,
-            enable: this.props.enableResizing,
-            onResizeStart: this.onResizeStart,
-            onResize: this.onResize,
-            onResizeStop: this.onResizeStop,
-            style: innerStyle,
-            minWidth: this.props.minWidth,
-            minHeight: this.props.minHeight,
-            maxWidth: this.state.maxWidth,
-            maxHeight: maxHeight,
-            grid: this.props.resizeGrid,
-            handleWrapperClass: this.props.resizeHandleWrapperClass,
-            handleWrapperStyle: this.props.resizeHandleWrapperStyle,
-            lockAspectRatio: this.props.lockAspectRatio,
-            lockAspectRatioExtraWidth: this.props.lockAspectRatioExtraWidth,
-            lockAspectRatioExtraHeight: this.props.lockAspectRatioExtraHeight,
-            handleStyles: this.props.resizeHandleStyles,
-            handleClasses: this.props.resizeHandleClasses
-          }),
-          this.props.children
-        )
-      );
-    }
-  }]);
-  return Rnd;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-Rnd.defaultProps = {
-  maxWidth: Number.MAX_SAFE_INTEGER,
-  maxHeight: Number.MAX_SAFE_INTEGER,
-  onResizeStart: function onResizeStart() {},
-  onResize: function onResize() {},
-  onResizeStop: function onResizeStop() {},
-  onDragStart: function onDragStart() {},
-  onDrag: function onDrag() {},
-  onDragStop: function onDragStop() {}
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Rnd);
-//# sourceMappingURL=index.js.map
-
-
-/***/ }),
 /* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(34)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'G:\\n8tz\\rescope\\rescope-samples\\node_modules\\css-loader\\lib\\css-base.js'\n    at Error (native)");
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getTarget = function (target) {
-  return document.querySelector(target);
-};
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(target) {
-                // If passing function in options, then use it for resolve "head" element.
-                // Useful for Shadow Root style i.e
-                // {
-                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
-                // }
-                if (typeof target === 'function') {
-                        return target();
-                }
-                if (typeof memo[target] === "undefined") {
-			var styleTarget = getTarget.call(this, target);
-			// Special case to return head of iframe instead of iframe itself
-			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-				try {
-					// This will throw an exception if access to iframe is blocked
-					// due to cross-origin restrictions
-					styleTarget = styleTarget.contentDocument.head;
-				} catch(e) {
-					styleTarget = null;
-				}
-			}
-			memo[target] = styleTarget;
-		}
-		return memo[target]
-	};
-})();
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(36);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-        if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
-		var nextSibling = getElement(options.insertInto + " " + options.insertAt.before);
-		target.insertBefore(style, nextSibling);
-	} else {
-		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	options.attrs.type = "text/css";
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports) {
-
-function Agent() {
-  this._defaults = [];
-}
-
-["use", "on", "once", "set", "query", "type", "accept", "auth", "withCredentials", "sortQuery", "retry", "ok", "redirects",
- "timeout", "buffer", "serialize", "parse", "ca", "key", "pfx", "cert"].forEach(function(fn) {
-  /** Default setting for all requests from this agent */
-  Agent.prototype[fn] = function(/*varargs*/) {
-    this._defaults.push({fn:fn, arguments:arguments});
-    return this;
-  }
-});
-
-Agent.prototype._setDefaults = function(req) {
-    this._defaults.forEach(function(def) {
-      req[def.fn].apply(req, def.arguments);
-    });
-};
-
-module.exports = Agent;
-
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Module of mixed-in functions shared between node and client code
- */
-var isObject = __webpack_require__(15);
-
-/**
- * Expose `RequestBase`.
- */
-
-module.exports = RequestBase;
-
-/**
- * Initialize a new `RequestBase`.
- *
- * @api public
- */
-
-function RequestBase(obj) {
-  if (obj) return mixin(obj);
-}
-
-/**
- * Mixin the prototype properties.
- *
- * @param {Object} obj
- * @return {Object}
- * @api private
- */
-
-function mixin(obj) {
-  for (var key in RequestBase.prototype) {
-    obj[key] = RequestBase.prototype[key];
-  }
-  return obj;
-}
-
-/**
- * Clear previous timeout.
- *
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.clearTimeout = function _clearTimeout(){
-  clearTimeout(this._timer);
-  clearTimeout(this._responseTimeoutTimer);
-  delete this._timer;
-  delete this._responseTimeoutTimer;
-  return this;
-};
-
-/**
- * Override default response body parser
- *
- * This function will be called to convert incoming data into request.body
- *
- * @param {Function}
- * @api public
- */
-
-RequestBase.prototype.parse = function parse(fn){
-  this._parser = fn;
-  return this;
-};
-
-/**
- * Set format of binary response body.
- * In browser valid formats are 'blob' and 'arraybuffer',
- * which return Blob and ArrayBuffer, respectively.
- *
- * In Node all values result in Buffer.
- *
- * Examples:
- *
- *      req.get('/')
- *        .responseType('blob')
- *        .end(callback);
- *
- * @param {String} val
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.responseType = function(val){
-  this._responseType = val;
-  return this;
-};
-
-/**
- * Override default request body serializer
- *
- * This function will be called to convert data set via .send or .attach into payload to send
- *
- * @param {Function}
- * @api public
- */
-
-RequestBase.prototype.serialize = function serialize(fn){
-  this._serializer = fn;
-  return this;
-};
-
-/**
- * Set timeouts.
- *
- * - response timeout is time between sending request and receiving the first byte of the response. Includes DNS and connection time.
- * - deadline is the time from start of the request to receiving response body in full. If the deadline is too short large files may not load at all on slow connections.
- *
- * Value of 0 or false means no timeout.
- *
- * @param {Number|Object} ms or {response, deadline}
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.timeout = function timeout(options){
-  if (!options || 'object' !== typeof options) {
-    this._timeout = options;
-    this._responseTimeout = 0;
-    return this;
-  }
-
-  for(var option in options) {
-    switch(option) {
-      case 'deadline':
-        this._timeout = options.deadline;
-        break;
-      case 'response':
-        this._responseTimeout = options.response;
-        break;
-      default:
-        console.warn("Unknown timeout option", option);
-    }
-  }
-  return this;
-};
-
-/**
- * Set number of retry attempts on error.
- *
- * Failed requests will be retried 'count' times if timeout or err.code >= 500.
- *
- * @param {Number} count
- * @param {Function} [fn]
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.retry = function retry(count, fn){
-  // Default to 1 if no count passed or true
-  if (arguments.length === 0 || count === true) count = 1;
-  if (count <= 0) count = 0;
-  this._maxRetries = count;
-  this._retries = 0;
-  this._retryCallback = fn;
-  return this;
-};
-
-var ERROR_CODES = [
-  'ECONNRESET',
-  'ETIMEDOUT',
-  'EADDRINFO',
-  'ESOCKETTIMEDOUT'
-];
-
-/**
- * Determine if a request should be retried.
- * (Borrowed from segmentio/superagent-retry)
- *
- * @param {Error} err
- * @param {Response} [res]
- * @returns {Boolean}
- */
-RequestBase.prototype._shouldRetry = function(err, res) {
-  if (!this._maxRetries || this._retries++ >= this._maxRetries) {
-    return false;
-  }
-  if (this._retryCallback) {
-    try {
-      var override = this._retryCallback(err, res);
-      if (override === true) return true;
-      if (override === false) return false;
-      // undefined falls back to defaults
-    } catch(e) {
-      console.error(e);
-    }
-  }
-  if (res && res.status && res.status >= 500 && res.status != 501) return true;
-  if (err) {
-    if (err.code && ~ERROR_CODES.indexOf(err.code)) return true;
-    // Superagent timeout
-    if (err.timeout && err.code == 'ECONNABORTED') return true;
-    if (err.crossDomain) return true;
-  }
-  return false;
-};
-
-/**
- * Retry request
- *
- * @return {Request} for chaining
- * @api private
- */
-
-RequestBase.prototype._retry = function() {
-
-  this.clearTimeout();
-
-  // node
-  if (this.req) {
-    this.req = null;
-    this.req = this.request();
-  }
-
-  this._aborted = false;
-  this.timedout = false;
-
-  return this._end();
-};
-
-/**
- * Promise support
- *
- * @param {Function} resolve
- * @param {Function} [reject]
- * @return {Request}
- */
-
-RequestBase.prototype.then = function then(resolve, reject) {
-  if (!this._fullfilledPromise) {
-    var self = this;
-    if (this._endCalled) {
-      console.warn("Warning: superagent request was sent twice, because both .end() and .then() were called. Never call .end() if you use promises");
-    }
-    this._fullfilledPromise = new Promise(function(innerResolve, innerReject) {
-      self.end(function(err, res) {
-        if (err) innerReject(err);
-        else innerResolve(res);
-      });
-    });
-  }
-  return this._fullfilledPromise.then(resolve, reject);
-};
-
-RequestBase.prototype.catch = function(cb) {
-  return this.then(undefined, cb);
-};
-
-/**
- * Allow for extension
- */
-
-RequestBase.prototype.use = function use(fn) {
-  fn(this);
-  return this;
-};
-
-RequestBase.prototype.ok = function(cb) {
-  if ('function' !== typeof cb) throw Error("Callback required");
-  this._okCallback = cb;
-  return this;
-};
-
-RequestBase.prototype._isResponseOK = function(res) {
-  if (!res) {
-    return false;
-  }
-
-  if (this._okCallback) {
-    return this._okCallback(res);
-  }
-
-  return res.status >= 200 && res.status < 300;
-};
-
-/**
- * Get request header `field`.
- * Case-insensitive.
- *
- * @param {String} field
- * @return {String}
- * @api public
- */
-
-RequestBase.prototype.get = function(field){
-  return this._header[field.toLowerCase()];
-};
-
-/**
- * Get case-insensitive header `field` value.
- * This is a deprecated internal API. Use `.get(field)` instead.
- *
- * (getHeader is no longer used internally by the superagent code base)
- *
- * @param {String} field
- * @return {String}
- * @api private
- * @deprecated
- */
-
-RequestBase.prototype.getHeader = RequestBase.prototype.get;
-
-/**
- * Set header `field` to `val`, or multiple fields with one object.
- * Case-insensitive.
- *
- * Examples:
- *
- *      req.get('/')
- *        .set('Accept', 'application/json')
- *        .set('X-API-Key', 'foobar')
- *        .end(callback);
- *
- *      req.get('/')
- *        .set({ Accept: 'application/json', 'X-API-Key': 'foobar' })
- *        .end(callback);
- *
- * @param {String|Object} field
- * @param {String} val
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.set = function(field, val){
-  if (isObject(field)) {
-    for (var key in field) {
-      this.set(key, field[key]);
-    }
-    return this;
-  }
-  this._header[field.toLowerCase()] = val;
-  this.header[field] = val;
-  return this;
-};
-
-/**
- * Remove header `field`.
- * Case-insensitive.
- *
- * Example:
- *
- *      req.get('/')
- *        .unset('User-Agent')
- *        .end(callback);
- *
- * @param {String} field
- */
-RequestBase.prototype.unset = function(field){
-  delete this._header[field.toLowerCase()];
-  delete this.header[field];
-  return this;
-};
-
-/**
- * Write the field `name` and `val`, or multiple fields with one object
- * for "multipart/form-data" request bodies.
- *
- * ``` js
- * request.post('/upload')
- *   .field('foo', 'bar')
- *   .end(callback);
- *
- * request.post('/upload')
- *   .field({ foo: 'bar', baz: 'qux' })
- *   .end(callback);
- * ```
- *
- * @param {String|Object} name
- * @param {String|Blob|File|Buffer|fs.ReadStream} val
- * @return {Request} for chaining
- * @api public
- */
-RequestBase.prototype.field = function(name, val) {
-  // name should be either a string or an object.
-  if (null === name || undefined === name) {
-    throw new Error('.field(name, val) name can not be empty');
-  }
-
-  if (this._data) {
-    console.error(".field() can't be used if .send() is used. Please use only .send() or only .field() & .attach()");
-  }
-
-  if (isObject(name)) {
-    for (var key in name) {
-      this.field(key, name[key]);
-    }
-    return this;
-  }
-
-  if (Array.isArray(val)) {
-    for (var i in val) {
-      this.field(name, val[i]);
-    }
-    return this;
-  }
-
-  // val should be defined now
-  if (null === val || undefined === val) {
-    throw new Error('.field(name, val) val can not be empty');
-  }
-  if ('boolean' === typeof val) {
-    val = '' + val;
-  }
-  this._getFormData().append(name, val);
-  return this;
-};
-
-/**
- * Abort the request, and clear potential timeout.
- *
- * @return {Request}
- * @api public
- */
-RequestBase.prototype.abort = function(){
-  if (this._aborted) {
-    return this;
-  }
-  this._aborted = true;
-  this.xhr && this.xhr.abort(); // browser
-  this.req && this.req.abort(); // node
-  this.clearTimeout();
-  this.emit('abort');
-  return this;
-};
-
-RequestBase.prototype._auth = function(user, pass, options, base64Encoder) {
-  switch (options.type) {
-    case 'basic':
-      this.set('Authorization', 'Basic ' + base64Encoder(user + ':' + pass));
-      break;
-
-    case 'auto':
-      this.username = user;
-      this.password = pass;
-      break;
-
-    case 'bearer': // usage would be .auth(accessToken, { type: 'bearer' })
-      this.set('Authorization', 'Bearer ' + user);
-      break;
-  }
-  return this;
-};
-
-/**
- * Enable transmission of cookies with x-domain requests.
- *
- * Note that for this to work the origin must not be
- * using "Access-Control-Allow-Origin" with a wildcard,
- * and also must set "Access-Control-Allow-Credentials"
- * to "true".
- *
- * @api public
- */
-
-RequestBase.prototype.withCredentials = function(on) {
-  // This is browser-only functionality. Node side is no-op.
-  if (on == undefined) on = true;
-  this._withCredentials = on;
-  return this;
-};
-
-/**
- * Set the max redirects to `n`. Does noting in browser XHR implementation.
- *
- * @param {Number} n
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.redirects = function(n){
-  this._maxRedirects = n;
-  return this;
-};
-
-/**
- * Maximum size of buffered response body, in bytes. Counts uncompressed size.
- * Default 200MB.
- *
- * @param {Number} n
- * @return {Request} for chaining
- */
-RequestBase.prototype.maxResponseSize = function(n){
-  if ('number' !== typeof n) {
-    throw TypeError("Invalid argument");
-  }
-  this._maxResponseSize = n;
-  return this;
-};
-
-/**
- * Convert to a plain javascript object (not JSON string) of scalar properties.
- * Note as this method is designed to return a useful non-this value,
- * it cannot be chained.
- *
- * @return {Object} describing method, url, and data of this request
- * @api public
- */
-
-RequestBase.prototype.toJSON = function() {
-  return {
-    method: this.method,
-    url: this.url,
-    data: this._data,
-    headers: this._header,
-  };
-};
-
-/**
- * Send `data` as the request body, defaulting the `.type()` to "json" when
- * an object is given.
- *
- * Examples:
- *
- *       // manual json
- *       request.post('/user')
- *         .type('json')
- *         .send('{"name":"tj"}')
- *         .end(callback)
- *
- *       // auto json
- *       request.post('/user')
- *         .send({ name: 'tj' })
- *         .end(callback)
- *
- *       // manual x-www-form-urlencoded
- *       request.post('/user')
- *         .type('form')
- *         .send('name=tj')
- *         .end(callback)
- *
- *       // auto x-www-form-urlencoded
- *       request.post('/user')
- *         .type('form')
- *         .send({ name: 'tj' })
- *         .end(callback)
- *
- *       // defaults to x-www-form-urlencoded
- *      request.post('/user')
- *        .send('name=tobi')
- *        .send('species=ferret')
- *        .end(callback)
- *
- * @param {String|Object} data
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.send = function(data){
-  var isObj = isObject(data);
-  var type = this._header['content-type'];
-
-  if (this._formData) {
-    console.error(".send() can't be used if .attach() or .field() is used. Please use only .send() or only .field() & .attach()");
-  }
-
-  if (isObj && !this._data) {
-    if (Array.isArray(data)) {
-      this._data = [];
-    } else if (!this._isHost(data)) {
-      this._data = {};
-    }
-  } else if (data && this._data && this._isHost(this._data)) {
-    throw Error("Can't merge these send calls");
-  }
-
-  // merge
-  if (isObj && isObject(this._data)) {
-    for (var key in data) {
-      this._data[key] = data[key];
-    }
-  } else if ('string' == typeof data) {
-    // default to x-www-form-urlencoded
-    if (!type) this.type('form');
-    type = this._header['content-type'];
-    if ('application/x-www-form-urlencoded' == type) {
-      this._data = this._data
-        ? this._data + '&' + data
-        : data;
-    } else {
-      this._data = (this._data || '') + data;
-    }
-  } else {
-    this._data = data;
-  }
-
-  if (!isObj || this._isHost(data)) {
-    return this;
-  }
-
-  // default to json
-  if (!type) this.type('json');
-  return this;
-};
-
-/**
- * Sort `querystring` by the sort function
- *
- *
- * Examples:
- *
- *       // default order
- *       request.get('/user')
- *         .query('name=Nick')
- *         .query('search=Manny')
- *         .sortQuery()
- *         .end(callback)
- *
- *       // customized sort function
- *       request.get('/user')
- *         .query('name=Nick')
- *         .query('search=Manny')
- *         .sortQuery(function(a, b){
- *           return a.length - b.length;
- *         })
- *         .end(callback)
- *
- *
- * @param {Function} sort
- * @return {Request} for chaining
- * @api public
- */
-
-RequestBase.prototype.sortQuery = function(sort) {
-  // _sort default to true but otherwise can be a function or boolean
-  this._sort = typeof sort === 'undefined' ? true : sort;
-  return this;
-};
-
-/**
- * Compose querystring to append to req.url
- *
- * @api private
- */
-RequestBase.prototype._finalizeQueryString = function(){
-  var query = this._query.join('&');
-  if (query) {
-    this.url += (this.url.indexOf('?') >= 0 ? '&' : '?') + query;
-  }
-  this._query.length = 0; // Makes the call idempotent
-
-  if (this._sort) {
-    var index = this.url.indexOf('?');
-    if (index >= 0) {
-      var queryArr = this.url.substring(index + 1).split('&');
-      if ('function' === typeof this._sort) {
-        queryArr.sort(this._sort);
-      } else {
-        queryArr.sort();
-      }
-      this.url = this.url.substring(0, index) + '?' + queryArr.join('&');
-    }
-  }
-};
-
-// For backwards compat only
-RequestBase.prototype._appendQueryString = function() {console.trace("Unsupported");}
-
-/**
- * Invoke callback with timeout error.
- *
- * @api private
- */
-
-RequestBase.prototype._timeoutError = function(reason, timeout, errno){
-  if (this._aborted) {
-    return;
-  }
-  var err = new Error(reason + timeout + 'ms exceeded');
-  err.timeout = timeout;
-  err.code = 'ECONNABORTED';
-  err.errno = errno;
-  this.timedout = true;
-  this.abort();
-  this.callback(err);
-};
-
-RequestBase.prototype._setTimeouts = function() {
-  var self = this;
-
-  // deadline
-  if (this._timeout && !this._timer) {
-    this._timer = setTimeout(function(){
-      self._timeoutError('Timeout of ', self._timeout, 'ETIME');
-    }, this._timeout);
-  }
-  // response timeout
-  if (this._responseTimeout && !this._responseTimeoutTimer) {
-    this._responseTimeoutTimer = setTimeout(function(){
-      self._timeoutError('Response timeout of ', self._responseTimeout, 'ETIMEDOUT');
-    }, this._responseTimeout);
-  }
-};
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Module dependencies.
- */
-
-var utils = __webpack_require__(40);
-
-/**
- * Expose `ResponseBase`.
- */
-
-module.exports = ResponseBase;
-
-/**
- * Initialize a new `ResponseBase`.
- *
- * @api public
- */
-
-function ResponseBase(obj) {
-  if (obj) return mixin(obj);
-}
-
-/**
- * Mixin the prototype properties.
- *
- * @param {Object} obj
- * @return {Object}
- * @api private
- */
-
-function mixin(obj) {
-  for (var key in ResponseBase.prototype) {
-    obj[key] = ResponseBase.prototype[key];
-  }
-  return obj;
-}
-
-/**
- * Get case-insensitive `field` value.
- *
- * @param {String} field
- * @return {String}
- * @api public
- */
-
-ResponseBase.prototype.get = function(field) {
-  return this.header[field.toLowerCase()];
-};
-
-/**
- * Set header related properties:
- *
- *   - `.type` the content type without params
- *
- * A response of "Content-Type: text/plain; charset=utf-8"
- * will provide you with a `.type` of "text/plain".
- *
- * @param {Object} header
- * @api private
- */
-
-ResponseBase.prototype._setHeaderProperties = function(header){
-    // TODO: moar!
-    // TODO: make this a util
-
-    // content-type
-    var ct = header['content-type'] || '';
-    this.type = utils.type(ct);
-
-    // params
-    var params = utils.params(ct);
-    for (var key in params) this[key] = params[key];
-
-    this.links = {};
-
-    // links
-    try {
-        if (header.link) {
-            this.links = utils.parseLinks(header.link);
-        }
-    } catch (err) {
-        // ignore
-    }
-};
-
-/**
- * Set flags such as `.ok` based on `status`.
- *
- * For example a 2xx response will give you a `.ok` of __true__
- * whereas 5xx will be __false__ and `.error` will be __true__. The
- * `.clientError` and `.serverError` are also available to be more
- * specific, and `.statusType` is the class of error ranging from 1..5
- * sometimes useful for mapping respond colors etc.
- *
- * "sugar" properties are also defined for common cases. Currently providing:
- *
- *   - .noContent
- *   - .badRequest
- *   - .unauthorized
- *   - .notAcceptable
- *   - .notFound
- *
- * @param {Number} status
- * @api private
- */
-
-ResponseBase.prototype._setStatusProperties = function(status){
-    var type = status / 100 | 0;
-
-    // status / class
-    this.status = this.statusCode = status;
-    this.statusType = type;
-
-    // basics
-    this.info = 1 == type;
-    this.ok = 2 == type;
-    this.redirect = 3 == type;
-    this.clientError = 4 == type;
-    this.serverError = 5 == type;
-    this.error = (4 == type || 5 == type)
-        ? this.toError()
-        : false;
-
-    // sugar
-    this.accepted = 202 == status;
-    this.noContent = 204 == status;
-    this.badRequest = 400 == status;
-    this.unauthorized = 401 == status;
-    this.notAcceptable = 406 == status;
-    this.forbidden = 403 == status;
-    this.notFound = 404 == status;
-};
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Return the mime type for the given `str`.
- *
- * @param {String} str
- * @return {String}
- * @api private
- */
-
-exports.type = function(str){
-  return str.split(/ *; */).shift();
-};
-
-/**
- * Return header field parameters.
- *
- * @param {String} str
- * @return {Object}
- * @api private
- */
-
-exports.params = function(str){
-  return str.split(/ *; */).reduce(function(obj, str){
-    var parts = str.split(/ *= */);
-    var key = parts.shift();
-    var val = parts.shift();
-
-    if (key && val) obj[key] = val;
-    return obj;
-  }, {});
-};
-
-/**
- * Parse Link header fields.
- *
- * @param {String} str
- * @return {Object}
- * @api private
- */
-
-exports.parseLinks = function(str){
-  return str.split(/ *, */).reduce(function(obj, str){
-    var parts = str.split(/ *; */);
-    var url = parts[0].slice(1, -1);
-    var rel = parts[1].split(/ *= */)[1].slice(1, -1);
-    obj[rel] = url;
-    return obj;
-  }, {});
-};
-
-/**
- * Strip content related fields from `header`.
- *
- * @param {Object} header
- * @return {Object} header
- * @api private
- */
-
-exports.cleanHeader = function(header, changesOrigin){
-  delete header['content-type'];
-  delete header['content-length'];
-  delete header['transfer-encoding'];
-  delete header['host'];
-  // secuirty
-  if (changesOrigin) {
-    delete header['authorization'];
-    delete header['cookie'];
-  }
-  return header;
-};
-
-
-/***/ }),
-/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9250,15 +7807,15 @@ var _shortid = __webpack_require__(14);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-__webpack_require__(29);
+__webpack_require__(27);
 
-__webpack_require__(28);
+__webpack_require__(26);
 
-var _reactRnd = __webpack_require__(32);
+var _reactRnd = __webpack_require__(30);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _superagent = __webpack_require__(27);
+var _superagent = __webpack_require__(32);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -9266,9 +7823,9 @@ var _rescope = __webpack_require__(9);
 
 var _rescope2 = _interopRequireDefault(_rescope);
 
-var _server = __webpack_require__(31);
+var _server = __webpack_require__(29);
 
-__webpack_require__(26);
+__webpack_require__(31);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9309,7 +7866,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var indexTpl = __webpack_require__(30);
+var indexTpl = __webpack_require__(28);
 
 var asStateMap = _rescope.spells.asStateMap,
     asScope = _rescope.spells.asScope;
@@ -9535,7 +8092,7 @@ exports.default = App;
 module.exports = exports["default"];
 
 /***/ }),
-/* 42 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -9704,7 +8261,103 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 43 */
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(36)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9739,7 +8392,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 44 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9775,7 +8428,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 45 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9803,7 +8456,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 46 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9818,7 +8471,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(45);
+var isNode = __webpack_require__(39);
 
 /**
  * @param {*} object The object to check.
@@ -9831,7 +8484,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 47 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9896,7 +8549,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 48 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10446,7 +9099,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -10471,17 +9124,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(48)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(42)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(47)();
+  module.exports = __webpack_require__(41)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 50 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11180,7 +9833,7 @@ Resizable.defaultProps = {
 
 
 /***/ }),
-/* 51 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11207,10 +9860,10 @@ var React = __webpack_require__(2);
 var emptyFunction = __webpack_require__(1);
 var emptyObject = __webpack_require__(4);
 var hyphenateStyleName = __webpack_require__(11);
-var memoizeStringOnly = __webpack_require__(23);
+var memoizeStringOnly = __webpack_require__(22);
 var warning = __webpack_require__(6);
 var checkPropTypes = __webpack_require__(7);
-var camelizeStyleName = __webpack_require__(19);
+var camelizeStyleName = __webpack_require__(18);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -13732,7 +12385,7 @@ module.exports = server_browser;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13745,7 +12398,7 @@ module.exports = server_browser;
  * LICENSE file in the root directory of this source tree.
  */
 
-var h=__webpack_require__(3),n=__webpack_require__(2),aa=__webpack_require__(1),t=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(23);
+var h=__webpack_require__(3),n=__webpack_require__(2),aa=__webpack_require__(1),t=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(22);
 function w(a){for(var b=arguments.length-1,g="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)g+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(g+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var x={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function z(a,b){return(a&b)===b}
 var B={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=B,g=a.Properties||{},c=a.DOMAttributeNamespaces||{},k=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in g){C.hasOwnProperty(f)?w("48",f):void 0;var e=f.toLowerCase(),d=g[f];e={attributeName:e,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:z(d,b.MUST_USE_PROPERTY),
@@ -13781,7 +12434,7 @@ d){if(null!=d.__html){d=d.__html;break a}}else if(d=f.children,"string"===typeof
 
 
 /***/ }),
-/* 53 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13805,18 +12458,18 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(2);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
-var ExecutionEnvironment = __webpack_require__(18);
+var ExecutionEnvironment = __webpack_require__(17);
 var _assign = __webpack_require__(3);
 var emptyFunction = __webpack_require__(1);
-var EventListener = __webpack_require__(17);
-var getActiveElement = __webpack_require__(22);
-var shallowEqual = __webpack_require__(24);
-var containsNode = __webpack_require__(20);
-var focusNode = __webpack_require__(21);
+var EventListener = __webpack_require__(16);
+var getActiveElement = __webpack_require__(21);
+var shallowEqual = __webpack_require__(23);
+var containsNode = __webpack_require__(19);
+var focusNode = __webpack_require__(20);
 var emptyObject = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(7);
 var hyphenateStyleName = __webpack_require__(11);
-var camelizeStyleName = __webpack_require__(19);
+var camelizeStyleName = __webpack_require__(18);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -29183,7 +27836,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 54 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29199,7 +27852,7 @@ module.exports = reactDom;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),l=__webpack_require__(18),B=__webpack_require__(3),C=__webpack_require__(1),ba=__webpack_require__(17),da=__webpack_require__(22),ea=__webpack_require__(24),fa=__webpack_require__(20),ia=__webpack_require__(21),D=__webpack_require__(4);
+var aa=__webpack_require__(2),l=__webpack_require__(17),B=__webpack_require__(3),C=__webpack_require__(1),ba=__webpack_require__(16),da=__webpack_require__(21),ea=__webpack_require__(23),fa=__webpack_require__(19),ia=__webpack_require__(20),D=__webpack_require__(4);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -29419,7 +28072,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 55 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -32170,7 +30823,7 @@ process.umask = function() { return 0; };
 //# sourceMappingURL=react-draggable.js.map
 
 /***/ }),
-/* 56 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33535,7 +32188,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33563,13 +32216,13 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 58 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var encode = __webpack_require__(25);
+var encode = __webpack_require__(24);
 var alphabet = __webpack_require__(8);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
@@ -33618,7 +32271,7 @@ module.exports = build;
 
 
 /***/ }),
-/* 59 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33642,23 +32295,23 @@ module.exports = decode;
 
 
 /***/ }),
-/* 60 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var alphabet = __webpack_require__(8);
-var encode = __webpack_require__(25);
-var decode = __webpack_require__(59);
-var build = __webpack_require__(58);
-var isValid = __webpack_require__(61);
+var encode = __webpack_require__(24);
+var decode = __webpack_require__(53);
+var build = __webpack_require__(52);
+var isValid = __webpack_require__(55);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(64) || 0;
+var clusterWorkerId = __webpack_require__(58) || 0;
 
 /**
  * Set the seed.
@@ -33714,7 +32367,7 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 61 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33740,7 +32393,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 62 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33761,7 +32414,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 63 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33793,13 +32446,1436 @@ module.exports = {
 
 
 /***/ }),
-/* 64 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = 0;
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getTarget = function (target) {
+  return document.querySelector(target);
+};
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(target) {
+                // If passing function in options, then use it for resolve "head" element.
+                // Useful for Shadow Root style i.e
+                // {
+                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+                // }
+                if (typeof target === 'function') {
+                        return target();
+                }
+                if (typeof memo[target] === "undefined") {
+			var styleTarget = getTarget.call(this, target);
+			// Special case to return head of iframe instead of iframe itself
+			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+				try {
+					// This will throw an exception if access to iframe is blocked
+					// due to cross-origin restrictions
+					styleTarget = styleTarget.contentDocument.head;
+				} catch(e) {
+					styleTarget = null;
+				}
+			}
+			memo[target] = styleTarget;
+		}
+		return memo[target]
+	};
+})();
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(60);
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+        if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
+		var nextSibling = getElement(options.insertInto + " " + options.insertAt.before);
+		target.insertBefore(style, nextSibling);
+	} else {
+		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
+function Agent() {
+  this._defaults = [];
+}
+
+["use", "on", "once", "set", "query", "type", "accept", "auth", "withCredentials", "sortQuery", "retry", "ok", "redirects",
+ "timeout", "buffer", "serialize", "parse", "ca", "key", "pfx", "cert"].forEach(function(fn) {
+  /** Default setting for all requests from this agent */
+  Agent.prototype[fn] = function(/*varargs*/) {
+    this._defaults.push({fn:fn, arguments:arguments});
+    return this;
+  }
+});
+
+Agent.prototype._setDefaults = function(req) {
+    this._defaults.forEach(function(def) {
+      req[def.fn].apply(req, def.arguments);
+    });
+};
+
+module.exports = Agent;
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Module of mixed-in functions shared between node and client code
+ */
+var isObject = __webpack_require__(25);
+
+/**
+ * Expose `RequestBase`.
+ */
+
+module.exports = RequestBase;
+
+/**
+ * Initialize a new `RequestBase`.
+ *
+ * @api public
+ */
+
+function RequestBase(obj) {
+  if (obj) return mixin(obj);
+}
+
+/**
+ * Mixin the prototype properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in RequestBase.prototype) {
+    obj[key] = RequestBase.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Clear previous timeout.
+ *
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.clearTimeout = function _clearTimeout(){
+  clearTimeout(this._timer);
+  clearTimeout(this._responseTimeoutTimer);
+  delete this._timer;
+  delete this._responseTimeoutTimer;
+  return this;
+};
+
+/**
+ * Override default response body parser
+ *
+ * This function will be called to convert incoming data into request.body
+ *
+ * @param {Function}
+ * @api public
+ */
+
+RequestBase.prototype.parse = function parse(fn){
+  this._parser = fn;
+  return this;
+};
+
+/**
+ * Set format of binary response body.
+ * In browser valid formats are 'blob' and 'arraybuffer',
+ * which return Blob and ArrayBuffer, respectively.
+ *
+ * In Node all values result in Buffer.
+ *
+ * Examples:
+ *
+ *      req.get('/')
+ *        .responseType('blob')
+ *        .end(callback);
+ *
+ * @param {String} val
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.responseType = function(val){
+  this._responseType = val;
+  return this;
+};
+
+/**
+ * Override default request body serializer
+ *
+ * This function will be called to convert data set via .send or .attach into payload to send
+ *
+ * @param {Function}
+ * @api public
+ */
+
+RequestBase.prototype.serialize = function serialize(fn){
+  this._serializer = fn;
+  return this;
+};
+
+/**
+ * Set timeouts.
+ *
+ * - response timeout is time between sending request and receiving the first byte of the response. Includes DNS and connection time.
+ * - deadline is the time from start of the request to receiving response body in full. If the deadline is too short large files may not load at all on slow connections.
+ *
+ * Value of 0 or false means no timeout.
+ *
+ * @param {Number|Object} ms or {response, deadline}
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.timeout = function timeout(options){
+  if (!options || 'object' !== typeof options) {
+    this._timeout = options;
+    this._responseTimeout = 0;
+    return this;
+  }
+
+  for(var option in options) {
+    switch(option) {
+      case 'deadline':
+        this._timeout = options.deadline;
+        break;
+      case 'response':
+        this._responseTimeout = options.response;
+        break;
+      default:
+        console.warn("Unknown timeout option", option);
+    }
+  }
+  return this;
+};
+
+/**
+ * Set number of retry attempts on error.
+ *
+ * Failed requests will be retried 'count' times if timeout or err.code >= 500.
+ *
+ * @param {Number} count
+ * @param {Function} [fn]
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.retry = function retry(count, fn){
+  // Default to 1 if no count passed or true
+  if (arguments.length === 0 || count === true) count = 1;
+  if (count <= 0) count = 0;
+  this._maxRetries = count;
+  this._retries = 0;
+  this._retryCallback = fn;
+  return this;
+};
+
+var ERROR_CODES = [
+  'ECONNRESET',
+  'ETIMEDOUT',
+  'EADDRINFO',
+  'ESOCKETTIMEDOUT'
+];
+
+/**
+ * Determine if a request should be retried.
+ * (Borrowed from segmentio/superagent-retry)
+ *
+ * @param {Error} err
+ * @param {Response} [res]
+ * @returns {Boolean}
+ */
+RequestBase.prototype._shouldRetry = function(err, res) {
+  if (!this._maxRetries || this._retries++ >= this._maxRetries) {
+    return false;
+  }
+  if (this._retryCallback) {
+    try {
+      var override = this._retryCallback(err, res);
+      if (override === true) return true;
+      if (override === false) return false;
+      // undefined falls back to defaults
+    } catch(e) {
+      console.error(e);
+    }
+  }
+  if (res && res.status && res.status >= 500 && res.status != 501) return true;
+  if (err) {
+    if (err.code && ~ERROR_CODES.indexOf(err.code)) return true;
+    // Superagent timeout
+    if (err.timeout && err.code == 'ECONNABORTED') return true;
+    if (err.crossDomain) return true;
+  }
+  return false;
+};
+
+/**
+ * Retry request
+ *
+ * @return {Request} for chaining
+ * @api private
+ */
+
+RequestBase.prototype._retry = function() {
+
+  this.clearTimeout();
+
+  // node
+  if (this.req) {
+    this.req = null;
+    this.req = this.request();
+  }
+
+  this._aborted = false;
+  this.timedout = false;
+
+  return this._end();
+};
+
+/**
+ * Promise support
+ *
+ * @param {Function} resolve
+ * @param {Function} [reject]
+ * @return {Request}
+ */
+
+RequestBase.prototype.then = function then(resolve, reject) {
+  if (!this._fullfilledPromise) {
+    var self = this;
+    if (this._endCalled) {
+      console.warn("Warning: superagent request was sent twice, because both .end() and .then() were called. Never call .end() if you use promises");
+    }
+    this._fullfilledPromise = new Promise(function(innerResolve, innerReject) {
+      self.end(function(err, res) {
+        if (err) innerReject(err);
+        else innerResolve(res);
+      });
+    });
+  }
+  return this._fullfilledPromise.then(resolve, reject);
+};
+
+RequestBase.prototype.catch = function(cb) {
+  return this.then(undefined, cb);
+};
+
+/**
+ * Allow for extension
+ */
+
+RequestBase.prototype.use = function use(fn) {
+  fn(this);
+  return this;
+};
+
+RequestBase.prototype.ok = function(cb) {
+  if ('function' !== typeof cb) throw Error("Callback required");
+  this._okCallback = cb;
+  return this;
+};
+
+RequestBase.prototype._isResponseOK = function(res) {
+  if (!res) {
+    return false;
+  }
+
+  if (this._okCallback) {
+    return this._okCallback(res);
+  }
+
+  return res.status >= 200 && res.status < 300;
+};
+
+/**
+ * Get request header `field`.
+ * Case-insensitive.
+ *
+ * @param {String} field
+ * @return {String}
+ * @api public
+ */
+
+RequestBase.prototype.get = function(field){
+  return this._header[field.toLowerCase()];
+};
+
+/**
+ * Get case-insensitive header `field` value.
+ * This is a deprecated internal API. Use `.get(field)` instead.
+ *
+ * (getHeader is no longer used internally by the superagent code base)
+ *
+ * @param {String} field
+ * @return {String}
+ * @api private
+ * @deprecated
+ */
+
+RequestBase.prototype.getHeader = RequestBase.prototype.get;
+
+/**
+ * Set header `field` to `val`, or multiple fields with one object.
+ * Case-insensitive.
+ *
+ * Examples:
+ *
+ *      req.get('/')
+ *        .set('Accept', 'application/json')
+ *        .set('X-API-Key', 'foobar')
+ *        .end(callback);
+ *
+ *      req.get('/')
+ *        .set({ Accept: 'application/json', 'X-API-Key': 'foobar' })
+ *        .end(callback);
+ *
+ * @param {String|Object} field
+ * @param {String} val
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.set = function(field, val){
+  if (isObject(field)) {
+    for (var key in field) {
+      this.set(key, field[key]);
+    }
+    return this;
+  }
+  this._header[field.toLowerCase()] = val;
+  this.header[field] = val;
+  return this;
+};
+
+/**
+ * Remove header `field`.
+ * Case-insensitive.
+ *
+ * Example:
+ *
+ *      req.get('/')
+ *        .unset('User-Agent')
+ *        .end(callback);
+ *
+ * @param {String} field
+ */
+RequestBase.prototype.unset = function(field){
+  delete this._header[field.toLowerCase()];
+  delete this.header[field];
+  return this;
+};
+
+/**
+ * Write the field `name` and `val`, or multiple fields with one object
+ * for "multipart/form-data" request bodies.
+ *
+ * ``` js
+ * request.post('/upload')
+ *   .field('foo', 'bar')
+ *   .end(callback);
+ *
+ * request.post('/upload')
+ *   .field({ foo: 'bar', baz: 'qux' })
+ *   .end(callback);
+ * ```
+ *
+ * @param {String|Object} name
+ * @param {String|Blob|File|Buffer|fs.ReadStream} val
+ * @return {Request} for chaining
+ * @api public
+ */
+RequestBase.prototype.field = function(name, val) {
+  // name should be either a string or an object.
+  if (null === name || undefined === name) {
+    throw new Error('.field(name, val) name can not be empty');
+  }
+
+  if (this._data) {
+    console.error(".field() can't be used if .send() is used. Please use only .send() or only .field() & .attach()");
+  }
+
+  if (isObject(name)) {
+    for (var key in name) {
+      this.field(key, name[key]);
+    }
+    return this;
+  }
+
+  if (Array.isArray(val)) {
+    for (var i in val) {
+      this.field(name, val[i]);
+    }
+    return this;
+  }
+
+  // val should be defined now
+  if (null === val || undefined === val) {
+    throw new Error('.field(name, val) val can not be empty');
+  }
+  if ('boolean' === typeof val) {
+    val = '' + val;
+  }
+  this._getFormData().append(name, val);
+  return this;
+};
+
+/**
+ * Abort the request, and clear potential timeout.
+ *
+ * @return {Request}
+ * @api public
+ */
+RequestBase.prototype.abort = function(){
+  if (this._aborted) {
+    return this;
+  }
+  this._aborted = true;
+  this.xhr && this.xhr.abort(); // browser
+  this.req && this.req.abort(); // node
+  this.clearTimeout();
+  this.emit('abort');
+  return this;
+};
+
+RequestBase.prototype._auth = function(user, pass, options, base64Encoder) {
+  switch (options.type) {
+    case 'basic':
+      this.set('Authorization', 'Basic ' + base64Encoder(user + ':' + pass));
+      break;
+
+    case 'auto':
+      this.username = user;
+      this.password = pass;
+      break;
+
+    case 'bearer': // usage would be .auth(accessToken, { type: 'bearer' })
+      this.set('Authorization', 'Bearer ' + user);
+      break;
+  }
+  return this;
+};
+
+/**
+ * Enable transmission of cookies with x-domain requests.
+ *
+ * Note that for this to work the origin must not be
+ * using "Access-Control-Allow-Origin" with a wildcard,
+ * and also must set "Access-Control-Allow-Credentials"
+ * to "true".
+ *
+ * @api public
+ */
+
+RequestBase.prototype.withCredentials = function(on) {
+  // This is browser-only functionality. Node side is no-op.
+  if (on == undefined) on = true;
+  this._withCredentials = on;
+  return this;
+};
+
+/**
+ * Set the max redirects to `n`. Does noting in browser XHR implementation.
+ *
+ * @param {Number} n
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.redirects = function(n){
+  this._maxRedirects = n;
+  return this;
+};
+
+/**
+ * Maximum size of buffered response body, in bytes. Counts uncompressed size.
+ * Default 200MB.
+ *
+ * @param {Number} n
+ * @return {Request} for chaining
+ */
+RequestBase.prototype.maxResponseSize = function(n){
+  if ('number' !== typeof n) {
+    throw TypeError("Invalid argument");
+  }
+  this._maxResponseSize = n;
+  return this;
+};
+
+/**
+ * Convert to a plain javascript object (not JSON string) of scalar properties.
+ * Note as this method is designed to return a useful non-this value,
+ * it cannot be chained.
+ *
+ * @return {Object} describing method, url, and data of this request
+ * @api public
+ */
+
+RequestBase.prototype.toJSON = function() {
+  return {
+    method: this.method,
+    url: this.url,
+    data: this._data,
+    headers: this._header,
+  };
+};
+
+/**
+ * Send `data` as the request body, defaulting the `.type()` to "json" when
+ * an object is given.
+ *
+ * Examples:
+ *
+ *       // manual json
+ *       request.post('/user')
+ *         .type('json')
+ *         .send('{"name":"tj"}')
+ *         .end(callback)
+ *
+ *       // auto json
+ *       request.post('/user')
+ *         .send({ name: 'tj' })
+ *         .end(callback)
+ *
+ *       // manual x-www-form-urlencoded
+ *       request.post('/user')
+ *         .type('form')
+ *         .send('name=tj')
+ *         .end(callback)
+ *
+ *       // auto x-www-form-urlencoded
+ *       request.post('/user')
+ *         .type('form')
+ *         .send({ name: 'tj' })
+ *         .end(callback)
+ *
+ *       // defaults to x-www-form-urlencoded
+ *      request.post('/user')
+ *        .send('name=tobi')
+ *        .send('species=ferret')
+ *        .end(callback)
+ *
+ * @param {String|Object} data
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.send = function(data){
+  var isObj = isObject(data);
+  var type = this._header['content-type'];
+
+  if (this._formData) {
+    console.error(".send() can't be used if .attach() or .field() is used. Please use only .send() or only .field() & .attach()");
+  }
+
+  if (isObj && !this._data) {
+    if (Array.isArray(data)) {
+      this._data = [];
+    } else if (!this._isHost(data)) {
+      this._data = {};
+    }
+  } else if (data && this._data && this._isHost(this._data)) {
+    throw Error("Can't merge these send calls");
+  }
+
+  // merge
+  if (isObj && isObject(this._data)) {
+    for (var key in data) {
+      this._data[key] = data[key];
+    }
+  } else if ('string' == typeof data) {
+    // default to x-www-form-urlencoded
+    if (!type) this.type('form');
+    type = this._header['content-type'];
+    if ('application/x-www-form-urlencoded' == type) {
+      this._data = this._data
+        ? this._data + '&' + data
+        : data;
+    } else {
+      this._data = (this._data || '') + data;
+    }
+  } else {
+    this._data = data;
+  }
+
+  if (!isObj || this._isHost(data)) {
+    return this;
+  }
+
+  // default to json
+  if (!type) this.type('json');
+  return this;
+};
+
+/**
+ * Sort `querystring` by the sort function
+ *
+ *
+ * Examples:
+ *
+ *       // default order
+ *       request.get('/user')
+ *         .query('name=Nick')
+ *         .query('search=Manny')
+ *         .sortQuery()
+ *         .end(callback)
+ *
+ *       // customized sort function
+ *       request.get('/user')
+ *         .query('name=Nick')
+ *         .query('search=Manny')
+ *         .sortQuery(function(a, b){
+ *           return a.length - b.length;
+ *         })
+ *         .end(callback)
+ *
+ *
+ * @param {Function} sort
+ * @return {Request} for chaining
+ * @api public
+ */
+
+RequestBase.prototype.sortQuery = function(sort) {
+  // _sort default to true but otherwise can be a function or boolean
+  this._sort = typeof sort === 'undefined' ? true : sort;
+  return this;
+};
+
+/**
+ * Compose querystring to append to req.url
+ *
+ * @api private
+ */
+RequestBase.prototype._finalizeQueryString = function(){
+  var query = this._query.join('&');
+  if (query) {
+    this.url += (this.url.indexOf('?') >= 0 ? '&' : '?') + query;
+  }
+  this._query.length = 0; // Makes the call idempotent
+
+  if (this._sort) {
+    var index = this.url.indexOf('?');
+    if (index >= 0) {
+      var queryArr = this.url.substring(index + 1).split('&');
+      if ('function' === typeof this._sort) {
+        queryArr.sort(this._sort);
+      } else {
+        queryArr.sort();
+      }
+      this.url = this.url.substring(0, index) + '?' + queryArr.join('&');
+    }
+  }
+};
+
+// For backwards compat only
+RequestBase.prototype._appendQueryString = function() {console.trace("Unsupported");}
+
+/**
+ * Invoke callback with timeout error.
+ *
+ * @api private
+ */
+
+RequestBase.prototype._timeoutError = function(reason, timeout, errno){
+  if (this._aborted) {
+    return;
+  }
+  var err = new Error(reason + timeout + 'ms exceeded');
+  err.timeout = timeout;
+  err.code = 'ECONNABORTED';
+  err.errno = errno;
+  this.timedout = true;
+  this.abort();
+  this.callback(err);
+};
+
+RequestBase.prototype._setTimeouts = function() {
+  var self = this;
+
+  // deadline
+  if (this._timeout && !this._timer) {
+    this._timer = setTimeout(function(){
+      self._timeoutError('Timeout of ', self._timeout, 'ETIME');
+    }, this._timeout);
+  }
+  // response timeout
+  if (this._responseTimeout && !this._responseTimeoutTimer) {
+    this._responseTimeoutTimer = setTimeout(function(){
+      self._timeoutError('Response timeout of ', self._responseTimeout, 'ETIMEDOUT');
+    }, this._responseTimeout);
+  }
+};
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Module dependencies.
+ */
+
+var utils = __webpack_require__(64);
+
+/**
+ * Expose `ResponseBase`.
+ */
+
+module.exports = ResponseBase;
+
+/**
+ * Initialize a new `ResponseBase`.
+ *
+ * @api public
+ */
+
+function ResponseBase(obj) {
+  if (obj) return mixin(obj);
+}
+
+/**
+ * Mixin the prototype properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in ResponseBase.prototype) {
+    obj[key] = ResponseBase.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Get case-insensitive `field` value.
+ *
+ * @param {String} field
+ * @return {String}
+ * @api public
+ */
+
+ResponseBase.prototype.get = function(field) {
+  return this.header[field.toLowerCase()];
+};
+
+/**
+ * Set header related properties:
+ *
+ *   - `.type` the content type without params
+ *
+ * A response of "Content-Type: text/plain; charset=utf-8"
+ * will provide you with a `.type` of "text/plain".
+ *
+ * @param {Object} header
+ * @api private
+ */
+
+ResponseBase.prototype._setHeaderProperties = function(header){
+    // TODO: moar!
+    // TODO: make this a util
+
+    // content-type
+    var ct = header['content-type'] || '';
+    this.type = utils.type(ct);
+
+    // params
+    var params = utils.params(ct);
+    for (var key in params) this[key] = params[key];
+
+    this.links = {};
+
+    // links
+    try {
+        if (header.link) {
+            this.links = utils.parseLinks(header.link);
+        }
+    } catch (err) {
+        // ignore
+    }
+};
+
+/**
+ * Set flags such as `.ok` based on `status`.
+ *
+ * For example a 2xx response will give you a `.ok` of __true__
+ * whereas 5xx will be __false__ and `.error` will be __true__. The
+ * `.clientError` and `.serverError` are also available to be more
+ * specific, and `.statusType` is the class of error ranging from 1..5
+ * sometimes useful for mapping respond colors etc.
+ *
+ * "sugar" properties are also defined for common cases. Currently providing:
+ *
+ *   - .noContent
+ *   - .badRequest
+ *   - .unauthorized
+ *   - .notAcceptable
+ *   - .notFound
+ *
+ * @param {Number} status
+ * @api private
+ */
+
+ResponseBase.prototype._setStatusProperties = function(status){
+    var type = status / 100 | 0;
+
+    // status / class
+    this.status = this.statusCode = status;
+    this.statusType = type;
+
+    // basics
+    this.info = 1 == type;
+    this.ok = 2 == type;
+    this.redirect = 3 == type;
+    this.clientError = 4 == type;
+    this.serverError = 5 == type;
+    this.error = (4 == type || 5 == type)
+        ? this.toError()
+        : false;
+
+    // sugar
+    this.accepted = 202 == status;
+    this.noContent = 204 == status;
+    this.badRequest = 400 == status;
+    this.unauthorized = 401 == status;
+    this.notAcceptable = 406 == status;
+    this.forbidden = 403 == status;
+    this.notFound = 404 == status;
+};
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Return the mime type for the given `str`.
+ *
+ * @param {String} str
+ * @return {String}
+ * @api private
+ */
+
+exports.type = function(str){
+  return str.split(/ *; */).shift();
+};
+
+/**
+ * Return header field parameters.
+ *
+ * @param {String} str
+ * @return {Object}
+ * @api private
+ */
+
+exports.params = function(str){
+  return str.split(/ *; */).reduce(function(obj, str){
+    var parts = str.split(/ *= */);
+    var key = parts.shift();
+    var val = parts.shift();
+
+    if (key && val) obj[key] = val;
+    return obj;
+  }, {});
+};
+
+/**
+ * Parse Link header fields.
+ *
+ * @param {String} str
+ * @return {Object}
+ * @api private
+ */
+
+exports.parseLinks = function(str){
+  return str.split(/ *, */).reduce(function(obj, str){
+    var parts = str.split(/ *; */);
+    var url = parts[0].slice(1, -1);
+    var rel = parts[1].split(/ *= */)[1].slice(1, -1);
+    obj[rel] = url;
+    return obj;
+  }, {});
+};
+
+/**
+ * Strip content related fields from `header`.
+ *
+ * @param {Object} header
+ * @return {Object} header
+ * @api private
+ */
+
+exports.cleanHeader = function(header, changesOrigin){
+  delete header['content-type'];
+  delete header['content-length'];
+  delete header['transfer-encoding'];
+  delete header['host'];
+  // secuirty
+  if (changesOrigin) {
+    delete header['authorization'];
+    delete header['cookie'];
+  }
+  return header;
+};
 
 
 /***/ }),

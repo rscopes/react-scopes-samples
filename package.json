@@ -13,9 +13,6 @@
   "dependencies": {
     "crypto": "^1.0.1",
     "dot-tpl-loader": "^1.2.1",
-    "react-draggable": "^3.0.5",
-    "react-resizable": "^1.7.5",
-    "react-rnd": "^7.3.1",
     "superagent": "^3.8.2"
   },
   "devDependencies": {
