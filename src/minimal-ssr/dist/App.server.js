@@ -11314,7 +11314,7 @@ module.exports =
 	
 	            Object.keys(sm).forEach(function (key) {
 	                var cpath = path ? path + '.' + key : key;
-	                sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : sm[key] && sm[key] instanceof Function ? actions[key] = sm[key] : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
+	                sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Function ? actions[key] = sm[key] : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
 	                //: this.stateMapToRefList(sm[key], _refs, path + '.' + key)
 	            });
 	            return _refs;
@@ -29181,7 +29181,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _this2.saveState = function (e, d) {
+        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _this2.saveState = setTimeout.bind(null, function (e, d) {
             var _this2$props = _this2.props,
                 $actions = _this2$props.$actions,
                 record = _this2$props.record;
@@ -29190,7 +29190,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                 size: _this2.state.size,
                 position: _this2.state.position
             }));
-        }, _temp2), _possibleConstructorReturn(_this2, _ret);
+        }), _temp2), _possibleConstructorReturn(_this2, _ret);
     }
 
     _createClass(PostIt, [{

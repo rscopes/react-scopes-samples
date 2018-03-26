@@ -115,7 +115,7 @@ class PostIt extends React.Component {
     
     state = {};
     
-    saveState = ( e, d ) => {
+    saveState = setTimeout.bind(null, ( e, d ) => {
         let { $actions, record } = this.props;
         $actions.updatePostIt(
             {
@@ -123,7 +123,7 @@ class PostIt extends React.Component {
                 size    : this.state.size,
                 position: this.state.position
             });
-    };
+    });
     
     render() {
         let {
