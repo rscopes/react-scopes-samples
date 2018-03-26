@@ -6803,16 +6803,16 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _this2.saveState = setTimeout.bind(null, function (e, d) {
+        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _this2.saveState = function (e, d) {
             var _this2$props = _this2.props,
                 $actions = _this2$props.$actions,
                 record = _this2$props.record;
 
             $actions.updatePostIt(_extends({}, record, {
-                size: _this2.state.size,
+                size: _this2.state.size || record.size,
                 position: _this2.state.position
             }));
-        }), _temp2), _possibleConstructorReturn(_this2, _ret);
+        }, _temp2), _possibleConstructorReturn(_this2, _ret);
     }
 
     _createClass(PostIt, [{
