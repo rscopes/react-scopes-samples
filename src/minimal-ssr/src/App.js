@@ -51,38 +51,45 @@ class App extends React.Component {
         appState: {
             selectedItemId: null
         },
-        someData: class extends Store {
-            static state = {
-                src  : "/api/hello",
-                items: []
-            };
-            static actions = {
-                newPostIt() {
-                    return {
-                        items: [...this.nextState.items, {
-                            _id : shortid.generate(),
-                            size: {
-                                width : 200,
-                                height: 200
-                            },
-                            text: "New Post It #" + this.nextState.items.length
-                        }]
-                    }
-                },
-                updatePostIt( postIt ) {
-                    let { items } = this.nextState;
-                    items         = items.map(it => (it._id === postIt._id) ? postIt : it);
-                    
-                    return {
-                        items
-                    }
-                },
-                saveState() {
-                    superagent.post('/', this.scopeObj.serialize())
-                              .then(( e, r ) => {
-                                  console.log(e, r)
-                              })
+        @asStateMap
+        someData: {
+            src  : "/api/hello",
+            items: [{
+                "_id"     : "rkUQHZrqM",
+                "size"    : { "width": 200, "height": 200 },
+                "text"    : "New Post It #0 somewhere we wait some new shit out there !",
+                "position": { "x": 321, "y": 167 }
+            }, {
+                "_id"     : "r1bcuMrcM",
+                "size"    : { "width": 200, "height": 200 },
+                "text"    : "do something",
+                "position": { "x": 260, "y": 576 }
+            }],
+            newPostIt() {
+                return {
+                    items: [...this.nextState.items, {
+                        _id : shortid.generate(),
+                        size: {
+                            width : 200,
+                            height: 200
+                        },
+                        text: "New Post It #" + this.nextState.items.length
+                    }]
                 }
+            },
+            updatePostIt( postIt ) {
+                let { items } = this.nextState;
+                items         = items.map(it => (it._id === postIt._id) ? postIt : it);
+                
+                return {
+                    items
+                }
+            },
+            saveState() {
+                superagent.post('/', this.scopeObj.serialize())
+                          .then(( e, r ) => {
+                              console.log(e, r)
+                          })
             }
         }
     };
@@ -162,7 +169,7 @@ class PostIt extends React.Component {
                 absolutePos
                 size={ size }
                 position={ position }
-                onDragStop={ ( e, d ) => {
+                onDrag={ ( e, d ) => {
                     $actions.updatePostIt(
                         {
                             ...record,
@@ -189,14 +196,15 @@ class PostIt extends React.Component {
                         </div>
                         ||
                         <div className={ "editor" }>
-                            <textarea onKeyPress={ e => {
-                                $actions.updatePostIt(
-                                    {
-                                        ...record,
-                                        text: e.target.value
-                                    });
-                            } }
-                                      onMouseDown={ e => e.stopPropagation() }
+                            <textarea
+                                onChange={ e => {
+                                    $actions.updatePostIt(
+                                        {
+                                            ...record,
+                                            text: e.target.value
+                                        });
+                                } }
+                                onMouseDown={ e => e.stopPropagation() }
                             >{ text }</textarea>
                             <button onClick={ e => this.setState({ editing: false }) }>💾</button>
                         </div>

@@ -1051,11 +1051,12 @@ module.exports =
 
 				var _refs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
-				var path = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "";
+				var actions = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+				var path = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "";
 
 				Object.keys(sm).forEach(function (key) {
 					var cpath = path ? path + '.' + key : key;
-					sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Function ? _refs.push(sm[key]().path + ':' + cpath) : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
+					sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Function ? actions[key] = sm[key] : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
 					//: this.stateMapToRefList(sm[key], _refs, path + '.' + key)
 				});
 				return _refs;
@@ -6310,8 +6311,9 @@ module.exports =
 			var cfg = _ref[0];
 
 			var use = [],
-			    state = {};
-			_rescope.Scope.stateMapToRefList(obj, state, use);
+			    state = {},
+			    actions = {};
+			_rescope.Scope.stateMapToRefList(obj, state, use, actions);
 			return _temp = _class = function (_Store) {
 				_inherits(StateMap, _Store);
 
@@ -6322,7 +6324,7 @@ module.exports =
 				}
 
 				return StateMap;
-			}(_rescope.Store), _class.use = use, _class.state = state, _class.displayName = ref[1], _temp;
+			}(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
 		},
 		scope: function scope(obj, _ref2, ref) {
 			var cfg = _ref2[0];
@@ -7772,32 +7774,32 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _class, _class2, _temp, _desc, _value, _obj, _init, _class3, _temp2, _dec2, _dec3, _desc2, _value2, _obj2, _init2, _init3, _init4, _class4; /*
-                                                                                                                                                       * Copyright (c)  2018 Wise Wild Web .
-                                                                                                                                                       *
-                                                                                                                                                       *  MIT License
-                                                                                                                                                       *
-                                                                                                                                                       *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                       *  of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                       *  in the Software without restriction, including without limitation the rights
-                                                                                                                                                       *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                       *  copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                       *  furnished to do so, subject to the following conditions:
-                                                                                                                                                       *
-                                                                                                                                                       *  The above copyright notice and this permission notice shall be included in all
-                                                                                                                                                       *  copies or substantial portions of the Software.
-                                                                                                                                                       *
-                                                                                                                                                       *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                       *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                       *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                       *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                       *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                       *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                                                                                                                                       *  SOFTWARE.
-                                                                                                                                                       *
-                                                                                                                                                       * @author : Nathanael Braun
-                                                                                                                                                       * @contact : caipilabs@gmail.com
-                                                                                                                                                       */
+var _dec, _class, _class2, _temp, _desc, _value, _obj, _init, _init2, _dec2, _dec3, _desc2, _value2, _obj2, _init3, _init4, _init5, _class3; /*
+                                                                                                                                              * Copyright (c)  2018 Wise Wild Web .
+                                                                                                                                              *
+                                                                                                                                              *  MIT License
+                                                                                                                                              *
+                                                                                                                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                                                                              *  of this software and associated documentation files (the "Software"), to deal
+                                                                                                                                              *  in the Software without restriction, including without limitation the rights
+                                                                                                                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                                                                              *  copies of the Software, and to permit persons to whom the Software is
+                                                                                                                                              *  furnished to do so, subject to the following conditions:
+                                                                                                                                              *
+                                                                                                                                              *  The above copyright notice and this permission notice shall be included in all
+                                                                                                                                              *  copies or substantial portions of the Software.
+                                                                                                                                              *
+                                                                                                                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                                                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                                                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                                                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                                                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                                                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                                                                                                                              *  SOFTWARE.
+                                                                                                                                              *
+                                                                                                                                              * @author : Nathanael Braun
+                                                                                                                                              * @contact : caipilabs@gmail.com
+                                                                                                                                              */
 
 var _react = __webpack_require__(2);
 
@@ -7916,20 +7918,20 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
     appState: {
         selectedItemId: null
     },
-    someData: (_temp2 = _class3 = function (_Store) {
-        _inherits(someData, _Store);
 
-        function someData() {
-            _classCallCheck(this, someData);
-
-            return _possibleConstructorReturn(this, (someData.__proto__ || Object.getPrototypeOf(someData)).apply(this, arguments));
-        }
-
-        return someData;
-    }(_rescope.Store), _class3.state = {
+    someData: {
         src: "/api/hello",
-        items: []
-    }, _class3.actions = {
+        items: [{
+            "_id": "rkUQHZrqM",
+            "size": { "width": 200, "height": 200 },
+            "text": "New Post It #0 somewhere we wait some new shit out there !",
+            "position": { "x": 321, "y": 167 }
+        }, {
+            "_id": "r1bcuMrcM",
+            "size": { "width": 200, "height": 200 },
+            "text": "do something",
+            "position": { "x": 260, "y": 576 }
+        }],
         newPostIt: function newPostIt() {
             return {
                 items: [].concat(_toConsumableArray(this.nextState.items), [{
@@ -7958,13 +7960,20 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
                 console.log(e, r);
             });
         }
-    }, _temp2)
+    }
 }, (_applyDecoratedDescriptor(_obj, "appState", [asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "appState"), _init = _init ? _init.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init;
+    }
+}), _obj), _applyDecoratedDescriptor(_obj, "someData", [asStateMap], (_init2 = Object.getOwnPropertyDescriptor(_obj, "someData"), _init2 = _init2 ? _init2.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init2;
     }
 }), _obj)), _obj), _class2.renderTo = function (node) {
     var cScope = new _rescope.Scope(App.AppScope, { id: "App" });
@@ -7995,34 +8004,34 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
     position: "record.position",
 
     text: "record.text"
-}, (_applyDecoratedDescriptor(_obj2, "size", [_rescope.scopeRef], (_init2 = Object.getOwnPropertyDescriptor(_obj2, "size"), _init2 = _init2 ? _init2.value : undefined, {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    initializer: function initializer() {
-        return _init2;
-    }
-}), _obj2), _applyDecoratedDescriptor(_obj2, "position", [_rescope.scopeRef], (_init3 = Object.getOwnPropertyDescriptor(_obj2, "position"), _init3 = _init3 ? _init3.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj2, "size", [_rescope.scopeRef], (_init3 = Object.getOwnPropertyDescriptor(_obj2, "size"), _init3 = _init3 ? _init3.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init3;
     }
-}), _obj2), _applyDecoratedDescriptor(_obj2, "text", [_rescope.scopeRef], (_init4 = Object.getOwnPropertyDescriptor(_obj2, "text"), _init4 = _init4 ? _init4.value : undefined, {
+}), _obj2), _applyDecoratedDescriptor(_obj2, "position", [_rescope.scopeRef], (_init4 = Object.getOwnPropertyDescriptor(_obj2, "position"), _init4 = _init4 ? _init4.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init4;
     }
-}), _obj2)), _obj2)), _dec2(_class4 = _dec3(_class4 = function (_React$Component2) {
+}), _obj2), _applyDecoratedDescriptor(_obj2, "text", [_rescope.scopeRef], (_init5 = Object.getOwnPropertyDescriptor(_obj2, "text"), _init5 = _init5 ? _init5.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init5;
+    }
+}), _obj2)), _obj2)), _dec2(_class3 = _dec3(_class3 = function (_React$Component2) {
     _inherits(PostIt, _React$Component2);
 
     function PostIt() {
         var _ref;
 
-        var _temp3, _this3, _ret;
+        var _temp2, _this2, _ret;
 
         _classCallCheck(this, PostIt);
 
@@ -8030,13 +8039,13 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp3 = (_this3 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this3), _this3.state = {}, _temp3), _possibleConstructorReturn(_this3, _ret);
+        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _temp2), _possibleConstructorReturn(_this2, _ret);
     }
 
     _createClass(PostIt, [{
         key: "render",
         value: function render() {
-            var _this4 = this;
+            var _this3 = this;
 
             var _props = this.props,
                 position = _props.position,
@@ -8051,7 +8060,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                     absolutePos: true,
                     size: size,
                     position: position,
-                    onDragStop: function onDragStop(e, d) {
+                    onDrag: function onDrag(e, d) {
                         $actions.updatePostIt(_extends({}, record, {
                             position: { x: d.x, y: d.y }
                         }));
@@ -8075,7 +8084,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                         _react2.default.createElement(
                             "button",
                             { onClick: function onClick(e) {
-                                    return _this4.setState({ editing: true });
+                                    return _this3.setState({ editing: true });
                                 } },
                             "\uD83D\uDD8B"
                         )
@@ -8084,7 +8093,8 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                         { className: "editor" },
                         _react2.default.createElement(
                             "textarea",
-                            { onKeyPress: function onKeyPress(e) {
+                            {
+                                onChange: function onChange(e) {
                                     $actions.updatePostIt(_extends({}, record, {
                                         text: e.target.value
                                     }));
@@ -8098,7 +8108,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                         _react2.default.createElement(
                             "button",
                             { onClick: function onClick(e) {
-                                    return _this4.setState({ editing: false });
+                                    return _this3.setState({ editing: false });
                                 } },
                             "\uD83D\uDCBE"
                         )
@@ -8109,7 +8119,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
     }]);
 
     return PostIt;
-}(_react2.default.Component)) || _class4) || _class4);
+}(_react2.default.Component)) || _class3) || _class3);
 
 
 if (typeof window != 'undefined') {
