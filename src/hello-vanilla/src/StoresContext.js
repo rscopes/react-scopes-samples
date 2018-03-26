@@ -31,12 +31,12 @@
  * Date: 03/12/2016
  * Time: 09:28
  */
-import {Store} from "rescope";
+import { Store } from "rescope";
 
 var stubs = require("./_stubs/data");
 
 
-let status = new (class  extends Store {
+let status = new ( class  extends Store {
     static context = 'static';
     static state   = {};
     static actions = {
@@ -47,7 +47,7 @@ let status = new (class  extends Store {
             return { currentUser: msg };
         }
     }
-})()
+} )()
 
 let MyStoreContext = {
     status,
@@ -56,8 +56,8 @@ let MyStoreContext = {
             currentUserId: "MrNice"
         };
         static actions = {
-            switchUser(currentUserId){
-                return {currentUserId};
+            switchUser( currentUserId ) {
+                return { currentUserId };
             }
         }
         // constructor() {
@@ -73,7 +73,7 @@ let MyStoreContext = {
         // }
     },
     currentUser: class currentUser extends Store {
-        static use = ["appState"];// list of source stores id
+        static use = [ "appState" ];// list of source stores id
         
         apply( data, { appState: { currentUserId: NewUserId } }, changes ) {
             let LastUserId = data && data._id;
@@ -113,7 +113,7 @@ let MyStoreContext = {
         };
         
         apply( data, { myUserId }, changes ) {
-            let { cUserId = void 0 } = data||{};
+            let { cUserId = void 0 } = data || {};
             
             
             if ( myUserId != cUserId ) {
@@ -124,19 +124,19 @@ let MyStoreContext = {
                         this.push(
                             {
                                 userId      : myUserId,
-                                count       : stubs[myUserId].length,
-                                events      : stubs[myUserId],
-                                eventsByType: stubs[myUserId].reduce(
+                                count       : stubs[ myUserId ].length,
+                                events      : stubs[ myUserId ],
+                                eventsByType: stubs[ myUserId ].reduce(
                                     ( res, item ) => {
-                                        res[item.type] = res[item.type] || [res[item.type]];
-                                        res[item.type].push(item);
+                                        res[ item.type ] = res[ item.type ] || [ res[ item.type ] ];
+                                        res[ item.type ].push(item);
                                         return res;
                                     },
                                     {}
                                 )
                             },
                             () => {
-                                status.trigger("userEvents", stubs[myUserId].length + " events");
+                                status.trigger("userEvents", stubs[ myUserId ].length + " events");
                             });
                         this.release();
                     },
