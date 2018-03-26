@@ -86,7 +86,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -918,7 +918,7 @@ module.exports =
 /* 1 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(15);
+	module.exports = __webpack_require__(14);
 
 	/***/
 },
@@ -2293,7 +2293,7 @@ module.exports =
 /* 5 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(14);
+	module.exports = __webpack_require__(23);
 
 	/***/
 },
@@ -3671,7 +3671,7 @@ module.exports =
 }]
 /******/);
 //# sourceMappingURL=ReScope.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(65), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(66), __webpack_require__(0)))
 
 /***/ }),
 /* 10 */
@@ -4593,15 +4593,6 @@ module.exports = ReactPropTypesSecret;
 
 "use strict";
 
-module.exports = __webpack_require__(54);
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 
 /*!
  * MIT License
@@ -4717,7 +4708,7 @@ module.exports =
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4798,7 +4789,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4837,7 +4828,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4880,7 +4871,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4923,7 +4914,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4953,7 +4944,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4995,7 +4986,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5028,7 +5019,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5097,6 +5088,15 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = __webpack_require__(54);
+
 
 /***/ }),
 /* 24 */
@@ -5305,7 +5305,7 @@ module.exports =
 /* 2 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(15);
+	module.exports = __webpack_require__(14);
 
 	/***/
 },
@@ -5966,423 +5966,130 @@ module.exports =
 "use strict";
 
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-	/******/
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-		/******/
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-		/******/
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-		/******/
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-		/******/
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-		/******/
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-	/******/
-	/******/
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-	/******/
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-	/******/
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "/";
-	/******/
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-}(
-/************************************************************************/
-/******/[
-/* 0 */
-/***/function (module, exports, __webpack_require__) {
+var _desc, _value, _obj, _init, _init2;
 
-	"use strict";
+var _superagent = __webpack_require__(62);
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
+var _superagent2 = _interopRequireDefault(_superagent);
 
-	var _rescope = __webpack_require__(1);
+var _shortid = __webpack_require__(23);
 
-	var _rescope2 = _interopRequireDefault(_rescope);
+var _shortid2 = _interopRequireDefault(_shortid);
 
-	__webpack_require__(2);
+var _rescopeSpells = __webpack_require__(33);
 
-	__webpack_require__(4);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-	exports.default = _rescope2.default.spells; /*
-                                              * Copyright (c)  2018 Wise Wild Web .
-                                              *
-                                              *  MIT License
-                                              *
-                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                              *  of this software and associated documentation files (the "Software"), to deal
-                                              *  in the Software without restriction, including without limitation the rights
-                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                              *  copies of the Software, and to permit persons to whom the Software is
-                                              *  furnished to do so, subject to the following conditions:
-                                              *
-                                              *  The above copyright notice and this permission notice shall be included in all
-                                              *  copies or substantial portions of the Software.
-                                              *
-                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                              *  SOFTWARE.
-                                              *
-                                              * @author : Nathanael Braun
-                                              * @contact : caipilabs@gmail.com
-                                              */
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+    var desc = {};
+    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+        desc[key] = descriptor[key];
+    });
+    desc.enumerable = !!desc.enumerable;
+    desc.configurable = !!desc.configurable;
 
-	module.exports = exports["default"];
+    if ('value' in desc || desc.initializer) {
+        desc.writable = true;
+    }
 
-	/***/
-},
-/* 1 */
-/***/function (module, exports) {
+    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+        return decorator(target, property, desc) || desc;
+    }, desc);
 
-	module.exports = __webpack_require__(9);
+    if (context && desc.initializer !== void 0) {
+        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+        desc.initializer = undefined;
+    }
 
-	/***/
-},
-/* 2 */
-/***/function (module, exports, __webpack_require__) {
+    if (desc.initializer === void 0) {
+        Object['define' + 'Property'](target, property, desc);
+        desc = null;
+    }
 
-	"use strict";
+    return desc;
+}
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
+exports.default = (_obj = {
+    appState: {
+        selectedPostItId: null,
+        selectPostIt: function selectPostIt(selectedPostItId) {
+            return { selectedPostItId: selectedPostItId };
+        }
+    },
 
-	var _rescope = __webpack_require__(1);
-
-	var _rescope2 = _interopRequireDefault(_rescope);
-
-	var _is = __webpack_require__(3);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	// will use as external the index in dist
-
-	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
-	var SimpleObjectProto = {}.constructor;
-	_rescope2.default.spells = {};
-
-	var castTypesToAppliable = {};
-	var castTypes = {};
-
-	_rescope2.default.isSpell = function caster() {
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-
-		// are we decorating a member / without argz
-		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-			argz[2].value = addCaster(argz[0][argz[1]], argz);
-			return argz[0];
-		} else if (!_is2.default.fn(argz[0])) {
-			return function () {
-				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-					argz2[_key2] = arguments[_key2];
-				}
-
-				// are we decorating a member / with argz
-				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-					return argz2[0];
-				} else return caster.apply(undefined, [argz2[0]].concat(argz));
-			};
-		}
-		return addCaster.apply(undefined, argz);
-	};
-
-	function addCaster() {
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-
-		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-		if (!cast) throw "ReScope cast : bad decorator function";
-		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
-
-		if (!castTypesToAppliable[typeName]) {
-			castTypesToAppliable[typeName] = [];
-
-			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-					argz[_key4] = arguments[_key4];
-				}
-
-				// are we decorating a member / without argz
-				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-					return argz[0];
-				} else if (!isCastableType(typeName, argz[0])) {
-					return function () {
-						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-							argz2[_key5] = arguments[_key5];
-						}
-
-						// are we decorating a member / with argz
-						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-							return argz2[0];
-						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
-					};
-				}
-				return applyCastableType(typeName, argz[0], argz.slice(1));
-			};
-		}
-		castTypesToAppliable[typeName].unshift({
-			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-		});
-		return cast;
-	}
-
-	function isCastableType(typeName, Comp, member, stateScope) {
-		var castable = castTypesToAppliable[typeName];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-		}return false;
-	}
-
-	function applyCastableType(typeName, Comp, argz, member, stateScope) {
-
-		var castable = castTypesToAppliable[typeName] || [];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-		}console.warn("reScope cast : Unknown type", typeName, Comp);
-		return false;
-	}
-
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-	/***/
-},
-/* 3 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(12);
-
-	/***/
-},
-/* 4 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _dec, _dec2, _desc, _value, _obj; /*
-                                        * Copyright (c)  2018 Wise Wild Web .
-                                        *
-                                        *  MIT License
-                                        *
-                                        *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                        *  of this software and associated documentation files (the "Software"), to deal
-                                        *  in the Software without restriction, including without limitation the rights
-                                        *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                        *  copies of the Software, and to permit persons to whom the Software is
-                                        *  furnished to do so, subject to the following conditions:
-                                        *
-                                        *  The above copyright notice and this permission notice shall be included in all
-                                        *  copies or substantial portions of the Software.
-                                        *
-                                        *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                        *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                        *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                        *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                        *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                        *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                        *  SOFTWARE.
-                                        *
-                                        * @author : Nathanael Braun
-                                        * @contact : caipilabs@gmail.com
-                                        */
-
-	var _is = __webpack_require__(3);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	var _rescope = __webpack_require__(1);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-		var desc = {};
-		Object['ke' + 'ys'](descriptor).forEach(function (key) {
-			desc[key] = descriptor[key];
-		});
-		desc.enumerable = !!desc.enumerable;
-		desc.configurable = !!desc.configurable;
-
-		if ('value' in desc || desc.initializer) {
-			desc.writable = true;
-		}
-
-		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-			return decorator(target, property, desc) || desc;
-		}, desc);
-
-		if (context && desc.initializer !== void 0) {
-			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-			desc.initializer = undefined;
-		}
-
-		if (desc.initializer === void 0) {
-			Object['define' + 'Property'](target, property, desc);
-			desc = null;
-		}
-
-		return desc;
-	}
-
-	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
-		return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
-		return _is2.default.object(v);
-	}), (_obj = {
-		stateMap: function stateMap(obj, _ref, ref) {
-			var _class, _temp;
-
-			var cfg = _ref[0];
-
-			var use = [],
-			    state = {},
-			    actions = {};
-			_rescope.Scope.stateMapToRefList(obj, state, use, actions);
-			return _temp = _class = function (_Store) {
-				_inherits(StateMap, _Store);
-
-				function StateMap() {
-					_classCallCheck(this, StateMap);
-
-					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-				}
-
-				return StateMap;
-			}(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
-		},
-		scope: function scope(obj, _ref2, ref) {
-			var cfg = _ref2[0];
-
-			return _rescope.Scope.bind(null, obj, cfg);
-		}
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
-	module.exports = exports["default"];
-
-	/***/
-}]
-/******/);
-//# sourceMappingURL=rescopeSpells.js.map
+    someData: {
+        // initial state
+        src: "/api/hello",
+        items: [{
+            "_id": "rkUQHZrqM",
+            "size": { "width": 200, "height": 200 },
+            "text": "New Post It #0 somewhere we wait some new shit out there !",
+            "position": { "x": 321, "y": 167 }
+        }, {
+            "_id": "r1bcuMrcM",
+            "size": { "width": 200, "height": 200 },
+            "text": "do somethink",
+            "position": { "x": 260, "y": 576 }
+        }],
+        // actions
+        newPostIt: function newPostIt() {
+            return {
+                items: [].concat(_toConsumableArray(this.nextState.items), [{
+                    _id: _shortid2.default.generate(),
+                    size: {
+                        width: 200,
+                        height: 200
+                    },
+                    position: {
+                        x: 100 + ~~(Math.random() * 600),
+                        y: 100 + ~~(Math.random() * 600)
+                    },
+                    text: "New Post It #" + this.nextState.items.length
+                }])
+            };
+        },
+        updatePostIt: function updatePostIt(postIt) {
+            return {
+                items: this.nextState.items.map(function (it) {
+                    return it._id === postIt._id ? postIt : it;
+                })
+            };
+        },
+        rmPostIt: function rmPostIt(postIt) {
+            return {
+                items: this.nextState.items.filter(function (it) {
+                    return it._id !== postIt._id;
+                })
+            };
+        },
+        saveState: function saveState() {
+            _superagent2.default.post('/', this.scopeObj.serialize()).then(function (e, r) {
+                console.log(e, r);
+            });
+        }
+    }
+}, (_applyDecoratedDescriptor(_obj, "appState", [_rescopeSpells.asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "appState"), _init = _init ? _init.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init;
+    }
+}), _obj), _applyDecoratedDescriptor(_obj, "someData", [_rescopeSpells.asStateMap], (_init2 = Object.getOwnPropertyDescriptor(_obj, "someData"), _init2 = _init2 ? _init2.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init2;
+    }
+}), _obj)), _obj);
+module.exports = exports["default"];
 
 /***/ }),
 /* 28 */
@@ -6883,932 +6590,6 @@ if(false) {
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Root reference for iframes.
- */
-
-var root;
-if (typeof window !== 'undefined') { // Browser window
-  root = window;
-} else if (typeof self !== 'undefined') { // Web Worker
-  root = self;
-} else { // Other environments
-  console.warn("Using browser-only version of superagent in non-browser environment");
-  root = this;
-}
-
-var Emitter = __webpack_require__(34);
-var RequestBase = __webpack_require__(62);
-var isObject = __webpack_require__(25);
-var ResponseBase = __webpack_require__(63);
-var Agent = __webpack_require__(61);
-
-/**
- * Noop.
- */
-
-function noop(){};
-
-/**
- * Expose `request`.
- */
-
-var request = exports = module.exports = function(method, url) {
-  // callback
-  if ('function' == typeof url) {
-    return new exports.Request('GET', method).end(url);
-  }
-
-  // url first
-  if (1 == arguments.length) {
-    return new exports.Request('GET', method);
-  }
-
-  return new exports.Request(method, url);
-}
-
-exports.Request = Request;
-
-/**
- * Determine XHR.
- */
-
-request.getXHR = function () {
-  if (root.XMLHttpRequest
-      && (!root.location || 'file:' != root.location.protocol
-          || !root.ActiveXObject)) {
-    return new XMLHttpRequest;
-  } else {
-    try { return new ActiveXObject('Microsoft.XMLHTTP'); } catch(e) {}
-    try { return new ActiveXObject('Msxml2.XMLHTTP.6.0'); } catch(e) {}
-    try { return new ActiveXObject('Msxml2.XMLHTTP.3.0'); } catch(e) {}
-    try { return new ActiveXObject('Msxml2.XMLHTTP'); } catch(e) {}
-  }
-  throw Error("Browser-only version of superagent could not find XHR");
-};
-
-/**
- * Removes leading and trailing whitespace, added to support IE.
- *
- * @param {String} s
- * @return {String}
- * @api private
- */
-
-var trim = ''.trim
-  ? function(s) { return s.trim(); }
-  : function(s) { return s.replace(/(^\s*|\s*$)/g, ''); };
-
-/**
- * Serialize the given `obj`.
- *
- * @param {Object} obj
- * @return {String}
- * @api private
- */
-
-function serialize(obj) {
-  if (!isObject(obj)) return obj;
-  var pairs = [];
-  for (var key in obj) {
-    pushEncodedKeyValuePair(pairs, key, obj[key]);
-  }
-  return pairs.join('&');
-}
-
-/**
- * Helps 'serialize' with serializing arrays.
- * Mutates the pairs array.
- *
- * @param {Array} pairs
- * @param {String} key
- * @param {Mixed} val
- */
-
-function pushEncodedKeyValuePair(pairs, key, val) {
-  if (val != null) {
-    if (Array.isArray(val)) {
-      val.forEach(function(v) {
-        pushEncodedKeyValuePair(pairs, key, v);
-      });
-    } else if (isObject(val)) {
-      for(var subkey in val) {
-        pushEncodedKeyValuePair(pairs, key + '[' + subkey + ']', val[subkey]);
-      }
-    } else {
-      pairs.push(encodeURIComponent(key)
-        + '=' + encodeURIComponent(val));
-    }
-  } else if (val === null) {
-    pairs.push(encodeURIComponent(key));
-  }
-}
-
-/**
- * Expose serialization method.
- */
-
-request.serializeObject = serialize;
-
-/**
-  * Parse the given x-www-form-urlencoded `str`.
-  *
-  * @param {String} str
-  * @return {Object}
-  * @api private
-  */
-
-function parseString(str) {
-  var obj = {};
-  var pairs = str.split('&');
-  var pair;
-  var pos;
-
-  for (var i = 0, len = pairs.length; i < len; ++i) {
-    pair = pairs[i];
-    pos = pair.indexOf('=');
-    if (pos == -1) {
-      obj[decodeURIComponent(pair)] = '';
-    } else {
-      obj[decodeURIComponent(pair.slice(0, pos))] =
-        decodeURIComponent(pair.slice(pos + 1));
-    }
-  }
-
-  return obj;
-}
-
-/**
- * Expose parser.
- */
-
-request.parseString = parseString;
-
-/**
- * Default MIME type map.
- *
- *     superagent.types.xml = 'application/xml';
- *
- */
-
-request.types = {
-  html: 'text/html',
-  json: 'application/json',
-  xml: 'text/xml',
-  urlencoded: 'application/x-www-form-urlencoded',
-  'form': 'application/x-www-form-urlencoded',
-  'form-data': 'application/x-www-form-urlencoded'
-};
-
-/**
- * Default serialization map.
- *
- *     superagent.serialize['application/xml'] = function(obj){
- *       return 'generated xml here';
- *     };
- *
- */
-
-request.serialize = {
-  'application/x-www-form-urlencoded': serialize,
-  'application/json': JSON.stringify,
-};
-
-/**
-  * Default parsers.
-  *
-  *     superagent.parse['application/xml'] = function(str){
-  *       return { object parsed from str };
-  *     };
-  *
-  */
-
-request.parse = {
-  'application/x-www-form-urlencoded': parseString,
-  'application/json': JSON.parse,
-};
-
-/**
- * Parse the given header `str` into
- * an object containing the mapped fields.
- *
- * @param {String} str
- * @return {Object}
- * @api private
- */
-
-function parseHeader(str) {
-  var lines = str.split(/\r?\n/);
-  var fields = {};
-  var index;
-  var line;
-  var field;
-  var val;
-
-  for (var i = 0, len = lines.length; i < len; ++i) {
-    line = lines[i];
-    index = line.indexOf(':');
-    if (index === -1) { // could be empty line, just skip it
-      continue;
-    }
-    field = line.slice(0, index).toLowerCase();
-    val = trim(line.slice(index + 1));
-    fields[field] = val;
-  }
-
-  return fields;
-}
-
-/**
- * Check if `mime` is json or has +json structured syntax suffix.
- *
- * @param {String} mime
- * @return {Boolean}
- * @api private
- */
-
-function isJSON(mime) {
-  // should match /json or +json
-  // but not /json-seq
-  return /[\/+]json($|[^-\w])/.test(mime);
-}
-
-/**
- * Initialize a new `Response` with the given `xhr`.
- *
- *  - set flags (.ok, .error, etc)
- *  - parse header
- *
- * Examples:
- *
- *  Aliasing `superagent` as `request` is nice:
- *
- *      request = superagent;
- *
- *  We can use the promise-like API, or pass callbacks:
- *
- *      request.get('/').end(function(res){});
- *      request.get('/', function(res){});
- *
- *  Sending data can be chained:
- *
- *      request
- *        .post('/user')
- *        .send({ name: 'tj' })
- *        .end(function(res){});
- *
- *  Or passed to `.send()`:
- *
- *      request
- *        .post('/user')
- *        .send({ name: 'tj' }, function(res){});
- *
- *  Or passed to `.post()`:
- *
- *      request
- *        .post('/user', { name: 'tj' })
- *        .end(function(res){});
- *
- * Or further reduced to a single call for simple cases:
- *
- *      request
- *        .post('/user', { name: 'tj' }, function(res){});
- *
- * @param {XMLHTTPRequest} xhr
- * @param {Object} options
- * @api private
- */
-
-function Response(req) {
-  this.req = req;
-  this.xhr = this.req.xhr;
-  // responseText is accessible only if responseType is '' or 'text' and on older browsers
-  this.text = ((this.req.method !='HEAD' && (this.xhr.responseType === '' || this.xhr.responseType === 'text')) || typeof this.xhr.responseType === 'undefined')
-     ? this.xhr.responseText
-     : null;
-  this.statusText = this.req.xhr.statusText;
-  var status = this.xhr.status;
-  // handle IE9 bug: http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
-  if (status === 1223) {
-    status = 204;
-  }
-  this._setStatusProperties(status);
-  this.header = this.headers = parseHeader(this.xhr.getAllResponseHeaders());
-  // getAllResponseHeaders sometimes falsely returns "" for CORS requests, but
-  // getResponseHeader still works. so we get content-type even if getting
-  // other headers fails.
-  this.header['content-type'] = this.xhr.getResponseHeader('content-type');
-  this._setHeaderProperties(this.header);
-
-  if (null === this.text && req._responseType) {
-    this.body = this.xhr.response;
-  } else {
-    this.body = this.req.method != 'HEAD'
-      ? this._parseBody(this.text ? this.text : this.xhr.response)
-      : null;
-  }
-}
-
-ResponseBase(Response.prototype);
-
-/**
- * Parse the given body `str`.
- *
- * Used for auto-parsing of bodies. Parsers
- * are defined on the `superagent.parse` object.
- *
- * @param {String} str
- * @return {Mixed}
- * @api private
- */
-
-Response.prototype._parseBody = function(str) {
-  var parse = request.parse[this.type];
-  if (this.req._parser) {
-    return this.req._parser(this, str);
-  }
-  if (!parse && isJSON(this.type)) {
-    parse = request.parse['application/json'];
-  }
-  return parse && str && (str.length || str instanceof Object)
-    ? parse(str)
-    : null;
-};
-
-/**
- * Return an `Error` representative of this response.
- *
- * @return {Error}
- * @api public
- */
-
-Response.prototype.toError = function(){
-  var req = this.req;
-  var method = req.method;
-  var url = req.url;
-
-  var msg = 'cannot ' + method + ' ' + url + ' (' + this.status + ')';
-  var err = new Error(msg);
-  err.status = this.status;
-  err.method = method;
-  err.url = url;
-
-  return err;
-};
-
-/**
- * Expose `Response`.
- */
-
-request.Response = Response;
-
-/**
- * Initialize a new `Request` with the given `method` and `url`.
- *
- * @param {String} method
- * @param {String} url
- * @api public
- */
-
-function Request(method, url) {
-  var self = this;
-  this._query = this._query || [];
-  this.method = method;
-  this.url = url;
-  this.header = {}; // preserves header name case
-  this._header = {}; // coerces header names to lowercase
-  this.on('end', function(){
-    var err = null;
-    var res = null;
-
-    try {
-      res = new Response(self);
-    } catch(e) {
-      err = new Error('Parser is unable to parse the response');
-      err.parse = true;
-      err.original = e;
-      // issue #675: return the raw response if the response parsing fails
-      if (self.xhr) {
-        // ie9 doesn't have 'response' property
-        err.rawResponse = typeof self.xhr.responseType == 'undefined' ? self.xhr.responseText : self.xhr.response;
-        // issue #876: return the http status code if the response parsing fails
-        err.status = self.xhr.status ? self.xhr.status : null;
-        err.statusCode = err.status; // backwards-compat only
-      } else {
-        err.rawResponse = null;
-        err.status = null;
-      }
-
-      return self.callback(err);
-    }
-
-    self.emit('response', res);
-
-    var new_err;
-    try {
-      if (!self._isResponseOK(res)) {
-        new_err = new Error(res.statusText || 'Unsuccessful HTTP response');
-      }
-    } catch(custom_err) {
-      new_err = custom_err; // ok() callback can throw
-    }
-
-    // #1000 don't catch errors from the callback to avoid double calling it
-    if (new_err) {
-      new_err.original = err;
-      new_err.response = res;
-      new_err.status = res.status;
-      self.callback(new_err, res);
-    } else {
-      self.callback(null, res);
-    }
-  });
-}
-
-/**
- * Mixin `Emitter` and `RequestBase`.
- */
-
-Emitter(Request.prototype);
-RequestBase(Request.prototype);
-
-/**
- * Set Content-Type to `type`, mapping values from `request.types`.
- *
- * Examples:
- *
- *      superagent.types.xml = 'application/xml';
- *
- *      request.post('/')
- *        .type('xml')
- *        .send(xmlstring)
- *        .end(callback);
- *
- *      request.post('/')
- *        .type('application/xml')
- *        .send(xmlstring)
- *        .end(callback);
- *
- * @param {String} type
- * @return {Request} for chaining
- * @api public
- */
-
-Request.prototype.type = function(type){
-  this.set('Content-Type', request.types[type] || type);
-  return this;
-};
-
-/**
- * Set Accept to `type`, mapping values from `request.types`.
- *
- * Examples:
- *
- *      superagent.types.json = 'application/json';
- *
- *      request.get('/agent')
- *        .accept('json')
- *        .end(callback);
- *
- *      request.get('/agent')
- *        .accept('application/json')
- *        .end(callback);
- *
- * @param {String} accept
- * @return {Request} for chaining
- * @api public
- */
-
-Request.prototype.accept = function(type){
-  this.set('Accept', request.types[type] || type);
-  return this;
-};
-
-/**
- * Set Authorization field value with `user` and `pass`.
- *
- * @param {String} user
- * @param {String} [pass] optional in case of using 'bearer' as type
- * @param {Object} options with 'type' property 'auto', 'basic' or 'bearer' (default 'basic')
- * @return {Request} for chaining
- * @api public
- */
-
-Request.prototype.auth = function(user, pass, options){
-  if (1 === arguments.length) pass = '';
-  if (typeof pass === 'object' && pass !== null) { // pass is optional and can be replaced with options
-    options = pass;
-    pass = '';
-  }
-  if (!options) {
-    options = {
-      type: 'function' === typeof btoa ? 'basic' : 'auto',
-    };
-  }
-
-  var encoder = function(string) {
-    if ('function' === typeof btoa) {
-      return btoa(string);
-    }
-    throw new Error('Cannot use basic auth, btoa is not a function');
-  };
-
-  return this._auth(user, pass, options, encoder);
-};
-
-/**
- * Add query-string `val`.
- *
- * Examples:
- *
- *   request.get('/shoes')
- *     .query('size=10')
- *     .query({ color: 'blue' })
- *
- * @param {Object|String} val
- * @return {Request} for chaining
- * @api public
- */
-
-Request.prototype.query = function(val){
-  if ('string' != typeof val) val = serialize(val);
-  if (val) this._query.push(val);
-  return this;
-};
-
-/**
- * Queue the given `file` as an attachment to the specified `field`,
- * with optional `options` (or filename).
- *
- * ``` js
- * request.post('/upload')
- *   .attach('content', new Blob(['<a id="a"><b id="b">hey!</b></a>'], { type: "text/html"}))
- *   .end(callback);
- * ```
- *
- * @param {String} field
- * @param {Blob|File} file
- * @param {String|Object} options
- * @return {Request} for chaining
- * @api public
- */
-
-Request.prototype.attach = function(field, file, options){
-  if (file) {
-    if (this._data) {
-      throw Error("superagent can't mix .send() and .attach()");
-    }
-
-    this._getFormData().append(field, file, options || file.name);
-  }
-  return this;
-};
-
-Request.prototype._getFormData = function(){
-  if (!this._formData) {
-    this._formData = new root.FormData();
-  }
-  return this._formData;
-};
-
-/**
- * Invoke the callback with `err` and `res`
- * and handle arity check.
- *
- * @param {Error} err
- * @param {Response} res
- * @api private
- */
-
-Request.prototype.callback = function(err, res){
-  if (this._shouldRetry(err, res)) {
-    return this._retry();
-  }
-
-  var fn = this._callback;
-  this.clearTimeout();
-
-  if (err) {
-    if (this._maxRetries) err.retries = this._retries - 1;
-    this.emit('error', err);
-  }
-
-  fn(err, res);
-};
-
-/**
- * Invoke callback with x-domain error.
- *
- * @api private
- */
-
-Request.prototype.crossDomainError = function(){
-  var err = new Error('Request has been terminated\nPossible causes: the network is offline, Origin is not allowed by Access-Control-Allow-Origin, the page is being unloaded, etc.');
-  err.crossDomain = true;
-
-  err.status = this.status;
-  err.method = this.method;
-  err.url = this.url;
-
-  this.callback(err);
-};
-
-// This only warns, because the request is still likely to work
-Request.prototype.buffer = Request.prototype.ca = Request.prototype.agent = function(){
-  console.warn("This is not supported in browser version of superagent");
-  return this;
-};
-
-// This throws, because it can't send/receive data as expected
-Request.prototype.pipe = Request.prototype.write = function(){
-  throw Error("Streaming is not supported in browser version of superagent");
-};
-
-/**
- * Check if `obj` is a host object,
- * we don't want to serialize these :)
- *
- * @param {Object} obj
- * @return {Boolean}
- * @api private
- */
-Request.prototype._isHost = function _isHost(obj) {
-  // Native objects stringify to [object File], [object Blob], [object FormData], etc.
-  return obj && 'object' === typeof obj && !Array.isArray(obj) && Object.prototype.toString.call(obj) !== '[object Object]';
-}
-
-/**
- * Initiate request, invoking callback `fn(res)`
- * with an instanceof `Response`.
- *
- * @param {Function} fn
- * @return {Request} for chaining
- * @api public
- */
-
-Request.prototype.end = function(fn){
-  if (this._endCalled) {
-    console.warn("Warning: .end() was called twice. This is not supported in superagent");
-  }
-  this._endCalled = true;
-
-  // store callback
-  this._callback = fn || noop;
-
-  // querystring
-  this._finalizeQueryString();
-
-  return this._end();
-};
-
-Request.prototype._end = function() {
-  var self = this;
-  var xhr = (this.xhr = request.getXHR());
-  var data = this._formData || this._data;
-
-  this._setTimeouts();
-
-  // state change
-  xhr.onreadystatechange = function(){
-    var readyState = xhr.readyState;
-    if (readyState >= 2 && self._responseTimeoutTimer) {
-      clearTimeout(self._responseTimeoutTimer);
-    }
-    if (4 != readyState) {
-      return;
-    }
-
-    // In IE9, reads to any property (e.g. status) off of an aborted XHR will
-    // result in the error "Could not complete the operation due to error c00c023f"
-    var status;
-    try { status = xhr.status } catch(e) { status = 0; }
-
-    if (!status) {
-      if (self.timedout || self._aborted) return;
-      return self.crossDomainError();
-    }
-    self.emit('end');
-  };
-
-  // progress
-  var handleProgress = function(direction, e) {
-    if (e.total > 0) {
-      e.percent = e.loaded / e.total * 100;
-    }
-    e.direction = direction;
-    self.emit('progress', e);
-  };
-  if (this.hasListeners('progress')) {
-    try {
-      xhr.onprogress = handleProgress.bind(null, 'download');
-      if (xhr.upload) {
-        xhr.upload.onprogress = handleProgress.bind(null, 'upload');
-      }
-    } catch(e) {
-      // Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
-      // Reported here:
-      // https://connect.microsoft.com/IE/feedback/details/837245/xmlhttprequest-upload-throws-invalid-argument-when-used-from-web-worker-context
-    }
-  }
-
-  // initiate request
-  try {
-    if (this.username && this.password) {
-      xhr.open(this.method, this.url, true, this.username, this.password);
-    } else {
-      xhr.open(this.method, this.url, true);
-    }
-  } catch (err) {
-    // see #1149
-    return this.callback(err);
-  }
-
-  // CORS
-  if (this._withCredentials) xhr.withCredentials = true;
-
-  // body
-  if (!this._formData && 'GET' != this.method && 'HEAD' != this.method && 'string' != typeof data && !this._isHost(data)) {
-    // serialize stuff
-    var contentType = this._header['content-type'];
-    var serialize = this._serializer || request.serialize[contentType ? contentType.split(';')[0] : ''];
-    if (!serialize && isJSON(contentType)) {
-      serialize = request.serialize['application/json'];
-    }
-    if (serialize) data = serialize(data);
-  }
-
-  // set header fields
-  for (var field in this.header) {
-    if (null == this.header[field]) continue;
-
-    if (this.header.hasOwnProperty(field))
-      xhr.setRequestHeader(field, this.header[field]);
-  }
-
-  if (this._responseType) {
-    xhr.responseType = this._responseType;
-  }
-
-  // send stuff
-  this.emit('request', this);
-
-  // IE11 xhr.send(undefined) sends 'undefined' string as POST payload (instead of nothing)
-  // We need null here if data is undefined
-  xhr.send(typeof data !== 'undefined' ? data : null);
-  return this;
-};
-
-request.agent = function() {
-  return new Agent();
-};
-
-["GET", "POST", "OPTIONS", "PATCH", "PUT", "DELETE"].forEach(function(method) {
-  Agent.prototype[method.toLowerCase()] = function(url, fn) {
-    var req = new request.Request(method, url);
-    this._setDefaults(req);
-    if (fn) {
-      req.end(fn);
-    }
-    return req;
-  };
-});
-
-Agent.prototype.del = Agent.prototype['delete'];
-
-/**
- * GET `url` with optional callback `fn(res)`.
- *
- * @param {String} url
- * @param {Mixed|Function} [data] or fn
- * @param {Function} [fn]
- * @return {Request}
- * @api public
- */
-
-request.get = function(url, data, fn) {
-  var req = request('GET', url);
-  if ('function' == typeof data) (fn = data), (data = null);
-  if (data) req.query(data);
-  if (fn) req.end(fn);
-  return req;
-};
-
-/**
- * HEAD `url` with optional callback `fn(res)`.
- *
- * @param {String} url
- * @param {Mixed|Function} [data] or fn
- * @param {Function} [fn]
- * @return {Request}
- * @api public
- */
-
-request.head = function(url, data, fn) {
-  var req = request('HEAD', url);
-  if ('function' == typeof data) (fn = data), (data = null);
-  if (data) req.query(data);
-  if (fn) req.end(fn);
-  return req;
-};
-
-/**
- * OPTIONS query to `url` with optional callback `fn(res)`.
- *
- * @param {String} url
- * @param {Mixed|Function} [data] or fn
- * @param {Function} [fn]
- * @return {Request}
- * @api public
- */
-
-request.options = function(url, data, fn) {
-  var req = request('OPTIONS', url);
-  if ('function' == typeof data) (fn = data), (data = null);
-  if (data) req.send(data);
-  if (fn) req.end(fn);
-  return req;
-};
-
-/**
- * DELETE `url` with optional `data` and callback `fn(res)`.
- *
- * @param {String} url
- * @param {Mixed} [data]
- * @param {Function} [fn]
- * @return {Request}
- * @api public
- */
-
-function del(url, data, fn) {
-  var req = request('DELETE', url);
-  if ('function' == typeof data) (fn = data), (data = null);
-  if (data) req.send(data);
-  if (fn) req.end(fn);
-  return req;
-}
-
-request['del'] = del;
-request['delete'] = del;
-
-/**
- * PATCH `url` with optional `data` and callback `fn(res)`.
- *
- * @param {String} url
- * @param {Mixed} [data]
- * @param {Function} [fn]
- * @return {Request}
- * @api public
- */
-
-request.patch = function(url, data, fn) {
-  var req = request('PATCH', url);
-  if ('function' == typeof data) (fn = data), (data = null);
-  if (data) req.send(data);
-  if (fn) req.end(fn);
-  return req;
-};
-
-/**
- * POST `url` with optional `data` and callback `fn(res)`.
- *
- * @param {String} url
- * @param {Mixed} [data]
- * @param {Function} [fn]
- * @return {Request}
- * @api public
- */
-
-request.post = function(url, data, fn) {
-  var req = request('POST', url);
-  if ('function' == typeof data) (fn = data), (data = null);
-  if (data) req.send(data);
-  if (fn) req.end(fn);
-  return req;
-};
-
-/**
- * PUT `url` with optional `data` and callback `fn(res)`.
- *
- * @param {String} url
- * @param {Mixed|Function} [data] or fn
- * @param {Function} [fn]
- * @return {Request}
- * @api public
- */
-
-request.put = function(url, data, fn) {
-  var req = request('PUT', url);
-  if ('function' == typeof data) (fn = data), (data = null);
-  if (data) req.send(data);
-  if (fn) req.end(fn);
-  return req;
-};
-
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
@@ -7820,40 +6601,36 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _class, _class2, _temp, _desc, _value, _obj, _init, _init2, _dec2, _dec3, _desc2, _value2, _obj2, _init3, _init4, _init5, _class3; /*
-                                                                                                                                              * Copyright (c)  2018 Wise Wild Web .
-                                                                                                                                              *
-                                                                                                                                              *  MIT License
-                                                                                                                                              *
-                                                                                                                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                              *  of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                              *  in the Software without restriction, including without limitation the rights
-                                                                                                                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                              *  copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                              *  furnished to do so, subject to the following conditions:
-                                                                                                                                              *
-                                                                                                                                              *  The above copyright notice and this permission notice shall be included in all
-                                                                                                                                              *  copies or substantial portions of the Software.
-                                                                                                                                              *
-                                                                                                                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                                                                                                                              *  SOFTWARE.
-                                                                                                                                              *
-                                                                                                                                              * @author : Nathanael Braun
-                                                                                                                                              * @contact : caipilabs@gmail.com
-                                                                                                                                              */
+var _dec, _class, _class2, _temp, _dec2, _dec3, _desc, _value, _obj, _init, _init2, _init3, _init4, _class3; /*
+                                                                                                              * Copyright (c)  2018 Wise Wild Web .
+                                                                                                              *
+                                                                                                              *  MIT License
+                                                                                                              *
+                                                                                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                                              *  of this software and associated documentation files (the "Software"), to deal
+                                                                                                              *  in the Software without restriction, including without limitation the rights
+                                                                                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                                              *  copies of the Software, and to permit persons to whom the Software is
+                                                                                                              *  furnished to do so, subject to the following conditions:
+                                                                                                              *
+                                                                                                              *  The above copyright notice and this permission notice shall be included in all
+                                                                                                              *  copies or substantial portions of the Software.
+                                                                                                              *
+                                                                                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                                                                                              *  SOFTWARE.
+                                                                                                              *
+                                                                                                              * @author : Nathanael Braun
+                                                                                                              * @contact : caipilabs@gmail.com
+                                                                                                              */
 
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _shortid = __webpack_require__(14);
-
-var _shortid2 = _interopRequireDefault(_shortid);
 
 __webpack_require__(26);
 
@@ -7861,21 +6638,17 @@ var _reactRnd = __webpack_require__(30);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _superagent = __webpack_require__(32);
+var _AppScope = __webpack_require__(27);
 
-var _superagent2 = _interopRequireDefault(_superagent);
+var _AppScope2 = _interopRequireDefault(_AppScope);
 
 var _rescope = __webpack_require__(9);
-
-var _rescopeSpells = __webpack_require__(27);
 
 var _server = __webpack_require__(29);
 
 __webpack_require__(31);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -7913,7 +6686,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var indexTpl = __webpack_require__(28);
-
 var ReactDom = __webpack_require__(10);
 
 var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_class = (_temp = _class2 = function (_React$Component) {
@@ -7937,7 +6709,8 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
                 null,
                 "Really basic drafty rescope SSR example"
             ), someData.items.map(function (note) {
-                return _react2.default.createElement(PostIt, { key: note._id, record: note, selected: note._id == appState.selectedItemId });
+                return _react2.default.createElement(PostIt, { key: note._id, record: note,
+                    selected: note._id == appState.selectedItemId });
             }), _react2.default.createElement(
                 "div",
                 {
@@ -7955,78 +6728,16 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
     }]);
 
     return App;
-}(_react2.default.Component), _class2.AppScope = (_obj = {
-    appState: {
-        selectedItemId: null
-    },
-
-    someData: {
-        src: "/api/hello",
-        items: [{
-            "_id": "rkUQHZrqM",
-            "size": { "width": 200, "height": 200 },
-            "text": "New Post It #0 somewhere we wait some new shit out there !",
-            "position": { "x": 321, "y": 167 }
-        }, {
-            "_id": "r1bcuMrcM",
-            "size": { "width": 200, "height": 200 },
-            "text": "do somethink",
-            "position": { "x": 260, "y": 576 }
-        }],
-        newPostIt: function newPostIt() {
-            return {
-                items: [].concat(_toConsumableArray(this.nextState.items), [{
-                    _id: _shortid2.default.generate(),
-                    size: {
-                        width: 200,
-                        height: 200
-                    },
-                    text: "New Post It #" + this.nextState.items.length
-                }])
-            };
-        },
-        updatePostIt: function updatePostIt(postIt) {
-            var items = this.nextState.items;
-
-            items = items.map(function (it) {
-                return it._id === postIt._id ? postIt : it;
-            });
-
-            return {
-                items: items
-            };
-        },
-        saveState: function saveState() {
-            _superagent2.default.post('/', this.scopeObj.serialize()).then(function (e, r) {
-                console.log(e, r);
-            });
-        }
-    }
-}, (_applyDecoratedDescriptor(_obj, "appState", [_rescopeSpells.asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "appState"), _init = _init ? _init.value : undefined, {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    initializer: function initializer() {
-        return _init;
-    }
-}), _obj), _applyDecoratedDescriptor(_obj, "someData", [_rescopeSpells.asStateMap], (_init2 = Object.getOwnPropertyDescriptor(_obj, "someData"), _init2 = _init2 ? _init2.value : undefined, {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    initializer: function initializer() {
-        return _init2;
-    }
-}), _obj)), _obj), _class2.renderTo = function (node) {
-    var cScope = new _rescope.Scope(App.AppScope, { id: "App" });
+}(_react2.default.Component), _class2.renderTo = function (node) {
+    var cScope = new _rescope.Scope(_AppScope2.default, { id: "App" });
     window.__scopesState && cScope.restore(window.__scopesState);
-    window.context = _rescope.Scope.scopes;
-    cScope.then(function (err, state, context) {
+    cScope.mount(["appState", "someData"]).then(function (err, state, context) {
         ReactDom.render(_react2.default.createElement(App, { __scope: cScope }), node);
     });
 }, _class2.renderSSR = function (cfg, cb) {
-    var cScope = new _rescope.Scope(App.AppScope, { id: "App" });
+    var cScope = new _rescope.Scope(_AppScope2.default, { id: "App" });
     cfg.state && cScope.restore(cfg.state);
-    cScope.then(function (err, state, context) {
+    cScope.mount(["appState", "someData"]).then(function (err, state, context) {
         var html = void 0;
         try {
             html = indexTpl.render({
@@ -8039,34 +6750,46 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
         cb(null, html);
     });
 }, _temp)) || _class);
-var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }), _dec3 = (0, _rescope.scopeToProps)((_obj2 = { // for fun
+
+// remap record for fun (not usefull here)
+
+var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }), _dec3 = (0, _rescope.scopeToProps)((_obj = {
     size: "record.size",
 
     position: "record.position",
 
-    text: "record.text"
-}, (_applyDecoratedDescriptor(_obj2, "size", [_rescope.scopeRef], (_init3 = Object.getOwnPropertyDescriptor(_obj2, "size"), _init3 = _init3 ? _init3.value : undefined, {
+    text: "record.text",
+
+    record: "record"
+}, (_applyDecoratedDescriptor(_obj, "size", [_rescope.scopeRef], (_init = Object.getOwnPropertyDescriptor(_obj, "size"), _init = _init ? _init.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init;
+    }
+}), _obj), _applyDecoratedDescriptor(_obj, "position", [_rescope.scopeRef], (_init2 = Object.getOwnPropertyDescriptor(_obj, "position"), _init2 = _init2 ? _init2.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init2;
+    }
+}), _obj), _applyDecoratedDescriptor(_obj, "text", [_rescope.scopeRef], (_init3 = Object.getOwnPropertyDescriptor(_obj, "text"), _init3 = _init3 ? _init3.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init3;
     }
-}), _obj2), _applyDecoratedDescriptor(_obj2, "position", [_rescope.scopeRef], (_init4 = Object.getOwnPropertyDescriptor(_obj2, "position"), _init4 = _init4 ? _init4.value : undefined, {
+}), _obj), _applyDecoratedDescriptor(_obj, "record", [_rescope.scopeRef], (_init4 = Object.getOwnPropertyDescriptor(_obj, "record"), _init4 = _init4 ? _init4.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init4;
     }
-}), _obj2), _applyDecoratedDescriptor(_obj2, "text", [_rescope.scopeRef], (_init5 = Object.getOwnPropertyDescriptor(_obj2, "text"), _init5 = _init5 ? _init5.value : undefined, {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    initializer: function initializer() {
-        return _init5;
-    }
-}), _obj2)), _obj2)), _dec2(_class3 = _dec3(_class3 = function (_React$Component2) {
+}), _obj)), _obj)), _dec2(_class3 = _dec3(_class3 = function (_React$Component2) {
     _inherits(PostIt, _React$Component2);
 
     function PostIt() {
@@ -8080,7 +6803,16 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _temp2), _possibleConstructorReturn(_this2, _ret);
+        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _this2.saveState = function (e, d) {
+            var _this2$props = _this2.props,
+                $actions = _this2$props.$actions,
+                record = _this2$props.record;
+
+            $actions.updatePostIt(_extends({}, record, {
+                size: _this2.state.size,
+                position: _this2.state.position
+            }));
+        }, _temp2), _possibleConstructorReturn(_this2, _ret);
     }
 
     _createClass(PostIt, [{
@@ -8093,27 +6825,30 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                 text = _props.text,
                 size = _props.size,
                 $actions = _props.$actions,
-                record = _props.record;
+                record = _props.record,
+                state = this.state;
 
             return _react2.default.createElement(
                 _reactRnd2.default,
                 {
                     absolutePos: true,
-                    size: size,
-                    position: position,
+                    size: state.size || size,
+                    position: state.position || position,
+                    onDragStop: this.saveState,
+                    onResizeStop: this.saveState,
                     onDrag: function onDrag(e, d) {
-                        $actions.updatePostIt(_extends({}, record, {
+                        _this3.setState({
                             position: { x: d.x, y: d.y }
-                        }));
+                        });
                     },
                     onResize: function onResize(e, direction, ref, delta, position) {
-                        $actions.updatePostIt(_extends({}, record, {
+                        _this3.setState({
                             position: position,
                             size: {
                                 width: ref.offsetWidth,
                                 height: ref.offsetHeight
                             }
-                        }));
+                        });
                     } },
                 _react2.default.createElement(
                     "div",
@@ -8126,8 +6861,17 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                             "button",
                             { onClick: function onClick(e) {
                                     return _this3.setState({ editing: true });
-                                } },
+                                },
+                                className: "edit" },
                             "\uD83D\uDD8B"
+                        ),
+                        _react2.default.createElement(
+                            "button",
+                            { onClick: function onClick(e) {
+                                    return $actions.rmPostIt(record);
+                                },
+                                className: "delete" },
+                            "\uD83D\uDDBE"
                         )
                     ) || _react2.default.createElement(
                         "div",
@@ -8148,7 +6892,8 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                         ),
                         _react2.default.createElement(
                             "button",
-                            { onClick: function onClick(e) {
+                            {
+                                onClick: function onClick(e) {
                                     return _this3.setState({ editing: false });
                                 } },
                             "\uD83D\uDCBE"
@@ -8168,6 +6913,431 @@ if (typeof window != 'undefined') {
 }
 exports.default = App;
 module.exports = exports["default"];
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/function (modules) {
+	// webpackBootstrap
+	/******/ // The module cache
+	/******/var installedModules = {};
+	/******/
+	/******/ // The require function
+	/******/function __webpack_require__(moduleId) {
+		/******/
+		/******/ // Check if module is in cache
+		/******/if (installedModules[moduleId])
+			/******/return installedModules[moduleId].exports;
+		/******/
+		/******/ // Create a new module (and put it into the cache)
+		/******/var module = installedModules[moduleId] = {
+			/******/exports: {},
+			/******/id: moduleId,
+			/******/loaded: false
+			/******/ };
+		/******/
+		/******/ // Execute the module function
+		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+		/******/
+		/******/ // Flag the module as loaded
+		/******/module.loaded = true;
+		/******/
+		/******/ // Return the exports of the module
+		/******/return module.exports;
+		/******/
+	}
+	/******/
+	/******/
+	/******/ // expose the modules object (__webpack_modules__)
+	/******/__webpack_require__.m = modules;
+	/******/
+	/******/ // expose the module cache
+	/******/__webpack_require__.c = installedModules;
+	/******/
+	/******/ // __webpack_public_path__
+	/******/__webpack_require__.p = "/";
+	/******/
+	/******/ // Load entry module and return exports
+	/******/return __webpack_require__(0);
+	/******/
+}(
+/************************************************************************/
+/******/[
+/* 0 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	__webpack_require__(2);
+
+	__webpack_require__(4);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	exports.default = _rescope2.default.spells; /*
+                                              * Copyright (c)  2018 Wise Wild Web .
+                                              *
+                                              *  MIT License
+                                              *
+                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                              *  of this software and associated documentation files (the "Software"), to deal
+                                              *  in the Software without restriction, including without limitation the rights
+                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                              *  copies of the Software, and to permit persons to whom the Software is
+                                              *  furnished to do so, subject to the following conditions:
+                                              *
+                                              *  The above copyright notice and this permission notice shall be included in all
+                                              *  copies or substantial portions of the Software.
+                                              *
+                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                              *  SOFTWARE.
+                                              *
+                                              * @author : Nathanael Braun
+                                              * @contact : caipilabs@gmail.com
+                                              */
+
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 1 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(9);
+
+	/***/
+},
+/* 2 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	// will use as external the index in dist
+
+	/*
+  * Copyright (c)  2018 Wise Wild Web .
+  *
+  *  MIT License
+  *
+  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+  *  of this software and associated documentation files (the "Software"), to deal
+  *  in the Software without restriction, including without limitation the rights
+  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  *  copies of the Software, and to permit persons to whom the Software is
+  *  furnished to do so, subject to the following conditions:
+  *
+  *  The above copyright notice and this permission notice shall be included in all
+  *  copies or substantial portions of the Software.
+  *
+  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  *  SOFTWARE.
+  *
+  * @author : Nathanael Braun
+  * @contact : caipilabs@gmail.com
+  */
+	var SimpleObjectProto = {}.constructor;
+	_rescope2.default.spells = {};
+
+	var castTypesToAppliable = {};
+	var castTypes = {};
+
+	_rescope2.default.isSpell = function caster() {
+		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+			argz[_key] = arguments[_key];
+		}
+
+		// are we decorating a member / without argz
+		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+			argz[2].value = addCaster(argz[0][argz[1]], argz);
+			return argz[0];
+		} else if (!_is2.default.fn(argz[0])) {
+			return function () {
+				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+					argz2[_key2] = arguments[_key2];
+				}
+
+				// are we decorating a member / with argz
+				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+					return argz2[0];
+				} else return caster.apply(undefined, [argz2[0]].concat(argz));
+			};
+		}
+		return addCaster.apply(undefined, argz);
+	};
+
+	function addCaster() {
+		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			argz[_key3] = arguments[_key3];
+		}
+
+		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+		if (!cast) throw "ReScope cast : bad decorator function";
+		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+
+		if (!castTypesToAppliable[typeName]) {
+			castTypesToAppliable[typeName] = [];
+
+			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+					argz[_key4] = arguments[_key4];
+				}
+
+				// are we decorating a member / without argz
+				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+					return argz[0];
+				} else if (!isCastableType(typeName, argz[0])) {
+					return function () {
+						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+							argz2[_key5] = arguments[_key5];
+						}
+
+						// are we decorating a member / with argz
+						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+							return argz2[0];
+						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
+					};
+				}
+				return applyCastableType(typeName, argz[0], argz.slice(1));
+			};
+		}
+		castTypesToAppliable[typeName].unshift({
+			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+		});
+		return cast;
+	}
+
+	function isCastableType(typeName, Comp, member, stateScope) {
+		var castable = castTypesToAppliable[typeName];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+		}return false;
+	}
+
+	function applyCastableType(typeName, Comp, argz, member, stateScope) {
+
+		var castable = castTypesToAppliable[typeName] || [];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+		}console.warn("reScope cast : Unknown type", typeName, Comp);
+		return false;
+	}
+
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 3 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(12);
+
+	/***/
+},
+/* 4 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _dec, _dec2, _desc, _value, _obj; /*
+                                        * Copyright (c)  2018 Wise Wild Web .
+                                        *
+                                        *  MIT License
+                                        *
+                                        *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                        *  of this software and associated documentation files (the "Software"), to deal
+                                        *  in the Software without restriction, including without limitation the rights
+                                        *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                        *  copies of the Software, and to permit persons to whom the Software is
+                                        *  furnished to do so, subject to the following conditions:
+                                        *
+                                        *  The above copyright notice and this permission notice shall be included in all
+                                        *  copies or substantial portions of the Software.
+                                        *
+                                        *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                        *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                        *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                        *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                        *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                        *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                        *  SOFTWARE.
+                                        *
+                                        * @author : Nathanael Braun
+                                        * @contact : caipilabs@gmail.com
+                                        */
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	var _rescope = __webpack_require__(1);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+		var desc = {};
+		Object['ke' + 'ys'](descriptor).forEach(function (key) {
+			desc[key] = descriptor[key];
+		});
+		desc.enumerable = !!desc.enumerable;
+		desc.configurable = !!desc.configurable;
+
+		if ('value' in desc || desc.initializer) {
+			desc.writable = true;
+		}
+
+		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+			return decorator(target, property, desc) || desc;
+		}, desc);
+
+		if (context && desc.initializer !== void 0) {
+			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+			desc.initializer = undefined;
+		}
+
+		if (desc.initializer === void 0) {
+			Object['define' + 'Property'](target, property, desc);
+			desc = null;
+		}
+
+		return desc;
+	}
+
+	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
+		return _is2.default.object(v) || _is2.default.string(v);
+	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
+		return _is2.default.object(v);
+	}), (_obj = {
+		stateMap: function stateMap(obj, _ref, ref) {
+			var _class, _temp;
+
+			var cfg = _ref[0];
+
+			var use = [],
+			    state = {},
+			    actions = {};
+			_rescope.Scope.stateMapToRefList(obj, state, use, actions);
+			return _temp = _class = function (_Store) {
+				_inherits(StateMap, _Store);
+
+				function StateMap() {
+					_classCallCheck(this, StateMap);
+
+					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
+				}
+
+				return StateMap;
+			}(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
+		},
+		scope: function scope(obj, _ref2, ref) {
+			var cfg = _ref2[0];
+
+			return _rescope.Scope.bind(null, obj, cfg);
+		}
+	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
+	module.exports = exports["default"];
+
+	/***/
+}]
+/******/);
+//# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
 /* 34 */
@@ -8347,7 +7517,7 @@ exports = module.exports = __webpack_require__(36)(false);
 
 
 // module
-exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n  .postit .text {\n    margin-top: 40px; }\n    .postit .text button {\n      position: absolute;\n      bottom: 5px;\n      left: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
+exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n  .postit .text {\n    margin-top: 40px; }\n    .postit .text .edit {\n      position: absolute;\n      bottom: 5px;\n      left: 5px; }\n    .postit .text .delete {\n      position: absolute;\n      bottom: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
 
 // exports
 
@@ -9938,10 +9108,10 @@ var React = __webpack_require__(2);
 var emptyFunction = __webpack_require__(1);
 var emptyObject = __webpack_require__(4);
 var hyphenateStyleName = __webpack_require__(11);
-var memoizeStringOnly = __webpack_require__(22);
+var memoizeStringOnly = __webpack_require__(21);
 var warning = __webpack_require__(6);
 var checkPropTypes = __webpack_require__(7);
-var camelizeStyleName = __webpack_require__(18);
+var camelizeStyleName = __webpack_require__(17);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -12476,7 +11646,7 @@ module.exports = server_browser;
  * LICENSE file in the root directory of this source tree.
  */
 
-var h=__webpack_require__(3),n=__webpack_require__(2),aa=__webpack_require__(1),t=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(22);
+var h=__webpack_require__(3),n=__webpack_require__(2),aa=__webpack_require__(1),t=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(21);
 function w(a){for(var b=arguments.length-1,g="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)g+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(g+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var x={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function z(a,b){return(a&b)===b}
 var B={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=B,g=a.Properties||{},c=a.DOMAttributeNamespaces||{},k=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in g){C.hasOwnProperty(f)?w("48",f):void 0;var e=f.toLowerCase(),d=g[f];e={attributeName:e,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:z(d,b.MUST_USE_PROPERTY),
@@ -12536,18 +11706,18 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(2);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
-var ExecutionEnvironment = __webpack_require__(17);
+var ExecutionEnvironment = __webpack_require__(16);
 var _assign = __webpack_require__(3);
 var emptyFunction = __webpack_require__(1);
-var EventListener = __webpack_require__(16);
-var getActiveElement = __webpack_require__(21);
-var shallowEqual = __webpack_require__(23);
-var containsNode = __webpack_require__(19);
-var focusNode = __webpack_require__(20);
+var EventListener = __webpack_require__(15);
+var getActiveElement = __webpack_require__(20);
+var shallowEqual = __webpack_require__(22);
+var containsNode = __webpack_require__(18);
+var focusNode = __webpack_require__(19);
 var emptyObject = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(7);
 var hyphenateStyleName = __webpack_require__(11);
-var camelizeStyleName = __webpack_require__(18);
+var camelizeStyleName = __webpack_require__(17);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -27930,7 +27100,7 @@ module.exports = reactDom;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),l=__webpack_require__(17),B=__webpack_require__(3),C=__webpack_require__(1),ba=__webpack_require__(16),da=__webpack_require__(21),ea=__webpack_require__(23),fa=__webpack_require__(19),ia=__webpack_require__(20),D=__webpack_require__(4);
+var aa=__webpack_require__(2),l=__webpack_require__(16),B=__webpack_require__(3),C=__webpack_require__(1),ba=__webpack_require__(15),da=__webpack_require__(20),ea=__webpack_require__(22),fa=__webpack_require__(18),ia=__webpack_require__(19),D=__webpack_require__(4);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -33040,6 +32210,932 @@ module.exports = Agent;
 /* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/**
+ * Root reference for iframes.
+ */
+
+var root;
+if (typeof window !== 'undefined') { // Browser window
+  root = window;
+} else if (typeof self !== 'undefined') { // Web Worker
+  root = self;
+} else { // Other environments
+  console.warn("Using browser-only version of superagent in non-browser environment");
+  root = this;
+}
+
+var Emitter = __webpack_require__(34);
+var RequestBase = __webpack_require__(63);
+var isObject = __webpack_require__(25);
+var ResponseBase = __webpack_require__(64);
+var Agent = __webpack_require__(61);
+
+/**
+ * Noop.
+ */
+
+function noop(){};
+
+/**
+ * Expose `request`.
+ */
+
+var request = exports = module.exports = function(method, url) {
+  // callback
+  if ('function' == typeof url) {
+    return new exports.Request('GET', method).end(url);
+  }
+
+  // url first
+  if (1 == arguments.length) {
+    return new exports.Request('GET', method);
+  }
+
+  return new exports.Request(method, url);
+}
+
+exports.Request = Request;
+
+/**
+ * Determine XHR.
+ */
+
+request.getXHR = function () {
+  if (root.XMLHttpRequest
+      && (!root.location || 'file:' != root.location.protocol
+          || !root.ActiveXObject)) {
+    return new XMLHttpRequest;
+  } else {
+    try { return new ActiveXObject('Microsoft.XMLHTTP'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP.6.0'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP.3.0'); } catch(e) {}
+    try { return new ActiveXObject('Msxml2.XMLHTTP'); } catch(e) {}
+  }
+  throw Error("Browser-only version of superagent could not find XHR");
+};
+
+/**
+ * Removes leading and trailing whitespace, added to support IE.
+ *
+ * @param {String} s
+ * @return {String}
+ * @api private
+ */
+
+var trim = ''.trim
+  ? function(s) { return s.trim(); }
+  : function(s) { return s.replace(/(^\s*|\s*$)/g, ''); };
+
+/**
+ * Serialize the given `obj`.
+ *
+ * @param {Object} obj
+ * @return {String}
+ * @api private
+ */
+
+function serialize(obj) {
+  if (!isObject(obj)) return obj;
+  var pairs = [];
+  for (var key in obj) {
+    pushEncodedKeyValuePair(pairs, key, obj[key]);
+  }
+  return pairs.join('&');
+}
+
+/**
+ * Helps 'serialize' with serializing arrays.
+ * Mutates the pairs array.
+ *
+ * @param {Array} pairs
+ * @param {String} key
+ * @param {Mixed} val
+ */
+
+function pushEncodedKeyValuePair(pairs, key, val) {
+  if (val != null) {
+    if (Array.isArray(val)) {
+      val.forEach(function(v) {
+        pushEncodedKeyValuePair(pairs, key, v);
+      });
+    } else if (isObject(val)) {
+      for(var subkey in val) {
+        pushEncodedKeyValuePair(pairs, key + '[' + subkey + ']', val[subkey]);
+      }
+    } else {
+      pairs.push(encodeURIComponent(key)
+        + '=' + encodeURIComponent(val));
+    }
+  } else if (val === null) {
+    pairs.push(encodeURIComponent(key));
+  }
+}
+
+/**
+ * Expose serialization method.
+ */
+
+request.serializeObject = serialize;
+
+/**
+  * Parse the given x-www-form-urlencoded `str`.
+  *
+  * @param {String} str
+  * @return {Object}
+  * @api private
+  */
+
+function parseString(str) {
+  var obj = {};
+  var pairs = str.split('&');
+  var pair;
+  var pos;
+
+  for (var i = 0, len = pairs.length; i < len; ++i) {
+    pair = pairs[i];
+    pos = pair.indexOf('=');
+    if (pos == -1) {
+      obj[decodeURIComponent(pair)] = '';
+    } else {
+      obj[decodeURIComponent(pair.slice(0, pos))] =
+        decodeURIComponent(pair.slice(pos + 1));
+    }
+  }
+
+  return obj;
+}
+
+/**
+ * Expose parser.
+ */
+
+request.parseString = parseString;
+
+/**
+ * Default MIME type map.
+ *
+ *     superagent.types.xml = 'application/xml';
+ *
+ */
+
+request.types = {
+  html: 'text/html',
+  json: 'application/json',
+  xml: 'text/xml',
+  urlencoded: 'application/x-www-form-urlencoded',
+  'form': 'application/x-www-form-urlencoded',
+  'form-data': 'application/x-www-form-urlencoded'
+};
+
+/**
+ * Default serialization map.
+ *
+ *     superagent.serialize['application/xml'] = function(obj){
+ *       return 'generated xml here';
+ *     };
+ *
+ */
+
+request.serialize = {
+  'application/x-www-form-urlencoded': serialize,
+  'application/json': JSON.stringify,
+};
+
+/**
+  * Default parsers.
+  *
+  *     superagent.parse['application/xml'] = function(str){
+  *       return { object parsed from str };
+  *     };
+  *
+  */
+
+request.parse = {
+  'application/x-www-form-urlencoded': parseString,
+  'application/json': JSON.parse,
+};
+
+/**
+ * Parse the given header `str` into
+ * an object containing the mapped fields.
+ *
+ * @param {String} str
+ * @return {Object}
+ * @api private
+ */
+
+function parseHeader(str) {
+  var lines = str.split(/\r?\n/);
+  var fields = {};
+  var index;
+  var line;
+  var field;
+  var val;
+
+  for (var i = 0, len = lines.length; i < len; ++i) {
+    line = lines[i];
+    index = line.indexOf(':');
+    if (index === -1) { // could be empty line, just skip it
+      continue;
+    }
+    field = line.slice(0, index).toLowerCase();
+    val = trim(line.slice(index + 1));
+    fields[field] = val;
+  }
+
+  return fields;
+}
+
+/**
+ * Check if `mime` is json or has +json structured syntax suffix.
+ *
+ * @param {String} mime
+ * @return {Boolean}
+ * @api private
+ */
+
+function isJSON(mime) {
+  // should match /json or +json
+  // but not /json-seq
+  return /[\/+]json($|[^-\w])/.test(mime);
+}
+
+/**
+ * Initialize a new `Response` with the given `xhr`.
+ *
+ *  - set flags (.ok, .error, etc)
+ *  - parse header
+ *
+ * Examples:
+ *
+ *  Aliasing `superagent` as `request` is nice:
+ *
+ *      request = superagent;
+ *
+ *  We can use the promise-like API, or pass callbacks:
+ *
+ *      request.get('/').end(function(res){});
+ *      request.get('/', function(res){});
+ *
+ *  Sending data can be chained:
+ *
+ *      request
+ *        .post('/user')
+ *        .send({ name: 'tj' })
+ *        .end(function(res){});
+ *
+ *  Or passed to `.send()`:
+ *
+ *      request
+ *        .post('/user')
+ *        .send({ name: 'tj' }, function(res){});
+ *
+ *  Or passed to `.post()`:
+ *
+ *      request
+ *        .post('/user', { name: 'tj' })
+ *        .end(function(res){});
+ *
+ * Or further reduced to a single call for simple cases:
+ *
+ *      request
+ *        .post('/user', { name: 'tj' }, function(res){});
+ *
+ * @param {XMLHTTPRequest} xhr
+ * @param {Object} options
+ * @api private
+ */
+
+function Response(req) {
+  this.req = req;
+  this.xhr = this.req.xhr;
+  // responseText is accessible only if responseType is '' or 'text' and on older browsers
+  this.text = ((this.req.method !='HEAD' && (this.xhr.responseType === '' || this.xhr.responseType === 'text')) || typeof this.xhr.responseType === 'undefined')
+     ? this.xhr.responseText
+     : null;
+  this.statusText = this.req.xhr.statusText;
+  var status = this.xhr.status;
+  // handle IE9 bug: http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
+  if (status === 1223) {
+    status = 204;
+  }
+  this._setStatusProperties(status);
+  this.header = this.headers = parseHeader(this.xhr.getAllResponseHeaders());
+  // getAllResponseHeaders sometimes falsely returns "" for CORS requests, but
+  // getResponseHeader still works. so we get content-type even if getting
+  // other headers fails.
+  this.header['content-type'] = this.xhr.getResponseHeader('content-type');
+  this._setHeaderProperties(this.header);
+
+  if (null === this.text && req._responseType) {
+    this.body = this.xhr.response;
+  } else {
+    this.body = this.req.method != 'HEAD'
+      ? this._parseBody(this.text ? this.text : this.xhr.response)
+      : null;
+  }
+}
+
+ResponseBase(Response.prototype);
+
+/**
+ * Parse the given body `str`.
+ *
+ * Used for auto-parsing of bodies. Parsers
+ * are defined on the `superagent.parse` object.
+ *
+ * @param {String} str
+ * @return {Mixed}
+ * @api private
+ */
+
+Response.prototype._parseBody = function(str) {
+  var parse = request.parse[this.type];
+  if (this.req._parser) {
+    return this.req._parser(this, str);
+  }
+  if (!parse && isJSON(this.type)) {
+    parse = request.parse['application/json'];
+  }
+  return parse && str && (str.length || str instanceof Object)
+    ? parse(str)
+    : null;
+};
+
+/**
+ * Return an `Error` representative of this response.
+ *
+ * @return {Error}
+ * @api public
+ */
+
+Response.prototype.toError = function(){
+  var req = this.req;
+  var method = req.method;
+  var url = req.url;
+
+  var msg = 'cannot ' + method + ' ' + url + ' (' + this.status + ')';
+  var err = new Error(msg);
+  err.status = this.status;
+  err.method = method;
+  err.url = url;
+
+  return err;
+};
+
+/**
+ * Expose `Response`.
+ */
+
+request.Response = Response;
+
+/**
+ * Initialize a new `Request` with the given `method` and `url`.
+ *
+ * @param {String} method
+ * @param {String} url
+ * @api public
+ */
+
+function Request(method, url) {
+  var self = this;
+  this._query = this._query || [];
+  this.method = method;
+  this.url = url;
+  this.header = {}; // preserves header name case
+  this._header = {}; // coerces header names to lowercase
+  this.on('end', function(){
+    var err = null;
+    var res = null;
+
+    try {
+      res = new Response(self);
+    } catch(e) {
+      err = new Error('Parser is unable to parse the response');
+      err.parse = true;
+      err.original = e;
+      // issue #675: return the raw response if the response parsing fails
+      if (self.xhr) {
+        // ie9 doesn't have 'response' property
+        err.rawResponse = typeof self.xhr.responseType == 'undefined' ? self.xhr.responseText : self.xhr.response;
+        // issue #876: return the http status code if the response parsing fails
+        err.status = self.xhr.status ? self.xhr.status : null;
+        err.statusCode = err.status; // backwards-compat only
+      } else {
+        err.rawResponse = null;
+        err.status = null;
+      }
+
+      return self.callback(err);
+    }
+
+    self.emit('response', res);
+
+    var new_err;
+    try {
+      if (!self._isResponseOK(res)) {
+        new_err = new Error(res.statusText || 'Unsuccessful HTTP response');
+      }
+    } catch(custom_err) {
+      new_err = custom_err; // ok() callback can throw
+    }
+
+    // #1000 don't catch errors from the callback to avoid double calling it
+    if (new_err) {
+      new_err.original = err;
+      new_err.response = res;
+      new_err.status = res.status;
+      self.callback(new_err, res);
+    } else {
+      self.callback(null, res);
+    }
+  });
+}
+
+/**
+ * Mixin `Emitter` and `RequestBase`.
+ */
+
+Emitter(Request.prototype);
+RequestBase(Request.prototype);
+
+/**
+ * Set Content-Type to `type`, mapping values from `request.types`.
+ *
+ * Examples:
+ *
+ *      superagent.types.xml = 'application/xml';
+ *
+ *      request.post('/')
+ *        .type('xml')
+ *        .send(xmlstring)
+ *        .end(callback);
+ *
+ *      request.post('/')
+ *        .type('application/xml')
+ *        .send(xmlstring)
+ *        .end(callback);
+ *
+ * @param {String} type
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.type = function(type){
+  this.set('Content-Type', request.types[type] || type);
+  return this;
+};
+
+/**
+ * Set Accept to `type`, mapping values from `request.types`.
+ *
+ * Examples:
+ *
+ *      superagent.types.json = 'application/json';
+ *
+ *      request.get('/agent')
+ *        .accept('json')
+ *        .end(callback);
+ *
+ *      request.get('/agent')
+ *        .accept('application/json')
+ *        .end(callback);
+ *
+ * @param {String} accept
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.accept = function(type){
+  this.set('Accept', request.types[type] || type);
+  return this;
+};
+
+/**
+ * Set Authorization field value with `user` and `pass`.
+ *
+ * @param {String} user
+ * @param {String} [pass] optional in case of using 'bearer' as type
+ * @param {Object} options with 'type' property 'auto', 'basic' or 'bearer' (default 'basic')
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.auth = function(user, pass, options){
+  if (1 === arguments.length) pass = '';
+  if (typeof pass === 'object' && pass !== null) { // pass is optional and can be replaced with options
+    options = pass;
+    pass = '';
+  }
+  if (!options) {
+    options = {
+      type: 'function' === typeof btoa ? 'basic' : 'auto',
+    };
+  }
+
+  var encoder = function(string) {
+    if ('function' === typeof btoa) {
+      return btoa(string);
+    }
+    throw new Error('Cannot use basic auth, btoa is not a function');
+  };
+
+  return this._auth(user, pass, options, encoder);
+};
+
+/**
+ * Add query-string `val`.
+ *
+ * Examples:
+ *
+ *   request.get('/shoes')
+ *     .query('size=10')
+ *     .query({ color: 'blue' })
+ *
+ * @param {Object|String} val
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.query = function(val){
+  if ('string' != typeof val) val = serialize(val);
+  if (val) this._query.push(val);
+  return this;
+};
+
+/**
+ * Queue the given `file` as an attachment to the specified `field`,
+ * with optional `options` (or filename).
+ *
+ * ``` js
+ * request.post('/upload')
+ *   .attach('content', new Blob(['<a id="a"><b id="b">hey!</b></a>'], { type: "text/html"}))
+ *   .end(callback);
+ * ```
+ *
+ * @param {String} field
+ * @param {Blob|File} file
+ * @param {String|Object} options
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.attach = function(field, file, options){
+  if (file) {
+    if (this._data) {
+      throw Error("superagent can't mix .send() and .attach()");
+    }
+
+    this._getFormData().append(field, file, options || file.name);
+  }
+  return this;
+};
+
+Request.prototype._getFormData = function(){
+  if (!this._formData) {
+    this._formData = new root.FormData();
+  }
+  return this._formData;
+};
+
+/**
+ * Invoke the callback with `err` and `res`
+ * and handle arity check.
+ *
+ * @param {Error} err
+ * @param {Response} res
+ * @api private
+ */
+
+Request.prototype.callback = function(err, res){
+  if (this._shouldRetry(err, res)) {
+    return this._retry();
+  }
+
+  var fn = this._callback;
+  this.clearTimeout();
+
+  if (err) {
+    if (this._maxRetries) err.retries = this._retries - 1;
+    this.emit('error', err);
+  }
+
+  fn(err, res);
+};
+
+/**
+ * Invoke callback with x-domain error.
+ *
+ * @api private
+ */
+
+Request.prototype.crossDomainError = function(){
+  var err = new Error('Request has been terminated\nPossible causes: the network is offline, Origin is not allowed by Access-Control-Allow-Origin, the page is being unloaded, etc.');
+  err.crossDomain = true;
+
+  err.status = this.status;
+  err.method = this.method;
+  err.url = this.url;
+
+  this.callback(err);
+};
+
+// This only warns, because the request is still likely to work
+Request.prototype.buffer = Request.prototype.ca = Request.prototype.agent = function(){
+  console.warn("This is not supported in browser version of superagent");
+  return this;
+};
+
+// This throws, because it can't send/receive data as expected
+Request.prototype.pipe = Request.prototype.write = function(){
+  throw Error("Streaming is not supported in browser version of superagent");
+};
+
+/**
+ * Check if `obj` is a host object,
+ * we don't want to serialize these :)
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+Request.prototype._isHost = function _isHost(obj) {
+  // Native objects stringify to [object File], [object Blob], [object FormData], etc.
+  return obj && 'object' === typeof obj && !Array.isArray(obj) && Object.prototype.toString.call(obj) !== '[object Object]';
+}
+
+/**
+ * Initiate request, invoking callback `fn(res)`
+ * with an instanceof `Response`.
+ *
+ * @param {Function} fn
+ * @return {Request} for chaining
+ * @api public
+ */
+
+Request.prototype.end = function(fn){
+  if (this._endCalled) {
+    console.warn("Warning: .end() was called twice. This is not supported in superagent");
+  }
+  this._endCalled = true;
+
+  // store callback
+  this._callback = fn || noop;
+
+  // querystring
+  this._finalizeQueryString();
+
+  return this._end();
+};
+
+Request.prototype._end = function() {
+  var self = this;
+  var xhr = (this.xhr = request.getXHR());
+  var data = this._formData || this._data;
+
+  this._setTimeouts();
+
+  // state change
+  xhr.onreadystatechange = function(){
+    var readyState = xhr.readyState;
+    if (readyState >= 2 && self._responseTimeoutTimer) {
+      clearTimeout(self._responseTimeoutTimer);
+    }
+    if (4 != readyState) {
+      return;
+    }
+
+    // In IE9, reads to any property (e.g. status) off of an aborted XHR will
+    // result in the error "Could not complete the operation due to error c00c023f"
+    var status;
+    try { status = xhr.status } catch(e) { status = 0; }
+
+    if (!status) {
+      if (self.timedout || self._aborted) return;
+      return self.crossDomainError();
+    }
+    self.emit('end');
+  };
+
+  // progress
+  var handleProgress = function(direction, e) {
+    if (e.total > 0) {
+      e.percent = e.loaded / e.total * 100;
+    }
+    e.direction = direction;
+    self.emit('progress', e);
+  };
+  if (this.hasListeners('progress')) {
+    try {
+      xhr.onprogress = handleProgress.bind(null, 'download');
+      if (xhr.upload) {
+        xhr.upload.onprogress = handleProgress.bind(null, 'upload');
+      }
+    } catch(e) {
+      // Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
+      // Reported here:
+      // https://connect.microsoft.com/IE/feedback/details/837245/xmlhttprequest-upload-throws-invalid-argument-when-used-from-web-worker-context
+    }
+  }
+
+  // initiate request
+  try {
+    if (this.username && this.password) {
+      xhr.open(this.method, this.url, true, this.username, this.password);
+    } else {
+      xhr.open(this.method, this.url, true);
+    }
+  } catch (err) {
+    // see #1149
+    return this.callback(err);
+  }
+
+  // CORS
+  if (this._withCredentials) xhr.withCredentials = true;
+
+  // body
+  if (!this._formData && 'GET' != this.method && 'HEAD' != this.method && 'string' != typeof data && !this._isHost(data)) {
+    // serialize stuff
+    var contentType = this._header['content-type'];
+    var serialize = this._serializer || request.serialize[contentType ? contentType.split(';')[0] : ''];
+    if (!serialize && isJSON(contentType)) {
+      serialize = request.serialize['application/json'];
+    }
+    if (serialize) data = serialize(data);
+  }
+
+  // set header fields
+  for (var field in this.header) {
+    if (null == this.header[field]) continue;
+
+    if (this.header.hasOwnProperty(field))
+      xhr.setRequestHeader(field, this.header[field]);
+  }
+
+  if (this._responseType) {
+    xhr.responseType = this._responseType;
+  }
+
+  // send stuff
+  this.emit('request', this);
+
+  // IE11 xhr.send(undefined) sends 'undefined' string as POST payload (instead of nothing)
+  // We need null here if data is undefined
+  xhr.send(typeof data !== 'undefined' ? data : null);
+  return this;
+};
+
+request.agent = function() {
+  return new Agent();
+};
+
+["GET", "POST", "OPTIONS", "PATCH", "PUT", "DELETE"].forEach(function(method) {
+  Agent.prototype[method.toLowerCase()] = function(url, fn) {
+    var req = new request.Request(method, url);
+    this._setDefaults(req);
+    if (fn) {
+      req.end(fn);
+    }
+    return req;
+  };
+});
+
+Agent.prototype.del = Agent.prototype['delete'];
+
+/**
+ * GET `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} [data] or fn
+ * @param {Function} [fn]
+ * @return {Request}
+ * @api public
+ */
+
+request.get = function(url, data, fn) {
+  var req = request('GET', url);
+  if ('function' == typeof data) (fn = data), (data = null);
+  if (data) req.query(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * HEAD `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} [data] or fn
+ * @param {Function} [fn]
+ * @return {Request}
+ * @api public
+ */
+
+request.head = function(url, data, fn) {
+  var req = request('HEAD', url);
+  if ('function' == typeof data) (fn = data), (data = null);
+  if (data) req.query(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * OPTIONS query to `url` with optional callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} [data] or fn
+ * @param {Function} [fn]
+ * @return {Request}
+ * @api public
+ */
+
+request.options = function(url, data, fn) {
+  var req = request('OPTIONS', url);
+  if ('function' == typeof data) (fn = data), (data = null);
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * DELETE `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed} [data]
+ * @param {Function} [fn]
+ * @return {Request}
+ * @api public
+ */
+
+function del(url, data, fn) {
+  var req = request('DELETE', url);
+  if ('function' == typeof data) (fn = data), (data = null);
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+}
+
+request['del'] = del;
+request['delete'] = del;
+
+/**
+ * PATCH `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed} [data]
+ * @param {Function} [fn]
+ * @return {Request}
+ * @api public
+ */
+
+request.patch = function(url, data, fn) {
+  var req = request('PATCH', url);
+  if ('function' == typeof data) (fn = data), (data = null);
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * POST `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed} [data]
+ * @param {Function} [fn]
+ * @return {Request}
+ * @api public
+ */
+
+request.post = function(url, data, fn) {
+  var req = request('POST', url);
+  if ('function' == typeof data) (fn = data), (data = null);
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+/**
+ * PUT `url` with optional `data` and callback `fn(res)`.
+ *
+ * @param {String} url
+ * @param {Mixed|Function} [data] or fn
+ * @param {Function} [fn]
+ * @return {Request}
+ * @api public
+ */
+
+request.put = function(url, data, fn) {
+  var req = request('PUT', url);
+  if ('function' == typeof data) (fn = data), (data = null);
+  if (data) req.send(data);
+  if (fn) req.end(fn);
+  return req;
+};
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -33738,7 +33834,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33748,7 +33844,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(64);
+var utils = __webpack_require__(65);
 
 /**
  * Expose `ResponseBase`.
@@ -33879,7 +33975,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33957,7 +34053,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports) {
 
 var g;

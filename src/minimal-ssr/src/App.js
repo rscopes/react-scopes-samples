@@ -26,16 +26,12 @@
  */
 
 import React              from "react";
-import shortid            from "shortid";
 import "react-rescope";
 import Rnd                from 'react-rnd';
-import superagent         from 'superagent';
+import AppScope           from './AppScope';
 import {
     Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, Scope
 }                         from "rescope";
-import {
-    asStateMap, asScope
-}                         from "rescope-spells";
 import { renderToString } from "react-dom/server"
 
 import "./App.scss"
@@ -46,82 +42,36 @@ let ReactDom = require('react-dom');
 
 @scopeToState([ "appState", "someData" ])
 class App extends React.Component {
-    static AppScope  = {
-        @asStateMap
-        appState: {
-            selectedItemId: null
-        },
-        @asStateMap
-        someData: {
-            src  : "/api/hello",
-            items: [ {
-                "_id"     : "rkUQHZrqM",
-                "size"    : { "width": 200, "height": 200 },
-                "text"    : "New Post It #0 somewhere we wait some new shit out there !",
-                "position": { "x": 321, "y": 167 }
-            }, {
-                "_id"     : "r1bcuMrcM",
-                "size"    : { "width": 200, "height": 200 },
-                "text"    : "do somethink",
-                "position": { "x": 260, "y": 576 }
-            } ],
-            newPostIt() {
-                return {
-                    items: [ ...this.nextState.items, {
-                        _id : shortid.generate(),
-                        size: {
-                            width : 200,
-                            height: 200
-                        },
-                        text: "New Post It #" + this.nextState.items.length
-                    } ]
-                }
-            },
-            updatePostIt( postIt ) {
-                let { items } = this.nextState;
-                items         = items.map(it => ( it._id === postIt._id ) ? postIt : it);
-                
-                return {
-                    items
-                }
-            },
-            saveState() {
-                superagent.post('/', this.scopeObj.serialize())
-                          .then(( e, r ) => {
-                              console.log(e, r)
-                          })
-            }
-        }
-    };
     static renderTo  = ( node ) => {
-        let cScope = new Scope(App.AppScope, { id: "App" });
+        let cScope = new Scope(AppScope, { id: "App" });
         window.__scopesState && cScope.restore(window.__scopesState)
-        window.context = Scope.scopes;
-        cScope.then(
-            ( err, state, context ) => {
-                ReactDom.render(<App __scope={ cScope }/>, node);
-            }
-        )
+        cScope.mount([ "appState", "someData" ])
+              .then(
+                  ( err, state, context ) => {
+                      ReactDom.render(<App __scope={ cScope }/>, node);
+                  }
+              )
     }
     static renderSSR = ( cfg, cb ) => {
-        let cScope = new Scope(App.AppScope, { id: "App" });
+        let cScope = new Scope(AppScope, { id: "App" });
         cfg.state && cScope.restore(cfg.state)
-        cScope.then(
-            ( err, state, context ) => {
-                let html;
-                try {
-                    html = indexTpl.render(
-                        {
-                            app  : renderToString(<App __scope={ cScope }/>),
-                            state: JSON.stringify(cfg.state || cScope.serialize({ alias: "App" }))
-                        }
-                    );
-                } catch ( e ) {
-                    return cb(e)
-                }
-                cb(null, html)
-            }
-        )
+        cScope.mount([ "appState", "someData" ])
+              .then(
+                  ( err, state, context ) => {
+                      let html;
+                      try {
+                          html = indexTpl.render(
+                              {
+                                  app  : renderToString(<App __scope={ cScope }/>),
+                                  state: JSON.stringify(cfg.state || cScope.serialize({ alias: "App" }))
+                              }
+                          );
+                      } catch ( e ) {
+                          return cb(e)
+                      }
+                      cb(null, html)
+                  }
+              )
     }
     
     render() {
@@ -148,39 +98,54 @@ class App extends React.Component {
     }
 }
 
+// remap record for fun (not usefull here)
 @propsToScope([ "record" ], { key: 'postIt' })
 @scopeToProps(
     {
-        @scopeRef// for fun
+        @scopeRef
         size    : "record.size",
         @scopeRef
         position: "record.position",
         @scopeRef
-        text    : "record.text"
+        text    : "record.text",
+        @scopeRef
+        record  : "record"
     })
 class PostIt extends React.Component {
-    state = {}
+    
+    state = {};
+    
+    saveState = ( e, d ) => {
+        let { $actions, record } = this.props;
+        $actions.updatePostIt(
+            {
+                ...record,
+                size    : this.state.size,
+                position: this.state.position
+            });
+    };
     
     render() {
         let {
                 position, text, size, $actions, record
-            } = this.props;
+            }     = this.props,
+            state = this.state;
         return (
             <Rnd
                 absolutePos
-                size={ size }
-                position={ position }
+                size={ state.size || size }
+                position={ state.position || position }
+                onDragStop={ this.saveState }
+                onResizeStop={ this.saveState }
                 onDrag={ ( e, d ) => {
-                    $actions.updatePostIt(
+                    this.setState(
                         {
-                            ...record,
                             position: { x: d.x, y: d.y }
                         });
                 } }
                 onResize={ ( e, direction, ref, delta, position ) => {
-                    $actions.updatePostIt(
+                    this.setState(
                         {
-                            ...record,
                             position,
                             size: {
                                 width : ref.offsetWidth,
@@ -193,7 +158,11 @@ class PostIt extends React.Component {
                         !this.state.editing &&
                         <div className={ "text" }>
                             { text }
-                            <button onClick={ e => this.setState({ editing: true }) }>🖋
+                            <button onClick={ e => this.setState({ editing: true }) }
+                                    className={ "edit" }>🖋
+                            </button>
+                            <button onClick={ e => $actions.rmPostIt(record) }
+                                    className={ "delete" }>🖾
                             </button>
                         </div>
                         ||

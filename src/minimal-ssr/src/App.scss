@@ -62,17 +62,28 @@
   background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* W3C */
   .text {
     margin-top: 40px;
-    button {
+    .edit {
 
       position: absolute;
       bottom: 5px;
       left: 5px;
-      right: 5px;
+      //right: 5px;
       //display: none;
       //&:hover {
       //  display: block;
       //}
     }
+    .delete {
+
+       position: absolute;
+       bottom: 5px;
+       //left: 5px;
+       right: 5px;
+       //display: none;
+       //&:hover {
+       //  display: block;
+       //}
+     }
   }
   .editor {
     position: absolute;
