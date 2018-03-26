@@ -6019,6 +6019,7 @@ exports.default = (_obj = {
     appState: {
         selectedPostItId: null,
         selectPostIt: function selectPostIt(selectedPostItId) {
+            //debugger
             return { selectedPostItId: selectedPostItId };
         }
     },
@@ -6700,6 +6701,8 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
     _createClass(App, [{
         key: "render",
         value: function render() {
+            var _this2 = this;
+
             var _state = this.state,
                 someData = _state.someData,
                 appState = _state.appState;
@@ -6710,7 +6713,10 @@ var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_cl
                 "Really basic drafty rescope SSR example"
             ), someData.items.map(function (note) {
                 return _react2.default.createElement(PostIt, { key: note._id, record: note,
-                    selected: note._id == appState.selectedItemId });
+                    onSelect: function onSelect(e) {
+                        return _this2.$actions.selectPostIt(note._id);
+                    },
+                    selected: note._id == appState.selectedPostItId });
             }), _react2.default.createElement(
                 "div",
                 {
@@ -6795,7 +6801,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
     function PostIt() {
         var _ref;
 
-        var _temp2, _this2, _ret;
+        var _temp2, _this3, _ret;
 
         _classCallCheck(this, PostIt);
 
@@ -6803,22 +6809,22 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {}, _this2.saveState = function (e, d) {
-            var _this2$props = _this2.props,
-                $actions = _this2$props.$actions,
-                record = _this2$props.record;
+        return _ret = (_temp2 = (_this3 = _possibleConstructorReturn(this, (_ref = PostIt.__proto__ || Object.getPrototypeOf(PostIt)).call.apply(_ref, [this].concat(args))), _this3), _this3.state = {}, _this3.saveState = function (e, d) {
+            var _this3$props = _this3.props,
+                $actions = _this3$props.$actions,
+                record = _this3$props.record;
 
             $actions.updatePostIt(_extends({}, record, {
-                size: _this2.state.size || record.size,
-                position: _this2.state.position
+                size: _this3.state.size || record.size,
+                position: _this3.state.position
             }));
-        }, _temp2), _possibleConstructorReturn(_this2, _ret);
+        }, _temp2), _possibleConstructorReturn(_this3, _ret);
     }
 
     _createClass(PostIt, [{
         key: "render",
         value: function render() {
-            var _this3 = this;
+            var _this4 = this;
 
             var _props = this.props,
                 position = _props.position,
@@ -6826,23 +6832,27 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                 size = _props.size,
                 $actions = _props.$actions,
                 record = _props.record,
+                onSelect = _props.onSelect,
+                selected = _props.selected,
                 state = this.state;
 
             return _react2.default.createElement(
                 _reactRnd2.default,
                 {
                     absolutePos: true,
+                    z: selected ? 2000 : 1,
                     size: state.size || size,
                     position: state.position || position,
                     onDragStop: this.saveState,
                     onResizeStop: this.saveState,
                     onDrag: function onDrag(e, d) {
-                        _this3.setState({
+                        !selected && onSelect(record);
+                        _this4.setState({
                             position: { x: d.x, y: d.y }
                         });
                     },
                     onResize: function onResize(e, direction, ref, delta, position) {
-                        _this3.setState({
+                        _this4.setState({
                             position: position,
                             size: {
                                 width: ref.offsetWidth,
@@ -6860,7 +6870,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                         _react2.default.createElement(
                             "button",
                             { onClick: function onClick(e) {
-                                    return _this3.setState({ editing: true });
+                                    return _this4.setState({ editing: true });
                                 },
                                 className: "edit" },
                             "\uD83D\uDD8B"
@@ -6894,7 +6904,7 @@ var PostIt = (_dec2 = (0, _rescope.propsToScope)(["record"], { key: 'postIt' }),
                             "button",
                             {
                                 onClick: function onClick(e) {
-                                    return _this3.setState({ editing: false });
+                                    return _this4.setState({ editing: false });
                                 } },
                             "\uD83D\uDCBE"
                         )
@@ -7517,7 +7527,7 @@ exports = module.exports = __webpack_require__(36)(false);
 
 
 // module
-exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n  .postit .text {\n    margin-top: 40px; }\n    .postit .text .edit {\n      position: absolute;\n      bottom: 5px;\n      left: 5px; }\n    .postit .text .delete {\n      position: absolute;\n      bottom: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
+exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n  .postit .text {\n    margin-top: 40px; }\n    .postit .text .edit {\n      position: absolute;\n      bottom: 5px;\n      left: 5px; }\n    .postit .text .delete {\n      position: absolute;\n      bottom: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
 
 // exports
 

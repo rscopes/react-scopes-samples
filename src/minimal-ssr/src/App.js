@@ -82,7 +82,8 @@ class App extends React.Component {
             <h1>Really basic drafty rescope SSR example</h1>,
             someData.items.map(
                 note => <PostIt key={ note._id } record={ note }
-                                selected={ note._id == appState.selectedItemId }/>
+                                onSelect={ e => this.$actions.selectPostIt(note._id) }
+                                selected={ note._id == appState.selectedPostItId }/>
             ),
             <div
                 className={ "newBtn button" }
@@ -127,17 +128,19 @@ class PostIt extends React.Component {
     
     render() {
         let {
-                position, text, size, $actions, record
+                position, text, size, $actions, record, onSelect, selected
             }     = this.props,
             state = this.state;
         return (
             <Rnd
                 absolutePos
+                z={ selected ? 2000 : 1 }
                 size={ state.size || size }
                 position={ state.position || position }
                 onDragStop={ this.saveState }
                 onResizeStop={ this.saveState }
                 onDrag={ ( e, d ) => {
+                    !selected && onSelect(record)
                     this.setState(
                         {
                             position: { x: d.x, y: d.y }
