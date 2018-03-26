@@ -8,7 +8,10 @@ export default {
     @asStateMap
     appState: {
         selectedPostItId: null,
-        selectPostIt    : selectedPostItId => ( { selectedPostItId } )
+        selectPostIt( selectedPostItId ) {
+            //debugger
+            return { selectedPostItId };
+        }
     },
     @asStateMap
     someData: {
