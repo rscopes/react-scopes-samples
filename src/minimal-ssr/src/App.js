@@ -115,15 +115,15 @@ class PostIt extends React.Component {
     
     state = {};
     
-    saveState = setTimeout.bind(null, ( e, d ) => {
+    saveState = ( e, d ) => {
         let { $actions, record } = this.props;
         $actions.updatePostIt(
             {
                 ...record,
-                size    : this.state.size,
+                size    : this.state.size || record.size,
                 position: this.state.position
             });
-    });
+    };
     
     render() {
         let {
