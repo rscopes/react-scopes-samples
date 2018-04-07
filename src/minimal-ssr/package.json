@@ -10,20 +10,21 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
-    "run": "node ./Server.js"
+    "run": "start http://localhost:9001&node ./Server.js -p 9001"
   },
   "dependencies": {
-    "react-rnd": "https://github.com/n8tz/react-rnd.git",
     "body-parser": "^1.18.2",
+    "dot-tpl-loader": "^1.2.1",
     "express": "^4.16.3",
+    "minimist": "^1.2.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rescope": "^1.1.2",
+    "react-rnd": "https://github.com/n8tz/react-rnd.git",
     "request": "^2.85.0",
     "rescope": "^3.6.6",
     "rescope-spells": "^0.1.2",
-    "dot-tpl-loader": "^1.2.1",
     "superagent": "^3.8.2"
   },
   "devDependencies": {

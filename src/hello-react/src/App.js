@@ -86,7 +86,7 @@ class App extends React.Component {
                 </div>
                 <pre>
                       { status && JSON.stringify(status, null, 2) }
-                    </pre>
+                </pre>
                 <NewsListComp/>
             
             </div>
