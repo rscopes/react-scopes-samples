@@ -87,7 +87,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 159);
+/******/ 	return __webpack_require__(__webpack_require__.s = 160);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -733,7 +733,7 @@ var PrivateKey = __webpack_require__(6);
 var edCompat;
 
 try {
-	edCompat = __webpack_require__(100);
+	edCompat = __webpack_require__(101);
 } catch (e) {
 	/* Just continue through, and bail out if we try to use it. */
 }
@@ -742,12 +742,12 @@ var InvalidAlgorithmError = errs.InvalidAlgorithmError;
 var KeyParseError = errs.KeyParseError;
 
 var formats = {};
-formats['auto'] = __webpack_require__(101);
+formats['auto'] = __webpack_require__(102);
 formats['pem'] = __webpack_require__(16);
 formats['pkcs1'] = __webpack_require__(55);
 formats['pkcs8'] = __webpack_require__(27);
 formats['rfc4253'] = __webpack_require__(19);
-formats['ssh'] = __webpack_require__(102);
+formats['ssh'] = __webpack_require__(103);
 formats['ssh-private'] = __webpack_require__(38);
 formats['openssh'] = formats['ssh-private'];
 formats['dnssec'] = __webpack_require__(54);
@@ -1189,7 +1189,7 @@ var edCompat;
 var nacl;
 
 try {
-	edCompat = __webpack_require__(100);
+	edCompat = __webpack_require__(101);
 } catch (e) {
 	/* Just continue through, and bail out if we try to use it. */
 }
@@ -1201,7 +1201,7 @@ var KeyParseError = errs.KeyParseError;
 var KeyEncryptedError = errs.KeyEncryptedError;
 
 var formats = {};
-formats['auto'] = __webpack_require__(101);
+formats['auto'] = __webpack_require__(102);
 formats['pem'] = __webpack_require__(16);
 formats['pkcs1'] = __webpack_require__(55);
 formats['pkcs8'] = __webpack_require__(27);
@@ -1480,9 +1480,9 @@ module.exports = emptyFunction;
 
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(228);
+  module.exports = __webpack_require__(229);
 } else {
-  module.exports = __webpack_require__(227);
+  module.exports = __webpack_require__(228);
 }
 
 
@@ -1495,7 +1495,7 @@ if (process.env.NODE_ENV === 'production') {
 // If you have no idea what ASN.1 or BER is, see this:
 // ftp://ftp.rsa.com/pub/pkcs/ascii/layman.asc
 
-var Ber = __webpack_require__(149);
+var Ber = __webpack_require__(150);
 
 
 
@@ -5897,7 +5897,7 @@ module.exports = {
   toHash: toHash,
   getProperty: getProperty,
   escapeQuotes: escapeQuotes,
-  ucs2length: __webpack_require__(127),
+  ucs2length: __webpack_require__(128),
   varOccurences: varOccurences,
   varReplace: varReplace,
   cleanUpCode: cleanUpCode,
@@ -7219,9 +7219,9 @@ var PrivateKey = __webpack_require__(6);
 var Identity = __webpack_require__(28);
 
 var formats = {};
-formats['openssh'] = __webpack_require__(246);
-formats['x509'] = __webpack_require__(103);
-formats['pem'] = __webpack_require__(247);
+formats['openssh'] = __webpack_require__(247);
+formats['x509'] = __webpack_require__(104);
+formats['pem'] = __webpack_require__(248);
 
 var CertificateParseError = errs.CertificateParseError;
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
@@ -9279,7 +9279,7 @@ exports.badImplementation = function (message, data) {
 
 // Load modules
 
-const Sntp = __webpack_require__(99);
+const Sntp = __webpack_require__(100);
 const Boom = __webpack_require__(32);
 
 
@@ -9290,7 +9290,7 @@ const internals = {};
 
 exports.version = function () {
 
-    return __webpack_require__(203).version;
+    return __webpack_require__(204).version;
 };
 
 
@@ -9475,7 +9475,7 @@ exports.unauthorized = function (message, attributes) {
 const Crypto = __webpack_require__(1);
 const Path = __webpack_require__(59);
 const Util = __webpack_require__(2);
-const Escape = __webpack_require__(177);
+const Escape = __webpack_require__(178);
 
 
 // Declare internals
@@ -10639,7 +10639,7 @@ module.exports = checkPropTypes;
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(244);
+var randomFromSeed = __webpack_require__(245);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -10809,7 +10809,7 @@ function readSSHPrivate(type, buf, options) {
 		var rounds = kdfOptsBuf.readInt();
 		var cinf = utils.opensshCipherInfo(cipher);
 		if (bcrypt === undefined) {
-			bcrypt = __webpack_require__(77);
+			bcrypt = __webpack_require__(78);
 		}
 
 		if (typeof (options.passphrase) === 'string') {
@@ -10930,7 +10930,7 @@ function write(key, options) {
 		kdfopts = kdfssh.toBuffer();
 
 		if (bcrypt === undefined) {
-			bcrypt = __webpack_require__(77);
+			bcrypt = __webpack_require__(78);
 		}
 		var pass = new Uint8Array(passphrase);
 		var salti = new Uint8Array(salt);
@@ -11018,51 +11018,6 @@ module.exports = require("querystring");
 
 /***/ }),
 /* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(224);
-} else {
-  module.exports = __webpack_require__(223);
-}
-
-
-/***/ }),
-/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -11210,7 +11165,7 @@ module.exports =
 /* 1 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(110);
+	module.exports = __webpack_require__(60);
 
 /***/ }),
 /* 2 */
@@ -11324,14 +11279,23 @@ module.exports =
 	         * Init a ReScope scope
 	         *
 	         * @param storesMap {Object} Object with the initial stores definition / instances
-	         * @param id {string} @optional id ( if this id exist storesMap will be merge on the 'id' scope)
-	         * @param parent
-	         * @param state
-	         * @param data
-	         * @param name
-	         * @param defaultMaxListeners
-	         * @param persistenceTm {number) if > 0, will wait 'persistenceTm' ms before destroy when dispose reach 0
-	         * @param autoDestroy  {bool} will trigger retain & dispose after start
+	         * @param config {Object} Scope config
+	         * {
+	         *  parent {scope} @optional parent scope
+	         *
+	         *  id {string} @optional id ( if this id exist storesMap will be merge on the 'id' scope)
+	         *  key {string} @optional key of the scope ( if no id is set, the scope id will be (parent.id+'::'+key)
+	         *  incrementId {bool} @optional true to add a suffix id, if the provided key or id globally exist
+	         *
+	         *  state {Object} @optional initial state by store alias
+	         *  data {Object} @optional initial data by store alias
+	         *
+	         *  rootEmitter {bool} @optional true to not being destabilized by parent
+	         *  boundedActions {array | regexp} @optional list or regexp of actions not propagated to the parent
+	         *
+	         *  persistenceTm {number) if > 0, will wait 'persistenceTm' ms before destroy when dispose reach 0
+	         *  autoDestroy  {bool} will trigger retain & dispose after start
+	         *  }
 	         * @returns {Scope}
 	         */
 	
@@ -11344,10 +11308,8 @@ module.exports =
 	            id = _ref2.id,
 	            state = _ref2.state,
 	            data = _ref2.data,
-	            name = _ref2.name,
 	            _ref2$incrementId = _ref2.incrementId,
 	            incrementId = _ref2$incrementId === undefined ? !!key : _ref2$incrementId,
-	            defaultMaxListeners = _ref2.defaultMaxListeners,
 	            persistenceTm = _ref2.persistenceTm,
 	            autoDestroy = _ref2.autoDestroy,
 	            rootEmitter = _ref2.rootEmitter,
@@ -11358,8 +11320,6 @@ module.exports =
 	        var _this = _possibleConstructorReturn(this, (Scope.__proto__ || Object.getPrototypeOf(Scope)).call(this));
 	
 	        var _ = {};
-	
-	        _.maxListeners = defaultMaxListeners || _this.constructor.defaultMaxListeners;
 	
 	        id = id || key && (parent && parent._id || '') + '::' + key;
 	
@@ -12530,7 +12490,7 @@ module.exports =
 /* 5 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(97);
+	module.exports = __webpack_require__(98);
 
 /***/ }),
 /* 6 */
@@ -12544,9 +12504,9 @@ module.exports =
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 	
 	var _class, _temp;
 	
@@ -12587,12 +12547,6 @@ module.exports =
 	 * @contact : caipilabs@gmail.com
 	 */
 	
-	/**
-	 * Ultra scalable state-aware store
-	 *
-	 * @todo : lot of optims...
-	 */
-	
 	var is = __webpack_require__(3),
 	    Scope = __webpack_require__(2),
 	    EventEmitter = __webpack_require__(4),
@@ -12606,149 +12560,18 @@ module.exports =
 	var Store = (_temp = _class = function (_EventEmitter) {
 	    _inherits(Store, _EventEmitter);
 	
-	    _createClass(Store, null, [{
-	        key: 'as',
-	
-	
-	        /**
-	         * get a Builder-key pair for Store::map
-	         * @param {string} name
-	         * @returns {{store: Store, name: *}}
-	         */
-	        // overridable list of store that will allow push if updated
-	        value: function as(name) {
-	            return { store: this, name: name };
-	        }
-	
-	        /**
-	         * Map all named stores in {keys} to the {object}'s state
-	         * Hook componentWillUnmount (for react comp) or destroy to unBind them automatically
-	         * @static
-	         * @param object {Object} target state aware object (React.Component|Store|...)
-	         * @param keys {Array} Ex : ["session", "otherStaticNamedStore:key", store.as('anotherKey')]
-	         */
-	        // default state
-	        /**
-	         * if retain goes to 0 :
-	         * false to not destroy,
-	         * 0 to sync auto destroy
-	         * Ms to autodestroy after tm ms if no retain has been called
-	         * @type {boolean|Int}
-	         */
-	        // overridable list of source stores
-	
-	    }, {
-	        key: 'map',
-	        value: function map(component, keys, scope, origin) {
-	            var setInitial = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
-	
-	            var targetRevs = component._revs || {};
-	            var targetScope = component.stores || (component.stores = {});
-	            var initialOutputs = {};
-	            keys = is.array(keys) ? [].concat(_toConsumableArray(keys)) : [keys];
-	
-	            scope = scope || Store.staticScope;
-	
-	            keys = keys.filter(
-	            // @todo : use query refs
-	            // (store)(\.store)*(\[(\*|(props)\w+)+)\])?(\:alias)
-	            function (key) {
-	                var _component$_sources;
-	
-	                if (!key) {
-	                    console.error("Not a mappable store item '" + key + "' in " + origin + ' !!');
-	                    return false;
-	                }
-	                var name = void 0,
-	                    alias = void 0,
-	                    path = void 0,
-	                    store = void 0;
-	                if (key.store && key.name) {
-	                    alias = name = key.name;
-	                    store = key.store;
-	                } else if (is.fn(key)) {
-	                    name = alias = key.name || key.defaultName;
-	                    store = key;
-	                } else {
-	                    key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
-	                    name = key[1];
-	                    path = key[2] && key[2].substr(1);
-	                    store = scope.stores[key[1]];
-	                    alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
-	                }
-	
-	                if (targetRevs[name]) return false; // ignore dbl uses for now
-	
-	                if (!store) {
-	                    console.error("Not a mappable store item '" + name + "/" + alias + "' in " + (component.name || component) + ' !!', store);
-	                    return false;
-	                } else if (is.fn(store)) {
-	                    scope._mount(name);
-	                    scope.stores[name].bind(component, alias, setInitial, path);
-	                } else {
-	                    store.bind(component, alias, setInitial, path);
-	                }
-	
-	                // give initial store weight basing sources
-	                (_component$_sources = component._sources).push.apply(_component$_sources, _toConsumableArray(scope.stores[name]._sources));
-	
-	                targetRevs[alias] = targetRevs[alias] || true;
-	                !targetScope[name] && (targetScope[name] = scope.stores[name]);
-	                if (scope.stores[name].hasOwnProperty('data')) initialOutputs[name] = scope.data[name];
-	                return true;
-	            });
-	
-	            // ...
-	            var mixedCWUnmount,
-	                unMountKey = component.isReactComponent ? "componentWillUnmount" : "destroy";
-	
-	            if (component.hasOwnProperty(unMountKey)) {
-	                mixedCWUnmount = component[unMountKey];
-	            }
-	
-	            component[unMountKey] = function () {
-	                delete component[unMountKey];
-	                if (mixedCWUnmount) component[unMountKey] = mixedCWUnmount;
-	
-	                keys.map(function (key) {
-	                    var name = void 0,
-	                        alias = void 0,
-	                        path = void 0,
-	                        store = void 0;
-	                    if (key.store && key.name) {
-	                        alias = name = key.name;
-	                        store = key.store;
-	                    } else if (is.fn(key)) {
-	                        name = alias = key.name || key.defaultName;
-	                        store = scope.stores[name];
-	                    } else {
-	                        key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
-	                        name = key[1];
-	                        path = key[2] && key[2].substr(1);
-	                        store = scope.stores[key[1]];
-	                        alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
-	                    }
-	
-	                    store && !is.fn(store) && store.unBind(component, alias, path);
-	                });
-	                return component[unMountKey] && component[unMountKey].apply(component, arguments);
-	            };
-	
-	            return initialOutputs;
-	        }
-	
-	        /**
-	         * Constructor, will build a rescope store
-	         *
-	         * (scope, {require,use,apply,state, data})
-	         * (scope)
-	         *
-	         * @param scope {object} scope where to find the other stores (default : static staticScope )
-	         * @param keys {Array} (passed to Store::map) Ex : ["session", "otherNamedStore:key", otherStore.as("otherKey")]
-	         */
-	
-	    }]);
-	
+	    /**
+	     * Constructor, will build a rescope store
+	     *
+	     * (scope, {require,use,apply,state, data})
+	     * (scope)
+	     *
+	     * @param scope {object} scope where to find the other stores (default : static
+	     *     staticScope )
+	     * @param keys {Array} (passed to Store::map) Ex : ["session", "otherNamedStore:key",
+	     *     otherStore.as("otherKey")]
+	     */
+	    // overridable list of store that will allow push if updated
 	    function Store() {
 	        var _this$_require, _this$_require2;
 	
@@ -12762,11 +12585,8 @@ module.exports =
 	            cfg = argz[0] && !is.array(argz[0]) && !is.string(argz[0]) ? argz.shift() : {},
 	            name = is.string(argz[0]) ? argz[0] : cfg.name || _static.name,
 	            watchs = is.array(argz[0]) ? argz.shift() : cfg.use || [],
-	            // watchs need to be defined after all the
-	        // store are registered : so we can't deal
-	        // with any "static use" automaticly
-	        apply = is.fn(argz[0]) ? argz.shift() : cfg.apply || null,
-	            initialState = _static.state || _static.initialState,
+	            apply = is.fn(argz[0]) ? argz.shift() : cfg.apply || null,
+	            initialState = _static.state || _static.initialState || _static.defaultState,
 	            applied;
 	
 	        _this._uid = cfg._uid || shortid.generate();
@@ -12863,6 +12683,15 @@ module.exports =
 	     * @deprecated
 	     * @returns {*}
 	     */
+	    // default state
+	    /**
+	     * if retain goes to 0 :
+	     * false to not destroy,
+	     * 0 to sync auto destroy
+	     * Ms to autodestroy after tm ms if no retain has been called
+	     * @type {boolean|Int}
+	     */
+	    // overridable list of source stores
 	
 	
 	    _createClass(Store, [{
@@ -12870,7 +12699,8 @@ module.exports =
 	
 	
 	        /**
-	         * Overridable method to know if a data change should be propag to the listening stores & components
+	         * Overridable method to know if a data change should be propag to the listening
+	         * stores & components
 	         */
 	        value: function shouldPropag(nDatas) {
 	
@@ -12914,8 +12744,8 @@ module.exports =
 	
 	        /**
 	         * Overridable applier / remapper
-	         * If state or lastPublicState are simple hash maps apply will return {...data, ...state}
-	         * if not it will return the last private state
+	         * If state or lastPublicState are simple hash maps apply will return {...data,
+	         * ...state} if not it will return the last private state
 	         * @param data
 	         * @param state
 	         * @returns {*}
@@ -13003,7 +12833,8 @@ module.exports =
 	
 	        /**
 	         * Pull stores in the private state
-	         * @param stores  {Array} (passed to Store::map) Ex : ["session", "otherNamedStore:key", otherStore.as("otherKey")]
+	         * @param stores  {Array} (passed to Store::map) Ex : ["session",
+	         *     "otherNamedStore:key", otherStore.as("otherKey")]
 	         */
 	
 	    }, {
@@ -13049,7 +12880,8 @@ module.exports =
 	        }
 	
 	        /**
-	         * Call the apply fn using the current accumulated state update then, push the resulting data if stable
+	         * Call the apply fn using the current accumulated state update then, push the
+	         * resulting data if stable
 	         * @param force
 	         * @returns {boolean}
 	         */
@@ -13321,7 +13153,8 @@ module.exports =
 	
 	        /**
 	         * Add a lock so the store will not propag it data untill release() is call
-	         * @param previous {Store|number|Array} @optional wf to wait, releases to wait or array of stuff to wait
+	         * @param previous {Store|number|Array} @optional wf to wait, releases to wait or
+	         *     array of stuff to wait
 	         * @returns {TaskFlow}
 	         */
 	
@@ -13500,9 +13333,9 @@ module.exports =
 	         */
 	        ,
 	        set: function set(v) {
-	            //console.groupCollapsed("Rescope store : Setting datas is depreciated, use data");
-	            //console.log("Rescope store : Setting datas is depreciated, use data", (new Error()).stack);
-	            //console.groupEnd();
+	            //console.groupCollapsed("Rescope store : Setting datas is depreciated, use
+	            // data"); console.log("Rescope store : Setting datas is depreciated, use data",
+	            // (new Error()).stack); console.groupEnd();
 	
 	            this.data = v;
 	        }
@@ -13521,6 +13354,122 @@ module.exports =
 	
 	    return Store;
 	}(EventEmitter), _class.use = [], _class.staticScope = new Scope({}, { id: "static" }), _class.state = undefined, _class.persistenceTm = false, _temp);
+	
+	/**
+	 * get a static aliased reference of a store
+	 * @param {string} name
+	 * @returns {{store: Store, name: *}}
+	 */
+	
+	Store.as = function (name) {
+	    return { store: this, name: name };
+	};
+	
+	/**
+	 * Map all named stores in {keys} to the {object}'s state
+	 * Hook componentWillUnmount (for react comp) or destroy to unBind them automatically
+	 * @static
+	 * @param object {Object} target state aware object (React.Component|Store|...)
+	 * @param keys {Array} Ex : ["session", "otherStaticNamedStore:key",
+	 *     store.as('anotherKey')]
+	 */
+	Store.map = function (component, keys, scope, origin) {
+	    var setInitial = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+	
+	    var targetRevs = component._revs || {};
+	    var targetScope = component.stores || (component.stores = {});
+	    var initialOutputs = {};
+	    keys = is.array(keys) ? [].concat(_toConsumableArray(keys)) : [keys];
+	
+	    scope = scope || Store.staticScope;
+	
+	    keys = keys.filter(
+	    // @todo : use query refs
+	    // (store)(\.store)*(\[(\*|(props)\w+)+)\])?(\:alias)
+	    function (key) {
+	        var _component$_sources;
+	
+	        if (!key) {
+	            console.error("Not a mappable store item '" + key + "' in " + origin + ' !!');
+	            return false;
+	        }
+	        var name = void 0,
+	            alias = void 0,
+	            path = void 0,
+	            store = void 0;
+	        if (key.store && key.name) {
+	            alias = name = key.name;
+	            store = key.store;
+	        } else if (is.fn(key)) {
+	            name = alias = key.name || key.defaultName;
+	            store = key;
+	        } else {
+	            key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
+	            name = key[1];
+	            path = key[2] && key[2].substr(1);
+	            store = scope.stores[key[1]];
+	            alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
+	        }
+	
+	        if (targetRevs[name]) return false; // ignore dbl uses for now
+	
+	        if (!store) {
+	            console.error("Not a mappable store item '" + name + "/" + alias + "' in " + (component.name || component) + ' !!', store);
+	            return false;
+	        } else if (is.fn(store)) {
+	            scope._mount(name);
+	            scope.stores[name].bind(component, alias, setInitial, path);
+	        } else {
+	            store.bind(component, alias, setInitial, path);
+	        }
+	
+	        // give initial store weight basing sources
+	        (_component$_sources = component._sources).push.apply(_component$_sources, _toConsumableArray(scope.stores[name]._sources));
+	
+	        targetRevs[alias] = targetRevs[alias] || true;
+	        !targetScope[name] && (targetScope[name] = scope.stores[name]);
+	        if (scope.stores[name].hasOwnProperty('data')) initialOutputs[name] = scope.data[name];
+	        return true;
+	    });
+	
+	    // ...
+	    var mixedCWUnmount,
+	        unMountKey = component.isReactComponent ? "componentWillUnmount" : "destroy";
+	
+	    if (component.hasOwnProperty(unMountKey)) {
+	        mixedCWUnmount = component[unMountKey];
+	    }
+	
+	    component[unMountKey] = function () {
+	        delete component[unMountKey];
+	        if (mixedCWUnmount) component[unMountKey] = mixedCWUnmount;
+	
+	        keys.map(function (key) {
+	            var name = void 0,
+	                alias = void 0,
+	                path = void 0,
+	                store = void 0;
+	            if (key.store && key.name) {
+	                alias = name = key.name;
+	                store = key.store;
+	            } else if (is.fn(key)) {
+	                name = alias = key.name || key.defaultName;
+	                store = scope.stores[name];
+	            } else {
+	                key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
+	                name = key[1];
+	                path = key[2] && key[2].substr(1);
+	                store = scope.stores[key[1]];
+	                alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
+	            }
+	
+	            store && !is.fn(store) && store.unBind(component, alias, path);
+	        });
+	        return component[unMountKey] && component[unMountKey].apply(component, arguments);
+	    };
+	
+	    return initialOutputs;
+	};
 	exports.default = Store;
 	module.exports = exports['default'];
 
@@ -13840,6 +13789,51 @@ module.exports =
 //# sourceMappingURL=ReScope.js.map
 
 /***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(225);
+} else {
+  module.exports = __webpack_require__(224);
+}
+
+
+/***/ }),
 /* 43 */
 /***/ (function(module, exports) {
 
@@ -14082,7 +14076,7 @@ module.exports = function extend() {
 
 
 
-var hyphenate = __webpack_require__(165);
+var hyphenate = __webpack_require__(166);
 
 var msPattern = /^ms-/;
 
@@ -15054,7 +15048,7 @@ module.exports = is;
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(208);
+var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(209);
 
 module.exports = function (obj, opts) {
     if (!opts) opts = {};
@@ -15166,7 +15160,7 @@ module.exports = ReactPropTypesSecret;
 "use strict";
 
 
-var jsonSafeStringify = __webpack_require__(207)
+var jsonSafeStringify = __webpack_require__(208)
 var crypto = __webpack_require__(1)
 var Buffer = __webpack_require__(24).Buffer
 
@@ -15281,7 +15275,7 @@ function DiffieHellman(key) {
 	} else if (key.type === 'ecdsa') {
 		if (!CRYPTO_HAVE_ECDH) {
 			if (ecdh === undefined)
-				ecdh = __webpack_require__(81);
+				ecdh = __webpack_require__(82);
 			if (ec === undefined)
 				ec = __webpack_require__(22);
 			if (jsbn === undefined)
@@ -15612,7 +15606,7 @@ function generateECDSA(curve) {
 		return (key);
 	} else {
 		if (ecdh === undefined)
-			ecdh = __webpack_require__(81);
+			ecdh = __webpack_require__(82);
 		if (ec === undefined)
 			ec = __webpack_require__(22);
 		if (jsbn === undefined)
@@ -16374,8 +16368,8 @@ module.exports = {
 /* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var v1 = __webpack_require__(252);
-var v4 = __webpack_require__(253);
+var v1 = __webpack_require__(253);
+var v4 = __webpack_require__(254);
 
 var uuid = v4;
 uuid.v1 = v1;
@@ -16400,16 +16394,129 @@ module.exports = require("path");
 /* 60 */
 /***/ (function(module, exports) {
 
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/*
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	// Common rescope modules int
+	exports.default = {};
+	module.exports = exports["default"];
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
 function webpackEmptyContext(req) {
 	throw new Error("Cannot find module '" + req + "'.");
 }
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 60;
+webpackEmptyContext.id = 61;
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16634,7 +16741,7 @@ function compileAsync(schema, callback) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16686,16 +16793,16 @@ module.exports = function equal(a, b) {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(7)
-  , equal = __webpack_require__(62)
+  , equal = __webpack_require__(63)
   , util = __webpack_require__(17)
-  , SchemaObject = __webpack_require__(64);
+  , SchemaObject = __webpack_require__(65);
 
 module.exports = resolve;
 
@@ -16960,7 +17067,7 @@ function resolveIds(schema) {
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16976,7 +17083,7 @@ function SchemaObject(obj) {
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16997,7 +17104,7 @@ ValidationError.prototype.constructor = ValidationError;
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17128,7 +17235,7 @@ module.exports = function generate__limit(it, $keyword) {
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17211,7 +17318,7 @@ module.exports = function generate__limitItems(it, $keyword) {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17299,7 +17406,7 @@ module.exports = function generate__limitLength(it, $keyword) {
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17382,7 +17489,7 @@ module.exports = function generate__limitProperties(it, $keyword) {
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17764,7 +17871,7 @@ module.exports = function generate_validate(it, $keyword) {
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports) {
 
 // API
@@ -17799,10 +17906,10 @@ function clean(key)
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var defer = __webpack_require__(153);
+var defer = __webpack_require__(154);
 
 // API
 module.exports = async;
@@ -17839,11 +17946,11 @@ function async(callback)
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var async = __webpack_require__(72)
-  , abort = __webpack_require__(71)
+var async = __webpack_require__(73)
+  , abort = __webpack_require__(72)
   ;
 
 // API
@@ -17920,7 +18027,7 @@ function runJob(iterator, key, item, callback)
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports) {
 
 // API
@@ -17963,11 +18070,11 @@ function state(list, sortMethod)
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var abort = __webpack_require__(71)
-  , async = __webpack_require__(72)
+var abort = __webpack_require__(72)
+  , async = __webpack_require__(73)
   ;
 
 // API
@@ -17998,12 +18105,12 @@ function terminator(callback)
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var iterate    = __webpack_require__(73)
-  , initState  = __webpack_require__(74)
-  , terminator = __webpack_require__(75)
+var iterate    = __webpack_require__(74)
+  , initState  = __webpack_require__(75)
+  , terminator = __webpack_require__(76)
   ;
 
 // Public API
@@ -18079,7 +18186,7 @@ function descending(a, b)
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18642,7 +18749,7 @@ module.exports = {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports) {
 
 
@@ -18885,13 +18992,13 @@ function isObject(val) {
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var util = __webpack_require__(2);
 var Stream = __webpack_require__(14).Stream;
-var DelayedStream = __webpack_require__(162);
-var defer = __webpack_require__(160);
+var DelayedStream = __webpack_require__(163);
+var defer = __webpack_require__(161);
 
 module.exports = CombinedStream;
 function CombinedStream() {
@@ -19080,7 +19187,7 @@ CombinedStream.prototype._emitError = function(err) {
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19175,13 +19282,13 @@ exports.fixedTimeComparison = function (a, b) {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var crypto = __webpack_require__(1);
 var BigInteger = __webpack_require__(15).BigInteger;
 var ECPointFp = __webpack_require__(22).ECPointFp;
-exports.ECCurves = __webpack_require__(163);
+exports.ECCurves = __webpack_require__(164);
 
 // zero prepad
 function unstupid(hex,len)
@@ -19238,7 +19345,7 @@ exports.ECKey = function(curve, key, isPublic)
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -19427,7 +19534,7 @@ function dumpException(ex)
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19507,7 +19614,7 @@ var EventListener = {
 module.exports = EventListener;
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19546,7 +19653,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19561,7 +19668,7 @@ module.exports = ExecutionEnvironment;
 
 
 
-var camelize = __webpack_require__(164);
+var camelize = __webpack_require__(165);
 
 var msPattern = /^-ms-/;
 
@@ -19589,7 +19696,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19604,7 +19711,7 @@ module.exports = camelizeStyleName;
  * 
  */
 
-var isTextNode = __webpack_require__(167);
+var isTextNode = __webpack_require__(168);
 
 /*eslint-disable no-bitwise */
 
@@ -19632,7 +19739,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19662,7 +19769,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19704,7 +19811,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19737,7 +19844,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19808,7 +19915,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var stream = __webpack_require__(14)
@@ -19841,7 +19948,7 @@ module.exports.isDuplex   = isDuplex
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19859,7 +19966,7 @@ module.exports.isDuplex   = isDuplex
  * @private
  */
 
-var db = __webpack_require__(212)
+var db = __webpack_require__(213)
 var extname = __webpack_require__(59).extname
 
 /**
@@ -20036,7 +20143,7 @@ function populateMaps (extensions, types) {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20061,15 +20168,15 @@ module.exports = {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var stringify = __webpack_require__(219);
-var parse = __webpack_require__(218);
-var formats = __webpack_require__(93);
+var stringify = __webpack_require__(220);
+var parse = __webpack_require__(219);
+var formats = __webpack_require__(94);
 
 module.exports = {
     formats: formats,
@@ -20079,7 +20186,7 @@ module.exports = {
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20288,13 +20395,13 @@ exports.isBuffer = function isBuffer(obj) {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var tough = __webpack_require__(249)
+var tough = __webpack_require__(250)
 
 var Cookie = tough.Cookie
 var CookieJar = tough.CookieJar
@@ -20333,22 +20440,22 @@ exports.jar = function (store) {
 
 
 /***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = __webpack_require__(241);
-
-
-/***/ }),
 /* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+module.exports = __webpack_require__(242);
 
-var randomByte = __webpack_require__(243);
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var randomByte = __webpack_require__(244);
 
 function encode(lookup, number) {
     var loopCounter = 0;
@@ -20368,7 +20475,7 @@ module.exports = encode;
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20787,7 +20894,7 @@ exports.now = function () {
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
@@ -20890,7 +20997,7 @@ Signer.prototype.sign = function () {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
@@ -20906,7 +21013,7 @@ var Key = __webpack_require__(4);
 var PrivateKey = __webpack_require__(6);
 
 var pem = __webpack_require__(16);
-var ssh = __webpack_require__(102);
+var ssh = __webpack_require__(103);
 var rfc4253 = __webpack_require__(19);
 var dnssec = __webpack_require__(54);
 
@@ -21002,7 +21109,7 @@ function write(key, options) {
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
@@ -21122,7 +21229,7 @@ function write(key, options) {
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2017 Joyent, Inc.
@@ -21857,7 +21964,7 @@ function writeBitField(setBits, bitIndex) {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21925,7 +22032,7 @@ exports.pathMatch = pathMatch;
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21960,7 +22067,7 @@ exports.pathMatch = pathMatch;
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var pubsuffix = __webpack_require__(106);
+var pubsuffix = __webpack_require__(107);
 
 // Gives the permutation of all possible domainMatch()es of a given domain. The
 // array is in shortest-to-longest order.  Handy for indexing.
@@ -21988,7 +22095,7 @@ exports.permuteDomain = permuteDomain;
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22093,7 +22200,7 @@ var index = module.exports.index = Object.freeze(
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22171,7 +22278,7 @@ Store.prototype.getAllCookies = function(cb) {
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports) {
 
 /**
@@ -22200,7 +22307,7 @@ module.exports = bytesToUuid;
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Unique ID creation requires a high quality random # generator.  In node.js
@@ -22212,119 +22319,6 @@ module.exports = function nodeRNG() {
   return crypto.randomBytes(16);
 };
 
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports) {
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	/*
-	 * Copyright (c)  2018 Wise Wild Web .
-	 *
-	 *  MIT License
-	 *
-	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	 *  of this software and associated documentation files (the "Software"), to deal
-	 *  in the Software without restriction, including without limitation the rights
-	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 *  copies of the Software, and to permit persons to whom the Software is
-	 *  furnished to do so, subject to the following conditions:
-	 *
-	 *  The above copyright notice and this permission notice shall be included in all
-	 *  copies or substantial portions of the Software.
-	 *
-	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	 *  SOFTWARE.
-	 *
-	 * @author : Nathanael Braun
-	 * @contact : caipilabs@gmail.com
-	 */
-	// Common rescope modules int
-	exports.default = {};
-	module.exports = exports["default"];
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=index.js.map
 
 /***/ }),
 /* 111 */
@@ -22475,13 +22469,13 @@ module.exports =
 /* 1 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(42);
+	module.exports = __webpack_require__(41);
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(110);
+	module.exports = __webpack_require__(60);
 
 /***/ }),
 /* 3 */
@@ -22884,8 +22878,8 @@ module.exports =
 	
 	    var compName = BaseComponent.displayName || BaseComponent.name;
 	
-	    var ScopeProvider = (_temp4 = _class4 = function (_BaseComponent2) {
-	        _inherits(ScopeProvider, _BaseComponent2);
+	    var ScopeProvider = (_temp4 = _class4 = function (_React$Component3) {
+	        _inherits(ScopeProvider, _React$Component3);
 	
 	        function ScopeProvider(p, ctx, q) {
 	            _classCallCheck(this, ScopeProvider);
@@ -22935,10 +22929,18 @@ module.exports =
 	                    $stores: this.$scope.stores
 	                });
 	            }
+	        }, {
+	            key: 'render',
+	            value: function render() {
+	                return _react2.default.createElement(BaseComponent, _extends({}, this.props, {
+	                    $dispatch: this.$dispatch,
+	                    $actions: this.$actions,
+	                    $stores: this.$stores }));
+	            }
 	        }]);
 	
 	        return ScopeProvider;
-	    }(BaseComponent), _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+	    }(_react2.default.Component), _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
 	        rescope: _propTypes2.default.object,
 	        $stores: _propTypes2.default.object
 	    }), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
@@ -22950,6 +22952,9 @@ module.exports =
 	    return ScopeProvider;
 	}
 	
+	(0, _index.addScopableType)(function (Comp) {
+	    return Comp && Comp.prototype instanceof _react2.default.Component;
+	}, reScope);
 	/**
 	 *
 	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
@@ -22980,8 +22985,8 @@ module.exports =
 	        };
 	    }
 	
-	    var ScopeProvider = (_temp5 = _class5 = function (_React$Component3) {
-	        _inherits(ScopeProvider, _React$Component3);
+	    var ScopeProvider = (_temp5 = _class5 = function (_React$Component4) {
+	        _inherits(ScopeProvider, _React$Component4);
 	
 	        function ScopeProvider(p, ctx, q) {
 	            _classCallCheck(this, ScopeProvider);
@@ -23061,10 +23066,6 @@ module.exports =
 	    return ScopeProvider;
 	}
 	
-	(0, _index.addScopableType)(function (Comp) {
-	    return Comp && Comp.prototype instanceof _react2.default.Component;
-	}, reScope);
-	
 	exports.default = Component;
 	exports.Component = Component;
 	exports.reScopeProps = reScopeProps;
@@ -23086,11 +23087,11 @@ module.exports =
 /* 6 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(217);
+	module.exports = __webpack_require__(218);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay9ib290c3RyYXAgZGU4YzU2MjdmMjZkOTcwMTBiNGEiLCJ3ZWJwYWNrOi8vLy4vc3JjL2luZGV4LmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlc2NvcGVcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZXNjb3BlL2Rpc3QvaW5kZXhcIiIsIndlYnBhY2s6Ly8vLi9zcmMvUmVhY3RIb2NzLmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiaXNcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJwcm9wLXR5cGVzXCIiXSwibmFtZXMiOlsiUlRvb2xzIiwiQ29tcG9uZW50IiwicmVTY29wZVByb3BzIiwic2NvcGVUb1Byb3BzIiwicHJvcHNUb1Njb3BlIiwiU2ltcGxlT2JqZWN0UHJvdG8iLCJjb25zdHJ1Y3RvciIsInAiLCJjdHgiLCJxIiwic2NvcGUiLCJfX3Njb3BlIiwicmVzY29wZSIsIiRzY29wZSIsImRlYWQiLCJjb25zb2xlIiwiZXJyb3IiLCIkc3RvcmVzIiwic3RvcmVzIiwidXNlIiwic3RhdGUiLCJtYXAiLCJyZW5kZXIiLCJkaXNwYXRjaCIsImJpbmQiLCJ1bkJpbmQiLCJucCIsIm5jIiwiblNjb3BlIiwiY29udGV4dCIsInByb3BzIiwiY2hpbGRyZW4iLCJjaGlsZENvbnRleHRUeXBlcyIsIm9iamVjdCIsImNvbnRleHRUeXBlcyIsImFyZ3oiLCJCYXNlQ29tcG9uZW50IiwicHJvdG90eXBlIiwic2hpZnQiLCJmbiIsImFycmF5IiwicHJvdmlkZXIiLCJyZVNjb3BlVG9TdGF0ZSIsIiRkaXNwYXRjaCIsIiRhY3Rpb25zIiwiZGlzcGxheU5hbWUiLCJuYW1lIiwic3RhdGVNYXAiLCJhZGRpdGlvbmFsQ29udGV4dCIsImluaXRpYWxTdGF0ZSIsInN0YXRlTWFwVG9SZWZMaXN0IiwiT2JqZWN0Iiwia2V5cyIsInJlZHVjZSIsImgiLCJrIiwiYW55IiwiUmVTY29wZVByb3ZpZGVyIiwicmV0YWluIiwiYWN0aW9ucyIsImxlbmd0aCIsImRpc3Bvc2UiLCJkZWZhdWx0UHJvcHMiLCJDb21wIiwicmVTY29wZSIsInNjb3BlZCIsInNjb3BlQ2ZnIiwicGFyZW50IiwicGFyZW50SWQiLCJzdHJpbmciLCJjb21wTmFtZSIsIlNjb3BlUHJvdmlkZXIiLCJfcGFyZW50IiwiZ2V0U2NvcGUiLCJhdXRvRGVzdHJveSIsImtleSIsInNjb3BlZFByb3BzIiwiZm9yRWFjaCIsInNldFN0YXRlIiwiYXJndW1lbnRzIiwiZlByb3BzIiwiaW5jbHVkZXMiLCJkZWZhdWx0Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EsdUJBQWU7QUFDZjtBQUNBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7O0FBR0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7Ozs7Ozs7Ozs7OztBQ1ZBOztBQUNBOzs7O0FBQ0E7O0tBQVlBLE07Ozs7OztBQUVaLGlCQUFNQyxTQUFOLEdBQXFCRCxPQUFPQyxTQUE1QixDLENBaENBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFpQ0EsaUJBQU1DLFlBQU4sR0FBcUJGLE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1DLFlBQU4sR0FBcUJILE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1FLFlBQU4sR0FBcUJKLE9BQU9JLFlBQTVCOzs7Ozs7OztBQ25DQSxxQzs7Ozs7O0FDQUEsZ0Q7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQTJCQTs7QUFDQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFDQTs7Ozs7Ozs7Ozs7O0FBRUEsS0FBTUMsb0JBQXFCLEVBQUQsQ0FBS0MsV0FBL0I7O0FBRUE7Ozs7OztLQU1NTCxTOzs7QUFVRix3QkFBYU0sQ0FBYixF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QUFBQSxPQWVELGdCQUFNaEIsU0FmTCxXQWdCbEIrQixpQkFoQmtCLGdCQWlCakJJLGNBQWNKLGlCQUFkLElBQW1DLEVBakJsQjtBQWtCckJwQixrQkFBUyxvQkFBVXFCLE1BbEJFO0FBbUJyQmhCLGtCQUFTLG9CQUFVZ0I7QUFuQkUsaUJBcUJsQkMsWUFyQmtCLGdCQXNCakJFLGNBQWNGLFlBQWQsSUFBOEIsRUF0QmI7QUF1QnJCdEIsa0JBQVMsb0JBQVVxQixNQXZCRTtBQXdCckJoQixrQkFBUyxvQkFBVWdCO0FBeEJFLGlCQTBCbEI2QixZQTFCa0IsZ0JBMkJqQjFCLGNBQWMwQixZQUFkLElBQThCLEVBM0JiLFdBNkJsQmpCLFdBN0JrQixHQTZCRSxZQUFZeUIsUUFBWixHQUF1QixHQTdCekI7OztBQTRGN0IsWUFBT0MsYUFBUDtBQUNIOztBQUVELDZCQUNJLFVBQUVSLElBQUY7QUFBQSxZQUFhQSxRQUFRQSxLQUFLMUIsU0FBTCxZQUEwQixnQkFBTXBDLFNBQXJEO0FBQUEsRUFESixFQUVJK0QsT0FGSjs7U0FNaUJrQixPLEdBQWJqRixTO1NBQ0FBLFMsR0FBQUEsUztTQUNBQyxZLEdBQUFBLFk7U0FDQUUsWSxHQUFBQSxZOzs7Ozs7QUNqZ0JKLG1DOzs7Ozs7QUNBQSxnQzs7Ozs7O0FDQUEsd0MiLCJmaWxlIjoiZGlzdC9SZWFjdFJlU2NvcGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyIgXHQvLyBUaGUgbW9kdWxlIGNhY2hlXG4gXHR2YXIgaW5zdGFsbGVkTW9kdWxlcyA9IHt9O1xuXG4gXHQvLyBUaGUgcmVxdWlyZSBmdW5jdGlvblxuIFx0ZnVuY3Rpb24gX193ZWJwYWNrX3JlcXVpcmVfXyhtb2R1bGVJZCkge1xuXG4gXHRcdC8vIENoZWNrIGlmIG1vZHVsZSBpcyBpbiBjYWNoZVxuIFx0XHRpZihpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSlcbiBcdFx0XHRyZXR1cm4gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0uZXhwb3J0cztcblxuIFx0XHQvLyBDcmVhdGUgYSBuZXcgbW9kdWxlIChhbmQgcHV0IGl0IGludG8gdGhlIGNhY2hlKVxuIFx0XHR2YXIgbW9kdWxlID0gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0gPSB7XG4gXHRcdFx0ZXhwb3J0czoge30sXG4gXHRcdFx0aWQ6IG1vZHVsZUlkLFxuIFx0XHRcdGxvYWRlZDogZmFsc2VcbiBcdFx0fTtcblxuIFx0XHQvLyBFeGVjdXRlIHRoZSBtb2R1bGUgZnVuY3Rpb25cbiBcdFx0bW9kdWxlc1ttb2R1bGVJZF0uY2FsbChtb2R1bGUuZXhwb3J0cywgbW9kdWxlLCBtb2R1bGUuZXhwb3J0cywgX193ZWJwYWNrX3JlcXVpcmVfXyk7XG5cbiBcdFx0Ly8gRmxhZyB0aGUgbW9kdWxlIGFzIGxvYWRlZFxuIFx0XHRtb2R1bGUubG9hZGVkID0gdHJ1ZTtcblxuIFx0XHQvLyBSZXR1cm4gdGhlIGV4cG9ydHMgb2YgdGhlIG1vZHVsZVxuIFx0XHRyZXR1cm4gbW9kdWxlLmV4cG9ydHM7XG4gXHR9XG5cblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGVzIG9iamVjdCAoX193ZWJwYWNrX21vZHVsZXNfXylcbiBcdF9fd2VicGFja19yZXF1aXJlX18ubSA9IG1vZHVsZXM7XG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlIGNhY2hlXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLmMgPSBpbnN0YWxsZWRNb2R1bGVzO1xuXG4gXHQvLyBfX3dlYnBhY2tfcHVibGljX3BhdGhfX1xuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5wID0gXCIvXCI7XG5cbiBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oMCk7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gd2VicGFjay9ib290c3RyYXAgZGU4YzU2MjdmMjZkOTcwMTBiNGEiLCIvKlxuICogQ29weXJpZ2h0IChjKSAgMjAxOCBXaXNlIFdpbGQgV2ViIC5cbiAqXG4gKiAgTUlUIExpY2Vuc2VcbiAqXG4gKiAgUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weVxuICogIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcbiAqICBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4gKiAgdG8gdXNlLCBjb3B5LCBtb2RpZnksIG1lcmdlLCBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbFxuICogIGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuICogIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4gKlxuICogIFRoZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxsIGJlIGluY2x1ZGVkIGluIGFsbFxuICogIGNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuXG4gKlxuICogIFRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCBcIkFTIElTXCIsIFdJVEhPVVQgV0FSUkFOVFkgT0YgQU5ZIEtJTkQsIEVYUFJFU1MgT1JcbiAqICBJTVBMSUVELCBJTkNMVURJTkcgQlVUIE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSxcbiAqICBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQgTk9OSU5GUklOR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEVcbiAqICBBVVRIT1JTIE9SIENPUFlSSUdIVCBIT0xERVJTIEJFIExJQUJMRSBGT1IgQU5ZIENMQUlNLCBEQU1BR0VTIE9SIE9USEVSXG4gKiAgTElBQklMSVRZLCBXSEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUiBPVEhFUldJU0UsIEFSSVNJTkcgRlJPTSxcbiAqICBPVVQgT0YgT1IgSU4gQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOIFRIRVxuICogIFNPRlRXQVJFLlxuICpcbiAqIEBhdXRob3IgOiBOYXRoYW5hZWwgQnJhdW5cbiAqIEBjb250YWN0IDogY2FpcGlsYWJzQGdtYWlsLmNvbVxuICovXG5cblxuaW1wb3J0IFwicmVzY29wZVwiO1xuaW1wb3J0IGluZGV4IGZyb20gXCJyZXNjb3BlL2Rpc3QvaW5kZXhcIjtcbmltcG9ydCAqIGFzIFJUb29scyBmcm9tIFwiLi9SZWFjdEhvY3NcIjtcblxuaW5kZXguQ29tcG9uZW50ICAgID0gUlRvb2xzLkNvbXBvbmVudDtcbmluZGV4LnJlU2NvcGVQcm9wcyA9IFJUb29scy5yZVNjb3BlUHJvcHM7XG5pbmRleC5zY29wZVRvUHJvcHMgPSBSVG9vbHMucmVTY29wZVByb3BzO1xuaW5kZXgucHJvcHNUb1Njb3BlID0gUlRvb2xzLnByb3BzVG9TY29wZTtcbmV4cG9ydCBkZWZhdWx0IGluZGV4O1xuXG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9zcmMvaW5kZXguanMiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZXNjb3BlXCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVzY29wZVwiXG4vLyBtb2R1bGUgaWQgPSAxXG4vLyBtb2R1bGUgY2h1bmtzID0gMCIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlc2NvcGUvZGlzdC9pbmRleFwiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcInJlc2NvcGUvZGlzdC9pbmRleFwiXG4vLyBtb2R1bGUgaWQgPSAyXG4vLyBtb2R1bGUgY2h1bmtzID0gMCIsIi8qXG4gKiBDb3B5cmlnaHQgKGMpICAyMDE4IFdpc2UgV2lsZCBXZWIgLlxuICpcbiAqICBNSVQgTGljZW5zZVxuICogIFxuICogIFBlcm1pc3Npb24gaXMgaGVyZWJ5IGdyYW50ZWQsIGZyZWUgb2YgY2hhcmdlLCB0byBhbnkgcGVyc29uIG9idGFpbmluZyBhIGNvcHlcbiAqICBvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZSBcIlNvZnR3YXJlXCIpLCB0byBkZWFsXG4gKiAgaW4gdGhlIFNvZnR3YXJlIHdpdGhvdXQgcmVzdHJpY3Rpb24sIGluY2x1ZGluZyB3aXRob3V0IGxpbWl0YXRpb24gdGhlIHJpZ2h0c1xuICogIHRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwgcHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGxcbiAqICBjb3BpZXMgb2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMgdG8gd2hvbSB0aGUgU29mdHdhcmUgaXNcbiAqICBmdXJuaXNoZWQgdG8gZG8gc28sIHN1YmplY3QgdG8gdGhlIGZvbGxvd2luZyBjb25kaXRpb25zOlxuICogIFxuICogIFRoZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxsIGJlIGluY2x1ZGVkIGluIGFsbFxuICogIGNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuXG4gKiAgXG4gKiAgVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuICogIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuICogIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRVxuICogIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcbiAqICBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuICogIE9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFXG4gKiAgU09GVFdBUkUuXG4gKiAgXG4gKiBAYXV0aG9yIDogTmF0aGFuYWVsIEJyYXVuXG4gKiBAY29udGFjdCA6IGNhaXBpbGFic0BnbWFpbC5jb21cbiAqL1xuXG5pbXBvcnQgXCJyZXNjb3BlXCI7XG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnXG5pbXBvcnQgaXMgZnJvbSAnaXMnXG5pbXBvcnQgUHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHtTY29wZSwgU3RvcmUsIGFkZFNjb3BhYmxlVHlwZX0gZnJvbSBcInJlc2NvcGUvZGlzdC9pbmRleFwiO1xuXG5jb25zdCBTaW1wbGVPYmplY3RQcm90byA9ICh7fSkuY29uc3RydWN0b3I7XG5cbi8qKlxuICogSW5oZXJpdGFibGUgUmVTY29wZSBcIkhPQ1wiIChIaWdoIE9yZGVyIENvbXBvbmVudClcbiAqXG4gKiBAY2xhc3MgQ29tcG9uZW50XG4gKiBAZGVzYyBQYXJlbnQgUmVhY3QgQ29tcG9uZW50IHdpdGggc3RvcmUgaW5qZWN0aW9uIGluIGl0cyBzdGF0ZVxuICovXG5jbGFzcyBDb21wb25lbnQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgIH1cbiAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICB9XG4gICAgXG4gICAgY29uc3RydWN0b3IoIHAsIGN0eCwgcSApIHtcbiAgICAgICAgc3VwZXIocCwgY3R4LCBxKTtcbiAgICAgICAgbGV0IHNjb3BlICAgPVxuICAgICAgICAgICAgICAgIHAuX19zY29wZVxuICAgICAgICAgICAgICAgIHx8IGN0eC5yZXNjb3BlO1xuICAgICAgICB0aGlzLiRzY29wZSA9IHNjb3BlO1xuICAgICAgICBcbiAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIlJlU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlXCIpXG4gICAgICAgICAgICB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIHRoaXMuJHN0b3JlcyA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgaWYgKCB0aGlzLmNvbnN0cnVjdG9yLnVzZSApIHtcbiAgICAgICAgICAgIHRoaXMuc3RhdGUgPSB7XG4gICAgICAgICAgICAgICAgLi4udGhpcy5zdGF0ZSxcbiAgICAgICAgICAgICAgICAuLi5zY29wZS5tYXAodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UgfHwgW10sIGZhbHNlKS8vIGRvbid0IGJpbmRcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICBlbHNlIGlmICggIXRoaXMuJHNjb3BlIClcbiAgICAgICAgICAgIHRoaXMucmVuZGVyID0gKCkgPT4gPGRpdj5ObyBSZXNjb3BlIGhlcmUgeyBzdXBlci5uYW1lIH08L2Rpdj5cbiAgICB9XG4gICAgXG4gICAgZGlzcGF0Y2goIC4uLmFyZ3ogKSB7XG4gICAgICAgIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3BhdGNoKC4uLmFyZ3opXG4gICAgfVxuICAgIFxuICAgIGNvbXBvbmVudFdpbGxNb3VudCgpIHtcbiAgICAgICAgaWYgKCB0aGlzLmNvbnN0cnVjdG9yLnVzZSApIHtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlLmJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UgfHwgW10sIGZhbHNlKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICB0aGlzLmNvbnN0cnVjdG9yLnVzZVxuICAgICAgICAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UgfHwgW10pO1xuICAgIH1cbiAgICBcbiAgICBjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCwgbmMgKSB7XG4gICAgICAgIGxldCBuU2NvcGUgPSBucC5fX3Njb3BlXG4gICAgICAgICAgICB8fCBuYy5yZXNjb3BlIHx8IHRoaXMuJHNjb3BlO1xuICAgICAgICBcbiAgICAgICAgaWYgKCBuU2NvcGUgIT0gdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICB0aGlzLmNvbnN0cnVjdG9yLnVzZSAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSBuU2NvcGU7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiUmVTY29waW5nIHVzaW5nIGRlYWQgc2NvcGVcIilcbiAgICAgICAgICAgICAgICB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBlbHNlIHtcbiAgICAgICAgICAgICAgICB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICAgICAgdGhpcy5jb25zdHJ1Y3Rvci51c2UgJiYgblNjb3BlLmJpbmQodGhpcywgdGhpcy5jb25zdHJ1Y3Rvci51c2UpO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIGdldENoaWxkQ29udGV4dCgpIHtcbiAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlIHx8IHRoaXMuY29udGV4dC5yZXNjb3BlLFxuICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzIHx8IHRoaXMuY29udGV4dC4kc3RvcmVzXG4gICAgICAgIH07XG4gICAgfVxuICAgIFxuICAgIHJlbmRlcigpIHtcbiAgICAgICAgcmV0dXJuIHRoaXMucHJvcHMuY2hpbGRyZW4gfHwgPGRpdi8+XG4gICAgfVxufTtcblxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIEluamVjdCAmIG1haW50YWluIHRoZSBzdG9yZXMgbGlzdGVkIGJhc2VDb21wb25lbnQ6OnVzZSBhbmQvb3IgKHVzZSkgaW4gdGhlIGluc3RhbmNlcyBwcm9wcy5cbiAqICAtIFByb3BhZyAoc2NvcGUpIGluIHRoZSByZXR1cm5lZCBSZWFjdCBDb21wb25lbnQgY29udGV4dFxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6IFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc2NvcGUge1JlU2NvcGUuU2NvcGV8ZnVuY3Rpb259IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZCAoIGRlZmF1bHQgOiB0aGUgZGVmYXVsdFxuICogICAgIFJlU2NvcGU6OlNjb3BlOjpzY29wZXMuc3RhdGljIHNjb3BlIClcbiAqIEBwYXJhbSB1c2Uge2FycmF5fSB0aGUgbGlzdCBvZiBzdG9yZXMgdG8gaW5qZWN0IGZyb20gdGhlIGN1cnJlbnQgc2NvcGVcbiAqIEByZXR1cm5zIHtSZVNjb3BlUHJvdmlkZXJ9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGVQcm9wcyggLi4uYXJneiApIHtcbiAgICBsZXQgQmFzZUNvbXBvbmVudCA9ICghYXJnelswXSB8fCBhcmd6WzBdLnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZSAgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSB8fCBpcy5mbihhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICB1c2UgICAgICAgICAgID0gKCFhcmd6WzBdIHx8IGlzLmFycmF5KGFyZ3pbMF0pIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpO1xuICAgIFxuICAgIGlmICggIShCYXNlQ29tcG9uZW50ICYmIEJhc2VDb21wb25lbnQucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSApIHtcbiAgICAgICAgcmV0dXJuIGZ1bmN0aW9uICggQmFzZUNvbXBvbmVudCApIHtcbiAgICAgICAgICAgIHJldHVybiByZVNjb3BlUHJvcHMoQmFzZUNvbXBvbmVudCwgc2NvcGUsIHVzZSlcbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICBcbiAgICBsZXQgcHJvdmlkZXIgPSByZVNjb3BlVG9TdGF0ZShjbGFzcyBSZVNjb3BlUHJvcHNQcm92aWRlciBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgICAgIHN0YXRpYyB1c2UgICAgICAgICAgICAgICA9IEJhc2VDb21wb25lbnQudXNlO1xuICAgICAgICBzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfTtcbiAgICAgICAgc3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH07XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICByZXR1cm4gdGhpcy5jb250ZXh0O1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICByZXR1cm4gPEJhc2VDb21wb25lbnQgeyAuLi50aGlzLnByb3BzIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7IC4uLnRoaXMuc3RhdGUgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRkaXNwYXRjaD17IHRoaXMuJGRpc3BhdGNoIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkYWN0aW9ucz17IHRoaXMuJGFjdGlvbnMgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRzdG9yZXM9eyB0aGlzLiRzdG9yZXMgfS8+XG4gICAgICAgIH1cbiAgICB9LCBzY29wZSwgdXNlKTtcbiAgICBwcm92aWRlci5kaXNwbGF5TmFtZSAgICAgICAgID0gXCJwcm9wc1Njb3BlZChcIiArIChCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZSkgKyBcIilcIjtcbiAgICByZXR1cm4gcHJvdmlkZXI7XG59XG5cbi8qKlxuICogUmV0dXJuIGEgUmVhY3QgXCJIT0NcIiAoSGlnaCBPcmRlciBDb21wb25lbnQpIHRoYXQgOlxuICogIC0gSW5oZXJpdCBCYXNlQ29tcG9uZW50LFxuICogIC0gSW5qZWN0ICYgbWFpbnRhaW4gdGhlIHN0b3JlcyBpbiBCYXNlQ29tcG9uZW50Ojp1c2UgYW5kL29yICh1c2UpIGluIHRoZSBpbnN0YW5jZXMgc3RhdGUuXG4gKiAgLSBQcm9wYWcgKHNjb3BlKSBpbiB0aGUgcmV0dXJuZWQgUmVhY3QgQ29tcG9uZW50IGNvbnRleHRcbiAqXG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDogUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzY29wZSB7UmVTY29wZS5TY29wZXxmdW5jdGlvbn0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gdXNlIHthcnJheX0gdGhlIGxpc3Qgb2Ygc3RvcmVzIGluamVjdGVkIGZyb20gdGhlIGN1cnJlbnQgc2NvcGVcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHtSZVNjb3BlUHJvdmlkZXJ9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGVUb1N0YXRlKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdLnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZSAgICAgICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUgfHwgaXMuZm4oYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgdXNlICAgICAgICAgICAgICAgPSAoaXMuYXJyYXkoYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgc3RhdGVNYXAgICAgICAgICAgPSAhdXNlICYmICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgYWRkaXRpb25hbENvbnRleHQgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIGluaXRpYWxTdGF0ZSAgICAgID0ge307XG4gICAgXG4gICAgdXNlID0gWy4uLihCYXNlQ29tcG9uZW50LnVzZSB8fCBbXSksIC4uLih1c2UgfHwgW10pXTtcbiAgICBzdGF0ZU1hcCAmJiBTY29wZS5zdGF0ZU1hcFRvUmVmTGlzdChzdGF0ZU1hcCwgaW5pdGlhbFN0YXRlLCB1c2UpO1xuICAgIFxuICAgIGFkZGl0aW9uYWxDb250ZXh0ID0gYWRkaXRpb25hbENvbnRleHQgJiYgT2JqZWN0LmtleXMoYWRkaXRpb25hbENvbnRleHQpLnJlZHVjZSgoIGgsIGsgKSA9PiAoaFtrXSA9IFByb3BUeXBlcy5hbnksIGgpLCB7fSkgfHwge307XG4gICAgXG4gICAgY2xhc3MgUmVTY29wZVByb3ZpZGVyIGV4dGVuZHMgQmFzZUNvbXBvbmVudCB7XG4gICAgICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNoaWxkQ29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIC4uLihhZGRpdGlvbmFsQ29udGV4dCksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICAuLi4oYWRkaXRpb25hbENvbnRleHQpLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGVmYXVsdFByb3BzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30pLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwic3RhdGVTY29wZWQoXCIgKyAoQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWUpICsgXCIpXCI7XG4gICAgICAgIFxuICAgICAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICAgICAgc3VwZXIocCwgY3R4LCBxKTtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gdGhpcy4kc2NvcGUgfHxcbiAgICAgICAgICAgICAgICBwLl9fc2NvcGVcbiAgICAgICAgICAgICAgICB8fCBpcy5mbihzY29wZSkgJiYgc2NvcGUodGhpcywgcCwgY3R4KSB8fCBzY29wZVxuICAgICAgICAgICAgICAgIHx8IGN0eC5yZXNjb3BlO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIlJlU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlXCIpXG4gICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSBudWxsO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzY29wZSAmJiBpcy5mbihzY29wZSlcbiAgICAgICAgICAgICYmIHRoaXMuJHNjb3BlLnJldGFpbihcImhvY1wiKTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB1c2UubGVuZ3RoICkge1xuICAgICAgICAgICAgICAgIHRoaXMuc3RhdGUgPSB7XG4gICAgICAgICAgICAgICAgICAgIC4uLnRoaXMuc3RhdGUsXG4gICAgICAgICAgICAgICAgICAgIC4uLmluaXRpYWxTdGF0ZSxcbiAgICAgICAgICAgICAgICAgICAgLi4udGhpcy4kc2NvcGUubWFwKHRoaXMsIHVzZSwgZmFsc2UpLy8gZG9uJ3QgYmluZCBub3cgZHVlIHRvIFNTUlxuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGVsc2UgaWYgKCAhdGhpcy4kc2NvcGUgKVxuICAgICAgICAgICAgICAgIHRoaXMucmVuZGVyID0gKCkgPT4gPGRpdj5ObyBTY29wZSBmb3VuZCBpbiB7IEJhc2VDb21wb25lbnQubmFtZSB9PC9kaXY+XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJGRpc3BhdGNoID0gdGhpcy4kZGlzcGF0Y2guYmluZCh0aGlzKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgJGRpc3BhdGNoKCAuLi5hcmd6ICkge1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcGF0Y2goLi4uYXJneilcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbE1vdW50KCkge1xuICAgICAgICAgICAgaWYgKCB1c2UubGVuZ3RoICkge1xuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlLmJpbmQodGhpcywgdXNlLCBmYWxzZSlcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxNb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsTW91bnQoKVxuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQgJiYgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQoKTtcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgIXRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdXNlKTtcbiAgICAgICAgICAgICAgICBpcy5mbihzY29wZSkgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZShcImhvY1wiKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyggbnAsIG5jICkge1xuICAgICAgICAgICAgbGV0IG5TY29wZSA9IG5wLl9fc2NvcGVcbiAgICAgICAgICAgICAgICB8fCBzY29wZSAmJiB0aGlzLiRzY29wZVxuICAgICAgICAgICAgICAgIHx8IG5jLnJlc2NvcGVcbiAgICAgICAgICAgICAgICB8fCB0aGlzLiRzY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCBuU2NvcGUgIT0gdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcywgdXNlKTtcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG5TY29wZTtcbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgICAgIGNvbnNvbGUuZXJyb3IoXCJSZVNjb3BpbmcgdXNpbmcgZGVhZCBzY29wZVwiKVxuICAgICAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc3RvcmVzID0gdGhpcy4kc2NvcGUgPSBudWxsO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBlbHNlIHtcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlLmFjdGlvbnM7XG4gICAgICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICAgICAgICAgIHVzZS5sZW5ndGggJiYgblNjb3BlLmJpbmQodGhpcywgdXNlKTtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzICYmIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMobnAsIG5jKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICAgICAgbGV0IGN0eCA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fTtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgLi4uY3R4LFxuICAgICAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlIHx8IHRoaXMuY29udGV4dC5yZXNjb3BlLFxuICAgICAgICAgICAgICAgICRzdG9yZXM6IHRoaXMuJHNjb3BlLnN0b3JlcyB8fCB0aGlzLmNvbnRleHQuJHN0b3Jlc1xuICAgICAgICAgICAgfTtcbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICByZXR1cm4gUmVTY29wZVByb3ZpZGVyO1xufVxuXG5hZGRTY29wYWJsZVR5cGUoXG4gICAgKCBDb21wICkgPT4gKENvbXAgJiYgQ29tcC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpLFxuICAgIHJlU2NvcGVUb1N0YXRlLCBmYWxzZSwgdHJ1ZVxuKVxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIFJlbmRlciBCYXNlQ29tcG9uZW50IHdpdGggbmV3IHNjb3BlIHRoYXQgaW5oZXJpdCB0aGUgZ2l2ZW4gc2NvcGUgb3IgY29udGV4dCBzY29wZVxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6IFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc3RvcmVzTWFwIHtPYmplY3R9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlIHtTY29wZX0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGVJZCB7c3RyaW5nfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHsqfVxuICovXG5mdW5jdGlvbiByZVNjb3BlKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlZCAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvICYmICEoYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZUNmZyAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpIHx8IHt9LFxuICAgICAgICBwYXJlbnQgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBwYXJlbnRJZCAgICAgID0gKCFhcmd6WzBdIHx8IGlzLnN0cmluZyhhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpO1xuICAgIFxuICAgIGxldCBjb21wTmFtZSA9IEJhc2VDb21wb25lbnQuZGlzcGxheU5hbWUgfHwgQmFzZUNvbXBvbmVudC5uYW1lO1xuICAgIFxuICAgIFxuICAgIGNsYXNzIFNjb3BlUHJvdmlkZXIgZXh0ZW5kcyBCYXNlQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGVmYXVsdFByb3BzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30pLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwic2NvcGVkKFwiICsgY29tcE5hbWUgKyBcIilcIjtcbiAgICAgICAgXG4gICAgICAgIGNvbnN0cnVjdG9yKCBwLCBjdHgsIHEgKSB7XG4gICAgICAgICAgICBsZXQgX3BhcmVudCA9IHBhcmVudCB8fCBwYXJlbnRJZCAmJiBTY29wZS5nZXRTY29wZShwYXJlbnRJZCkgfHwgcC5fX3Njb3BlIHx8IGN0eC5yZXNjb3BlLFxuICAgICAgICAgICAgICAgICRzY29wZSAgPSBuZXcgU2NvcGUoXG4gICAgICAgICAgICAgICAgICAgIHNjb3BlZCB8fCB7fSxcbiAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0Rlc3Ryb3k6IHRydWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBrZXkgICAgICAgIDogY29tcE5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBwYXJlbnQgICAgIDogX3BhcmVudCxcbiAgICAgICAgICAgICAgICAgICAgICAgIC4uLnNjb3BlQ2ZnXG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHN1cGVyKHAsIHsgLi4uY3R4LCByZXNjb3BlOiAkc2NvcGUsICRzdG9yZXM6ICRzY29wZS5zdG9yZXMgfSwgcSk7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gdGhpcy4kc2NvcGUgfHwgJHNjb3BlO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBpZiAoICF0aGlzLiRzY29wZSApIHtcbiAgICAgICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICAgICAgICAgIGNvbnNvbGUuZXJyb3IoXCJTY29waW5nIHVzaW5nIGRlYWQgc2NvcGUgcGFyZW50XCIpO1xuICAgICAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gbmV3IFNjb3BlKFxuICAgICAgICAgICAgICAgICAgICBzY29wZWQgfHwge30sXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9EZXN0cm95OiB0cnVlLFxuICAgICAgICAgICAgICAgICAgICAgICAga2V5ICAgICAgICA6IGNvbXBOYW1lLFxuICAgICAgICAgICAgICAgICAgICAgICAgcGFyZW50ICAgICA6IHRoaXMuJHNjb3BlXG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICB0aGlzLiRzY29wZS5yZXRhaW4oKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZSgpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG4vKipcbiAqXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOiBSZWFjdC5Db21wb25lbnQgKVxuICogQHBhcmFtIHN0b3Jlc01hcCB7T2JqZWN0fSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZSB7U2NvcGV9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlSWQge3N0cmluZ30gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gYWRkaXRpb25hbENvbnRleHQge09iamVjdH0gY29udGV4dCB0byBiZSBwcm9wYWdhdGVkXG4gKiBAcmV0dXJucyB7Kn1cbiAqL1xuZnVuY3Rpb24gcHJvcHNUb1Njb3BlKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlZFByb3BzICAgPSAoIWFyZ3pbMF0gfHwgaXMuYXJyYXkoYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKSB8fCBbXSxcbiAgICAgICAgc2NvcGVDZmcgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSB8fCB7fSxcbiAgICAgICAgcGFyZW50ICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgcGFyZW50SWQgICAgICA9ICghYXJnelswXSB8fCBpcy5zdHJpbmcoYXJnelswXSkpICYmIGFyZ3ouc2hpZnQoKTtcbiAgICBcbiAgICBsZXQgY29tcE5hbWUgPSBCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZTtcbiAgICBcbiAgICBpZiAoICEoQmFzZUNvbXBvbmVudCAmJiBCYXNlQ29tcG9uZW50LnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCkgKSB7XG4gICAgICAgIHJldHVybiBmdW5jdGlvbiAoIEJhc2VDb21wb25lbnQgKSB7XG4gICAgICAgICAgICByZXR1cm4gcHJvcHNUb1Njb3BlKEJhc2VDb21wb25lbnQsIHNjb3BlZFByb3BzLCBzY29wZUNmZywgcGFyZW50LCBwYXJlbnRJZClcbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICBjbGFzcyBTY29wZVByb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGVmYXVsdFByb3BzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30pLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwic2NvcGVkKFwiICsgY29tcE5hbWUgKyBcIilcIjtcbiAgICAgICAgXG4gICAgICAgIGNvbnN0cnVjdG9yKCBwLCBjdHgsIHEgKSB7XG4gICAgICAgICAgICBsZXQgX3BhcmVudCA9IHBhcmVudCB8fCBwYXJlbnRJZCAmJiBTY29wZS5nZXRTY29wZShwYXJlbnRJZCkgfHwgcC5fX3Njb3BlIHx8IGN0eC5yZXNjb3BlLFxuICAgICAgICAgICAgICAgICRzY29wZSAgPSBuZXcgU2NvcGUoXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIC4uLnNjb3BlZFByb3BzLnJlZHVjZShcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAoIGgsIGsgKSA9PiAoaFtrXSA9IFN0b3JlLCBoKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7fVxuICAgICAgICAgICAgICAgICAgICAgICAgKSxcbiAgICAgICAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0Rlc3Ryb3k6IHRydWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBrZXkgICAgICAgIDogY29tcE5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBwYXJlbnQgICAgIDogX3BhcmVudCxcbiAgICAgICAgICAgICAgICAgICAgICAgIC4uLnNjb3BlQ2ZnLFxuICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUgICAgICA6IHNjb3BlZFByb3BzLnJlZHVjZShcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAoIGgsIGsgKSA9PiAoaFtrXSA9IHBba10sIGgpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt9XG4gICAgICAgICAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHN1cGVyKHAsIHsgLi4uY3R4LCByZXNjb3BlOiAkc2NvcGUsICRzdG9yZXM6ICRzY29wZS5zdG9yZXMgfSwgcSk7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICAgPSB0aGlzLiRzY29wZSB8fCAkc2NvcGU7XG4gICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgIHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICB0aGlzLiRzY29wZS5yZXRhaW4oKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyggbnAgKSB7XG4gICAgICAgICAgICBzY29wZWRQcm9wcy5mb3JFYWNoKFxuICAgICAgICAgICAgICAgIHAgPT4gKHRoaXMucHJvcHNbcF0gIT09IG5wW3BdICYmIHRoaXMuJHN0b3Jlc1twXS5zZXRTdGF0ZShucFtwXSkpXG4gICAgICAgICAgICApXG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzICYmIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoLi4uYXJndW1lbnRzKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQgJiYgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQoKTtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3Bvc2UoKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICAgICAgbGV0IGN0eCA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fTtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgLi4uY3R4LFxuICAgICAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlLFxuICAgICAgICAgICAgICAgICRzdG9yZXM6IHRoaXMuJHNjb3BlLnN0b3Jlc1xuICAgICAgICAgICAgfTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgcmVuZGVyKCkge1xuICAgICAgICAgICAgbGV0IGZQcm9wcyA9IE9iamVjdC5rZXlzKHRoaXMucHJvcHMpLnJlZHVjZSgoIGgsIGsgKSA9PiAoIXNjb3BlZFByb3BzLmluY2x1ZGVzKGspICYmIChoW2tdID0gdGhpcy5wcm9wc1trXSksIGgpLCB7fSk7XG4gICAgICAgICAgICByZXR1cm4gPEJhc2VDb21wb25lbnQgeyAuLi5mUHJvcHMgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsgLi4udGhpcy5zdGF0ZSB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGRpc3BhdGNoPXsgdGhpcy4kZGlzcGF0Y2ggfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRhY3Rpb25zPXsgdGhpcy4kYWN0aW9ucyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJHN0b3Jlcz17IHRoaXMuJHN0b3JlcyB9Lz5cbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICByZXR1cm4gU2NvcGVQcm92aWRlcjtcbn1cblxuYWRkU2NvcGFibGVUeXBlKFxuICAgICggQ29tcCApID0+IChDb21wICYmIENvbXAucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSxcbiAgICByZVNjb3BlXG4pXG5cbmV4cG9ydCB7XG4gICAgQ29tcG9uZW50IGFzIGRlZmF1bHQsXG4gICAgQ29tcG9uZW50LFxuICAgIHJlU2NvcGVQcm9wcyxcbiAgICBwcm9wc1RvU2NvcGVcbn07XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vc3JjL1JlYWN0SG9jcy5qcyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0XCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVhY3RcIlxuLy8gbW9kdWxlIGlkID0gNFxuLy8gbW9kdWxlIGNodW5rcyA9IDAiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJpc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcImlzXCJcbi8vIG1vZHVsZSBpZCA9IDVcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicHJvcC10eXBlc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcInByb3AtdHlwZXNcIlxuLy8gbW9kdWxlIGlkID0gNlxuLy8gbW9kdWxlIGNodW5rcyA9IDAiXSwic291cmNlUm9vdCI6IiJ9
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay9ib290c3RyYXAgOTFkMmVlNTczNWYxY2RmYmZiOWMiLCJ3ZWJwYWNrOi8vLy4vc3JjL2luZGV4LmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlc2NvcGVcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZXNjb3BlL2Rpc3QvaW5kZXhcIiIsIndlYnBhY2s6Ly8vLi9zcmMvUmVhY3RIb2NzLmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiaXNcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJwcm9wLXR5cGVzXCIiXSwibmFtZXMiOlsiUlRvb2xzIiwiQ29tcG9uZW50IiwicmVTY29wZVByb3BzIiwic2NvcGVUb1Byb3BzIiwicHJvcHNUb1Njb3BlIiwiU2ltcGxlT2JqZWN0UHJvdG8iLCJjb25zdHJ1Y3RvciIsInAiLCJjdHgiLCJxIiwic2NvcGUiLCJfX3Njb3BlIiwicmVzY29wZSIsIiRzY29wZSIsImRlYWQiLCJjb25zb2xlIiwiZXJyb3IiLCIkc3RvcmVzIiwic3RvcmVzIiwidXNlIiwic3RhdGUiLCJtYXAiLCJyZW5kZXIiLCJkaXNwYXRjaCIsImJpbmQiLCJ1bkJpbmQiLCJucCIsIm5jIiwiblNjb3BlIiwiY29udGV4dCIsInByb3BzIiwiY2hpbGRyZW4iLCJjaGlsZENvbnRleHRUeXBlcyIsIm9iamVjdCIsImNvbnRleHRUeXBlcyIsImFyZ3oiLCJCYXNlQ29tcG9uZW50IiwicHJvdG90eXBlIiwic2hpZnQiLCJmbiIsImFycmF5IiwicHJvdmlkZXIiLCJyZVNjb3BlVG9TdGF0ZSIsIiRkaXNwYXRjaCIsIiRhY3Rpb25zIiwiZGlzcGxheU5hbWUiLCJuYW1lIiwic3RhdGVNYXAiLCJhZGRpdGlvbmFsQ29udGV4dCIsImluaXRpYWxTdGF0ZSIsInN0YXRlTWFwVG9SZWZMaXN0IiwiT2JqZWN0Iiwia2V5cyIsInJlZHVjZSIsImgiLCJrIiwiYW55IiwiUmVTY29wZVByb3ZpZGVyIiwicmV0YWluIiwiYWN0aW9ucyIsImxlbmd0aCIsImRpc3Bvc2UiLCJkZWZhdWx0UHJvcHMiLCJDb21wIiwicmVTY29wZSIsInNjb3BlZCIsInNjb3BlQ2ZnIiwicGFyZW50IiwicGFyZW50SWQiLCJzdHJpbmciLCJjb21wTmFtZSIsIlNjb3BlUHJvdmlkZXIiLCJfcGFyZW50IiwiZ2V0U2NvcGUiLCJhdXRvRGVzdHJveSIsImtleSIsInNjb3BlZFByb3BzIiwiZm9yRWFjaCIsInNldFN0YXRlIiwiYXJndW1lbnRzIiwiZlByb3BzIiwiaW5jbHVkZXMiLCJkZWZhdWx0Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EsdUJBQWU7QUFDZjtBQUNBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7O0FBR0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7Ozs7Ozs7Ozs7OztBQ1ZBOztBQUNBOzs7O0FBQ0E7O0tBQVlBLE07Ozs7OztBQUVaLGlCQUFNQyxTQUFOLEdBQXFCRCxPQUFPQyxTQUE1QixDLENBaENBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFpQ0EsaUJBQU1DLFlBQU4sR0FBcUJGLE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1DLFlBQU4sR0FBcUJILE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1FLFlBQU4sR0FBcUJKLE9BQU9JLFlBQTVCOzs7Ozs7OztBQ25DQSxxQzs7Ozs7O0FDQUEsZ0Q7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQTJCQTs7QUFDQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFDQTs7Ozs7Ozs7Ozs7O0FBRUEsS0FBTUMsb0JBQXFCLEVBQUQsQ0FBS0MsV0FBL0I7O0FBRUE7Ozs7OztLQU1NTCxTOzs7QUFVRix3QkFBYU0sQ0FBYixF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S0FBNkJELEVBQUVDLENBQUYsSUFBTyxPQUFLekIsS0FBTCxDQUFXeUIsQ0FBWCxDQUFwQyxHQUFvREQsQ0FBakU7QUFBQSxrQkFBL0IsRUFBb0csRUFBcEcsQ0FBYjtBQUNBLHdCQUFPLDhCQUFDLGFBQUQsZUFBb0IwQixNQUFwQixFQUNvQixLQUFLNUQsS0FEekI7QUFFZSxnQ0FBWSxLQUFLdUIsU0FGaEM7QUFHZSwrQkFBVyxLQUFLQyxRQUgvQjtBQUllLDhCQUFVLEtBQUszQixPQUo5QixJQUFQO0FBS0g7QUF6RndCOztBQUFBO0FBQUEsT0FlRCxnQkFBTWhCLFNBZkwsV0FnQmxCK0IsaUJBaEJrQixnQkFpQmpCSSxjQUFjSixpQkFBZCxJQUFtQyxFQWpCbEI7QUFrQnJCcEIsa0JBQVMsb0JBQVVxQixNQWxCRTtBQW1CckJoQixrQkFBUyxvQkFBVWdCO0FBbkJFLGlCQXFCbEJDLFlBckJrQixnQkFzQmpCRSxjQUFjRixZQUFkLElBQThCLEVBdEJiO0FBdUJyQnRCLGtCQUFTLG9CQUFVcUIsTUF2QkU7QUF3QnJCaEIsa0JBQVMsb0JBQVVnQjtBQXhCRSxpQkEwQmxCNkIsWUExQmtCLGdCQTJCakIxQixjQUFjMEIsWUFBZCxJQUE4QixFQTNCYixXQTZCbEJqQixXQTdCa0IsR0E2QkUsWUFBWXlCLFFBQVosR0FBdUIsR0E3QnpCOzs7QUE0RjdCLFlBQU9DLGFBQVA7QUFDSDs7U0FJZ0JXLE8sR0FBYmpGLFM7U0FDQUEsUyxHQUFBQSxTO1NBQ0FDLFksR0FBQUEsWTtTQUNBRSxZLEdBQUFBLFk7Ozs7OztBQ3ZnQkosbUM7Ozs7OztBQ0FBLGdDOzs7Ozs7QUNBQSx3QyIsImZpbGUiOiJkaXN0L1JlYWN0UmVTY29wZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIiBcdC8vIFRoZSBtb2R1bGUgY2FjaGVcbiBcdHZhciBpbnN0YWxsZWRNb2R1bGVzID0ge307XG5cbiBcdC8vIFRoZSByZXF1aXJlIGZ1bmN0aW9uXG4gXHRmdW5jdGlvbiBfX3dlYnBhY2tfcmVxdWlyZV9fKG1vZHVsZUlkKSB7XG5cbiBcdFx0Ly8gQ2hlY2sgaWYgbW9kdWxlIGlzIGluIGNhY2hlXG4gXHRcdGlmKGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdKVxuIFx0XHRcdHJldHVybiBpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXS5leHBvcnRzO1xuXG4gXHRcdC8vIENyZWF0ZSBhIG5ldyBtb2R1bGUgKGFuZCBwdXQgaXQgaW50byB0aGUgY2FjaGUpXG4gXHRcdHZhciBtb2R1bGUgPSBpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSA9IHtcbiBcdFx0XHRleHBvcnRzOiB7fSxcbiBcdFx0XHRpZDogbW9kdWxlSWQsXG4gXHRcdFx0bG9hZGVkOiBmYWxzZVxuIFx0XHR9O1xuXG4gXHRcdC8vIEV4ZWN1dGUgdGhlIG1vZHVsZSBmdW5jdGlvblxuIFx0XHRtb2R1bGVzW21vZHVsZUlkXS5jYWxsKG1vZHVsZS5leHBvcnRzLCBtb2R1bGUsIG1vZHVsZS5leHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKTtcblxuIFx0XHQvLyBGbGFnIHRoZSBtb2R1bGUgYXMgbG9hZGVkXG4gXHRcdG1vZHVsZS5sb2FkZWQgPSB0cnVlO1xuXG4gXHRcdC8vIFJldHVybiB0aGUgZXhwb3J0cyBvZiB0aGUgbW9kdWxlXG4gXHRcdHJldHVybiBtb2R1bGUuZXhwb3J0cztcbiBcdH1cblxuXG4gXHQvLyBleHBvc2UgdGhlIG1vZHVsZXMgb2JqZWN0IChfX3dlYnBhY2tfbW9kdWxlc19fKVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5tID0gbW9kdWxlcztcblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGUgY2FjaGVcbiBcdF9fd2VicGFja19yZXF1aXJlX18uYyA9IGluc3RhbGxlZE1vZHVsZXM7XG5cbiBcdC8vIF9fd2VicGFja19wdWJsaWNfcGF0aF9fXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLnAgPSBcIi9cIjtcblxuIFx0Ly8gTG9hZCBlbnRyeSBtb2R1bGUgYW5kIHJldHVybiBleHBvcnRzXG4gXHRyZXR1cm4gX193ZWJwYWNrX3JlcXVpcmVfXygwKTtcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyB3ZWJwYWNrL2Jvb3RzdHJhcCA5MWQyZWU1NzM1ZjFjZGZiZmI5YyIsIi8qXG4gKiBDb3B5cmlnaHQgKGMpICAyMDE4IFdpc2UgV2lsZCBXZWIgLlxuICpcbiAqICBNSVQgTGljZW5zZVxuICpcbiAqICBQZXJtaXNzaW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwgdG8gYW55IHBlcnNvbiBvYnRhaW5pbmcgYSBjb3B5XG4gKiAgb2YgdGhpcyBzb2Z0d2FyZSBhbmQgYXNzb2NpYXRlZCBkb2N1bWVudGF0aW9uIGZpbGVzICh0aGUgXCJTb2Z0d2FyZVwiKSwgdG8gZGVhbFxuICogIGluIHRoZSBTb2Z0d2FyZSB3aXRob3V0IHJlc3RyaWN0aW9uLCBpbmNsdWRpbmcgd2l0aG91dCBsaW1pdGF0aW9uIHRoZSByaWdodHNcbiAqICB0byB1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsXG4gKiAgY29waWVzIG9mIHRoZSBTb2Z0d2FyZSwgYW5kIHRvIHBlcm1pdCBwZXJzb25zIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzXG4gKiAgZnVybmlzaGVkIHRvIGRvIHNvLCBzdWJqZWN0IHRvIHRoZSBmb2xsb3dpbmcgY29uZGl0aW9uczpcbiAqXG4gKiAgVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsXG4gKiAgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS5cbiAqXG4gKiAgVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuICogIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuICogIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRVxuICogIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcbiAqICBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuICogIE9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFXG4gKiAgU09GVFdBUkUuXG4gKlxuICogQGF1dGhvciA6IE5hdGhhbmFlbCBCcmF1blxuICogQGNvbnRhY3QgOiBjYWlwaWxhYnNAZ21haWwuY29tXG4gKi9cblxuXG5pbXBvcnQgXCJyZXNjb3BlXCI7XG5pbXBvcnQgaW5kZXggZnJvbSBcInJlc2NvcGUvZGlzdC9pbmRleFwiO1xuaW1wb3J0ICogYXMgUlRvb2xzIGZyb20gXCIuL1JlYWN0SG9jc1wiO1xuXG5pbmRleC5Db21wb25lbnQgICAgPSBSVG9vbHMuQ29tcG9uZW50O1xuaW5kZXgucmVTY29wZVByb3BzID0gUlRvb2xzLnJlU2NvcGVQcm9wcztcbmluZGV4LnNjb3BlVG9Qcm9wcyA9IFJUb29scy5yZVNjb3BlUHJvcHM7XG5pbmRleC5wcm9wc1RvU2NvcGUgPSBSVG9vbHMucHJvcHNUb1Njb3BlO1xuZXhwb3J0IGRlZmF1bHQgaW5kZXg7XG5cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyAuL3NyYy9pbmRleC5qcyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlc2NvcGVcIik7XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gZXh0ZXJuYWwgXCJyZXNjb3BlXCJcbi8vIG1vZHVsZSBpZCA9IDFcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVzY29wZS9kaXN0L2luZGV4XCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVzY29wZS9kaXN0L2luZGV4XCJcbi8vIG1vZHVsZSBpZCA9IDJcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwiLypcbiAqIENvcHlyaWdodCAoYykgIDIwMTggV2lzZSBXaWxkIFdlYiAuXG4gKlxuICogIE1JVCBMaWNlbnNlXG4gKiAgXG4gKiAgUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weVxuICogIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcbiAqICBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4gKiAgdG8gdXNlLCBjb3B5LCBtb2RpZnksIG1lcmdlLCBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbFxuICogIGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuICogIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4gKiAgXG4gKiAgVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsXG4gKiAgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS5cbiAqICBcbiAqICBUSEUgU09GVFdBUkUgSVMgUFJPVklERUQgXCJBUyBJU1wiLCBXSVRIT1VUIFdBUlJBTlRZIE9GIEFOWSBLSU5ELCBFWFBSRVNTIE9SXG4gKiAgSU1QTElFRCwgSU5DTFVESU5HIEJVVCBOT1QgTElNSVRFRCBUTyBUSEUgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFCSUxJVFksXG4gKiAgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFXG4gKiAgQVVUSE9SUyBPUiBDT1BZUklHSFQgSE9MREVSUyBCRSBMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdFUyBPUiBPVEhFUlxuICogIExJQUJJTElUWSwgV0hFVEhFUiBJTiBBTiBBQ1RJT04gT0YgQ09OVFJBQ1QsIFRPUlQgT1IgT1RIRVJXSVNFLCBBUklTSU5HIEZST00sXG4gKiAgT1VUIE9GIE9SIElOIENPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUgT1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUyBJTiBUSEVcbiAqICBTT0ZUV0FSRS5cbiAqICBcbiAqIEBhdXRob3IgOiBOYXRoYW5hZWwgQnJhdW5cbiAqIEBjb250YWN0IDogY2FpcGlsYWJzQGdtYWlsLmNvbVxuICovXG5cbmltcG9ydCBcInJlc2NvcGVcIjtcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCBpcyBmcm9tICdpcydcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQge1Njb3BlLCBTdG9yZSwgYWRkU2NvcGFibGVUeXBlfSBmcm9tIFwicmVzY29wZS9kaXN0L2luZGV4XCI7XG5cbmNvbnN0IFNpbXBsZU9iamVjdFByb3RvID0gKHt9KS5jb25zdHJ1Y3RvcjtcblxuLyoqXG4gKiBJbmhlcml0YWJsZSBSZVNjb3BlIFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KVxuICpcbiAqIEBjbGFzcyBDb21wb25lbnRcbiAqIEBkZXNjIFBhcmVudCBSZWFjdCBDb21wb25lbnQgd2l0aCBzdG9yZSBpbmplY3Rpb24gaW4gaXRzIHN0YXRlXG4gKi9cbmNsYXNzIENvbXBvbmVudCBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgfVxuICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgIH1cbiAgICBcbiAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICBzdXBlcihwLCBjdHgsIHEpO1xuICAgICAgICBsZXQgc2NvcGUgICA9XG4gICAgICAgICAgICAgICAgcC5fX3Njb3BlXG4gICAgICAgICAgICAgICAgfHwgY3R4LnJlc2NvcGU7XG4gICAgICAgIHRoaXMuJHNjb3BlID0gc2NvcGU7XG4gICAgICAgIFxuICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiUmVTY29waW5nIHVzaW5nIGRlYWQgc2NvcGVcIilcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gbnVsbDtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgdGhpcy4kc3RvcmVzID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICBpZiAoIHRoaXMuY29uc3RydWN0b3IudXNlICkge1xuICAgICAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgICAgICAuLi50aGlzLnN0YXRlLFxuICAgICAgICAgICAgICAgIC4uLnNjb3BlLm1hcCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSB8fCBbXSwgZmFsc2UpLy8gZG9uJ3QgYmluZFxuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgIGVsc2UgaWYgKCAhdGhpcy4kc2NvcGUgKVxuICAgICAgICAgICAgdGhpcy5yZW5kZXIgPSAoKSA9PiA8ZGl2Pk5vIFJlc2NvcGUgaGVyZSB7IHN1cGVyLm5hbWUgfTwvZGl2PlxuICAgIH1cbiAgICBcbiAgICBkaXNwYXRjaCggLi4uYXJneiApIHtcbiAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcGF0Y2goLi4uYXJneilcbiAgICB9XG4gICAgXG4gICAgY29tcG9uZW50V2lsbE1vdW50KCkge1xuICAgICAgICBpZiAoIHRoaXMuY29uc3RydWN0b3IudXNlICkge1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUuYmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSB8fCBbXSwgZmFsc2UpXG4gICAgICAgIH1cbiAgICB9XG4gICAgXG4gICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgIHRoaXMuY29uc3RydWN0b3IudXNlXG4gICAgICAgICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSB8fCBbXSk7XG4gICAgfVxuICAgIFxuICAgIGNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoIG5wLCBuYyApIHtcbiAgICAgICAgbGV0IG5TY29wZSA9IG5wLl9fc2NvcGVcbiAgICAgICAgICAgIHx8IG5jLnJlc2NvcGUgfHwgdGhpcy4kc2NvcGU7XG4gICAgICAgIFxuICAgICAgICBpZiAoIG5TY29wZSAhPSB0aGlzLiRzY29wZSApIHtcbiAgICAgICAgICAgIHRoaXMuY29uc3RydWN0b3IudXNlICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSk7XG4gICAgICAgICAgICB0aGlzLiRzY29wZSA9IG5TY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgICAgIGNvbnNvbGUuZXJyb3IoXCJSZVNjb3BpbmcgdXNpbmcgZGVhZCBzY29wZVwiKVxuICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyA9IHRoaXMuJHNjb3BlID0gbnVsbDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGVsc2Uge1xuICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyA9IHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgICAgICB0aGlzLmNvbnN0cnVjdG9yLnVzZSAmJiBuU2NvcGUuYmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSk7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9XG4gICAgXG4gICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICByZXR1cm4ge1xuICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUgfHwgdGhpcy5jb250ZXh0LnJlc2NvcGUsXG4gICAgICAgICAgICAkc3RvcmVzOiB0aGlzLiRzY29wZS5zdG9yZXMgfHwgdGhpcy5jb250ZXh0LiRzdG9yZXNcbiAgICAgICAgfTtcbiAgICB9XG4gICAgXG4gICAgcmVuZGVyKCkge1xuICAgICAgICByZXR1cm4gdGhpcy5wcm9wcy5jaGlsZHJlbiB8fCA8ZGl2Lz5cbiAgICB9XG59O1xuXG5cbi8qKlxuICogUmV0dXJuIGEgUmVhY3QgXCJIT0NcIiAoSGlnaCBPcmRlciBDb21wb25lbnQpIHRoYXQgOlxuICogIC0gSW5qZWN0ICYgbWFpbnRhaW4gdGhlIHN0b3JlcyBsaXN0ZWQgYmFzZUNvbXBvbmVudDo6dXNlIGFuZC9vciAodXNlKSBpbiB0aGUgaW5zdGFuY2VzIHByb3BzLlxuICogIC0gUHJvcGFnIChzY29wZSkgaW4gdGhlIHJldHVybmVkIFJlYWN0IENvbXBvbmVudCBjb250ZXh0XG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDogUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzY29wZSB7UmVTY29wZS5TY29wZXxmdW5jdGlvbn0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkICggZGVmYXVsdCA6IHRoZSBkZWZhdWx0XG4gKiAgICAgUmVTY29wZTo6U2NvcGU6OnNjb3Blcy5zdGF0aWMgc2NvcGUgKVxuICogQHBhcmFtIHVzZSB7YXJyYXl9IHRoZSBsaXN0IG9mIHN0b3JlcyB0byBpbmplY3QgZnJvbSB0aGUgY3VycmVudCBzY29wZVxuICogQHJldHVybnMge1JlU2NvcGVQcm92aWRlcn1cbiAqL1xuZnVuY3Rpb24gcmVTY29wZVByb3BzKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlICAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlIHx8IGlzLmZuKGFyZ3pbMF0pKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHVzZSAgICAgICAgICAgPSAoIWFyZ3pbMF0gfHwgaXMuYXJyYXkoYXJnelswXSkgfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvKSAmJiBhcmd6LnNoaWZ0KCk7XG4gICAgXG4gICAgaWYgKCAhKEJhc2VDb21wb25lbnQgJiYgQmFzZUNvbXBvbmVudC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpICkge1xuICAgICAgICByZXR1cm4gZnVuY3Rpb24gKCBCYXNlQ29tcG9uZW50ICkge1xuICAgICAgICAgICAgcmV0dXJuIHJlU2NvcGVQcm9wcyhCYXNlQ29tcG9uZW50LCBzY29wZSwgdXNlKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIFxuICAgIGxldCBwcm92aWRlciA9IHJlU2NvcGVUb1N0YXRlKGNsYXNzIFJlU2NvcGVQcm9wc1Byb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIHVzZSAgICAgICAgICAgICAgID0gQmFzZUNvbXBvbmVudC51c2U7XG4gICAgICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9O1xuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfTtcbiAgICAgICAgXG4gICAgICAgIGdldENoaWxkQ29udGV4dCgpIHtcbiAgICAgICAgICAgIHJldHVybiB0aGlzLmNvbnRleHQ7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIHJlbmRlcigpIHtcbiAgICAgICAgICAgIHJldHVybiA8QmFzZUNvbXBvbmVudCB7IC4uLnRoaXMucHJvcHMgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsgLi4udGhpcy5zdGF0ZSB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGRpc3BhdGNoPXsgdGhpcy4kZGlzcGF0Y2ggfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRhY3Rpb25zPXsgdGhpcy4kYWN0aW9ucyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJHN0b3Jlcz17IHRoaXMuJHN0b3JlcyB9Lz5cbiAgICAgICAgfVxuICAgIH0sIHNjb3BlLCB1c2UpO1xuICAgIHByb3ZpZGVyLmRpc3BsYXlOYW1lICAgICAgICAgPSBcInByb3BzU2NvcGVkKFwiICsgKEJhc2VDb21wb25lbnQuZGlzcGxheU5hbWUgfHwgQmFzZUNvbXBvbmVudC5uYW1lKSArIFwiKVwiO1xuICAgIHJldHVybiBwcm92aWRlcjtcbn1cblxuLyoqXG4gKiBSZXR1cm4gYSBSZWFjdCBcIkhPQ1wiIChIaWdoIE9yZGVyIENvbXBvbmVudCkgdGhhdCA6XG4gKiAgLSBJbmhlcml0IEJhc2VDb21wb25lbnQsXG4gKiAgLSBJbmplY3QgJiBtYWludGFpbiB0aGUgc3RvcmVzIGluIEJhc2VDb21wb25lbnQ6OnVzZSBhbmQvb3IgKHVzZSkgaW4gdGhlIGluc3RhbmNlcyBzdGF0ZS5cbiAqICAtIFByb3BhZyAoc2NvcGUpIGluIHRoZSByZXR1cm5lZCBSZWFjdCBDb21wb25lbnQgY29udGV4dFxuICpcbiAqXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOiBSZWFjdC5Db21wb25lbnQgKVxuICogQHBhcmFtIHNjb3BlIHtSZVNjb3BlLlNjb3BlfGZ1bmN0aW9ufSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSB1c2Uge2FycmF5fSB0aGUgbGlzdCBvZiBzdG9yZXMgaW5qZWN0ZWQgZnJvbSB0aGUgY3VycmVudCBzY29wZVxuICogQHBhcmFtIGFkZGl0aW9uYWxDb250ZXh0IHtPYmplY3R9IGNvbnRleHQgdG8gYmUgcHJvcGFnYXRlZFxuICogQHJldHVybnMge1JlU2NvcGVQcm92aWRlcn1cbiAqL1xuZnVuY3Rpb24gcmVTY29wZVRvU3RhdGUoIC4uLmFyZ3ogKSB7XG4gICAgbGV0IEJhc2VDb21wb25lbnQgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlICAgICAgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSB8fCBpcy5mbihhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICB1c2UgICAgICAgICAgICAgICA9IChpcy5hcnJheShhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzdGF0ZU1hcCAgICAgICAgICA9ICF1c2UgJiYgKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBhZGRpdGlvbmFsQ29udGV4dCA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgaW5pdGlhbFN0YXRlICAgICAgPSB7fTtcbiAgICBcbiAgICB1c2UgPSBbLi4uKEJhc2VDb21wb25lbnQudXNlIHx8IFtdKSwgLi4uKHVzZSB8fCBbXSldO1xuICAgIHN0YXRlTWFwICYmIFNjb3BlLnN0YXRlTWFwVG9SZWZMaXN0KHN0YXRlTWFwLCBpbml0aWFsU3RhdGUsIHVzZSk7XG4gICAgXG4gICAgYWRkaXRpb25hbENvbnRleHQgPSBhZGRpdGlvbmFsQ29udGV4dCAmJiBPYmplY3Qua2V5cyhhZGRpdGlvbmFsQ29udGV4dCkucmVkdWNlKCggaCwgayApID0+IChoW2tdID0gUHJvcFR5cGVzLmFueSwgaCksIHt9KSB8fCB7fTtcbiAgICBcbiAgICBjbGFzcyBSZVNjb3BlUHJvdmlkZXIgZXh0ZW5kcyBCYXNlQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgLi4uKGFkZGl0aW9uYWxDb250ZXh0KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIC4uLihhZGRpdGlvbmFsQ29udGV4dCksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkZWZhdWx0UHJvcHMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wcyB8fCB7fSksXG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJzdGF0ZVNjb3BlZChcIiArIChCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZSkgKyBcIilcIjtcbiAgICAgICAgXG4gICAgICAgIGNvbnN0cnVjdG9yKCBwLCBjdHgsIHEgKSB7XG4gICAgICAgICAgICBzdXBlcihwLCBjdHgsIHEpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSB0aGlzLiRzY29wZSB8fFxuICAgICAgICAgICAgICAgIHAuX19zY29wZVxuICAgICAgICAgICAgICAgIHx8IGlzLmZuKHNjb3BlKSAmJiBzY29wZSh0aGlzLCBwLCBjdHgpIHx8IHNjb3BlXG4gICAgICAgICAgICAgICAgfHwgY3R4LnJlc2NvcGU7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiUmVTY29waW5nIHVzaW5nIGRlYWQgc2NvcGVcIilcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICYmIGlzLmZuKHNjb3BlKVxuICAgICAgICAgICAgJiYgdGhpcy4kc2NvcGUucmV0YWluKFwiaG9jXCIpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICAgICAgdGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmFjdGlvbnM7XG4gICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHVzZS5sZW5ndGggKSB7XG4gICAgICAgICAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgICAgICAgICAgLi4udGhpcy5zdGF0ZSxcbiAgICAgICAgICAgICAgICAgICAgLi4uaW5pdGlhbFN0YXRlLFxuICAgICAgICAgICAgICAgICAgICAuLi50aGlzLiRzY29wZS5tYXAodGhpcywgdXNlLCBmYWxzZSkvLyBkb24ndCBiaW5kIG5vdyBkdWUgdG8gU1NSXG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgZWxzZSBpZiAoICF0aGlzLiRzY29wZSApXG4gICAgICAgICAgICAgICAgdGhpcy5yZW5kZXIgPSAoKSA9PiA8ZGl2Pk5vIFNjb3BlIGZvdW5kIGluIHsgQmFzZUNvbXBvbmVudC5uYW1lIH08L2Rpdj5cbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kZGlzcGF0Y2ggPSB0aGlzLiRkaXNwYXRjaC5iaW5kKHRoaXMpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICAkZGlzcGF0Y2goIC4uLmFyZ3ogKSB7XG4gICAgICAgICAgICB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kaXNwYXRjaCguLi5hcmd6KVxuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsTW91bnQoKSB7XG4gICAgICAgICAgICBpZiAoIHVzZS5sZW5ndGggKSB7XG4gICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUuYmluZCh0aGlzLCB1c2UsIGZhbHNlKVxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbE1vdW50ICYmIHN1cGVyLmNvbXBvbmVudFdpbGxNb3VudCgpXG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiAhdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICB1c2UubGVuZ3RoICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB1c2UpO1xuICAgICAgICAgICAgICAgIGlzLmZuKHNjb3BlKSAmJiB0aGlzLiRzY29wZS5kaXNwb3NlKFwiaG9jXCIpO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCwgbmMgKSB7XG4gICAgICAgICAgICBsZXQgblNjb3BlID0gbnAuX19zY29wZVxuICAgICAgICAgICAgICAgIHx8IHNjb3BlICYmIHRoaXMuJHNjb3BlXG4gICAgICAgICAgICAgICAgfHwgbmMucmVzY29wZVxuICAgICAgICAgICAgICAgIHx8IHRoaXMuJHNjb3BlO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBpZiAoIG5TY29wZSAhPSB0aGlzLiRzY29wZSApIHtcbiAgICAgICAgICAgICAgICB1c2UubGVuZ3RoICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB1c2UpO1xuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gblNjb3BlO1xuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIlJlU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlXCIpXG4gICAgICAgICAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGVsc2Uge1xuICAgICAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiBuU2NvcGUuYmluZCh0aGlzLCB1c2UpO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMgJiYgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyhucCwgbmMpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUgfHwgdGhpcy5jb250ZXh0LnJlc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzIHx8IHRoaXMuY29udGV4dC4kc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBSZVNjb3BlUHJvdmlkZXI7XG59XG5cbmFkZFNjb3BhYmxlVHlwZShcbiAgICAoIENvbXAgKSA9PiAoQ29tcCAmJiBDb21wLnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCksXG4gICAgcmVTY29wZVRvU3RhdGUsIGZhbHNlLCB0cnVlXG4pXG5cbi8qKlxuICogUmV0dXJuIGEgUmVhY3QgXCJIT0NcIiAoSGlnaCBPcmRlciBDb21wb25lbnQpIHRoYXQgOlxuICogIC0gUmVuZGVyIEJhc2VDb21wb25lbnQgd2l0aCBuZXcgc2NvcGUgdGhhdCBpbmhlcml0IHRoZSBnaXZlbiBzY29wZSBvciBjb250ZXh0IHNjb3BlXG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDogUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzdG9yZXNNYXAge09iamVjdH0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGUge1Njb3BlfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZUlkIHtzdHJpbmd9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIGFkZGl0aW9uYWxDb250ZXh0IHtPYmplY3R9IGNvbnRleHQgdG8gYmUgcHJvcGFnYXRlZFxuICogQHJldHVybnMgeyp9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGUoIC4uLmFyZ3ogKSB7XG4gICAgbGV0IEJhc2VDb21wb25lbnQgPSAoIWFyZ3pbMF0gfHwgYXJnelswXS5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgc2NvcGVkICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8gJiYgIShhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUpKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlQ2ZnICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvKSAmJiBhcmd6LnNoaWZ0KCkgfHwge30sXG4gICAgICAgIHBhcmVudCAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHBhcmVudElkICAgICAgPSAoIWFyZ3pbMF0gfHwgaXMuc3RyaW5nKGFyZ3pbMF0pKSAmJiBhcmd6LnNoaWZ0KCk7XG4gICAgXG4gICAgbGV0IGNvbXBOYW1lID0gQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWU7XG4gICAgXG4gICAgXG4gICAgY2xhc3MgU2NvcGVQcm92aWRlciBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNoaWxkQ29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRlZmF1bHRQcm9wcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzIHx8IHt9KSxcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGlzcGxheU5hbWUgICAgICAgPSBcInNjb3BlZChcIiArIGNvbXBOYW1lICsgXCIpXCI7XG4gICAgICAgIFxuICAgICAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICAgICAgbGV0IF9wYXJlbnQgPSBwYXJlbnQgfHwgcGFyZW50SWQgJiYgU2NvcGUuZ2V0U2NvcGUocGFyZW50SWQpIHx8IHAuX19zY29wZSB8fCBjdHgucmVzY29wZSxcbiAgICAgICAgICAgICAgICAkc2NvcGUgID0gbmV3IFNjb3BlKFxuICAgICAgICAgICAgICAgICAgICBzY29wZWQgfHwge30sXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9EZXN0cm95OiB0cnVlLFxuICAgICAgICAgICAgICAgICAgICAgICAga2V5ICAgICAgICA6IGNvbXBOYW1lLFxuICAgICAgICAgICAgICAgICAgICAgICAgcGFyZW50ICAgICA6IF9wYXJlbnQsXG4gICAgICAgICAgICAgICAgICAgICAgICAuLi5zY29wZUNmZ1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgXG4gICAgICAgICAgICBzdXBlcihwLCB7IC4uLmN0eCwgcmVzY29wZTogJHNjb3BlLCAkc3RvcmVzOiAkc2NvcGUuc3RvcmVzIH0sIHEpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzY29wZSA9IHRoaXMuJHNjb3BlIHx8ICRzY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCAhdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlIHBhcmVudFwiKTtcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSBudWxsO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG5ldyBTY29wZShcbiAgICAgICAgICAgICAgICAgICAgc2NvcGVkIHx8IHt9LFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICBhdXRvRGVzdHJveTogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIGtleSAgICAgICAgOiBjb21wTmFtZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIHBhcmVudCAgICAgOiB0aGlzLiRzY29wZVxuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgICAgICB0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgdGhpcy4kc2NvcGUucmV0YWluKCk7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQgJiYgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQoKTtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3Bvc2UoKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICAgICAgbGV0IGN0eCA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fTtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgLi4uY3R4LFxuICAgICAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlLFxuICAgICAgICAgICAgICAgICRzdG9yZXM6IHRoaXMuJHNjb3BlLnN0b3Jlc1xuICAgICAgICAgICAgfTtcbiAgICAgICAgfVxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICByZXR1cm4gPEJhc2VDb21wb25lbnQgeyAuLi50aGlzLnByb3BzIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkc3RvcmVzPXsgdGhpcy4kc3RvcmVzIH0vPlxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG5hZGRTY29wYWJsZVR5cGUoXG4gICAgKCBDb21wICkgPT4gKENvbXAgJiYgQ29tcC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpLFxuICAgIHJlU2NvcGVcbilcbi8qKlxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6IFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc3RvcmVzTWFwIHtPYmplY3R9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlIHtTY29wZX0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGVJZCB7c3RyaW5nfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHsqfVxuICovXG5mdW5jdGlvbiBwcm9wc1RvU2NvcGUoIC4uLmFyZ3ogKSB7XG4gICAgbGV0IEJhc2VDb21wb25lbnQgPSAoIWFyZ3pbMF0gfHwgYXJnelswXS5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgc2NvcGVkUHJvcHMgICA9ICghYXJnelswXSB8fCBpcy5hcnJheShhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpIHx8IFtdLFxuICAgICAgICBzY29wZUNmZyAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpIHx8IHt9LFxuICAgICAgICBwYXJlbnQgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBwYXJlbnRJZCAgICAgID0gKCFhcmd6WzBdIHx8IGlzLnN0cmluZyhhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpO1xuICAgIFxuICAgIGxldCBjb21wTmFtZSA9IEJhc2VDb21wb25lbnQuZGlzcGxheU5hbWUgfHwgQmFzZUNvbXBvbmVudC5uYW1lO1xuICAgIFxuICAgIGlmICggIShCYXNlQ29tcG9uZW50ICYmIEJhc2VDb21wb25lbnQucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSApIHtcbiAgICAgICAgcmV0dXJuIGZ1bmN0aW9uICggQmFzZUNvbXBvbmVudCApIHtcbiAgICAgICAgICAgIHJldHVybiBwcm9wc1RvU2NvcGUoQmFzZUNvbXBvbmVudCwgc2NvcGVkUHJvcHMsIHNjb3BlQ2ZnLCBwYXJlbnQsIHBhcmVudElkKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIGNsYXNzIFNjb3BlUHJvdmlkZXIgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgICAgICBzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jaGlsZENvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkZWZhdWx0UHJvcHMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wcyB8fCB7fSksXG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJzY29wZWQoXCIgKyBjb21wTmFtZSArIFwiKVwiO1xuICAgICAgICBcbiAgICAgICAgY29uc3RydWN0b3IoIHAsIGN0eCwgcSApIHtcbiAgICAgICAgICAgIGxldCBfcGFyZW50ID0gcGFyZW50IHx8IHBhcmVudElkICYmIFNjb3BlLmdldFNjb3BlKHBhcmVudElkKSB8fCBwLl9fc2NvcGUgfHwgY3R4LnJlc2NvcGUsXG4gICAgICAgICAgICAgICAgJHNjb3BlICA9IG5ldyBTY29wZShcbiAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgLi4uc2NvcGVkUHJvcHMucmVkdWNlKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICggaCwgayApID0+IChoW2tdID0gU3RvcmUsIGgpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt9XG4gICAgICAgICAgICAgICAgICAgICAgICApLFxuICAgICAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICBhdXRvRGVzdHJveTogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIGtleSAgICAgICAgOiBjb21wTmFtZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIHBhcmVudCAgICAgOiBfcGFyZW50LFxuICAgICAgICAgICAgICAgICAgICAgICAgLi4uc2NvcGVDZmcsXG4gICAgICAgICAgICAgICAgICAgICAgICBzdGF0ZSAgICAgIDogc2NvcGVkUHJvcHMucmVkdWNlKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICggaCwgayApID0+IChoW2tdID0gcFtrXSwgaCksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAge31cbiAgICAgICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgc3VwZXIocCwgeyAuLi5jdHgsIHJlc2NvcGU6ICRzY29wZSwgJHN0b3JlczogJHNjb3BlLnN0b3JlcyB9LCBxKTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kc2NvcGUgICA9IHRoaXMuJHNjb3BlIHx8ICRzY29wZTtcbiAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlLnJldGFpbigpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCApIHtcbiAgICAgICAgICAgIHNjb3BlZFByb3BzLmZvckVhY2goXG4gICAgICAgICAgICAgICAgcCA9PiAodGhpcy5wcm9wc1twXSAhPT0gbnBbcF0gJiYgdGhpcy4kc3RvcmVzW3BdLnNldFN0YXRlKG5wW3BdKSlcbiAgICAgICAgICAgIClcbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMgJiYgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyguLi5hcmd1bWVudHMpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZSgpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICBsZXQgZlByb3BzID0gT2JqZWN0LmtleXModGhpcy5wcm9wcykucmVkdWNlKCggaCwgayApID0+ICghc2NvcGVkUHJvcHMuaW5jbHVkZXMoaykgJiYgKGhba10gPSB0aGlzLnByb3BzW2tdKSwgaCksIHt9KTtcbiAgICAgICAgICAgIHJldHVybiA8QmFzZUNvbXBvbmVudCB7IC4uLmZQcm9wcyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyAuLi50aGlzLnN0YXRlIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkc3RvcmVzPXsgdGhpcy4kc3RvcmVzIH0vPlxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG5cbmV4cG9ydCB7XG4gICAgQ29tcG9uZW50IGFzIGRlZmF1bHQsXG4gICAgQ29tcG9uZW50LFxuICAgIHJlU2NvcGVQcm9wcyxcbiAgICBwcm9wc1RvU2NvcGVcbn07XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vc3JjL1JlYWN0SG9jcy5qcyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0XCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVhY3RcIlxuLy8gbW9kdWxlIGlkID0gNFxuLy8gbW9kdWxlIGNodW5rcyA9IDAiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJpc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcImlzXCJcbi8vIG1vZHVsZSBpZCA9IDVcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicHJvcC10eXBlc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcInByb3AtdHlwZXNcIlxuLy8gbW9kdWxlIGlkID0gNlxuLy8gbW9kdWxlIGNodW5rcyA9IDAiXSwic291cmNlUm9vdCI6IiJ9
 
 /***/ }),
 /* 115 */
@@ -23105,15 +23106,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _desc, _value, _obj, _init, _init2;
 
-var _superagent = __webpack_require__(229);
+var _superagent = __webpack_require__(230);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _shortid = __webpack_require__(97);
+var _shortid = __webpack_require__(98);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _rescopeSpells = __webpack_require__(255);
+var _rescopeSpells = __webpack_require__(120);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23250,7 +23251,7 @@ var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT Lice
 "use strict";
 
 
-module.exports = __webpack_require__(225);
+module.exports = __webpack_require__(226);
 
 
 /***/ }),
@@ -23261,11 +23262,11 @@ module.exports = __webpack_require__(225);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(221);
 
 
 
@@ -23674,30 +23675,425 @@ Rnd.defaultProps = {
 /* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _rescope = __webpack_require__(1);
+	
+	var _rescope2 = _interopRequireDefault(_rescope);
+	
+	__webpack_require__(2);
+	
+	__webpack_require__(4);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _rescope2.default.spells; /*
+	                                             * Copyright (c)  2018 Wise Wild Web .
+	                                             *
+	                                             *  MIT License
+	                                             *
+	                                             *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                             *  of this software and associated documentation files (the "Software"), to deal
+	                                             *  in the Software without restriction, including without limitation the rights
+	                                             *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                             *  copies of the Software, and to permit persons to whom the Software is
+	                                             *  furnished to do so, subject to the following conditions:
+	                                             *
+	                                             *  The above copyright notice and this permission notice shall be included in all
+	                                             *  copies or substantial portions of the Software.
+	                                             *
+	                                             *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                             *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                             *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                             *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                             *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                             *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                             *  SOFTWARE.
+	                                             *
+	                                             * @author : Nathanael Braun
+	                                             * @contact : caipilabs@gmail.com
+	                                             */
+
+	module.exports = exports["default"];
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(41);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _rescope = __webpack_require__(1);
+	
+	var _rescope2 = _interopRequireDefault(_rescope);
+	
+	var _is = __webpack_require__(3);
+	
+	var _is2 = _interopRequireDefault(_is);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// will use as external the index in dist
+	
+	/*
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	var SimpleObjectProto = {}.constructor;
+	_rescope2.default.spells = {};
+	
+	var castTypesToAppliable = {};
+	var castTypes = {};
+	
+	_rescope2.default.isSpell = function caster() {
+	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+	        argz[_key] = arguments[_key];
+	    }
+	
+	    // are we decorating a member / without argz
+	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	        argz[2].value = addCaster(argz[0][argz[1]], argz);
+	        return argz[0];
+	    } else if (!_is2.default.fn(argz[0])) {
+	        return function () {
+	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                argz2[_key2] = arguments[_key2];
+	            }
+	
+	            // are we decorating a member / with argz
+	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+	                return argz2[0];
+	            } else return caster.apply(undefined, [argz2[0]].concat(argz));
+	        };
+	    }
+	    return addCaster.apply(undefined, argz);
+	};
+	
+	function addCaster() {
+	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	        argz[_key3] = arguments[_key3];
+	    }
+	
+	    var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+	    if (!cast) throw "ReScope cast : bad decorator function";
+	    var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+	        test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+	        prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+	        memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+	        casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+	
+	    if (!castTypesToAppliable[typeName]) {
+	        castTypesToAppliable[typeName] = [];
+	
+	        _rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+	            for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                argz[_key4] = arguments[_key4];
+	            }
+	
+	            // are we decorating a member / without argz
+	            if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	                argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+	                return argz[0];
+	            } else if (!isCastableType(typeName, argz[0])) {
+	                return function () {
+	                    for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                        argz2[_key5] = arguments[_key5];
+	                    }
+	
+	                    // are we decorating a member / with argz
+	                    if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                        argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+	                        return argz2[0];
+	                    } else return doCast.apply(undefined, [argz2[0]].concat(argz));
+	                };
+	            }
+	            return applyCastableType(typeName, argz[0], argz.slice(1));
+	        };
+	    }
+	    castTypesToAppliable[typeName].unshift({
+	        typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+	    });
+	    return cast;
+	}
+	
+	function isCastableType(typeName, Comp, member, stateScope) {
+	    var castable = castTypesToAppliable[typeName];
+	    for (var i = 0; i < castable.length; i++) {
+	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+	    }return false;
+	}
+	
+	function applyCastableType(typeName, Comp, argz, member, stateScope) {
+	
+	    var castable = castTypesToAppliable[typeName] || [];
+	    for (var i = 0; i < castable.length; i++) {
+	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+	    }console.warn("reScope cast : Unknown type", typeName, Comp);
+	    return false;
+	}
+	
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(49);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _dec, _dec2, _desc, _value, _obj; /*
+	                                       * Copyright (c)  2018 Wise Wild Web .
+	                                       *
+	                                       *  MIT License
+	                                       *
+	                                       *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                       *  of this software and associated documentation files (the "Software"), to deal
+	                                       *  in the Software without restriction, including without limitation the rights
+	                                       *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                       *  copies of the Software, and to permit persons to whom the Software is
+	                                       *  furnished to do so, subject to the following conditions:
+	                                       *
+	                                       *  The above copyright notice and this permission notice shall be included in all
+	                                       *  copies or substantial portions of the Software.
+	                                       *
+	                                       *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                       *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                       *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                       *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                       *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                       *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                       *  SOFTWARE.
+	                                       *
+	                                       * @author : Nathanael Braun
+	                                       * @contact : caipilabs@gmail.com
+	                                       */
+	
+	var _is = __webpack_require__(3);
+	
+	var _is2 = _interopRequireDefault(_is);
+	
+	var _rescope = __webpack_require__(1);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+	    var desc = {};
+	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+	        desc[key] = descriptor[key];
+	    });
+	    desc.enumerable = !!desc.enumerable;
+	    desc.configurable = !!desc.configurable;
+	
+	    if ('value' in desc || desc.initializer) {
+	        desc.writable = true;
+	    }
+	
+	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+	        return decorator(target, property, desc) || desc;
+	    }, desc);
+	
+	    if (context && desc.initializer !== void 0) {
+	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+	        desc.initializer = undefined;
+	    }
+	
+	    if (desc.initializer === void 0) {
+	        Object['define' + 'Property'](target, property, desc);
+	        desc = null;
+	    }
+	
+	    return desc;
+	}
+	
+	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
+	    return _is2.default.object(v) || _is2.default.string(v);
+	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
+	    return _is2.default.object(v);
+	}), (_obj = {
+	    stateMap: function stateMap(obj, _ref, ref) {
+	        var _class, _temp;
+	
+	        var cfg = _ref[0];
+	
+	        var use = [],
+	            state = {},
+	            actions = {};
+	        _rescope.Scope.stateMapToRefList(obj, state, use, actions);
+	        return _temp = _class = function (_Store) {
+	            _inherits(StateMap, _Store);
+	
+	            function StateMap() {
+	                _classCallCheck(this, StateMap);
+	
+	                return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
+	            }
+	
+	            return StateMap;
+	        }(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
+	    },
+	    scope: function scope(obj, _ref2, ref) {
+	        var cfg = _ref2[0];
+	
+	
+	        return _rescope.Scope.bind(null, obj, cfg);
+	    }
+	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
+	module.exports = exports["default"];
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=rescopeSpells.js.map
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
-var compileSchema = __webpack_require__(125)
-  , resolve = __webpack_require__(63)
-  , Cache = __webpack_require__(121)
-  , SchemaObject = __webpack_require__(64)
+var compileSchema = __webpack_require__(126)
+  , resolve = __webpack_require__(64)
+  , Cache = __webpack_require__(122)
+  , SchemaObject = __webpack_require__(65)
   , stableStringify = __webpack_require__(50)
-  , formats = __webpack_require__(124)
-  , rules = __webpack_require__(126)
-  , v5 = __webpack_require__(148)
+  , formats = __webpack_require__(125)
+  , rules = __webpack_require__(127)
+  , v5 = __webpack_require__(149)
   , util = __webpack_require__(17)
-  , async = __webpack_require__(61)
-  , co = __webpack_require__(78);
+  , async = __webpack_require__(62)
+  , co = __webpack_require__(79);
 
 module.exports = Ajv;
 
 Ajv.prototype.compileAsync = async.compile;
 
-var customKeyword = __webpack_require__(147);
+var customKeyword = __webpack_require__(148);
 Ajv.prototype.addKeyword = customKeyword.add;
 Ajv.prototype.getKeyword = customKeyword.get;
 Ajv.prototype.removeKeyword = customKeyword.remove;
-Ajv.ValidationError = __webpack_require__(65);
+Ajv.ValidationError = __webpack_require__(66);
 
 var META_SCHEMA_ID = 'http://json-schema.org/draft-04/schema';
 var SCHEMA_URI_FORMAT = /^(?:(?:[a-z][a-z0-9+-.]*:)?\/\/)?[^\s]*$/i;
@@ -24059,7 +24455,7 @@ function Ajv(opts) {
 
   function addDraft4MetaSchema() {
     if (self._opts.meta !== false) {
-      var metaSchema = __webpack_require__(183);
+      var metaSchema = __webpack_require__(184);
       addMetaSchema(metaSchema, META_SCHEMA_ID, true);
       self._refs['http://json-schema.org/schema'] = META_SCHEMA_ID;
     }
@@ -24098,7 +24494,7 @@ function Ajv(opts) {
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24131,7 +24527,7 @@ Cache.prototype.clear = function Cache_clear() {
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -24140,10 +24536,10 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 122;
+webpackEmptyContext.id = 123;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24151,34 +24547,34 @@ webpackEmptyContext.id = 122;
 
 //all requires must be explicit because browserify won't work with dynamic requires
 module.exports = {
-  '$ref': __webpack_require__(143),
-  allOf: __webpack_require__(129),
-  anyOf: __webpack_require__(130),
-  dependencies: __webpack_require__(133),
-  'enum': __webpack_require__(134),
-  format: __webpack_require__(135),
-  items: __webpack_require__(136),
-  maximum: __webpack_require__(66),
-  minimum: __webpack_require__(66),
-  maxItems: __webpack_require__(67),
-  minItems: __webpack_require__(67),
-  maxLength: __webpack_require__(68),
-  minLength: __webpack_require__(68),
-  maxProperties: __webpack_require__(69),
-  minProperties: __webpack_require__(69),
-  multipleOf: __webpack_require__(137),
-  not: __webpack_require__(138),
-  oneOf: __webpack_require__(139),
-  pattern: __webpack_require__(140),
-  properties: __webpack_require__(142),
-  required: __webpack_require__(144),
-  uniqueItems: __webpack_require__(146),
-  validate: __webpack_require__(70)
+  '$ref': __webpack_require__(144),
+  allOf: __webpack_require__(130),
+  anyOf: __webpack_require__(131),
+  dependencies: __webpack_require__(134),
+  'enum': __webpack_require__(135),
+  format: __webpack_require__(136),
+  items: __webpack_require__(137),
+  maximum: __webpack_require__(67),
+  minimum: __webpack_require__(67),
+  maxItems: __webpack_require__(68),
+  minItems: __webpack_require__(68),
+  maxLength: __webpack_require__(69),
+  minLength: __webpack_require__(69),
+  maxProperties: __webpack_require__(70),
+  minProperties: __webpack_require__(70),
+  multipleOf: __webpack_require__(138),
+  not: __webpack_require__(139),
+  oneOf: __webpack_require__(140),
+  pattern: __webpack_require__(141),
+  properties: __webpack_require__(143),
+  required: __webpack_require__(145),
+  uniqueItems: __webpack_require__(147),
+  validate: __webpack_require__(71)
 };
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24349,16 +24745,16 @@ function compareDateTime(dt1, dt2) {
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(63)
+var resolve = __webpack_require__(64)
   , util = __webpack_require__(17)
   , stableStringify = __webpack_require__(50)
-  , async = __webpack_require__(61);
+  , async = __webpack_require__(62);
 
 var beautify;
 
@@ -24370,18 +24766,18 @@ function loadBeautify(){
   }
 }
 
-var validateGenerator = __webpack_require__(70);
+var validateGenerator = __webpack_require__(71);
 
 /**
  * Functions below are used inside compiled validations function
  */
 
-var co = __webpack_require__(78);
+var co = __webpack_require__(79);
 var ucs2length = util.ucs2length;
-var equal = __webpack_require__(62);
+var equal = __webpack_require__(63);
 
 // this error is thrown by async schemas to return validation errors via exception
-var ValidationError = __webpack_require__(65);
+var ValidationError = __webpack_require__(66);
 
 module.exports = compile;
 
@@ -24746,13 +25142,13 @@ function vars(arr, statement) {
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ruleModules = __webpack_require__(123)
+var ruleModules = __webpack_require__(124)
   , toHash = __webpack_require__(17).toHash;
 
 module.exports = function rules() {
@@ -24793,7 +25189,7 @@ module.exports = function rules() {
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24820,7 +25216,7 @@ module.exports = function ucs2length(str) {
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25003,7 +25399,7 @@ module.exports = function generate__formatLimit(it, $keyword) {
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25053,7 +25449,7 @@ module.exports = function generate_allOf(it, $keyword) {
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25125,7 +25521,7 @@ module.exports = function generate_anyOf(it, $keyword) {
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25184,7 +25580,7 @@ module.exports = function generate_constant(it, $keyword) {
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25411,7 +25807,7 @@ module.exports = function generate_custom(it, $keyword) {
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25565,7 +25961,7 @@ module.exports = function generate_dependencies(it, $keyword) {
 
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25637,7 +26033,7 @@ module.exports = function generate_enum(it, $keyword) {
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25782,7 +26178,7 @@ module.exports = function generate_format(it, $keyword) {
 
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25933,7 +26329,7 @@ module.exports = function generate_items(it, $keyword) {
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26016,7 +26412,7 @@ module.exports = function generate_multipleOf(it, $keyword) {
 
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26106,7 +26502,7 @@ module.exports = function generate_not(it, $keyword) {
 
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26189,7 +26585,7 @@ module.exports = function generate_oneOf(it, $keyword) {
 
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26270,7 +26666,7 @@ module.exports = function generate_pattern(it, $keyword) {
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26328,7 +26724,7 @@ module.exports = function generate_patternRequired(it, $keyword) {
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26780,7 +27176,7 @@ module.exports = function generate_properties(it, $keyword) {
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26906,7 +27302,7 @@ module.exports = function generate_ref(it, $keyword) {
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27162,7 +27558,7 @@ module.exports = function generate_required(it, $keyword) {
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27297,7 +27693,7 @@ module.exports = function generate_switch(it, $keyword) {
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27375,14 +27771,14 @@ module.exports = function generate_uniqueItems(it, $keyword) {
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var IDENTIFIER = /^[a-z_$][a-z0-9_$\-]*$/i;
-var customRuleCode = __webpack_require__(132);
+var customRuleCode = __webpack_require__(133);
 
 module.exports = {
   add: addKeyword,
@@ -27511,7 +27907,7 @@ function removeKeyword(keyword) {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27527,14 +27923,14 @@ module.exports = {
 
 function enableV5(ajv) {
   var inlineFunctions = {
-    'switch': __webpack_require__(145),
-    'constant': __webpack_require__(131),
-    '_formatLimit': __webpack_require__(128),
-    'patternRequired': __webpack_require__(141)
+    'switch': __webpack_require__(146),
+    'constant': __webpack_require__(132),
+    '_formatLimit': __webpack_require__(129),
+    'patternRequired': __webpack_require__(142)
   };
 
   if (ajv._opts.meta !== false) {
-    var metaSchema = __webpack_require__(184);
+    var metaSchema = __webpack_require__(185);
     ajv.addMetaSchema(metaSchema, META_SCHEMA_ID);
   }
   _addKeyword('constant');
@@ -27570,7 +27966,7 @@ function containsMacro(schema) {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -27578,8 +27974,8 @@ function containsMacro(schema) {
 var errors = __webpack_require__(43);
 var types = __webpack_require__(44);
 
-var Reader = __webpack_require__(150);
-var Writer = __webpack_require__(151);
+var Reader = __webpack_require__(151);
+var Writer = __webpack_require__(152);
 
 
 ///--- Exports
@@ -27603,7 +27999,7 @@ for (var e in errors) {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -27870,7 +28266,7 @@ module.exports = Reader;
 
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -28192,19 +28588,19 @@ module.exports = Writer;
 
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
 {
-  parallel      : __webpack_require__(154),
-  serial        : __webpack_require__(155),
-  serialOrdered : __webpack_require__(76)
+  parallel      : __webpack_require__(155),
+  serial        : __webpack_require__(156),
+  serialOrdered : __webpack_require__(77)
 };
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports) {
 
 module.exports = defer;
@@ -28236,12 +28632,12 @@ function defer(fn)
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var iterate    = __webpack_require__(73)
-  , initState  = __webpack_require__(74)
-  , terminator = __webpack_require__(75)
+var iterate    = __webpack_require__(74)
+  , initState  = __webpack_require__(75)
+  , terminator = __webpack_require__(76)
   ;
 
 // Public API
@@ -28285,10 +28681,10 @@ function parallel(list, iterator, callback)
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var serialOrdered = __webpack_require__(76);
+var serialOrdered = __webpack_require__(77);
 
 // Public API
 module.exports = serial;
@@ -28308,7 +28704,7 @@ function serial(list, iterator, callback)
 
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -28526,14 +28922,14 @@ module.exports.canonicalizeResource = canonicalizeResource
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var aws4 = exports,
     url = __webpack_require__(7),
     querystring = __webpack_require__(40),
     crypto = __webpack_require__(1),
-    lru = __webpack_require__(158),
+    lru = __webpack_require__(159),
     credentialsCache = lru(1000)
 
 // http://docs.amazonwebservices.com/general/latest/gr/signature-version-4.html
@@ -28864,7 +29260,7 @@ aws4.sign = function(request, credentials) {
 
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports) {
 
 module.exports = function(size) {
@@ -28966,7 +29362,7 @@ function DoublyLinkedNode(key, val) {
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29021,7 +29417,7 @@ var _AppScope = __webpack_require__(115);
 
 var _AppScope2 = _interopRequireDefault(_AppScope);
 
-var _rescope = __webpack_require__(42);
+var _rescope = __webpack_require__(41);
 
 var _server = __webpack_require__(118);
 
@@ -29065,7 +29461,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var indexTpl = __webpack_require__(116);
-var ReactDom = __webpack_require__(41);
+var ReactDom = __webpack_require__(42);
 
 var App = (_dec = (0, _rescope.scopeToState)(["appState", "someData"]), _dec(_class = (_temp = _class2 = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -29302,7 +29698,7 @@ if (typeof window != 'undefined') {
 exports.default = App;
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports) {
 
 module.exports = defer;
@@ -29334,7 +29730,7 @@ function defer(fn)
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -29447,7 +29843,7 @@ function objectToString(o) {
 
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Stream = __webpack_require__(14).Stream;
@@ -29560,7 +29956,7 @@ DelayedStream.prototype._checkIfMaxDataSizeExceeded = function() {
 
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Named EC curves
@@ -29736,7 +30132,7 @@ module.exports = {
 
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29771,7 +30167,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29807,7 +30203,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29835,7 +30231,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29850,7 +30246,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(166);
+var isNode = __webpack_require__(167);
 
 /**
  * @param {*} object The object to check.
@@ -29863,7 +30259,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = ForeverAgent
@@ -30007,19 +30403,19 @@ function createConnectionSSL (port, host, options) {
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var CombinedStream = __webpack_require__(79);
+var CombinedStream = __webpack_require__(80);
 var util = __webpack_require__(2);
 var path = __webpack_require__(59);
 var http = __webpack_require__(31);
 var https = __webpack_require__(39);
 var parseUrl = __webpack_require__(7).parse;
 var fs = __webpack_require__(111);
-var mime = __webpack_require__(92);
-var asynckit = __webpack_require__(152);
-var populate = __webpack_require__(170);
+var mime = __webpack_require__(93);
+var asynckit = __webpack_require__(153);
+var populate = __webpack_require__(171);
 
 // Public API
 module.exports = FormData;
@@ -30470,7 +30866,7 @@ FormData.prototype.toString = function () {
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports) {
 
 // populates missing values
@@ -30486,36 +30882,36 @@ module.exports = function(dst, src) {
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {
-  afterRequest: __webpack_require__(185),
-  beforeRequest: __webpack_require__(186),
-  browser: __webpack_require__(187),
-  cache: __webpack_require__(188),
-  content: __webpack_require__(189),
-  cookie: __webpack_require__(190),
-  creator: __webpack_require__(191),
-  entry: __webpack_require__(192),
-  har: __webpack_require__(193),
-  header: __webpack_require__(194),
-  log: __webpack_require__(195),
-  page: __webpack_require__(196),
-  pageTimings: __webpack_require__(197),
-  postData: __webpack_require__(198),
-  query: __webpack_require__(199),
-  request: __webpack_require__(200),
-  response: __webpack_require__(201),
-  timings: __webpack_require__(202)
+  afterRequest: __webpack_require__(186),
+  beforeRequest: __webpack_require__(187),
+  browser: __webpack_require__(188),
+  cache: __webpack_require__(189),
+  content: __webpack_require__(190),
+  cookie: __webpack_require__(191),
+  creator: __webpack_require__(192),
+  entry: __webpack_require__(193),
+  har: __webpack_require__(194),
+  header: __webpack_require__(195),
+  log: __webpack_require__(196),
+  page: __webpack_require__(197),
+  pageTimings: __webpack_require__(198),
+  postData: __webpack_require__(199),
+  query: __webpack_require__(200),
+  request: __webpack_require__(201),
+  response: __webpack_require__(202),
+  timings: __webpack_require__(203)
 }
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports) {
 
 function HARError (errors) {
@@ -30538,12 +30934,12 @@ module.exports = HARError
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Ajv = __webpack_require__(120)
-var HARError = __webpack_require__(172)
-var schemas = __webpack_require__(171)
+var Ajv = __webpack_require__(121)
+var HARError = __webpack_require__(173)
+var schemas = __webpack_require__(172)
 
 var ajv
 
@@ -30639,7 +31035,7 @@ exports.timings = function (data) {
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30649,7 +31045,7 @@ exports.timings = function (data) {
 
 const Url = __webpack_require__(7);
 const Hoek = __webpack_require__(34);
-const Cryptiles = __webpack_require__(80);
+const Cryptiles = __webpack_require__(81);
 const Crypto = __webpack_require__(48);
 const Utils = __webpack_require__(33);
 
@@ -31040,7 +31436,7 @@ exports.message = function (host, port, message, options) {
 
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31049,10 +31445,10 @@ exports.message = function (host, port, message, options) {
 // Export sub-modules
 
 exports.error = exports.Error = __webpack_require__(32);
-exports.sntp = __webpack_require__(99);
+exports.sntp = __webpack_require__(100);
 
-exports.server = __webpack_require__(176);
-exports.client = __webpack_require__(174);
+exports.server = __webpack_require__(177);
+exports.client = __webpack_require__(175);
 exports.crypto = __webpack_require__(48);
 exports.utils = __webpack_require__(33);
 
@@ -31064,7 +31460,7 @@ exports.uri = {
 
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31074,7 +31470,7 @@ exports.uri = {
 
 const Boom = __webpack_require__(32);
 const Hoek = __webpack_require__(34);
-const Cryptiles = __webpack_require__(80);
+const Cryptiles = __webpack_require__(81);
 const Crypto = __webpack_require__(48);
 const Utils = __webpack_require__(33);
 
@@ -31621,7 +32017,7 @@ internals.nonceFunc = function (key, nonce, ts, nonceCallback) {
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31796,14 +32192,14 @@ internals.safeCharCodes = (function () {
 
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
 
-var parser = __webpack_require__(179);
-var signer = __webpack_require__(180);
-var verify = __webpack_require__(181);
+var parser = __webpack_require__(180);
+var signer = __webpack_require__(181);
+var verify = __webpack_require__(182);
 var utils = __webpack_require__(35);
 
 
@@ -31831,7 +32227,7 @@ module.exports = {
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
@@ -32152,7 +32548,7 @@ module.exports = {
 
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
@@ -32162,7 +32558,7 @@ var crypto = __webpack_require__(1);
 var http = __webpack_require__(31);
 var util = __webpack_require__(2);
 var sshpk = __webpack_require__(56);
-var jsprim = __webpack_require__(211);
+var jsprim = __webpack_require__(212);
 var utils = __webpack_require__(35);
 
 var sprintf = __webpack_require__(2).format;
@@ -32559,7 +32955,7 @@ module.exports = {
 
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
@@ -32653,7 +33049,7 @@ module.exports = {
 
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports) {
 
 module.exports      = isTypedArray
@@ -32700,145 +33096,145 @@ function isLooseTypedArray(arr) {
 
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports) {
 
 module.exports = {"id":"http://json-schema.org/draft-04/schema#","$schema":"http://json-schema.org/draft-04/schema#","description":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"positiveInteger":{"type":"integer","minimum":0},"positiveIntegerDefault0":{"allOf":[{"$ref":"#/definitions/positiveInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true}},"type":"object","properties":{"id":{"type":"string","format":"uri"},"$schema":{"type":"string","format":"uri"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"multipleOf":{"type":"number","minimum":0,"exclusiveMinimum":true},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"boolean","default":false},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"boolean","default":false},"maxLength":{"$ref":"#/definitions/positiveInteger"},"minLength":{"$ref":"#/definitions/positiveIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"$ref":"#/definitions/positiveInteger"},"minItems":{"$ref":"#/definitions/positiveIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"maxProperties":{"$ref":"#/definitions/positiveInteger"},"minProperties":{"$ref":"#/definitions/positiveIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"enum":{"type":"array","minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"dependencies":{"exclusiveMaximum":["maximum"],"exclusiveMinimum":["minimum"]},"default":{}}
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports) {
 
 module.exports = {"id":"https://raw.githubusercontent.com/epoberezkin/ajv/master/lib/refs/json-schema-v5.json#","$schema":"http://json-schema.org/draft-04/schema#","description":"Core schema meta-schema (v5 proposals)","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"positiveInteger":{"type":"integer","minimum":0},"positiveIntegerDefault0":{"allOf":[{"$ref":"#/definitions/positiveInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true},"$data":{"type":"object","required":["$data"],"properties":{"$data":{"type":"string","anyOf":[{"format":"relative-json-pointer"},{"format":"json-pointer"}]}},"additionalProperties":false}},"type":"object","properties":{"id":{"type":"string","format":"uri"},"$schema":{"type":"string","format":"uri"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"multipleOf":{"anyOf":[{"type":"number","minimum":0,"exclusiveMinimum":true},{"$ref":"#/definitions/$data"}]},"maximum":{"anyOf":[{"type":"number"},{"$ref":"#/definitions/$data"}]},"exclusiveMaximum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"minimum":{"anyOf":[{"type":"number"},{"$ref":"#/definitions/$data"}]},"exclusiveMinimum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"maxLength":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minLength":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"pattern":{"anyOf":[{"type":"string","format":"regex"},{"$ref":"#/definitions/$data"}]},"additionalItems":{"anyOf":[{"type":"boolean"},{"$ref":"#"},{"$ref":"#/definitions/$data"}],"default":{}},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minItems":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"uniqueItems":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"maxProperties":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minProperties":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"required":{"anyOf":[{"$ref":"#/definitions/stringArray"},{"$ref":"#/definitions/$data"}]},"additionalProperties":{"anyOf":[{"type":"boolean"},{"$ref":"#"},{"$ref":"#/definitions/$data"}],"default":{}},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"enum":{"anyOf":[{"type":"array","minItems":1,"uniqueItems":true},{"$ref":"#/definitions/$data"}]},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"},"format":{"anyOf":[{"type":"string"},{"$ref":"#/definitions/$data"}]},"formatMaximum":{"anyOf":[{"type":"string"},{"$ref":"#/definitions/$data"}]},"formatMinimum":{"anyOf":[{"type":"string"},{"$ref":"#/definitions/$data"}]},"formatExclusiveMaximum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"formatExclusiveMinimum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"constant":{"anyOf":[{},{"$ref":"#/definitions/$data"}]},"contains":{"$ref":"#"},"patternGroups":{"type":"object","additionalProperties":{"type":"object","required":["schema"],"properties":{"maximum":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minimum":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"schema":{"$ref":"#"}},"additionalProperties":false},"default":{}},"switch":{"type":"array","items":{"required":["then"],"properties":{"if":{"$ref":"#"},"then":{"anyOf":[{"type":"boolean"},{"$ref":"#"}]},"continue":{"type":"boolean"}},"additionalProperties":false,"dependencies":{"continue":["if"]}}}},"dependencies":{"exclusiveMaximum":["maximum"],"exclusiveMinimum":["minimum"],"formatMaximum":["format"],"formatMinimum":["format"],"formatExclusiveMaximum":["formatMaximum"],"formatExclusiveMinimum":["formatMinimum"]},"default":{}}
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"afterRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"beforeRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"browser.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cache.json#","$schema":"http://json-schema.org/draft-06/schema#","properties":{"beforeRequest":{"oneOf":[{"type":"null"},{"$ref":"beforeRequest.json#"}]},"afterRequest":{"oneOf":[{"type":"null"},{"$ref":"afterRequest.json#"}]},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"content.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["size","mimeType"],"properties":{"size":{"type":"integer"},"compression":{"type":"integer"},"mimeType":{"type":"string"},"text":{"type":"string"},"encoding":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cookie.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"path":{"type":"string"},"domain":{"type":"string"},"expires":{"type":["string","null"],"format":"date-time"},"httpOnly":{"type":"boolean"},"secure":{"type":"boolean"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"creator.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"entry.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","time","request","response","cache","timings"],"properties":{"pageref":{"type":"string"},"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"time":{"type":"number","min":0},"request":{"$ref":"request.json#"},"response":{"$ref":"response.json#"},"cache":{"$ref":"cache.json#"},"timings":{"$ref":"timings.json#"},"serverIPAddress":{"type":"string","oneOf":[{"format":"ipv4"},{"format":"ipv6"}]},"connection":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"har.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["log"],"properties":{"log":{"$ref":"log.json#"}}}
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"header.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"log.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["version","creator","entries"],"properties":{"version":{"type":"string"},"creator":{"$ref":"creator.json#"},"browser":{"$ref":"browser.json#"},"pages":{"type":"array","items":{"$ref":"page.json#"}},"entries":{"type":"array","items":{"$ref":"entry.json#"}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"page.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","id","title","pageTimings"],"properties":{"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"id":{"type":"string","unique":true},"title":{"type":"string"},"pageTimings":{"$ref":"pageTimings.json#"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"pageTimings.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","properties":{"onContentLoad":{"type":"number","min":-1},"onLoad":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"postData.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["mimeType"],"properties":{"mimeType":{"type":"string"},"text":{"type":"string"},"params":{"type":"array","required":["name"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"fileName":{"type":"string"},"contentType":{"type":"string"},"comment":{"type":"string"}}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"query.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"request.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["method","url","httpVersion","cookies","headers","queryString","headersSize","bodySize"],"properties":{"method":{"type":"string"},"url":{"type":"string","format":"uri"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"queryString":{"type":"array","items":{"$ref":"query.json#"}},"postData":{"$ref":"postData.json#"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"response.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["status","statusText","httpVersion","cookies","headers","content","redirectURL","headersSize","bodySize"],"properties":{"status":{"type":"integer"},"statusText":{"type":"string"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"content":{"$ref":"content.json#"},"redirectURL":{"type":"string"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"timings.json#","$schema":"http://json-schema.org/draft-06/schema#","required":["send","wait","receive"],"properties":{"dns":{"type":"number","min":-1},"connect":{"type":"number","min":-1},"blocked":{"type":"number","min":-1},"send":{"type":"number","min":-1},"wait":{"type":"number","min":-1},"receive":{"type":"number","min":-1},"ssl":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, exports) {
 
 module.exports = {"_args":[["hawk@~6.0.2","G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-ssr\\node_modules\\request"]],"_from":"hawk@>=6.0.2 <6.1.0","_id":"hawk@6.0.2","_inCache":true,"_installable":true,"_location":"/hawk","_nodeVersion":"8.1.4","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/hawk-6.0.2.tgz_1500338423954_0.2481594004202634"},"_npmUser":{"email":"eran@hammer.io","name":"hueniverse"},"_npmVersion":"5.3.0","_phantomChildren":{},"_requested":{"name":"hawk","raw":"hawk@~6.0.2","rawSpec":"~6.0.2","scope":null,"spec":">=6.0.2 <6.1.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/hawk/-/hawk-6.0.2.tgz","_shasum":"af4d914eb065f9b5ce4d9d11c1cb2126eecc3038","_shrinkwrap":null,"_spec":"hawk@~6.0.2","_where":"G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-ssr\\node_modules\\request","author":{"email":"eran@hammer.io","name":"Eran Hammer","url":"http://hueniverse.com"},"babel":{"presets":["es2015"]},"browser":"dist/browser.js","bugs":{"url":"https://github.com/hueniverse/hawk/issues"},"dependencies":{"boom":"4.x.x","cryptiles":"3.x.x","hoek":"4.x.x","sntp":"2.x.x"},"description":"HTTP Hawk Authentication Scheme","devDependencies":{"babel-cli":"^6.1.2","babel-preset-es2015":"^6.1.2","code":"4.x.x","lab":"14.x.x"},"directories":{},"dist":{"integrity":"sha512-miowhl2+U7Qle4vdLqDdPt9m09K6yZhkLDTWGoUiUzrQCn+mHHSmfJgAyGaLRZbPmTqfFFjRV1QWCW0VWUJBbQ==","shasum":"af4d914eb065f9b5ce4d9d11c1cb2126eecc3038","tarball":"https://registry.npmjs.org/hawk/-/hawk-6.0.2.tgz"},"engines":{"node":">=4.5.0"},"gitHead":"d251edf711826e961ee6267d29a7fa50ff8cf9d0","homepage":"https://github.com/hueniverse/hawk#readme","keywords":["http","authentication","scheme","hawk"],"license":"BSD-3-Clause","main":"lib/index.js","maintainers":[{"email":"eran@hueniverse.com","name":"hueniverse"}],"name":"hawk","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/hueniverse/hawk.git"},"scripts":{"build-client":"mkdir -p dist; babel lib/browser.js --out-file dist/browser.js","prepublish":"npm run-script build-client","test":"lab -a code -t 100 -L","test-cov-html":"lab -a code -r html -o coverage.html"},"version":"6.0.2"}
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, exports) {
 
 module.exports = {"application/1d-interleaved-parityfec":{"source":"iana"},"application/3gpdash-qoe-report+xml":{"source":"iana"},"application/3gpp-ims+xml":{"source":"iana"},"application/a2l":{"source":"iana"},"application/activemessage":{"source":"iana"},"application/alto-costmap+json":{"source":"iana","compressible":true},"application/alto-costmapfilter+json":{"source":"iana","compressible":true},"application/alto-directory+json":{"source":"iana","compressible":true},"application/alto-endpointcost+json":{"source":"iana","compressible":true},"application/alto-endpointcostparams+json":{"source":"iana","compressible":true},"application/alto-endpointprop+json":{"source":"iana","compressible":true},"application/alto-endpointpropparams+json":{"source":"iana","compressible":true},"application/alto-error+json":{"source":"iana","compressible":true},"application/alto-networkmap+json":{"source":"iana","compressible":true},"application/alto-networkmapfilter+json":{"source":"iana","compressible":true},"application/aml":{"source":"iana"},"application/andrew-inset":{"source":"iana","extensions":["ez"]},"application/applefile":{"source":"iana"},"application/applixware":{"source":"apache","extensions":["aw"]},"application/atf":{"source":"iana"},"application/atfx":{"source":"iana"},"application/atom+xml":{"source":"iana","compressible":true,"extensions":["atom"]},"application/atomcat+xml":{"source":"iana","extensions":["atomcat"]},"application/atomdeleted+xml":{"source":"iana"},"application/atomicmail":{"source":"iana"},"application/atomsvc+xml":{"source":"iana","extensions":["atomsvc"]},"application/atxml":{"source":"iana"},"application/auth-policy+xml":{"source":"iana"},"application/bacnet-xdd+zip":{"source":"iana"},"application/batch-smtp":{"source":"iana"},"application/bdoc":{"compressible":false,"extensions":["bdoc"]},"application/beep+xml":{"source":"iana"},"application/calendar+json":{"source":"iana","compressible":true},"application/calendar+xml":{"source":"iana"},"application/call-completion":{"source":"iana"},"application/cals-1840":{"source":"iana"},"application/cbor":{"source":"iana"},"application/cccex":{"source":"iana"},"application/ccmp+xml":{"source":"iana"},"application/ccxml+xml":{"source":"iana","extensions":["ccxml"]},"application/cdfx+xml":{"source":"iana"},"application/cdmi-capability":{"source":"iana","extensions":["cdmia"]},"application/cdmi-container":{"source":"iana","extensions":["cdmic"]},"application/cdmi-domain":{"source":"iana","extensions":["cdmid"]},"application/cdmi-object":{"source":"iana","extensions":["cdmio"]},"application/cdmi-queue":{"source":"iana","extensions":["cdmiq"]},"application/cdni":{"source":"iana"},"application/cea":{"source":"iana"},"application/cea-2018+xml":{"source":"iana"},"application/cellml+xml":{"source":"iana"},"application/cfw":{"source":"iana"},"application/clue_info+xml":{"source":"iana"},"application/cms":{"source":"iana"},"application/cnrp+xml":{"source":"iana"},"application/coap-group+json":{"source":"iana","compressible":true},"application/coap-payload":{"source":"iana"},"application/commonground":{"source":"iana"},"application/conference-info+xml":{"source":"iana"},"application/cose":{"source":"iana"},"application/cose-key":{"source":"iana"},"application/cose-key-set":{"source":"iana"},"application/cpl+xml":{"source":"iana"},"application/csrattrs":{"source":"iana"},"application/csta+xml":{"source":"iana"},"application/cstadata+xml":{"source":"iana"},"application/csvm+json":{"source":"iana","compressible":true},"application/cu-seeme":{"source":"apache","extensions":["cu"]},"application/cybercash":{"source":"iana"},"application/dart":{"compressible":true},"application/dash+xml":{"source":"iana","extensions":["mpd"]},"application/dashdelta":{"source":"iana"},"application/davmount+xml":{"source":"iana","extensions":["davmount"]},"application/dca-rft":{"source":"iana"},"application/dcd":{"source":"iana"},"application/dec-dx":{"source":"iana"},"application/dialog-info+xml":{"source":"iana"},"application/dicom":{"source":"iana"},"application/dicom+json":{"source":"iana","compressible":true},"application/dicom+xml":{"source":"iana"},"application/dii":{"source":"iana"},"application/dit":{"source":"iana"},"application/dns":{"source":"iana"},"application/docbook+xml":{"source":"apache","extensions":["dbk"]},"application/dskpp+xml":{"source":"iana"},"application/dssc+der":{"source":"iana","extensions":["dssc"]},"application/dssc+xml":{"source":"iana","extensions":["xdssc"]},"application/dvcs":{"source":"iana"},"application/ecmascript":{"source":"iana","compressible":true,"extensions":["ecma"]},"application/edi-consent":{"source":"iana"},"application/edi-x12":{"source":"iana","compressible":false},"application/edifact":{"source":"iana","compressible":false},"application/efi":{"source":"iana"},"application/emergencycalldata.comment+xml":{"source":"iana"},"application/emergencycalldata.control+xml":{"source":"iana"},"application/emergencycalldata.deviceinfo+xml":{"source":"iana"},"application/emergencycalldata.ecall.msd":{"source":"iana"},"application/emergencycalldata.providerinfo+xml":{"source":"iana"},"application/emergencycalldata.serviceinfo+xml":{"source":"iana"},"application/emergencycalldata.subscriberinfo+xml":{"source":"iana"},"application/emergencycalldata.veds+xml":{"source":"iana"},"application/emma+xml":{"source":"iana","extensions":["emma"]},"application/emotionml+xml":{"source":"iana"},"application/encaprtp":{"source":"iana"},"application/epp+xml":{"source":"iana"},"application/epub+zip":{"source":"iana","extensions":["epub"]},"application/eshop":{"source":"iana"},"application/exi":{"source":"iana","extensions":["exi"]},"application/fastinfoset":{"source":"iana"},"application/fastsoap":{"source":"iana"},"application/fdt+xml":{"source":"iana"},"application/fhir+xml":{"source":"iana"},"application/fido.trusted-apps+json":{"compressible":true},"application/fits":{"source":"iana"},"application/font-sfnt":{"source":"iana"},"application/font-tdpfr":{"source":"iana","extensions":["pfr"]},"application/font-woff":{"source":"iana","compressible":false,"extensions":["woff"]},"application/framework-attributes+xml":{"source":"iana"},"application/geo+json":{"source":"iana","compressible":true,"extensions":["geojson"]},"application/geo+json-seq":{"source":"iana"},"application/geoxacml+xml":{"source":"iana"},"application/gml+xml":{"source":"iana","extensions":["gml"]},"application/gpx+xml":{"source":"apache","extensions":["gpx"]},"application/gxf":{"source":"apache","extensions":["gxf"]},"application/gzip":{"source":"iana","compressible":false,"extensions":["gz"]},"application/h224":{"source":"iana"},"application/held+xml":{"source":"iana"},"application/hjson":{"extensions":["hjson"]},"application/http":{"source":"iana"},"application/hyperstudio":{"source":"iana","extensions":["stk"]},"application/ibe-key-request+xml":{"source":"iana"},"application/ibe-pkg-reply+xml":{"source":"iana"},"application/ibe-pp-data":{"source":"iana"},"application/iges":{"source":"iana"},"application/im-iscomposing+xml":{"source":"iana"},"application/index":{"source":"iana"},"application/index.cmd":{"source":"iana"},"application/index.obj":{"source":"iana"},"application/index.response":{"source":"iana"},"application/index.vnd":{"source":"iana"},"application/inkml+xml":{"source":"iana","extensions":["ink","inkml"]},"application/iotp":{"source":"iana"},"application/ipfix":{"source":"iana","extensions":["ipfix"]},"application/ipp":{"source":"iana"},"application/isup":{"source":"iana"},"application/its+xml":{"source":"iana"},"application/java-archive":{"source":"apache","compressible":false,"extensions":["jar","war","ear"]},"application/java-serialized-object":{"source":"apache","compressible":false,"extensions":["ser"]},"application/java-vm":{"source":"apache","compressible":false,"extensions":["class"]},"application/javascript":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["js","mjs"]},"application/jf2feed+json":{"source":"iana","compressible":true},"application/jose":{"source":"iana"},"application/jose+json":{"source":"iana","compressible":true},"application/jrd+json":{"source":"iana","compressible":true},"application/json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["json","map"]},"application/json-patch+json":{"source":"iana","compressible":true},"application/json-seq":{"source":"iana"},"application/json5":{"extensions":["json5"]},"application/jsonml+json":{"source":"apache","compressible":true,"extensions":["jsonml"]},"application/jwk+json":{"source":"iana","compressible":true},"application/jwk-set+json":{"source":"iana","compressible":true},"application/jwt":{"source":"iana"},"application/kpml-request+xml":{"source":"iana"},"application/kpml-response+xml":{"source":"iana"},"application/ld+json":{"source":"iana","compressible":true,"extensions":["jsonld"]},"application/lgr+xml":{"source":"iana"},"application/link-format":{"source":"iana"},"application/load-control+xml":{"source":"iana"},"application/lost+xml":{"source":"iana","extensions":["lostxml"]},"application/lostsync+xml":{"source":"iana"},"application/lxf":{"source":"iana"},"application/mac-binhex40":{"source":"iana","extensions":["hqx"]},"application/mac-compactpro":{"source":"apache","extensions":["cpt"]},"application/macwriteii":{"source":"iana"},"application/mads+xml":{"source":"iana","extensions":["mads"]},"application/manifest+json":{"charset":"UTF-8","compressible":true,"extensions":["webmanifest"]},"application/marc":{"source":"iana","extensions":["mrc"]},"application/marcxml+xml":{"source":"iana","extensions":["mrcx"]},"application/mathematica":{"source":"iana","extensions":["ma","nb","mb"]},"application/mathml+xml":{"source":"iana","extensions":["mathml"]},"application/mathml-content+xml":{"source":"iana"},"application/mathml-presentation+xml":{"source":"iana"},"application/mbms-associated-procedure-description+xml":{"source":"iana"},"application/mbms-deregister+xml":{"source":"iana"},"application/mbms-envelope+xml":{"source":"iana"},"application/mbms-msk+xml":{"source":"iana"},"application/mbms-msk-response+xml":{"source":"iana"},"application/mbms-protection-description+xml":{"source":"iana"},"application/mbms-reception-report+xml":{"source":"iana"},"application/mbms-register+xml":{"source":"iana"},"application/mbms-register-response+xml":{"source":"iana"},"application/mbms-schedule+xml":{"source":"iana"},"application/mbms-user-service-description+xml":{"source":"iana"},"application/mbox":{"source":"iana","extensions":["mbox"]},"application/media-policy-dataset+xml":{"source":"iana"},"application/media_control+xml":{"source":"iana"},"application/mediaservercontrol+xml":{"source":"iana","extensions":["mscml"]},"application/merge-patch+json":{"source":"iana","compressible":true},"application/metalink+xml":{"source":"apache","extensions":["metalink"]},"application/metalink4+xml":{"source":"iana","extensions":["meta4"]},"application/mets+xml":{"source":"iana","extensions":["mets"]},"application/mf4":{"source":"iana"},"application/mikey":{"source":"iana"},"application/mmt-usd+xml":{"source":"iana"},"application/mods+xml":{"source":"iana","extensions":["mods"]},"application/moss-keys":{"source":"iana"},"application/moss-signature":{"source":"iana"},"application/mosskey-data":{"source":"iana"},"application/mosskey-request":{"source":"iana"},"application/mp21":{"source":"iana","extensions":["m21","mp21"]},"application/mp4":{"source":"iana","extensions":["mp4s","m4p"]},"application/mpeg4-generic":{"source":"iana"},"application/mpeg4-iod":{"source":"iana"},"application/mpeg4-iod-xmt":{"source":"iana"},"application/mrb-consumer+xml":{"source":"iana"},"application/mrb-publish+xml":{"source":"iana"},"application/msc-ivr+xml":{"source":"iana"},"application/msc-mixer+xml":{"source":"iana"},"application/msword":{"source":"iana","compressible":false,"extensions":["doc","dot"]},"application/mud+json":{"source":"iana","compressible":true},"application/mxf":{"source":"iana","extensions":["mxf"]},"application/n-quads":{"source":"iana"},"application/n-triples":{"source":"iana"},"application/nasdata":{"source":"iana"},"application/news-checkgroups":{"source":"iana"},"application/news-groupinfo":{"source":"iana"},"application/news-transmission":{"source":"iana"},"application/nlsml+xml":{"source":"iana"},"application/node":{"source":"iana"},"application/nss":{"source":"iana"},"application/ocsp-request":{"source":"iana"},"application/ocsp-response":{"source":"iana"},"application/octet-stream":{"source":"iana","compressible":false,"extensions":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"]},"application/oda":{"source":"iana","extensions":["oda"]},"application/odx":{"source":"iana"},"application/oebps-package+xml":{"source":"iana","extensions":["opf"]},"application/ogg":{"source":"iana","compressible":false,"extensions":["ogx"]},"application/omdoc+xml":{"source":"apache","extensions":["omdoc"]},"application/onenote":{"source":"apache","extensions":["onetoc","onetoc2","onetmp","onepkg"]},"application/oxps":{"source":"iana","extensions":["oxps"]},"application/p2p-overlay+xml":{"source":"iana"},"application/parityfec":{"source":"iana"},"application/passport":{"source":"iana"},"application/patch-ops-error+xml":{"source":"iana","extensions":["xer"]},"application/pdf":{"source":"iana","compressible":false,"extensions":["pdf"]},"application/pdx":{"source":"iana"},"application/pgp-encrypted":{"source":"iana","compressible":false,"extensions":["pgp"]},"application/pgp-keys":{"source":"iana"},"application/pgp-signature":{"source":"iana","extensions":["asc","sig"]},"application/pics-rules":{"source":"apache","extensions":["prf"]},"application/pidf+xml":{"source":"iana"},"application/pidf-diff+xml":{"source":"iana"},"application/pkcs10":{"source":"iana","extensions":["p10"]},"application/pkcs12":{"source":"iana"},"application/pkcs7-mime":{"source":"iana","extensions":["p7m","p7c"]},"application/pkcs7-signature":{"source":"iana","extensions":["p7s"]},"application/pkcs8":{"source":"iana","extensions":["p8"]},"application/pkcs8-encrypted":{"source":"iana"},"application/pkix-attr-cert":{"source":"iana","extensions":["ac"]},"application/pkix-cert":{"source":"iana","extensions":["cer"]},"application/pkix-crl":{"source":"iana","extensions":["crl"]},"application/pkix-pkipath":{"source":"iana","extensions":["pkipath"]},"application/pkixcmp":{"source":"iana","extensions":["pki"]},"application/pls+xml":{"source":"iana","extensions":["pls"]},"application/poc-settings+xml":{"source":"iana"},"application/postscript":{"source":"iana","compressible":true,"extensions":["ai","eps","ps"]},"application/ppsp-tracker+json":{"source":"iana","compressible":true},"application/problem+json":{"source":"iana","compressible":true},"application/problem+xml":{"source":"iana"},"application/provenance+xml":{"source":"iana"},"application/prs.alvestrand.titrax-sheet":{"source":"iana"},"application/prs.cww":{"source":"iana","extensions":["cww"]},"application/prs.hpub+zip":{"source":"iana"},"application/prs.nprend":{"source":"iana"},"application/prs.plucker":{"source":"iana"},"application/prs.rdf-xml-crypt":{"source":"iana"},"application/prs.xsf+xml":{"source":"iana"},"application/pskc+xml":{"source":"iana","extensions":["pskcxml"]},"application/qsig":{"source":"iana"},"application/raml+yaml":{"compressible":true,"extensions":["raml"]},"application/raptorfec":{"source":"iana"},"application/rdap+json":{"source":"iana","compressible":true},"application/rdf+xml":{"source":"iana","compressible":true,"extensions":["rdf"]},"application/reginfo+xml":{"source":"iana","extensions":["rif"]},"application/relax-ng-compact-syntax":{"source":"iana","extensions":["rnc"]},"application/remote-printing":{"source":"iana"},"application/reputon+json":{"source":"iana","compressible":true},"application/resource-lists+xml":{"source":"iana","extensions":["rl"]},"application/resource-lists-diff+xml":{"source":"iana","extensions":["rld"]},"application/rfc+xml":{"source":"iana"},"application/riscos":{"source":"iana"},"application/rlmi+xml":{"source":"iana"},"application/rls-services+xml":{"source":"iana","extensions":["rs"]},"application/route-apd+xml":{"source":"iana"},"application/route-s-tsid+xml":{"source":"iana"},"application/route-usd+xml":{"source":"iana"},"application/rpki-ghostbusters":{"source":"iana","extensions":["gbr"]},"application/rpki-manifest":{"source":"iana","extensions":["mft"]},"application/rpki-publication":{"source":"iana"},"application/rpki-roa":{"source":"iana","extensions":["roa"]},"application/rpki-updown":{"source":"iana"},"application/rsd+xml":{"source":"apache","extensions":["rsd"]},"application/rss+xml":{"source":"apache","compressible":true,"extensions":["rss"]},"application/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"application/rtploopback":{"source":"iana"},"application/rtx":{"source":"iana"},"application/samlassertion+xml":{"source":"iana"},"application/samlmetadata+xml":{"source":"iana"},"application/sbml+xml":{"source":"iana","extensions":["sbml"]},"application/scaip+xml":{"source":"iana"},"application/scim+json":{"source":"iana","compressible":true},"application/scvp-cv-request":{"source":"iana","extensions":["scq"]},"application/scvp-cv-response":{"source":"iana","extensions":["scs"]},"application/scvp-vp-request":{"source":"iana","extensions":["spq"]},"application/scvp-vp-response":{"source":"iana","extensions":["spp"]},"application/sdp":{"source":"iana","extensions":["sdp"]},"application/sep+xml":{"source":"iana"},"application/sep-exi":{"source":"iana"},"application/session-info":{"source":"iana"},"application/set-payment":{"source":"iana"},"application/set-payment-initiation":{"source":"iana","extensions":["setpay"]},"application/set-registration":{"source":"iana"},"application/set-registration-initiation":{"source":"iana","extensions":["setreg"]},"application/sgml":{"source":"iana"},"application/sgml-open-catalog":{"source":"iana"},"application/shf+xml":{"source":"iana","extensions":["shf"]},"application/sieve":{"source":"iana"},"application/simple-filter+xml":{"source":"iana"},"application/simple-message-summary":{"source":"iana"},"application/simplesymbolcontainer":{"source":"iana"},"application/slate":{"source":"iana"},"application/smil":{"source":"iana"},"application/smil+xml":{"source":"iana","extensions":["smi","smil"]},"application/smpte336m":{"source":"iana"},"application/soap+fastinfoset":{"source":"iana"},"application/soap+xml":{"source":"iana","compressible":true},"application/sparql-query":{"source":"iana","extensions":["rq"]},"application/sparql-results+xml":{"source":"iana","extensions":["srx"]},"application/spirits-event+xml":{"source":"iana"},"application/sql":{"source":"iana"},"application/srgs":{"source":"iana","extensions":["gram"]},"application/srgs+xml":{"source":"iana","extensions":["grxml"]},"application/sru+xml":{"source":"iana","extensions":["sru"]},"application/ssdl+xml":{"source":"apache","extensions":["ssdl"]},"application/ssml+xml":{"source":"iana","extensions":["ssml"]},"application/tamp-apex-update":{"source":"iana"},"application/tamp-apex-update-confirm":{"source":"iana"},"application/tamp-community-update":{"source":"iana"},"application/tamp-community-update-confirm":{"source":"iana"},"application/tamp-error":{"source":"iana"},"application/tamp-sequence-adjust":{"source":"iana"},"application/tamp-sequence-adjust-confirm":{"source":"iana"},"application/tamp-status-query":{"source":"iana"},"application/tamp-status-response":{"source":"iana"},"application/tamp-update":{"source":"iana"},"application/tamp-update-confirm":{"source":"iana"},"application/tar":{"compressible":true},"application/tei+xml":{"source":"iana","extensions":["tei","teicorpus"]},"application/thraud+xml":{"source":"iana","extensions":["tfi"]},"application/timestamp-query":{"source":"iana"},"application/timestamp-reply":{"source":"iana"},"application/timestamped-data":{"source":"iana","extensions":["tsd"]},"application/tnauthlist":{"source":"iana"},"application/trig":{"source":"iana"},"application/ttml+xml":{"source":"iana"},"application/tve-trigger":{"source":"iana"},"application/ulpfec":{"source":"iana"},"application/urc-grpsheet+xml":{"source":"iana"},"application/urc-ressheet+xml":{"source":"iana"},"application/urc-targetdesc+xml":{"source":"iana"},"application/urc-uisocketdesc+xml":{"source":"iana"},"application/vcard+json":{"source":"iana","compressible":true},"application/vcard+xml":{"source":"iana"},"application/vemmi":{"source":"iana"},"application/vividence.scriptfile":{"source":"apache"},"application/vnd.1000minds.decision-model+xml":{"source":"iana"},"application/vnd.3gpp-prose+xml":{"source":"iana"},"application/vnd.3gpp-prose-pc3ch+xml":{"source":"iana"},"application/vnd.3gpp-v2x-local-service-information":{"source":"iana"},"application/vnd.3gpp.access-transfer-events+xml":{"source":"iana"},"application/vnd.3gpp.bsf+xml":{"source":"iana"},"application/vnd.3gpp.gmop+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-affiliation-command+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-floor-request+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-location-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-mbms-usage-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-signed+xml":{"source":"iana"},"application/vnd.3gpp.mid-call+xml":{"source":"iana"},"application/vnd.3gpp.pic-bw-large":{"source":"iana","extensions":["plb"]},"application/vnd.3gpp.pic-bw-small":{"source":"iana","extensions":["psb"]},"application/vnd.3gpp.pic-bw-var":{"source":"iana","extensions":["pvb"]},"application/vnd.3gpp.sms":{"source":"iana"},"application/vnd.3gpp.sms+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-ext+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-info+xml":{"source":"iana"},"application/vnd.3gpp.state-and-event-info+xml":{"source":"iana"},"application/vnd.3gpp.ussd+xml":{"source":"iana"},"application/vnd.3gpp2.bcmcsinfo+xml":{"source":"iana"},"application/vnd.3gpp2.sms":{"source":"iana"},"application/vnd.3gpp2.tcap":{"source":"iana","extensions":["tcap"]},"application/vnd.3lightssoftware.imagescal":{"source":"iana"},"application/vnd.3m.post-it-notes":{"source":"iana","extensions":["pwn"]},"application/vnd.accpac.simply.aso":{"source":"iana","extensions":["aso"]},"application/vnd.accpac.simply.imp":{"source":"iana","extensions":["imp"]},"application/vnd.acucobol":{"source":"iana","extensions":["acu"]},"application/vnd.acucorp":{"source":"iana","extensions":["atc","acutc"]},"application/vnd.adobe.air-application-installer-package+zip":{"source":"apache","extensions":["air"]},"application/vnd.adobe.flash.movie":{"source":"iana"},"application/vnd.adobe.formscentral.fcdt":{"source":"iana","extensions":["fcdt"]},"application/vnd.adobe.fxp":{"source":"iana","extensions":["fxp","fxpl"]},"application/vnd.adobe.partial-upload":{"source":"iana"},"application/vnd.adobe.xdp+xml":{"source":"iana","extensions":["xdp"]},"application/vnd.adobe.xfdf":{"source":"iana","extensions":["xfdf"]},"application/vnd.aether.imp":{"source":"iana"},"application/vnd.ah-barcode":{"source":"iana"},"application/vnd.ahead.space":{"source":"iana","extensions":["ahead"]},"application/vnd.airzip.filesecure.azf":{"source":"iana","extensions":["azf"]},"application/vnd.airzip.filesecure.azs":{"source":"iana","extensions":["azs"]},"application/vnd.amadeus+json":{"source":"iana","compressible":true},"application/vnd.amazon.ebook":{"source":"apache","extensions":["azw"]},"application/vnd.amazon.mobi8-ebook":{"source":"iana"},"application/vnd.americandynamics.acc":{"source":"iana","extensions":["acc"]},"application/vnd.amiga.ami":{"source":"iana","extensions":["ami"]},"application/vnd.amundsen.maze+xml":{"source":"iana"},"application/vnd.android.package-archive":{"source":"apache","compressible":false,"extensions":["apk"]},"application/vnd.anki":{"source":"iana"},"application/vnd.anser-web-certificate-issue-initiation":{"source":"iana","extensions":["cii"]},"application/vnd.anser-web-funds-transfer-initiation":{"source":"apache","extensions":["fti"]},"application/vnd.antix.game-component":{"source":"iana","extensions":["atx"]},"application/vnd.apache.thrift.binary":{"source":"iana"},"application/vnd.apache.thrift.compact":{"source":"iana"},"application/vnd.apache.thrift.json":{"source":"iana"},"application/vnd.api+json":{"source":"iana","compressible":true},"application/vnd.apothekende.reservation+json":{"source":"iana","compressible":true},"application/vnd.apple.installer+xml":{"source":"iana","extensions":["mpkg"]},"application/vnd.apple.mpegurl":{"source":"iana","extensions":["m3u8"]},"application/vnd.apple.pkpass":{"compressible":false,"extensions":["pkpass"]},"application/vnd.arastra.swi":{"source":"iana"},"application/vnd.aristanetworks.swi":{"source":"iana","extensions":["swi"]},"application/vnd.artsquare":{"source":"iana"},"application/vnd.astraea-software.iota":{"source":"iana","extensions":["iota"]},"application/vnd.audiograph":{"source":"iana","extensions":["aep"]},"application/vnd.autopackage":{"source":"iana"},"application/vnd.avalon+json":{"source":"iana","compressible":true},"application/vnd.avistar+xml":{"source":"iana"},"application/vnd.balsamiq.bmml+xml":{"source":"iana"},"application/vnd.balsamiq.bmpr":{"source":"iana"},"application/vnd.bbf.usp.msg":{"source":"iana"},"application/vnd.bbf.usp.msg+json":{"source":"iana","compressible":true},"application/vnd.bekitzur-stech+json":{"source":"iana","compressible":true},"application/vnd.bint.med-content":{"source":"iana"},"application/vnd.biopax.rdf+xml":{"source":"iana"},"application/vnd.blink-idb-value-wrapper":{"source":"iana"},"application/vnd.blueice.multipass":{"source":"iana","extensions":["mpm"]},"application/vnd.bluetooth.ep.oob":{"source":"iana"},"application/vnd.bluetooth.le.oob":{"source":"iana"},"application/vnd.bmi":{"source":"iana","extensions":["bmi"]},"application/vnd.businessobjects":{"source":"iana","extensions":["rep"]},"application/vnd.cab-jscript":{"source":"iana"},"application/vnd.canon-cpdl":{"source":"iana"},"application/vnd.canon-lips":{"source":"iana"},"application/vnd.capasystems-pg+json":{"source":"iana","compressible":true},"application/vnd.cendio.thinlinc.clientconf":{"source":"iana"},"application/vnd.century-systems.tcp_stream":{"source":"iana"},"application/vnd.chemdraw+xml":{"source":"iana","extensions":["cdxml"]},"application/vnd.chess-pgn":{"source":"iana"},"application/vnd.chipnuts.karaoke-mmd":{"source":"iana","extensions":["mmd"]},"application/vnd.cinderella":{"source":"iana","extensions":["cdy"]},"application/vnd.cirpack.isdn-ext":{"source":"iana"},"application/vnd.citationstyles.style+xml":{"source":"iana"},"application/vnd.claymore":{"source":"iana","extensions":["cla"]},"application/vnd.cloanto.rp9":{"source":"iana","extensions":["rp9"]},"application/vnd.clonk.c4group":{"source":"iana","extensions":["c4g","c4d","c4f","c4p","c4u"]},"application/vnd.cluetrust.cartomobile-config":{"source":"iana","extensions":["c11amc"]},"application/vnd.cluetrust.cartomobile-config-pkg":{"source":"iana","extensions":["c11amz"]},"application/vnd.coffeescript":{"source":"iana"},"application/vnd.collabio.xodocuments.document":{"source":"iana"},"application/vnd.collabio.xodocuments.document-template":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation-template":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet-template":{"source":"iana"},"application/vnd.collection+json":{"source":"iana","compressible":true},"application/vnd.collection.doc+json":{"source":"iana","compressible":true},"application/vnd.collection.next+json":{"source":"iana","compressible":true},"application/vnd.comicbook+zip":{"source":"iana"},"application/vnd.comicbook-rar":{"source":"iana"},"application/vnd.commerce-battelle":{"source":"iana"},"application/vnd.commonspace":{"source":"iana","extensions":["csp"]},"application/vnd.contact.cmsg":{"source":"iana","extensions":["cdbcmsg"]},"application/vnd.coreos.ignition+json":{"source":"iana","compressible":true},"application/vnd.cosmocaller":{"source":"iana","extensions":["cmc"]},"application/vnd.crick.clicker":{"source":"iana","extensions":["clkx"]},"application/vnd.crick.clicker.keyboard":{"source":"iana","extensions":["clkk"]},"application/vnd.crick.clicker.palette":{"source":"iana","extensions":["clkp"]},"application/vnd.crick.clicker.template":{"source":"iana","extensions":["clkt"]},"application/vnd.crick.clicker.wordbank":{"source":"iana","extensions":["clkw"]},"application/vnd.criticaltools.wbs+xml":{"source":"iana","extensions":["wbs"]},"application/vnd.ctc-posml":{"source":"iana","extensions":["pml"]},"application/vnd.ctct.ws+xml":{"source":"iana"},"application/vnd.cups-pdf":{"source":"iana"},"application/vnd.cups-postscript":{"source":"iana"},"application/vnd.cups-ppd":{"source":"iana","extensions":["ppd"]},"application/vnd.cups-raster":{"source":"iana"},"application/vnd.cups-raw":{"source":"iana"},"application/vnd.curl":{"source":"iana"},"application/vnd.curl.car":{"source":"apache","extensions":["car"]},"application/vnd.curl.pcurl":{"source":"apache","extensions":["pcurl"]},"application/vnd.cyan.dean.root+xml":{"source":"iana"},"application/vnd.cybank":{"source":"iana"},"application/vnd.d2l.coursepackage1p0+zip":{"source":"iana"},"application/vnd.dart":{"source":"iana","compressible":true,"extensions":["dart"]},"application/vnd.data-vision.rdz":{"source":"iana","extensions":["rdz"]},"application/vnd.datapackage+json":{"source":"iana","compressible":true},"application/vnd.dataresource+json":{"source":"iana","compressible":true},"application/vnd.debian.binary-package":{"source":"iana"},"application/vnd.dece.data":{"source":"iana","extensions":["uvf","uvvf","uvd","uvvd"]},"application/vnd.dece.ttml+xml":{"source":"iana","extensions":["uvt","uvvt"]},"application/vnd.dece.unspecified":{"source":"iana","extensions":["uvx","uvvx"]},"application/vnd.dece.zip":{"source":"iana","extensions":["uvz","uvvz"]},"application/vnd.denovo.fcselayout-link":{"source":"iana","extensions":["fe_launch"]},"application/vnd.desmume-movie":{"source":"iana"},"application/vnd.desmume.movie":{"source":"apache"},"application/vnd.dir-bi.plate-dl-nosuffix":{"source":"iana"},"application/vnd.dm.delegation+xml":{"source":"iana"},"application/vnd.dna":{"source":"iana","extensions":["dna"]},"application/vnd.document+json":{"source":"iana","compressible":true},"application/vnd.dolby.mlp":{"source":"apache","extensions":["mlp"]},"application/vnd.dolby.mobile.1":{"source":"iana"},"application/vnd.dolby.mobile.2":{"source":"iana"},"application/vnd.doremir.scorecloud-binary-document":{"source":"iana"},"application/vnd.dpgraph":{"source":"iana","extensions":["dpg"]},"application/vnd.dreamfactory":{"source":"iana","extensions":["dfac"]},"application/vnd.drive+json":{"source":"iana","compressible":true},"application/vnd.ds-keypoint":{"source":"apache","extensions":["kpxx"]},"application/vnd.dtg.local":{"source":"iana"},"application/vnd.dtg.local.flash":{"source":"iana"},"application/vnd.dtg.local.html":{"source":"iana"},"application/vnd.dvb.ait":{"source":"iana","extensions":["ait"]},"application/vnd.dvb.dvbj":{"source":"iana"},"application/vnd.dvb.esgcontainer":{"source":"iana"},"application/vnd.dvb.ipdcdftnotifaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess2":{"source":"iana"},"application/vnd.dvb.ipdcesgpdd":{"source":"iana"},"application/vnd.dvb.ipdcroaming":{"source":"iana"},"application/vnd.dvb.iptv.alfec-base":{"source":"iana"},"application/vnd.dvb.iptv.alfec-enhancement":{"source":"iana"},"application/vnd.dvb.notif-aggregate-root+xml":{"source":"iana"},"application/vnd.dvb.notif-container+xml":{"source":"iana"},"application/vnd.dvb.notif-generic+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-msglist+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-request+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-response+xml":{"source":"iana"},"application/vnd.dvb.notif-init+xml":{"source":"iana"},"application/vnd.dvb.pfr":{"source":"iana"},"application/vnd.dvb.service":{"source":"iana","extensions":["svc"]},"application/vnd.dxr":{"source":"iana"},"application/vnd.dynageo":{"source":"iana","extensions":["geo"]},"application/vnd.dzr":{"source":"iana"},"application/vnd.easykaraoke.cdgdownload":{"source":"iana"},"application/vnd.ecdis-update":{"source":"iana"},"application/vnd.ecip.rlp":{"source":"iana"},"application/vnd.ecowin.chart":{"source":"iana","extensions":["mag"]},"application/vnd.ecowin.filerequest":{"source":"iana"},"application/vnd.ecowin.fileupdate":{"source":"iana"},"application/vnd.ecowin.series":{"source":"iana"},"application/vnd.ecowin.seriesrequest":{"source":"iana"},"application/vnd.ecowin.seriesupdate":{"source":"iana"},"application/vnd.efi.img":{"source":"iana"},"application/vnd.efi.iso":{"source":"iana"},"application/vnd.emclient.accessrequest+xml":{"source":"iana"},"application/vnd.enliven":{"source":"iana","extensions":["nml"]},"application/vnd.enphase.envoy":{"source":"iana"},"application/vnd.eprints.data+xml":{"source":"iana"},"application/vnd.epson.esf":{"source":"iana","extensions":["esf"]},"application/vnd.epson.msf":{"source":"iana","extensions":["msf"]},"application/vnd.epson.quickanime":{"source":"iana","extensions":["qam"]},"application/vnd.epson.salt":{"source":"iana","extensions":["slt"]},"application/vnd.epson.ssf":{"source":"iana","extensions":["ssf"]},"application/vnd.ericsson.quickcall":{"source":"iana"},"application/vnd.espass-espass+zip":{"source":"iana"},"application/vnd.eszigno3+xml":{"source":"iana","extensions":["es3","et3"]},"application/vnd.etsi.aoc+xml":{"source":"iana"},"application/vnd.etsi.asic-e+zip":{"source":"iana"},"application/vnd.etsi.asic-s+zip":{"source":"iana"},"application/vnd.etsi.cug+xml":{"source":"iana"},"application/vnd.etsi.iptvcommand+xml":{"source":"iana"},"application/vnd.etsi.iptvdiscovery+xml":{"source":"iana"},"application/vnd.etsi.iptvprofile+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-bc+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-cod+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-npvr+xml":{"source":"iana"},"application/vnd.etsi.iptvservice+xml":{"source":"iana"},"application/vnd.etsi.iptvsync+xml":{"source":"iana"},"application/vnd.etsi.iptvueprofile+xml":{"source":"iana"},"application/vnd.etsi.mcid+xml":{"source":"iana"},"application/vnd.etsi.mheg5":{"source":"iana"},"application/vnd.etsi.overload-control-policy-dataset+xml":{"source":"iana"},"application/vnd.etsi.pstn+xml":{"source":"iana"},"application/vnd.etsi.sci+xml":{"source":"iana"},"application/vnd.etsi.simservs+xml":{"source":"iana"},"application/vnd.etsi.timestamp-token":{"source":"iana"},"application/vnd.etsi.tsl+xml":{"source":"iana"},"application/vnd.etsi.tsl.der":{"source":"iana"},"application/vnd.eudora.data":{"source":"iana"},"application/vnd.evolv.ecig.profile":{"source":"iana"},"application/vnd.evolv.ecig.settings":{"source":"iana"},"application/vnd.evolv.ecig.theme":{"source":"iana"},"application/vnd.ezpix-album":{"source":"iana","extensions":["ez2"]},"application/vnd.ezpix-package":{"source":"iana","extensions":["ez3"]},"application/vnd.f-secure.mobile":{"source":"iana"},"application/vnd.fastcopy-disk-image":{"source":"iana"},"application/vnd.fdf":{"source":"iana","extensions":["fdf"]},"application/vnd.fdsn.mseed":{"source":"iana","extensions":["mseed"]},"application/vnd.fdsn.seed":{"source":"iana","extensions":["seed","dataless"]},"application/vnd.ffsns":{"source":"iana"},"application/vnd.filmit.zfc":{"source":"iana"},"application/vnd.fints":{"source":"iana"},"application/vnd.firemonkeys.cloudcell":{"source":"iana"},"application/vnd.flographit":{"source":"iana","extensions":["gph"]},"application/vnd.fluxtime.clip":{"source":"iana","extensions":["ftc"]},"application/vnd.font-fontforge-sfd":{"source":"iana"},"application/vnd.framemaker":{"source":"iana","extensions":["fm","frame","maker","book"]},"application/vnd.frogans.fnc":{"source":"iana","extensions":["fnc"]},"application/vnd.frogans.ltf":{"source":"iana","extensions":["ltf"]},"application/vnd.fsc.weblaunch":{"source":"iana","extensions":["fsc"]},"application/vnd.fujitsu.oasys":{"source":"iana","extensions":["oas"]},"application/vnd.fujitsu.oasys2":{"source":"iana","extensions":["oa2"]},"application/vnd.fujitsu.oasys3":{"source":"iana","extensions":["oa3"]},"application/vnd.fujitsu.oasysgp":{"source":"iana","extensions":["fg5"]},"application/vnd.fujitsu.oasysprs":{"source":"iana","extensions":["bh2"]},"application/vnd.fujixerox.art-ex":{"source":"iana"},"application/vnd.fujixerox.art4":{"source":"iana"},"application/vnd.fujixerox.ddd":{"source":"iana","extensions":["ddd"]},"application/vnd.fujixerox.docuworks":{"source":"iana","extensions":["xdw"]},"application/vnd.fujixerox.docuworks.binder":{"source":"iana","extensions":["xbd"]},"application/vnd.fujixerox.docuworks.container":{"source":"iana"},"application/vnd.fujixerox.hbpl":{"source":"iana"},"application/vnd.fut-misnet":{"source":"iana"},"application/vnd.fuzzysheet":{"source":"iana","extensions":["fzs"]},"application/vnd.genomatix.tuxedo":{"source":"iana","extensions":["txd"]},"application/vnd.geo+json":{"source":"iana","compressible":true},"application/vnd.geocube+xml":{"source":"iana"},"application/vnd.geogebra.file":{"source":"iana","extensions":["ggb"]},"application/vnd.geogebra.tool":{"source":"iana","extensions":["ggt"]},"application/vnd.geometry-explorer":{"source":"iana","extensions":["gex","gre"]},"application/vnd.geonext":{"source":"iana","extensions":["gxt"]},"application/vnd.geoplan":{"source":"iana","extensions":["g2w"]},"application/vnd.geospace":{"source":"iana","extensions":["g3w"]},"application/vnd.gerber":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt-response":{"source":"iana"},"application/vnd.gmx":{"source":"iana","extensions":["gmx"]},"application/vnd.google-apps.document":{"compressible":false,"extensions":["gdoc"]},"application/vnd.google-apps.presentation":{"compressible":false,"extensions":["gslides"]},"application/vnd.google-apps.spreadsheet":{"compressible":false,"extensions":["gsheet"]},"application/vnd.google-earth.kml+xml":{"source":"iana","compressible":true,"extensions":["kml"]},"application/vnd.google-earth.kmz":{"source":"iana","compressible":false,"extensions":["kmz"]},"application/vnd.gov.sk.e-form+xml":{"source":"iana"},"application/vnd.gov.sk.e-form+zip":{"source":"iana"},"application/vnd.gov.sk.xmldatacontainer+xml":{"source":"iana"},"application/vnd.grafeq":{"source":"iana","extensions":["gqf","gqs"]},"application/vnd.gridmp":{"source":"iana"},"application/vnd.groove-account":{"source":"iana","extensions":["gac"]},"application/vnd.groove-help":{"source":"iana","extensions":["ghf"]},"application/vnd.groove-identity-message":{"source":"iana","extensions":["gim"]},"application/vnd.groove-injector":{"source":"iana","extensions":["grv"]},"application/vnd.groove-tool-message":{"source":"iana","extensions":["gtm"]},"application/vnd.groove-tool-template":{"source":"iana","extensions":["tpl"]},"application/vnd.groove-vcard":{"source":"iana","extensions":["vcg"]},"application/vnd.hal+json":{"source":"iana","compressible":true},"application/vnd.hal+xml":{"source":"iana","extensions":["hal"]},"application/vnd.handheld-entertainment+xml":{"source":"iana","extensions":["zmm"]},"application/vnd.hbci":{"source":"iana","extensions":["hbci"]},"application/vnd.hc+json":{"source":"iana","compressible":true},"application/vnd.hcl-bireports":{"source":"iana"},"application/vnd.hdt":{"source":"iana"},"application/vnd.heroku+json":{"source":"iana","compressible":true},"application/vnd.hhe.lesson-player":{"source":"iana","extensions":["les"]},"application/vnd.hp-hpgl":{"source":"iana","extensions":["hpgl"]},"application/vnd.hp-hpid":{"source":"iana","extensions":["hpid"]},"application/vnd.hp-hps":{"source":"iana","extensions":["hps"]},"application/vnd.hp-jlyt":{"source":"iana","extensions":["jlt"]},"application/vnd.hp-pcl":{"source":"iana","extensions":["pcl"]},"application/vnd.hp-pclxl":{"source":"iana","extensions":["pclxl"]},"application/vnd.httphone":{"source":"iana"},"application/vnd.hydrostatix.sof-data":{"source":"iana","extensions":["sfd-hdstx"]},"application/vnd.hyper-item+json":{"source":"iana","compressible":true},"application/vnd.hyperdrive+json":{"source":"iana","compressible":true},"application/vnd.hzn-3d-crossword":{"source":"iana"},"application/vnd.ibm.afplinedata":{"source":"iana"},"application/vnd.ibm.electronic-media":{"source":"iana"},"application/vnd.ibm.minipay":{"source":"iana","extensions":["mpy"]},"application/vnd.ibm.modcap":{"source":"iana","extensions":["afp","listafp","list3820"]},"application/vnd.ibm.rights-management":{"source":"iana","extensions":["irm"]},"application/vnd.ibm.secure-container":{"source":"iana","extensions":["sc"]},"application/vnd.iccprofile":{"source":"iana","extensions":["icc","icm"]},"application/vnd.ieee.1905":{"source":"iana"},"application/vnd.igloader":{"source":"iana","extensions":["igl"]},"application/vnd.imagemeter.folder+zip":{"source":"iana"},"application/vnd.imagemeter.image+zip":{"source":"iana"},"application/vnd.immervision-ivp":{"source":"iana","extensions":["ivp"]},"application/vnd.immervision-ivu":{"source":"iana","extensions":["ivu"]},"application/vnd.ims.imsccv1p1":{"source":"iana"},"application/vnd.ims.imsccv1p2":{"source":"iana"},"application/vnd.ims.imsccv1p3":{"source":"iana"},"application/vnd.ims.lis.v2.result+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolconsumerprofile+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy.id+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings.simple+json":{"source":"iana","compressible":true},"application/vnd.informedcontrol.rms+xml":{"source":"iana"},"application/vnd.informix-visionary":{"source":"iana"},"application/vnd.infotech.project":{"source":"iana"},"application/vnd.infotech.project+xml":{"source":"iana"},"application/vnd.innopath.wamp.notification":{"source":"iana"},"application/vnd.insors.igm":{"source":"iana","extensions":["igm"]},"application/vnd.intercon.formnet":{"source":"iana","extensions":["xpw","xpx"]},"application/vnd.intergeo":{"source":"iana","extensions":["i2g"]},"application/vnd.intertrust.digibox":{"source":"iana"},"application/vnd.intertrust.nncp":{"source":"iana"},"application/vnd.intu.qbo":{"source":"iana","extensions":["qbo"]},"application/vnd.intu.qfx":{"source":"iana","extensions":["qfx"]},"application/vnd.iptc.g2.catalogitem+xml":{"source":"iana"},"application/vnd.iptc.g2.conceptitem+xml":{"source":"iana"},"application/vnd.iptc.g2.knowledgeitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsmessage+xml":{"source":"iana"},"application/vnd.iptc.g2.packageitem+xml":{"source":"iana"},"application/vnd.iptc.g2.planningitem+xml":{"source":"iana"},"application/vnd.ipunplugged.rcprofile":{"source":"iana","extensions":["rcprofile"]},"application/vnd.irepository.package+xml":{"source":"iana","extensions":["irp"]},"application/vnd.is-xpr":{"source":"iana","extensions":["xpr"]},"application/vnd.isac.fcs":{"source":"iana","extensions":["fcs"]},"application/vnd.jam":{"source":"iana","extensions":["jam"]},"application/vnd.japannet-directory-service":{"source":"iana"},"application/vnd.japannet-jpnstore-wakeup":{"source":"iana"},"application/vnd.japannet-payment-wakeup":{"source":"iana"},"application/vnd.japannet-registration":{"source":"iana"},"application/vnd.japannet-registration-wakeup":{"source":"iana"},"application/vnd.japannet-setstore-wakeup":{"source":"iana"},"application/vnd.japannet-verification":{"source":"iana"},"application/vnd.japannet-verification-wakeup":{"source":"iana"},"application/vnd.jcp.javame.midlet-rms":{"source":"iana","extensions":["rms"]},"application/vnd.jisp":{"source":"iana","extensions":["jisp"]},"application/vnd.joost.joda-archive":{"source":"iana","extensions":["joda"]},"application/vnd.jsk.isdn-ngn":{"source":"iana"},"application/vnd.kahootz":{"source":"iana","extensions":["ktz","ktr"]},"application/vnd.kde.karbon":{"source":"iana","extensions":["karbon"]},"application/vnd.kde.kchart":{"source":"iana","extensions":["chrt"]},"application/vnd.kde.kformula":{"source":"iana","extensions":["kfo"]},"application/vnd.kde.kivio":{"source":"iana","extensions":["flw"]},"application/vnd.kde.kontour":{"source":"iana","extensions":["kon"]},"application/vnd.kde.kpresenter":{"source":"iana","extensions":["kpr","kpt"]},"application/vnd.kde.kspread":{"source":"iana","extensions":["ksp"]},"application/vnd.kde.kword":{"source":"iana","extensions":["kwd","kwt"]},"application/vnd.kenameaapp":{"source":"iana","extensions":["htke"]},"application/vnd.kidspiration":{"source":"iana","extensions":["kia"]},"application/vnd.kinar":{"source":"iana","extensions":["kne","knp"]},"application/vnd.koan":{"source":"iana","extensions":["skp","skd","skt","skm"]},"application/vnd.kodak-descriptor":{"source":"iana","extensions":["sse"]},"application/vnd.las.las+json":{"source":"iana","compressible":true},"application/vnd.las.las+xml":{"source":"iana","extensions":["lasxml"]},"application/vnd.liberty-request+xml":{"source":"iana"},"application/vnd.llamagraphics.life-balance.desktop":{"source":"iana","extensions":["lbd"]},"application/vnd.llamagraphics.life-balance.exchange+xml":{"source":"iana","extensions":["lbe"]},"application/vnd.lotus-1-2-3":{"source":"iana","extensions":["123"]},"application/vnd.lotus-approach":{"source":"iana","extensions":["apr"]},"application/vnd.lotus-freelance":{"source":"iana","extensions":["pre"]},"application/vnd.lotus-notes":{"source":"iana","extensions":["nsf"]},"application/vnd.lotus-organizer":{"source":"iana","extensions":["org"]},"application/vnd.lotus-screencam":{"source":"iana","extensions":["scm"]},"application/vnd.lotus-wordpro":{"source":"iana","extensions":["lwp"]},"application/vnd.macports.portpkg":{"source":"iana","extensions":["portpkg"]},"application/vnd.mapbox-vector-tile":{"source":"iana"},"application/vnd.marlin.drm.actiontoken+xml":{"source":"iana"},"application/vnd.marlin.drm.conftoken+xml":{"source":"iana"},"application/vnd.marlin.drm.license+xml":{"source":"iana"},"application/vnd.marlin.drm.mdcf":{"source":"iana"},"application/vnd.mason+json":{"source":"iana","compressible":true},"application/vnd.maxmind.maxmind-db":{"source":"iana"},"application/vnd.mcd":{"source":"iana","extensions":["mcd"]},"application/vnd.medcalcdata":{"source":"iana","extensions":["mc1"]},"application/vnd.mediastation.cdkey":{"source":"iana","extensions":["cdkey"]},"application/vnd.meridian-slingshot":{"source":"iana"},"application/vnd.mfer":{"source":"iana","extensions":["mwf"]},"application/vnd.mfmp":{"source":"iana","extensions":["mfm"]},"application/vnd.micro+json":{"source":"iana","compressible":true},"application/vnd.micrografx.flo":{"source":"iana","extensions":["flo"]},"application/vnd.micrografx.igx":{"source":"iana","extensions":["igx"]},"application/vnd.microsoft.portable-executable":{"source":"iana"},"application/vnd.microsoft.windows.thumbnail-cache":{"source":"iana"},"application/vnd.miele+json":{"source":"iana","compressible":true},"application/vnd.mif":{"source":"iana","extensions":["mif"]},"application/vnd.minisoft-hp3000-save":{"source":"iana"},"application/vnd.mitsubishi.misty-guard.trustweb":{"source":"iana"},"application/vnd.mobius.daf":{"source":"iana","extensions":["daf"]},"application/vnd.mobius.dis":{"source":"iana","extensions":["dis"]},"application/vnd.mobius.mbk":{"source":"iana","extensions":["mbk"]},"application/vnd.mobius.mqy":{"source":"iana","extensions":["mqy"]},"application/vnd.mobius.msl":{"source":"iana","extensions":["msl"]},"application/vnd.mobius.plc":{"source":"iana","extensions":["plc"]},"application/vnd.mobius.txf":{"source":"iana","extensions":["txf"]},"application/vnd.mophun.application":{"source":"iana","extensions":["mpn"]},"application/vnd.mophun.certificate":{"source":"iana","extensions":["mpc"]},"application/vnd.motorola.flexsuite":{"source":"iana"},"application/vnd.motorola.flexsuite.adsi":{"source":"iana"},"application/vnd.motorola.flexsuite.fis":{"source":"iana"},"application/vnd.motorola.flexsuite.gotap":{"source":"iana"},"application/vnd.motorola.flexsuite.kmr":{"source":"iana"},"application/vnd.motorola.flexsuite.ttc":{"source":"iana"},"application/vnd.motorola.flexsuite.wem":{"source":"iana"},"application/vnd.motorola.iprm":{"source":"iana"},"application/vnd.mozilla.xul+xml":{"source":"iana","compressible":true,"extensions":["xul"]},"application/vnd.ms-3mfdocument":{"source":"iana"},"application/vnd.ms-artgalry":{"source":"iana","extensions":["cil"]},"application/vnd.ms-asf":{"source":"iana"},"application/vnd.ms-cab-compressed":{"source":"iana","extensions":["cab"]},"application/vnd.ms-color.iccprofile":{"source":"apache"},"application/vnd.ms-excel":{"source":"iana","compressible":false,"extensions":["xls","xlm","xla","xlc","xlt","xlw"]},"application/vnd.ms-excel.addin.macroenabled.12":{"source":"iana","extensions":["xlam"]},"application/vnd.ms-excel.sheet.binary.macroenabled.12":{"source":"iana","extensions":["xlsb"]},"application/vnd.ms-excel.sheet.macroenabled.12":{"source":"iana","extensions":["xlsm"]},"application/vnd.ms-excel.template.macroenabled.12":{"source":"iana","extensions":["xltm"]},"application/vnd.ms-fontobject":{"source":"iana","compressible":true,"extensions":["eot"]},"application/vnd.ms-htmlhelp":{"source":"iana","extensions":["chm"]},"application/vnd.ms-ims":{"source":"iana","extensions":["ims"]},"application/vnd.ms-lrm":{"source":"iana","extensions":["lrm"]},"application/vnd.ms-office.activex+xml":{"source":"iana"},"application/vnd.ms-officetheme":{"source":"iana","extensions":["thmx"]},"application/vnd.ms-opentype":{"source":"apache","compressible":true},"application/vnd.ms-outlook":{"compressible":false,"extensions":["msg"]},"application/vnd.ms-package.obfuscated-opentype":{"source":"apache"},"application/vnd.ms-pki.seccat":{"source":"apache","extensions":["cat"]},"application/vnd.ms-pki.stl":{"source":"apache","extensions":["stl"]},"application/vnd.ms-playready.initiator+xml":{"source":"iana"},"application/vnd.ms-powerpoint":{"source":"iana","compressible":false,"extensions":["ppt","pps","pot"]},"application/vnd.ms-powerpoint.addin.macroenabled.12":{"source":"iana","extensions":["ppam"]},"application/vnd.ms-powerpoint.presentation.macroenabled.12":{"source":"iana","extensions":["pptm"]},"application/vnd.ms-powerpoint.slide.macroenabled.12":{"source":"iana","extensions":["sldm"]},"application/vnd.ms-powerpoint.slideshow.macroenabled.12":{"source":"iana","extensions":["ppsm"]},"application/vnd.ms-powerpoint.template.macroenabled.12":{"source":"iana","extensions":["potm"]},"application/vnd.ms-printdevicecapabilities+xml":{"source":"iana"},"application/vnd.ms-printing.printticket+xml":{"source":"apache"},"application/vnd.ms-printschematicket+xml":{"source":"iana"},"application/vnd.ms-project":{"source":"iana","extensions":["mpp","mpt"]},"application/vnd.ms-tnef":{"source":"iana"},"application/vnd.ms-windows.devicepairing":{"source":"iana"},"application/vnd.ms-windows.nwprinting.oob":{"source":"iana"},"application/vnd.ms-windows.printerpairing":{"source":"iana"},"application/vnd.ms-windows.wsd.oob":{"source":"iana"},"application/vnd.ms-wmdrm.lic-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.lic-resp":{"source":"iana"},"application/vnd.ms-wmdrm.meter-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.meter-resp":{"source":"iana"},"application/vnd.ms-word.document.macroenabled.12":{"source":"iana","extensions":["docm"]},"application/vnd.ms-word.template.macroenabled.12":{"source":"iana","extensions":["dotm"]},"application/vnd.ms-works":{"source":"iana","extensions":["wps","wks","wcm","wdb"]},"application/vnd.ms-wpl":{"source":"iana","extensions":["wpl"]},"application/vnd.ms-xpsdocument":{"source":"iana","compressible":false,"extensions":["xps"]},"application/vnd.msa-disk-image":{"source":"iana"},"application/vnd.mseq":{"source":"iana","extensions":["mseq"]},"application/vnd.msign":{"source":"iana"},"application/vnd.multiad.creator":{"source":"iana"},"application/vnd.multiad.creator.cif":{"source":"iana"},"application/vnd.music-niff":{"source":"iana"},"application/vnd.musician":{"source":"iana","extensions":["mus"]},"application/vnd.muvee.style":{"source":"iana","extensions":["msty"]},"application/vnd.mynfc":{"source":"iana","extensions":["taglet"]},"application/vnd.ncd.control":{"source":"iana"},"application/vnd.ncd.reference":{"source":"iana"},"application/vnd.nearst.inv+json":{"source":"iana","compressible":true},"application/vnd.nervana":{"source":"iana"},"application/vnd.netfpx":{"source":"iana"},"application/vnd.neurolanguage.nlu":{"source":"iana","extensions":["nlu"]},"application/vnd.nintendo.nitro.rom":{"source":"iana"},"application/vnd.nintendo.snes.rom":{"source":"iana"},"application/vnd.nitf":{"source":"iana","extensions":["ntf","nitf"]},"application/vnd.noblenet-directory":{"source":"iana","extensions":["nnd"]},"application/vnd.noblenet-sealer":{"source":"iana","extensions":["nns"]},"application/vnd.noblenet-web":{"source":"iana","extensions":["nnw"]},"application/vnd.nokia.catalogs":{"source":"iana"},"application/vnd.nokia.conml+wbxml":{"source":"iana"},"application/vnd.nokia.conml+xml":{"source":"iana"},"application/vnd.nokia.iptv.config+xml":{"source":"iana"},"application/vnd.nokia.isds-radio-presets":{"source":"iana"},"application/vnd.nokia.landmark+wbxml":{"source":"iana"},"application/vnd.nokia.landmark+xml":{"source":"iana"},"application/vnd.nokia.landmarkcollection+xml":{"source":"iana"},"application/vnd.nokia.n-gage.ac+xml":{"source":"iana"},"application/vnd.nokia.n-gage.data":{"source":"iana","extensions":["ngdat"]},"application/vnd.nokia.n-gage.symbian.install":{"source":"iana","extensions":["n-gage"]},"application/vnd.nokia.ncd":{"source":"iana"},"application/vnd.nokia.pcd+wbxml":{"source":"iana"},"application/vnd.nokia.pcd+xml":{"source":"iana"},"application/vnd.nokia.radio-preset":{"source":"iana","extensions":["rpst"]},"application/vnd.nokia.radio-presets":{"source":"iana","extensions":["rpss"]},"application/vnd.novadigm.edm":{"source":"iana","extensions":["edm"]},"application/vnd.novadigm.edx":{"source":"iana","extensions":["edx"]},"application/vnd.novadigm.ext":{"source":"iana","extensions":["ext"]},"application/vnd.ntt-local.content-share":{"source":"iana"},"application/vnd.ntt-local.file-transfer":{"source":"iana"},"application/vnd.ntt-local.ogw_remote-access":{"source":"iana"},"application/vnd.ntt-local.sip-ta_remote":{"source":"iana"},"application/vnd.ntt-local.sip-ta_tcp_stream":{"source":"iana"},"application/vnd.oasis.opendocument.chart":{"source":"iana","extensions":["odc"]},"application/vnd.oasis.opendocument.chart-template":{"source":"iana","extensions":["otc"]},"application/vnd.oasis.opendocument.database":{"source":"iana","extensions":["odb"]},"application/vnd.oasis.opendocument.formula":{"source":"iana","extensions":["odf"]},"application/vnd.oasis.opendocument.formula-template":{"source":"iana","extensions":["odft"]},"application/vnd.oasis.opendocument.graphics":{"source":"iana","compressible":false,"extensions":["odg"]},"application/vnd.oasis.opendocument.graphics-template":{"source":"iana","extensions":["otg"]},"application/vnd.oasis.opendocument.image":{"source":"iana","extensions":["odi"]},"application/vnd.oasis.opendocument.image-template":{"source":"iana","extensions":["oti"]},"application/vnd.oasis.opendocument.presentation":{"source":"iana","compressible":false,"extensions":["odp"]},"application/vnd.oasis.opendocument.presentation-template":{"source":"iana","extensions":["otp"]},"application/vnd.oasis.opendocument.spreadsheet":{"source":"iana","compressible":false,"extensions":["ods"]},"application/vnd.oasis.opendocument.spreadsheet-template":{"source":"iana","extensions":["ots"]},"application/vnd.oasis.opendocument.text":{"source":"iana","compressible":false,"extensions":["odt"]},"application/vnd.oasis.opendocument.text-master":{"source":"iana","extensions":["odm"]},"application/vnd.oasis.opendocument.text-template":{"source":"iana","extensions":["ott"]},"application/vnd.oasis.opendocument.text-web":{"source":"iana","extensions":["oth"]},"application/vnd.obn":{"source":"iana"},"application/vnd.ocf+cbor":{"source":"iana"},"application/vnd.oftn.l10n+json":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessdownload+xml":{"source":"iana"},"application/vnd.oipf.contentaccessstreaming+xml":{"source":"iana"},"application/vnd.oipf.cspg-hexbinary":{"source":"iana"},"application/vnd.oipf.dae.svg+xml":{"source":"iana"},"application/vnd.oipf.dae.xhtml+xml":{"source":"iana"},"application/vnd.oipf.mippvcontrolmessage+xml":{"source":"iana"},"application/vnd.oipf.pae.gem":{"source":"iana"},"application/vnd.oipf.spdiscovery+xml":{"source":"iana"},"application/vnd.oipf.spdlist+xml":{"source":"iana"},"application/vnd.oipf.ueprofile+xml":{"source":"iana"},"application/vnd.oipf.userprofile+xml":{"source":"iana"},"application/vnd.olpc-sugar":{"source":"iana","extensions":["xo"]},"application/vnd.oma-scws-config":{"source":"iana"},"application/vnd.oma-scws-http-request":{"source":"iana"},"application/vnd.oma-scws-http-response":{"source":"iana"},"application/vnd.oma.bcast.associated-procedure-parameter+xml":{"source":"iana"},"application/vnd.oma.bcast.drm-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.imd+xml":{"source":"iana"},"application/vnd.oma.bcast.ltkm":{"source":"iana"},"application/vnd.oma.bcast.notification+xml":{"source":"iana"},"application/vnd.oma.bcast.provisioningtrigger":{"source":"iana"},"application/vnd.oma.bcast.sgboot":{"source":"iana"},"application/vnd.oma.bcast.sgdd+xml":{"source":"iana"},"application/vnd.oma.bcast.sgdu":{"source":"iana"},"application/vnd.oma.bcast.simple-symbol-container":{"source":"iana"},"application/vnd.oma.bcast.smartcard-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.sprov+xml":{"source":"iana"},"application/vnd.oma.bcast.stkm":{"source":"iana"},"application/vnd.oma.cab-address-book+xml":{"source":"iana"},"application/vnd.oma.cab-feature-handler+xml":{"source":"iana"},"application/vnd.oma.cab-pcc+xml":{"source":"iana"},"application/vnd.oma.cab-subs-invite+xml":{"source":"iana"},"application/vnd.oma.cab-user-prefs+xml":{"source":"iana"},"application/vnd.oma.dcd":{"source":"iana"},"application/vnd.oma.dcdc":{"source":"iana"},"application/vnd.oma.dd2+xml":{"source":"iana","extensions":["dd2"]},"application/vnd.oma.drm.risd+xml":{"source":"iana"},"application/vnd.oma.group-usage-list+xml":{"source":"iana"},"application/vnd.oma.lwm2m+json":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+tlv":{"source":"iana"},"application/vnd.oma.pal+xml":{"source":"iana"},"application/vnd.oma.poc.detailed-progress-report+xml":{"source":"iana"},"application/vnd.oma.poc.final-report+xml":{"source":"iana"},"application/vnd.oma.poc.groups+xml":{"source":"iana"},"application/vnd.oma.poc.invocation-descriptor+xml":{"source":"iana"},"application/vnd.oma.poc.optimized-progress-report+xml":{"source":"iana"},"application/vnd.oma.push":{"source":"iana"},"application/vnd.oma.scidm.messages+xml":{"source":"iana"},"application/vnd.oma.xcap-directory+xml":{"source":"iana"},"application/vnd.omads-email+xml":{"source":"iana"},"application/vnd.omads-file+xml":{"source":"iana"},"application/vnd.omads-folder+xml":{"source":"iana"},"application/vnd.omaloc-supl-init":{"source":"iana"},"application/vnd.onepager":{"source":"iana"},"application/vnd.onepagertamp":{"source":"iana"},"application/vnd.onepagertamx":{"source":"iana"},"application/vnd.onepagertat":{"source":"iana"},"application/vnd.onepagertatp":{"source":"iana"},"application/vnd.onepagertatx":{"source":"iana"},"application/vnd.openblox.game+xml":{"source":"iana"},"application/vnd.openblox.game-binary":{"source":"iana"},"application/vnd.openeye.oeb":{"source":"iana"},"application/vnd.openofficeorg.extension":{"source":"apache","extensions":["oxt"]},"application/vnd.openstreetmap.data+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.custom-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.customxmlproperties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawing+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chart+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramcolors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramdata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramlayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramstyle+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.extended-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.commentauthors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.handoutmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesslide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presentation":{"source":"iana","compressible":false,"extensions":["pptx"]},"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slide":{"source":"iana","extensions":["sldx"]},"application/vnd.openxmlformats-officedocument.presentationml.slide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidelayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidemaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideshow":{"source":"iana","extensions":["ppsx"]},"application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideupdateinfo+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tablestyles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tags+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.template":{"source":"iana","extensions":["potx"]},"application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.viewprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.calcchain+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.externallink+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcachedefinition+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcacherecords+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivottable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.querytable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionheaders+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionlog+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedstrings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":{"source":"iana","compressible":false,"extensions":["xlsx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheetmetadata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.tablesinglecells+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.template":{"source":"iana","extensions":["xltx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.usernames+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.volatiledependencies+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.theme+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.themeoverride+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.vmldrawing":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document":{"source":"iana","compressible":false,"extensions":["docx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.fonttable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.template":{"source":"iana","extensions":["dotx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.websettings+xml":{"source":"iana"},"application/vnd.openxmlformats-package.core-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml":{"source":"iana"},"application/vnd.openxmlformats-package.relationships+xml":{"source":"iana"},"application/vnd.oracle.resource+json":{"source":"iana","compressible":true},"application/vnd.orange.indata":{"source":"iana"},"application/vnd.osa.netdeploy":{"source":"iana"},"application/vnd.osgeo.mapguide.package":{"source":"iana","extensions":["mgp"]},"application/vnd.osgi.bundle":{"source":"iana"},"application/vnd.osgi.dp":{"source":"iana","extensions":["dp"]},"application/vnd.osgi.subsystem":{"source":"iana","extensions":["esa"]},"application/vnd.otps.ct-kip+xml":{"source":"iana"},"application/vnd.oxli.countgraph":{"source":"iana"},"application/vnd.pagerduty+json":{"source":"iana","compressible":true},"application/vnd.palm":{"source":"iana","extensions":["pdb","pqa","oprc"]},"application/vnd.panoply":{"source":"iana"},"application/vnd.paos+xml":{"source":"iana"},"application/vnd.paos.xml":{"source":"apache"},"application/vnd.patentdive":{"source":"iana"},"application/vnd.pawaafile":{"source":"iana","extensions":["paw"]},"application/vnd.pcos":{"source":"iana"},"application/vnd.pg.format":{"source":"iana","extensions":["str"]},"application/vnd.pg.osasli":{"source":"iana","extensions":["ei6"]},"application/vnd.piaccess.application-licence":{"source":"iana"},"application/vnd.picsel":{"source":"iana","extensions":["efif"]},"application/vnd.pmi.widget":{"source":"iana","extensions":["wg"]},"application/vnd.poc.group-advertisement+xml":{"source":"iana"},"application/vnd.pocketlearn":{"source":"iana","extensions":["plf"]},"application/vnd.powerbuilder6":{"source":"iana","extensions":["pbd"]},"application/vnd.powerbuilder6-s":{"source":"iana"},"application/vnd.powerbuilder7":{"source":"iana"},"application/vnd.powerbuilder7-s":{"source":"iana"},"application/vnd.powerbuilder75":{"source":"iana"},"application/vnd.powerbuilder75-s":{"source":"iana"},"application/vnd.preminet":{"source":"iana"},"application/vnd.previewsystems.box":{"source":"iana","extensions":["box"]},"application/vnd.proteus.magazine":{"source":"iana","extensions":["mgz"]},"application/vnd.publishare-delta-tree":{"source":"iana","extensions":["qps"]},"application/vnd.pvi.ptid1":{"source":"iana","extensions":["ptid"]},"application/vnd.pwg-multiplexed":{"source":"iana"},"application/vnd.pwg-xhtml-print+xml":{"source":"iana"},"application/vnd.qualcomm.brew-app-res":{"source":"iana"},"application/vnd.quarantainenet":{"source":"iana"},"application/vnd.quark.quarkxpress":{"source":"iana","extensions":["qxd","qxt","qwd","qwt","qxl","qxb"]},"application/vnd.quobject-quoxdocument":{"source":"iana"},"application/vnd.radisys.moml+xml":{"source":"iana"},"application/vnd.radisys.msml+xml":{"source":"iana"},"application/vnd.radisys.msml-audit+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conn+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-stream+xml":{"source":"iana"},"application/vnd.radisys.msml-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-base+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-detect+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-sendrecv+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-group+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-speech+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-transform+xml":{"source":"iana"},"application/vnd.rainstor.data":{"source":"iana"},"application/vnd.rapid":{"source":"iana"},"application/vnd.rar":{"source":"iana"},"application/vnd.realvnc.bed":{"source":"iana","extensions":["bed"]},"application/vnd.recordare.musicxml":{"source":"iana","extensions":["mxl"]},"application/vnd.recordare.musicxml+xml":{"source":"iana","extensions":["musicxml"]},"application/vnd.renlearn.rlprint":{"source":"iana"},"application/vnd.restful+json":{"source":"iana","compressible":true},"application/vnd.rig.cryptonote":{"source":"iana","extensions":["cryptonote"]},"application/vnd.rim.cod":{"source":"apache","extensions":["cod"]},"application/vnd.rn-realmedia":{"source":"apache","extensions":["rm"]},"application/vnd.rn-realmedia-vbr":{"source":"apache","extensions":["rmvb"]},"application/vnd.route66.link66+xml":{"source":"iana","extensions":["link66"]},"application/vnd.rs-274x":{"source":"iana"},"application/vnd.ruckus.download":{"source":"iana"},"application/vnd.s3sms":{"source":"iana"},"application/vnd.sailingtracker.track":{"source":"iana","extensions":["st"]},"application/vnd.sbm.cid":{"source":"iana"},"application/vnd.sbm.mid2":{"source":"iana"},"application/vnd.scribus":{"source":"iana"},"application/vnd.sealed.3df":{"source":"iana"},"application/vnd.sealed.csf":{"source":"iana"},"application/vnd.sealed.doc":{"source":"iana"},"application/vnd.sealed.eml":{"source":"iana"},"application/vnd.sealed.mht":{"source":"iana"},"application/vnd.sealed.net":{"source":"iana"},"application/vnd.sealed.ppt":{"source":"iana"},"application/vnd.sealed.tiff":{"source":"iana"},"application/vnd.sealed.xls":{"source":"iana"},"application/vnd.sealedmedia.softseal.html":{"source":"iana"},"application/vnd.sealedmedia.softseal.pdf":{"source":"iana"},"application/vnd.seemail":{"source":"iana","extensions":["see"]},"application/vnd.sema":{"source":"iana","extensions":["sema"]},"application/vnd.semd":{"source":"iana","extensions":["semd"]},"application/vnd.semf":{"source":"iana","extensions":["semf"]},"application/vnd.shana.informed.formdata":{"source":"iana","extensions":["ifm"]},"application/vnd.shana.informed.formtemplate":{"source":"iana","extensions":["itp"]},"application/vnd.shana.informed.interchange":{"source":"iana","extensions":["iif"]},"application/vnd.shana.informed.package":{"source":"iana","extensions":["ipk"]},"application/vnd.sigrok.session":{"source":"iana"},"application/vnd.simtech-mindmapper":{"source":"iana","extensions":["twd","twds"]},"application/vnd.siren+json":{"source":"iana","compressible":true},"application/vnd.smaf":{"source":"iana","extensions":["mmf"]},"application/vnd.smart.notebook":{"source":"iana"},"application/vnd.smart.teacher":{"source":"iana","extensions":["teacher"]},"application/vnd.software602.filler.form+xml":{"source":"iana"},"application/vnd.software602.filler.form-xml-zip":{"source":"iana"},"application/vnd.solent.sdkm+xml":{"source":"iana","extensions":["sdkm","sdkd"]},"application/vnd.spotfire.dxp":{"source":"iana","extensions":["dxp"]},"application/vnd.spotfire.sfs":{"source":"iana","extensions":["sfs"]},"application/vnd.sqlite3":{"source":"iana"},"application/vnd.sss-cod":{"source":"iana"},"application/vnd.sss-dtf":{"source":"iana"},"application/vnd.sss-ntf":{"source":"iana"},"application/vnd.stardivision.calc":{"source":"apache","extensions":["sdc"]},"application/vnd.stardivision.draw":{"source":"apache","extensions":["sda"]},"application/vnd.stardivision.impress":{"source":"apache","extensions":["sdd"]},"application/vnd.stardivision.math":{"source":"apache","extensions":["smf"]},"application/vnd.stardivision.writer":{"source":"apache","extensions":["sdw","vor"]},"application/vnd.stardivision.writer-global":{"source":"apache","extensions":["sgl"]},"application/vnd.stepmania.package":{"source":"iana","extensions":["smzip"]},"application/vnd.stepmania.stepchart":{"source":"iana","extensions":["sm"]},"application/vnd.street-stream":{"source":"iana"},"application/vnd.sun.wadl+xml":{"source":"iana","compressible":true,"extensions":["wadl"]},"application/vnd.sun.xml.calc":{"source":"apache","extensions":["sxc"]},"application/vnd.sun.xml.calc.template":{"source":"apache","extensions":["stc"]},"application/vnd.sun.xml.draw":{"source":"apache","extensions":["sxd"]},"application/vnd.sun.xml.draw.template":{"source":"apache","extensions":["std"]},"application/vnd.sun.xml.impress":{"source":"apache","extensions":["sxi"]},"application/vnd.sun.xml.impress.template":{"source":"apache","extensions":["sti"]},"application/vnd.sun.xml.math":{"source":"apache","extensions":["sxm"]},"application/vnd.sun.xml.writer":{"source":"apache","extensions":["sxw"]},"application/vnd.sun.xml.writer.global":{"source":"apache","extensions":["sxg"]},"application/vnd.sun.xml.writer.template":{"source":"apache","extensions":["stw"]},"application/vnd.sus-calendar":{"source":"iana","extensions":["sus","susp"]},"application/vnd.svd":{"source":"iana","extensions":["svd"]},"application/vnd.swiftview-ics":{"source":"iana"},"application/vnd.symbian.install":{"source":"apache","extensions":["sis","sisx"]},"application/vnd.syncml+xml":{"source":"iana","extensions":["xsm"]},"application/vnd.syncml.dm+wbxml":{"source":"iana","extensions":["bdm"]},"application/vnd.syncml.dm+xml":{"source":"iana","extensions":["xdm"]},"application/vnd.syncml.dm.notification":{"source":"iana"},"application/vnd.syncml.dmddf+wbxml":{"source":"iana"},"application/vnd.syncml.dmddf+xml":{"source":"iana"},"application/vnd.syncml.dmtnds+wbxml":{"source":"iana"},"application/vnd.syncml.dmtnds+xml":{"source":"iana"},"application/vnd.syncml.ds.notification":{"source":"iana"},"application/vnd.tableschema+json":{"source":"iana","compressible":true},"application/vnd.tao.intent-module-archive":{"source":"iana","extensions":["tao"]},"application/vnd.tcpdump.pcap":{"source":"iana","extensions":["pcap","cap","dmp"]},"application/vnd.tmd.mediaflex.api+xml":{"source":"iana"},"application/vnd.tml":{"source":"iana"},"application/vnd.tmobile-livetv":{"source":"iana","extensions":["tmo"]},"application/vnd.tri.onesource":{"source":"iana"},"application/vnd.trid.tpt":{"source":"iana","extensions":["tpt"]},"application/vnd.triscape.mxs":{"source":"iana","extensions":["mxs"]},"application/vnd.trueapp":{"source":"iana","extensions":["tra"]},"application/vnd.truedoc":{"source":"iana"},"application/vnd.ubisoft.webplayer":{"source":"iana"},"application/vnd.ufdl":{"source":"iana","extensions":["ufd","ufdl"]},"application/vnd.uiq.theme":{"source":"iana","extensions":["utz"]},"application/vnd.umajin":{"source":"iana","extensions":["umj"]},"application/vnd.unity":{"source":"iana","extensions":["unityweb"]},"application/vnd.uoml+xml":{"source":"iana","extensions":["uoml"]},"application/vnd.uplanet.alert":{"source":"iana"},"application/vnd.uplanet.alert-wbxml":{"source":"iana"},"application/vnd.uplanet.bearer-choice":{"source":"iana"},"application/vnd.uplanet.bearer-choice-wbxml":{"source":"iana"},"application/vnd.uplanet.cacheop":{"source":"iana"},"application/vnd.uplanet.cacheop-wbxml":{"source":"iana"},"application/vnd.uplanet.channel":{"source":"iana"},"application/vnd.uplanet.channel-wbxml":{"source":"iana"},"application/vnd.uplanet.list":{"source":"iana"},"application/vnd.uplanet.list-wbxml":{"source":"iana"},"application/vnd.uplanet.listcmd":{"source":"iana"},"application/vnd.uplanet.listcmd-wbxml":{"source":"iana"},"application/vnd.uplanet.signal":{"source":"iana"},"application/vnd.uri-map":{"source":"iana"},"application/vnd.valve.source.material":{"source":"iana"},"application/vnd.vcx":{"source":"iana","extensions":["vcx"]},"application/vnd.vd-study":{"source":"iana"},"application/vnd.vectorworks":{"source":"iana"},"application/vnd.vel+json":{"source":"iana","compressible":true},"application/vnd.verimatrix.vcas":{"source":"iana"},"application/vnd.vidsoft.vidconference":{"source":"iana"},"application/vnd.visio":{"source":"iana","extensions":["vsd","vst","vss","vsw"]},"application/vnd.visionary":{"source":"iana","extensions":["vis"]},"application/vnd.vividence.scriptfile":{"source":"iana"},"application/vnd.vsf":{"source":"iana","extensions":["vsf"]},"application/vnd.wap.sic":{"source":"iana"},"application/vnd.wap.slc":{"source":"iana"},"application/vnd.wap.wbxml":{"source":"iana","extensions":["wbxml"]},"application/vnd.wap.wmlc":{"source":"iana","extensions":["wmlc"]},"application/vnd.wap.wmlscriptc":{"source":"iana","extensions":["wmlsc"]},"application/vnd.webturbo":{"source":"iana","extensions":["wtb"]},"application/vnd.wfa.p2p":{"source":"iana"},"application/vnd.wfa.wsc":{"source":"iana"},"application/vnd.windows.devicepairing":{"source":"iana"},"application/vnd.wmc":{"source":"iana"},"application/vnd.wmf.bootstrap":{"source":"iana"},"application/vnd.wolfram.mathematica":{"source":"iana"},"application/vnd.wolfram.mathematica.package":{"source":"iana"},"application/vnd.wolfram.player":{"source":"iana","extensions":["nbp"]},"application/vnd.wordperfect":{"source":"iana","extensions":["wpd"]},"application/vnd.wqd":{"source":"iana","extensions":["wqd"]},"application/vnd.wrq-hp3000-labelled":{"source":"iana"},"application/vnd.wt.stf":{"source":"iana","extensions":["stf"]},"application/vnd.wv.csp+wbxml":{"source":"iana"},"application/vnd.wv.csp+xml":{"source":"iana"},"application/vnd.wv.ssp+xml":{"source":"iana"},"application/vnd.xacml+json":{"source":"iana","compressible":true},"application/vnd.xara":{"source":"iana","extensions":["xar"]},"application/vnd.xfdl":{"source":"iana","extensions":["xfdl"]},"application/vnd.xfdl.webform":{"source":"iana"},"application/vnd.xmi+xml":{"source":"iana"},"application/vnd.xmpie.cpkg":{"source":"iana"},"application/vnd.xmpie.dpkg":{"source":"iana"},"application/vnd.xmpie.plan":{"source":"iana"},"application/vnd.xmpie.ppkg":{"source":"iana"},"application/vnd.xmpie.xlim":{"source":"iana"},"application/vnd.yamaha.hv-dic":{"source":"iana","extensions":["hvd"]},"application/vnd.yamaha.hv-script":{"source":"iana","extensions":["hvs"]},"application/vnd.yamaha.hv-voice":{"source":"iana","extensions":["hvp"]},"application/vnd.yamaha.openscoreformat":{"source":"iana","extensions":["osf"]},"application/vnd.yamaha.openscoreformat.osfpvg+xml":{"source":"iana","extensions":["osfpvg"]},"application/vnd.yamaha.remote-setup":{"source":"iana"},"application/vnd.yamaha.smaf-audio":{"source":"iana","extensions":["saf"]},"application/vnd.yamaha.smaf-phrase":{"source":"iana","extensions":["spf"]},"application/vnd.yamaha.through-ngn":{"source":"iana"},"application/vnd.yamaha.tunnel-udpencap":{"source":"iana"},"application/vnd.yaoweme":{"source":"iana"},"application/vnd.yellowriver-custom-menu":{"source":"iana","extensions":["cmp"]},"application/vnd.youtube.yt":{"source":"iana"},"application/vnd.zul":{"source":"iana","extensions":["zir","zirz"]},"application/vnd.zzazz.deck+xml":{"source":"iana","extensions":["zaz"]},"application/voicexml+xml":{"source":"iana","extensions":["vxml"]},"application/voucher-cms+json":{"source":"iana","compressible":true},"application/vq-rtcpxr":{"source":"iana"},"application/wasm":{"compressible":true,"extensions":["wasm"]},"application/watcherinfo+xml":{"source":"iana"},"application/webpush-options+json":{"source":"iana","compressible":true},"application/whoispp-query":{"source":"iana"},"application/whoispp-response":{"source":"iana"},"application/widget":{"source":"iana","extensions":["wgt"]},"application/winhlp":{"source":"apache","extensions":["hlp"]},"application/wita":{"source":"iana"},"application/wordperfect5.1":{"source":"iana"},"application/wsdl+xml":{"source":"iana","extensions":["wsdl"]},"application/wspolicy+xml":{"source":"iana","extensions":["wspolicy"]},"application/x-7z-compressed":{"source":"apache","compressible":false,"extensions":["7z"]},"application/x-abiword":{"source":"apache","extensions":["abw"]},"application/x-ace-compressed":{"source":"apache","extensions":["ace"]},"application/x-amf":{"source":"apache"},"application/x-apple-diskimage":{"source":"apache","extensions":["dmg"]},"application/x-arj":{"compressible":false,"extensions":["arj"]},"application/x-authorware-bin":{"source":"apache","extensions":["aab","x32","u32","vox"]},"application/x-authorware-map":{"source":"apache","extensions":["aam"]},"application/x-authorware-seg":{"source":"apache","extensions":["aas"]},"application/x-bcpio":{"source":"apache","extensions":["bcpio"]},"application/x-bdoc":{"compressible":false,"extensions":["bdoc"]},"application/x-bittorrent":{"source":"apache","extensions":["torrent"]},"application/x-blorb":{"source":"apache","extensions":["blb","blorb"]},"application/x-bzip":{"source":"apache","compressible":false,"extensions":["bz"]},"application/x-bzip2":{"source":"apache","compressible":false,"extensions":["bz2","boz"]},"application/x-cbr":{"source":"apache","extensions":["cbr","cba","cbt","cbz","cb7"]},"application/x-cdlink":{"source":"apache","extensions":["vcd"]},"application/x-cfs-compressed":{"source":"apache","extensions":["cfs"]},"application/x-chat":{"source":"apache","extensions":["chat"]},"application/x-chess-pgn":{"source":"apache","extensions":["pgn"]},"application/x-chrome-extension":{"extensions":["crx"]},"application/x-cocoa":{"source":"nginx","extensions":["cco"]},"application/x-compress":{"source":"apache"},"application/x-conference":{"source":"apache","extensions":["nsc"]},"application/x-cpio":{"source":"apache","extensions":["cpio"]},"application/x-csh":{"source":"apache","extensions":["csh"]},"application/x-deb":{"compressible":false},"application/x-debian-package":{"source":"apache","extensions":["deb","udeb"]},"application/x-dgc-compressed":{"source":"apache","extensions":["dgc"]},"application/x-director":{"source":"apache","extensions":["dir","dcr","dxr","cst","cct","cxt","w3d","fgd","swa"]},"application/x-doom":{"source":"apache","extensions":["wad"]},"application/x-dtbncx+xml":{"source":"apache","extensions":["ncx"]},"application/x-dtbook+xml":{"source":"apache","extensions":["dtb"]},"application/x-dtbresource+xml":{"source":"apache","extensions":["res"]},"application/x-dvi":{"source":"apache","compressible":false,"extensions":["dvi"]},"application/x-envoy":{"source":"apache","extensions":["evy"]},"application/x-eva":{"source":"apache","extensions":["eva"]},"application/x-font-bdf":{"source":"apache","extensions":["bdf"]},"application/x-font-dos":{"source":"apache"},"application/x-font-framemaker":{"source":"apache"},"application/x-font-ghostscript":{"source":"apache","extensions":["gsf"]},"application/x-font-libgrx":{"source":"apache"},"application/x-font-linux-psf":{"source":"apache","extensions":["psf"]},"application/x-font-pcf":{"source":"apache","extensions":["pcf"]},"application/x-font-snf":{"source":"apache","extensions":["snf"]},"application/x-font-speedo":{"source":"apache"},"application/x-font-sunos-news":{"source":"apache"},"application/x-font-type1":{"source":"apache","extensions":["pfa","pfb","pfm","afm"]},"application/x-font-vfont":{"source":"apache"},"application/x-freearc":{"source":"apache","extensions":["arc"]},"application/x-futuresplash":{"source":"apache","extensions":["spl"]},"application/x-gca-compressed":{"source":"apache","extensions":["gca"]},"application/x-glulx":{"source":"apache","extensions":["ulx"]},"application/x-gnumeric":{"source":"apache","extensions":["gnumeric"]},"application/x-gramps-xml":{"source":"apache","extensions":["gramps"]},"application/x-gtar":{"source":"apache","extensions":["gtar"]},"application/x-gzip":{"source":"apache"},"application/x-hdf":{"source":"apache","extensions":["hdf"]},"application/x-httpd-php":{"compressible":true,"extensions":["php"]},"application/x-install-instructions":{"source":"apache","extensions":["install"]},"application/x-iso9660-image":{"source":"apache","extensions":["iso"]},"application/x-java-archive-diff":{"source":"nginx","extensions":["jardiff"]},"application/x-java-jnlp-file":{"source":"apache","compressible":false,"extensions":["jnlp"]},"application/x-javascript":{"compressible":true},"application/x-latex":{"source":"apache","compressible":false,"extensions":["latex"]},"application/x-lua-bytecode":{"extensions":["luac"]},"application/x-lzh-compressed":{"source":"apache","extensions":["lzh","lha"]},"application/x-makeself":{"source":"nginx","extensions":["run"]},"application/x-mie":{"source":"apache","extensions":["mie"]},"application/x-mobipocket-ebook":{"source":"apache","extensions":["prc","mobi"]},"application/x-mpegurl":{"compressible":false},"application/x-ms-application":{"source":"apache","extensions":["application"]},"application/x-ms-shortcut":{"source":"apache","extensions":["lnk"]},"application/x-ms-wmd":{"source":"apache","extensions":["wmd"]},"application/x-ms-wmz":{"source":"apache","extensions":["wmz"]},"application/x-ms-xbap":{"source":"apache","extensions":["xbap"]},"application/x-msaccess":{"source":"apache","extensions":["mdb"]},"application/x-msbinder":{"source":"apache","extensions":["obd"]},"application/x-mscardfile":{"source":"apache","extensions":["crd"]},"application/x-msclip":{"source":"apache","extensions":["clp"]},"application/x-msdos-program":{"extensions":["exe"]},"application/x-msdownload":{"source":"apache","extensions":["exe","dll","com","bat","msi"]},"application/x-msmediaview":{"source":"apache","extensions":["mvb","m13","m14"]},"application/x-msmetafile":{"source":"apache","extensions":["wmf","wmz","emf","emz"]},"application/x-msmoney":{"source":"apache","extensions":["mny"]},"application/x-mspublisher":{"source":"apache","extensions":["pub"]},"application/x-msschedule":{"source":"apache","extensions":["scd"]},"application/x-msterminal":{"source":"apache","extensions":["trm"]},"application/x-mswrite":{"source":"apache","extensions":["wri"]},"application/x-netcdf":{"source":"apache","extensions":["nc","cdf"]},"application/x-ns-proxy-autoconfig":{"compressible":true,"extensions":["pac"]},"application/x-nzb":{"source":"apache","extensions":["nzb"]},"application/x-perl":{"source":"nginx","extensions":["pl","pm"]},"application/x-pilot":{"source":"nginx","extensions":["prc","pdb"]},"application/x-pkcs12":{"source":"apache","compressible":false,"extensions":["p12","pfx"]},"application/x-pkcs7-certificates":{"source":"apache","extensions":["p7b","spc"]},"application/x-pkcs7-certreqresp":{"source":"apache","extensions":["p7r"]},"application/x-rar-compressed":{"source":"apache","compressible":false,"extensions":["rar"]},"application/x-redhat-package-manager":{"source":"nginx","extensions":["rpm"]},"application/x-research-info-systems":{"source":"apache","extensions":["ris"]},"application/x-sea":{"source":"nginx","extensions":["sea"]},"application/x-sh":{"source":"apache","compressible":true,"extensions":["sh"]},"application/x-shar":{"source":"apache","extensions":["shar"]},"application/x-shockwave-flash":{"source":"apache","compressible":false,"extensions":["swf"]},"application/x-silverlight-app":{"source":"apache","extensions":["xap"]},"application/x-sql":{"source":"apache","extensions":["sql"]},"application/x-stuffit":{"source":"apache","compressible":false,"extensions":["sit"]},"application/x-stuffitx":{"source":"apache","extensions":["sitx"]},"application/x-subrip":{"source":"apache","extensions":["srt"]},"application/x-sv4cpio":{"source":"apache","extensions":["sv4cpio"]},"application/x-sv4crc":{"source":"apache","extensions":["sv4crc"]},"application/x-t3vm-image":{"source":"apache","extensions":["t3"]},"application/x-tads":{"source":"apache","extensions":["gam"]},"application/x-tar":{"source":"apache","compressible":true,"extensions":["tar"]},"application/x-tcl":{"source":"apache","extensions":["tcl","tk"]},"application/x-tex":{"source":"apache","extensions":["tex"]},"application/x-tex-tfm":{"source":"apache","extensions":["tfm"]},"application/x-texinfo":{"source":"apache","extensions":["texinfo","texi"]},"application/x-tgif":{"source":"apache","extensions":["obj"]},"application/x-ustar":{"source":"apache","extensions":["ustar"]},"application/x-virtualbox-hdd":{"compressible":true,"extensions":["hdd"]},"application/x-virtualbox-ova":{"compressible":true,"extensions":["ova"]},"application/x-virtualbox-ovf":{"compressible":true,"extensions":["ovf"]},"application/x-virtualbox-vbox":{"compressible":true,"extensions":["vbox"]},"application/x-virtualbox-vbox-extpack":{"compressible":false,"extensions":["vbox-extpack"]},"application/x-virtualbox-vdi":{"compressible":true,"extensions":["vdi"]},"application/x-virtualbox-vhd":{"compressible":true,"extensions":["vhd"]},"application/x-virtualbox-vmdk":{"compressible":true,"extensions":["vmdk"]},"application/x-wais-source":{"source":"apache","extensions":["src"]},"application/x-web-app-manifest+json":{"compressible":true,"extensions":["webapp"]},"application/x-www-form-urlencoded":{"source":"iana","compressible":true},"application/x-x509-ca-cert":{"source":"apache","extensions":["der","crt","pem"]},"application/x-xfig":{"source":"apache","extensions":["fig"]},"application/x-xliff+xml":{"source":"apache","extensions":["xlf"]},"application/x-xpinstall":{"source":"apache","compressible":false,"extensions":["xpi"]},"application/x-xz":{"source":"apache","extensions":["xz"]},"application/x-zmachine":{"source":"apache","extensions":["z1","z2","z3","z4","z5","z6","z7","z8"]},"application/x400-bp":{"source":"iana"},"application/xacml+xml":{"source":"iana"},"application/xaml+xml":{"source":"apache","extensions":["xaml"]},"application/xcap-att+xml":{"source":"iana"},"application/xcap-caps+xml":{"source":"iana"},"application/xcap-diff+xml":{"source":"iana","extensions":["xdf"]},"application/xcap-el+xml":{"source":"iana"},"application/xcap-error+xml":{"source":"iana"},"application/xcap-ns+xml":{"source":"iana"},"application/xcon-conference-info+xml":{"source":"iana"},"application/xcon-conference-info-diff+xml":{"source":"iana"},"application/xenc+xml":{"source":"iana","extensions":["xenc"]},"application/xhtml+xml":{"source":"iana","compressible":true,"extensions":["xhtml","xht"]},"application/xhtml-voice+xml":{"source":"apache"},"application/xml":{"source":"iana","compressible":true,"extensions":["xml","xsl","xsd","rng"]},"application/xml-dtd":{"source":"iana","compressible":true,"extensions":["dtd"]},"application/xml-external-parsed-entity":{"source":"iana"},"application/xml-patch+xml":{"source":"iana"},"application/xmpp+xml":{"source":"iana"},"application/xop+xml":{"source":"iana","compressible":true,"extensions":["xop"]},"application/xproc+xml":{"source":"apache","extensions":["xpl"]},"application/xslt+xml":{"source":"iana","extensions":["xslt"]},"application/xspf+xml":{"source":"apache","extensions":["xspf"]},"application/xv+xml":{"source":"iana","extensions":["mxml","xhvml","xvml","xvm"]},"application/yang":{"source":"iana","extensions":["yang"]},"application/yang-data+json":{"source":"iana","compressible":true},"application/yang-data+xml":{"source":"iana"},"application/yang-patch+json":{"source":"iana","compressible":true},"application/yang-patch+xml":{"source":"iana"},"application/yin+xml":{"source":"iana","extensions":["yin"]},"application/zip":{"source":"iana","compressible":false,"extensions":["zip"]},"application/zlib":{"source":"iana"},"audio/1d-interleaved-parityfec":{"source":"iana"},"audio/32kadpcm":{"source":"iana"},"audio/3gpp":{"source":"iana","compressible":false,"extensions":["3gpp"]},"audio/3gpp2":{"source":"iana"},"audio/ac3":{"source":"iana"},"audio/adpcm":{"source":"apache","extensions":["adp"]},"audio/amr":{"source":"iana"},"audio/amr-wb":{"source":"iana"},"audio/amr-wb+":{"source":"iana"},"audio/aptx":{"source":"iana"},"audio/asc":{"source":"iana"},"audio/atrac-advanced-lossless":{"source":"iana"},"audio/atrac-x":{"source":"iana"},"audio/atrac3":{"source":"iana"},"audio/basic":{"source":"iana","compressible":false,"extensions":["au","snd"]},"audio/bv16":{"source":"iana"},"audio/bv32":{"source":"iana"},"audio/clearmode":{"source":"iana"},"audio/cn":{"source":"iana"},"audio/dat12":{"source":"iana"},"audio/dls":{"source":"iana"},"audio/dsr-es201108":{"source":"iana"},"audio/dsr-es202050":{"source":"iana"},"audio/dsr-es202211":{"source":"iana"},"audio/dsr-es202212":{"source":"iana"},"audio/dv":{"source":"iana"},"audio/dvi4":{"source":"iana"},"audio/eac3":{"source":"iana"},"audio/encaprtp":{"source":"iana"},"audio/evrc":{"source":"iana"},"audio/evrc-qcp":{"source":"iana"},"audio/evrc0":{"source":"iana"},"audio/evrc1":{"source":"iana"},"audio/evrcb":{"source":"iana"},"audio/evrcb0":{"source":"iana"},"audio/evrcb1":{"source":"iana"},"audio/evrcnw":{"source":"iana"},"audio/evrcnw0":{"source":"iana"},"audio/evrcnw1":{"source":"iana"},"audio/evrcwb":{"source":"iana"},"audio/evrcwb0":{"source":"iana"},"audio/evrcwb1":{"source":"iana"},"audio/evs":{"source":"iana"},"audio/fwdred":{"source":"iana"},"audio/g711-0":{"source":"iana"},"audio/g719":{"source":"iana"},"audio/g722":{"source":"iana"},"audio/g7221":{"source":"iana"},"audio/g723":{"source":"iana"},"audio/g726-16":{"source":"iana"},"audio/g726-24":{"source":"iana"},"audio/g726-32":{"source":"iana"},"audio/g726-40":{"source":"iana"},"audio/g728":{"source":"iana"},"audio/g729":{"source":"iana"},"audio/g7291":{"source":"iana"},"audio/g729d":{"source":"iana"},"audio/g729e":{"source":"iana"},"audio/gsm":{"source":"iana"},"audio/gsm-efr":{"source":"iana"},"audio/gsm-hr-08":{"source":"iana"},"audio/ilbc":{"source":"iana"},"audio/ip-mr_v2.5":{"source":"iana"},"audio/isac":{"source":"apache"},"audio/l16":{"source":"iana"},"audio/l20":{"source":"iana"},"audio/l24":{"source":"iana","compressible":false},"audio/l8":{"source":"iana"},"audio/lpc":{"source":"iana"},"audio/melp":{"source":"iana"},"audio/melp1200":{"source":"iana"},"audio/melp2400":{"source":"iana"},"audio/melp600":{"source":"iana"},"audio/midi":{"source":"apache","extensions":["mid","midi","kar","rmi"]},"audio/mobile-xmf":{"source":"iana"},"audio/mp3":{"compressible":false,"extensions":["mp3"]},"audio/mp4":{"source":"iana","compressible":false,"extensions":["m4a","mp4a"]},"audio/mp4a-latm":{"source":"iana"},"audio/mpa":{"source":"iana"},"audio/mpa-robust":{"source":"iana"},"audio/mpeg":{"source":"iana","compressible":false,"extensions":["mpga","mp2","mp2a","mp3","m2a","m3a"]},"audio/mpeg4-generic":{"source":"iana"},"audio/musepack":{"source":"apache"},"audio/ogg":{"source":"iana","compressible":false,"extensions":["oga","ogg","spx"]},"audio/opus":{"source":"iana"},"audio/parityfec":{"source":"iana"},"audio/pcma":{"source":"iana"},"audio/pcma-wb":{"source":"iana"},"audio/pcmu":{"source":"iana"},"audio/pcmu-wb":{"source":"iana"},"audio/prs.sid":{"source":"iana"},"audio/qcelp":{"source":"iana"},"audio/raptorfec":{"source":"iana"},"audio/red":{"source":"iana"},"audio/rtp-enc-aescm128":{"source":"iana"},"audio/rtp-midi":{"source":"iana"},"audio/rtploopback":{"source":"iana"},"audio/rtx":{"source":"iana"},"audio/s3m":{"source":"apache","extensions":["s3m"]},"audio/silk":{"source":"apache","extensions":["sil"]},"audio/smv":{"source":"iana"},"audio/smv-qcp":{"source":"iana"},"audio/smv0":{"source":"iana"},"audio/sp-midi":{"source":"iana"},"audio/speex":{"source":"iana"},"audio/t140c":{"source":"iana"},"audio/t38":{"source":"iana"},"audio/telephone-event":{"source":"iana"},"audio/tone":{"source":"iana"},"audio/uemclip":{"source":"iana"},"audio/ulpfec":{"source":"iana"},"audio/vdvi":{"source":"iana"},"audio/vmr-wb":{"source":"iana"},"audio/vnd.3gpp.iufp":{"source":"iana"},"audio/vnd.4sb":{"source":"iana"},"audio/vnd.audiokoz":{"source":"iana"},"audio/vnd.celp":{"source":"iana"},"audio/vnd.cisco.nse":{"source":"iana"},"audio/vnd.cmles.radio-events":{"source":"iana"},"audio/vnd.cns.anp1":{"source":"iana"},"audio/vnd.cns.inf1":{"source":"iana"},"audio/vnd.dece.audio":{"source":"iana","extensions":["uva","uvva"]},"audio/vnd.digital-winds":{"source":"iana","extensions":["eol"]},"audio/vnd.dlna.adts":{"source":"iana"},"audio/vnd.dolby.heaac.1":{"source":"iana"},"audio/vnd.dolby.heaac.2":{"source":"iana"},"audio/vnd.dolby.mlp":{"source":"iana"},"audio/vnd.dolby.mps":{"source":"iana"},"audio/vnd.dolby.pl2":{"source":"iana"},"audio/vnd.dolby.pl2x":{"source":"iana"},"audio/vnd.dolby.pl2z":{"source":"iana"},"audio/vnd.dolby.pulse.1":{"source":"iana"},"audio/vnd.dra":{"source":"iana","extensions":["dra"]},"audio/vnd.dts":{"source":"iana","extensions":["dts"]},"audio/vnd.dts.hd":{"source":"iana","extensions":["dtshd"]},"audio/vnd.dvb.file":{"source":"iana"},"audio/vnd.everad.plj":{"source":"iana"},"audio/vnd.hns.audio":{"source":"iana"},"audio/vnd.lucent.voice":{"source":"iana","extensions":["lvp"]},"audio/vnd.ms-playready.media.pya":{"source":"iana","extensions":["pya"]},"audio/vnd.nokia.mobile-xmf":{"source":"iana"},"audio/vnd.nortel.vbk":{"source":"iana"},"audio/vnd.nuera.ecelp4800":{"source":"iana","extensions":["ecelp4800"]},"audio/vnd.nuera.ecelp7470":{"source":"iana","extensions":["ecelp7470"]},"audio/vnd.nuera.ecelp9600":{"source":"iana","extensions":["ecelp9600"]},"audio/vnd.octel.sbc":{"source":"iana"},"audio/vnd.presonus.multitrack":{"source":"iana"},"audio/vnd.qcelp":{"source":"iana"},"audio/vnd.rhetorex.32kadpcm":{"source":"iana"},"audio/vnd.rip":{"source":"iana","extensions":["rip"]},"audio/vnd.rn-realaudio":{"compressible":false},"audio/vnd.sealedmedia.softseal.mpeg":{"source":"iana"},"audio/vnd.vmx.cvsd":{"source":"iana"},"audio/vnd.wave":{"compressible":false},"audio/vorbis":{"source":"iana","compressible":false},"audio/vorbis-config":{"source":"iana"},"audio/wav":{"compressible":false,"extensions":["wav"]},"audio/wave":{"compressible":false,"extensions":["wav"]},"audio/webm":{"source":"apache","compressible":false,"extensions":["weba"]},"audio/x-aac":{"source":"apache","compressible":false,"extensions":["aac"]},"audio/x-aiff":{"source":"apache","extensions":["aif","aiff","aifc"]},"audio/x-caf":{"source":"apache","compressible":false,"extensions":["caf"]},"audio/x-flac":{"source":"apache","extensions":["flac"]},"audio/x-m4a":{"source":"nginx","extensions":["m4a"]},"audio/x-matroska":{"source":"apache","extensions":["mka"]},"audio/x-mpegurl":{"source":"apache","extensions":["m3u"]},"audio/x-ms-wax":{"source":"apache","extensions":["wax"]},"audio/x-ms-wma":{"source":"apache","extensions":["wma"]},"audio/x-pn-realaudio":{"source":"apache","extensions":["ram","ra"]},"audio/x-pn-realaudio-plugin":{"source":"apache","extensions":["rmp"]},"audio/x-realaudio":{"source":"nginx","extensions":["ra"]},"audio/x-tta":{"source":"apache"},"audio/x-wav":{"source":"apache","extensions":["wav"]},"audio/xm":{"source":"apache","extensions":["xm"]},"chemical/x-cdx":{"source":"apache","extensions":["cdx"]},"chemical/x-cif":{"source":"apache","extensions":["cif"]},"chemical/x-cmdf":{"source":"apache","extensions":["cmdf"]},"chemical/x-cml":{"source":"apache","extensions":["cml"]},"chemical/x-csml":{"source":"apache","extensions":["csml"]},"chemical/x-pdb":{"source":"apache"},"chemical/x-xyz":{"source":"apache","extensions":["xyz"]},"font/collection":{"source":"iana","extensions":["ttc"]},"font/otf":{"source":"iana","compressible":true,"extensions":["otf"]},"font/sfnt":{"source":"iana"},"font/ttf":{"source":"iana","extensions":["ttf"]},"font/woff":{"source":"iana","extensions":["woff"]},"font/woff2":{"source":"iana","extensions":["woff2"]},"image/aces":{"source":"iana"},"image/apng":{"compressible":false,"extensions":["apng"]},"image/bmp":{"source":"iana","compressible":true,"extensions":["bmp"]},"image/cgm":{"source":"iana","extensions":["cgm"]},"image/dicom-rle":{"source":"iana"},"image/emf":{"source":"iana"},"image/fits":{"source":"iana"},"image/g3fax":{"source":"iana","extensions":["g3"]},"image/gif":{"source":"iana","compressible":false,"extensions":["gif"]},"image/ief":{"source":"iana","extensions":["ief"]},"image/jls":{"source":"iana"},"image/jp2":{"source":"iana","compressible":false,"extensions":["jp2","jpg2"]},"image/jpeg":{"source":"iana","compressible":false,"extensions":["jpeg","jpg","jpe"]},"image/jpm":{"source":"iana","compressible":false,"extensions":["jpm"]},"image/jpx":{"source":"iana","compressible":false,"extensions":["jpx","jpf"]},"image/ktx":{"source":"iana","extensions":["ktx"]},"image/naplps":{"source":"iana"},"image/pjpeg":{"compressible":false},"image/png":{"source":"iana","compressible":false,"extensions":["png"]},"image/prs.btif":{"source":"iana","extensions":["btif"]},"image/prs.pti":{"source":"iana"},"image/pwg-raster":{"source":"iana"},"image/sgi":{"source":"apache","extensions":["sgi"]},"image/svg+xml":{"source":"iana","compressible":true,"extensions":["svg","svgz"]},"image/t38":{"source":"iana"},"image/tiff":{"source":"iana","compressible":false,"extensions":["tiff","tif"]},"image/tiff-fx":{"source":"iana"},"image/vnd.adobe.photoshop":{"source":"iana","compressible":true,"extensions":["psd"]},"image/vnd.airzip.accelerator.azv":{"source":"iana"},"image/vnd.cns.inf2":{"source":"iana"},"image/vnd.dece.graphic":{"source":"iana","extensions":["uvi","uvvi","uvg","uvvg"]},"image/vnd.djvu":{"source":"iana","extensions":["djvu","djv"]},"image/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"image/vnd.dwg":{"source":"iana","extensions":["dwg"]},"image/vnd.dxf":{"source":"iana","extensions":["dxf"]},"image/vnd.fastbidsheet":{"source":"iana","extensions":["fbs"]},"image/vnd.fpx":{"source":"iana","extensions":["fpx"]},"image/vnd.fst":{"source":"iana","extensions":["fst"]},"image/vnd.fujixerox.edmics-mmr":{"source":"iana","extensions":["mmr"]},"image/vnd.fujixerox.edmics-rlc":{"source":"iana","extensions":["rlc"]},"image/vnd.globalgraphics.pgb":{"source":"iana"},"image/vnd.microsoft.icon":{"source":"iana"},"image/vnd.mix":{"source":"iana"},"image/vnd.mozilla.apng":{"source":"iana"},"image/vnd.ms-modi":{"source":"iana","extensions":["mdi"]},"image/vnd.ms-photo":{"source":"apache","extensions":["wdp"]},"image/vnd.net-fpx":{"source":"iana","extensions":["npx"]},"image/vnd.radiance":{"source":"iana"},"image/vnd.sealed.png":{"source":"iana"},"image/vnd.sealedmedia.softseal.gif":{"source":"iana"},"image/vnd.sealedmedia.softseal.jpg":{"source":"iana"},"image/vnd.svf":{"source":"iana"},"image/vnd.tencent.tap":{"source":"iana"},"image/vnd.valve.source.texture":{"source":"iana"},"image/vnd.wap.wbmp":{"source":"iana","extensions":["wbmp"]},"image/vnd.xiff":{"source":"iana","extensions":["xif"]},"image/vnd.zbrush.pcx":{"source":"iana"},"image/webp":{"source":"apache","extensions":["webp"]},"image/wmf":{"source":"iana"},"image/x-3ds":{"source":"apache","extensions":["3ds"]},"image/x-cmu-raster":{"source":"apache","extensions":["ras"]},"image/x-cmx":{"source":"apache","extensions":["cmx"]},"image/x-freehand":{"source":"apache","extensions":["fh","fhc","fh4","fh5","fh7"]},"image/x-icon":{"source":"apache","compressible":true,"extensions":["ico"]},"image/x-jng":{"source":"nginx","extensions":["jng"]},"image/x-mrsid-image":{"source":"apache","extensions":["sid"]},"image/x-ms-bmp":{"source":"nginx","compressible":true,"extensions":["bmp"]},"image/x-pcx":{"source":"apache","extensions":["pcx"]},"image/x-pict":{"source":"apache","extensions":["pic","pct"]},"image/x-portable-anymap":{"source":"apache","extensions":["pnm"]},"image/x-portable-bitmap":{"source":"apache","extensions":["pbm"]},"image/x-portable-graymap":{"source":"apache","extensions":["pgm"]},"image/x-portable-pixmap":{"source":"apache","extensions":["ppm"]},"image/x-rgb":{"source":"apache","extensions":["rgb"]},"image/x-tga":{"source":"apache","extensions":["tga"]},"image/x-xbitmap":{"source":"apache","extensions":["xbm"]},"image/x-xcf":{"compressible":false},"image/x-xpixmap":{"source":"apache","extensions":["xpm"]},"image/x-xwindowdump":{"source":"apache","extensions":["xwd"]},"message/cpim":{"source":"iana"},"message/delivery-status":{"source":"iana"},"message/disposition-notification":{"source":"iana","extensions":["disposition-notification"]},"message/external-body":{"source":"iana"},"message/feedback-report":{"source":"iana"},"message/global":{"source":"iana","extensions":["u8msg"]},"message/global-delivery-status":{"source":"iana","extensions":["u8dsn"]},"message/global-disposition-notification":{"source":"iana","extensions":["u8mdn"]},"message/global-headers":{"source":"iana","extensions":["u8hdr"]},"message/http":{"source":"iana","compressible":false},"message/imdn+xml":{"source":"iana","compressible":true},"message/news":{"source":"iana"},"message/partial":{"source":"iana","compressible":false},"message/rfc822":{"source":"iana","compressible":true,"extensions":["eml","mime"]},"message/s-http":{"source":"iana"},"message/sip":{"source":"iana"},"message/sipfrag":{"source":"iana"},"message/tracking-status":{"source":"iana"},"message/vnd.si.simp":{"source":"iana"},"message/vnd.wfa.wsc":{"source":"iana","extensions":["wsc"]},"model/3mf":{"source":"iana"},"model/gltf+json":{"source":"iana","compressible":true,"extensions":["gltf"]},"model/gltf-binary":{"source":"iana","compressible":true,"extensions":["glb"]},"model/iges":{"source":"iana","compressible":false,"extensions":["igs","iges"]},"model/mesh":{"source":"iana","compressible":false,"extensions":["msh","mesh","silo"]},"model/vnd.collada+xml":{"source":"iana","extensions":["dae"]},"model/vnd.dwf":{"source":"iana","extensions":["dwf"]},"model/vnd.flatland.3dml":{"source":"iana"},"model/vnd.gdl":{"source":"iana","extensions":["gdl"]},"model/vnd.gs-gdl":{"source":"apache"},"model/vnd.gs.gdl":{"source":"iana"},"model/vnd.gtw":{"source":"iana","extensions":["gtw"]},"model/vnd.moml+xml":{"source":"iana"},"model/vnd.mts":{"source":"iana","extensions":["mts"]},"model/vnd.opengex":{"source":"iana"},"model/vnd.parasolid.transmit.binary":{"source":"iana"},"model/vnd.parasolid.transmit.text":{"source":"iana"},"model/vnd.rosette.annotated-data-model":{"source":"iana"},"model/vnd.valve.source.compiled-map":{"source":"iana"},"model/vnd.vtu":{"source":"iana","extensions":["vtu"]},"model/vrml":{"source":"iana","compressible":false,"extensions":["wrl","vrml"]},"model/x3d+binary":{"source":"apache","compressible":false,"extensions":["x3db","x3dbz"]},"model/x3d+fastinfoset":{"source":"iana"},"model/x3d+vrml":{"source":"apache","compressible":false,"extensions":["x3dv","x3dvz"]},"model/x3d+xml":{"source":"iana","compressible":true,"extensions":["x3d","x3dz"]},"model/x3d-vrml":{"source":"iana"},"multipart/alternative":{"source":"iana","compressible":false},"multipart/appledouble":{"source":"iana"},"multipart/byteranges":{"source":"iana"},"multipart/digest":{"source":"iana"},"multipart/encrypted":{"source":"iana","compressible":false},"multipart/form-data":{"source":"iana","compressible":false},"multipart/header-set":{"source":"iana"},"multipart/mixed":{"source":"iana","compressible":false},"multipart/multilingual":{"source":"iana"},"multipart/parallel":{"source":"iana"},"multipart/related":{"source":"iana","compressible":false},"multipart/report":{"source":"iana"},"multipart/signed":{"source":"iana","compressible":false},"multipart/vnd.bint.med-plus":{"source":"iana"},"multipart/voice-message":{"source":"iana"},"multipart/x-mixed-replace":{"source":"iana"},"text/1d-interleaved-parityfec":{"source":"iana"},"text/cache-manifest":{"source":"iana","compressible":true,"extensions":["appcache","manifest"]},"text/calendar":{"source":"iana","extensions":["ics","ifb"]},"text/calender":{"compressible":true},"text/cmd":{"compressible":true},"text/coffeescript":{"extensions":["coffee","litcoffee"]},"text/css":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["css"]},"text/csv":{"source":"iana","compressible":true,"extensions":["csv"]},"text/csv-schema":{"source":"iana"},"text/directory":{"source":"iana"},"text/dns":{"source":"iana"},"text/ecmascript":{"source":"iana"},"text/encaprtp":{"source":"iana"},"text/enriched":{"source":"iana"},"text/fwdred":{"source":"iana"},"text/grammar-ref-list":{"source":"iana"},"text/html":{"source":"iana","compressible":true,"extensions":["html","htm","shtml"]},"text/jade":{"extensions":["jade"]},"text/javascript":{"source":"iana","compressible":true},"text/jcr-cnd":{"source":"iana"},"text/jsx":{"compressible":true,"extensions":["jsx"]},"text/less":{"extensions":["less"]},"text/markdown":{"source":"iana","compressible":true,"extensions":["markdown","md"]},"text/mathml":{"source":"nginx","extensions":["mml"]},"text/mizar":{"source":"iana"},"text/n3":{"source":"iana","compressible":true,"extensions":["n3"]},"text/parameters":{"source":"iana"},"text/parityfec":{"source":"iana"},"text/plain":{"source":"iana","compressible":true,"extensions":["txt","text","conf","def","list","log","in","ini"]},"text/provenance-notation":{"source":"iana"},"text/prs.fallenstein.rst":{"source":"iana"},"text/prs.lines.tag":{"source":"iana","extensions":["dsc"]},"text/prs.prop.logic":{"source":"iana"},"text/raptorfec":{"source":"iana"},"text/red":{"source":"iana"},"text/rfc822-headers":{"source":"iana"},"text/richtext":{"source":"iana","compressible":true,"extensions":["rtx"]},"text/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"text/rtp-enc-aescm128":{"source":"iana"},"text/rtploopback":{"source":"iana"},"text/rtx":{"source":"iana"},"text/sgml":{"source":"iana","extensions":["sgml","sgm"]},"text/shex":{"extensions":["shex"]},"text/slim":{"extensions":["slim","slm"]},"text/strings":{"source":"iana"},"text/stylus":{"extensions":["stylus","styl"]},"text/t140":{"source":"iana"},"text/tab-separated-values":{"source":"iana","compressible":true,"extensions":["tsv"]},"text/troff":{"source":"iana","extensions":["t","tr","roff","man","me","ms"]},"text/turtle":{"source":"iana","extensions":["ttl"]},"text/ulpfec":{"source":"iana"},"text/uri-list":{"source":"iana","compressible":true,"extensions":["uri","uris","urls"]},"text/vcard":{"source":"iana","compressible":true,"extensions":["vcard"]},"text/vnd.a":{"source":"iana"},"text/vnd.abc":{"source":"iana"},"text/vnd.ascii-art":{"source":"iana"},"text/vnd.curl":{"source":"iana","extensions":["curl"]},"text/vnd.curl.dcurl":{"source":"apache","extensions":["dcurl"]},"text/vnd.curl.mcurl":{"source":"apache","extensions":["mcurl"]},"text/vnd.curl.scurl":{"source":"apache","extensions":["scurl"]},"text/vnd.debian.copyright":{"source":"iana"},"text/vnd.dmclientscript":{"source":"iana"},"text/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"text/vnd.esmertec.theme-descriptor":{"source":"iana"},"text/vnd.fly":{"source":"iana","extensions":["fly"]},"text/vnd.fmi.flexstor":{"source":"iana","extensions":["flx"]},"text/vnd.graphviz":{"source":"iana","extensions":["gv"]},"text/vnd.in3d.3dml":{"source":"iana","extensions":["3dml"]},"text/vnd.in3d.spot":{"source":"iana","extensions":["spot"]},"text/vnd.iptc.newsml":{"source":"iana"},"text/vnd.iptc.nitf":{"source":"iana"},"text/vnd.latex-z":{"source":"iana"},"text/vnd.motorola.reflex":{"source":"iana"},"text/vnd.ms-mediapackage":{"source":"iana"},"text/vnd.net2phone.commcenter.command":{"source":"iana"},"text/vnd.radisys.msml-basic-layout":{"source":"iana"},"text/vnd.si.uricatalogue":{"source":"iana"},"text/vnd.sun.j2me.app-descriptor":{"source":"iana","extensions":["jad"]},"text/vnd.trolltech.linguist":{"source":"iana"},"text/vnd.wap.si":{"source":"iana"},"text/vnd.wap.sl":{"source":"iana"},"text/vnd.wap.wml":{"source":"iana","extensions":["wml"]},"text/vnd.wap.wmlscript":{"source":"iana","extensions":["wmls"]},"text/vtt":{"charset":"UTF-8","compressible":true,"extensions":["vtt"]},"text/x-asm":{"source":"apache","extensions":["s","asm"]},"text/x-c":{"source":"apache","extensions":["c","cc","cxx","cpp","h","hh","dic"]},"text/x-component":{"source":"nginx","extensions":["htc"]},"text/x-fortran":{"source":"apache","extensions":["f","for","f77","f90"]},"text/x-gwt-rpc":{"compressible":true},"text/x-handlebars-template":{"extensions":["hbs"]},"text/x-java-source":{"source":"apache","extensions":["java"]},"text/x-jquery-tmpl":{"compressible":true},"text/x-lua":{"extensions":["lua"]},"text/x-markdown":{"compressible":true,"extensions":["mkd"]},"text/x-nfo":{"source":"apache","extensions":["nfo"]},"text/x-opml":{"source":"apache","extensions":["opml"]},"text/x-org":{"compressible":true,"extensions":["org"]},"text/x-pascal":{"source":"apache","extensions":["p","pas"]},"text/x-processing":{"compressible":true,"extensions":["pde"]},"text/x-sass":{"extensions":["sass"]},"text/x-scss":{"extensions":["scss"]},"text/x-setext":{"source":"apache","extensions":["etx"]},"text/x-sfv":{"source":"apache","extensions":["sfv"]},"text/x-suse-ymp":{"compressible":true,"extensions":["ymp"]},"text/x-uuencode":{"source":"apache","extensions":["uu"]},"text/x-vcalendar":{"source":"apache","extensions":["vcs"]},"text/x-vcard":{"source":"apache","extensions":["vcf"]},"text/xml":{"source":"iana","compressible":true,"extensions":["xml"]},"text/xml-external-parsed-entity":{"source":"iana"},"text/yaml":{"extensions":["yaml","yml"]},"video/1d-interleaved-parityfec":{"source":"iana"},"video/3gpp":{"source":"iana","extensions":["3gp","3gpp"]},"video/3gpp-tt":{"source":"iana"},"video/3gpp2":{"source":"iana","extensions":["3g2"]},"video/bmpeg":{"source":"iana"},"video/bt656":{"source":"iana"},"video/celb":{"source":"iana"},"video/dv":{"source":"iana"},"video/encaprtp":{"source":"iana"},"video/h261":{"source":"iana","extensions":["h261"]},"video/h263":{"source":"iana","extensions":["h263"]},"video/h263-1998":{"source":"iana"},"video/h263-2000":{"source":"iana"},"video/h264":{"source":"iana","extensions":["h264"]},"video/h264-rcdo":{"source":"iana"},"video/h264-svc":{"source":"iana"},"video/h265":{"source":"iana"},"video/iso.segment":{"source":"iana"},"video/jpeg":{"source":"iana","extensions":["jpgv"]},"video/jpeg2000":{"source":"iana"},"video/jpm":{"source":"apache","extensions":["jpm","jpgm"]},"video/mj2":{"source":"iana","extensions":["mj2","mjp2"]},"video/mp1s":{"source":"iana"},"video/mp2p":{"source":"iana"},"video/mp2t":{"source":"iana","extensions":["ts"]},"video/mp4":{"source":"iana","compressible":false,"extensions":["mp4","mp4v","mpg4"]},"video/mp4v-es":{"source":"iana"},"video/mpeg":{"source":"iana","compressible":false,"extensions":["mpeg","mpg","mpe","m1v","m2v"]},"video/mpeg4-generic":{"source":"iana"},"video/mpv":{"source":"iana"},"video/nv":{"source":"iana"},"video/ogg":{"source":"iana","compressible":false,"extensions":["ogv"]},"video/parityfec":{"source":"iana"},"video/pointer":{"source":"iana"},"video/quicktime":{"source":"iana","compressible":false,"extensions":["qt","mov"]},"video/raptorfec":{"source":"iana"},"video/raw":{"source":"iana"},"video/rtp-enc-aescm128":{"source":"iana"},"video/rtploopback":{"source":"iana"},"video/rtx":{"source":"iana"},"video/smpte291":{"source":"iana"},"video/smpte292m":{"source":"iana"},"video/ulpfec":{"source":"iana"},"video/vc1":{"source":"iana"},"video/vnd.cctv":{"source":"iana"},"video/vnd.dece.hd":{"source":"iana","extensions":["uvh","uvvh"]},"video/vnd.dece.mobile":{"source":"iana","extensions":["uvm","uvvm"]},"video/vnd.dece.mp4":{"source":"iana"},"video/vnd.dece.pd":{"source":"iana","extensions":["uvp","uvvp"]},"video/vnd.dece.sd":{"source":"iana","extensions":["uvs","uvvs"]},"video/vnd.dece.video":{"source":"iana","extensions":["uvv","uvvv"]},"video/vnd.directv.mpeg":{"source":"iana"},"video/vnd.directv.mpeg-tts":{"source":"iana"},"video/vnd.dlna.mpeg-tts":{"source":"iana"},"video/vnd.dvb.file":{"source":"iana","extensions":["dvb"]},"video/vnd.fvt":{"source":"iana","extensions":["fvt"]},"video/vnd.hns.video":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.ttsavc":{"source":"iana"},"video/vnd.iptvforum.ttsmpeg2":{"source":"iana"},"video/vnd.motorola.video":{"source":"iana"},"video/vnd.motorola.videop":{"source":"iana"},"video/vnd.mpegurl":{"source":"iana","extensions":["mxu","m4u"]},"video/vnd.ms-playready.media.pyv":{"source":"iana","extensions":["pyv"]},"video/vnd.nokia.interleaved-multimedia":{"source":"iana"},"video/vnd.nokia.mp4vr":{"source":"iana"},"video/vnd.nokia.videovoip":{"source":"iana"},"video/vnd.objectvideo":{"source":"iana"},"video/vnd.radgamettools.bink":{"source":"iana"},"video/vnd.radgamettools.smacker":{"source":"iana"},"video/vnd.sealed.mpeg1":{"source":"iana"},"video/vnd.sealed.mpeg4":{"source":"iana"},"video/vnd.sealed.swf":{"source":"iana"},"video/vnd.sealedmedia.softseal.mov":{"source":"iana"},"video/vnd.uvvu.mp4":{"source":"iana","extensions":["uvu","uvvu"]},"video/vnd.vivo":{"source":"iana","extensions":["viv"]},"video/vp8":{"source":"iana"},"video/webm":{"source":"apache","compressible":false,"extensions":["webm"]},"video/x-f4v":{"source":"apache","extensions":["f4v"]},"video/x-fli":{"source":"apache","extensions":["fli"]},"video/x-flv":{"source":"apache","compressible":false,"extensions":["flv"]},"video/x-m4v":{"source":"apache","extensions":["m4v"]},"video/x-matroska":{"source":"apache","compressible":false,"extensions":["mkv","mk3d","mks"]},"video/x-mng":{"source":"apache","extensions":["mng"]},"video/x-ms-asf":{"source":"apache","extensions":["asf","asx"]},"video/x-ms-vob":{"source":"apache","extensions":["vob"]},"video/x-ms-wm":{"source":"apache","extensions":["wm"]},"video/x-ms-wmv":{"source":"apache","compressible":false,"extensions":["wmv"]},"video/x-ms-wmx":{"source":"apache","extensions":["wmx"]},"video/x-ms-wvx":{"source":"apache","extensions":["wvx"]},"video/x-msvideo":{"source":"apache","extensions":["avi"]},"video/x-sgi-movie":{"source":"apache","extensions":["movie"]},"video/x-smv":{"source":"apache","extensions":["smv"]},"x-conference/x-cooltalk":{"source":"apache","extensions":["ice"]},"x-shader/x-fragment":{"compressible":true},"x-shader/x-vertex":{"compressible":true}}
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, exports) {
 
 module.exports = {"_args":[["tough-cookie@~2.3.3","G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-ssr\\node_modules\\request"]],"_from":"tough-cookie@>=2.3.3 <2.4.0","_id":"tough-cookie@2.3.4","_inCache":true,"_installable":true,"_location":"/tough-cookie","_nodeVersion":"8.9.4","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/tough-cookie_2.3.4_1519684165015_0.21877903579709823"},"_npmUser":{"email":"jstash@gmail.com","name":"jstash"},"_npmVersion":"5.6.0","_phantomChildren":{},"_requested":{"name":"tough-cookie","raw":"tough-cookie@~2.3.3","rawSpec":"~2.3.3","scope":null,"spec":">=2.3.3 <2.4.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_shasum":"ec60cee38ac675063ffc97a5c18970578ee83655","_shrinkwrap":null,"_spec":"tough-cookie@~2.3.3","_where":"G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-ssr\\node_modules\\request","author":{"email":"jstashewsky@salesforce.com","name":"Jeremy Stashewsky"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"directories":{},"dist":{"fileCount":9,"integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","shasum":"ec60cee38ac675063ffc97a5c18970578ee83655","tarball":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","unpackedSize":245484},"engines":{"node":">=0.8"},"files":["lib"],"gitHead":"e4dfb0aec5d25e9e982805417a5d936071badc17","homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","maintainers":[{"email":"awaterma@awaterma.net","name":"awaterma"},{"email":"jstash@gmail.com","name":"jstash"},{"email":"marat+npm@salesforce.com","name":"maratto"},{"email":"clint@ruoho.org","name":"ruoho"}],"name":"tough-cookie","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"}
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -33118,7 +33514,7 @@ return exports;
 
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, exports) {
 
 exports = module.exports = stringify
@@ -33151,15 +33547,15 @@ function serializer(replacer, cycleReplacer) {
 
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.parse = __webpack_require__(209);
-exports.stringify = __webpack_require__(210);
+exports.parse = __webpack_require__(210);
+exports.stringify = __webpack_require__(211);
 
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, exports) {
 
 var at, // The index of the current character
@@ -33438,7 +33834,7 @@ module.exports = function (source, reviver) {
 
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, exports) {
 
 var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
@@ -33598,7 +33994,7 @@ module.exports = function (value, replacer, space) {
 
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -33608,9 +34004,9 @@ module.exports = function (value, replacer, space) {
 var mod_assert = __webpack_require__(0);
 var mod_util = __webpack_require__(2);
 
-var mod_extsprintf = __webpack_require__(82);
-var mod_verror = __webpack_require__(254);
-var mod_jsonschema = __webpack_require__(206);
+var mod_extsprintf = __webpack_require__(83);
+var mod_verror = __webpack_require__(255);
+var mod_jsonschema = __webpack_require__(207);
 
 /*
  * Public interface
@@ -34339,7 +34735,7 @@ function mergeObjects(provided, overrides, defaults)
 
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -34352,11 +34748,11 @@ function mergeObjects(provided, overrides, defaults)
  * Module exports.
  */
 
-module.exports = __webpack_require__(204)
+module.exports = __webpack_require__(205)
 
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var crypto = __webpack_require__(1)
@@ -34498,7 +34894,7 @@ exports.generateBase = generateBase
 
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports) {
 
 // Generated by CoffeeScript 1.12.2
@@ -34540,7 +34936,7 @@ exports.generateBase = generateBase
 
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34605,7 +35001,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35154,7 +35550,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -35179,22 +35575,22 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(216)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(217)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(215)();
+  module.exports = __webpack_require__(216)();
 }
 
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(95);
+var utils = __webpack_require__(96);
 
 var has = Object.prototype.hasOwnProperty;
 
@@ -35369,14 +35765,14 @@ module.exports = function (str, opts) {
 
 
 /***/ }),
-/* 219 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(95);
-var formats = __webpack_require__(93);
+var utils = __webpack_require__(96);
+var formats = __webpack_require__(94);
 
 var arrayPrefixGenerators = {
     brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
@@ -35586,7 +35982,7 @@ module.exports = function (object, opts) {
 
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36285,7 +36681,7 @@ Resizable.defaultProps = {
 
 
 /***/ }),
-/* 221 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36312,10 +36708,10 @@ var React = __webpack_require__(9);
 var emptyFunction = __webpack_require__(8);
 var emptyObject = __webpack_require__(20);
 var hyphenateStyleName = __webpack_require__(47);
-var memoizeStringOnly = __webpack_require__(89);
+var memoizeStringOnly = __webpack_require__(90);
 var warning = __webpack_require__(23);
 var checkPropTypes = __webpack_require__(36);
-var camelizeStyleName = __webpack_require__(85);
+var camelizeStyleName = __webpack_require__(86);
 var stream = __webpack_require__(14);
 
 /**
@@ -38882,7 +39278,7 @@ module.exports = server_node;
 
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38895,7 +39291,7 @@ module.exports = server_node;
  * LICENSE file in the root directory of this source tree.
  */
 
-var k=__webpack_require__(18),r=__webpack_require__(9),aa=__webpack_require__(8),t=__webpack_require__(20),ba=__webpack_require__(47),ca=__webpack_require__(89),da=__webpack_require__(14);
+var k=__webpack_require__(18),r=__webpack_require__(9),aa=__webpack_require__(8),t=__webpack_require__(20),ba=__webpack_require__(47),ca=__webpack_require__(90),da=__webpack_require__(14);
 function w(a){for(var b=arguments.length-1,g="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)g+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(g+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var x={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function z(a,b){return(a&b)===b}
 var B={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=B,g=a.Properties||{},c=a.DOMAttributeNamespaces||{},h=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in g){C.hasOwnProperty(f)?w("48",f):void 0;var e=f.toLowerCase(),d=g[f];e={attributeName:e,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:z(d,b.MUST_USE_PROPERTY),
@@ -38933,7 +39329,7 @@ var Ba=function(a){function b(g,c){if(!(this instanceof b))throw new TypeError("
 
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38957,18 +39353,18 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(9);
 var invariant = __webpack_require__(21);
 var warning = __webpack_require__(23);
-var ExecutionEnvironment = __webpack_require__(84);
+var ExecutionEnvironment = __webpack_require__(85);
 var _assign = __webpack_require__(18);
 var emptyFunction = __webpack_require__(8);
-var EventListener = __webpack_require__(83);
-var getActiveElement = __webpack_require__(88);
-var shallowEqual = __webpack_require__(90);
-var containsNode = __webpack_require__(86);
-var focusNode = __webpack_require__(87);
+var EventListener = __webpack_require__(84);
+var getActiveElement = __webpack_require__(89);
+var shallowEqual = __webpack_require__(91);
+var containsNode = __webpack_require__(87);
+var focusNode = __webpack_require__(88);
 var emptyObject = __webpack_require__(20);
 var checkPropTypes = __webpack_require__(36);
 var hyphenateStyleName = __webpack_require__(47);
-var camelizeStyleName = __webpack_require__(85);
+var camelizeStyleName = __webpack_require__(86);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -54334,7 +54730,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 224 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54350,7 +54746,7 @@ module.exports = reactDom;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(9),l=__webpack_require__(84),B=__webpack_require__(18),C=__webpack_require__(8),ba=__webpack_require__(83),da=__webpack_require__(88),ea=__webpack_require__(90),fa=__webpack_require__(86),ia=__webpack_require__(87),D=__webpack_require__(20);
+var aa=__webpack_require__(9),l=__webpack_require__(85),B=__webpack_require__(18),C=__webpack_require__(8),ba=__webpack_require__(84),da=__webpack_require__(89),ea=__webpack_require__(91),fa=__webpack_require__(87),ia=__webpack_require__(88),D=__webpack_require__(20);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -54570,26 +54966,26 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 225 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(222);
+  module.exports = __webpack_require__(223);
 } else {
-  module.exports = __webpack_require__(221);
+  module.exports = __webpack_require__(222);
 }
 
 
 /***/ }),
-/* 226 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(41), __webpack_require__(9));
+		module.exports = factory(__webpack_require__(42), __webpack_require__(9));
 	else if(typeof define === 'function' && define.amd)
 		define(["react-dom", "react"], factory);
 	else if(typeof exports === 'object')
@@ -57335,7 +57731,7 @@ process.umask = function() { return 0; };
 //# sourceMappingURL=react-draggable.js.map
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58699,7 +59095,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58727,7 +59123,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58748,7 +59144,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 var extend = __webpack_require__(46)
-var cookies = __webpack_require__(96)
+var cookies = __webpack_require__(97)
 var helpers = __webpack_require__(52)
 
 var paramsHaveRequestBody = helpers.paramsHaveRequestBody
@@ -58873,7 +59269,7 @@ request.forever = function (agentOptions, optionsArg) {
 // Exports
 
 module.exports = request
-request.Request = __webpack_require__(238)
+request.Request = __webpack_require__(239)
 request.initParams = initParams
 
 // Backwards compatibility for request.debug
@@ -58889,7 +59285,7 @@ Object.defineProperty(request, 'debug', {
 
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59063,7 +59459,7 @@ exports.Auth = Auth
 
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59149,7 +59545,7 @@ module.exports = getProxyFromURI
 
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59157,7 +59553,7 @@ module.exports = getProxyFromURI
 
 var fs = __webpack_require__(111)
 var qs = __webpack_require__(40)
-var validate = __webpack_require__(173)
+var validate = __webpack_require__(174)
 var extend = __webpack_require__(46)
 
 function Har (request) {
@@ -59361,15 +59757,15 @@ exports.Har = Har
 
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var uuid = __webpack_require__(57)
-var CombinedStream = __webpack_require__(79)
-var isstream = __webpack_require__(91)
+var CombinedStream = __webpack_require__(80)
+var isstream = __webpack_require__(92)
 var Buffer = __webpack_require__(24).Buffer
 
 function Multipart (request) {
@@ -59480,17 +59876,17 @@ exports.Multipart = Multipart
 
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(7)
-var qs = __webpack_require__(94)
+var qs = __webpack_require__(95)
 var caseless = __webpack_require__(45)
 var uuid = __webpack_require__(57)
-var oauth = __webpack_require__(213)
+var oauth = __webpack_require__(214)
 var crypto = __webpack_require__(1)
 var Buffer = __webpack_require__(24).Buffer
 
@@ -59635,13 +60031,13 @@ exports.OAuth = OAuth
 
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var qs = __webpack_require__(94)
+var qs = __webpack_require__(95)
 var querystring = __webpack_require__(40)
 
 function Querystring (request) {
@@ -59692,7 +60088,7 @@ exports.Querystring = Querystring
 
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59853,14 +60249,14 @@ exports.Redirect = Redirect
 
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(7)
-var tunnel = __webpack_require__(251)
+var tunnel = __webpack_require__(252)
 
 var defaultProxyHeaderWhiteList = [
   'accept',
@@ -60035,7 +60431,7 @@ exports.Tunnel = Tunnel
 
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60047,29 +60443,29 @@ var url = __webpack_require__(7)
 var util = __webpack_require__(2)
 var stream = __webpack_require__(14)
 var zlib = __webpack_require__(261)
-var hawk = __webpack_require__(175)
-var aws2 = __webpack_require__(156)
-var aws4 = __webpack_require__(157)
-var httpSignature = __webpack_require__(178)
-var mime = __webpack_require__(92)
-var stringstream = __webpack_require__(248)
+var hawk = __webpack_require__(176)
+var aws2 = __webpack_require__(157)
+var aws4 = __webpack_require__(158)
+var httpSignature = __webpack_require__(179)
+var mime = __webpack_require__(93)
+var stringstream = __webpack_require__(249)
 var caseless = __webpack_require__(45)
-var ForeverAgent = __webpack_require__(168)
-var FormData = __webpack_require__(169)
+var ForeverAgent = __webpack_require__(169)
+var FormData = __webpack_require__(170)
 var extend = __webpack_require__(46)
-var isstream = __webpack_require__(91)
-var isTypedArray = __webpack_require__(182).strict
+var isstream = __webpack_require__(92)
+var isTypedArray = __webpack_require__(183).strict
 var helpers = __webpack_require__(52)
-var cookies = __webpack_require__(96)
-var getProxyFromURI = __webpack_require__(231)
-var Querystring = __webpack_require__(235).Querystring
-var Har = __webpack_require__(232).Har
-var Auth = __webpack_require__(230).Auth
-var OAuth = __webpack_require__(234).OAuth
-var Multipart = __webpack_require__(233).Multipart
-var Redirect = __webpack_require__(236).Redirect
-var Tunnel = __webpack_require__(237).Tunnel
-var now = __webpack_require__(214)
+var cookies = __webpack_require__(97)
+var getProxyFromURI = __webpack_require__(232)
+var Querystring = __webpack_require__(236).Querystring
+var Har = __webpack_require__(233).Har
+var Auth = __webpack_require__(231).Auth
+var OAuth = __webpack_require__(235).OAuth
+var Multipart = __webpack_require__(234).Multipart
+var Redirect = __webpack_require__(237).Redirect
+var Tunnel = __webpack_require__(238).Tunnel
+var now = __webpack_require__(215)
 var Buffer = __webpack_require__(24).Buffer
 
 var safeStringify = helpers.safeStringify
@@ -61594,13 +61990,13 @@ module.exports = Request
 
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var encode = __webpack_require__(98);
+var encode = __webpack_require__(99);
 var alphabet = __webpack_require__(37);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
@@ -61649,7 +62045,7 @@ module.exports = build;
 
 
 /***/ }),
-/* 240 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61673,23 +62069,23 @@ module.exports = decode;
 
 
 /***/ }),
-/* 241 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var alphabet = __webpack_require__(37);
-var encode = __webpack_require__(98);
-var decode = __webpack_require__(240);
-var build = __webpack_require__(239);
-var isValid = __webpack_require__(242);
+var encode = __webpack_require__(99);
+var decode = __webpack_require__(241);
+var build = __webpack_require__(240);
+var isValid = __webpack_require__(243);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(245) || 0;
+var clusterWorkerId = __webpack_require__(246) || 0;
 
 /**
  * Set the seed.
@@ -61745,7 +62141,7 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 242 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61771,7 +62167,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 243 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61788,7 +62184,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61820,7 +62216,7 @@ module.exports = {
 
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61830,7 +62226,7 @@ module.exports = parseInt(process.env.NODE_UNIQUE_ID || 0, 10);
 
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2017 Joyent, Inc.
@@ -62158,12 +62554,12 @@ function getCertType(key) {
 
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2016 Joyent, Inc.
 
-var x509 = __webpack_require__(103);
+var x509 = __webpack_require__(104);
 
 module.exports = {
 	read: read,
@@ -62241,7 +62637,7 @@ function write(cert, options) {
 
 
 /***/ }),
-/* 248 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var util = __webpack_require__(2)
@@ -62349,7 +62745,7 @@ function alignedWrite(buffer) {
 
 
 /***/ }),
-/* 249 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62386,11 +62782,11 @@ function alignedWrite(buffer) {
 
 var net = __webpack_require__(58);
 var urlParse = __webpack_require__(7).parse;
-var pubsuffix = __webpack_require__(106);
-var Store = __webpack_require__(107).Store;
-var MemoryCookieStore = __webpack_require__(250).MemoryCookieStore;
-var pathMatch = __webpack_require__(104).pathMatch;
-var VERSION = __webpack_require__(205).version;
+var pubsuffix = __webpack_require__(107);
+var Store = __webpack_require__(108).Store;
+var MemoryCookieStore = __webpack_require__(251).MemoryCookieStore;
+var pathMatch = __webpack_require__(105).pathMatch;
+var VERSION = __webpack_require__(206).version;
 
 var punycode;
 try {
@@ -63775,14 +64171,14 @@ module.exports = {
   pathMatch: pathMatch,
   getPublicSuffix: pubsuffix.getPublicSuffix,
   cookieCompare: cookieCompare,
-  permuteDomain: __webpack_require__(105).permuteDomain,
+  permuteDomain: __webpack_require__(106).permuteDomain,
   permutePath: permutePath,
   canonicalDomain: canonicalDomain
 };
 
 
 /***/ }),
-/* 250 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63817,9 +64213,9 @@ module.exports = {
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var Store = __webpack_require__(107).Store;
-var permuteDomain = __webpack_require__(105).permuteDomain;
-var pathMatch = __webpack_require__(104).pathMatch;
+var Store = __webpack_require__(108).Store;
+var permuteDomain = __webpack_require__(106).permuteDomain;
+var pathMatch = __webpack_require__(105).pathMatch;
 var util = __webpack_require__(2);
 
 function MemoryCookieStore() {
@@ -63959,7 +64355,7 @@ MemoryCookieStore.prototype.getAllCookies = function(cb) {
 
 
 /***/ }),
-/* 251 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64210,11 +64606,11 @@ exports.debug = debug // for test
 
 
 /***/ }),
-/* 252 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rng = __webpack_require__(109);
-var bytesToUuid = __webpack_require__(108);
+var rng = __webpack_require__(110);
+var bytesToUuid = __webpack_require__(109);
 
 // **`v1()` - Generate time-based UUID**
 //
@@ -64325,11 +64721,11 @@ module.exports = v1;
 
 
 /***/ }),
-/* 253 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rng = __webpack_require__(109);
-var bytesToUuid = __webpack_require__(108);
+var rng = __webpack_require__(110);
+var bytesToUuid = __webpack_require__(109);
 
 function v4(options, buf, offset) {
   var i = buf && offset || 0;
@@ -64360,7 +64756,7 @@ module.exports = v4;
 
 
 /***/ }),
-/* 254 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -64370,8 +64766,8 @@ module.exports = v4;
 var mod_assertplus = __webpack_require__(0);
 var mod_util = __webpack_require__(2);
 
-var mod_extsprintf = __webpack_require__(82);
-var mod_isError = __webpack_require__(161).isError;
+var mod_extsprintf = __webpack_require__(83);
+var mod_isError = __webpack_require__(162).isError;
 var sprintf = mod_extsprintf.sprintf;
 
 /*
@@ -64815,401 +65211,6 @@ WError.prototype.cause = function we_cause(c)
 	return (this.jse_cause);
 };
 
-
-/***/ }),
-/* 255 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	__webpack_require__(2);
-	
-	__webpack_require__(4);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _rescope2.default.spells; /*
-	                                             * Copyright (c)  2018 Wise Wild Web .
-	                                             *
-	                                             *  MIT License
-	                                             *
-	                                             *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                             *  of this software and associated documentation files (the "Software"), to deal
-	                                             *  in the Software without restriction, including without limitation the rights
-	                                             *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                             *  copies of the Software, and to permit persons to whom the Software is
-	                                             *  furnished to do so, subject to the following conditions:
-	                                             *
-	                                             *  The above copyright notice and this permission notice shall be included in all
-	                                             *  copies or substantial portions of the Software.
-	                                             *
-	                                             *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                             *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                             *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                             *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                             *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                             *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                             *  SOFTWARE.
-	                                             *
-	                                             * @author : Nathanael Braun
-	                                             * @contact : caipilabs@gmail.com
-	                                             */
-
-	module.exports = exports["default"];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(42);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// will use as external the index in dist
-	
-	/*
-	 * Copyright (c)  2018 Wise Wild Web .
-	 *
-	 *  MIT License
-	 *
-	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	 *  of this software and associated documentation files (the "Software"), to deal
-	 *  in the Software without restriction, including without limitation the rights
-	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 *  copies of the Software, and to permit persons to whom the Software is
-	 *  furnished to do so, subject to the following conditions:
-	 *
-	 *  The above copyright notice and this permission notice shall be included in all
-	 *  copies or substantial portions of the Software.
-	 *
-	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	 *  SOFTWARE.
-	 *
-	 * @author : Nathanael Braun
-	 * @contact : caipilabs@gmail.com
-	 */
-	var SimpleObjectProto = {}.constructor;
-	_rescope2.default.spells = {};
-	
-	var castTypesToAppliable = {};
-	var castTypes = {};
-	
-	_rescope2.default.isSpell = function caster() {
-	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-	        argz[_key] = arguments[_key];
-	    }
-	
-	    // are we decorating a member / without argz
-	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	        argz[2].value = addCaster(argz[0][argz[1]], argz);
-	        return argz[0];
-	    } else if (!_is2.default.fn(argz[0])) {
-	        return function () {
-	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                argz2[_key2] = arguments[_key2];
-	            }
-	
-	            // are we decorating a member / with argz
-	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-	                return argz2[0];
-	            } else return caster.apply(undefined, [argz2[0]].concat(argz));
-	        };
-	    }
-	    return addCaster.apply(undefined, argz);
-	};
-	
-	function addCaster() {
-	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	        argz[_key3] = arguments[_key3];
-	    }
-	
-	    var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-	    if (!cast) throw "ReScope cast : bad decorator function";
-	    var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-	        test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-	        prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-	        memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-	        casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
-	
-	    if (!castTypesToAppliable[typeName]) {
-	        castTypesToAppliable[typeName] = [];
-	
-	        _rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-	            for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                argz[_key4] = arguments[_key4];
-	            }
-	
-	            // are we decorating a member / without argz
-	            if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	                argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-	                return argz[0];
-	            } else if (!isCastableType(typeName, argz[0])) {
-	                return function () {
-	                    for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	                        argz2[_key5] = arguments[_key5];
-	                    }
-	
-	                    // are we decorating a member / with argz
-	                    if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                        argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-	                        return argz2[0];
-	                    } else return doCast.apply(undefined, [argz2[0]].concat(argz));
-	                };
-	            }
-	            return applyCastableType(typeName, argz[0], argz.slice(1));
-	        };
-	    }
-	    castTypesToAppliable[typeName].unshift({
-	        typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-	    });
-	    return cast;
-	}
-	
-	function isCastableType(typeName, Comp, member, stateScope) {
-	    var castable = castTypesToAppliable[typeName];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-	    }return false;
-	}
-	
-	function applyCastableType(typeName, Comp, argz, member, stateScope) {
-	
-	    var castable = castTypesToAppliable[typeName] || [];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-	    }console.warn("reScope cast : Unknown type", typeName, Comp);
-	    return false;
-	}
-	
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(49);
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _dec, _dec2, _desc, _value, _obj; /*
-	                                       * Copyright (c)  2018 Wise Wild Web .
-	                                       *
-	                                       *  MIT License
-	                                       *
-	                                       *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                       *  of this software and associated documentation files (the "Software"), to deal
-	                                       *  in the Software without restriction, including without limitation the rights
-	                                       *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                       *  copies of the Software, and to permit persons to whom the Software is
-	                                       *  furnished to do so, subject to the following conditions:
-	                                       *
-	                                       *  The above copyright notice and this permission notice shall be included in all
-	                                       *  copies or substantial portions of the Software.
-	                                       *
-	                                       *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                       *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                       *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                       *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                       *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                       *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                       *  SOFTWARE.
-	                                       *
-	                                       * @author : Nathanael Braun
-	                                       * @contact : caipilabs@gmail.com
-	                                       */
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	var _rescope = __webpack_require__(1);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-	    var desc = {};
-	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
-	        desc[key] = descriptor[key];
-	    });
-	    desc.enumerable = !!desc.enumerable;
-	    desc.configurable = !!desc.configurable;
-	
-	    if ('value' in desc || desc.initializer) {
-	        desc.writable = true;
-	    }
-	
-	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-	        return decorator(target, property, desc) || desc;
-	    }, desc);
-	
-	    if (context && desc.initializer !== void 0) {
-	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-	        desc.initializer = undefined;
-	    }
-	
-	    if (desc.initializer === void 0) {
-	        Object['define' + 'Property'](target, property, desc);
-	        desc = null;
-	    }
-	
-	    return desc;
-	}
-	
-	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
-	    return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
-	    return _is2.default.object(v);
-	}), (_obj = {
-	    stateMap: function stateMap(obj, _ref, ref) {
-	        var _class, _temp;
-	
-	        var cfg = _ref[0];
-	
-	        var use = [],
-	            state = {},
-	            actions = {};
-	        _rescope.Scope.stateMapToRefList(obj, state, use, actions);
-	        return _temp = _class = function (_Store) {
-	            _inherits(StateMap, _Store);
-	
-	            function StateMap() {
-	                _classCallCheck(this, StateMap);
-	
-	                return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-	            }
-	
-	            return StateMap;
-	        }(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
-	    },
-	    scope: function scope(obj, _ref2, ref) {
-	        var cfg = _ref2[0];
-	
-	
-	        return _rescope.Scope.bind(null, obj, cfg);
-	    }
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
-	module.exports = exports["default"];
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
 /* 256 */

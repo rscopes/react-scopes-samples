@@ -86,7 +86,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 33);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -762,12 +762,7 @@ module.exports = {
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global, process) {
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/*!
+/* WEBPACK VAR INJECTION */(function(global, process) {/*!
  * MIT License
  * 
  * Copyright (c) 2018 Wise Wild Web
@@ -791,2610 +786,2485 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * SOFTWARE.
  */
 module.exports =
-/******/function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-	/******/
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-		/******/
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-		/******/
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-		/******/
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-		/******/
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-		/******/
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-	/******/
-	/******/
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-	/******/
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-	/******/
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "/";
-	/******/
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-}(
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
 /************************************************************************/
-/******/[
+/******/ ([
 /* 0 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
-
+	
 	var _index = __webpack_require__(1);
-
+	
 	var _index2 = _interopRequireDefault(_index);
-
+	
 	var _Scope = __webpack_require__(2);
-
+	
 	var _Scope2 = _interopRequireDefault(_Scope);
-
+	
 	var _Store = __webpack_require__(6);
-
+	
 	var _Store2 = _interopRequireDefault(_Store);
-
+	
 	var _scopable = __webpack_require__(8);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	// will use as external the index in dist
 	var $global = typeof window !== 'undefined' ? window : global; /*
-                                                                 * Copyright (c)  2018 Wise Wild Web .
-                                                                 *
-                                                                 *  MIT License
-                                                                 *
-                                                                 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                 *  of this software and associated documentation files (the "Software"), to deal
-                                                                 *  in the Software without restriction, including without limitation the rights
-                                                                 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                 *  copies of the Software, and to permit persons to whom the Software is
-                                                                 *  furnished to do so, subject to the following conditions:
-                                                                 *
-                                                                 *  The above copyright notice and this permission notice shall be included in all
-                                                                 *  copies or substantial portions of the Software.
-                                                                 *
-                                                                 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                                                 *  SOFTWARE.
-                                                                 *
-                                                                 * @author : Nathanael Braun
-                                                                 * @contact : caipilabs@gmail.com
-                                                                 */
-
+	                                                                * Copyright (c)  2018 Wise Wild Web .
+	                                                                *
+	                                                                *  MIT License
+	                                                                *
+	                                                                *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                *  of this software and associated documentation files (the "Software"), to deal
+	                                                                *  in the Software without restriction, including without limitation the rights
+	                                                                *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                *  copies of the Software, and to permit persons to whom the Software is
+	                                                                *  furnished to do so, subject to the following conditions:
+	                                                                *
+	                                                                *  The above copyright notice and this permission notice shall be included in all
+	                                                                *  copies or substantial portions of the Software.
+	                                                                *
+	                                                                *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                                                *  SOFTWARE.
+	                                                                *
+	                                                                * @author : Nathanael Braun
+	                                                                * @contact : caipilabs@gmail.com
+	                                                                */
+	
 	if ($global.___rescope) {
-		console.warn("ReScope is defined multiple times !! \nCheck you're packaging");
+	    console.warn("ReScope is defined multiple times !! \nCheck you're packaging");
 	} else {
-
-		$global.___rescope = _index2.default;
-		_Scope2.default.Store = _Store2.default;
-		_index2.default.Scope = _Scope2.default;
-		_index2.default.Context = _Scope2.default;
-		_index2.default.Store = _Store2.default;
-		_index2.default.reScope = _scopable.reScope;
-		_index2.default.scopeToState = _scopable.scopeToState;
-		_index2.default.reScopeState = _scopable.scopeToState;
-		_index2.default.addScopableType = _scopable.addScopableType;
-		_index2.default.scopeRef = function scopeRef(map, key) {
-			map[key] = new _Scope2.default.scopeRef(map[key]);
-			return map;
-		};
+	
+	    $global.___rescope = _index2.default;
+	    _Scope2.default.Store = _Store2.default;
+	    _index2.default.Scope = _Scope2.default;
+	    _index2.default.Context = _Scope2.default;
+	    _index2.default.Store = _Store2.default;
+	    _index2.default.reScope = _scopable.reScope;
+	    _index2.default.scopeToState = _scopable.scopeToState;
+	    _index2.default.reScopeState = _scopable.scopeToState;
+	    _index2.default.addScopableType = _scopable.addScopableType;
+	    _index2.default.scopeRef = function scopeRef(map, key) {
+	        map[key] = new _Scope2.default.scopeRef(map[key]);
+	        return map;
+	    };
 	}
 	exports.default = $global.___rescope || _index2.default;
 	module.exports = exports["default"];
 
-	/***/
-},
+/***/ }),
 /* 1 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(14);
 
-	/***/
-},
+/***/ }),
 /* 2 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _class, _temp;
-
-	function _toConsumableArray(arr) {
-		if (Array.isArray(arr)) {
-			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-				arr2[i] = arr[i];
-			}return arr2;
-		} else {
-			return Array.from(arr);
-		}
-	}
-
-	function _defineProperty(obj, key, value) {
-		if (key in obj) {
-			Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
-		} else {
-			obj[key] = value;
-		}return obj;
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
-
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	
 	var is = __webpack_require__(3),
 	    EventEmitter = __webpack_require__(4),
 	    shortid = __webpack_require__(5),
 	    __proto__push = function __proto__push(target, id, parent) {
-		var fn = function fn() {};
-		fn.prototype = parent ? new parent._[id]() : target[id] || {};
-		target[id] = new fn();
-		target._[id] = fn;
+	    var fn = function fn() {};
+	    fn.prototype = parent ? new parent._[id]() : target[id] || {};
+	    target[id] = new fn();
+	    target._[id] = fn;
 	},
 	    openScopes = {},
 	    SimpleObjectProto = {}.constructor;
-
+	
 	/**
-  * Base Scope object
-  */
+	 * Base Scope object
+	 */
 	var Scope = (_temp = _class = function (_EventEmitter) {
-		_inherits(Scope, _EventEmitter);
-
-		_createClass(Scope, null, [{
-			key: 'getScope',
-			// all active scopes
-
-
-			value: function getScope(scopes) {
-				var skey = is.array(scopes) ? scopes.sort(function (a, b) {
-					if (a.firstname < b.firstname) return -1;
-					if (a.firstname > b.firstname) return 1;
-					return 0;
-				}).join('::') : scopes;
-				return openScopes[skey] = openScopes[skey] || new Scope({}, { id: skey });
-			} // if > 0, will wait 'persistenceTm' ms before destroy when dispose reach 0
-
-		}, {
-			key: 'stateMapToRefList',
-
-			/**
-    * get a parsed reference list from stateMap
-    * @param _ref
-    * @returns {{storeId, path, alias: *, ref: *}}
-    */
-			value: function stateMapToRefList(sm) {
-				var state = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-				var _refs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-
-				var actions = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-				var path = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "";
-
-				Object.keys(sm).forEach(function (key) {
-					var cpath = path ? path + '.' + key : key;
-					sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Function ? actions[key] = sm[key] : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
-					//: this.stateMapToRefList(sm[key], _refs, path + '.' + key)
-				});
-				return _refs;
-			}
-
-			/**
-    * Init a ReScope scope
-    *
-    * @param storesMap {Object} Object with the initial stores definition / instances
-    * @param id {string} @optional id ( if this id exist storesMap will be merge on the 'id' scope)
-    * @param parent
-    * @param state
-    * @param data
-    * @param name
-    * @param defaultMaxListeners
-    * @param persistenceTm {number) if > 0, will wait 'persistenceTm' ms before destroy when dispose reach 0
-    * @param autoDestroy  {bool} will trigger retain & dispose after start
-    * @returns {Scope}
-    */
-
-		}]);
-
-		function Scope(storesMap) {
-			var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-			    parent = _ref2.parent,
-			    key = _ref2.key,
-			    id = _ref2.id,
-			    state = _ref2.state,
-			    data = _ref2.data,
-			    name = _ref2.name,
-			    _ref2$incrementId = _ref2.incrementId,
-			    incrementId = _ref2$incrementId === undefined ? !!key : _ref2$incrementId,
-			    defaultMaxListeners = _ref2.defaultMaxListeners,
-			    persistenceTm = _ref2.persistenceTm,
-			    autoDestroy = _ref2.autoDestroy,
-			    rootEmitter = _ref2.rootEmitter,
-			    boundedActions = _ref2.boundedActions;
-
-			_classCallCheck(this, Scope);
-
-			var _this = _possibleConstructorReturn(this, (Scope.__proto__ || Object.getPrototypeOf(Scope)).call(this));
-
-			var _ = {};
-
-			_.maxListeners = defaultMaxListeners || _this.constructor.defaultMaxListeners;
-
-			id = id || key && (parent && parent._id || '') + '::' + key;
-
-			_.isLocalId = !id;
-
-			id = id || "_____" + shortid.generate();
-
-			if (openScopes[id] && !incrementId) {
-				var _ret;
-
-				_this._id = id;
-				openScopes[id].register(storesMap);
-				return _ret = openScopes[id], _possibleConstructorReturn(_this, _ret);
-			} else if (openScopes[id] && incrementId) {
-				var i = -1;
-				while (openScopes[id + '[' + ++i + ']']) {}
-				id = id + '[' + i + ']';
-			}
-
-			_this._id = id;
-			openScopes[id] = _this;
-			_.persistenceTm = persistenceTm || _this.constructor.persistenceTm;
-
-			_this.actions = {};
-			_this.stores = {};
-			_this.state = {};
-			_this.data = {};
-
-			_this.parent = parent;
-			_this._ = _;
-
-			if (parent && parent.dead) throw new Error("Can't use a dead scope as parent !");
-
-			__proto__push(_this, 'actions', parent);
-			__proto__push(_this, 'stores', parent);
-			__proto__push(_this, 'state', parent);
-			__proto__push(_this, 'data', parent);
-
-			_this.sources = [];
-			_.childScopes = [];
-			_.childScopesList = [];
-			_.unStableChilds = 0;
-
-			_this.__retains = { all: 0 };
-			_this.__locks = { all: 1 };
-			_._boundedActions = is.array(boundedActions) ? { test: boundedActions.includes.bind(boundedActions) } : boundedActions;
-			_._listening = {};
-			_._scope = {};
-			_._mixed = [];
-			_._mixedList = [];
-			_.followers = [];
-			if (parent) {
-				parent.retain("isMyParent");
-				if (!rootEmitter) {
-					!parent._stable && _this.wait("waitingParent");
-					parent.on(_._parentList = {
-						'stable': function stable(s) {
-							return _this.release("waitingParent");
-						},
-						'unstable': function unstable(s) {
-							return _this.wait("waitingParent");
-						},
-						'update': function update(s) {
-							return _this._propag();
-						}
-					});
-				} else {
-					parent.on(_._parentList = {
-						'update': function update(s) {
-							return _this._propag();
-						}
-					});
-				}
-				// this.register(parent.__scope, state, data);
-			}
-
-			_this.register(storesMap, state, data);
-			_this.__locks.all--;
-			_this._stable = !_this.__locks.all;
-
-			if (parent) {
-				parent._addChild(_this);
-			}
-			if (autoDestroy) setTimeout(function (tm) {
-				_this.retain("autoDestroy");
-				_this.dispose("autoDestroy");
-			});
-
-			return _this;
-		}
-
-		/**
-   * @deprecated
-   * @returns {*}
-   */
-
-		_createClass(Scope, [{
-			key: 'mount',
-
-			/**
-    *
-    * Mount the stores in storesList, in this scope or in its parents or mixed scopes
-    *
-    * @param storesList {string|storeRef} Store name, Array of Store names, or Rescope store ref from Store::as or
-    *     Store:as
-    * @param state
-    * @param data
-    * @returns {Scope}
-    */
-			value: function mount(storesList, snapshot, state, data) {
-				var _this2 = this;
-
-				if (is.array(storesList)) {
-					storesList.forEach(function (k) {
-						return _this2._mount(k, snapshot, state, data);
-					});
-				} else {
-					this._mount.apply(this, arguments);
-				}
-				return this;
-			}
-		}, {
-			key: '_mount',
-			value: function _mount(id, snapshot, state, data) {
-				if (typeof id !== 'string') {
-					this.register(_defineProperty({}, id.name, id.store));
-					id = id.name;
-				}
-
-				if (!this._._scope[id]) {
-					var _parent;
-
-					//ask mixed || parent
-					if (this._._mixed.reduce(function (mounted, ctx) {
-						return mounted || ctx._mount(id, snapshot, state, data);
-					}, false) || !this.parent) return;
-					return (_parent = this.parent)._mount.apply(_parent, arguments);
-				} else {
-					var store = this._._scope[id],
-					    ctx = void 0;
-					if (is.fn(store)) {
-						this._._scope[id] = new store(this, { snapshot: snapshot, name: id, state: state, data: data });
-					} else if (snapshot) store.restore(snapshot);else {
-						if (state !== undefined && data === undefined) store.setState(state);else if (state !== undefined) store.state = state;
-
-						if (data !== undefined) store.push(data);
-					}
-					this._watchStore(id);
-				}
-
-				return this._._scope[id];
-			}
-		}, {
-			key: '_watchStore',
-			value: function _watchStore(id, state, data) {
-				var _this3 = this;
-
-				//if ( !this.__scope[id] ) {//ask mixed || parent
-				//    if ( this.__mixed.reduce(( mounted, ctx ) => (mounted || ctx._watchStore(id, state, data)), false) ||
-				//        !this.parent )
-				//        return;
-				//    return this.parent._watchStore(...arguments);
-				//}
-				if (!this._._listening[id] && !is.fn(this._._scope[id])) {
-					!this._._scope[id]._autoDestroy && this._._scope[id].retain("scoped");
-					!this._._scope[id].isStable() && this.wait(id);
-					this._._scope[id].on(this._._listening[id] = {
-						'destroy': function destroy(s) {
-							delete _this3._._listening[id];
-							_this3._._scope[id] = _this3._._scope[id].constructor;
-						},
-						'update': function update(s) {
-							return _this3.propag();
-						},
-						'stable': function stable(s) {
-							return _this3.release(id);
-						},
-						'unstable': function unstable(s) {
-							return _this3.wait(id);
-						}
-					});
-				}
-				return true;
-			}
-
-			/**
-    * Mix targetCtx on this scope
-    * Mixed scope parents are NOT mapped
-    * @param targetCtx
-    */
-
-		}, {
-			key: 'mixin',
-			value: function mixin(targetCtx) {
-				var _this4 = this;
-
-				var parent = this.parent,
-				    lists = void 0;
-				this._._mixed.push(targetCtx);
-				targetCtx.retain("mixedTo");
-				if (!targetCtx._stable) this.wait(targetCtx._id);
-
-				this._._mixedList.push(lists = {
-					'stable': function stable(s) {
-						return _this4.release(targetCtx._id);
-					},
-					'unstable': function unstable(s) {
-						return _this4.wait(targetCtx._id);
-					},
-					'update': function update(s) {
-						return _this4._propag();
-					}
-				});
-
-				this.actions = {};
-				this.stores = {};
-				this.state = {};
-				this.data = {};
-				targetCtx.on(lists);
-				__proto__push(this, 'actions', parent);
-				__proto__push(this, 'stores', parent);
-				__proto__push(this, 'state', parent);
-				__proto__push(this, 'data', parent);
-
-				this.relink(this._._scope, this, false, true);
-				this._._mixed.forEach(function (ctx) {
-					__proto__push(_this4, 'actions');
-					__proto__push(_this4, 'stores');
-					__proto__push(_this4, 'state');
-					__proto__push(_this4, 'data');
-					ctx.relink(ctx._._scope, _this4, true, true);
-				});
-			}
-
-			/**
-    * Register stores in storesMap & link them in the protos
-    * @param storesMap
-    * @param state
-    * @param data
-    */
-
-		}, {
-			key: 'register',
-			value: function register(storesMap) {
-				var _this5 = this;
-
-				var state = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-				var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-				this.relink(storesMap, this, false, false);
-				Object.keys(storesMap).forEach(function (id) {
-					if (storesMap[id].singleton || is.fn(storesMap[id]) && (state[id] || data[id])) {
-						_this5._mount(id, undefined, state[id], data[id]);
-					} else if (state[id] || data[id]) {
-						if (data[id]) {
-							if (state[id]) _this5.stores[id].state = state[id];
-							_this5.stores[id].push(data[id]);
-						} else if (state[id]) {
-							_this5.stores[id].setState(state[id]);
-						}
-					} else {
-						_this5._watchStore(id);
-					}
-				});
-			}
-
-			/**
-    * Map srcCtx store's on targetCtx headers proto's
-    * @param srcCtx
-    * @param targetCtx
-    * @param state
-    * @param data
-    */
-
-		}, {
-			key: 'relink',
-			value: function relink(srcCtx) {
-				var targetCtx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this;
-
-				var _this6 = this;
-
-				var external = arguments[2];
-				var force = arguments[3];
-
-				var lctx = targetCtx._.stores.prototype;
-				Object.keys(srcCtx).forEach(function (id) {
-					if (!force && targetCtx._._scope[id] === srcCtx[id] || targetCtx._._scope[id] && targetCtx._._scope[id].constructor === srcCtx[id]) return;
-
-					if (!force && targetCtx._._scope[id]) {
-						if (!external && !is.fn(targetCtx._._scope[id])) {
-							console.info("Rescope Store : ", id, " already exist in this scope ! ( try __proto__ hot patch )");
-							targetCtx._._scope[id].__proto__ = srcCtx[id].prototype;
-						}
-						if (!external && is.fn(targetCtx._._scope[id])) targetCtx._._scope[id] = srcCtx[id];
-
-						return;
-					} else if (!force && !external) _this6._._scope[id] = srcCtx[id];
-
-					Object.defineProperty(lctx, id, {
-						get: function get() {
-							return _this6._._scope[id];
-						}
-					});
-					Object.defineProperty(targetCtx._.state.prototype, id, {
-						get: function get() {
-							return _this6._._scope[id] && _this6._._scope[id].state;
-						},
-						set: function set(v) {
-							return _this6._mount(id, undefined, v);
-						}
-					});
-					Object.defineProperty(targetCtx._.data.prototype, id, {
-						get: function get() {
-							return _this6._._scope[id] && _this6._._scope[id].data;
-						},
-						set: function set(v) {
-							return _this6._mount(id, undefined, v);
-						}
-					});
-
-					var actions = srcCtx[id] instanceof Scope.Store ? srcCtx[id].constructor.actions : srcCtx[id].actions,
-					    activeActions = targetCtx._.actions.prototype;
-					actions && Object.keys(actions).forEach(function (act) {
-						if (activeActions.hasOwnProperty(act)) activeActions[act].__targetStores++;else {
-							activeActions[act] = _this6.dispatch.bind(_this6, act);
-							activeActions[act].__targetStores = 1;
-						}
-					});
-				});
-			}
-
-			/**
-    * Bind stores from this scope, his parents and mixed scope
-    *
-    * @param obj {React.Component|Store|function}
-    * @param key {string} stores keys to bind updates
-    * @param as
-    * @param setInitial {bool} false to not propag initial value (default : true)
-    */
-
-		}, {
-			key: 'bind',
-			value: function bind(obj, key, as) {
-				var _this7 = this;
-
-				var setInitial = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
-
-				var lastRevs = void 0,
-				    data = void 0,
-				    refKeys = void 0;
-				if (key && !is.array(key)) key = [key];
-
-				if (as === false || as === true) {
-					setInitial = as;
-					as = null;
-				}
-
-				refKeys = key.map(function (id) {
-					return is.string(id) ? id : id.name;
-				}).map(function (id) {
-					return _this7.parseRef(id);
-				});
-
-				this._.followers.push([obj, key, as || undefined, lastRevs = refKeys.reduce(function (revs, ref) {
-					revs[ref.storeId] = revs[ref.storeId] || {
-						rev: 0,
-						refs: []
-					};
-					revs[ref.storeId].refs.push(ref);
-					return revs;
-				}, {})]);
-
-				this.mount(key);
-				this.retainStores(Object.keys(lastRevs), 'listeners');
-
-				if (setInitial && this._stable) {
-					data = this.getUpdates(lastRevs);
-					if (!data) return;
-					if (typeof obj != "function") {
-						if (as) obj.setState(_defineProperty({}, as, data));else obj.setState(data);
-					} else {
-						obj(data);
-					}
-				}
-				return this;
-			}
-
-			/**
-    * Un bind this scope off the given component-keys
-    * @param obj
-    * @param key
-    * @returns {Array.<*>}
-    */
-
-		}, {
-			key: 'unBind',
-			value: function unBind(obj, key, as) {
-				var followers = this._.followers,
-				    i = followers && followers.length;
-				while (followers && i--) {
-					if (followers[i][0] === obj && '' + followers[i][1] == '' + key && followers[i][2] == as) {
-						this.disposeStores(Object.keys(followers[i][3]), 'listeners');
-						return followers.splice(i, 1);
-					}
-				}
-			}
-
-			/**
-    * Mount the stores in storesList from this scope, its parents and mixed scope
-    * Bind them to 'to'
-    * Hook 'to' so it will auto unbind on 'destroy' or 'componentWillUnmount'
-    * @param to
-    * @param storesList
-    * @param bind
-    * @returns {Object} Initial outputs of the stores in 'storesList'
-    */
-
-		}, {
-			key: 'map',
-			value: function map(to, storesList) {
-				var _this8 = this;
-
-				var bind = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-				var Store = this.constructor.Store;
-				storesList = is.array(storesList) ? storesList : [storesList];
-				var refList = storesList.map(this.parseRef);
-				this.mount(refList.map(function (ref) {
-					return ref.storeId;
-				}));
-				if (bind && to instanceof Store) {
-					Store.map(to, storesList, this, this, false);
-				} else if (bind) {
-					this.bind(to, storesList, undefined, false);
-
-					var mixedCWUnmount = void 0,
-					    unMountKey = to.isReactComponent ? "componentWillUnmount" : "destroy";
-
-					if (to.hasOwnProperty(unMountKey)) {
-						mixedCWUnmount = to[unMountKey];
-					}
-
-					to[unMountKey] = function () {
-						delete to[unMountKey];
-						if (mixedCWUnmount) to[unMountKey] = mixedCWUnmount;
-
-						_this8.unBind(to, storesList);
-						return to[unMountKey] && to[unMountKey].apply(to, arguments);
-					};
-				}
-				return storesList.reduce(function (data, id) {
-					if (!is.string(id)) id = id.name;
-					id = id.split(':'); //@todo
-					id[0] = id[0].split('.');
-					data[id[1] || id[0][id[0].length - 1]] = _this8.stores[id[0][0]] && _this8.stores[id[0][0]].retrieve && _this8.stores[id[0][0]].retrieve(id[0].splice(1));
-					return data;
-				}, {});
-			}
-
-			/**
-    * Get current data value from json path
-    * @param path
-    * @returns {string|*}
-    */
-
-		}, {
-			key: 'retrieve',
-			value: function retrieve() {
-				var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-
-				path = is.string(path) ? path.split('.') : path;
-				return path && this.stores[path[0]] && this.stores[path[0]].retrieve(path.slice(1));
-			}
-
-			/**
-    * Get or update storesRevMap's revisions
-    * @param storesRevMap
-    * @param local
-    * @returns {{}}
-    */
-
-		}, {
-			key: 'getStoresRevs',
-			value: function getStoresRevs() {
-				var storesRevMap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-				var local = arguments[1];
-
-				var ctx = this._._scope;
-				if (!storesRevMap) {
-					storesRevMap = {};
-				}
-				Object.keys(ctx).forEach(function (id) {
-					if (!is.fn(ctx[id])) {
-						storesRevMap[id] = ctx[id]._rev;
-					} else if (!storesRevMap.hasOwnProperty(id)) storesRevMap[id] = false;
-				});
-				if (!local) {
-					this._._mixed.reduce(function (updated, ctx) {
-						return ctx.getStoresRevs(storesRevMap), storesRevMap;
-					}, storesRevMap);
-					this.parent && this.parent.getStoresRevs(storesRevMap);
-				}
-				return storesRevMap;
-			}
-
-			/**
-    * Get or update output basing storesRevMap's revisions.
-    * If a store in 'storesRevMap' was updated; add it to 'output' & update storesRevMap
-    * @param storesRevMap
-    * @param output
-    * @param updated
-    * @returns {*|{}}
-    */
-
-		}, {
-			key: 'getUpdates',
-			value: function getUpdates(storesRevMap, output, updated) {
-				var _this9 = this;
-
-				var ctx = this._._scope;
-
-				output = output || {};
-				Object.keys(ctx).forEach(function (id) {
-					if (!output.hasOwnProperty(id) && !is.fn(ctx[id]) && (!storesRevMap || storesRevMap.hasOwnProperty(id) && storesRevMap[id] === undefined || !(!storesRevMap.hasOwnProperty(id) || ctx[id]._rev <= storesRevMap[id].rev))) {
-
-						updated = true;
-						output[id] = _this9.data[id];
-
-						if (storesRevMap && storesRevMap.hasOwnProperty(id)) {
-							storesRevMap[id].rev = ctx[id]._rev;
-							storesRevMap[id].refs.forEach(function (ref) {
-								//console.warn("update ref ", ref.ref, this.retrieve(ref.path));
-								output[ref.alias] = _this9.retrieve(ref.path);
-							});
-						} else {
-							//console.warn("update ", id, this.data[id]);
-							output[id] = _this9.data[id];
-						}
-					}
-				});
-				updated = this._._mixed.reduce(function (updated, ctx) {
-					return ctx.getUpdates(storesRevMap, output, updated) || updated;
-				}, updated);
-				updated = this.parent && this.parent.getUpdates(storesRevMap, output, updated) || updated;
-				return updated && output;
-			}
-
-			/**
-    * Recursively get all child scopes
-    * @param childs
-    * @returns {Array}
-    * @private
-    */
-
-		}, {
-			key: '_getAllChilds',
-			value: function _getAllChilds() {
-				var childs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-
-				childs.push.apply(childs, _toConsumableArray(this._.childScopes));
-				this._.childScopes.forEach(function (ctx) {
-					ctx._getAllChilds(childs);
-				});
-				return childs;
-			}
-
-			/**
-    * Serialize all active stores state & data in every childs & mixed scopes
-    *
-    * Scopes without key or id are ignored
-    * @param output
-    * @returns {{}}
-    */
-
-		}, {
-			key: 'serialize',
-			value: function serialize() {
-				var _this10 = this;
-
-				var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-				    alias = _ref3.alias,
-				    _ref3$withChilds = _ref3.withChilds,
-				    withChilds = _ref3$withChilds === undefined ? true : _ref3$withChilds,
-				    withParents = _ref3.withParents,
-				    _ref3$withMixed = _ref3.withMixed,
-				    withMixed = _ref3$withMixed === undefined ? true : _ref3$withMixed,
-				    norefs = _ref3.norefs;
-
-				var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-				var ctx = this._._scope;
-				if (output[this._id]) return;
-
-				//@todo : better serialize method
-				output[this._id] = {};
-
-				Object.keys(ctx).forEach(function (id) {
-					if (is.fn(ctx[id])) return;
-
-					ctx[id].serialize(!norefs, output);
-				});
-
-				withParents && this.parent && this.parent.serialize({
-					withChild: false,
-					withParents: true,
-					withMixed: withMixed,
-					norefs: norefs
-				}, output);
-
-				withChilds && this._.childScopes.forEach(function (ctx) {
-					!ctx._.isLocalId && ctx.serialize({
-						withChild: true,
-						withParents: false,
-						withMixed: withMixed,
-						norefs: norefs
-					}, output);
-				});
-
-				withMixed && this._._mixed.forEach(function (ctx) {
-					!ctx._.isLocalId && ctx.serialize({
-						withChild: false,
-						withParents: false,
-						withMixed: withMixed,
-						norefs: norefs
-					}, output);
-				});
-
-				if (alias) {
-					output = Object.keys(output).reduce(function (h, k) {
-						return h[k.replace(_this10._id, alias)] = output[k], h;
-					}, {});
-				}
-				return output;
-			}
-
-			/**
-    * Restore state & data from the serialize fn
-    * @param snapshot
-    * @param force
-    */
-
-		}, {
-			key: 'restore',
-			value: function restore(snapshot, force) {
-				var _this11 = this;
-
-				var ctx = this._._scope;
-
-				snapshot[this._id] && Object.keys(ctx).forEach(function (name) {
-					var snap = snapshot[_this11._id + '/' + name];
-
-					if (snap) {
-
-						if (force && !is.fn(ctx[name])) ctx[name].destroy();
-
-						_this11.mount(name, snapshot); // quiet
-					}
-				});
-
-				this._._mixed.forEach(function (ctx) {
-					!ctx._.isLocalId && ctx.restore(snapshot, force);
-				});
-
-				this._.childScopes.forEach(function (ctx) {
-					!ctx._.isLocalId && ctx.restore(snapshot, force);
-				});
-			}
-
-			/**
-    * get a parsed reference
-    * @param _ref
-    * @returns {{storeId, path, alias: *, ref: *}}
-    */
-
-		}, {
-			key: 'parseRef',
-			value: function parseRef(_ref) {
-				var ref = _ref.split(':');
-				ref[0] = ref[0].split('.');
-				return {
-					storeId: ref[0][0],
-					path: ref[0],
-					alias: ref[1] || ref[0][ref[0].length - 1],
-					ref: _ref
-				};
-			}
-
-			/**
-    * Dispatch an action to the top parent & mixed scopes, in all stores
-    *
-    * @param action
-    * @param data
-    * @returns {Scope}
-    */
-
-		}, {
-			key: 'dispatch',
-			value: function dispatch(action) {
-				var _this12 = this,
-				    _parent2;
-
-				for (var _len = arguments.length, argz = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-					argz[_key - 1] = arguments[_key];
-				}
-
-				if (this.dead) {
-					console.warn("Dispatch was called on a dead scope, check you're async functions in this stack...", new Error().stack);
-					return;
-				}
-				var bActs = this._._boundedActions;
-				Object.keys(this._._scope).forEach(function (id) {
-					var _$_scope$id;
-
-					if (!is.fn(_this12._._scope[id])) (_$_scope$id = _this12._._scope[id]).trigger.apply(_$_scope$id, [action].concat(argz));
-				});
-
-				if (bActs && bActs.test(action)) return;
-
-				this._._mixed.forEach(function (ctx) {
-					return ctx.dispatch.apply(ctx, [action].concat(argz));
-				});
-				this.parent && (_parent2 = this.parent).dispatch.apply(_parent2, [action].concat(argz));
-				return this;
-			}
-
-			/**
-    * once('stable', cb)
-    * @param obj {React.Component|Store|function)
-    * @param key {string} optional key where to map the public state
-    */
-
-		}, {
-			key: 'then',
-			value: function then(cb) {
-				var _this13 = this;
-
-				if (this._stable) return cb(null, this.data);
-				this.once('stable', function (e) {
-					return cb(null, _this13.data);
-				});
-			}
-
-			/**
-    * Call retain on the scoped stores basing given
-    *
-    * @param stores
-    * @param reason
-    */
-
-		}, {
-			key: 'retainStores',
-			value: function retainStores() {
-				var _this14 = this;
-
-				var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-				var reason = arguments[1];
-
-				stores.forEach(function (id) {
-					return _this14.stores[id] && _this14.stores[id].retain && _this14.stores[id].retain(reason);
-				});
-			}
-
-			/**
-    * Call retain on the scoped stores
-    *
-    * @param stores
-    * @param reason
-    */
-
-		}, {
-			key: 'disposeStores',
-			value: function disposeStores() {
-				var _this15 = this;
-
-				var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-				var reason = arguments[1];
-
-				stores.forEach(function (id) {
-					return _this15.stores[id] && _this15.stores[id].dispose && _this15.stores[id].dispose(reason);
-				});
-			}
-
-			/**
-    * Keep the scope unstable until release is called
-    * @param reason
-    */
-
-		}, {
-			key: 'wait',
-			value: function wait(reason) {
-				//console.log("wait", reason);
-				this._stable && !this.__locks.all && this.emit("unstable", this);
-				this._stable = false;
-				this.__locks.all++;
-				if (reason) {
-					this.__locks[reason] = this.__locks[reason] || 0;
-					this.__locks[reason]++;
-				}
-			}
-
-			/**
-    * Stabilize the scope if no more locks remain (wait fn)
-    * @param reason
-    */
-
-		}, {
-			key: 'release',
-			value: function release(reason) {
-				var _this16 = this;
-
-				if (reason) {
-					if (this.__locks[reason] == 0) console.error("Release more than locking !", reason);
-					this.__locks[reason] = this.__locks[reason] || 0;
-					this.__locks[reason]--;
-				}
-				if (!reason && this.__locks.all == 0) console.error("Release more than locking !");
-
-				this.__locks.all--;
-				if (!this.__locks.all) {
-					this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
-
-					this._.stabilizerTM = setTimeout(function (e) {
-						_this16._.stabilizerTM = null;
-						if (_this16.__locks.all) return;
-
-						_this16._.propagTM && clearTimeout(_this16._.propagTM);
-
-						_this16._stable = true;
-						_this16.emit("stable", _this16);
-
-						!_this16.dead && _this16._propag(); // stability can induce destroy
-					});
-				}
-			}
-
-			/**
-    * Propag stores updates basing theirs last updates
-    */
-
-		}, {
-			key: 'propag',
-			value: function propag() {
-				var _this17 = this;
-
-				this._.propagTM && clearTimeout(this._.propagTM);
-				this._.propagTM = setTimeout(function (e) {
-					_this17._.propagTM = null;
-					_this17._propag();
-				}, 2);
-			}
-		}, {
-			key: '_propag',
-			value: function _propag() {
-				var _this18 = this;
-
-				if (this._.followers.length) this._.followers.forEach(function (_ref4) {
-					var obj = _ref4[0],
-					    key = _ref4[1],
-					    as = _ref4[2],
-					    lastRevs = _ref4[3],
-					    remaps = _ref4[3];
-
-					var data = _this18.getUpdates(lastRevs);
-					if (!data) return;
-					if (typeof obj != "function") {
-						//console.log("setState ",obj, Object.keys(data))
-						if (as) obj.setState(_defineProperty({}, as, data));else obj.setState(data);
-					} else {
-						obj(data, lastRevs && [].concat(_toConsumableArray(lastRevs)) || "no revs");
-					}
-					// lastRevs &&
-					// key.forEach(id => (lastRevs[id] = this.stores[id] && this.stores[id]._rev || 0));
-				});
-				this.emit("update", this.getUpdates());
-			}
-
-			/**
-    * is stable
-    * @returns bool
-    */
-
-		}, {
-			key: 'isStable',
-			value: function isStable() {
-				return this._stable;
-			}
-		}, {
-			key: '_addChild',
-			value: function _addChild(ctx) {
-				var _this19 = this;
-
-				this._.childScopes.push(ctx);
-				var lists = {
-					'stable': function stable(s) {
-						_this19._.unStableChilds--;
-						if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
-					},
-					'unstable': function unstable(s) {
-						_this19._.unStableChilds++;
-						if (1 == _this19._.unStableChilds) _this19.emit("unstableTree", _this19);
-					},
-					'stableTree': function stableTree(s) {
-						_this19._.unStableChilds--;
-						if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
-					},
-					'unstableTree': function unstableTree(s) {
-						_this19._.unStableChilds++;
-						if (1 == _this19._.unStableChilds) _this19.emit("unstableTree", _this19);
-					},
-					'destroy': function destroy(ctx) {
-						if (ctx._.unStableChilds) _this19._.unStableChilds--;
-						if (!ctx.isStable()) _this19._.unStableChilds--;
-
-						if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
-					}
-				},
-				    wasStable = this._.unStableChilds;
-				//!ctx.isStable() && console.warn('add unstable child');
-				!ctx.isStable() && this._.unStableChilds++;
-				ctx._.unStableChilds && this._.unStableChilds++;
-				this._.childScopesList.push(lists);
-				if (!wasStable && this._.unStableChilds) this.emit("unstableTree", this);
-				ctx.on(lists);
-			}
-		}, {
-			key: '_rmChild',
-			value: function _rmChild(ctx) {
-				var i = this._.childScopes.indexOf(ctx),
-				    wasStable = this._.unStableChilds;
-				if (i != -1) {
-					this._.childScopes.splice(i, 1);
-					!ctx.isStable() && this._.unStableChilds--;
-					ctx._.unStableChilds && this._.unStableChilds--;
-					ctx.un(this._.childScopesList.splice(i, 1)[0]);
-					if (wasStable && !this._.unStableChilds) this.emit("stableTree");
-				}
-			}
-		}, {
-			key: 'retain',
-			value: function retain(reason) {
-				this.__retains.all++;
-				//console.log("retain", this._id, reason);
-				if (reason) {
-					this.__retains[reason] = this.__retains[reason] || 0;
-					this.__retains[reason]++;
-				}
-			}
-		}, {
-			key: 'dispose',
-			value: function dispose(reason) {
-				var _this20 = this;
-
-				//console.log("dispose", this._id, reason);
-				if (reason) {
-					if (!this.__retains[reason]) throw new Error("Dispose more than retaining : " + reason);
-					this.__retains[reason]--;
-				}
-
-				if (!this.__retains.all) throw new Error("Dispose more than retaining !");
-
-				this.__retains.all--;
-
-				if (!this.__retains.all) {
-					//console.log("dispose do destroy ", this._id, this._persistenceTm);
-					if (this._.persistenceTm) {
-						this._.destroyTM && clearTimeout(this._.destroyTM);
-						this._.destroyTM = setTimeout(function (e) {
-							//this.then(s => {
-							!_this20.__retains.all && _this20.destroy();
-							//});
-						}, this._.persistenceTm);
-					} else {
-						//this.then(s =>
-						!this.__retains.all && this.destroy();
-						//);
-					}
-				}
-			}
-
-			/**
-    * order destroy of local stores
-    */
-
-		}, {
-			key: 'destroy',
-			value: function destroy() {
-				var _this21 = this;
-
-				var ctx = this._._scope;
-				//console.warn("destroy", this._id);
-				this.emit("destroy", this);
-				for (var key in ctx) {
-					if (!is.fn(ctx[key])) {
-						!ctx[key]._autoDestroy && ctx[key].dispose("scoped");
-					}
-				}this.dead = true;
-				[].concat(_toConsumableArray(this._.followers)).map(function (follower) {
-					return _this21.unBind.apply(_this21, _toConsumableArray(follower));
-				});
-				Object.keys(this._._listening).forEach(function (id) {
-					return _this21._._scope[id].removeListener(_this21._._listening[id]);
-				});
-
-				this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
-				this._.propagTM && clearTimeout(this._.propagTM);
-
-				if (!this._.isLocalId) delete openScopes[this._id];
-
-				while (this._._mixedList.length) {
-					this._._mixed[0].removeListener(this._._mixedList.shift());
-					this._._mixed.shift().dispose("mixedTo");
-				}
-				if (this._._parentList) {
-					this.parent._rmChild(this);
-					this.parent.removeListener(this._._parentList);
-					this.parent.dispose("isMyParent");
-					this._._parentList = null;
-				}
-				this._ = null;
-			}
-		}, {
-			key: 'datas',
-			get: function get() {
-				return this.data;
-			}
-		}]);
-
-		return Scope;
+	    _inherits(Scope, _EventEmitter);
+	
+	    _createClass(Scope, null, [{
+	        key: 'getScope',
+	        // all active scopes
+	
+	
+	        value: function getScope(scopes) {
+	            var skey = is.array(scopes) ? scopes.sort(function (a, b) {
+	                if (a.firstname < b.firstname) return -1;
+	                if (a.firstname > b.firstname) return 1;
+	                return 0;
+	            }).join('::') : scopes;
+	            return openScopes[skey] = openScopes[skey] || new Scope({}, { id: skey });
+	        } // if > 0, will wait 'persistenceTm' ms before destroy when dispose reach 0
+	
+	    }, {
+	        key: 'stateMapToRefList',
+	
+	
+	        /**
+	         * get a parsed reference list from stateMap
+	         * @param _ref
+	         * @returns {{storeId, path, alias: *, ref: *}}
+	         */
+	        value: function stateMapToRefList(sm) {
+	            var state = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	
+	            var _refs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+	
+	            var actions = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+	            var path = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "";
+	
+	            Object.keys(sm).forEach(function (key) {
+	                var cpath = path ? path + '.' + key : key;
+	                sm[key] instanceof Scope.scopeRef ? _refs.push(sm[key].path + ':' + cpath) : sm[key] && sm[key] instanceof Function ? actions[key] = sm[key] : sm[key] && sm[key].prototype instanceof Scope.Store ? _refs.push(sm[key].as(cpath)) : state[cpath] = sm[key];
+	                //: this.stateMapToRefList(sm[key], _refs, path + '.' + key)
+	            });
+	            return _refs;
+	        }
+	
+	        /**
+	         * Init a ReScope scope
+	         *
+	         * @param storesMap {Object} Object with the initial stores definition / instances
+	         * @param config {Object} Scope config
+	         * {
+	         *  parent {scope} @optional parent scope
+	         *
+	         *  id {string} @optional id ( if this id exist storesMap will be merge on the 'id' scope)
+	         *  key {string} @optional key of the scope ( if no id is set, the scope id will be (parent.id+'::'+key)
+	         *  incrementId {bool} @optional true to add a suffix id, if the provided key or id globally exist
+	         *
+	         *  state {Object} @optional initial state by store alias
+	         *  data {Object} @optional initial data by store alias
+	         *
+	         *  rootEmitter {bool} @optional true to not being destabilized by parent
+	         *  boundedActions {array | regexp} @optional list or regexp of actions not propagated to the parent
+	         *
+	         *  persistenceTm {number) if > 0, will wait 'persistenceTm' ms before destroy when dispose reach 0
+	         *  autoDestroy  {bool} will trigger retain & dispose after start
+	         *  }
+	         * @returns {Scope}
+	         */
+	
+	    }]);
+	
+	    function Scope(storesMap) {
+	        var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+	            parent = _ref2.parent,
+	            key = _ref2.key,
+	            id = _ref2.id,
+	            state = _ref2.state,
+	            data = _ref2.data,
+	            _ref2$incrementId = _ref2.incrementId,
+	            incrementId = _ref2$incrementId === undefined ? !!key : _ref2$incrementId,
+	            persistenceTm = _ref2.persistenceTm,
+	            autoDestroy = _ref2.autoDestroy,
+	            rootEmitter = _ref2.rootEmitter,
+	            boundedActions = _ref2.boundedActions;
+	
+	        _classCallCheck(this, Scope);
+	
+	        var _this = _possibleConstructorReturn(this, (Scope.__proto__ || Object.getPrototypeOf(Scope)).call(this));
+	
+	        var _ = {};
+	
+	        id = id || key && (parent && parent._id || '') + '::' + key;
+	
+	        _.isLocalId = !id;
+	
+	        id = id || "_____" + shortid.generate();
+	
+	        if (openScopes[id] && !incrementId) {
+	            var _ret;
+	
+	            _this._id = id;
+	            openScopes[id].register(storesMap);
+	            return _ret = openScopes[id], _possibleConstructorReturn(_this, _ret);
+	        } else if (openScopes[id] && incrementId) {
+	            var i = -1;
+	            while (openScopes[id + '[' + ++i + ']']) {}
+	            id = id + '[' + i + ']';
+	        }
+	
+	        _this._id = id;
+	        openScopes[id] = _this;
+	        _.persistenceTm = persistenceTm || _this.constructor.persistenceTm;
+	
+	        _this.actions = {};
+	        _this.stores = {};
+	        _this.state = {};
+	        _this.data = {};
+	
+	        _this.parent = parent;
+	        _this._ = _;
+	
+	        if (parent && parent.dead) throw new Error("Can't use a dead scope as parent !");
+	
+	        __proto__push(_this, 'actions', parent);
+	        __proto__push(_this, 'stores', parent);
+	        __proto__push(_this, 'state', parent);
+	        __proto__push(_this, 'data', parent);
+	
+	        _this.sources = [];
+	        _.childScopes = [];
+	        _.childScopesList = [];
+	        _.unStableChilds = 0;
+	
+	        _this.__retains = { all: 0 };
+	        _this.__locks = { all: 1 };
+	        _._boundedActions = is.array(boundedActions) ? { test: boundedActions.includes.bind(boundedActions) } : boundedActions;
+	        _._listening = {};
+	        _._scope = {};
+	        _._mixed = [];
+	        _._mixedList = [];
+	        _.followers = [];
+	        if (parent) {
+	            parent.retain("isMyParent");
+	            if (!rootEmitter) {
+	                !parent._stable && _this.wait("waitingParent");
+	                parent.on(_._parentList = {
+	                    'stable': function stable(s) {
+	                        return _this.release("waitingParent");
+	                    },
+	                    'unstable': function unstable(s) {
+	                        return _this.wait("waitingParent");
+	                    },
+	                    'update': function update(s) {
+	                        return _this._propag();
+	                    }
+	                });
+	            } else {
+	                parent.on(_._parentList = {
+	                    'update': function update(s) {
+	                        return _this._propag();
+	                    }
+	                });
+	            }
+	            // this.register(parent.__scope, state, data);
+	        }
+	
+	        _this.register(storesMap, state, data);
+	        _this.__locks.all--;
+	        _this._stable = !_this.__locks.all;
+	
+	        if (parent) {
+	            parent._addChild(_this);
+	        }
+	        if (autoDestroy) setTimeout(function (tm) {
+	            _this.retain("autoDestroy");
+	            _this.dispose("autoDestroy");
+	        });
+	
+	        return _this;
+	    }
+	
+	    /**
+	     * @deprecated
+	     * @returns {*}
+	     */
+	
+	
+	    _createClass(Scope, [{
+	        key: 'mount',
+	
+	
+	        /**
+	         *
+	         * Mount the stores in storesList, in this scope or in its parents or mixed scopes
+	         *
+	         * @param storesList {string|storeRef} Store name, Array of Store names, or Rescope store ref from Store::as or
+	         *     Store:as
+	         * @param state
+	         * @param data
+	         * @returns {Scope}
+	         */
+	        value: function mount(storesList, snapshot, state, data) {
+	            var _this2 = this;
+	
+	            if (is.array(storesList)) {
+	                storesList.forEach(function (k) {
+	                    return _this2._mount(k, snapshot, state, data);
+	                });
+	            } else {
+	                this._mount.apply(this, arguments);
+	            }
+	            return this;
+	        }
+	    }, {
+	        key: '_mount',
+	        value: function _mount(id, snapshot, state, data) {
+	            if (typeof id !== 'string') {
+	                this.register(_defineProperty({}, id.name, id.store));
+	                id = id.name;
+	            }
+	
+	            if (!this._._scope[id]) {
+	                var _parent;
+	
+	                //ask mixed || parent
+	                if (this._._mixed.reduce(function (mounted, ctx) {
+	                    return mounted || ctx._mount(id, snapshot, state, data);
+	                }, false) || !this.parent) return;
+	                return (_parent = this.parent)._mount.apply(_parent, arguments);
+	            } else {
+	                var store = this._._scope[id],
+	                    ctx = void 0;
+	                if (is.fn(store)) {
+	                    this._._scope[id] = new store(this, { snapshot: snapshot, name: id, state: state, data: data });
+	                } else if (snapshot) store.restore(snapshot);else {
+	                    if (state !== undefined && data === undefined) store.setState(state);else if (state !== undefined) store.state = state;
+	
+	                    if (data !== undefined) store.push(data);
+	                }
+	                this._watchStore(id);
+	            }
+	
+	            return this._._scope[id];
+	        }
+	    }, {
+	        key: '_watchStore',
+	        value: function _watchStore(id, state, data) {
+	            var _this3 = this;
+	
+	            //if ( !this.__scope[id] ) {//ask mixed || parent
+	            //    if ( this.__mixed.reduce(( mounted, ctx ) => (mounted || ctx._watchStore(id, state, data)), false) ||
+	            //        !this.parent )
+	            //        return;
+	            //    return this.parent._watchStore(...arguments);
+	            //}
+	            if (!this._._listening[id] && !is.fn(this._._scope[id])) {
+	                !this._._scope[id]._autoDestroy && this._._scope[id].retain("scoped");
+	                !this._._scope[id].isStable() && this.wait(id);
+	                this._._scope[id].on(this._._listening[id] = {
+	                    'destroy': function destroy(s) {
+	                        delete _this3._._listening[id];
+	                        _this3._._scope[id] = _this3._._scope[id].constructor;
+	                    },
+	                    'update': function update(s) {
+	                        return _this3.propag();
+	                    },
+	                    'stable': function stable(s) {
+	                        return _this3.release(id);
+	                    },
+	                    'unstable': function unstable(s) {
+	                        return _this3.wait(id);
+	                    }
+	                });
+	            }
+	            return true;
+	        }
+	
+	        /**
+	         * Mix targetCtx on this scope
+	         * Mixed scope parents are NOT mapped
+	         * @param targetCtx
+	         */
+	
+	    }, {
+	        key: 'mixin',
+	        value: function mixin(targetCtx) {
+	            var _this4 = this;
+	
+	            var parent = this.parent,
+	                lists = void 0;
+	            this._._mixed.push(targetCtx);
+	            targetCtx.retain("mixedTo");
+	            if (!targetCtx._stable) this.wait(targetCtx._id);
+	
+	            this._._mixedList.push(lists = {
+	                'stable': function stable(s) {
+	                    return _this4.release(targetCtx._id);
+	                },
+	                'unstable': function unstable(s) {
+	                    return _this4.wait(targetCtx._id);
+	                },
+	                'update': function update(s) {
+	                    return _this4._propag();
+	                }
+	            });
+	
+	            this.actions = {};
+	            this.stores = {};
+	            this.state = {};
+	            this.data = {};
+	            targetCtx.on(lists);
+	            __proto__push(this, 'actions', parent);
+	            __proto__push(this, 'stores', parent);
+	            __proto__push(this, 'state', parent);
+	            __proto__push(this, 'data', parent);
+	
+	            this.relink(this._._scope, this, false, true);
+	            this._._mixed.forEach(function (ctx) {
+	                __proto__push(_this4, 'actions');
+	                __proto__push(_this4, 'stores');
+	                __proto__push(_this4, 'state');
+	                __proto__push(_this4, 'data');
+	                ctx.relink(ctx._._scope, _this4, true, true);
+	            });
+	        }
+	
+	        /**
+	         * Register stores in storesMap & link them in the protos
+	         * @param storesMap
+	         * @param state
+	         * @param data
+	         */
+	
+	    }, {
+	        key: 'register',
+	        value: function register(storesMap) {
+	            var _this5 = this;
+	
+	            var state = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	            var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+	
+	            this.relink(storesMap, this, false, false);
+	            Object.keys(storesMap).forEach(function (id) {
+	                if (storesMap[id].singleton || is.fn(storesMap[id]) && (state[id] || data[id])) {
+	                    _this5._mount(id, undefined, state[id], data[id]);
+	                } else if (state[id] || data[id]) {
+	                    if (data[id]) {
+	                        if (state[id]) _this5.stores[id].state = state[id];
+	                        _this5.stores[id].push(data[id]);
+	                    } else if (state[id]) {
+	                        _this5.stores[id].setState(state[id]);
+	                    }
+	                } else {
+	                    _this5._watchStore(id);
+	                }
+	            });
+	        }
+	
+	        /**
+	         * Map srcCtx store's on targetCtx headers proto's
+	         * @param srcCtx
+	         * @param targetCtx
+	         * @param state
+	         * @param data
+	         */
+	
+	    }, {
+	        key: 'relink',
+	        value: function relink(srcCtx) {
+	            var targetCtx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this;
+	
+	            var _this6 = this;
+	
+	            var external = arguments[2];
+	            var force = arguments[3];
+	
+	            var lctx = targetCtx._.stores.prototype;
+	            Object.keys(srcCtx).forEach(function (id) {
+	                if (!force && targetCtx._._scope[id] === srcCtx[id] || targetCtx._._scope[id] && targetCtx._._scope[id].constructor === srcCtx[id]) return;
+	
+	                if (!force && targetCtx._._scope[id]) {
+	                    if (!external && !is.fn(targetCtx._._scope[id])) {
+	                        console.info("Rescope Store : ", id, " already exist in this scope ! ( try __proto__ hot patch )");
+	                        targetCtx._._scope[id].__proto__ = srcCtx[id].prototype;
+	                    }
+	                    if (!external && is.fn(targetCtx._._scope[id])) targetCtx._._scope[id] = srcCtx[id];
+	
+	                    return;
+	                } else if (!force && !external) _this6._._scope[id] = srcCtx[id];
+	
+	                Object.defineProperty(lctx, id, {
+	                    get: function get() {
+	                        return _this6._._scope[id];
+	                    }
+	                });
+	                Object.defineProperty(targetCtx._.state.prototype, id, {
+	                    get: function get() {
+	                        return _this6._._scope[id] && _this6._._scope[id].state;
+	                    },
+	                    set: function set(v) {
+	                        return _this6._mount(id, undefined, v);
+	                    }
+	                });
+	                Object.defineProperty(targetCtx._.data.prototype, id, {
+	                    get: function get() {
+	                        return _this6._._scope[id] && _this6._._scope[id].data;
+	                    },
+	                    set: function set(v) {
+	                        return _this6._mount(id, undefined, v);
+	                    }
+	                });
+	
+	                var actions = srcCtx[id] instanceof Scope.Store ? srcCtx[id].constructor.actions : srcCtx[id].actions,
+	                    activeActions = targetCtx._.actions.prototype;
+	                actions && Object.keys(actions).forEach(function (act) {
+	                    if (activeActions.hasOwnProperty(act)) activeActions[act].__targetStores++;else {
+	                        activeActions[act] = _this6.dispatch.bind(_this6, act);
+	                        activeActions[act].__targetStores = 1;
+	                    }
+	                });
+	            });
+	        }
+	
+	        /**
+	         * Bind stores from this scope, his parents and mixed scope
+	         *
+	         * @param obj {React.Component|Store|function}
+	         * @param key {string} stores keys to bind updates
+	         * @param as
+	         * @param setInitial {bool} false to not propag initial value (default : true)
+	         */
+	
+	    }, {
+	        key: 'bind',
+	        value: function bind(obj, key, as) {
+	            var _this7 = this;
+	
+	            var setInitial = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+	
+	            var lastRevs = void 0,
+	                data = void 0,
+	                refKeys = void 0;
+	            if (key && !is.array(key)) key = [key];
+	
+	            if (as === false || as === true) {
+	                setInitial = as;
+	                as = null;
+	            }
+	
+	            refKeys = key.map(function (id) {
+	                return is.string(id) ? id : id.name;
+	            }).map(function (id) {
+	                return _this7.parseRef(id);
+	            });
+	
+	            this._.followers.push([obj, key, as || undefined, lastRevs = refKeys.reduce(function (revs, ref) {
+	                revs[ref.storeId] = revs[ref.storeId] || {
+	                    rev: 0,
+	                    refs: []
+	                };
+	                revs[ref.storeId].refs.push(ref);
+	                return revs;
+	            }, {})]);
+	
+	            this.mount(key);
+	            this.retainStores(Object.keys(lastRevs), 'listeners');
+	
+	            if (setInitial && this._stable) {
+	                data = this.getUpdates(lastRevs);
+	                if (!data) return;
+	                if (typeof obj != "function") {
+	                    if (as) obj.setState(_defineProperty({}, as, data));else obj.setState(data);
+	                } else {
+	                    obj(data);
+	                }
+	            }
+	            return this;
+	        }
+	
+	        /**
+	         * Un bind this scope off the given component-keys
+	         * @param obj
+	         * @param key
+	         * @returns {Array.<*>}
+	         */
+	
+	    }, {
+	        key: 'unBind',
+	        value: function unBind(obj, key, as) {
+	            var followers = this._.followers,
+	                i = followers && followers.length;
+	            while (followers && i--) {
+	                if (followers[i][0] === obj && '' + followers[i][1] == '' + key && followers[i][2] == as) {
+	                    this.disposeStores(Object.keys(followers[i][3]), 'listeners');
+	                    return followers.splice(i, 1);
+	                }
+	            }
+	        }
+	
+	        /**
+	         * Mount the stores in storesList from this scope, its parents and mixed scope
+	         * Bind them to 'to'
+	         * Hook 'to' so it will auto unbind on 'destroy' or 'componentWillUnmount'
+	         * @param to
+	         * @param storesList
+	         * @param bind
+	         * @returns {Object} Initial outputs of the stores in 'storesList'
+	         */
+	
+	    }, {
+	        key: 'map',
+	        value: function map(to, storesList) {
+	            var _this8 = this;
+	
+	            var bind = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+	
+	            var Store = this.constructor.Store;
+	            storesList = is.array(storesList) ? storesList : [storesList];
+	            var refList = storesList.map(this.parseRef);
+	            this.mount(refList.map(function (ref) {
+	                return ref.storeId;
+	            }));
+	            if (bind && to instanceof Store) {
+	                Store.map(to, storesList, this, this, false);
+	            } else if (bind) {
+	                this.bind(to, storesList, undefined, false);
+	
+	                var mixedCWUnmount = void 0,
+	                    unMountKey = to.isReactComponent ? "componentWillUnmount" : "destroy";
+	
+	                if (to.hasOwnProperty(unMountKey)) {
+	                    mixedCWUnmount = to[unMountKey];
+	                }
+	
+	                to[unMountKey] = function () {
+	                    delete to[unMountKey];
+	                    if (mixedCWUnmount) to[unMountKey] = mixedCWUnmount;
+	
+	                    _this8.unBind(to, storesList);
+	                    return to[unMountKey] && to[unMountKey].apply(to, arguments);
+	                };
+	            }
+	            return storesList.reduce(function (data, id) {
+	                if (!is.string(id)) id = id.name;
+	                id = id.split(':'); //@todo
+	                id[0] = id[0].split('.');
+	                data[id[1] || id[0][id[0].length - 1]] = _this8.stores[id[0][0]] && _this8.stores[id[0][0]].retrieve && _this8.stores[id[0][0]].retrieve(id[0].splice(1));
+	                return data;
+	            }, {});
+	        }
+	
+	        /**
+	         * Get current data value from json path
+	         * @param path
+	         * @returns {string|*}
+	         */
+	
+	    }, {
+	        key: 'retrieve',
+	        value: function retrieve() {
+	            var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+	
+	            path = is.string(path) ? path.split('.') : path;
+	            return path && this.stores[path[0]] && this.stores[path[0]].retrieve(path.slice(1));
+	        }
+	
+	        /**
+	         * Get or update storesRevMap's revisions
+	         * @param storesRevMap
+	         * @param local
+	         * @returns {{}}
+	         */
+	
+	    }, {
+	        key: 'getStoresRevs',
+	        value: function getStoresRevs() {
+	            var storesRevMap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	            var local = arguments[1];
+	
+	            var ctx = this._._scope;
+	            if (!storesRevMap) {
+	                storesRevMap = {};
+	            }
+	            Object.keys(ctx).forEach(function (id) {
+	                if (!is.fn(ctx[id])) {
+	                    storesRevMap[id] = ctx[id]._rev;
+	                } else if (!storesRevMap.hasOwnProperty(id)) storesRevMap[id] = false;
+	            });
+	            if (!local) {
+	                this._._mixed.reduce(function (updated, ctx) {
+	                    return ctx.getStoresRevs(storesRevMap), storesRevMap;
+	                }, storesRevMap);
+	                this.parent && this.parent.getStoresRevs(storesRevMap);
+	            }
+	            return storesRevMap;
+	        }
+	
+	        /**
+	         * Get or update output basing storesRevMap's revisions.
+	         * If a store in 'storesRevMap' was updated; add it to 'output' & update storesRevMap
+	         * @param storesRevMap
+	         * @param output
+	         * @param updated
+	         * @returns {*|{}}
+	         */
+	
+	    }, {
+	        key: 'getUpdates',
+	        value: function getUpdates(storesRevMap, output, updated) {
+	            var _this9 = this;
+	
+	            var ctx = this._._scope;
+	
+	            output = output || {};
+	            Object.keys(ctx).forEach(function (id) {
+	                if (!output.hasOwnProperty(id) && !is.fn(ctx[id]) && (!storesRevMap || storesRevMap.hasOwnProperty(id) && storesRevMap[id] === undefined || !(!storesRevMap.hasOwnProperty(id) || ctx[id]._rev <= storesRevMap[id].rev))) {
+	
+	                    updated = true;
+	                    output[id] = _this9.data[id];
+	
+	                    if (storesRevMap && storesRevMap.hasOwnProperty(id)) {
+	                        storesRevMap[id].rev = ctx[id]._rev;
+	                        storesRevMap[id].refs.forEach(function (ref) {
+	                            //console.warn("update ref ", ref.ref, this.retrieve(ref.path));
+	                            output[ref.alias] = _this9.retrieve(ref.path);
+	                        });
+	                    } else {
+	                        //console.warn("update ", id, this.data[id]);
+	                        output[id] = _this9.data[id];
+	                    }
+	                }
+	            });
+	            updated = this._._mixed.reduce(function (updated, ctx) {
+	                return ctx.getUpdates(storesRevMap, output, updated) || updated;
+	            }, updated);
+	            updated = this.parent && this.parent.getUpdates(storesRevMap, output, updated) || updated;
+	            return updated && output;
+	        }
+	
+	        /**
+	         * Recursively get all child scopes
+	         * @param childs
+	         * @returns {Array}
+	         * @private
+	         */
+	
+	    }, {
+	        key: '_getAllChilds',
+	        value: function _getAllChilds() {
+	            var childs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	
+	            childs.push.apply(childs, _toConsumableArray(this._.childScopes));
+	            this._.childScopes.forEach(function (ctx) {
+	                ctx._getAllChilds(childs);
+	            });
+	            return childs;
+	        }
+	
+	        /**
+	         * Serialize all active stores state & data in every childs & mixed scopes
+	         *
+	         * Scopes without key or id are ignored
+	         * @param output
+	         * @returns {{}}
+	         */
+	
+	    }, {
+	        key: 'serialize',
+	        value: function serialize() {
+	            var _this10 = this;
+	
+	            var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+	                alias = _ref3.alias,
+	                _ref3$withChilds = _ref3.withChilds,
+	                withChilds = _ref3$withChilds === undefined ? true : _ref3$withChilds,
+	                withParents = _ref3.withParents,
+	                _ref3$withMixed = _ref3.withMixed,
+	                withMixed = _ref3$withMixed === undefined ? true : _ref3$withMixed,
+	                norefs = _ref3.norefs;
+	
+	            var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	
+	            var ctx = this._._scope;
+	            if (output[this._id]) return;
+	
+	            //@todo : better serialize method
+	            output[this._id] = {};
+	
+	            Object.keys(ctx).forEach(function (id) {
+	                if (is.fn(ctx[id])) return;
+	
+	                ctx[id].serialize(!norefs, output);
+	            });
+	
+	            withParents && this.parent && this.parent.serialize({
+	                withChild: false,
+	                withParents: true,
+	                withMixed: withMixed,
+	                norefs: norefs
+	            }, output);
+	
+	            withChilds && this._.childScopes.forEach(function (ctx) {
+	                !ctx._.isLocalId && ctx.serialize({
+	                    withChild: true,
+	                    withParents: false,
+	                    withMixed: withMixed,
+	                    norefs: norefs
+	                }, output);
+	            });
+	
+	            withMixed && this._._mixed.forEach(function (ctx) {
+	                !ctx._.isLocalId && ctx.serialize({
+	                    withChild: false,
+	                    withParents: false,
+	                    withMixed: withMixed,
+	                    norefs: norefs
+	                }, output);
+	            });
+	
+	            if (alias) {
+	                output = Object.keys(output).reduce(function (h, k) {
+	                    return h[k.replace(_this10._id, alias)] = output[k], h;
+	                }, {});
+	            }
+	            return output;
+	        }
+	
+	        /**
+	         * Restore state & data from the serialize fn
+	         * @param snapshot
+	         * @param force
+	         */
+	
+	    }, {
+	        key: 'restore',
+	        value: function restore(snapshot, force) {
+	            var _this11 = this;
+	
+	            var ctx = this._._scope;
+	
+	            snapshot[this._id] && Object.keys(ctx).forEach(function (name) {
+	                var snap = snapshot[_this11._id + '/' + name];
+	
+	                if (snap) {
+	
+	                    if (force && !is.fn(ctx[name])) ctx[name].destroy();
+	
+	                    _this11.mount(name, snapshot); // quiet
+	                }
+	            });
+	
+	            this._._mixed.forEach(function (ctx) {
+	                !ctx._.isLocalId && ctx.restore(snapshot, force);
+	            });
+	
+	            this._.childScopes.forEach(function (ctx) {
+	                !ctx._.isLocalId && ctx.restore(snapshot, force);
+	            });
+	        }
+	
+	        /**
+	         * get a parsed reference
+	         * @param _ref
+	         * @returns {{storeId, path, alias: *, ref: *}}
+	         */
+	
+	    }, {
+	        key: 'parseRef',
+	        value: function parseRef(_ref) {
+	            var ref = _ref.split(':');
+	            ref[0] = ref[0].split('.');
+	            return {
+	                storeId: ref[0][0],
+	                path: ref[0],
+	                alias: ref[1] || ref[0][ref[0].length - 1],
+	                ref: _ref
+	            };
+	        }
+	
+	        /**
+	         * Dispatch an action to the top parent & mixed scopes, in all stores
+	         *
+	         * @param action
+	         * @param data
+	         * @returns {Scope}
+	         */
+	
+	    }, {
+	        key: 'dispatch',
+	        value: function dispatch(action) {
+	            var _this12 = this,
+	                _parent2;
+	
+	            for (var _len = arguments.length, argz = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                argz[_key - 1] = arguments[_key];
+	            }
+	
+	            if (this.dead) {
+	                console.warn("Dispatch was called on a dead scope, check you're async functions in this stack...", new Error().stack);
+	                return;
+	            }
+	            var bActs = this._._boundedActions;
+	            Object.keys(this._._scope).forEach(function (id) {
+	                var _$_scope$id;
+	
+	                if (!is.fn(_this12._._scope[id])) (_$_scope$id = _this12._._scope[id]).trigger.apply(_$_scope$id, [action].concat(argz));
+	            });
+	
+	            if (bActs && bActs.test(action)) return;
+	
+	            this._._mixed.forEach(function (ctx) {
+	                return ctx.dispatch.apply(ctx, [action].concat(argz));
+	            });
+	            this.parent && (_parent2 = this.parent).dispatch.apply(_parent2, [action].concat(argz));
+	            return this;
+	        }
+	
+	        /**
+	         * once('stable', cb)
+	         * @param obj {React.Component|Store|function)
+	         * @param key {string} optional key where to map the public state
+	         */
+	
+	    }, {
+	        key: 'then',
+	        value: function then(cb) {
+	            var _this13 = this;
+	
+	            if (this._stable) return cb(null, this.data);
+	            this.once('stable', function (e) {
+	                return cb(null, _this13.data);
+	            });
+	        }
+	
+	        /**
+	         * Call retain on the scoped stores basing given
+	         *
+	         * @param stores
+	         * @param reason
+	         */
+	
+	    }, {
+	        key: 'retainStores',
+	        value: function retainStores() {
+	            var _this14 = this;
+	
+	            var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	            var reason = arguments[1];
+	
+	            stores.forEach(function (id) {
+	                return _this14.stores[id] && _this14.stores[id].retain && _this14.stores[id].retain(reason);
+	            });
+	        }
+	
+	        /**
+	         * Call retain on the scoped stores
+	         *
+	         * @param stores
+	         * @param reason
+	         */
+	
+	    }, {
+	        key: 'disposeStores',
+	        value: function disposeStores() {
+	            var _this15 = this;
+	
+	            var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	            var reason = arguments[1];
+	
+	            stores.forEach(function (id) {
+	                return _this15.stores[id] && _this15.stores[id].dispose && _this15.stores[id].dispose(reason);
+	            });
+	        }
+	
+	        /**
+	         * Keep the scope unstable until release is called
+	         * @param reason
+	         */
+	
+	    }, {
+	        key: 'wait',
+	        value: function wait(reason) {
+	            //console.log("wait", reason);
+	            this._stable && !this.__locks.all && this.emit("unstable", this);
+	            this._stable = false;
+	            this.__locks.all++;
+	            if (reason) {
+	                this.__locks[reason] = this.__locks[reason] || 0;
+	                this.__locks[reason]++;
+	            }
+	        }
+	
+	        /**
+	         * Stabilize the scope if no more locks remain (wait fn)
+	         * @param reason
+	         */
+	
+	    }, {
+	        key: 'release',
+	        value: function release(reason) {
+	            var _this16 = this;
+	
+	            if (reason) {
+	                if (this.__locks[reason] == 0) console.error("Release more than locking !", reason);
+	                this.__locks[reason] = this.__locks[reason] || 0;
+	                this.__locks[reason]--;
+	            }
+	            if (!reason && this.__locks.all == 0) console.error("Release more than locking !");
+	
+	            this.__locks.all--;
+	            if (!this.__locks.all) {
+	                this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
+	
+	                this._.stabilizerTM = setTimeout(function (e) {
+	                    _this16._.stabilizerTM = null;
+	                    if (_this16.__locks.all) return;
+	
+	                    _this16._.propagTM && clearTimeout(_this16._.propagTM);
+	
+	                    _this16._stable = true;
+	                    _this16.emit("stable", _this16);
+	
+	                    !_this16.dead && _this16._propag(); // stability can induce destroy
+	                });
+	            }
+	        }
+	
+	        /**
+	         * Propag stores updates basing theirs last updates
+	         */
+	
+	    }, {
+	        key: 'propag',
+	        value: function propag() {
+	            var _this17 = this;
+	
+	            this._.propagTM && clearTimeout(this._.propagTM);
+	            this._.propagTM = setTimeout(function (e) {
+	                _this17._.propagTM = null;
+	                _this17._propag();
+	            }, 2);
+	        }
+	    }, {
+	        key: '_propag',
+	        value: function _propag() {
+	            var _this18 = this;
+	
+	            if (this._.followers.length) this._.followers.forEach(function (_ref4) {
+	                var obj = _ref4[0],
+	                    key = _ref4[1],
+	                    as = _ref4[2],
+	                    lastRevs = _ref4[3],
+	                    remaps = _ref4[3];
+	
+	                var data = _this18.getUpdates(lastRevs);
+	                if (!data) return;
+	                if (typeof obj != "function") {
+	                    //console.log("setState ",obj, Object.keys(data))
+	                    if (as) obj.setState(_defineProperty({}, as, data));else obj.setState(data);
+	                } else {
+	                    obj(data, lastRevs && [].concat(_toConsumableArray(lastRevs)) || "no revs");
+	                }
+	                // lastRevs &&
+	                // key.forEach(id => (lastRevs[id] = this.stores[id] && this.stores[id]._rev || 0));
+	            });
+	            this.emit("update", this.getUpdates());
+	        }
+	
+	        /**
+	         * is stable
+	         * @returns bool
+	         */
+	
+	    }, {
+	        key: 'isStable',
+	        value: function isStable() {
+	            return this._stable;
+	        }
+	    }, {
+	        key: '_addChild',
+	        value: function _addChild(ctx) {
+	            var _this19 = this;
+	
+	            this._.childScopes.push(ctx);
+	            var lists = {
+	                'stable': function stable(s) {
+	                    _this19._.unStableChilds--;
+	                    if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
+	                },
+	                'unstable': function unstable(s) {
+	                    _this19._.unStableChilds++;
+	                    if (1 == _this19._.unStableChilds) _this19.emit("unstableTree", _this19);
+	                },
+	                'stableTree': function stableTree(s) {
+	                    _this19._.unStableChilds--;
+	                    if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
+	                },
+	                'unstableTree': function unstableTree(s) {
+	                    _this19._.unStableChilds++;
+	                    if (1 == _this19._.unStableChilds) _this19.emit("unstableTree", _this19);
+	                },
+	                'destroy': function destroy(ctx) {
+	                    if (ctx._.unStableChilds) _this19._.unStableChilds--;
+	                    if (!ctx.isStable()) _this19._.unStableChilds--;
+	
+	                    if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
+	                }
+	            },
+	                wasStable = this._.unStableChilds;
+	            //!ctx.isStable() && console.warn('add unstable child');
+	            !ctx.isStable() && this._.unStableChilds++;
+	            ctx._.unStableChilds && this._.unStableChilds++;
+	            this._.childScopesList.push(lists);
+	            if (!wasStable && this._.unStableChilds) this.emit("unstableTree", this);
+	            ctx.on(lists);
+	        }
+	    }, {
+	        key: '_rmChild',
+	        value: function _rmChild(ctx) {
+	            var i = this._.childScopes.indexOf(ctx),
+	                wasStable = this._.unStableChilds;
+	            if (i != -1) {
+	                this._.childScopes.splice(i, 1);
+	                !ctx.isStable() && this._.unStableChilds--;
+	                ctx._.unStableChilds && this._.unStableChilds--;
+	                ctx.un(this._.childScopesList.splice(i, 1)[0]);
+	                if (wasStable && !this._.unStableChilds) this.emit("stableTree");
+	            }
+	        }
+	    }, {
+	        key: 'retain',
+	        value: function retain(reason) {
+	            this.__retains.all++;
+	            //console.log("retain", this._id, reason);
+	            if (reason) {
+	                this.__retains[reason] = this.__retains[reason] || 0;
+	                this.__retains[reason]++;
+	            }
+	        }
+	    }, {
+	        key: 'dispose',
+	        value: function dispose(reason) {
+	            var _this20 = this;
+	
+	            //console.log("dispose", this._id, reason);
+	            if (reason) {
+	                if (!this.__retains[reason]) throw new Error("Dispose more than retaining : " + reason);
+	                this.__retains[reason]--;
+	            }
+	
+	            if (!this.__retains.all) throw new Error("Dispose more than retaining !");
+	
+	            this.__retains.all--;
+	
+	            if (!this.__retains.all) {
+	                //console.log("dispose do destroy ", this._id, this._persistenceTm);
+	                if (this._.persistenceTm) {
+	                    this._.destroyTM && clearTimeout(this._.destroyTM);
+	                    this._.destroyTM = setTimeout(function (e) {
+	                        //this.then(s => {
+	                        !_this20.__retains.all && _this20.destroy();
+	                        //});
+	                    }, this._.persistenceTm);
+	                } else {
+	                    //this.then(s =>
+	                    !this.__retains.all && this.destroy();
+	                    //);
+	                }
+	            }
+	        }
+	
+	        /**
+	         * order destroy of local stores
+	         */
+	
+	    }, {
+	        key: 'destroy',
+	        value: function destroy() {
+	            var _this21 = this;
+	
+	            var ctx = this._._scope;
+	            //console.warn("destroy", this._id);
+	            this.emit("destroy", this);
+	            for (var key in ctx) {
+	                if (!is.fn(ctx[key])) {
+	                    !ctx[key]._autoDestroy && ctx[key].dispose("scoped");
+	                }
+	            }this.dead = true;
+	            [].concat(_toConsumableArray(this._.followers)).map(function (follower) {
+	                return _this21.unBind.apply(_this21, _toConsumableArray(follower));
+	            });
+	            Object.keys(this._._listening).forEach(function (id) {
+	                return _this21._._scope[id].removeListener(_this21._._listening[id]);
+	            });
+	
+	            this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
+	            this._.propagTM && clearTimeout(this._.propagTM);
+	
+	            if (!this._.isLocalId) delete openScopes[this._id];
+	
+	            while (this._._mixedList.length) {
+	                this._._mixed[0].removeListener(this._._mixedList.shift());
+	                this._._mixed.shift().dispose("mixedTo");
+	            }
+	            if (this._._parentList) {
+	                this.parent._rmChild(this);
+	                this.parent.removeListener(this._._parentList);
+	                this.parent.dispose("isMyParent");
+	                this._._parentList = null;
+	            }
+	            this._ = null;
+	        }
+	    }, {
+	        key: 'datas',
+	        get: function get() {
+	            return this.data;
+	        }
+	    }]);
+	
+	    return Scope;
 	}(EventEmitter), _class.persistenceTm = 1, _class.Store = null, _class.scopeRef = function scopeRef(path) {
-		this.path = path;
+	    this.path = path;
 	}, _class.scopes = openScopes, _temp);
 	exports.default = Scope;
 	module.exports = exports['default'];
 
-	/***/
-},
+/***/ }),
 /* 3 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(12);
 
-	/***/
-},
+/***/ }),
 /* 4 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	function _toConsumableArray(arr) {
-		if (Array.isArray(arr)) {
-			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-				arr2[i] = arr[i];
-			}return arr2;
-		} else {
-			return Array.from(arr);
-		}
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
 	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *  
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *  
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *  
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *  
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *  
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *  
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *  
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *  
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
 	var is = __webpack_require__(3);
-
+	
 	var Emitter = function () {
-		function Emitter() {
-			_classCallCheck(this, Emitter);
-
-			this._events = {};
-		}
-
-		_createClass(Emitter, [{
-			key: 'on',
-			value: function on(evt, cb) {
-				var _this = this;
-
-				if (!is.string(evt) && evt) return Object.keys(evt).forEach(function (k) {
-					return _this.on(k, evt[k]);
-				});
-
-				this._events[evt] = this._events[evt] || [];
-				this._events[evt].push(cb);
-			}
-		}, {
-			key: 'un',
-			value: function un(evt, cb) {
-				var _this2 = this;
-
-				if (!is.string(evt) && evt) return Object.keys(evt).forEach(function (k) {
-					return _this2.un(k, evt[k]);
-				});
-
-				if (!this._events[evt]) return;
-				var i = this._events[evt].indexOf(cb);
-				this._events[evt].splice(i, 1);
-			}
-		}, {
-			key: 'emit',
-			value: function emit(evt) {
-				if (!this._events[evt]) return;
-				var lists = [].concat(_toConsumableArray(this._events[evt]));
-
-				for (var _len = arguments.length, argz = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-					argz[_key - 1] = arguments[_key];
-				}
-
-				for (var i = 0; i < lists.length; i++) {
-					lists[i].apply(lists, argz);
-				}
-			}
-		}, {
-			key: 'addListener',
-			value: function addListener() {
-				this.on.apply(this, arguments);
-			}
-		}, {
-			key: 'removeListener',
-			value: function removeListener() {
-				this.un.apply(this, arguments);
-			}
-		}, {
-			key: 'removeAllListeners',
-			value: function removeAllListeners() {
-				this._events = {};
-			}
-		}, {
-			key: 'once',
-			value: function once(evt, cb) {
-				var _this3 = this;
-
-				var _fn = void 0;
-				this.on(evt, _fn = function fn() {
-					_this3.un(evt, _fn);
-					cb.apply(undefined, arguments);
-				});
-			}
-		}]);
-
-		return Emitter;
+	    function Emitter() {
+	        _classCallCheck(this, Emitter);
+	
+	        this._events = {};
+	    }
+	
+	    _createClass(Emitter, [{
+	        key: 'on',
+	        value: function on(evt, cb) {
+	            var _this = this;
+	
+	            if (!is.string(evt) && evt) return Object.keys(evt).forEach(function (k) {
+	                return _this.on(k, evt[k]);
+	            });
+	
+	            this._events[evt] = this._events[evt] || [];
+	            this._events[evt].push(cb);
+	        }
+	    }, {
+	        key: 'un',
+	        value: function un(evt, cb) {
+	            var _this2 = this;
+	
+	            if (!is.string(evt) && evt) return Object.keys(evt).forEach(function (k) {
+	                return _this2.un(k, evt[k]);
+	            });
+	
+	            if (!this._events[evt]) return;
+	            var i = this._events[evt].indexOf(cb);
+	            this._events[evt].splice(i, 1);
+	        }
+	    }, {
+	        key: 'emit',
+	        value: function emit(evt) {
+	            if (!this._events[evt]) return;
+	            var lists = [].concat(_toConsumableArray(this._events[evt]));
+	
+	            for (var _len = arguments.length, argz = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                argz[_key - 1] = arguments[_key];
+	            }
+	
+	            for (var i = 0; i < lists.length; i++) {
+	                lists[i].apply(lists, argz);
+	            }
+	        }
+	    }, {
+	        key: 'addListener',
+	        value: function addListener() {
+	            this.on.apply(this, arguments);
+	        }
+	    }, {
+	        key: 'removeListener',
+	        value: function removeListener() {
+	            this.un.apply(this, arguments);
+	        }
+	    }, {
+	        key: 'removeAllListeners',
+	        value: function removeAllListeners() {
+	            this._events = {};
+	        }
+	    }, {
+	        key: 'once',
+	        value: function once(evt, cb) {
+	            var _this3 = this;
+	
+	            var _fn = void 0;
+	            this.on(evt, _fn = function fn() {
+	                _this3.un(evt, _fn);
+	                cb.apply(undefined, arguments);
+	            });
+	        }
+	    }]);
+	
+	    return Emitter;
 	}();
-
+	
 	exports.default = Emitter;
 	module.exports = exports['default'];
 
-	/***/
-},
+/***/ }),
 /* 5 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(23);
 
-	/***/
-},
+/***/ }),
 /* 6 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
-
-	var _extends = Object.assign || function (target) {
-		for (var i = 1; i < arguments.length; i++) {
-			var source = arguments[i];for (var key in source) {
-				if (Object.prototype.hasOwnProperty.call(source, key)) {
-					target[key] = source[key];
-				}
-			}
-		}return target;
-	};
-
-	var _get = function get(object, property, receiver) {
-		if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				return get(parent, property, receiver);
-			}
-		} else if ("value" in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	};
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
 	var _class, _temp;
-
-	function _defineProperty(obj, key, value) {
-		if (key in obj) {
-			Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
-		} else {
-			obj[key] = value;
-		}return obj;
-	}
-
-	function _toConsumableArray(arr) {
-		if (Array.isArray(arr)) {
-			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-				arr2[i] = arr[i];
-			}return arr2;
-		} else {
-			return Array.from(arr);
-		}
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
-
-	/**
-  * Ultra scalable state-aware store
-  *
-  * @todo : lot of optims...
-  */
-
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	
 	var is = __webpack_require__(3),
 	    Scope = __webpack_require__(2),
 	    EventEmitter = __webpack_require__(4),
 	    TaskSequencer = __webpack_require__(7),
 	    shortid = __webpack_require__(5),
 	    objProto = Object.getPrototypeOf({});
-
+	
 	/**
-  * @class Store
-  */
+	 * @class Store
+	 */
 	var Store = (_temp = _class = function (_EventEmitter) {
-		_inherits(Store, _EventEmitter);
-
-		_createClass(Store, null, [{
-			key: 'as',
-
-			/**
-    * get a Builder-key pair for Store::map
-    * @param {string} name
-    * @returns {{store: Store, name: *}}
-    */
-			// overridable list of store that will allow push if updated
-			value: function as(name) {
-				return { store: this, name: name };
-			}
-
-			/**
-    * Map all named stores in {keys} to the {object}'s state
-    * Hook componentWillUnmount (for react comp) or destroy to unBind them automatically
-    * @static
-    * @param object {Object} target state aware object (React.Component|Store|...)
-    * @param keys {Array} Ex : ["session", "otherStaticNamedStore:key", store.as('anotherKey')]
-    */
-			// default state
-			/**
-    * if retain goes to 0 :
-    * false to not destroy,
-    * 0 to sync auto destroy
-    * Ms to autodestroy after tm ms if no retain has been called
-    * @type {boolean|Int}
-    */
-			// overridable list of source stores
-
-		}, {
-			key: 'map',
-			value: function map(component, keys, scope, origin) {
-				var setInitial = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
-
-				var targetRevs = component._revs || {};
-				var targetScope = component.stores || (component.stores = {});
-				var initialOutputs = {};
-				keys = is.array(keys) ? [].concat(_toConsumableArray(keys)) : [keys];
-
-				scope = scope || Store.staticScope;
-
-				keys = keys.filter(
-				// @todo : use query refs
-				// (store)(\.store)*(\[(\*|(props)\w+)+)\])?(\:alias)
-				function (key) {
-					var _component$_sources;
-
-					if (!key) {
-						console.error("Not a mappable store item '" + key + "' in " + origin + ' !!');
-						return false;
-					}
-					var name = void 0,
-					    alias = void 0,
-					    path = void 0,
-					    store = void 0;
-					if (key.store && key.name) {
-						alias = name = key.name;
-						store = key.store;
-					} else if (is.fn(key)) {
-						name = alias = key.name || key.defaultName;
-						store = key;
-					} else {
-						key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
-						name = key[1];
-						path = key[2] && key[2].substr(1);
-						store = scope.stores[key[1]];
-						alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
-					}
-
-					if (targetRevs[name]) return false; // ignore dbl uses for now
-
-					if (!store) {
-						console.error("Not a mappable store item '" + name + "/" + alias + "' in " + (component.name || component) + ' !!', store);
-						return false;
-					} else if (is.fn(store)) {
-						scope._mount(name);
-						scope.stores[name].bind(component, alias, setInitial, path);
-					} else {
-						store.bind(component, alias, setInitial, path);
-					}
-
-					// give initial store weight basing sources
-					(_component$_sources = component._sources).push.apply(_component$_sources, _toConsumableArray(scope.stores[name]._sources));
-
-					targetRevs[alias] = targetRevs[alias] || true;
-					!targetScope[name] && (targetScope[name] = scope.stores[name]);
-					if (scope.stores[name].hasOwnProperty('data')) initialOutputs[name] = scope.data[name];
-					return true;
-				});
-
-				// ...
-				var mixedCWUnmount,
-				    unMountKey = component.isReactComponent ? "componentWillUnmount" : "destroy";
-
-				if (component.hasOwnProperty(unMountKey)) {
-					mixedCWUnmount = component[unMountKey];
-				}
-
-				component[unMountKey] = function () {
-					delete component[unMountKey];
-					if (mixedCWUnmount) component[unMountKey] = mixedCWUnmount;
-
-					keys.map(function (key) {
-						var name = void 0,
-						    alias = void 0,
-						    path = void 0,
-						    store = void 0;
-						if (key.store && key.name) {
-							alias = name = key.name;
-							store = key.store;
-						} else if (is.fn(key)) {
-							name = alias = key.name || key.defaultName;
-							store = scope.stores[name];
-						} else {
-							key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
-							name = key[1];
-							path = key[2] && key[2].substr(1);
-							store = scope.stores[key[1]];
-							alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
-						}
-
-						store && !is.fn(store) && store.unBind(component, alias, path);
-					});
-					return component[unMountKey] && component[unMountKey].apply(component, arguments);
-				};
-
-				return initialOutputs;
-			}
-
-			/**
-    * Constructor, will build a rescope store
-    *
-    * (scope, {require,use,apply,state, data})
-    * (scope)
-    *
-    * @param scope {object} scope where to find the other stores (default : static staticScope )
-    * @param keys {Array} (passed to Store::map) Ex : ["session", "otherNamedStore:key", otherStore.as("otherKey")]
-    */
-
-		}]);
-
-		function Store() {
-			var _this$_require, _this$_require2;
-
-			_classCallCheck(this, Store);
-
-			var _this = _possibleConstructorReturn(this, (Store.__proto__ || Object.getPrototypeOf(Store)).call(this));
-
-			var argz = [].concat(Array.prototype.slice.call(arguments)),
-			    _static = _this.constructor,
-			    scope = argz[0] instanceof Scope ? argz.shift() : _static.scope ? Scope.getScope(_static.scope) : is.string(argz[0]) ? Scope.getScope(argz.shift()) : _static.staticScope,
-			    cfg = argz[0] && !is.array(argz[0]) && !is.string(argz[0]) ? argz.shift() : {},
-			    name = is.string(argz[0]) ? argz[0] : cfg.name || _static.name,
-			    watchs = is.array(argz[0]) ? argz.shift() : cfg.use || [],
-
-			// watchs need to be defined after all the
-			// store are registered : so we can't deal
-			// with any "static use" automaticly
-			apply = is.fn(argz[0]) ? argz.shift() : cfg.apply || null,
-			    initialState = _static.state || _static.initialState,
-			    applied;
-
-			_this._uid = cfg._uid || shortid.generate();
-
-			_this.__retains = { all: 0 };
-			_this.__locks = { all: 0 };
-			_this._onStabilize = [];
-
-			// autoDestroyTm
-			_this._autoDestroy = !!_this._persistenceTm;
-			_this._persistenceTm = cfg.persistenceTm || _static.persistenceTm || (cfg.autoDestroy || _static.autoDestroy) && 5;
-
-			if (cfg && cfg.on) {
-				_this.on(cfg.on);
-			}
-
-			_this.name = name;
-
-			if (scope.stores) {
-				_this.scopeObj = scope;
-				_this.scope = scope.stores;
-			} else {
-				_this.scopeObj = new Scope(scope);
-				_this.scope = scope.stores;
-			}
-
-			_this._rev = _this.constructor._rev || 0;
-			_this._revs = {};
-			_this.stores = {};
-			_this._require = [];
-			_this._sources = [name];
-
-			if (is.array(_static.use)) {
-				_this._use = [].concat(_toConsumableArray(watchs), _toConsumableArray((_static.use || []).map(function (key) {
-					var ref = key.match(/^(\!?)([^\:]*)(?:\:(.*))?$/);
-					if (ref[1]) {
-						var ref2 = ref[2].split('.');
-						_this._require.push(ref[3] || ref2[ref2.length - 1]);
-					}
-					return ref[2];
-				})));
-			} else {
-				_this._use = [].concat(_toConsumableArray(watchs), _toConsumableArray(_static.use ? Object.keys(_static.use).map(function (key) {
-					var ref = key.match(/^(\!?)(.*)$/);
-					ref[1] && _this._require.push(_static.use[key]);
-					return ref[2] + (_static.use[key] === true ? '' : ':' + _static.use[key]);
-				}) : []));
-			}
-
-			if (_static.require) (_this$_require = _this._require).push.apply(_this$_require, _toConsumableArray(_static.require));
-			if (cfg.require) (_this$_require2 = _this._require).push.apply(_this$_require2, _toConsumableArray(cfg.require));
-
-			_this._followers = [];
-			_this._changesSW = {};
-			if (apply) _this.apply = apply;
-
-			if (cfg.snapshot && cfg.snapshot[_this.scopeObj._id + '/' + name]) {
-				_this.restore(cfg.snapshot);
-				_this._stable = true;
-				scope.bind(_this, _this._use, false);
-			} else {
-
-				if (_static.data !== undefined) _this.data = _extends({}, _static.data);
-				if (cfg.hasOwnProperty("data") && cfg.data !== undefined) _this.data = cfg.data;
-				if (cfg.hasOwnProperty("state") && cfg.state !== undefined) initialState = _extends({}, initialState, cfg.state);
-
-				if (initialState || _this._use.length) {
-					// sync apply
-					_this._changesSW = _extends({}, initialState || {}, scope.map(_this, _this._use));
-					_this.state = {};
-					if (_this.shouldApply(_this._changesSW) && _this.data === undefined) {
-						_this.data = _this.apply(_this.data, _this._changesSW, _this._changesSW);
-						applied = true;
-						_this.state = _this._changesSW;
-						_this._changesSW = {};
-					}
-				}
-			}
-			if ((_this.data !== undefined || applied) && !_this.__locks.all) {
-				_this._stable = true;
-				_this._rev++;
-			} else {
-				_this._stable = false;
-				if (!_static.managed && !_this.state && (!_this._use || !_this._use.length)) {
-					console.warn("ReScope store '", _this.name, "' have no initial data, state or use. It can't stabilize...");
-				}
-			}
-			!_this._stable && _this.emit('unstable', _this.state);
-
-			return _this;
-		}
-
-		/**
-   * @deprecated
-   * @returns {*}
-   */
-
-		_createClass(Store, [{
-			key: 'shouldPropag',
-
-			/**
-    * Overridable method to know if a data change should be propag to the listening stores & components
-    */
-			value: function shouldPropag(nDatas) {
-
-				return true;
-			}
-		}, {
-			key: 'hasDataChange',
-			value: function hasDataChange(nDatas) {
-				var _static = this.constructor,
-				    r,
-				    cDatas = this.data;
-				r = !cDatas && nDatas || cDatas !== nDatas;
-				!r && cDatas && Object.keys(cDatas).forEach(function (key) {
-					r = r || (nDatas ? cDatas[key] !== nDatas[key] : cDatas && cDatas[key]);
-				});
-				!r && nDatas && Object.keys(nDatas).forEach(function (key) {
-					r = r || (nDatas ? cDatas[key] !== nDatas[key] : cDatas && cDatas[key]);
-				});
-				return r;
-			}
-
-			/**
-    * Overridable method to know if a state change should be applied
-    */
-
-		}, {
-			key: 'shouldApply',
-			value: function shouldApply() {
-				var _this2 = this;
-
-				var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state;
-
-				var _static = this.constructor;
-
-				return !!this.isComplete(state) && (is.array(_static.follow) ? _static.follow.reduce(function (r, i) {
-					return r || state && state[i];
-				}, false) : _static.follow ? Object.keys(_static.follow).reduce(function (r, i) {
-					return r || state && is.fn(_static.follow[i]) && _static.follow[i].call(_this2, state[i]) || _static.follow[i] && state[i] !== _this2.state[i];
-				}, false) : true);
-			}
-
-			/**
-    * Overridable applier / remapper
-    * If state or lastPublicState are simple hash maps apply will return {...data, ...state}
-    * if not it will return the last private state
-    * @param data
-    * @param state
-    * @returns {*}
-    */
-
-		}, {
-			key: 'apply',
-			value: function apply(data, state, changes) {
-				state = state || this.state;
-
-				if (this.refine) return this.refine.apply(this, arguments);
-
-				if (!data || data.__proto__ !== objProto || state.__proto__ !== objProto) return state;else return _extends({}, data, state);
-			}
-
-			/**
-    * @depreciated
-    * @param data
-    * @param state
-    * @param changes
-    * @returns {*}
-    */
-
-		}, {
-			key: 'refine',
-			value: function refine(data, state, changes) {
-				state = state || this.state;
-
-				if (!data || data.__proto__ !== objProto || state.__proto__ !== objProto) return state;else return _extends({}, data, state);
-			}
-
-			/**
-    * Debounce this store propagation ( & reducing )
-    * @param cb
-    */
-
-		}, {
-			key: 'stabilize',
-			value: function stabilize(cb) {
-				cb && this.once('stable', cb);
-				this._stable && this.emit('unstable', this.state, this.data);
-
-				this._stable = false;
-
-				if (this._stabilizer) return;
-
-				this._stabilizer = TaskSequencer.pushTask(this, 'pushState');
-			}
-		}, {
-			key: 'retrieve',
-			value: function retrieve(path) {
-				var i = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-				var obj = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.data;
-
-				path = is.string(path) ? path.split('.') : path;
-				return !obj || !path || !path.length ? obj : path.length == i + 1 ? obj[path[i]] : this.retrieve(path, i + 1, obj[path[i]]);
-			}
-		}, {
-			key: 'dispatch',
-			value: function dispatch(action) {
-				var _scopeObj;
-
-				for (var _len = arguments.length, argz = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-					argz[_key - 1] = arguments[_key];
-				}
-
-				(_scopeObj = this.scopeObj).dispatch.apply(_scopeObj, [action].concat(argz));
-			}
-		}, {
-			key: 'trigger',
-			value: function trigger(action) {
-				var actions = this.constructor.actions;
-
-				if (actions && actions[action]) {
-					var _actions$action;
-
-					for (var _len2 = arguments.length, argz = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-						argz[_key2 - 1] = arguments[_key2];
-					}
-
-					var ns = (_actions$action = actions[action]).call.apply(_actions$action, [this].concat(argz));
-					ns && this.setState(ns);
-				}
-			}
-
-			/**
-    * Pull stores in the private state
-    * @param stores  {Array} (passed to Store::map) Ex : ["session", "otherNamedStore:key", otherStore.as("otherKey")]
-    */
-
-		}, {
-			key: 'pull',
-			value: function pull(stores, doWait, origin) {
-				var _this3 = this;
-
-				var initialOutputs = this.scopeObj.map(this, stores);
-				if (doWait) {
-					this.wait();
-					stores.forEach(function (s) {
-						return _this3.scope[s] && _this3.wait(_this3.scope[s]);
-					});
-					this.release();
-				}
-				return initialOutputs;
-			}
-
-			/**
-    * Set & Push the result data to followers if stable
-    * @param cb
-    */
-
-		}, {
-			key: 'push',
-			value: function push(data, force, cb) {
-				cb = force === true ? cb : force;
-				force = force === true;
-				if (!force && !this.hasDataChange(data)) {
-					cb && cb();
-					if (!this.__locks.all) {
-						var stable = this._stable;
-						this._stable = true;
-						!stable && this.emit('stable', this.state, this.data);
-						this._stabilizer = null;
-					}
-					return false;
-				}
-
-				this.data = data;
-				this.wait();
-				this.release(cb);
-			}
-
-			/**
-    * Call the apply fn using the current accumulated state update then, push the resulting data if stable
-    * @param force
-    * @returns {boolean}
-    */
-
-		}, {
-			key: 'pushState',
-			value: function pushState(force) {
-
-				if (!force && !this._changesSW && this.data) return;
-
-				var nextState = _extends({}, this.state, this._changesSW || {}),
-				    nextData = this.apply(this.data, nextState, this._changesSW);
-
-				this._stabilizer = null;
-				this.state = nextState;
-				this._changesSW = null;
-				if (!force && !this.hasDataChange(nextData)) {
-					if (!this.__locks.all) {
-						var stable = this._stable;
-						this._stable = true;
-						!stable && this.emit('stable', this.state, this.data);
-						this._stabilizer = null;
-					}
-					return false;
-				}
-
-				this.data = nextData;
-				this.wait();
-				this.release();
-			}
-
-			/**
-    * Add 'pState' to the current accumulated state updates
-    * & wait source stores stabilization before pushing these state updates
-    * @param pState
-    * @param cb
-    */
-
-		}, {
-			key: 'setState',
-			value: function setState(pState, cb, sync) {
-				var i = 0,
-				    change,
-				    changes = this._changesSW = this._changesSW || {};
-				for (var k in pState) {
-					if (!this.state || changes.hasOwnProperty(k) // todo
-					&& pState[k] !== changes[k] || pState.hasOwnProperty(k) && (pState[k] !== this.state[k] || this.state[k] && pState[k] && pState[k]._rev != this._revs[k] // rev/hash update
-					)) {
-						change = true;
-						this._revs[k] = pState[k] && pState[k]._rev || true;
-						changes[k] = pState[k];
-					}
-				}if (!this.shouldApply(_extends({}, this.state, changes))) {
-					return;
-				}
-
-				if (sync) {
-					this.pushState();
-					cb && cb();
-				} else {
-					if (change) {
-						this.stabilize(cb);
-					} else cb && cb();
-				}
-				return this;
-			}
-
-			/**
-    * Update the current state & push it
-    * @param pState
-    * @param cb
-    */
-
-		}, {
-			key: 'setStateSync',
-			value: function setStateSync(pState) {
-				var i = 0,
-				    change,
-				    changes = this._changesSW = this._changesSW || {};
-				for (var k in pState) {
-					if (!this.state || pState.hasOwnProperty(k) && (pState[k] != this.state[k] || this.state[k] && pState[k] && pState[k]._rev != this._revs[k] // rev/hash update
-					)) {
-						change = true;
-						this._revs[k] = pState[k] && pState[k]._rev || true;
-						changes[k] = pState[k];
-					}
-				}this.shouldApply(_extends({}, this.state || {}, changes)) && this.pushState();
-				return this.data;
-			}
-
-			/**
-    * get a store-key pair for Store::map
-    * @param {string} name
-    * @returns {{store: Store, name: *}}
-    */
-
-		}, {
-			key: 'as',
-			value: function as(name) {
-				return { store: this, name: name };
-			}
-		}, {
-			key: 'on',
-			value: function on(lists) {
-				var _this4 = this;
-
-				if (!is.string(lists) && lists) Object.keys(lists).forEach(function (k) {
-					return _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'on', _this4).call(_this4, k, lists[k]);
-				});else _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'on', this).apply(this, arguments);
-			}
-		}, {
-			key: 'removeListener',
-			value: function removeListener(lists) {
-				var _this5 = this;
-
-				if (!is.string(lists) && lists) Object.keys(lists).forEach(function (k) {
-					return _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'removeListener', _this5).call(_this5, k, lists[k]);
-				});else _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'removeListener', this).apply(this, arguments);
-			}
-
-			/**
-    * is complete (all requiered keys are here)
-    * @returns bool
-    */
-
-		}, {
-			key: 'isComplete',
-			value: function isComplete() {
-				var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state;
-
-				var _static = this.constructor;
-				return !this._require || !this._require.length || state && this._require.reduce(function (r, key) {
-					return r && state[key];
-				}, true);
-			}
-
-			/**
-    * is stable
-    * @returns bool
-    */
-
-		}, {
-			key: 'isStable',
-			value: function isStable() {
-				return this._stable;
-			}
-
-			/**
-    * Serialize state & data with sources refs
-    * @returns bool
-    */
-
-		}, {
-			key: 'serialize',
-			value: function serialize() {
-				var _this6 = this;
-
-				var withRefs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-				var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-				var refs = withRefs && is.array(this._use) && this._use.reduce(function (map, key) {
-					//todo
-					var name = void 0,
-					    alias = void 0,
-					    path = void 0,
-					    store = void 0;
-					if (key.store && key.name) {
-						alias = name = key.name;
-					} else if (is.fn(key)) {
-						name = alias = key.name || key.defaultName;
-					} else {
-						key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
-						name = key[1];
-						path = key[2] && key[2].substr(1);
-						alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
-					}
-
-					if (!_this6.scopeObj.stores[name].scopeObj._.isLocalId) map[alias] = _this6.scopeObj.stores[name].scopeObj._id + '/' + name;
-
-					return map;
-				}, {}) || {};
-
-				output[this.scopeObj._id + '/' + this.name] = {
-					state: this.state && (!withRefs ? _extends({}, this.state) : Object.keys(this.state).reduce(function (h, k) {
-						return !refs[k] && (h[k] = _this6.state[k]), h;
-					}, {})),
-					data: this.data,
-					refs: refs
-				};
-				return output;
-			}
-
-			/**
-    * restore state & data
-    * @returns bool
-    */
-
-		}, {
-			key: 'restore',
-			value: function restore(snapshot) {
-				var snap = snapshot[this.scopeObj._id + '/' + this.name];
-				if (snap) {
-					this.state = snap.state;
-					Object.keys(snap.refs).forEach(function (key) {
-						//todo
-						if (snapshot[snap.refs[key]]) snap.state[key] = snapshot[snap.refs[key]].data;else console.warn('not found : ', key, snap.refs[key]);
-					});
-
-					this.data = snap.data;
-				}
-			}
-
-			/**
-    * Un bind this store off the given component-key
-    * @param obj
-    * @param key
-    * @returns {Array.<*>}
-    */
-
-		}, {
-			key: 'unBind',
-			value: function unBind(obj, key, path) {
-				var followers = this._followers,
-				    i = followers && followers.length;
-				while (followers && i--) {
-					if (followers[i][0] === obj && followers[i][1] === key && followers[i][2] === path) return followers.splice(i, 1);
-				}
-			}
-
-			/**
-    * Bind this store changes to the given component-key
-    * @param obj {React.Component|Store|function)
-    * @param key {string} optional key where to map the public state
-    */
-
-		}, {
-			key: 'bind',
-			value: function bind(obj, key) {
-				var setInitial = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-				var path = arguments[3];
-
-				this._followers.push([obj, key, path]);
-				if (setInitial && this.data && this._stable) {
-					var data = path ? this.retrieve(path) : this.data;
-					if (typeof obj != "function") {
-						if (key) obj.setState(_defineProperty({}, key, data));else obj.setState(data);
-					} else {
-						obj(data);
-					}
-				}
-			}
-
-			/**
-    * once('stable', cb)
-    * @param obj {React.Component|Store|function)
-    * @param key {string} optional key where to map the public state
-    */
-
-		}, {
-			key: 'then',
-			value: function then(cb) {
-				var _this7 = this;
-
-				if (this._stable) return cb(null, this.data);
-				this.once('stable', function (e) {
-					return cb(null, _this7.data);
-				});
-			}
-
-			/**
-    * Add a lock so the store will not propag it data untill release() is call
-    * @param previous {Store|number|Array} @optional wf to wait, releases to wait or array of stuff to wait
-    * @returns {TaskFlow}
-    */
-
-		}, {
-			key: 'wait',
-			value: function wait(previous) {
-				if (typeof previous == "number") return this.__locks.all += previous;
-				if (is.array(previous)) return previous.map(this.wait.bind(this));
-
-				this._stable && this.emit('unstable', this.state, this.data);
-				this._stable = false;
-				this.__locks.all++;
-
-				var reason = is.string(previous) ? previous : null;
-				if (reason) {
-					this.__locks[reason] = this.__locks[reason] || 0;
-					this.__locks[reason]++;
-				}
-				if (previous && is.fn(previous.then)) {
-					previous.then(this.release.bind(this, null));
-				}
-				return this;
-			}
-
-			/**
-    * Decrease locks for this store, if it reach 0 ,
-    * it will be propagated to the followers,
-    * then, all stuff passed to "then" call back will be exec / released
-    * @param desync
-    * @returns {*}
-    */
-
-		}, {
-			key: 'release',
-			value: function release(reason, cb) {
-				var _static = this.constructor,
-				    me = this;
-				var i = 0,
-				    wasStable = this._stable;
-
-				if (is.fn(reason)) {
-					cb = reason;
-					reason = null;
-				}
-
-				if (reason) {
-					if (this.__locks[reason] == 0) console.error("Release more than locking !", reason);
-					this.__locks[reason] = this.__locks[reason] || 0;
-					this.__locks[reason]--;
-				}
-
-				if (!reason && this.__locks.all == 0) console.error("Release more than locking !");
-
-				if (! --this.__locks.all && this.isComplete()) {
-					var propag = this.shouldPropag(this.data);
-					this._stable = true;
-					propag && this._rev++; //
-					if (propag && this._followers.length) this._followers.forEach(function propag(follower) {
-						var data = follower[2] ? me.retrieve(follower[2]) : me.data;
-						//if ( !data ) return;
-
-						if (typeof follower[0] == "function") {
-							follower[0](data);
-						} else {
-							//cb && i++;
-							follower[0].setState(follower[1] ? _defineProperty({}, follower[1], data) : data
-							//,
-							//cb && (
-							//    () => (!(--i) && cb())
-							//)
-							);
-						}
-					});
-					//else
-					!wasStable && this.emit('stable', this.data);
-					propag && this.emit('update', this.data);
-					cb && cb();
-				} else cb && this.then(cb);
-				return this;
-			}
-		}, {
-			key: 'propag',
-			value: function propag(data) {
-				this.emit('update', data);
-			}
-		}, {
-			key: 'retain',
-			value: function retain(reason) {
-				this.__retains.all++;
-				if (reason) {
-					this.__retains[reason] = this.__retains[reason] || 0;
-					this.__retains[reason]++;
-				}
-			}
-		}, {
-			key: 'dispose',
-			value: function dispose(reason) {
-				var _this8 = this;
-
-				//console.warn("dispose", reason, this.__retains);
-				if (reason) {
-					if (!this.__retains[reason]) throw new Error("Dispose more than retaining : " + reason);
-
-					this.__retains[reason]--;
-				}
-				if (this.__retains.all == 0) throw new Error("Dispose more than retaining !");
-
-				this.__retains.all--;
-
-				if (!this.__retains.all) {
-					if (this._persistenceTm) {
-						this._destroyTM && clearTimeout(this._destroyTM);
-						this._destroyTM = setTimeout(function (e) {
-							_this8._destroyTM = null;
-							//this.then(s => {
-							!_this8.__retains.all && _this8.destroy();
-							//});
-						}, this._persistenceTm);
-					} else {
-						//this.then(s =>
-						!this.__retains.all && this.destroy();
-						//);
-					}
-				}
-			}
-		}, {
-			key: 'destroy',
-			value: function destroy() {
-				//  console.log("destroy", this._uid);
-
-				this.emit('destroy', this);
-				if (this._stabilizer) clearTimeout(this._stabilizer);
-
-				if (this._followers.length) this._followers.forEach(function (follower) {
-					if (typeof follower[0] !== "function") {
-						if (follower[0].stores) delete follower[0].stores[follower[1]];
-					}
-				});
-				this._followers.length = 0;
-				this.constructor._rev = this.rev;
-				this.dead = true;
-				this._revs = this.data = this.state = this.scope = null;
-				this.removeAllListeners();
-			}
-		}, {
-			key: 'contextObj',
-			get: function get() {
-				return this.scopeObj;
-			}
-
-			/**
-    * @deprecated
-    * @returns {*}
-    */
-
-		}, {
-			key: 'context',
-			get: function get() {
-				return this.scope;
-			}
-
-			/**
-    * @deprecated
-    * @returns {*}
-    */
-
-		}, {
-			key: 'datas',
-			get: function get() {
-				return this.data;
-			}
-
-			/**
-    * @deprecated
-    * @returns {*}
-    */
-
-			, set: function set(v) {
-				//console.groupCollapsed("Rescope store : Setting datas is depreciated, use data");
-				//console.log("Rescope store : Setting datas is depreciated, use data", (new Error()).stack);
-				//console.groupEnd();
-
-				this.data = v;
-			}
-
-			/**
-    * Get the incoming state ( for immediate state relative actions )
-    * @returns {{}|*}
-    */
-
-		}, {
-			key: 'nextState',
-			get: function get() {
-				return this._changesSW && _extends({}, this.state, this._changesSW) || this.state;
-			}
-		}]);
-
-		return Store;
+	    _inherits(Store, _EventEmitter);
+	
+	    /**
+	     * Constructor, will build a rescope store
+	     *
+	     * (scope, {require,use,apply,state, data})
+	     * (scope)
+	     *
+	     * @param scope {object} scope where to find the other stores (default : static
+	     *     staticScope )
+	     * @param keys {Array} (passed to Store::map) Ex : ["session", "otherNamedStore:key",
+	     *     otherStore.as("otherKey")]
+	     */
+	    // overridable list of store that will allow push if updated
+	    function Store() {
+	        var _this$_require, _this$_require2;
+	
+	        _classCallCheck(this, Store);
+	
+	        var _this = _possibleConstructorReturn(this, (Store.__proto__ || Object.getPrototypeOf(Store)).call(this));
+	
+	        var argz = [].concat(Array.prototype.slice.call(arguments)),
+	            _static = _this.constructor,
+	            scope = argz[0] instanceof Scope ? argz.shift() : _static.scope ? Scope.getScope(_static.scope) : is.string(argz[0]) ? Scope.getScope(argz.shift()) : _static.staticScope,
+	            cfg = argz[0] && !is.array(argz[0]) && !is.string(argz[0]) ? argz.shift() : {},
+	            name = is.string(argz[0]) ? argz[0] : cfg.name || _static.name,
+	            watchs = is.array(argz[0]) ? argz.shift() : cfg.use || [],
+	            apply = is.fn(argz[0]) ? argz.shift() : cfg.apply || null,
+	            initialState = _static.state || _static.initialState || _static.defaultState,
+	            applied;
+	
+	        _this._uid = cfg._uid || shortid.generate();
+	
+	        _this.__retains = { all: 0 };
+	        _this.__locks = { all: 0 };
+	        _this._onStabilize = [];
+	
+	        // autoDestroyTm
+	        _this._autoDestroy = !!_this._persistenceTm;
+	        _this._persistenceTm = cfg.persistenceTm || _static.persistenceTm || (cfg.autoDestroy || _static.autoDestroy) && 5;
+	
+	        if (cfg && cfg.on) {
+	            _this.on(cfg.on);
+	        }
+	
+	        _this.name = name;
+	
+	        if (scope.stores) {
+	            _this.scopeObj = scope;
+	            _this.scope = scope.stores;
+	        } else {
+	            _this.scopeObj = new Scope(scope);
+	            _this.scope = scope.stores;
+	        }
+	
+	        _this._rev = _this.constructor._rev || 0;
+	        _this._revs = {};
+	        _this.stores = {};
+	        _this._require = [];
+	        _this._sources = [name];
+	
+	        if (is.array(_static.use)) {
+	            _this._use = [].concat(_toConsumableArray(watchs), _toConsumableArray((_static.use || []).map(function (key) {
+	                var ref = key.match(/^(\!?)([^\:]*)(?:\:(.*))?$/);
+	                if (ref[1]) {
+	                    var ref2 = ref[2].split('.');
+	                    _this._require.push(ref[3] || ref2[ref2.length - 1]);
+	                }
+	                return ref[2];
+	            })));
+	        } else {
+	            _this._use = [].concat(_toConsumableArray(watchs), _toConsumableArray(_static.use ? Object.keys(_static.use).map(function (key) {
+	                var ref = key.match(/^(\!?)(.*)$/);
+	                ref[1] && _this._require.push(_static.use[key]);
+	                return ref[2] + (_static.use[key] === true ? '' : ':' + _static.use[key]);
+	            }) : []));
+	        }
+	
+	        if (_static.require) (_this$_require = _this._require).push.apply(_this$_require, _toConsumableArray(_static.require));
+	        if (cfg.require) (_this$_require2 = _this._require).push.apply(_this$_require2, _toConsumableArray(cfg.require));
+	
+	        _this._followers = [];
+	        _this._changesSW = {};
+	        if (apply) _this.apply = apply;
+	
+	        if (cfg.snapshot && cfg.snapshot[_this.scopeObj._id + '/' + name]) {
+	            _this.restore(cfg.snapshot);
+	            _this._stable = true;
+	            scope.bind(_this, _this._use, false);
+	        } else {
+	
+	            if (_static.data !== undefined) _this.data = _extends({}, _static.data);
+	            if (cfg.hasOwnProperty("data") && cfg.data !== undefined) _this.data = cfg.data;
+	            if (cfg.hasOwnProperty("state") && cfg.state !== undefined) initialState = _extends({}, initialState, cfg.state);
+	
+	            if (initialState || _this._use.length) {
+	                // sync apply
+	                _this._changesSW = _extends({}, initialState || {}, scope.map(_this, _this._use));
+	                _this.state = {};
+	                if (_this.shouldApply(_this._changesSW) && _this.data === undefined) {
+	                    _this.data = _this.apply(_this.data, _this._changesSW, _this._changesSW);
+	                    applied = true;
+	                    _this.state = _this._changesSW;
+	                    _this._changesSW = {};
+	                }
+	            }
+	        }
+	        if ((_this.data !== undefined || applied) && !_this.__locks.all) {
+	            _this._stable = true;
+	            _this._rev++;
+	        } else {
+	            _this._stable = false;
+	            if (!_static.managed && !_this.state && (!_this._use || !_this._use.length)) {
+	                console.warn("ReScope store '", _this.name, "' have no initial data, state or use. It can't stabilize...");
+	            }
+	        }
+	        !_this._stable && _this.emit('unstable', _this.state);
+	
+	        return _this;
+	    }
+	
+	    /**
+	     * @deprecated
+	     * @returns {*}
+	     */
+	    // default state
+	    /**
+	     * if retain goes to 0 :
+	     * false to not destroy,
+	     * 0 to sync auto destroy
+	     * Ms to autodestroy after tm ms if no retain has been called
+	     * @type {boolean|Int}
+	     */
+	    // overridable list of source stores
+	
+	
+	    _createClass(Store, [{
+	        key: 'shouldPropag',
+	
+	
+	        /**
+	         * Overridable method to know if a data change should be propag to the listening
+	         * stores & components
+	         */
+	        value: function shouldPropag(nDatas) {
+	
+	            return true;
+	        }
+	    }, {
+	        key: 'hasDataChange',
+	        value: function hasDataChange(nDatas) {
+	            var _static = this.constructor,
+	                r,
+	                cDatas = this.data;
+	            r = !cDatas && nDatas || cDatas !== nDatas;
+	            !r && cDatas && Object.keys(cDatas).forEach(function (key) {
+	                r = r || (nDatas ? cDatas[key] !== nDatas[key] : cDatas && cDatas[key]);
+	            });
+	            !r && nDatas && Object.keys(nDatas).forEach(function (key) {
+	                r = r || (nDatas ? cDatas[key] !== nDatas[key] : cDatas && cDatas[key]);
+	            });
+	            return r;
+	        }
+	
+	        /**
+	         * Overridable method to know if a state change should be applied
+	         */
+	
+	    }, {
+	        key: 'shouldApply',
+	        value: function shouldApply() {
+	            var _this2 = this;
+	
+	            var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state;
+	
+	            var _static = this.constructor;
+	
+	            return !!this.isComplete(state) && (is.array(_static.follow) ? _static.follow.reduce(function (r, i) {
+	                return r || state && state[i];
+	            }, false) : _static.follow ? Object.keys(_static.follow).reduce(function (r, i) {
+	                return r || state && is.fn(_static.follow[i]) && _static.follow[i].call(_this2, state[i]) || _static.follow[i] && state[i] !== _this2.state[i];
+	            }, false) : true);
+	        }
+	
+	        /**
+	         * Overridable applier / remapper
+	         * If state or lastPublicState are simple hash maps apply will return {...data,
+	         * ...state} if not it will return the last private state
+	         * @param data
+	         * @param state
+	         * @returns {*}
+	         */
+	
+	    }, {
+	        key: 'apply',
+	        value: function apply(data, state, changes) {
+	            state = state || this.state;
+	
+	            if (this.refine) return this.refine.apply(this, arguments);
+	
+	            if (!data || data.__proto__ !== objProto || state.__proto__ !== objProto) return state;else return _extends({}, data, state);
+	        }
+	
+	        /**
+	         * @depreciated
+	         * @param data
+	         * @param state
+	         * @param changes
+	         * @returns {*}
+	         */
+	
+	    }, {
+	        key: 'refine',
+	        value: function refine(data, state, changes) {
+	            state = state || this.state;
+	
+	            if (!data || data.__proto__ !== objProto || state.__proto__ !== objProto) return state;else return _extends({}, data, state);
+	        }
+	
+	        /**
+	         * Debounce this store propagation ( & reducing )
+	         * @param cb
+	         */
+	
+	    }, {
+	        key: 'stabilize',
+	        value: function stabilize(cb) {
+	            cb && this.once('stable', cb);
+	            this._stable && this.emit('unstable', this.state, this.data);
+	
+	            this._stable = false;
+	
+	            if (this._stabilizer) return;
+	
+	            this._stabilizer = TaskSequencer.pushTask(this, 'pushState');
+	        }
+	    }, {
+	        key: 'retrieve',
+	        value: function retrieve(path) {
+	            var i = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+	            var obj = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.data;
+	
+	            path = is.string(path) ? path.split('.') : path;
+	            return !obj || !path || !path.length ? obj : path.length == i + 1 ? obj[path[i]] : this.retrieve(path, i + 1, obj[path[i]]);
+	        }
+	    }, {
+	        key: 'dispatch',
+	        value: function dispatch(action) {
+	            var _scopeObj;
+	
+	            for (var _len = arguments.length, argz = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                argz[_key - 1] = arguments[_key];
+	            }
+	
+	            (_scopeObj = this.scopeObj).dispatch.apply(_scopeObj, [action].concat(argz));
+	        }
+	    }, {
+	        key: 'trigger',
+	        value: function trigger(action) {
+	            var actions = this.constructor.actions;
+	
+	            if (actions && actions[action]) {
+	                var _actions$action;
+	
+	                for (var _len2 = arguments.length, argz = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+	                    argz[_key2 - 1] = arguments[_key2];
+	                }
+	
+	                var ns = (_actions$action = actions[action]).call.apply(_actions$action, [this].concat(argz));
+	                ns && this.setState(ns);
+	            }
+	        }
+	
+	        /**
+	         * Pull stores in the private state
+	         * @param stores  {Array} (passed to Store::map) Ex : ["session",
+	         *     "otherNamedStore:key", otherStore.as("otherKey")]
+	         */
+	
+	    }, {
+	        key: 'pull',
+	        value: function pull(stores, doWait, origin) {
+	            var _this3 = this;
+	
+	            var initialOutputs = this.scopeObj.map(this, stores);
+	            if (doWait) {
+	                this.wait();
+	                stores.forEach(function (s) {
+	                    return _this3.scope[s] && _this3.wait(_this3.scope[s]);
+	                });
+	                this.release();
+	            }
+	            return initialOutputs;
+	        }
+	
+	        /**
+	         * Set & Push the result data to followers if stable
+	         * @param cb
+	         */
+	
+	    }, {
+	        key: 'push',
+	        value: function push(data, force, cb) {
+	            cb = force === true ? cb : force;
+	            force = force === true;
+	            if (!force && !this.hasDataChange(data)) {
+	                cb && cb();
+	                if (!this.__locks.all) {
+	                    var stable = this._stable;
+	                    this._stable = true;
+	                    !stable && this.emit('stable', this.state, this.data);
+	                    this._stabilizer = null;
+	                }
+	                return false;
+	            }
+	
+	            this.data = data;
+	            this.wait();
+	            this.release(cb);
+	        }
+	
+	        /**
+	         * Call the apply fn using the current accumulated state update then, push the
+	         * resulting data if stable
+	         * @param force
+	         * @returns {boolean}
+	         */
+	
+	    }, {
+	        key: 'pushState',
+	        value: function pushState(force) {
+	
+	            if (!force && !this._changesSW && this.data) return;
+	
+	            var nextState = _extends({}, this.state, this._changesSW || {}),
+	                nextData = this.apply(this.data, nextState, this._changesSW);
+	
+	            this._stabilizer = null;
+	            this.state = nextState;
+	            this._changesSW = null;
+	            if (!force && !this.hasDataChange(nextData)) {
+	                if (!this.__locks.all) {
+	                    var stable = this._stable;
+	                    this._stable = true;
+	                    !stable && this.emit('stable', this.state, this.data);
+	                    this._stabilizer = null;
+	                }
+	                return false;
+	            }
+	
+	            this.data = nextData;
+	            this.wait();
+	            this.release();
+	        }
+	
+	        /**
+	         * Add 'pState' to the current accumulated state updates
+	         * & wait source stores stabilization before pushing these state updates
+	         * @param pState
+	         * @param cb
+	         */
+	
+	    }, {
+	        key: 'setState',
+	        value: function setState(pState, cb, sync) {
+	            var i = 0,
+	                change,
+	                changes = this._changesSW = this._changesSW || {};
+	            for (var k in pState) {
+	                if (!this.state || changes.hasOwnProperty(k) // todo
+	                && pState[k] !== changes[k] || pState.hasOwnProperty(k) && (pState[k] !== this.state[k] || this.state[k] && pState[k] && pState[k]._rev != this._revs[k] // rev/hash update
+	                )) {
+	                    change = true;
+	                    this._revs[k] = pState[k] && pState[k]._rev || true;
+	                    changes[k] = pState[k];
+	                }
+	            }if (!this.shouldApply(_extends({}, this.state, changes))) {
+	                return;
+	            }
+	
+	            if (sync) {
+	                this.pushState();
+	                cb && cb();
+	            } else {
+	                if (change) {
+	                    this.stabilize(cb);
+	                } else cb && cb();
+	            }
+	            return this;
+	        }
+	
+	        /**
+	         * Update the current state & push it
+	         * @param pState
+	         * @param cb
+	         */
+	
+	    }, {
+	        key: 'setStateSync',
+	        value: function setStateSync(pState) {
+	            var i = 0,
+	                change,
+	                changes = this._changesSW = this._changesSW || {};
+	            for (var k in pState) {
+	                if (!this.state || pState.hasOwnProperty(k) && (pState[k] != this.state[k] || this.state[k] && pState[k] && pState[k]._rev != this._revs[k] // rev/hash update
+	                )) {
+	                    change = true;
+	                    this._revs[k] = pState[k] && pState[k]._rev || true;
+	                    changes[k] = pState[k];
+	                }
+	            }this.shouldApply(_extends({}, this.state || {}, changes)) && this.pushState();
+	            return this.data;
+	        }
+	
+	        /**
+	         * get a store-key pair for Store::map
+	         * @param {string} name
+	         * @returns {{store: Store, name: *}}
+	         */
+	
+	    }, {
+	        key: 'as',
+	        value: function as(name) {
+	            return { store: this, name: name };
+	        }
+	    }, {
+	        key: 'on',
+	        value: function on(lists) {
+	            var _this4 = this;
+	
+	            if (!is.string(lists) && lists) Object.keys(lists).forEach(function (k) {
+	                return _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'on', _this4).call(_this4, k, lists[k]);
+	            });else _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'on', this).apply(this, arguments);
+	        }
+	    }, {
+	        key: 'removeListener',
+	        value: function removeListener(lists) {
+	            var _this5 = this;
+	
+	            if (!is.string(lists) && lists) Object.keys(lists).forEach(function (k) {
+	                return _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'removeListener', _this5).call(_this5, k, lists[k]);
+	            });else _get(Store.prototype.__proto__ || Object.getPrototypeOf(Store.prototype), 'removeListener', this).apply(this, arguments);
+	        }
+	
+	        /**
+	         * is complete (all requiered keys are here)
+	         * @returns bool
+	         */
+	
+	    }, {
+	        key: 'isComplete',
+	        value: function isComplete() {
+	            var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state;
+	
+	            var _static = this.constructor;
+	            return !this._require || !this._require.length || state && this._require.reduce(function (r, key) {
+	                return r && state[key];
+	            }, true);
+	        }
+	
+	        /**
+	         * is stable
+	         * @returns bool
+	         */
+	
+	    }, {
+	        key: 'isStable',
+	        value: function isStable() {
+	            return this._stable;
+	        }
+	
+	        /**
+	         * Serialize state & data with sources refs
+	         * @returns bool
+	         */
+	
+	    }, {
+	        key: 'serialize',
+	        value: function serialize() {
+	            var _this6 = this;
+	
+	            var withRefs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+	            var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	
+	            var refs = withRefs && is.array(this._use) && this._use.reduce(function (map, key) {
+	                //todo
+	                var name = void 0,
+	                    alias = void 0,
+	                    path = void 0,
+	                    store = void 0;
+	                if (key.store && key.name) {
+	                    alias = name = key.name;
+	                } else if (is.fn(key)) {
+	                    name = alias = key.name || key.defaultName;
+	                } else {
+	                    key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
+	                    name = key[1];
+	                    path = key[2] && key[2].substr(1);
+	                    alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
+	                }
+	
+	                if (!_this6.scopeObj.stores[name].scopeObj._.isLocalId) map[alias] = _this6.scopeObj.stores[name].scopeObj._id + '/' + name;
+	
+	                return map;
+	            }, {}) || {};
+	
+	            output[this.scopeObj._id + '/' + this.name] = {
+	                state: this.state && (!withRefs ? _extends({}, this.state) : Object.keys(this.state).reduce(function (h, k) {
+	                    return !refs[k] && (h[k] = _this6.state[k]), h;
+	                }, {})),
+	                data: this.data,
+	                refs: refs
+	            };
+	            return output;
+	        }
+	
+	        /**
+	         * restore state & data
+	         * @returns bool
+	         */
+	
+	    }, {
+	        key: 'restore',
+	        value: function restore(snapshot) {
+	            var snap = snapshot[this.scopeObj._id + '/' + this.name];
+	            if (snap) {
+	                this.state = snap.state;
+	                Object.keys(snap.refs).forEach(function (key) {
+	                    //todo
+	                    if (snapshot[snap.refs[key]]) snap.state[key] = snapshot[snap.refs[key]].data;else console.warn('not found : ', key, snap.refs[key]);
+	                });
+	
+	                this.data = snap.data;
+	            }
+	        }
+	
+	        /**
+	         * Un bind this store off the given component-key
+	         * @param obj
+	         * @param key
+	         * @returns {Array.<*>}
+	         */
+	
+	    }, {
+	        key: 'unBind',
+	        value: function unBind(obj, key, path) {
+	            var followers = this._followers,
+	                i = followers && followers.length;
+	            while (followers && i--) {
+	                if (followers[i][0] === obj && followers[i][1] === key && followers[i][2] === path) return followers.splice(i, 1);
+	            }
+	        }
+	
+	        /**
+	         * Bind this store changes to the given component-key
+	         * @param obj {React.Component|Store|function)
+	         * @param key {string} optional key where to map the public state
+	         */
+	
+	    }, {
+	        key: 'bind',
+	        value: function bind(obj, key) {
+	            var setInitial = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+	            var path = arguments[3];
+	
+	            this._followers.push([obj, key, path]);
+	            if (setInitial && this.data && this._stable) {
+	                var data = path ? this.retrieve(path) : this.data;
+	                if (typeof obj != "function") {
+	                    if (key) obj.setState(_defineProperty({}, key, data));else obj.setState(data);
+	                } else {
+	                    obj(data);
+	                }
+	            }
+	        }
+	
+	        /**
+	         * once('stable', cb)
+	         * @param obj {React.Component|Store|function)
+	         * @param key {string} optional key where to map the public state
+	         */
+	
+	    }, {
+	        key: 'then',
+	        value: function then(cb) {
+	            var _this7 = this;
+	
+	            if (this._stable) return cb(null, this.data);
+	            this.once('stable', function (e) {
+	                return cb(null, _this7.data);
+	            });
+	        }
+	
+	        /**
+	         * Add a lock so the store will not propag it data untill release() is call
+	         * @param previous {Store|number|Array} @optional wf to wait, releases to wait or
+	         *     array of stuff to wait
+	         * @returns {TaskFlow}
+	         */
+	
+	    }, {
+	        key: 'wait',
+	        value: function wait(previous) {
+	            if (typeof previous == "number") return this.__locks.all += previous;
+	            if (is.array(previous)) return previous.map(this.wait.bind(this));
+	
+	            this._stable && this.emit('unstable', this.state, this.data);
+	            this._stable = false;
+	            this.__locks.all++;
+	
+	            var reason = is.string(previous) ? previous : null;
+	            if (reason) {
+	                this.__locks[reason] = this.__locks[reason] || 0;
+	                this.__locks[reason]++;
+	            }
+	            if (previous && is.fn(previous.then)) {
+	                previous.then(this.release.bind(this, null));
+	            }
+	            return this;
+	        }
+	
+	        /**
+	         * Decrease locks for this store, if it reach 0 ,
+	         * it will be propagated to the followers,
+	         * then, all stuff passed to "then" call back will be exec / released
+	         * @param desync
+	         * @returns {*}
+	         */
+	
+	    }, {
+	        key: 'release',
+	        value: function release(reason, cb) {
+	            var _static = this.constructor,
+	                me = this;
+	            var i = 0,
+	                wasStable = this._stable;
+	
+	            if (is.fn(reason)) {
+	                cb = reason;
+	                reason = null;
+	            }
+	
+	            if (reason) {
+	                if (this.__locks[reason] == 0) console.error("Release more than locking !", reason);
+	                this.__locks[reason] = this.__locks[reason] || 0;
+	                this.__locks[reason]--;
+	            }
+	
+	            if (!reason && this.__locks.all == 0) console.error("Release more than locking !");
+	
+	            if (! --this.__locks.all && this.isComplete()) {
+	                var propag = this.shouldPropag(this.data);
+	                this._stable = true;
+	                propag && this._rev++; //
+	                if (propag && this._followers.length) this._followers.forEach(function propag(follower) {
+	                    var data = follower[2] ? me.retrieve(follower[2]) : me.data;
+	                    //if ( !data ) return;
+	
+	                    if (typeof follower[0] == "function") {
+	                        follower[0](data);
+	                    } else {
+	                        //cb && i++;
+	                        follower[0].setState(follower[1] ? _defineProperty({}, follower[1], data) : data
+	                        //,
+	                        //cb && (
+	                        //    () => (!(--i) && cb())
+	                        //)
+	                        );
+	                    }
+	                });
+	                //else
+	                !wasStable && this.emit('stable', this.data);
+	                propag && this.emit('update', this.data);
+	                cb && cb();
+	            } else cb && this.then(cb);
+	            return this;
+	        }
+	    }, {
+	        key: 'propag',
+	        value: function propag(data) {
+	            this.emit('update', data);
+	        }
+	    }, {
+	        key: 'retain',
+	        value: function retain(reason) {
+	            this.__retains.all++;
+	            if (reason) {
+	                this.__retains[reason] = this.__retains[reason] || 0;
+	                this.__retains[reason]++;
+	            }
+	        }
+	    }, {
+	        key: 'dispose',
+	        value: function dispose(reason) {
+	            var _this8 = this;
+	
+	            //console.warn("dispose", reason, this.__retains);
+	            if (reason) {
+	                if (!this.__retains[reason]) throw new Error("Dispose more than retaining : " + reason);
+	
+	                this.__retains[reason]--;
+	            }
+	            if (this.__retains.all == 0) throw new Error("Dispose more than retaining !");
+	
+	            this.__retains.all--;
+	
+	            if (!this.__retains.all) {
+	                if (this._persistenceTm) {
+	                    this._destroyTM && clearTimeout(this._destroyTM);
+	                    this._destroyTM = setTimeout(function (e) {
+	                        _this8._destroyTM = null;
+	                        //this.then(s => {
+	                        !_this8.__retains.all && _this8.destroy();
+	                        //});
+	                    }, this._persistenceTm);
+	                } else {
+	                    //this.then(s =>
+	                    !this.__retains.all && this.destroy();
+	                    //);
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'destroy',
+	        value: function destroy() {
+	            //  console.log("destroy", this._uid);
+	
+	            this.emit('destroy', this);
+	            if (this._stabilizer) clearTimeout(this._stabilizer);
+	
+	            if (this._followers.length) this._followers.forEach(function (follower) {
+	                if (typeof follower[0] !== "function") {
+	                    if (follower[0].stores) delete follower[0].stores[follower[1]];
+	                }
+	            });
+	            this._followers.length = 0;
+	            this.constructor._rev = this.rev;
+	            this.dead = true;
+	            this._revs = this.data = this.state = this.scope = null;
+	            this.removeAllListeners();
+	        }
+	    }, {
+	        key: 'contextObj',
+	        get: function get() {
+	            return this.scopeObj;
+	        }
+	
+	        /**
+	         * @deprecated
+	         * @returns {*}
+	         */
+	
+	    }, {
+	        key: 'context',
+	        get: function get() {
+	            return this.scope;
+	        }
+	
+	        /**
+	         * @deprecated
+	         * @returns {*}
+	         */
+	
+	    }, {
+	        key: 'datas',
+	        get: function get() {
+	            return this.data;
+	        }
+	
+	        /**
+	         * @deprecated
+	         * @returns {*}
+	         */
+	        ,
+	        set: function set(v) {
+	            //console.groupCollapsed("Rescope store : Setting datas is depreciated, use
+	            // data"); console.log("Rescope store : Setting datas is depreciated, use data",
+	            // (new Error()).stack); console.groupEnd();
+	
+	            this.data = v;
+	        }
+	
+	        /**
+	         * Get the incoming state ( for immediate state relative actions )
+	         * @returns {{}|*}
+	         */
+	
+	    }, {
+	        key: 'nextState',
+	        get: function get() {
+	            return this._changesSW && _extends({}, this.state, this._changesSW) || this.state;
+	        }
+	    }]);
+	
+	    return Store;
 	}(EventEmitter), _class.use = [], _class.staticScope = new Scope({}, { id: "static" }), _class.state = undefined, _class.persistenceTm = false, _temp);
+	
+	/**
+	 * get a static aliased reference of a store
+	 * @param {string} name
+	 * @returns {{store: Store, name: *}}
+	 */
+	
+	Store.as = function (name) {
+	    return { store: this, name: name };
+	};
+	
+	/**
+	 * Map all named stores in {keys} to the {object}'s state
+	 * Hook componentWillUnmount (for react comp) or destroy to unBind them automatically
+	 * @static
+	 * @param object {Object} target state aware object (React.Component|Store|...)
+	 * @param keys {Array} Ex : ["session", "otherStaticNamedStore:key",
+	 *     store.as('anotherKey')]
+	 */
+	Store.map = function (component, keys, scope, origin) {
+	    var setInitial = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+	
+	    var targetRevs = component._revs || {};
+	    var targetScope = component.stores || (component.stores = {});
+	    var initialOutputs = {};
+	    keys = is.array(keys) ? [].concat(_toConsumableArray(keys)) : [keys];
+	
+	    scope = scope || Store.staticScope;
+	
+	    keys = keys.filter(
+	    // @todo : use query refs
+	    // (store)(\.store)*(\[(\*|(props)\w+)+)\])?(\:alias)
+	    function (key) {
+	        var _component$_sources;
+	
+	        if (!key) {
+	            console.error("Not a mappable store item '" + key + "' in " + origin + ' !!');
+	            return false;
+	        }
+	        var name = void 0,
+	            alias = void 0,
+	            path = void 0,
+	            store = void 0;
+	        if (key.store && key.name) {
+	            alias = name = key.name;
+	            store = key.store;
+	        } else if (is.fn(key)) {
+	            name = alias = key.name || key.defaultName;
+	            store = key;
+	        } else {
+	            key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
+	            name = key[1];
+	            path = key[2] && key[2].substr(1);
+	            store = scope.stores[key[1]];
+	            alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
+	        }
+	
+	        if (targetRevs[name]) return false; // ignore dbl uses for now
+	
+	        if (!store) {
+	            console.error("Not a mappable store item '" + name + "/" + alias + "' in " + (component.name || component) + ' !!', store);
+	            return false;
+	        } else if (is.fn(store)) {
+	            scope._mount(name);
+	            scope.stores[name].bind(component, alias, setInitial, path);
+	        } else {
+	            store.bind(component, alias, setInitial, path);
+	        }
+	
+	        // give initial store weight basing sources
+	        (_component$_sources = component._sources).push.apply(_component$_sources, _toConsumableArray(scope.stores[name]._sources));
+	
+	        targetRevs[alias] = targetRevs[alias] || true;
+	        !targetScope[name] && (targetScope[name] = scope.stores[name]);
+	        if (scope.stores[name].hasOwnProperty('data')) initialOutputs[name] = scope.data[name];
+	        return true;
+	    });
+	
+	    // ...
+	    var mixedCWUnmount,
+	        unMountKey = component.isReactComponent ? "componentWillUnmount" : "destroy";
+	
+	    if (component.hasOwnProperty(unMountKey)) {
+	        mixedCWUnmount = component[unMountKey];
+	    }
+	
+	    component[unMountKey] = function () {
+	        delete component[unMountKey];
+	        if (mixedCWUnmount) component[unMountKey] = mixedCWUnmount;
+	
+	        keys.map(function (key) {
+	            var name = void 0,
+	                alias = void 0,
+	                path = void 0,
+	                store = void 0;
+	            if (key.store && key.name) {
+	                alias = name = key.name;
+	                store = key.store;
+	            } else if (is.fn(key)) {
+	                name = alias = key.name || key.defaultName;
+	                store = scope.stores[name];
+	            } else {
+	                key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
+	                name = key[1];
+	                path = key[2] && key[2].substr(1);
+	                store = scope.stores[key[1]];
+	                alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
+	            }
+	
+	            store && !is.fn(store) && store.unBind(component, alias, path);
+	        });
+	        return component[unMountKey] && component[unMountKey].apply(component, arguments);
+	    };
+	
+	    return initialOutputs;
+	};
 	exports.default = Store;
 	module.exports = exports['default'];
 
-	/***/
-},
+/***/ }),
 /* 7 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
-
+	
 	var _index = __webpack_require__(1);
-
+	
 	var _index2 = _interopRequireDefault(_index);
-
+	
 	var _is = __webpack_require__(3);
-
+	
 	var _is2 = _interopRequireDefault(_is);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	/**
-  * Minimal push sequencer, apply stores specific task in the right order (root stores first)
-  */
+	 * Minimal push sequencer, apply stores specific task in the right order (root stores first)
+	 */
 	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
-
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	
 	var taskQueue = [],
 	    curWeight = 0,
 	    maxWeight = 0,
@@ -3405,59 +3275,59 @@ module.exports =
 	    task = void 0,
 	    isRunning = void 0,
 	    errorCatcher = {
-		lastError: null,
-		dispatch: function dispatch(error) {
-			errorCatcher.disable();
-			if (task && task[0].handleError) {
-				task[0].handleError(error, task);
-			} else if (task) console.error("ReScope : A task has failed !!", task[1], " on ", task[0].name || task[0].constructor.name);
-
-			isRunning = false;
-			task = null;
-			runNow();
-		},
-		enable: typeof window !== 'undefined' ? function () {
-			window.addEventListener('error', errorCatcher.dispatch);
-		} : function () {
-			process.on('uncaughtException', errorCatcher.dispatch);
-		},
-		disable: typeof window !== 'undefined' ? function () {
-			window.removeEventListener('error', errorCatcher.dispatch);
-		} : function () {
-			process.removeListener('uncaughtException', errorCatcher.dispatch);
-		}
+	    lastError: null,
+	    dispatch: function dispatch(error) {
+	        errorCatcher.disable();
+	        if (task && task[0].handleError) {
+	            task[0].handleError(error, task);
+	        } else if (task) console.error("ReScope : A task has failed !!", task[1], " on ", task[0].name || task[0].constructor.name);
+	
+	        isRunning = false;
+	        task = null;
+	        runNow();
+	    },
+	    enable: typeof window !== 'undefined' ? function () {
+	        window.addEventListener('error', errorCatcher.dispatch);
+	    } : function () {
+	        process.on('uncaughtException', errorCatcher.dispatch);
+	    },
+	    disable: typeof window !== 'undefined' ? function () {
+	        window.removeEventListener('error', errorCatcher.dispatch);
+	    } : function () {
+	        process.removeListener('uncaughtException', errorCatcher.dispatch);
+	    }
 	}; // will use as external the index in dist
-
-
+	
+	
 	function runNow() {
-		if (!isRunning) {
-			run();
-		}
+	    if (!isRunning) {
+	        run();
+	    }
 	}
-
+	
 	function run() {
-		var from = Date.now();
-		isRunning = true;
-		errorCatcher.enable();
-		while (taskCount) {
-
-			// try for the current weight
-			while (!(taskQueue[curWeight] && taskQueue[curWeight].length)) {
-				curWeight++;
-			}taskCount--;
-			task = taskQueue[curWeight].shift();
-			//console.log("Task : ", task[1], " on ", task[0].name);
-			task[0][task[1]].apply(task[0], task[2]);
-		}
-		task = undefined;
-		errorCatcher.disable();
-
-		isRunning = false;
-		if (taskCount) {
-			setTimeout(runNow);
-		}
+	    var from = Date.now();
+	    isRunning = true;
+	    errorCatcher.enable();
+	    while (taskCount) {
+	
+	        // try for the current weight
+	        while (!(taskQueue[curWeight] && taskQueue[curWeight].length)) {
+	            curWeight++;
+	        }taskCount--;
+	        task = taskQueue[curWeight].shift();
+	        //console.log("Task : ", task[1], " on ", task[0].name);
+	        task[0][task[1]].apply(task[0], task[2]);
+	    }
+	    task = undefined;
+	    errorCatcher.disable();
+	
+	    isRunning = false;
+	    if (taskCount) {
+	        setTimeout(runNow);
+	    }
 	}
-
+	
 	//
 	//index.setTaskDeSync = ( nb ) => {
 	//    if ( nb === false )
@@ -3472,166 +3342,155 @@ module.exports =
 	//        deSyncMaxTasks = nb;
 	//    }
 	//};
-
+	
 	exports.default = {
-		pushTask: function pushTask(obj, fn, argz) {
-			var weight = obj._sources && obj._sources.length || 1,
-			    stack = taskQueue[weight] = taskQueue[weight] || [];
-
-			maxWeight = Math.max(maxWeight, weight);
-			curWeight = Math.min(curWeight, weight);
-			taskCount++;
-
-			//console.log("Push Task : ", fn, " on ", obj.name, weight);
-			stack.push([obj, fn, argz]);
-			setTimeout(runNow);
-			return stack.length;
-		}
+	    pushTask: function pushTask(obj, fn, argz) {
+	        var weight = obj._sources && obj._sources.length || 1,
+	            stack = taskQueue[weight] = taskQueue[weight] || [];
+	
+	        maxWeight = Math.max(maxWeight, weight);
+	        curWeight = Math.min(curWeight, weight);
+	        taskCount++;
+	
+	        //console.log("Push Task : ", fn, " on ", obj.name, weight);
+	        stack.push([obj, fn, argz]);
+	        setTimeout(runNow);
+	        return stack.length;
+	    }
 	};
 	module.exports = exports["default"];
 
-	/***/
-},
+/***/ }),
 /* 8 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.scopeToState = exports.reScope = exports.addScopableType = undefined;
-
+	
 	var _is = __webpack_require__(3);
-
+	
 	var _is2 = _interopRequireDefault(_is);
-
+	
 	var _index = __webpack_require__(1);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _toConsumableArray(arr) {
-		if (Array.isArray(arr)) {
-			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-				arr2[i] = arr[i];
-			}return arr2;
-		} else {
-			return Array.from(arr);
-		}
-	} /*
-    * Copyright (c)  2018 Wise Wild Web .
-    *
-    *  MIT License
-    *
-    *  Permission is hereby granted, free of charge, to any person obtaining a copy
-    *  of this software and associated documentation files (the "Software"), to deal
-    *  in the Software without restriction, including without limitation the rights
-    *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    *  copies of the Software, and to permit persons to whom the Software is
-    *  furnished to do so, subject to the following conditions:
-    *
-    *  The above copyright notice and this permission notice shall be included in all
-    *  copies or substantial portions of the Software.
-    *
-    *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    *  SOFTWARE.
-    *
-    * @author : Nathanael Braun
-    * @contact : caipilabs@gmail.com
-    */
-
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /*
+	                                                                                                                                                                                                     * Copyright (c)  2018 Wise Wild Web .
+	                                                                                                                                                                                                     *
+	                                                                                                                                                                                                     *  MIT License
+	                                                                                                                                                                                                     *
+	                                                                                                                                                                                                     *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                                                                                                                                     *  of this software and associated documentation files (the "Software"), to deal
+	                                                                                                                                                                                                     *  in the Software without restriction, including without limitation the rights
+	                                                                                                                                                                                                     *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                                                                                                                                     *  copies of the Software, and to permit persons to whom the Software is
+	                                                                                                                                                                                                     *  furnished to do so, subject to the following conditions:
+	                                                                                                                                                                                                     *
+	                                                                                                                                                                                                     *  The above copyright notice and this permission notice shall be included in all
+	                                                                                                                                                                                                     *  copies or substantial portions of the Software.
+	                                                                                                                                                                                                     *
+	                                                                                                                                                                                                     *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                                                                                                                                     *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                                                                                                                                     *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                                                                                                                                     *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                                                                                                                                     *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                                                                                                                                     *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                                                                                                                                                                                     *  SOFTWARE.
+	                                                                                                                                                                                                     *
+	                                                                                                                                                                                                     * @author : Nathanael Braun
+	                                                                                                                                                                                                     * @contact : caipilabs@gmail.com
+	                                                                                                                                                                                                     */
+	
 	var SimpleObjectProto = {}.constructor;
-
+	
 	var scopables = [];
-
+	
 	function addScopableType(test, handle) {
-		var member = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-		var stateScope = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
-		scopables.push({
-			test: test,
-			member: member,
-			stateScope: stateScope,
-			handle: handle
-		});
+	    var member = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	    var stateScope = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+	
+	    scopables.push({
+	        test: test,
+	        member: member,
+	        stateScope: stateScope,
+	        handle: handle
+	    });
 	}
-
+	
 	//
 	function isScopableType(Comp, member, stateScope) {
-
-		for (var i = 0; i < scopables.length; i++) {
-			if ((member === undefined || member == scopables[i].member) && stateScope == scopables[i].stateScope && scopables[i].test(Comp)) return true;
-		}return false;
+	
+	    for (var i = 0; i < scopables.length; i++) {
+	        if ((member === undefined || member == scopables[i].member) && stateScope == scopables[i].stateScope && scopables[i].test(Comp)) return true;
+	    }return false;
 	}
-
+	
 	function applyScopableType(Comp, argz, member, stateScope) {
-
-		for (var i = 0; i < scopables.length; i++) {
-			var _scopables$i;
-
-			if (member == scopables[i].member && stateScope == scopables[i].stateScope && scopables[i].test(Comp)) return (_scopables$i = scopables[i]).handle.apply(_scopables$i, [Comp].concat(_toConsumableArray(argz)));
-		}console.warn("reScope : Unknown type", Comp);
-
-		return false;
+	
+	    for (var i = 0; i < scopables.length; i++) {
+	        var _scopables$i;
+	
+	        if (member == scopables[i].member && stateScope == scopables[i].stateScope && scopables[i].test(Comp)) return (_scopables$i = scopables[i]).handle.apply(_scopables$i, [Comp].concat(_toConsumableArray(argz)));
+	    }console.warn("reScope : Unknown type", Comp);
+	
+	    return false;
 	}
-
+	
 	function reScope() {
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-
-		// are we decorating a member / without argz
-		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-			argz[2].value = applyScopableType(argz[0], [], true, false);
-			return argz[0];
-		} else if (!isScopableType(argz[0], undefined, false)) {
-			return function () {
-				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-					argz2[_key2] = arguments[_key2];
-				}
-
-				// are we decorating a member / with argz
-				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-					argz2[2].value = applyScopableType(argz2[0], argz, true, false);
-					return argz2[0];
-				} else return reScope.apply(undefined, [argz2[0]].concat(argz));
-			};
-		}
-		return applyScopableType(argz[0], argz.slice(1), false, false);
+	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+	        argz[_key] = arguments[_key];
+	    }
+	
+	    // are we decorating a member / without argz
+	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	        argz[2].value = applyScopableType(argz[0], [], true, false);
+	        return argz[0];
+	    } else if (!isScopableType(argz[0], undefined, false)) {
+	        return function () {
+	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                argz2[_key2] = arguments[_key2];
+	            }
+	
+	            // are we decorating a member / with argz
+	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                argz2[2].value = applyScopableType(argz2[0], argz, true, false);
+	                return argz2[0];
+	            } else return reScope.apply(undefined, [argz2[0]].concat(argz));
+	        };
+	    }
+	    return applyScopableType(argz[0], argz.slice(1), false, false);
 	}
-
+	
 	function scopeToState() {
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-
-		// are we decorating a member / without argz
-		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-			argz[2].value = applyScopableType(argz[0], [], true, true);
-			return argz[0];
-		} else if (!isScopableType(argz[0], undefined, true)) {
-			return function () {
-				for (var _len4 = arguments.length, argz2 = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-					argz2[_key4] = arguments[_key4];
-				}
-
-				// are we decorating a member / with argz
-				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-					argz2[2].value = applyScopableType(argz2[0], argz, true, true);
-					return argz2[0];
-				} else return scopeToState.apply(undefined, [argz2[0]].concat(argz));
-			};
-		}
-		return applyScopableType(argz[0], argz.slice(1), false, true);
+	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	        argz[_key3] = arguments[_key3];
+	    }
+	
+	    // are we decorating a member / without argz
+	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	        argz[2].value = applyScopableType(argz[0], [], true, true);
+	        return argz[0];
+	    } else if (!isScopableType(argz[0], undefined, true)) {
+	        return function () {
+	            for (var _len4 = arguments.length, argz2 = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                argz2[_key4] = arguments[_key4];
+	            }
+	
+	            // are we decorating a member / with argz
+	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                argz2[2].value = applyScopableType(argz2[0], argz, true, true);
+	                return argz2[0];
+	            } else return scopeToState.apply(undefined, [argz2[0]].concat(argz));
+	        };
+	    }
+	    return applyScopableType(argz[0], argz.slice(1), false, true);
 	}
-
+	
 	//
 	//addScopableType(
 	//    ( Comp ) => (Comp && Comp.prototype instanceof Store),
@@ -3661,15 +3520,14 @@ module.exports =
 	//    false,
 	//    true
 	//)
-
-
+	
+	
 	exports.addScopableType = addScopableType;
 	exports.reScope = reScope;
 	exports.scopeToState = scopeToState;
 
-	/***/
-}]
-/******/);
+/***/ })
+/******/ ]);
 //# sourceMappingURL=ReScope.js.map
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(66), __webpack_require__(0)))
 
@@ -4589,10 +4447,7 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/***/ (function(module, exports) {
 
 /*!
  * MIT License
@@ -4618,93 +4473,89 @@ module.exports = ReactPropTypesSecret;
  * SOFTWARE.
  */
 module.exports =
-/******/function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-	/******/
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-		/******/
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-		/******/
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-		/******/
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-		/******/
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-		/******/
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-	/******/
-	/******/
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-	/******/
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-	/******/
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "/";
-	/******/
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-}(
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
 /************************************************************************/
-/******/[
+/******/ ([
 /* 0 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
 	// Common rescope modules int
 	exports.default = {};
 	module.exports = exports["default"];
 
-	/***/
-}]
-/******/);
+/***/ })
+/******/ ]);
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -5150,11 +5001,6 @@ module.exports = isObject;
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 /*!
  * MIT License
  * 
@@ -5179,785 +5025,732 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * SOFTWARE.
  */
 module.exports =
-/******/function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-	/******/
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-		/******/
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-		/******/
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-		/******/
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-		/******/
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-		/******/
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-	/******/
-	/******/
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-	/******/
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-	/******/
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "/";
-	/******/
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-}(
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
 /************************************************************************/
-/******/[
+/******/ ([
 /* 0 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
-
+	
 	__webpack_require__(1);
-
+	
 	var _index = __webpack_require__(2);
-
+	
 	var _index2 = _interopRequireDefault(_index);
-
+	
 	var _ReactHocs = __webpack_require__(3);
-
+	
 	var RTools = _interopRequireWildcard(_ReactHocs);
-
-	function _interopRequireWildcard(obj) {
-		if (obj && obj.__esModule) {
-			return obj;
-		} else {
-			var newObj = {};if (obj != null) {
-				for (var key in obj) {
-					if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-				}
-			}newObj.default = obj;return newObj;
-		}
-	}
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	_index2.default.Component = RTools.Component; /*
-                                                * Copyright (c)  2018 Wise Wild Web .
-                                                *
-                                                *  MIT License
-                                                *
-                                                *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                *  of this software and associated documentation files (the "Software"), to deal
-                                                *  in the Software without restriction, including without limitation the rights
-                                                *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                *  copies of the Software, and to permit persons to whom the Software is
-                                                *  furnished to do so, subject to the following conditions:
-                                                *
-                                                *  The above copyright notice and this permission notice shall be included in all
-                                                *  copies or substantial portions of the Software.
-                                                *
-                                                *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                                *  SOFTWARE.
-                                                *
-                                                * @author : Nathanael Braun
-                                                * @contact : caipilabs@gmail.com
-                                                */
-
+	                                               * Copyright (c)  2018 Wise Wild Web .
+	                                               *
+	                                               *  MIT License
+	                                               *
+	                                               *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                               *  of this software and associated documentation files (the "Software"), to deal
+	                                               *  in the Software without restriction, including without limitation the rights
+	                                               *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                               *  copies of the Software, and to permit persons to whom the Software is
+	                                               *  furnished to do so, subject to the following conditions:
+	                                               *
+	                                               *  The above copyright notice and this permission notice shall be included in all
+	                                               *  copies or substantial portions of the Software.
+	                                               *
+	                                               *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                               *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                               *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                               *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                               *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                               *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                               *  SOFTWARE.
+	                                               *
+	                                               * @author : Nathanael Braun
+	                                               * @contact : caipilabs@gmail.com
+	                                               */
+	
 	_index2.default.reScopeProps = RTools.reScopeProps;
 	_index2.default.scopeToProps = RTools.reScopeProps;
 	_index2.default.propsToScope = RTools.propsToScope;
 	exports.default = _index2.default;
 	module.exports = exports["default"];
 
-	/***/
-},
+/***/ }),
 /* 1 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(9);
 
-	/***/
-},
+/***/ }),
 /* 2 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(14);
 
-	/***/
-},
+/***/ }),
 /* 3 */
-/***/function (module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	exports.propsToScope = exports.reScopeProps = exports.Component = exports.default = undefined;
-
-	var _extends = Object.assign || function (target) {
-		for (var i = 1; i < arguments.length; i++) {
-			var source = arguments[i];for (var key in source) {
-				if (Object.prototype.hasOwnProperty.call(source, key)) {
-					target[key] = source[key];
-				}
-			}
-		}return target;
-	};
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _get = function get(object, property, receiver) {
-		if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
-			var parent = Object.getPrototypeOf(object);if (parent === null) {
-				return undefined;
-			} else {
-				return get(parent, property, receiver);
-			}
-		} else if ("value" in desc) {
-			return desc.value;
-		} else {
-			var getter = desc.get;if (getter === undefined) {
-				return undefined;
-			}return getter.call(receiver);
-		}
-	};
-
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
 	var _class, _temp; /*
-                     * Copyright (c)  2018 Wise Wild Web .
-                     *
-                     *  MIT License
-                     *  
-                     *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                     *  of this software and associated documentation files (the "Software"), to deal
-                     *  in the Software without restriction, including without limitation the rights
-                     *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                     *  copies of the Software, and to permit persons to whom the Software is
-                     *  furnished to do so, subject to the following conditions:
-                     *  
-                     *  The above copyright notice and this permission notice shall be included in all
-                     *  copies or substantial portions of the Software.
-                     *  
-                     *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                     *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                     *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                     *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                     *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                     *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                     *  SOFTWARE.
-                     *  
-                     * @author : Nathanael Braun
-                     * @contact : caipilabs@gmail.com
-                     */
-
+	                    * Copyright (c)  2018 Wise Wild Web .
+	                    *
+	                    *  MIT License
+	                    *  
+	                    *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                    *  of this software and associated documentation files (the "Software"), to deal
+	                    *  in the Software without restriction, including without limitation the rights
+	                    *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                    *  copies of the Software, and to permit persons to whom the Software is
+	                    *  furnished to do so, subject to the following conditions:
+	                    *  
+	                    *  The above copyright notice and this permission notice shall be included in all
+	                    *  copies or substantial portions of the Software.
+	                    *  
+	                    *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                    *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                    *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                    *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                    *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                    *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                    *  SOFTWARE.
+	                    *  
+	                    * @author : Nathanael Braun
+	                    * @contact : caipilabs@gmail.com
+	                    */
+	
 	__webpack_require__(1);
-
+	
 	var _react = __webpack_require__(4);
-
+	
 	var _react2 = _interopRequireDefault(_react);
-
+	
 	var _is = __webpack_require__(5);
-
+	
 	var _is2 = _interopRequireDefault(_is);
-
+	
 	var _propTypes = __webpack_require__(6);
-
+	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
-
+	
 	var _index = __webpack_require__(2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _toConsumableArray(arr) {
-		if (Array.isArray(arr)) {
-			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-				arr2[i] = arr[i];
-			}return arr2;
-		} else {
-			return Array.from(arr);
-		}
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	var SimpleObjectProto = {}.constructor;
-
+	
 	/**
-  * Inheritable ReScope "HOC" (High Order Component)
-  *
-  * @class Component
-  * @desc Parent React Component with store injection in its state
-  */
+	 * Inheritable ReScope "HOC" (High Order Component)
+	 *
+	 * @class Component
+	 * @desc Parent React Component with store injection in its state
+	 */
 	var Component = (_temp = _class = function (_React$Component) {
-		_inherits(Component, _React$Component);
-
-		function Component(p, ctx, q) {
-			_classCallCheck(this, Component);
-
-			var _this = _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).call(this, p, ctx, q));
-
-			var scope = p.__scope || ctx.rescope;
-			_this.$scope = scope;
-
-			if (_this.$scope && _this.$scope.dead) {
-				console.error("ReScoping using dead scope");
-				_this.$scope = null;
-			}
-
-			_this.$stores = _this.$scope && _this.$scope.stores;
-			if (_this.constructor.use) {
-				_this.state = _extends({}, _this.state, scope.map(_this, _this.constructor.use || [], false));
-			} else if (!_this.$scope) _this.render = function () {
-				return _react2.default.createElement('div', null, 'No Rescope here ', _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'name', _this));
-			};
-			return _this;
-		}
-
-		_createClass(Component, [{
-			key: 'dispatch',
-			value: function dispatch() {
-				var _$scope;
-
-				this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
-			}
-		}, {
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				if (this.constructor.use) {
-					this.$scope.bind(this, this.constructor.use || [], false);
-				}
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				this.constructor.use && this.$scope.unBind(this, this.constructor.use || []);
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(np, nc) {
-				var nScope = np.__scope || nc.rescope || this.$scope;
-
-				if (nScope != this.$scope) {
-					this.constructor.use && this.$scope.unBind(this, this.constructor.use);
-					this.$scope = nScope;
-
-					if (this.$scope && this.$scope.dead) {
-						console.error("ReScoping using dead scope");
-						this.$stores = this.$scope = null;
-					} else {
-						this.$stores = this.$scope.stores;
-						this.constructor.use && nScope.bind(this, this.constructor.use);
-					}
-				}
-			}
-		}, {
-			key: 'getChildContext',
-			value: function getChildContext() {
-				return {
-					rescope: this.$scope || this.context.rescope,
-					$stores: this.$scope.stores || this.context.$stores
-				};
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return this.props.children || _react2.default.createElement('div', null);
-			}
-		}]);
-
-		return Component;
+	    _inherits(Component, _React$Component);
+	
+	    function Component(p, ctx, q) {
+	        _classCallCheck(this, Component);
+	
+	        var _this = _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).call(this, p, ctx, q));
+	
+	        var scope = p.__scope || ctx.rescope;
+	        _this.$scope = scope;
+	
+	        if (_this.$scope && _this.$scope.dead) {
+	            console.error("ReScoping using dead scope");
+	            _this.$scope = null;
+	        }
+	
+	        _this.$stores = _this.$scope && _this.$scope.stores;
+	        if (_this.constructor.use) {
+	            _this.state = _extends({}, _this.state, scope.map(_this, _this.constructor.use || [], false));
+	        } else if (!_this.$scope) _this.render = function () {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                'No Rescope here ',
+	                _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'name', _this)
+	            );
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(Component, [{
+	        key: 'dispatch',
+	        value: function dispatch() {
+	            var _$scope;
+	
+	            this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
+	        }
+	    }, {
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            if (this.constructor.use) {
+	                this.$scope.bind(this, this.constructor.use || [], false);
+	            }
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            this.constructor.use && this.$scope.unBind(this, this.constructor.use || []);
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(np, nc) {
+	            var nScope = np.__scope || nc.rescope || this.$scope;
+	
+	            if (nScope != this.$scope) {
+	                this.constructor.use && this.$scope.unBind(this, this.constructor.use);
+	                this.$scope = nScope;
+	
+	                if (this.$scope && this.$scope.dead) {
+	                    console.error("ReScoping using dead scope");
+	                    this.$stores = this.$scope = null;
+	                } else {
+	                    this.$stores = this.$scope.stores;
+	                    this.constructor.use && nScope.bind(this, this.constructor.use);
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'getChildContext',
+	        value: function getChildContext() {
+	            return {
+	                rescope: this.$scope || this.context.rescope,
+	                $stores: this.$scope.stores || this.context.$stores
+	            };
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return this.props.children || _react2.default.createElement('div', null);
+	        }
+	    }]);
+	
+	    return Component;
 	}(_react2.default.Component), _class.childContextTypes = {
-		rescope: _propTypes2.default.object,
-		$stores: _propTypes2.default.object
+	    rescope: _propTypes2.default.object,
+	    $stores: _propTypes2.default.object
 	}, _class.contextTypes = {
-		rescope: _propTypes2.default.object,
-		$stores: _propTypes2.default.object
+	    rescope: _propTypes2.default.object,
+	    $stores: _propTypes2.default.object
 	}, _temp);
 	;
-
+	
 	/**
-  * Return a React "HOC" (High Order Component) that :
-  *  - Inject & maintain the stores listed baseComponent::use and/or (use) in the instances props.
-  *  - Propag (scope) in the returned React Component context
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched ( default : the default
-  *     ReScope::Scope::scopes.static scope )
-  * @param use {array} the list of stores to inject from the current scope
-  * @returns {ReScopeProvider}
-  */
+	 * Return a React "HOC" (High Order Component) that :
+	 *  - Inject & maintain the stores listed baseComponent::use and/or (use) in the instances props.
+	 *  - Propag (scope) in the returned React Component context
+	 *
+	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+	 * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched ( default : the default
+	 *     ReScope::Scope::scopes.static scope )
+	 * @param use {array} the list of stores to inject from the current scope
+	 * @returns {ReScopeProvider}
+	 */
 	function reScopeProps() {
-		var _class2, _temp2;
-
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-		    use = (!argz[0] || _is2.default.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
-
-		if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
-			return function (BaseComponent) {
-				return reScopeProps(BaseComponent, scope, use);
-			};
-		}
-
-		var provider = reScopeToState((_temp2 = _class2 = function (_React$Component2) {
-			_inherits(ReScopePropsProvider, _React$Component2);
-
-			function ReScopePropsProvider() {
-				_classCallCheck(this, ReScopePropsProvider);
-
-				return _possibleConstructorReturn(this, (ReScopePropsProvider.__proto__ || Object.getPrototypeOf(ReScopePropsProvider)).apply(this, arguments));
-			}
-
-			_createClass(ReScopePropsProvider, [{
-				key: 'getChildContext',
-				value: function getChildContext() {
-					return this.context;
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					return _react2.default.createElement(BaseComponent, _extends({}, this.props, this.state, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-						$stores: this.$stores }));
-				}
-			}]);
-
-			return ReScopePropsProvider;
-		}(_react2.default.Component), _class2.use = BaseComponent.use, _class2.childContextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class2.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _temp2), scope, use);
-		provider.displayName = "propsScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")";
-		return provider;
+	    var _class2, _temp2;
+	
+	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+	        argz[_key] = arguments[_key];
+	    }
+	
+	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+	        scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
+	        use = (!argz[0] || _is2.default.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
+	
+	    if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
+	        return function (BaseComponent) {
+	            return reScopeProps(BaseComponent, scope, use);
+	        };
+	    }
+	
+	    var provider = reScopeToState((_temp2 = _class2 = function (_React$Component2) {
+	        _inherits(ReScopePropsProvider, _React$Component2);
+	
+	        function ReScopePropsProvider() {
+	            _classCallCheck(this, ReScopePropsProvider);
+	
+	            return _possibleConstructorReturn(this, (ReScopePropsProvider.__proto__ || Object.getPrototypeOf(ReScopePropsProvider)).apply(this, arguments));
+	        }
+	
+	        _createClass(ReScopePropsProvider, [{
+	            key: 'getChildContext',
+	            value: function getChildContext() {
+	                return this.context;
+	            }
+	        }, {
+	            key: 'render',
+	            value: function render() {
+	                return _react2.default.createElement(BaseComponent, _extends({}, this.props, this.state, {
+	                    $dispatch: this.$dispatch,
+	                    $actions: this.$actions,
+	                    $stores: this.$stores }));
+	            }
+	        }]);
+	
+	        return ReScopePropsProvider;
+	    }(_react2.default.Component), _class2.use = BaseComponent.use, _class2.childContextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _class2.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _temp2), scope, use);
+	    provider.displayName = "propsScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")";
+	    return provider;
 	}
-
+	
 	/**
-  * Return a React "HOC" (High Order Component) that :
-  *  - Inherit BaseComponent,
-  *  - Inject & maintain the stores in BaseComponent::use and/or (use) in the instances state.
-  *  - Propag (scope) in the returned React Component context
-  *
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched
-  * @param use {array} the list of stores injected from the current scope
-  * @param additionalContext {Object} context to be propagated
-  * @returns {ReScopeProvider}
-  */
+	 * Return a React "HOC" (High Order Component) that :
+	 *  - Inherit BaseComponent,
+	 *  - Inject & maintain the stores in BaseComponent::use and/or (use) in the instances state.
+	 *  - Propag (scope) in the returned React Component context
+	 *
+	 *
+	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+	 * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be searched
+	 * @param use {array} the list of stores injected from the current scope
+	 * @param additionalContext {Object} context to be propagated
+	 * @returns {ReScopeProvider}
+	 */
 	function reScopeToState() {
-		var _class3, _temp3;
-
-		for (var _len2 = arguments.length, argz = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-			argz[_key2] = arguments[_key2];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-		    use = _is2.default.array(argz[0]) && argz.shift(),
-		    stateMap = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-		    additionalContext = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-		    initialState = {};
-
-		use = [].concat(_toConsumableArray(BaseComponent.use || []), _toConsumableArray(use || []));
-		stateMap && _index.Scope.stateMapToRefList(stateMap, initialState, use);
-
-		additionalContext = additionalContext && Object.keys(additionalContext).reduce(function (h, k) {
-			return h[k] = _propTypes2.default.any, h;
-		}, {}) || {};
-
-		var ReScopeProvider = (_temp3 = _class3 = function (_BaseComponent) {
-			_inherits(ReScopeProvider, _BaseComponent);
-
-			function ReScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ReScopeProvider);
-
-				var _this3 = _possibleConstructorReturn(this, (ReScopeProvider.__proto__ || Object.getPrototypeOf(ReScopeProvider)).call(this, p, ctx, q));
-
-				_this3.$scope = _this3.$scope || p.__scope || _is2.default.fn(scope) && scope(_this3, p, ctx) || scope || ctx.rescope;
-
-				if (_this3.$scope && _this3.$scope.dead) {
-					console.error("ReScoping using dead scope");
-					_this3.$scope = null;
-				}
-
-				_this3.$scope && _is2.default.fn(scope) && _this3.$scope.retain("hoc");
-
-				_this3.$stores = _this3.$scope && _this3.$scope.stores;
-				_this3.$actions = _this3.$scope && _this3.$scope.actions;
-				if (_this3.$scope && use.length) {
-					_this3.state = _extends({}, _this3.state, initialState, _this3.$scope.map(_this3, use, false));
-				} else if (!_this3.$scope) _this3.render = function () {
-					return _react2.default.createElement('div', null, 'No Scope found in ', BaseComponent.name);
-				};
-
-				_this3.$dispatch = _this3.$dispatch.bind(_this3);
-				return _this3;
-			}
-
-			_createClass(ReScopeProvider, [{
-				key: '$dispatch',
-				value: function $dispatch() {
-					var _$scope2;
-
-					this.$scope && (_$scope2 = this.$scope).dispatch.apply(_$scope2, arguments);
-				}
-			}, {
-				key: 'componentWillMount',
-				value: function componentWillMount() {
-					if (use.length) {
-						this.$scope.bind(this, use, false);
-					}
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this).call(this);
-				}
-			}, {
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					if (this.$scope && !this.$scope.dead) {
-						use.length && this.$scope.unBind(this, use);
-						_is2.default.fn(scope) && this.$scope.dispose("hoc");
-					}
-				}
-			}, {
-				key: 'componentWillReceiveProps',
-				value: function componentWillReceiveProps(np, nc) {
-					var nScope = np.__scope || scope && this.$scope || nc.rescope || this.$scope;
-
-					if (nScope != this.$scope) {
-						use.length && this.$scope.unBind(this, use);
-						this.$scope = nScope;
-
-						if (this.$scope && this.$scope.dead) {
-							console.error("ReScoping using dead scope");
-							this.$actions = this.$stores = this.$scope = null;
-						} else {
-							this.$actions = this.$scope.actions;
-							this.$stores = this.$scope.stores;
-							use.length && nScope.bind(this, use);
-						}
-					}
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this).call(this, np, nc);
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope || this.context.rescope,
-						$stores: this.$scope.stores || this.context.$stores
-					});
-				}
-			}]);
-
-			return ReScopeProvider;
-		}(BaseComponent), _class3.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, additionalContext, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class3.contextTypes = _extends({}, BaseComponent.contextTypes || {}, additionalContext, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class3.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class3.displayName = "stateScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")", _temp3);
-
-		return ReScopeProvider;
+	    var _class3, _temp3;
+	
+	    for (var _len2 = arguments.length, argz = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	        argz[_key2] = arguments[_key2];
+	    }
+	
+	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+	        scope = (!argz[0] || argz[0] instanceof _index.Scope || _is2.default.fn(argz[0])) && argz.shift(),
+	        use = _is2.default.array(argz[0]) && argz.shift(),
+	        stateMap = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
+	        additionalContext = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
+	        initialState = {};
+	
+	    use = [].concat(_toConsumableArray(BaseComponent.use || []), _toConsumableArray(use || []));
+	    stateMap && _index.Scope.stateMapToRefList(stateMap, initialState, use);
+	
+	    additionalContext = additionalContext && Object.keys(additionalContext).reduce(function (h, k) {
+	        return h[k] = _propTypes2.default.any, h;
+	    }, {}) || {};
+	
+	    var ReScopeProvider = (_temp3 = _class3 = function (_BaseComponent) {
+	        _inherits(ReScopeProvider, _BaseComponent);
+	
+	        function ReScopeProvider(p, ctx, q) {
+	            _classCallCheck(this, ReScopeProvider);
+	
+	            var _this3 = _possibleConstructorReturn(this, (ReScopeProvider.__proto__ || Object.getPrototypeOf(ReScopeProvider)).call(this, p, ctx, q));
+	
+	            _this3.$scope = _this3.$scope || p.__scope || _is2.default.fn(scope) && scope(_this3, p, ctx) || scope || ctx.rescope;
+	
+	            if (_this3.$scope && _this3.$scope.dead) {
+	                console.error("ReScoping using dead scope");
+	                _this3.$scope = null;
+	            }
+	
+	            _this3.$scope && _is2.default.fn(scope) && _this3.$scope.retain("hoc");
+	
+	            _this3.$stores = _this3.$scope && _this3.$scope.stores;
+	            _this3.$actions = _this3.$scope && _this3.$scope.actions;
+	            if (_this3.$scope && use.length) {
+	                _this3.state = _extends({}, _this3.state, initialState, _this3.$scope.map(_this3, use, false));
+	            } else if (!_this3.$scope) _this3.render = function () {
+	                return _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    'No Scope found in ',
+	                    BaseComponent.name
+	                );
+	            };
+	
+	            _this3.$dispatch = _this3.$dispatch.bind(_this3);
+	            return _this3;
+	        }
+	
+	        _createClass(ReScopeProvider, [{
+	            key: '$dispatch',
+	            value: function $dispatch() {
+	                var _$scope2;
+	
+	                this.$scope && (_$scope2 = this.$scope).dispatch.apply(_$scope2, arguments);
+	            }
+	        }, {
+	            key: 'componentWillMount',
+	            value: function componentWillMount() {
+	                if (use.length) {
+	                    this.$scope.bind(this, use, false);
+	                }
+	                _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillMount', this).call(this);
+	            }
+	        }, {
+	            key: 'componentWillUnmount',
+	            value: function componentWillUnmount() {
+	
+	                _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+	                if (this.$scope && !this.$scope.dead) {
+	                    use.length && this.$scope.unBind(this, use);
+	                    _is2.default.fn(scope) && this.$scope.dispose("hoc");
+	                }
+	            }
+	        }, {
+	            key: 'componentWillReceiveProps',
+	            value: function componentWillReceiveProps(np, nc) {
+	                var nScope = np.__scope || scope && this.$scope || nc.rescope || this.$scope;
+	
+	                if (nScope != this.$scope) {
+	                    use.length && this.$scope.unBind(this, use);
+	                    this.$scope = nScope;
+	
+	                    if (this.$scope && this.$scope.dead) {
+	                        console.error("ReScoping using dead scope");
+	                        this.$actions = this.$stores = this.$scope = null;
+	                    } else {
+	                        this.$actions = this.$scope.actions;
+	                        this.$stores = this.$scope.stores;
+	                        use.length && nScope.bind(this, use);
+	                    }
+	                }
+	                _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this).call(this, np, nc);
+	            }
+	        }, {
+	            key: 'getChildContext',
+	            value: function getChildContext() {
+	                var ctx = _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+	                return _extends({}, ctx, {
+	                    rescope: this.$scope || this.context.rescope,
+	                    $stores: this.$scope.stores || this.context.$stores
+	                });
+	            }
+	        }]);
+	
+	        return ReScopeProvider;
+	    }(BaseComponent), _class3.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, additionalContext, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _class3.contextTypes = _extends({}, BaseComponent.contextTypes || {}, additionalContext, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _class3.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class3.displayName = "stateScoped(" + (BaseComponent.displayName || BaseComponent.name) + ")", _temp3);
+	
+	
+	    return ReScopeProvider;
 	}
-
+	
 	(0, _index.addScopableType)(function (Comp) {
-		return Comp && Comp.prototype instanceof _react2.default.Component;
+	    return Comp && Comp.prototype instanceof _react2.default.Component;
 	}, reScopeToState, false, true);
-
+	
 	/**
-  * Return a React "HOC" (High Order Component) that :
-  *  - Render BaseComponent with new scope that inherit the given scope or context scope
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param storesMap {Object} the propagated Scope where the stores will be searched
-  * @param parentScope {Scope} the propagated Scope where the stores will be searched
-  * @param parentScopeId {string} the propagated Scope where the stores will be searched
-  * @param additionalContext {Object} context to be propagated
-  * @returns {*}
-  */
+	 * Return a React "HOC" (High Order Component) that :
+	 *  - Render BaseComponent with new scope that inherit the given scope or context scope
+	 *
+	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+	 * @param storesMap {Object} the propagated Scope where the stores will be searched
+	 * @param parentScope {Scope} the propagated Scope where the stores will be searched
+	 * @param parentScopeId {string} the propagated Scope where the stores will be searched
+	 * @param additionalContext {Object} context to be propagated
+	 * @returns {*}
+	 */
 	function reScope() {
-		var _class4, _temp4;
-
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scoped = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(argz[0] instanceof _index.Scope)) && argz.shift(),
-		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-		    parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
-		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-
-		var compName = BaseComponent.displayName || BaseComponent.name;
-
-		var ScopeProvider = (_temp4 = _class4 = function (_BaseComponent2) {
-			_inherits(ScopeProvider, _BaseComponent2);
-
-			function ScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ScopeProvider);
-
-				var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-				    $scope = new _index.Scope(scoped || {}, _extends({
-					autoDestroy: true,
-					key: compName,
-					parent: _parent
-				}, scopeCfg));
-
-				var _this4 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-
-				_this4.$scope = _this4.$scope || $scope;
-
-				if (!_this4.$scope) {
-					if (_this4.$scope && _this4.$scope.dead) {
-						console.error("Scoping using dead scope parent");
-						_this4.$scope = null;
-					}
-
-					_this4.$scope = new _index.Scope(scoped || {}, {
-						autoDestroy: true,
-						key: compName,
-						parent: _this4.$scope
-					});
-
-					_this4.$actions = _this4.$scope && _this4.$scope.actions;
-					_this4.$stores = _this4.$scope && _this4.$scope.stores;
-				}
-				_this4.$scope.retain();
-				return _this4;
-			}
-
-			_createClass(ScopeProvider, [{
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					this.$scope && this.$scope.dispose();
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope,
-						$stores: this.$scope.stores
-					});
-				}
-			}]);
-
-			return ScopeProvider;
-		}(BaseComponent), _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class4.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class4.displayName = "scoped(" + compName + ")", _temp4);
-
-		return ScopeProvider;
+	    var _class4, _temp4;
+	
+	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	        argz[_key3] = arguments[_key3];
+	    }
+	
+	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+	        scoped = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(argz[0] instanceof _index.Scope)) && argz.shift(),
+	        scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
+	        parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
+	        parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
+	
+	    var compName = BaseComponent.displayName || BaseComponent.name;
+	
+	    var ScopeProvider = (_temp4 = _class4 = function (_React$Component3) {
+	        _inherits(ScopeProvider, _React$Component3);
+	
+	        function ScopeProvider(p, ctx, q) {
+	            _classCallCheck(this, ScopeProvider);
+	
+	            var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
+	                $scope = new _index.Scope(scoped || {}, _extends({
+	                autoDestroy: true,
+	                key: compName,
+	                parent: _parent
+	            }, scopeCfg));
+	
+	            var _this4 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
+	
+	            _this4.$scope = _this4.$scope || $scope;
+	
+	            if (!_this4.$scope) {
+	                if (_this4.$scope && _this4.$scope.dead) {
+	                    console.error("Scoping using dead scope parent");
+	                    _this4.$scope = null;
+	                }
+	
+	                _this4.$scope = new _index.Scope(scoped || {}, {
+	                    autoDestroy: true,
+	                    key: compName,
+	                    parent: _this4.$scope
+	                });
+	
+	                _this4.$actions = _this4.$scope && _this4.$scope.actions;
+	                _this4.$stores = _this4.$scope && _this4.$scope.stores;
+	            }
+	            _this4.$scope.retain();
+	            return _this4;
+	        }
+	
+	        _createClass(ScopeProvider, [{
+	            key: 'componentWillUnmount',
+	            value: function componentWillUnmount() {
+	                _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+	                this.$scope && this.$scope.dispose();
+	            }
+	        }, {
+	            key: 'getChildContext',
+	            value: function getChildContext() {
+	                var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+	                return _extends({}, ctx, {
+	                    rescope: this.$scope,
+	                    $stores: this.$scope.stores
+	                });
+	            }
+	        }, {
+	            key: 'render',
+	            value: function render() {
+	                return _react2.default.createElement(BaseComponent, _extends({}, this.props, {
+	                    $dispatch: this.$dispatch,
+	                    $actions: this.$actions,
+	                    $stores: this.$stores }));
+	            }
+	        }]);
+	
+	        return ScopeProvider;
+	    }(_react2.default.Component), _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _class4.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class4.displayName = "scoped(" + compName + ")", _temp4);
+	
+	
+	    return ScopeProvider;
 	}
-
-	/**
-  *
-  * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
-  * @param storesMap {Object} the propagated Scope where the stores will be searched
-  * @param parentScope {Scope} the propagated Scope where the stores will be searched
-  * @param parentScopeId {string} the propagated Scope where the stores will be searched
-  * @param additionalContext {Object} context to be propagated
-  * @returns {*}
-  */
-	function propsToScope() {
-		var _class5, _temp5;
-
-		for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-			argz[_key4] = arguments[_key4];
-		}
-
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
-		    scopedProps = (!argz[0] || _is2.default.array(argz[0])) && argz.shift() || [],
-		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-		    parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
-		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-
-		var compName = BaseComponent.displayName || BaseComponent.name;
-
-		if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
-			return function (BaseComponent) {
-				return propsToScope(BaseComponent, scopedProps, scopeCfg, parent, parentId);
-			};
-		}
-
-		var ScopeProvider = (_temp5 = _class5 = function (_React$Component3) {
-			_inherits(ScopeProvider, _React$Component3);
-
-			function ScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ScopeProvider);
-
-				var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-				    $scope = new _index.Scope(_extends({}, scopedProps.reduce(function (h, k) {
-					return h[k] = _index.Store, h;
-				}, {})), _extends({
-					autoDestroy: true,
-					key: compName,
-					parent: _parent
-				}, scopeCfg, {
-					state: scopedProps.reduce(function (h, k) {
-						return h[k] = p[k], h;
-					}, {})
-				}));
-
-				var _this5 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-
-				_this5.$scope = _this5.$scope || $scope;
-				_this5.$actions = _this5.$scope && _this5.$scope.actions;
-				_this5.$stores = _this5.$scope && _this5.$scope.stores;
-				_this5.$scope.retain();
-				return _this5;
-			}
-
-			_createClass(ScopeProvider, [{
-				key: 'componentWillReceiveProps',
-				value: function componentWillReceiveProps(np) {
-					var _this6 = this;
-
-					scopedProps.forEach(function (p) {
-						return _this6.props[p] !== np[p] && _this6.$stores[p].setState(np[p]);
-					});
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
-				}
-			}, {
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					this.$scope && this.$scope.dispose();
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope,
-						$stores: this.$scope.stores
-					});
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					var _this7 = this;
-
-					var fProps = Object.keys(this.props).reduce(function (h, k) {
-						return !scopedProps.includes(k) && (h[k] = _this7.props[k]), h;
-					}, {});
-					return _react2.default.createElement(BaseComponent, _extends({}, fProps, this.state, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-						$stores: this.$stores }));
-				}
-			}]);
-
-			return ScopeProvider;
-		}(_react2.default.Component), _class5.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class5.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class5.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class5.displayName = "scoped(" + compName + ")", _temp5);
-
-		return ScopeProvider;
-	}
-
+	
 	(0, _index.addScopableType)(function (Comp) {
-		return Comp && Comp.prototype instanceof _react2.default.Component;
+	    return Comp && Comp.prototype instanceof _react2.default.Component;
 	}, reScope);
-
+	/**
+	 *
+	 * @param BaseComponent {React.Component} Base React Component ( default : React.Component )
+	 * @param storesMap {Object} the propagated Scope where the stores will be searched
+	 * @param parentScope {Scope} the propagated Scope where the stores will be searched
+	 * @param parentScopeId {string} the propagated Scope where the stores will be searched
+	 * @param additionalContext {Object} context to be propagated
+	 * @returns {*}
+	 */
+	function propsToScope() {
+	    var _class5, _temp5;
+	
+	    for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	        argz[_key4] = arguments[_key4];
+	    }
+	
+	    var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component) && argz.shift(),
+	        scopedProps = (!argz[0] || _is2.default.array(argz[0])) && argz.shift() || [],
+	        scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
+	        parent = (!argz[0] || argz[0] instanceof _index.Scope) && argz.shift(),
+	        parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
+	
+	    var compName = BaseComponent.displayName || BaseComponent.name;
+	
+	    if (!(BaseComponent && BaseComponent.prototype instanceof _react2.default.Component)) {
+	        return function (BaseComponent) {
+	            return propsToScope(BaseComponent, scopedProps, scopeCfg, parent, parentId);
+	        };
+	    }
+	
+	    var ScopeProvider = (_temp5 = _class5 = function (_React$Component4) {
+	        _inherits(ScopeProvider, _React$Component4);
+	
+	        function ScopeProvider(p, ctx, q) {
+	            _classCallCheck(this, ScopeProvider);
+	
+	            var _parent = parent || parentId && _index.Scope.getScope(parentId) || p.__scope || ctx.rescope,
+	                $scope = new _index.Scope(_extends({}, scopedProps.reduce(function (h, k) {
+	                return h[k] = _index.Store, h;
+	            }, {})), _extends({
+	                autoDestroy: true,
+	                key: compName,
+	                parent: _parent
+	            }, scopeCfg, {
+	                state: scopedProps.reduce(function (h, k) {
+	                    return h[k] = p[k], h;
+	                }, {})
+	            }));
+	
+	            var _this5 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
+	
+	            _this5.$scope = _this5.$scope || $scope;
+	            _this5.$actions = _this5.$scope && _this5.$scope.actions;
+	            _this5.$stores = _this5.$scope && _this5.$scope.stores;
+	            _this5.$scope.retain();
+	            return _this5;
+	        }
+	
+	        _createClass(ScopeProvider, [{
+	            key: 'componentWillReceiveProps',
+	            value: function componentWillReceiveProps(np) {
+	                var _this6 = this;
+	
+	                scopedProps.forEach(function (p) {
+	                    return _this6.props[p] !== np[p] && _this6.$stores[p].setState(np[p]);
+	                });
+	                _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
+	            }
+	        }, {
+	            key: 'componentWillUnmount',
+	            value: function componentWillUnmount() {
+	                _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+	                this.$scope && this.$scope.dispose();
+	            }
+	        }, {
+	            key: 'getChildContext',
+	            value: function getChildContext() {
+	                var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+	                return _extends({}, ctx, {
+	                    rescope: this.$scope,
+	                    $stores: this.$scope.stores
+	                });
+	            }
+	        }, {
+	            key: 'render',
+	            value: function render() {
+	                var _this7 = this;
+	
+	                var fProps = Object.keys(this.props).reduce(function (h, k) {
+	                    return !scopedProps.includes(k) && (h[k] = _this7.props[k]), h;
+	                }, {});
+	                return _react2.default.createElement(BaseComponent, _extends({}, fProps, this.state, {
+	                    $dispatch: this.$dispatch,
+	                    $actions: this.$actions,
+	                    $stores: this.$stores }));
+	            }
+	        }]);
+	
+	        return ScopeProvider;
+	    }(_react2.default.Component), _class5.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _class5.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+	        rescope: _propTypes2.default.object,
+	        $stores: _propTypes2.default.object
+	    }), _class5.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class5.displayName = "scoped(" + compName + ")", _temp5);
+	
+	
+	    return ScopeProvider;
+	}
+	
 	exports.default = Component;
 	exports.Component = Component;
 	exports.reScopeProps = reScopeProps;
 	exports.propsToScope = propsToScope;
 
-	/***/
-},
+/***/ }),
 /* 4 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(2);
 
-	/***/
-},
+/***/ }),
 /* 5 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(12);
 
-	/***/
-},
+/***/ }),
 /* 6 */
-/***/function (module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __webpack_require__(43);
 
-	/***/
-}]
-/******/);
+/***/ })
+/******/ ]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay9ib290c3RyYXAgOTFkMmVlNTczNWYxY2RmYmZiOWMiLCJ3ZWJwYWNrOi8vLy4vc3JjL2luZGV4LmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlc2NvcGVcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZXNjb3BlL2Rpc3QvaW5kZXhcIiIsIndlYnBhY2s6Ly8vLi9zcmMvUmVhY3RIb2NzLmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiaXNcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJwcm9wLXR5cGVzXCIiXSwibmFtZXMiOlsiUlRvb2xzIiwiQ29tcG9uZW50IiwicmVTY29wZVByb3BzIiwic2NvcGVUb1Byb3BzIiwicHJvcHNUb1Njb3BlIiwiU2ltcGxlT2JqZWN0UHJvdG8iLCJjb25zdHJ1Y3RvciIsInAiLCJjdHgiLCJxIiwic2NvcGUiLCJfX3Njb3BlIiwicmVzY29wZSIsIiRzY29wZSIsImRlYWQiLCJjb25zb2xlIiwiZXJyb3IiLCIkc3RvcmVzIiwic3RvcmVzIiwidXNlIiwic3RhdGUiLCJtYXAiLCJyZW5kZXIiLCJkaXNwYXRjaCIsImJpbmQiLCJ1bkJpbmQiLCJucCIsIm5jIiwiblNjb3BlIiwiY29udGV4dCIsInByb3BzIiwiY2hpbGRyZW4iLCJjaGlsZENvbnRleHRUeXBlcyIsIm9iamVjdCIsImNvbnRleHRUeXBlcyIsImFyZ3oiLCJCYXNlQ29tcG9uZW50IiwicHJvdG90eXBlIiwic2hpZnQiLCJmbiIsImFycmF5IiwicHJvdmlkZXIiLCJyZVNjb3BlVG9TdGF0ZSIsIiRkaXNwYXRjaCIsIiRhY3Rpb25zIiwiZGlzcGxheU5hbWUiLCJuYW1lIiwic3RhdGVNYXAiLCJhZGRpdGlvbmFsQ29udGV4dCIsImluaXRpYWxTdGF0ZSIsInN0YXRlTWFwVG9SZWZMaXN0IiwiT2JqZWN0Iiwia2V5cyIsInJlZHVjZSIsImgiLCJrIiwiYW55IiwiUmVTY29wZVByb3ZpZGVyIiwicmV0YWluIiwiYWN0aW9ucyIsImxlbmd0aCIsImRpc3Bvc2UiLCJkZWZhdWx0UHJvcHMiLCJDb21wIiwicmVTY29wZSIsInNjb3BlZCIsInNjb3BlQ2ZnIiwicGFyZW50IiwicGFyZW50SWQiLCJzdHJpbmciLCJjb21wTmFtZSIsIlNjb3BlUHJvdmlkZXIiLCJfcGFyZW50IiwiZ2V0U2NvcGUiLCJhdXRvRGVzdHJveSIsImtleSIsInNjb3BlZFByb3BzIiwiZm9yRWFjaCIsInNldFN0YXRlIiwiYXJndW1lbnRzIiwiZlByb3BzIiwiaW5jbHVkZXMiLCJkZWZhdWx0Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EsdUJBQWU7QUFDZjtBQUNBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7O0FBR0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7Ozs7Ozs7Ozs7OztBQ1ZBOztBQUNBOzs7O0FBQ0E7O0tBQVlBLE07Ozs7OztBQUVaLGlCQUFNQyxTQUFOLEdBQXFCRCxPQUFPQyxTQUE1QixDLENBaENBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFpQ0EsaUJBQU1DLFlBQU4sR0FBcUJGLE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1DLFlBQU4sR0FBcUJILE9BQU9FLFlBQTVCO0FBQ0EsaUJBQU1FLFlBQU4sR0FBcUJKLE9BQU9JLFlBQTVCOzs7Ozs7OztBQ25DQSxxQzs7Ozs7O0FDQUEsZ0Q7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQTJCQTs7QUFDQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFDQTs7Ozs7Ozs7Ozs7O0FBRUEsS0FBTUMsb0JBQXFCLEVBQUQsQ0FBS0MsV0FBL0I7O0FBRUE7Ozs7OztLQU1NTCxTOzs7QUFVRix3QkFBYU0sQ0FBYixF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S0FBNkJELEVBQUVDLENBQUYsSUFBTyxPQUFLekIsS0FBTCxDQUFXeUIsQ0FBWCxDQUFwQyxHQUFvREQsQ0FBakU7QUFBQSxrQkFBL0IsRUFBb0csRUFBcEcsQ0FBYjtBQUNBLHdCQUFPLDhCQUFDLGFBQUQsZUFBb0IwQixNQUFwQixFQUNvQixLQUFLNUQsS0FEekI7QUFFZSxnQ0FBWSxLQUFLdUIsU0FGaEM7QUFHZSwrQkFBVyxLQUFLQyxRQUgvQjtBQUllLDhCQUFVLEtBQUszQixPQUo5QixJQUFQO0FBS0g7QUF6RndCOztBQUFBO0FBQUEsT0FlRCxnQkFBTWhCLFNBZkwsV0FnQmxCK0IsaUJBaEJrQixnQkFpQmpCSSxjQUFjSixpQkFBZCxJQUFtQyxFQWpCbEI7QUFrQnJCcEIsa0JBQVMsb0JBQVVxQixNQWxCRTtBQW1CckJoQixrQkFBUyxvQkFBVWdCO0FBbkJFLGlCQXFCbEJDLFlBckJrQixnQkFzQmpCRSxjQUFjRixZQUFkLElBQThCLEVBdEJiO0FBdUJyQnRCLGtCQUFTLG9CQUFVcUIsTUF2QkU7QUF3QnJCaEIsa0JBQVMsb0JBQVVnQjtBQXhCRSxpQkEwQmxCNkIsWUExQmtCLGdCQTJCakIxQixjQUFjMEIsWUFBZCxJQUE4QixFQTNCYixXQTZCbEJqQixXQTdCa0IsR0E2QkUsWUFBWXlCLFFBQVosR0FBdUIsR0E3QnpCOzs7QUE0RjdCLFlBQU9DLGFBQVA7QUFDSDs7U0FJZ0JXLE8sR0FBYmpGLFM7U0FDQUEsUyxHQUFBQSxTO1NBQ0FDLFksR0FBQUEsWTtTQUNBRSxZLEdBQUFBLFk7Ozs7OztBQ3ZnQkosbUM7Ozs7OztBQ0FBLGdDOzs7Ozs7QUNBQSx3QyIsImZpbGUiOiJkaXN0L1JlYWN0UmVTY29wZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIiBcdC8vIFRoZSBtb2R1bGUgY2FjaGVcbiBcdHZhciBpbnN0YWxsZWRNb2R1bGVzID0ge307XG5cbiBcdC8vIFRoZSByZXF1aXJlIGZ1bmN0aW9uXG4gXHRmdW5jdGlvbiBfX3dlYnBhY2tfcmVxdWlyZV9fKG1vZHVsZUlkKSB7XG5cbiBcdFx0Ly8gQ2hlY2sgaWYgbW9kdWxlIGlzIGluIGNhY2hlXG4gXHRcdGlmKGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdKVxuIFx0XHRcdHJldHVybiBpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXS5leHBvcnRzO1xuXG4gXHRcdC8vIENyZWF0ZSBhIG5ldyBtb2R1bGUgKGFuZCBwdXQgaXQgaW50byB0aGUgY2FjaGUpXG4gXHRcdHZhciBtb2R1bGUgPSBpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSA9IHtcbiBcdFx0XHRleHBvcnRzOiB7fSxcbiBcdFx0XHRpZDogbW9kdWxlSWQsXG4gXHRcdFx0bG9hZGVkOiBmYWxzZVxuIFx0XHR9O1xuXG4gXHRcdC8vIEV4ZWN1dGUgdGhlIG1vZHVsZSBmdW5jdGlvblxuIFx0XHRtb2R1bGVzW21vZHVsZUlkXS5jYWxsKG1vZHVsZS5leHBvcnRzLCBtb2R1bGUsIG1vZHVsZS5leHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKTtcblxuIFx0XHQvLyBGbGFnIHRoZSBtb2R1bGUgYXMgbG9hZGVkXG4gXHRcdG1vZHVsZS5sb2FkZWQgPSB0cnVlO1xuXG4gXHRcdC8vIFJldHVybiB0aGUgZXhwb3J0cyBvZiB0aGUgbW9kdWxlXG4gXHRcdHJldHVybiBtb2R1bGUuZXhwb3J0cztcbiBcdH1cblxuXG4gXHQvLyBleHBvc2UgdGhlIG1vZHVsZXMgb2JqZWN0IChfX3dlYnBhY2tfbW9kdWxlc19fKVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5tID0gbW9kdWxlcztcblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGUgY2FjaGVcbiBcdF9fd2VicGFja19yZXF1aXJlX18uYyA9IGluc3RhbGxlZE1vZHVsZXM7XG5cbiBcdC8vIF9fd2VicGFja19wdWJsaWNfcGF0aF9fXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLnAgPSBcIi9cIjtcblxuIFx0Ly8gTG9hZCBlbnRyeSBtb2R1bGUgYW5kIHJldHVybiBleHBvcnRzXG4gXHRyZXR1cm4gX193ZWJwYWNrX3JlcXVpcmVfXygwKTtcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyB3ZWJwYWNrL2Jvb3RzdHJhcCA5MWQyZWU1NzM1ZjFjZGZiZmI5YyIsIi8qXG4gKiBDb3B5cmlnaHQgKGMpICAyMDE4IFdpc2UgV2lsZCBXZWIgLlxuICpcbiAqICBNSVQgTGljZW5zZVxuICpcbiAqICBQZXJtaXNzaW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwgdG8gYW55IHBlcnNvbiBvYnRhaW5pbmcgYSBjb3B5XG4gKiAgb2YgdGhpcyBzb2Z0d2FyZSBhbmQgYXNzb2NpYXRlZCBkb2N1bWVudGF0aW9uIGZpbGVzICh0aGUgXCJTb2Z0d2FyZVwiKSwgdG8gZGVhbFxuICogIGluIHRoZSBTb2Z0d2FyZSB3aXRob3V0IHJlc3RyaWN0aW9uLCBpbmNsdWRpbmcgd2l0aG91dCBsaW1pdGF0aW9uIHRoZSByaWdodHNcbiAqICB0byB1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsXG4gKiAgY29waWVzIG9mIHRoZSBTb2Z0d2FyZSwgYW5kIHRvIHBlcm1pdCBwZXJzb25zIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzXG4gKiAgZnVybmlzaGVkIHRvIGRvIHNvLCBzdWJqZWN0IHRvIHRoZSBmb2xsb3dpbmcgY29uZGl0aW9uczpcbiAqXG4gKiAgVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsXG4gKiAgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS5cbiAqXG4gKiAgVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuICogIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuICogIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRVxuICogIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcbiAqICBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuICogIE9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFXG4gKiAgU09GVFdBUkUuXG4gKlxuICogQGF1dGhvciA6IE5hdGhhbmFlbCBCcmF1blxuICogQGNvbnRhY3QgOiBjYWlwaWxhYnNAZ21haWwuY29tXG4gKi9cblxuXG5pbXBvcnQgXCJyZXNjb3BlXCI7XG5pbXBvcnQgaW5kZXggZnJvbSBcInJlc2NvcGUvZGlzdC9pbmRleFwiO1xuaW1wb3J0ICogYXMgUlRvb2xzIGZyb20gXCIuL1JlYWN0SG9jc1wiO1xuXG5pbmRleC5Db21wb25lbnQgICAgPSBSVG9vbHMuQ29tcG9uZW50O1xuaW5kZXgucmVTY29wZVByb3BzID0gUlRvb2xzLnJlU2NvcGVQcm9wcztcbmluZGV4LnNjb3BlVG9Qcm9wcyA9IFJUb29scy5yZVNjb3BlUHJvcHM7XG5pbmRleC5wcm9wc1RvU2NvcGUgPSBSVG9vbHMucHJvcHNUb1Njb3BlO1xuZXhwb3J0IGRlZmF1bHQgaW5kZXg7XG5cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyAuL3NyYy9pbmRleC5qcyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlc2NvcGVcIik7XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gZXh0ZXJuYWwgXCJyZXNjb3BlXCJcbi8vIG1vZHVsZSBpZCA9IDFcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVzY29wZS9kaXN0L2luZGV4XCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVzY29wZS9kaXN0L2luZGV4XCJcbi8vIG1vZHVsZSBpZCA9IDJcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwiLypcbiAqIENvcHlyaWdodCAoYykgIDIwMTggV2lzZSBXaWxkIFdlYiAuXG4gKlxuICogIE1JVCBMaWNlbnNlXG4gKiAgXG4gKiAgUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weVxuICogIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcbiAqICBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4gKiAgdG8gdXNlLCBjb3B5LCBtb2RpZnksIG1lcmdlLCBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbFxuICogIGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuICogIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4gKiAgXG4gKiAgVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsXG4gKiAgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS5cbiAqICBcbiAqICBUSEUgU09GVFdBUkUgSVMgUFJPVklERUQgXCJBUyBJU1wiLCBXSVRIT1VUIFdBUlJBTlRZIE9GIEFOWSBLSU5ELCBFWFBSRVNTIE9SXG4gKiAgSU1QTElFRCwgSU5DTFVESU5HIEJVVCBOT1QgTElNSVRFRCBUTyBUSEUgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFCSUxJVFksXG4gKiAgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFXG4gKiAgQVVUSE9SUyBPUiBDT1BZUklHSFQgSE9MREVSUyBCRSBMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdFUyBPUiBPVEhFUlxuICogIExJQUJJTElUWSwgV0hFVEhFUiBJTiBBTiBBQ1RJT04gT0YgQ09OVFJBQ1QsIFRPUlQgT1IgT1RIRVJXSVNFLCBBUklTSU5HIEZST00sXG4gKiAgT1VUIE9GIE9SIElOIENPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUgT1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUyBJTiBUSEVcbiAqICBTT0ZUV0FSRS5cbiAqICBcbiAqIEBhdXRob3IgOiBOYXRoYW5hZWwgQnJhdW5cbiAqIEBjb250YWN0IDogY2FpcGlsYWJzQGdtYWlsLmNvbVxuICovXG5cbmltcG9ydCBcInJlc2NvcGVcIjtcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCBpcyBmcm9tICdpcydcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQge1Njb3BlLCBTdG9yZSwgYWRkU2NvcGFibGVUeXBlfSBmcm9tIFwicmVzY29wZS9kaXN0L2luZGV4XCI7XG5cbmNvbnN0IFNpbXBsZU9iamVjdFByb3RvID0gKHt9KS5jb25zdHJ1Y3RvcjtcblxuLyoqXG4gKiBJbmhlcml0YWJsZSBSZVNjb3BlIFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KVxuICpcbiAqIEBjbGFzcyBDb21wb25lbnRcbiAqIEBkZXNjIFBhcmVudCBSZWFjdCBDb21wb25lbnQgd2l0aCBzdG9yZSBpbmplY3Rpb24gaW4gaXRzIHN0YXRlXG4gKi9cbmNsYXNzIENvbXBvbmVudCBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgfVxuICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgIH1cbiAgICBcbiAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICBzdXBlcihwLCBjdHgsIHEpO1xuICAgICAgICBsZXQgc2NvcGUgICA9XG4gICAgICAgICAgICAgICAgcC5fX3Njb3BlXG4gICAgICAgICAgICAgICAgfHwgY3R4LnJlc2NvcGU7XG4gICAgICAgIHRoaXMuJHNjb3BlID0gc2NvcGU7XG4gICAgICAgIFxuICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG4gICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiUmVTY29waW5nIHVzaW5nIGRlYWQgc2NvcGVcIilcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gbnVsbDtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgdGhpcy4kc3RvcmVzID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICBpZiAoIHRoaXMuY29uc3RydWN0b3IudXNlICkge1xuICAgICAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgICAgICAuLi50aGlzLnN0YXRlLFxuICAgICAgICAgICAgICAgIC4uLnNjb3BlLm1hcCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSB8fCBbXSwgZmFsc2UpLy8gZG9uJ3QgYmluZFxuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgIGVsc2UgaWYgKCAhdGhpcy4kc2NvcGUgKVxuICAgICAgICAgICAgdGhpcy5yZW5kZXIgPSAoKSA9PiA8ZGl2Pk5vIFJlc2NvcGUgaGVyZSB7IHN1cGVyLm5hbWUgfTwvZGl2PlxuICAgIH1cbiAgICBcbiAgICBkaXNwYXRjaCggLi4uYXJneiApIHtcbiAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcGF0Y2goLi4uYXJneilcbiAgICB9XG4gICAgXG4gICAgY29tcG9uZW50V2lsbE1vdW50KCkge1xuICAgICAgICBpZiAoIHRoaXMuY29uc3RydWN0b3IudXNlICkge1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUuYmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSB8fCBbXSwgZmFsc2UpXG4gICAgICAgIH1cbiAgICB9XG4gICAgXG4gICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgIHRoaXMuY29uc3RydWN0b3IudXNlXG4gICAgICAgICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSB8fCBbXSk7XG4gICAgfVxuICAgIFxuICAgIGNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoIG5wLCBuYyApIHtcbiAgICAgICAgbGV0IG5TY29wZSA9IG5wLl9fc2NvcGVcbiAgICAgICAgICAgIHx8IG5jLnJlc2NvcGUgfHwgdGhpcy4kc2NvcGU7XG4gICAgICAgIFxuICAgICAgICBpZiAoIG5TY29wZSAhPSB0aGlzLiRzY29wZSApIHtcbiAgICAgICAgICAgIHRoaXMuY29uc3RydWN0b3IudXNlICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSk7XG4gICAgICAgICAgICB0aGlzLiRzY29wZSA9IG5TY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgICAgIGNvbnNvbGUuZXJyb3IoXCJSZVNjb3BpbmcgdXNpbmcgZGVhZCBzY29wZVwiKVxuICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyA9IHRoaXMuJHNjb3BlID0gbnVsbDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGVsc2Uge1xuICAgICAgICAgICAgICAgIHRoaXMuJHN0b3JlcyA9IHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgICAgICB0aGlzLmNvbnN0cnVjdG9yLnVzZSAmJiBuU2NvcGUuYmluZCh0aGlzLCB0aGlzLmNvbnN0cnVjdG9yLnVzZSk7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9XG4gICAgXG4gICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICByZXR1cm4ge1xuICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUgfHwgdGhpcy5jb250ZXh0LnJlc2NvcGUsXG4gICAgICAgICAgICAkc3RvcmVzOiB0aGlzLiRzY29wZS5zdG9yZXMgfHwgdGhpcy5jb250ZXh0LiRzdG9yZXNcbiAgICAgICAgfTtcbiAgICB9XG4gICAgXG4gICAgcmVuZGVyKCkge1xuICAgICAgICByZXR1cm4gdGhpcy5wcm9wcy5jaGlsZHJlbiB8fCA8ZGl2Lz5cbiAgICB9XG59O1xuXG5cbi8qKlxuICogUmV0dXJuIGEgUmVhY3QgXCJIT0NcIiAoSGlnaCBPcmRlciBDb21wb25lbnQpIHRoYXQgOlxuICogIC0gSW5qZWN0ICYgbWFpbnRhaW4gdGhlIHN0b3JlcyBsaXN0ZWQgYmFzZUNvbXBvbmVudDo6dXNlIGFuZC9vciAodXNlKSBpbiB0aGUgaW5zdGFuY2VzIHByb3BzLlxuICogIC0gUHJvcGFnIChzY29wZSkgaW4gdGhlIHJldHVybmVkIFJlYWN0IENvbXBvbmVudCBjb250ZXh0XG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDogUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzY29wZSB7UmVTY29wZS5TY29wZXxmdW5jdGlvbn0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkICggZGVmYXVsdCA6IHRoZSBkZWZhdWx0XG4gKiAgICAgUmVTY29wZTo6U2NvcGU6OnNjb3Blcy5zdGF0aWMgc2NvcGUgKVxuICogQHBhcmFtIHVzZSB7YXJyYXl9IHRoZSBsaXN0IG9mIHN0b3JlcyB0byBpbmplY3QgZnJvbSB0aGUgY3VycmVudCBzY29wZVxuICogQHJldHVybnMge1JlU2NvcGVQcm92aWRlcn1cbiAqL1xuZnVuY3Rpb24gcmVTY29wZVByb3BzKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlICAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlIHx8IGlzLmZuKGFyZ3pbMF0pKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHVzZSAgICAgICAgICAgPSAoIWFyZ3pbMF0gfHwgaXMuYXJyYXkoYXJnelswXSkgfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvKSAmJiBhcmd6LnNoaWZ0KCk7XG4gICAgXG4gICAgaWYgKCAhKEJhc2VDb21wb25lbnQgJiYgQmFzZUNvbXBvbmVudC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpICkge1xuICAgICAgICByZXR1cm4gZnVuY3Rpb24gKCBCYXNlQ29tcG9uZW50ICkge1xuICAgICAgICAgICAgcmV0dXJuIHJlU2NvcGVQcm9wcyhCYXNlQ29tcG9uZW50LCBzY29wZSwgdXNlKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIFxuICAgIGxldCBwcm92aWRlciA9IHJlU2NvcGVUb1N0YXRlKGNsYXNzIFJlU2NvcGVQcm9wc1Byb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIHVzZSAgICAgICAgICAgICAgID0gQmFzZUNvbXBvbmVudC51c2U7XG4gICAgICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9O1xuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfTtcbiAgICAgICAgXG4gICAgICAgIGdldENoaWxkQ29udGV4dCgpIHtcbiAgICAgICAgICAgIHJldHVybiB0aGlzLmNvbnRleHQ7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIHJlbmRlcigpIHtcbiAgICAgICAgICAgIHJldHVybiA8QmFzZUNvbXBvbmVudCB7IC4uLnRoaXMucHJvcHMgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsgLi4udGhpcy5zdGF0ZSB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGRpc3BhdGNoPXsgdGhpcy4kZGlzcGF0Y2ggfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRhY3Rpb25zPXsgdGhpcy4kYWN0aW9ucyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJHN0b3Jlcz17IHRoaXMuJHN0b3JlcyB9Lz5cbiAgICAgICAgfVxuICAgIH0sIHNjb3BlLCB1c2UpO1xuICAgIHByb3ZpZGVyLmRpc3BsYXlOYW1lICAgICAgICAgPSBcInByb3BzU2NvcGVkKFwiICsgKEJhc2VDb21wb25lbnQuZGlzcGxheU5hbWUgfHwgQmFzZUNvbXBvbmVudC5uYW1lKSArIFwiKVwiO1xuICAgIHJldHVybiBwcm92aWRlcjtcbn1cblxuLyoqXG4gKiBSZXR1cm4gYSBSZWFjdCBcIkhPQ1wiIChIaWdoIE9yZGVyIENvbXBvbmVudCkgdGhhdCA6XG4gKiAgLSBJbmhlcml0IEJhc2VDb21wb25lbnQsXG4gKiAgLSBJbmplY3QgJiBtYWludGFpbiB0aGUgc3RvcmVzIGluIEJhc2VDb21wb25lbnQ6OnVzZSBhbmQvb3IgKHVzZSkgaW4gdGhlIGluc3RhbmNlcyBzdGF0ZS5cbiAqICAtIFByb3BhZyAoc2NvcGUpIGluIHRoZSByZXR1cm5lZCBSZWFjdCBDb21wb25lbnQgY29udGV4dFxuICpcbiAqXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOiBSZWFjdC5Db21wb25lbnQgKVxuICogQHBhcmFtIHNjb3BlIHtSZVNjb3BlLlNjb3BlfGZ1bmN0aW9ufSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSB1c2Uge2FycmF5fSB0aGUgbGlzdCBvZiBzdG9yZXMgaW5qZWN0ZWQgZnJvbSB0aGUgY3VycmVudCBzY29wZVxuICogQHBhcmFtIGFkZGl0aW9uYWxDb250ZXh0IHtPYmplY3R9IGNvbnRleHQgdG8gYmUgcHJvcGFnYXRlZFxuICogQHJldHVybnMge1JlU2NvcGVQcm92aWRlcn1cbiAqL1xuZnVuY3Rpb24gcmVTY29wZVRvU3RhdGUoIC4uLmFyZ3ogKSB7XG4gICAgbGV0IEJhc2VDb21wb25lbnQgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlICAgICAgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSB8fCBpcy5mbihhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICB1c2UgICAgICAgICAgICAgICA9IChpcy5hcnJheShhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzdGF0ZU1hcCAgICAgICAgICA9ICF1c2UgJiYgKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBhZGRpdGlvbmFsQ29udGV4dCA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgaW5pdGlhbFN0YXRlICAgICAgPSB7fTtcbiAgICBcbiAgICB1c2UgPSBbLi4uKEJhc2VDb21wb25lbnQudXNlIHx8IFtdKSwgLi4uKHVzZSB8fCBbXSldO1xuICAgIHN0YXRlTWFwICYmIFNjb3BlLnN0YXRlTWFwVG9SZWZMaXN0KHN0YXRlTWFwLCBpbml0aWFsU3RhdGUsIHVzZSk7XG4gICAgXG4gICAgYWRkaXRpb25hbENvbnRleHQgPSBhZGRpdGlvbmFsQ29udGV4dCAmJiBPYmplY3Qua2V5cyhhZGRpdGlvbmFsQ29udGV4dCkucmVkdWNlKCggaCwgayApID0+IChoW2tdID0gUHJvcFR5cGVzLmFueSwgaCksIHt9KSB8fCB7fTtcbiAgICBcbiAgICBjbGFzcyBSZVNjb3BlUHJvdmlkZXIgZXh0ZW5kcyBCYXNlQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuICAgICAgICAgICAgLi4uKGFkZGl0aW9uYWxDb250ZXh0KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIC4uLihhZGRpdGlvbmFsQ29udGV4dCksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkZWZhdWx0UHJvcHMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wcyB8fCB7fSksXG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJzdGF0ZVNjb3BlZChcIiArIChCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZSkgKyBcIilcIjtcbiAgICAgICAgXG4gICAgICAgIGNvbnN0cnVjdG9yKCBwLCBjdHgsIHEgKSB7XG4gICAgICAgICAgICBzdXBlcihwLCBjdHgsIHEpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSB0aGlzLiRzY29wZSB8fFxuICAgICAgICAgICAgICAgIHAuX19zY29wZVxuICAgICAgICAgICAgICAgIHx8IGlzLmZuKHNjb3BlKSAmJiBzY29wZSh0aGlzLCBwLCBjdHgpIHx8IHNjb3BlXG4gICAgICAgICAgICAgICAgfHwgY3R4LnJlc2NvcGU7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiUmVTY29waW5nIHVzaW5nIGRlYWQgc2NvcGVcIilcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICYmIGlzLmZuKHNjb3BlKVxuICAgICAgICAgICAgJiYgdGhpcy4kc2NvcGUucmV0YWluKFwiaG9jXCIpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICAgICAgdGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmFjdGlvbnM7XG4gICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmIHVzZS5sZW5ndGggKSB7XG4gICAgICAgICAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgICAgICAgICAgLi4udGhpcy5zdGF0ZSxcbiAgICAgICAgICAgICAgICAgICAgLi4uaW5pdGlhbFN0YXRlLFxuICAgICAgICAgICAgICAgICAgICAuLi50aGlzLiRzY29wZS5tYXAodGhpcywgdXNlLCBmYWxzZSkvLyBkb24ndCBiaW5kIG5vdyBkdWUgdG8gU1NSXG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgZWxzZSBpZiAoICF0aGlzLiRzY29wZSApXG4gICAgICAgICAgICAgICAgdGhpcy5yZW5kZXIgPSAoKSA9PiA8ZGl2Pk5vIFNjb3BlIGZvdW5kIGluIHsgQmFzZUNvbXBvbmVudC5uYW1lIH08L2Rpdj5cbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kZGlzcGF0Y2ggPSB0aGlzLiRkaXNwYXRjaC5iaW5kKHRoaXMpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICAkZGlzcGF0Y2goIC4uLmFyZ3ogKSB7XG4gICAgICAgICAgICB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kaXNwYXRjaCguLi5hcmd6KVxuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsTW91bnQoKSB7XG4gICAgICAgICAgICBpZiAoIHVzZS5sZW5ndGggKSB7XG4gICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUuYmluZCh0aGlzLCB1c2UsIGZhbHNlKVxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbE1vdW50ICYmIHN1cGVyLmNvbXBvbmVudFdpbGxNb3VudCgpXG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiAhdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICB1c2UubGVuZ3RoICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB1c2UpO1xuICAgICAgICAgICAgICAgIGlzLmZuKHNjb3BlKSAmJiB0aGlzLiRzY29wZS5kaXNwb3NlKFwiaG9jXCIpO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCwgbmMgKSB7XG4gICAgICAgICAgICBsZXQgblNjb3BlID0gbnAuX19zY29wZVxuICAgICAgICAgICAgICAgIHx8IHNjb3BlICYmIHRoaXMuJHNjb3BlXG4gICAgICAgICAgICAgICAgfHwgbmMucmVzY29wZVxuICAgICAgICAgICAgICAgIHx8IHRoaXMuJHNjb3BlO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBpZiAoIG5TY29wZSAhPSB0aGlzLiRzY29wZSApIHtcbiAgICAgICAgICAgICAgICB1c2UubGVuZ3RoICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLCB1c2UpO1xuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gblNjb3BlO1xuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIlJlU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlXCIpXG4gICAgICAgICAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGVsc2Uge1xuICAgICAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiBuU2NvcGUuYmluZCh0aGlzLCB1c2UpO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMgJiYgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyhucCwgbmMpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUgfHwgdGhpcy5jb250ZXh0LnJlc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzIHx8IHRoaXMuY29udGV4dC4kc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBSZVNjb3BlUHJvdmlkZXI7XG59XG5cbmFkZFNjb3BhYmxlVHlwZShcbiAgICAoIENvbXAgKSA9PiAoQ29tcCAmJiBDb21wLnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCksXG4gICAgcmVTY29wZVRvU3RhdGUsIGZhbHNlLCB0cnVlXG4pXG5cbi8qKlxuICogUmV0dXJuIGEgUmVhY3QgXCJIT0NcIiAoSGlnaCBPcmRlciBDb21wb25lbnQpIHRoYXQgOlxuICogIC0gUmVuZGVyIEJhc2VDb21wb25lbnQgd2l0aCBuZXcgc2NvcGUgdGhhdCBpbmhlcml0IHRoZSBnaXZlbiBzY29wZSBvciBjb250ZXh0IHNjb3BlXG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDogUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzdG9yZXNNYXAge09iamVjdH0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGUge1Njb3BlfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZUlkIHtzdHJpbmd9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIGFkZGl0aW9uYWxDb250ZXh0IHtPYmplY3R9IGNvbnRleHQgdG8gYmUgcHJvcGFnYXRlZFxuICogQHJldHVybnMgeyp9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGUoIC4uLmFyZ3ogKSB7XG4gICAgbGV0IEJhc2VDb21wb25lbnQgPSAoIWFyZ3pbMF0gfHwgYXJnelswXS5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgc2NvcGVkICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8gJiYgIShhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUpKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlQ2ZnICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvKSAmJiBhcmd6LnNoaWZ0KCkgfHwge30sXG4gICAgICAgIHBhcmVudCAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHBhcmVudElkICAgICAgPSAoIWFyZ3pbMF0gfHwgaXMuc3RyaW5nKGFyZ3pbMF0pKSAmJiBhcmd6LnNoaWZ0KCk7XG4gICAgXG4gICAgbGV0IGNvbXBOYW1lID0gQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWU7XG4gICAgXG4gICAgXG4gICAgY2xhc3MgU2NvcGVQcm92aWRlciBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNoaWxkQ29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9KSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRlZmF1bHRQcm9wcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzIHx8IHt9KSxcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGlzcGxheU5hbWUgICAgICAgPSBcInNjb3BlZChcIiArIGNvbXBOYW1lICsgXCIpXCI7XG4gICAgICAgIFxuICAgICAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICAgICAgbGV0IF9wYXJlbnQgPSBwYXJlbnQgfHwgcGFyZW50SWQgJiYgU2NvcGUuZ2V0U2NvcGUocGFyZW50SWQpIHx8IHAuX19zY29wZSB8fCBjdHgucmVzY29wZSxcbiAgICAgICAgICAgICAgICAkc2NvcGUgID0gbmV3IFNjb3BlKFxuICAgICAgICAgICAgICAgICAgICBzY29wZWQgfHwge30sXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9EZXN0cm95OiB0cnVlLFxuICAgICAgICAgICAgICAgICAgICAgICAga2V5ICAgICAgICA6IGNvbXBOYW1lLFxuICAgICAgICAgICAgICAgICAgICAgICAgcGFyZW50ICAgICA6IF9wYXJlbnQsXG4gICAgICAgICAgICAgICAgICAgICAgICAuLi5zY29wZUNmZ1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgXG4gICAgICAgICAgICBzdXBlcihwLCB7IC4uLmN0eCwgcmVzY29wZTogJHNjb3BlLCAkc3RvcmVzOiAkc2NvcGUuc3RvcmVzIH0sIHEpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzY29wZSA9IHRoaXMuJHNjb3BlIHx8ICRzY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCAhdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlIHBhcmVudFwiKTtcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSBudWxsO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG5ldyBTY29wZShcbiAgICAgICAgICAgICAgICAgICAgc2NvcGVkIHx8IHt9LFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICBhdXRvRGVzdHJveTogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIGtleSAgICAgICAgOiBjb21wTmFtZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIHBhcmVudCAgICAgOiB0aGlzLiRzY29wZVxuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgICAgICB0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgdGhpcy4kc2NvcGUucmV0YWluKCk7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQgJiYgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQoKTtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3Bvc2UoKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICAgICAgbGV0IGN0eCA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fTtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgLi4uY3R4LFxuICAgICAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlLFxuICAgICAgICAgICAgICAgICRzdG9yZXM6IHRoaXMuJHNjb3BlLnN0b3Jlc1xuICAgICAgICAgICAgfTtcbiAgICAgICAgfVxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICByZXR1cm4gPEJhc2VDb21wb25lbnQgeyAuLi50aGlzLnByb3BzIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkc3RvcmVzPXsgdGhpcy4kc3RvcmVzIH0vPlxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG5hZGRTY29wYWJsZVR5cGUoXG4gICAgKCBDb21wICkgPT4gKENvbXAgJiYgQ29tcC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpLFxuICAgIHJlU2NvcGVcbilcbi8qKlxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6IFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc3RvcmVzTWFwIHtPYmplY3R9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlIHtTY29wZX0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGVJZCB7c3RyaW5nfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHsqfVxuICovXG5mdW5jdGlvbiBwcm9wc1RvU2NvcGUoIC4uLmFyZ3ogKSB7XG4gICAgbGV0IEJhc2VDb21wb25lbnQgPSAoIWFyZ3pbMF0gfHwgYXJnelswXS5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQpICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgc2NvcGVkUHJvcHMgICA9ICghYXJnelswXSB8fCBpcy5hcnJheShhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpIHx8IFtdLFxuICAgICAgICBzY29wZUNmZyAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpIHx8IHt9LFxuICAgICAgICBwYXJlbnQgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBwYXJlbnRJZCAgICAgID0gKCFhcmd6WzBdIHx8IGlzLnN0cmluZyhhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpO1xuICAgIFxuICAgIGxldCBjb21wTmFtZSA9IEJhc2VDb21wb25lbnQuZGlzcGxheU5hbWUgfHwgQmFzZUNvbXBvbmVudC5uYW1lO1xuICAgIFxuICAgIGlmICggIShCYXNlQ29tcG9uZW50ICYmIEJhc2VDb21wb25lbnQucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50KSApIHtcbiAgICAgICAgcmV0dXJuIGZ1bmN0aW9uICggQmFzZUNvbXBvbmVudCApIHtcbiAgICAgICAgICAgIHJldHVybiBwcm9wc1RvU2NvcGUoQmFzZUNvbXBvbmVudCwgc2NvcGVkUHJvcHMsIHNjb3BlQ2ZnLCBwYXJlbnQsIHBhcmVudElkKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIGNsYXNzIFNjb3BlUHJvdmlkZXIgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgICAgICBzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG4gICAgICAgICAgICAuLi4oQmFzZUNvbXBvbmVudC5jaGlsZENvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkZWZhdWx0UHJvcHMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLihCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wcyB8fCB7fSksXG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJzY29wZWQoXCIgKyBjb21wTmFtZSArIFwiKVwiO1xuICAgICAgICBcbiAgICAgICAgY29uc3RydWN0b3IoIHAsIGN0eCwgcSApIHtcbiAgICAgICAgICAgIGxldCBfcGFyZW50ID0gcGFyZW50IHx8IHBhcmVudElkICYmIFNjb3BlLmdldFNjb3BlKHBhcmVudElkKSB8fCBwLl9fc2NvcGUgfHwgY3R4LnJlc2NvcGUsXG4gICAgICAgICAgICAgICAgJHNjb3BlICA9IG5ldyBTY29wZShcbiAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgLi4uc2NvcGVkUHJvcHMucmVkdWNlKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICggaCwgayApID0+IChoW2tdID0gU3RvcmUsIGgpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt9XG4gICAgICAgICAgICAgICAgICAgICAgICApLFxuICAgICAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICBhdXRvRGVzdHJveTogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIGtleSAgICAgICAgOiBjb21wTmFtZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIHBhcmVudCAgICAgOiBfcGFyZW50LFxuICAgICAgICAgICAgICAgICAgICAgICAgLi4uc2NvcGVDZmcsXG4gICAgICAgICAgICAgICAgICAgICAgICBzdGF0ZSAgICAgIDogc2NvcGVkUHJvcHMucmVkdWNlKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICggaCwgayApID0+IChoW2tdID0gcFtrXSwgaCksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAge31cbiAgICAgICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgc3VwZXIocCwgeyAuLi5jdHgsIHJlc2NvcGU6ICRzY29wZSwgJHN0b3JlczogJHNjb3BlLnN0b3JlcyB9LCBxKTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kc2NvcGUgICA9IHRoaXMuJHNjb3BlIHx8ICRzY29wZTtcbiAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlLnJldGFpbigpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCApIHtcbiAgICAgICAgICAgIHNjb3BlZFByb3BzLmZvckVhY2goXG4gICAgICAgICAgICAgICAgcCA9PiAodGhpcy5wcm9wc1twXSAhPT0gbnBbcF0gJiYgdGhpcy4kc3RvcmVzW3BdLnNldFN0YXRlKG5wW3BdKSlcbiAgICAgICAgICAgIClcbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMgJiYgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyguLi5hcmd1bWVudHMpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZSgpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICBsZXQgZlByb3BzID0gT2JqZWN0LmtleXModGhpcy5wcm9wcykucmVkdWNlKCggaCwgayApID0+ICghc2NvcGVkUHJvcHMuaW5jbHVkZXMoaykgJiYgKGhba10gPSB0aGlzLnByb3BzW2tdKSwgaCksIHt9KTtcbiAgICAgICAgICAgIHJldHVybiA8QmFzZUNvbXBvbmVudCB7IC4uLmZQcm9wcyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyAuLi50aGlzLnN0YXRlIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkc3RvcmVzPXsgdGhpcy4kc3RvcmVzIH0vPlxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG5cbmV4cG9ydCB7XG4gICAgQ29tcG9uZW50IGFzIGRlZmF1bHQsXG4gICAgQ29tcG9uZW50LFxuICAgIHJlU2NvcGVQcm9wcyxcbiAgICBwcm9wc1RvU2NvcGVcbn07XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vc3JjL1JlYWN0SG9jcy5qcyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0XCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVhY3RcIlxuLy8gbW9kdWxlIGlkID0gNFxuLy8gbW9kdWxlIGNodW5rcyA9IDAiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJpc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcImlzXCJcbi8vIG1vZHVsZSBpZCA9IDVcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicHJvcC10eXBlc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcInByb3AtdHlwZXNcIlxuLy8gbW9kdWxlIGlkID0gNlxuLy8gbW9kdWxlIGNodW5rcyA9IDAiXSwic291cmNlUm9vdCI6IiJ9
 
 /***/ }),
 /* 27 */
@@ -5980,7 +5773,7 @@ var _shortid = __webpack_require__(23);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _rescopeSpells = __webpack_require__(33);
+var _rescopeSpells = __webpack_require__(32);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6591,6 +6384,401 @@ if(false) {
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _rescope = __webpack_require__(1);
+	
+	var _rescope2 = _interopRequireDefault(_rescope);
+	
+	__webpack_require__(2);
+	
+	__webpack_require__(4);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _rescope2.default.spells; /*
+	                                             * Copyright (c)  2018 Wise Wild Web .
+	                                             *
+	                                             *  MIT License
+	                                             *
+	                                             *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                             *  of this software and associated documentation files (the "Software"), to deal
+	                                             *  in the Software without restriction, including without limitation the rights
+	                                             *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                             *  copies of the Software, and to permit persons to whom the Software is
+	                                             *  furnished to do so, subject to the following conditions:
+	                                             *
+	                                             *  The above copyright notice and this permission notice shall be included in all
+	                                             *  copies or substantial portions of the Software.
+	                                             *
+	                                             *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                             *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                             *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                             *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                             *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                             *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                             *  SOFTWARE.
+	                                             *
+	                                             * @author : Nathanael Braun
+	                                             * @contact : caipilabs@gmail.com
+	                                             */
+
+	module.exports = exports["default"];
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(9);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _rescope = __webpack_require__(1);
+	
+	var _rescope2 = _interopRequireDefault(_rescope);
+	
+	var _is = __webpack_require__(3);
+	
+	var _is2 = _interopRequireDefault(_is);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// will use as external the index in dist
+	
+	/*
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	var SimpleObjectProto = {}.constructor;
+	_rescope2.default.spells = {};
+	
+	var castTypesToAppliable = {};
+	var castTypes = {};
+	
+	_rescope2.default.isSpell = function caster() {
+	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+	        argz[_key] = arguments[_key];
+	    }
+	
+	    // are we decorating a member / without argz
+	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	        argz[2].value = addCaster(argz[0][argz[1]], argz);
+	        return argz[0];
+	    } else if (!_is2.default.fn(argz[0])) {
+	        return function () {
+	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                argz2[_key2] = arguments[_key2];
+	            }
+	
+	            // are we decorating a member / with argz
+	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+	                return argz2[0];
+	            } else return caster.apply(undefined, [argz2[0]].concat(argz));
+	        };
+	    }
+	    return addCaster.apply(undefined, argz);
+	};
+	
+	function addCaster() {
+	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	        argz[_key3] = arguments[_key3];
+	    }
+	
+	    var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+	    if (!cast) throw "ReScope cast : bad decorator function";
+	    var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+	        test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+	        prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+	        memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+	        casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+	
+	    if (!castTypesToAppliable[typeName]) {
+	        castTypesToAppliable[typeName] = [];
+	
+	        _rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+	            for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                argz[_key4] = arguments[_key4];
+	            }
+	
+	            // are we decorating a member / without argz
+	            if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	                argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+	                return argz[0];
+	            } else if (!isCastableType(typeName, argz[0])) {
+	                return function () {
+	                    for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                        argz2[_key5] = arguments[_key5];
+	                    }
+	
+	                    // are we decorating a member / with argz
+	                    if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                        argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+	                        return argz2[0];
+	                    } else return doCast.apply(undefined, [argz2[0]].concat(argz));
+	                };
+	            }
+	            return applyCastableType(typeName, argz[0], argz.slice(1));
+	        };
+	    }
+	    castTypesToAppliable[typeName].unshift({
+	        typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+	    });
+	    return cast;
+	}
+	
+	function isCastableType(typeName, Comp, member, stateScope) {
+	    var castable = castTypesToAppliable[typeName];
+	    for (var i = 0; i < castable.length; i++) {
+	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+	    }return false;
+	}
+	
+	function applyCastableType(typeName, Comp, argz, member, stateScope) {
+	
+	    var castable = castTypesToAppliable[typeName] || [];
+	    for (var i = 0; i < castable.length; i++) {
+	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+	    }console.warn("reScope cast : Unknown type", typeName, Comp);
+	    return false;
+	}
+	
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(12);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _dec, _dec2, _desc, _value, _obj; /*
+	                                       * Copyright (c)  2018 Wise Wild Web .
+	                                       *
+	                                       *  MIT License
+	                                       *
+	                                       *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                       *  of this software and associated documentation files (the "Software"), to deal
+	                                       *  in the Software without restriction, including without limitation the rights
+	                                       *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                       *  copies of the Software, and to permit persons to whom the Software is
+	                                       *  furnished to do so, subject to the following conditions:
+	                                       *
+	                                       *  The above copyright notice and this permission notice shall be included in all
+	                                       *  copies or substantial portions of the Software.
+	                                       *
+	                                       *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                       *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                       *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                       *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                       *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                       *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                       *  SOFTWARE.
+	                                       *
+	                                       * @author : Nathanael Braun
+	                                       * @contact : caipilabs@gmail.com
+	                                       */
+	
+	var _is = __webpack_require__(3);
+	
+	var _is2 = _interopRequireDefault(_is);
+	
+	var _rescope = __webpack_require__(1);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+	    var desc = {};
+	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+	        desc[key] = descriptor[key];
+	    });
+	    desc.enumerable = !!desc.enumerable;
+	    desc.configurable = !!desc.configurable;
+	
+	    if ('value' in desc || desc.initializer) {
+	        desc.writable = true;
+	    }
+	
+	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+	        return decorator(target, property, desc) || desc;
+	    }, desc);
+	
+	    if (context && desc.initializer !== void 0) {
+	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+	        desc.initializer = undefined;
+	    }
+	
+	    if (desc.initializer === void 0) {
+	        Object['define' + 'Property'](target, property, desc);
+	        desc = null;
+	    }
+	
+	    return desc;
+	}
+	
+	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
+	    return _is2.default.object(v) || _is2.default.string(v);
+	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
+	    return _is2.default.object(v);
+	}), (_obj = {
+	    stateMap: function stateMap(obj, _ref, ref) {
+	        var _class, _temp;
+	
+	        var cfg = _ref[0];
+	
+	        var use = [],
+	            state = {},
+	            actions = {};
+	        _rescope.Scope.stateMapToRefList(obj, state, use, actions);
+	        return _temp = _class = function (_Store) {
+	            _inherits(StateMap, _Store);
+	
+	            function StateMap() {
+	                _classCallCheck(this, StateMap);
+	
+	                return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
+	            }
+	
+	            return StateMap;
+	        }(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
+	    },
+	    scope: function scope(obj, _ref2, ref) {
+	        var cfg = _ref2[0];
+	
+	
+	        return _rescope.Scope.bind(null, obj, cfg);
+	    }
+	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
+	module.exports = exports["default"];
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=rescopeSpells.js.map
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -6923,431 +7111,6 @@ if (typeof window != 'undefined') {
 }
 exports.default = App;
 module.exports = exports["default"];
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-	/******/
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-		/******/
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-		/******/
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-		/******/
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-		/******/
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-		/******/
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-	/******/
-	/******/
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-	/******/
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-	/******/
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "/";
-	/******/
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-}(
-/************************************************************************/
-/******/[
-/* 0 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _rescope = __webpack_require__(1);
-
-	var _rescope2 = _interopRequireDefault(_rescope);
-
-	__webpack_require__(2);
-
-	__webpack_require__(4);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	exports.default = _rescope2.default.spells; /*
-                                              * Copyright (c)  2018 Wise Wild Web .
-                                              *
-                                              *  MIT License
-                                              *
-                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                              *  of this software and associated documentation files (the "Software"), to deal
-                                              *  in the Software without restriction, including without limitation the rights
-                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                              *  copies of the Software, and to permit persons to whom the Software is
-                                              *  furnished to do so, subject to the following conditions:
-                                              *
-                                              *  The above copyright notice and this permission notice shall be included in all
-                                              *  copies or substantial portions of the Software.
-                                              *
-                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                              *  SOFTWARE.
-                                              *
-                                              * @author : Nathanael Braun
-                                              * @contact : caipilabs@gmail.com
-                                              */
-
-	module.exports = exports["default"];
-
-	/***/
-},
-/* 1 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(9);
-
-	/***/
-},
-/* 2 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _rescope = __webpack_require__(1);
-
-	var _rescope2 = _interopRequireDefault(_rescope);
-
-	var _is = __webpack_require__(3);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	// will use as external the index in dist
-
-	/*
-  * Copyright (c)  2018 Wise Wild Web .
-  *
-  *  MIT License
-  *
-  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-  *  of this software and associated documentation files (the "Software"), to deal
-  *  in the Software without restriction, including without limitation the rights
-  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  *  copies of the Software, and to permit persons to whom the Software is
-  *  furnished to do so, subject to the following conditions:
-  *
-  *  The above copyright notice and this permission notice shall be included in all
-  *  copies or substantial portions of the Software.
-  *
-  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  *  SOFTWARE.
-  *
-  * @author : Nathanael Braun
-  * @contact : caipilabs@gmail.com
-  */
-	var SimpleObjectProto = {}.constructor;
-	_rescope2.default.spells = {};
-
-	var castTypesToAppliable = {};
-	var castTypes = {};
-
-	_rescope2.default.isSpell = function caster() {
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-
-		// are we decorating a member / without argz
-		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-			argz[2].value = addCaster(argz[0][argz[1]], argz);
-			return argz[0];
-		} else if (!_is2.default.fn(argz[0])) {
-			return function () {
-				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-					argz2[_key2] = arguments[_key2];
-				}
-
-				// are we decorating a member / with argz
-				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-					return argz2[0];
-				} else return caster.apply(undefined, [argz2[0]].concat(argz));
-			};
-		}
-		return addCaster.apply(undefined, argz);
-	};
-
-	function addCaster() {
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-
-		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-		if (!cast) throw "ReScope cast : bad decorator function";
-		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
-
-		if (!castTypesToAppliable[typeName]) {
-			castTypesToAppliable[typeName] = [];
-
-			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-					argz[_key4] = arguments[_key4];
-				}
-
-				// are we decorating a member / without argz
-				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-					return argz[0];
-				} else if (!isCastableType(typeName, argz[0])) {
-					return function () {
-						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-							argz2[_key5] = arguments[_key5];
-						}
-
-						// are we decorating a member / with argz
-						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-							return argz2[0];
-						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
-					};
-				}
-				return applyCastableType(typeName, argz[0], argz.slice(1));
-			};
-		}
-		castTypesToAppliable[typeName].unshift({
-			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-		});
-		return cast;
-	}
-
-	function isCastableType(typeName, Comp, member, stateScope) {
-		var castable = castTypesToAppliable[typeName];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-		}return false;
-	}
-
-	function applyCastableType(typeName, Comp, argz, member, stateScope) {
-
-		var castable = castTypesToAppliable[typeName] || [];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-		}console.warn("reScope cast : Unknown type", typeName, Comp);
-		return false;
-	}
-
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-	/***/
-},
-/* 3 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(12);
-
-	/***/
-},
-/* 4 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _dec, _dec2, _desc, _value, _obj; /*
-                                        * Copyright (c)  2018 Wise Wild Web .
-                                        *
-                                        *  MIT License
-                                        *
-                                        *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                        *  of this software and associated documentation files (the "Software"), to deal
-                                        *  in the Software without restriction, including without limitation the rights
-                                        *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                        *  copies of the Software, and to permit persons to whom the Software is
-                                        *  furnished to do so, subject to the following conditions:
-                                        *
-                                        *  The above copyright notice and this permission notice shall be included in all
-                                        *  copies or substantial portions of the Software.
-                                        *
-                                        *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                        *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                        *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                        *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                        *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                        *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                        *  SOFTWARE.
-                                        *
-                                        * @author : Nathanael Braun
-                                        * @contact : caipilabs@gmail.com
-                                        */
-
-	var _is = __webpack_require__(3);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	var _rescope = __webpack_require__(1);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-		var desc = {};
-		Object['ke' + 'ys'](descriptor).forEach(function (key) {
-			desc[key] = descriptor[key];
-		});
-		desc.enumerable = !!desc.enumerable;
-		desc.configurable = !!desc.configurable;
-
-		if ('value' in desc || desc.initializer) {
-			desc.writable = true;
-		}
-
-		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-			return decorator(target, property, desc) || desc;
-		}, desc);
-
-		if (context && desc.initializer !== void 0) {
-			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-			desc.initializer = undefined;
-		}
-
-		if (desc.initializer === void 0) {
-			Object['define' + 'Property'](target, property, desc);
-			desc = null;
-		}
-
-		return desc;
-	}
-
-	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
-		return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
-		return _is2.default.object(v);
-	}), (_obj = {
-		stateMap: function stateMap(obj, _ref, ref) {
-			var _class, _temp;
-
-			var cfg = _ref[0];
-
-			var use = [],
-			    state = {},
-			    actions = {};
-			_rescope.Scope.stateMapToRefList(obj, state, use, actions);
-			return _temp = _class = function (_Store) {
-				_inherits(StateMap, _Store);
-
-				function StateMap() {
-					_classCallCheck(this, StateMap);
-
-					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-				}
-
-				return StateMap;
-			}(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
-		},
-		scope: function scope(obj, _ref2, ref) {
-			var cfg = _ref2[0];
-
-			return _rescope.Scope.bind(null, obj, cfg);
-		}
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
-	module.exports = exports["default"];
-
-	/***/
-}]
-/******/);
-//# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
 /* 34 */
