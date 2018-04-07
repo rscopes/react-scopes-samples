@@ -4,7 +4,8 @@ var express      = require("express"),
     fs           = require("fs"),
     server       = express(),
     currentState = {},
-    http         = require('http').Server(server);
+    http         = require('http').Server(server),
+    argz          = require('minimist')(process.argv.slice(2));
 
 server.use(express.json());       // to support JSON-encoded bodies
 server.use(express.urlencoded()); // to support URL-encoded bodies
@@ -28,6 +29,6 @@ server.post('/', function ( req, res, next ) {
 });
 server.use(express.static('./dist'))
 
-var server_instance = http.listen(parseInt(80), function () {
-    console.warn('Running')
+var server_instance = http.listen(parseInt(argz.p||argz.port||8000), function () {
+    console.warn('Running on ', server_instance.address().port)
 });

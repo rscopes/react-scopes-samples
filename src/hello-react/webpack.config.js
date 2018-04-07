@@ -131,7 +131,6 @@ module.exports    = [
         plugins: (
             [
                 new webpack.BannerPlugin(fs.readFileSync("./LICENCE.HEAD.MD").toString()),
-                
                 new webpack.DefinePlugin({
                                              __PROD__: production
                                          }),
