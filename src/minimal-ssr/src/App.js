@@ -25,7 +25,6 @@
  * @contact : caipilabs@gmail.com
  */
 
-import React              from "react";
 import "react-rescope";
 import Rnd                from 'react-rnd';
 import AppScope           from './AppScope';
