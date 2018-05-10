@@ -3851,7 +3851,7 @@ module.exports =
 						var _this4 = this;
 
 						return function (props) {
-							return _react2.default.createElement(RSComp, { __scope: _this4.$scope, props: props }, obj(_extends({}, s, { props: props }), {
+							return _react2.default.createElement(RSComp, { __scope: _this4.$scope, props: props }, obj(_extends({}, _this4.state, { props: props }), {
 								$actions: _this4.$actions,
 								$stores: _this4.$stores,
 								$store: _this4
@@ -3890,7 +3890,15 @@ module.exports =
 				_createClass(RSRenderer, [{
 					key: "apply",
 					value: function apply(d, s, c) {
-						return _react2.default.createElement(RSComp, { __scope: this.$scope }, obj(s, {
+						var _this6 = this;
+
+						if (d) {
+							this._comp.setState(c);
+							return d;
+						}
+						return _react2.default.createElement(RSComp, { __scope: this.$scope, ref: function ref(comp) {
+								return _this6._comp = comp;
+							} }, obj(s, {
 							$actions: this.$actions,
 							$stores: this.$stores,
 							$store: this
