@@ -4,61 +4,54 @@ import superagent from "superagent";
 import shortid    from "shortid";
 import Rnd        from 'react-rnd';
 import {
-    asStateMap, asScope, asRenderer
+    asStateMap, asScope, asRenderer, asRootRenderer
 }                 from "rescope-spells";
 
 export default {
-    @asRenderer([ "!appState", "!someData", "!PostIt" ])
+    @asRootRenderer([ "!appState", "!someData", "!PostIt" ])
     Home: ( {
                 someData, appState, PostIt
             }, { $actions, $stores, $store } ) =>
-        <html lang="en">
-        <head>
-            <meta charSet="UTF-8"/>
-            <title>Really basic drafty rescope + react component example</title>
-            { /*<script>window.__scopesState ={ state || "{}" };</script>*/ }
-        </head>
-        <body>
-        <h1>Really basic drafty rescope SSR example</h1>,
-        {
-            someData.items.map(
-                note => <PostIt key={ note._id } record={ note }
-                                onSelect={ e => $actions.selectPostIt(note._id) }
-                                selected={ note._id == appState.selectedPostItId }/>
-            )
-        }
-        <div
-            className={ "newBtn button" }
-            onClick={ $actions.newPostIt }>
-            Add Post It
-        </div>
-        <div
-            className={ "saveBtn button" }
-            onClick={ $actions.saveState }>
-            Save state
-        </div>
-        </body>
-        </html>,
+        <div>
+            <h1>Really basic drafty rescope SSR example</h1>,
+            {
+                someData.items.map(
+                    note => <PostIt key={ note._id } record={ note }
+                                    onSelect={ e => $actions.selectPostIt(note._id) }
+                                    selected={ note._id == appState.selectedPostItId }/>
+                )
+            }
+            <div
+                className={ "newBtn button" }
+                onClick={ $actions.newPostIt }>
+                Add Post It
+            </div>
+            <div
+                className={ "saveBtn button" }
+                onClick={ $actions.saveState }>
+                Save state
+            </div>
+        </div>,
     
     @asRenderer
     PostIt  : ( {
                     props: { record, onSelect, selected },
                     position, text, size,
                     editing,
-                    doSave = () => $actions.updatePostIt(
-                        {
-                            ...record,
-                            size    : size || record.size,
-                            position: position
-                        })
-                }, { $actions, $stores, $store } ) =>
-        (
+                    doSave
+                }, { $actions, $stores, $store } ) => {
+        return (
             <Rnd
                 absolutePos
                 z={ selected ? 2000 : 1 }
                 size={ size || record.size }
                 position={ position || record.position }
-                onDragStop={ doSave }
+                onDragStop={ doSave = () => $actions.updatePostIt(
+                    {
+                        ...record,
+                        size    : size || record.size,
+                        position: position
+                    }) }
                 onResizeStop={ doSave }
                 onDrag={ ( e, d ) => {
                     !selected && onSelect(record)
@@ -108,7 +101,8 @@ export default {
                     }
                 </div>
             </Rnd>
-        ),
+        )
+    },
     @asStateMap
     appState: {
         selectedPostItId: null,

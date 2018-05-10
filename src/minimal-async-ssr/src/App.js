@@ -25,11 +25,11 @@
  * @contact : caipilabs@gmail.com
  */
 
-import "react-rescope";
+import React              from "react";
 import AppScope           from './AppScope';
 import {
     Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, Scope
-}                         from "rescope";
+}                         from "react-rescope";
 import { renderToString } from "react-dom/server"
 
 import "./App.scss"
@@ -45,7 +45,7 @@ class App {
         cScope.mount([ "Home" ])
               .then(
                   ( { Home } ) => {
-                      ReactDom.render(<Home/>, node);
+                      ReactDom.render(Home, node);
                   }
               )
     }

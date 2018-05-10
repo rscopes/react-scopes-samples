@@ -10,7 +10,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
-    "run": "start http://localhost:9001"
+    "run": "node ./Server.js -p 9001",
+    "runBrowser": "start http://localhost:9001&node ./Server.js -p 9001"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

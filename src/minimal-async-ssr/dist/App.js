@@ -86,7 +86,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -284,6 +284,21 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(51);
+} else {
+  module.exports = __webpack_require__(50);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 /**
@@ -320,21 +335,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(51);
-} else {
-  module.exports = __webpack_require__(50);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -532,7 +532,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -1700,352 +1700,6 @@ module.exports = __webpack_require__(54);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
-/**
- * Simple, lightweight module assisting with the detection and context of
- * Worker. Helps avoid circular dependencies and allows code to reason about
- * whether or not they are in a Worker, even if they never include the main
- * `ReactWorker` dependency.
- */
-var ExecutionEnvironment = {
-
-  canUseDOM: canUseDOM,
-
-  canUseWorkers: typeof Worker !== 'undefined',
-
-  canUseEventListeners: canUseDOM && !!(window.addEventListener || window.attachEvent),
-
-  canUseViewport: canUseDOM && !!window.screen,
-
-  isInWorker: !canUseDOM // For now, this is true - might change in the future.
-
-};
-
-module.exports = ExecutionEnvironment;
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-
-
-var camelize = __webpack_require__(36);
-
-var msPattern = /^-ms-/;
-
-/**
- * Camelcases a hyphenated CSS property name, for example:
- *
- *   > camelizeStyleName('background-color')
- *   < "backgroundColor"
- *   > camelizeStyleName('-moz-transition')
- *   < "MozTransition"
- *   > camelizeStyleName('-ms-transition')
- *   < "msTransition"
- *
- * As Andi Smith suggests
- * (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
- * is converted to lowercase `ms`.
- *
- * @param {string} string
- * @return {string}
- */
-function camelizeStyleName(string) {
-  return camelize(string.replace(msPattern, 'ms-'));
-}
-
-module.exports = camelizeStyleName;
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-var isTextNode = __webpack_require__(39);
-
-/*eslint-disable no-bitwise */
-
-/**
- * Checks if a given DOM node contains or is another DOM node.
- */
-function containsNode(outerNode, innerNode) {
-  if (!outerNode || !innerNode) {
-    return false;
-  } else if (outerNode === innerNode) {
-    return true;
-  } else if (isTextNode(outerNode)) {
-    return false;
-  } else if (isTextNode(innerNode)) {
-    return containsNode(outerNode, innerNode.parentNode);
-  } else if ('contains' in outerNode) {
-    return outerNode.contains(innerNode);
-  } else if (outerNode.compareDocumentPosition) {
-    return !!(outerNode.compareDocumentPosition(innerNode) & 16);
-  } else {
-    return false;
-  }
-}
-
-module.exports = containsNode;
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-/* eslint-disable fb-www/typeof-undefined */
-
-/**
- * Same as document.activeElement but wraps in a try-catch block. In IE it is
- * not safe to call document.activeElement if there is nothing focused.
- *
- * The activeElement will be null only if the document or document body is not
- * yet defined.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
- */
-function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || (typeof document !== 'undefined' ? document : undefined);
-  if (typeof doc === 'undefined') {
-    return null;
-  }
-  try {
-    return doc.activeElement || doc.body;
-  } catch (e) {
-    return doc.body;
-  }
-}
-
-module.exports = getActiveElement;
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- * @typechecks static-only
- */
-
-
-
-/**
- * Memoizes the return value of a function that accepts one string argument.
- */
-
-function memoizeStringOnly(callback) {
-  var cache = {};
-  return function (string) {
-    if (!cache.hasOwnProperty(string)) {
-      cache[string] = callback.call(this, string);
-    }
-    return cache[string];
-  };
-}
-
-module.exports = memoizeStringOnly;
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- * 
- */
-
-/*eslint-disable no-self-compare */
-
-
-
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-/**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
- */
-function is(x, y) {
-  // SameValue algorithm
-  if (x === y) {
-    // Steps 1-5, 7-10
-    // Steps 6.b-6.e: +0 != -0
-    // Added the nonzero y check to make Flow happy, but it is redundant
-    return x !== 0 || y !== 0 || 1 / x === 1 / y;
-  } else {
-    // Step 6.a: NaN == NaN
-    return x !== x && y !== y;
-  }
-}
-
-/**
- * Performs equality by iterating through keys on an object and returning false
- * when any key has values which are not strictly equal between the arguments.
- * Returns true when the values of all keys are strictly equal.
- */
-function shallowEqual(objA, objB) {
-  if (is(objA, objB)) {
-    return true;
-  }
-
-  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
-    return false;
-  }
-
-  var keysA = Object.keys(objA);
-  var keysB = Object.keys(objB);
-
-  if (keysA.length !== keysB.length) {
-    return false;
-  }
-
-  // Test for A's keys different from B.
-  for (var i = 0; i < keysA.length; i++) {
-    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-module.exports = shallowEqual;
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var randomByte = __webpack_require__(56);
-
-function encode(lookup, number) {
-    var loopCounter = 0;
-    var done;
-
-    var str = '';
-
-    while (!done) {
-        str = str + lookup( ( (number >> (4 * loopCounter)) & 0x0f ) | randomByte() );
-        done = number < (Math.pow(16, loopCounter + 1 ) );
-        loopCounter++;
-    }
-    return str;
-}
-
-module.exports = encode;
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Check if `obj` is an object.
- *
- * @param {Object} obj
- * @return {Boolean}
- * @api private
- */
-
-function isObject(obj) {
-  return null !== obj && 'object' === typeof obj;
-}
-
-module.exports = isObject;
-
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -2868,7 +2522,7 @@ module.exports =
 /* 3 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(1);
 
 	/***/
 },
@@ -2889,6 +2543,352 @@ module.exports =
 /******/);
 
 /***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+/**
+ * Simple, lightweight module assisting with the detection and context of
+ * Worker. Helps avoid circular dependencies and allows code to reason about
+ * whether or not they are in a Worker, even if they never include the main
+ * `ReactWorker` dependency.
+ */
+var ExecutionEnvironment = {
+
+  canUseDOM: canUseDOM,
+
+  canUseWorkers: typeof Worker !== 'undefined',
+
+  canUseEventListeners: canUseDOM && !!(window.addEventListener || window.attachEvent),
+
+  canUseViewport: canUseDOM && !!window.screen,
+
+  isInWorker: !canUseDOM // For now, this is true - might change in the future.
+
+};
+
+module.exports = ExecutionEnvironment;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+
+
+var camelize = __webpack_require__(36);
+
+var msPattern = /^-ms-/;
+
+/**
+ * Camelcases a hyphenated CSS property name, for example:
+ *
+ *   > camelizeStyleName('background-color')
+ *   < "backgroundColor"
+ *   > camelizeStyleName('-moz-transition')
+ *   < "MozTransition"
+ *   > camelizeStyleName('-ms-transition')
+ *   < "msTransition"
+ *
+ * As Andi Smith suggests
+ * (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
+ * is converted to lowercase `ms`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function camelizeStyleName(string) {
+  return camelize(string.replace(msPattern, 'ms-'));
+}
+
+module.exports = camelizeStyleName;
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+var isTextNode = __webpack_require__(39);
+
+/*eslint-disable no-bitwise */
+
+/**
+ * Checks if a given DOM node contains or is another DOM node.
+ */
+function containsNode(outerNode, innerNode) {
+  if (!outerNode || !innerNode) {
+    return false;
+  } else if (outerNode === innerNode) {
+    return true;
+  } else if (isTextNode(outerNode)) {
+    return false;
+  } else if (isTextNode(innerNode)) {
+    return containsNode(outerNode, innerNode.parentNode);
+  } else if ('contains' in outerNode) {
+    return outerNode.contains(innerNode);
+  } else if (outerNode.compareDocumentPosition) {
+    return !!(outerNode.compareDocumentPosition(innerNode) & 16);
+  } else {
+    return false;
+  }
+}
+
+module.exports = containsNode;
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+/* eslint-disable fb-www/typeof-undefined */
+
+/**
+ * Same as document.activeElement but wraps in a try-catch block. In IE it is
+ * not safe to call document.activeElement if there is nothing focused.
+ *
+ * The activeElement will be null only if the document or document body is not
+ * yet defined.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
+ */
+function getActiveElement(doc) /*?DOMElement*/{
+  doc = doc || (typeof document !== 'undefined' ? document : undefined);
+  if (typeof doc === 'undefined') {
+    return null;
+  }
+  try {
+    return doc.activeElement || doc.body;
+  } catch (e) {
+    return doc.body;
+  }
+}
+
+module.exports = getActiveElement;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ * @typechecks static-only
+ */
+
+
+
+/**
+ * Memoizes the return value of a function that accepts one string argument.
+ */
+
+function memoizeStringOnly(callback) {
+  var cache = {};
+  return function (string) {
+    if (!cache.hasOwnProperty(string)) {
+      cache[string] = callback.call(this, string);
+    }
+    return cache[string];
+  };
+}
+
+module.exports = memoizeStringOnly;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ * 
+ */
+
+/*eslint-disable no-self-compare */
+
+
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+/**
+ * inlined Object.is polyfill to avoid requiring consumers ship their own
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ */
+function is(x, y) {
+  // SameValue algorithm
+  if (x === y) {
+    // Steps 1-5, 7-10
+    // Steps 6.b-6.e: +0 != -0
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    // Step 6.a: NaN == NaN
+    return x !== x && y !== y;
+  }
+}
+
+/**
+ * Performs equality by iterating through keys on an object and returning false
+ * when any key has values which are not strictly equal between the arguments.
+ * Returns true when the values of all keys are strictly equal.
+ */
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  // Test for A's keys different from B.
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = shallowEqual;
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var randomByte = __webpack_require__(56);
+
+function encode(lookup, number) {
+    var loopCounter = 0;
+    var done;
+
+    var str = '';
+
+    while (!done) {
+        str = str + lookup( ( (number >> (4 * loopCounter)) & 0x0f ) | randomByte() );
+        done = number < (Math.pow(16, loopCounter + 1 ) );
+        loopCounter++;
+    }
+    return str;
+}
+
+module.exports = encode;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Check if `obj` is an object.
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isObject(obj) {
+  return null !== obj && 'object' === typeof obj;
+}
+
+module.exports = isObject;
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2903,7 +2903,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _dec, _desc, _value, _obj, _init, _init2, _init3, _init4;
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -2919,7 +2919,7 @@ var _reactRnd = __webpack_require__(49);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _rescopeSpells = __webpack_require__(29);
+var _rescopeSpells = __webpack_require__(30);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2954,7 +2954,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
     return desc;
 }
 
-exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someData", "!PostIt"]), (_obj = {
+exports.default = (_dec = (0, _rescopeSpells.asRootRenderer)(["!appState", "!someData", "!PostIt"]), (_obj = {
     Home: function Home(_ref, _ref2) {
         var someData = _ref.someData,
             appState = _ref.appState,
@@ -2963,48 +2963,34 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someDat
             $stores = _ref2.$stores,
             $store = _ref2.$store;
         return _react2.default.createElement(
-            "html",
-            { lang: "en" },
+            "div",
+            null,
             _react2.default.createElement(
-                "head",
+                "h1",
                 null,
-                _react2.default.createElement("meta", { charSet: "UTF-8" }),
-                _react2.default.createElement(
-                    "title",
-                    null,
-                    "Really basic drafty rescope + react component example"
-                )
+                "Really basic drafty rescope SSR example"
+            ),
+            ",",
+            someData.items.map(function (note) {
+                return _react2.default.createElement(PostIt, { key: note._id, record: note,
+                    onSelect: function onSelect(e) {
+                        return $actions.selectPostIt(note._id);
+                    },
+                    selected: note._id == appState.selectedPostItId });
+            }),
+            _react2.default.createElement(
+                "div",
+                {
+                    className: "newBtn button",
+                    onClick: $actions.newPostIt },
+                "Add Post It"
             ),
             _react2.default.createElement(
-                "body",
-                null,
-                _react2.default.createElement(
-                    "h1",
-                    null,
-                    "Really basic drafty rescope SSR example"
-                ),
-                ",",
-                someData.items.map(function (note) {
-                    return _react2.default.createElement(PostIt, { key: note._id, record: note,
-                        onSelect: function onSelect(e) {
-                            return $actions.selectPostIt(note._id);
-                        },
-                        selected: note._id == appState.selectedPostItId });
-                }),
-                _react2.default.createElement(
-                    "div",
-                    {
-                        className: "newBtn button",
-                        onClick: $actions.newPostIt },
-                    "Add Post It"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    {
-                        className: "saveBtn button",
-                        onClick: $actions.saveState },
-                    "Save state"
-                )
+                "div",
+                {
+                    className: "saveBtn button",
+                    onClick: $actions.saveState },
+                "Save state"
             )
         );
     },
@@ -3018,16 +3004,11 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someDat
             text = _ref3.text,
             size = _ref3.size,
             editing = _ref3.editing,
-            _ref3$doSave = _ref3.doSave,
-            doSave = _ref3$doSave === undefined ? function () {
-            return $actions.updatePostIt(_extends({}, record, {
-                size: size || record.size,
-                position: position
-            }));
-        } : _ref3$doSave;
+            doSave = _ref3.doSave;
         var $actions = _ref4.$actions,
             $stores = _ref4.$stores,
             $store = _ref4.$store;
+
         return _react2.default.createElement(
             _reactRnd2.default,
             {
@@ -3035,7 +3016,12 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someDat
                 z: selected ? 2000 : 1,
                 size: size || record.size,
                 position: position || record.position,
-                onDragStop: doSave,
+                onDragStop: doSave = function doSave() {
+                    return $actions.updatePostIt(_extends({}, record, {
+                        size: size || record.size,
+                        position: position
+                    }));
+                },
                 onResizeStop: doSave,
                 onDrag: function onDrag(e, d) {
                     !selected && onSelect(record);
@@ -3277,401 +3263,6 @@ if(false) {
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	__webpack_require__(2);
-	
-	__webpack_require__(4);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _rescope2.default.spells; /*
-	                                             * Copyright (c)  2018 Wise Wild Web .
-	                                             *
-	                                             *  MIT License
-	                                             *
-	                                             *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                             *  of this software and associated documentation files (the "Software"), to deal
-	                                             *  in the Software without restriction, including without limitation the rights
-	                                             *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                             *  copies of the Software, and to permit persons to whom the Software is
-	                                             *  furnished to do so, subject to the following conditions:
-	                                             *
-	                                             *  The above copyright notice and this permission notice shall be included in all
-	                                             *  copies or substantial portions of the Software.
-	                                             *
-	                                             *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                             *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                             *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                             *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                             *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                             *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                             *  SOFTWARE.
-	                                             *
-	                                             * @author : Nathanael Braun
-	                                             * @contact : caipilabs@gmail.com
-	                                             */
-
-	module.exports = exports["default"];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(10);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// will use as external the index in dist
-	
-	/*
-	 * Copyright (c)  2018 Wise Wild Web .
-	 *
-	 *  MIT License
-	 *
-	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	 *  of this software and associated documentation files (the "Software"), to deal
-	 *  in the Software without restriction, including without limitation the rights
-	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 *  copies of the Software, and to permit persons to whom the Software is
-	 *  furnished to do so, subject to the following conditions:
-	 *
-	 *  The above copyright notice and this permission notice shall be included in all
-	 *  copies or substantial portions of the Software.
-	 *
-	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	 *  SOFTWARE.
-	 *
-	 * @author : Nathanael Braun
-	 * @contact : caipilabs@gmail.com
-	 */
-	var SimpleObjectProto = {}.constructor;
-	_rescope2.default.spells = {};
-	
-	var castTypesToAppliable = {};
-	var castTypes = {};
-	
-	_rescope2.default.isSpell = function caster() {
-	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-	        argz[_key] = arguments[_key];
-	    }
-	
-	    // are we decorating a member / without argz
-	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	        argz[2].value = addCaster(argz[0][argz[1]], argz);
-	        return argz[0];
-	    } else if (!_is2.default.fn(argz[0])) {
-	        return function () {
-	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                argz2[_key2] = arguments[_key2];
-	            }
-	
-	            // are we decorating a member / with argz
-	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-	                return argz2[0];
-	            } else return caster.apply(undefined, [argz2[0]].concat(argz));
-	        };
-	    }
-	    return addCaster.apply(undefined, argz);
-	};
-	
-	function addCaster() {
-	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	        argz[_key3] = arguments[_key3];
-	    }
-	
-	    var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-	    if (!cast) throw "ReScope cast : bad decorator function";
-	    var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-	        test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-	        prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-	        memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-	        casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
-	
-	    if (!castTypesToAppliable[typeName]) {
-	        castTypesToAppliable[typeName] = [];
-	
-	        _rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-	            for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                argz[_key4] = arguments[_key4];
-	            }
-	
-	            // are we decorating a member / without argz
-	            if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	                argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-	                return argz[0];
-	            } else if (!isCastableType(typeName, argz[0])) {
-	                return function () {
-	                    for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	                        argz2[_key5] = arguments[_key5];
-	                    }
-	
-	                    // are we decorating a member / with argz
-	                    if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                        argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-	                        return argz2[0];
-	                    } else return doCast.apply(undefined, [argz2[0]].concat(argz));
-	                };
-	            }
-	            return applyCastableType(typeName, argz[0], argz.slice(1));
-	        };
-	    }
-	    castTypesToAppliable[typeName].unshift({
-	        typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-	    });
-	    return cast;
-	}
-	
-	function isCastableType(typeName, Comp, member, stateScope) {
-	    var castable = castTypesToAppliable[typeName];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-	    }return false;
-	}
-	
-	function applyCastableType(typeName, Comp, argz, member, stateScope) {
-	
-	    var castable = castTypesToAppliable[typeName] || [];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-	    }console.warn("reScope cast : Unknown type", typeName, Comp);
-	    return false;
-	}
-	
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(7);
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _dec, _dec2, _desc, _value, _obj; /*
-	                                       * Copyright (c)  2018 Wise Wild Web .
-	                                       *
-	                                       *  MIT License
-	                                       *
-	                                       *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                       *  of this software and associated documentation files (the "Software"), to deal
-	                                       *  in the Software without restriction, including without limitation the rights
-	                                       *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                       *  copies of the Software, and to permit persons to whom the Software is
-	                                       *  furnished to do so, subject to the following conditions:
-	                                       *
-	                                       *  The above copyright notice and this permission notice shall be included in all
-	                                       *  copies or substantial portions of the Software.
-	                                       *
-	                                       *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                       *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                       *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                       *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                       *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                       *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                       *  SOFTWARE.
-	                                       *
-	                                       * @author : Nathanael Braun
-	                                       * @contact : caipilabs@gmail.com
-	                                       */
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	var _rescope = __webpack_require__(1);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-	    var desc = {};
-	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
-	        desc[key] = descriptor[key];
-	    });
-	    desc.enumerable = !!desc.enumerable;
-	    desc.configurable = !!desc.configurable;
-	
-	    if ('value' in desc || desc.initializer) {
-	        desc.writable = true;
-	    }
-	
-	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-	        return decorator(target, property, desc) || desc;
-	    }, desc);
-	
-	    if (context && desc.initializer !== void 0) {
-	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-	        desc.initializer = undefined;
-	    }
-	
-	    if (desc.initializer === void 0) {
-	        Object['define' + 'Property'](target, property, desc);
-	        desc = null;
-	    }
-	
-	    return desc;
-	}
-	
-	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
-	    return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
-	    return _is2.default.object(v);
-	}), (_obj = {
-	    stateMap: function stateMap(obj, _ref, ref) {
-	        var _class, _temp;
-	
-	        var cfg = _ref[0];
-	
-	        var use = [],
-	            state = {},
-	            actions = {};
-	        _rescope.Scope.stateMapToRefList(obj, state, use, actions);
-	        return _temp = _class = function (_Store) {
-	            _inherits(StateMap, _Store);
-	
-	            function StateMap() {
-	                _classCallCheck(this, StateMap);
-	
-	                return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-	            }
-	
-	            return StateMap;
-	        }(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
-	    },
-	    scope: function scope(obj, _ref2, ref) {
-	        var cfg = _ref2[0];
-	
-	
-	        return _rescope.Scope.bind(null, obj, cfg);
-	    }
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
-	module.exports = exports["default"];
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=rescopeSpells.js.map
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
@@ -3706,13 +3297,15 @@ var _class, _temp; /*
                     * @contact : caipilabs@gmail.com
                     */
 
-__webpack_require__(24);
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
 
 var _AppScope = __webpack_require__(25);
 
 var _AppScope2 = _interopRequireDefault(_AppScope);
 
-var _rescope = __webpack_require__(10);
+var _reactRescope = __webpack_require__(15);
 
 var _server = __webpack_require__(27);
 
@@ -3728,12 +3321,12 @@ var ReactDom = __webpack_require__(11);
 var App = (_temp = _class = function App() {
     _classCallCheck(this, App);
 }, _class.renderTo = function (node) {
-    var cScope = new _rescope.Scope(_AppScope2.default, { id: "App" });
+    var cScope = new _reactRescope.Scope(_AppScope2.default, { id: "App" });
     window.__scopesState && cScope.restore(window.__scopesState);
     cScope.mount(["Home"]).then(function (_ref) {
         var Home = _ref.Home;
 
-        ReactDom.render(React.createElement(Home, null), node);
+        ReactDom.render(Home, node);
     });
 }, _class.renderSSR = function (cfg, cb) {
     //let cScope = new Scope(AppScope, { id: "App" });
@@ -3762,6 +3355,580 @@ if (typeof window != 'undefined') {
 }
 exports.default = App;
 module.exports = exports["default"];
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/function (modules) {
+	// webpackBootstrap
+	/******/ // The module cache
+	/******/var installedModules = {};
+	/******/
+	/******/ // The require function
+	/******/function __webpack_require__(moduleId) {
+		/******/
+		/******/ // Check if module is in cache
+		/******/if (installedModules[moduleId])
+			/******/return installedModules[moduleId].exports;
+		/******/
+		/******/ // Create a new module (and put it into the cache)
+		/******/var module = installedModules[moduleId] = {
+			/******/exports: {},
+			/******/id: moduleId,
+			/******/loaded: false
+			/******/ };
+		/******/
+		/******/ // Execute the module function
+		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+		/******/
+		/******/ // Flag the module as loaded
+		/******/module.loaded = true;
+		/******/
+		/******/ // Return the exports of the module
+		/******/return module.exports;
+		/******/
+	}
+	/******/
+	/******/
+	/******/ // expose the modules object (__webpack_modules__)
+	/******/__webpack_require__.m = modules;
+	/******/
+	/******/ // expose the module cache
+	/******/__webpack_require__.c = installedModules;
+	/******/
+	/******/ // __webpack_public_path__
+	/******/__webpack_require__.p = "/";
+	/******/
+	/******/ // Load entry module and return exports
+	/******/return __webpack_require__(0);
+	/******/
+}(
+/************************************************************************/
+/******/[
+/* 0 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	__webpack_require__(2);
+
+	__webpack_require__(4);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	exports.default = _rescope2.default.spells; /*
+                                              * Copyright (c)  2018 Wise Wild Web .
+                                              *
+                                              *  MIT License
+                                              *
+                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                              *  of this software and associated documentation files (the "Software"), to deal
+                                              *  in the Software without restriction, including without limitation the rights
+                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                              *  copies of the Software, and to permit persons to whom the Software is
+                                              *  furnished to do so, subject to the following conditions:
+                                              *
+                                              *  The above copyright notice and this permission notice shall be included in all
+                                              *  copies or substantial portions of the Software.
+                                              *
+                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                              *  SOFTWARE.
+                                              *
+                                              * @author : Nathanael Braun
+                                              * @contact : caipilabs@gmail.com
+                                              */
+
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 1 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(10);
+
+	/***/
+},
+/* 2 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	// will use as external the index in dist
+
+	/*
+  * Copyright (c)  2018 Wise Wild Web .
+  *
+  *  MIT License
+  *
+  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+  *  of this software and associated documentation files (the "Software"), to deal
+  *  in the Software without restriction, including without limitation the rights
+  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  *  copies of the Software, and to permit persons to whom the Software is
+  *  furnished to do so, subject to the following conditions:
+  *
+  *  The above copyright notice and this permission notice shall be included in all
+  *  copies or substantial portions of the Software.
+  *
+  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  *  SOFTWARE.
+  *
+  * @author : Nathanael Braun
+  * @contact : caipilabs@gmail.com
+  */
+	var SimpleObjectProto = {}.constructor;
+	_rescope2.default.spells = {};
+
+	var castTypesToAppliable = {};
+	var castTypes = {};
+
+	_rescope2.default.isSpell = function caster() {
+		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+			argz[_key] = arguments[_key];
+		}
+
+		// are we decorating a member / without argz
+		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+			argz[2].value = addCaster(argz[0][argz[1]], argz);
+			return argz[0];
+		} else if (!_is2.default.fn(argz[0])) {
+			return function () {
+				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+					argz2[_key2] = arguments[_key2];
+				}
+
+				// are we decorating a member / with argz
+				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+					return argz2[0];
+				} else return caster.apply(undefined, [argz2[0]].concat(argz));
+			};
+		}
+		return addCaster.apply(undefined, argz);
+	};
+
+	function addCaster() {
+		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			argz[_key3] = arguments[_key3];
+		}
+
+		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+		if (!cast) throw "ReScope cast : bad decorator function";
+		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+
+		if (!castTypesToAppliable[typeName]) {
+			castTypesToAppliable[typeName] = [];
+
+			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+					argz[_key4] = arguments[_key4];
+				}
+
+				// are we decorating a member / without argz
+				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+					return argz[0];
+				} else if (!isCastableType(typeName, argz[0])) {
+					return function () {
+						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+							argz2[_key5] = arguments[_key5];
+						}
+
+						// are we decorating a member / with argz
+						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+							return argz2[0];
+						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
+					};
+				}
+				return applyCastableType(typeName, argz[0], argz.slice(1));
+			};
+		}
+		castTypesToAppliable[typeName].unshift({
+			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+		});
+		return cast;
+	}
+
+	function isCastableType(typeName, Comp, member, stateScope) {
+		var castable = castTypesToAppliable[typeName];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+		}return false;
+	}
+
+	function applyCastableType(typeName, Comp, argz, member, stateScope) {
+
+		var castable = castTypesToAppliable[typeName] || [];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+		}console.warn("reScope cast : Unknown type", typeName, Comp);
+		return false;
+	}
+
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 3 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(7);
+
+	/***/
+},
+/* 4 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) {
+		for (var i = 1; i < arguments.length; i++) {
+			var source = arguments[i];for (var key in source) {
+				if (Object.prototype.hasOwnProperty.call(source, key)) {
+					target[key] = source[key];
+				}
+			}
+		}return target;
+	};
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
+
+	var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _dec7, _desc, _value, _obj; /*
+                                                                                   * Copyright (c)  2018 Wise Wild Web .
+                                                                                   *
+                                                                                   *  MIT License
+                                                                                   *
+                                                                                   *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                   *  of this software and associated documentation files (the "Software"), to deal
+                                                                                   *  in the Software without restriction, including without limitation the rights
+                                                                                   *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                   *  copies of the Software, and to permit persons to whom the Software is
+                                                                                   *  furnished to do so, subject to the following conditions:
+                                                                                   *
+                                                                                   *  The above copyright notice and this permission notice shall be included in all
+                                                                                   *  copies or substantial portions of the Software.
+                                                                                   *
+                                                                                   *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                   *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                   *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                   *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                   *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                   *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                                                                   *  SOFTWARE.
+                                                                                   *
+                                                                                   * @author : Nathanael Braun
+                                                                                   * @contact : caipilabs@gmail.com
+                                                                                   */
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	var _reactRescope = __webpack_require__(6);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+		var desc = {};
+		Object['ke' + 'ys'](descriptor).forEach(function (key) {
+			desc[key] = descriptor[key];
+		});
+		desc.enumerable = !!desc.enumerable;
+		desc.configurable = !!desc.configurable;
+
+		if ('value' in desc || desc.initializer) {
+			desc.writable = true;
+		}
+
+		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+			return decorator(target, property, desc) || desc;
+		}, desc);
+
+		if (context && desc.initializer !== void 0) {
+			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+			desc.initializer = undefined;
+		}
+
+		if (desc.initializer === void 0) {
+			Object['define' + 'Property'](target, property, desc);
+			desc = null;
+		}
+
+		return desc;
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var RSComp = (_dec = (0, _reactRescope.propsToScope)(['props']), _dec2 = (0, _reactRescope.scopeToProps)(['props']), _dec(_class = _dec2(_class = function (_Component) {
+		_inherits(RSComp, _Component);
+
+		function RSComp() {
+			_classCallCheck(this, RSComp);
+
+			return _possibleConstructorReturn(this, (RSComp.__proto__ || Object.getPrototypeOf(RSComp)).apply(this, arguments));
+		}
+
+		_createClass(RSComp, [{
+			key: "render",
+			value: function render() {
+				return this.props.children || [];
+			}
+		}]);
+
+		return RSComp;
+	}(_reactRescope.Component)) || _class) || _class);
+	exports.default = (_dec3 = (0, _reactRescope.isSpell)("stateMap", function (v) {
+		return _is2.default.object(v) || _is2.default.string(v);
+	}), _dec4 = (0, _reactRescope.isSpell)("scope", function (v) {
+		return _is2.default.object(v);
+	}), _dec5 = (0, _reactRescope.isSpell)("renderer", function (v) {
+		return _is2.default.fn(v);
+	}), _dec6 = (0, _reactRescope.isSpell)("rootRenderer", function (v) {
+		return _is2.default.fn(v);
+	}), _dec7 = (0, _reactRescope.isSpell)("store", function (v) {
+		return _is2.default.fn(v);
+	}), (_obj = {
+		stateMap: function stateMap(obj, _ref, ref) {
+			var _class2, _temp;
+
+			var cfg = _ref[0];
+
+			var use = [],
+			    state = {},
+			    actions = {};
+			_reactRescope.Scope.stateMapToRefList(obj, state, use, actions);
+			return _temp = _class2 = function (_Store) {
+				_inherits(StateMap, _Store);
+
+				function StateMap() {
+					_classCallCheck(this, StateMap);
+
+					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
+				}
+
+				return StateMap;
+			}(_reactRescope.Store), _class2.displayName = ref[1], _class2.use = use, _class2.state = state, _class2.actions = actions, _temp;
+		},
+		scope: function scope(obj, _ref2, ref) {
+			var cfg = _ref2[0];
+
+			return _reactRescope.Scope.bind(null, obj, cfg);
+		},
+		renderer: function renderer(obj, argz, ref) {
+			var _class3, _temp2;
+
+			var use = void 0,
+			    state = void 0,
+			    actions = void 0;
+			if (!argz[0]) {
+				state = {};
+				//argz[ 0 ] = []
+			} else if (_is2.default.array(argz[0])) {
+				use = argz[0];
+				state = !use.length && {};
+			} else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
+
+			//!use.includes('props') && use.push('props');
+			return _temp2 = _class3 = function (_Store2) {
+				_inherits(RSRenderer, _Store2);
+
+				function RSRenderer() {
+					_classCallCheck(this, RSRenderer);
+
+					return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+				}
+
+				_createClass(RSRenderer, [{
+					key: "apply",
+					value: function apply(d, s, c) {
+						var _this4 = this;
+
+						return function (props) {
+							return _react2.default.createElement(RSComp, { __scope: _this4.$scope, props: props }, obj(_extends({}, s, { props: props }), {
+								$actions: _this4.$actions,
+								$stores: _this4.$stores,
+								$store: _this4
+							}));
+						};
+					}
+				}]);
+
+				return RSRenderer;
+			}(_reactRescope.Store), _class3.displayName = ref[1], _class3.use = use, _class3.state = state, _class3.actions = actions, _temp2;
+		},
+		rootRenderer: function rootRenderer(obj, argz, ref) {
+			var _class4, _temp3;
+
+			var use = void 0,
+			    state = void 0,
+			    actions = void 0;
+			if (!argz[0]) {
+				state = {};
+				//argz[ 0 ] = []
+			} else if (_is2.default.array(argz[0])) {
+				use = argz[0];
+				state = !use.length && {};
+			} else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
+
+			//!use.includes('props') && use.push('props');
+			return _temp3 = _class4 = function (_Store3) {
+				_inherits(RSRenderer, _Store3);
+
+				function RSRenderer() {
+					_classCallCheck(this, RSRenderer);
+
+					return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+				}
+
+				_createClass(RSRenderer, [{
+					key: "apply",
+					value: function apply(d, s, c) {
+						return _react2.default.createElement(RSComp, { __scope: this.$scope }, obj(s, {
+							$actions: this.$actions,
+							$stores: this.$stores,
+							$store: this
+						}));
+					}
+				}]);
+
+				return RSRenderer;
+			}(_reactRescope.Store), _class4.displayName = ref[1], _class4.use = use, _class4.state = state, _class4.actions = actions, _temp3;
+		},
+		store: function store(obj, _ref3, ref) {
+			var cfg = _ref3[0];
+
+			return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
+					return obj(d, s, c);
+				} }));
+		}
+	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec3], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _applyDecoratedDescriptor(_obj, "renderer", [_dec5], Object.getOwnPropertyDescriptor(_obj, "renderer"), _obj), _applyDecoratedDescriptor(_obj, "rootRenderer", [_dec6], Object.getOwnPropertyDescriptor(_obj, "rootRenderer"), _obj), _applyDecoratedDescriptor(_obj, "store", [_dec7], Object.getOwnPropertyDescriptor(_obj, "store"), _obj)), _obj));
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 5 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(1);
+
+	/***/
+},
+/* 6 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(15);
+
+	/***/
+}]
+/******/);
+//# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
 /* 31 */
@@ -6689,7 +6856,7 @@ module.exports =
 }]
 /******/);
 //# sourceMappingURL=ReScope.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24), __webpack_require__(0)))
 
 /***/ }),
 /* 32 */
@@ -7390,7 +7557,7 @@ module.exports = function (t) {
       l = (i(c), {}.constructor),
       _ = [];e.addScopableType = n, e.reScope = h, e.scopeToState = u;
 }]);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24), __webpack_require__(0)))
 
 /***/ }),
 /* 33 */
@@ -7798,7 +7965,7 @@ module.exports = isTextNode;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(3);
 var ReactPropTypesSecret = __webpack_require__(13);
 
@@ -7863,7 +8030,7 @@ module.exports = function() {
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(3);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(4);
@@ -8439,7 +8606,7 @@ if (process.env.NODE_ENV !== 'production') {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
@@ -9180,14 +9347,14 @@ if (process.env.NODE_ENV !== "production") {
 
 var invariant = __webpack_require__(3);
 var _assign = __webpack_require__(4);
-var React = __webpack_require__(2);
-var emptyFunction = __webpack_require__(1);
+var React = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var emptyObject = __webpack_require__(5);
 var hyphenateStyleName = __webpack_require__(12);
-var memoizeStringOnly = __webpack_require__(19);
+var memoizeStringOnly = __webpack_require__(20);
 var warning = __webpack_require__(6);
 var checkPropTypes = __webpack_require__(8);
-var camelizeStyleName = __webpack_require__(16);
+var camelizeStyleName = __webpack_require__(17);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -11900,7 +12067,7 @@ module.exports = server_browser;
  * LICENSE file in the root directory of this source tree.
  */
 
-var p=__webpack_require__(3),q=__webpack_require__(4),t=__webpack_require__(2),w=__webpack_require__(1),x=__webpack_require__(5),y=__webpack_require__(12),z=__webpack_require__(19);
+var p=__webpack_require__(3),q=__webpack_require__(4),t=__webpack_require__(1),w=__webpack_require__(2),x=__webpack_require__(5),y=__webpack_require__(12),z=__webpack_require__(20);
 function A(a){for(var b=arguments.length-1,d="http://reactjs.org/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);p(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",d)}
 var C="function"===typeof Symbol&&Symbol["for"],aa=C?Symbol["for"]("react.call"):60104,ba=C?Symbol["for"]("react.return"):60105,ca=C?Symbol["for"]("react.portal"):60106,E=C?Symbol["for"]("react.fragment"):60107,da=C?Symbol["for"]("react.strict_mode"):60108,F=C?Symbol["for"]("react.provider"):60109,ea=C?Symbol["for"]("react.context"):60110,fa=C?Symbol["for"]("react.async_mode"):60111,ha=C?Symbol["for"]("react.forward_ref"):60112,ia=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,
 G={},H={};function ja(a){if(H.hasOwnProperty(a))return!0;if(G.hasOwnProperty(a))return!1;if(ia.test(a))return H[a]=!0;G[a]=!0;return!1}function ka(a,b,d,c){if(null!==d&&0===d.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(c)return!1;if(null!==d)return!d.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -11957,18 +12124,18 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var invariant = __webpack_require__(3);
-var React = __webpack_require__(2);
+var React = __webpack_require__(1);
 var warning = __webpack_require__(6);
-var ExecutionEnvironment = __webpack_require__(15);
+var ExecutionEnvironment = __webpack_require__(16);
 var _assign = __webpack_require__(4);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(8);
-var getActiveElement = __webpack_require__(18);
-var shallowEqual = __webpack_require__(20);
-var containsNode = __webpack_require__(17);
+var getActiveElement = __webpack_require__(19);
+var shallowEqual = __webpack_require__(21);
+var containsNode = __webpack_require__(18);
 var emptyObject = __webpack_require__(5);
 var hyphenateStyleName = __webpack_require__(12);
-var camelizeStyleName = __webpack_require__(16);
+var camelizeStyleName = __webpack_require__(17);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -28613,7 +28780,7 @@ module.exports = reactDom;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var ba=__webpack_require__(3),ea=__webpack_require__(2),m=__webpack_require__(15),A=__webpack_require__(4),C=__webpack_require__(1),fa=__webpack_require__(18),ha=__webpack_require__(20),ja=__webpack_require__(17),ka=__webpack_require__(5);
+var ba=__webpack_require__(3),ea=__webpack_require__(1),m=__webpack_require__(16),A=__webpack_require__(4),C=__webpack_require__(2),fa=__webpack_require__(19),ha=__webpack_require__(21),ja=__webpack_require__(18),ka=__webpack_require__(5);
 function D(a){for(var b=arguments.length-1,c="http://reactjs.org/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);ba(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",c)}ea?void 0:D("227");
 function ma(a,b,c,d,e,f,h,g,k){this._hasCaughtError=!1;this._caughtError=null;var v=Array.prototype.slice.call(arguments,3);try{b.apply(c,v)}catch(l){this._caughtError=l,this._hasCaughtError=!0}}
 var E={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,h,g,k){ma.apply(E,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,h,g,k){E.invokeGuardedCallback.apply(this,arguments);if(E.hasCaughtError()){var v=E.clearCaughtError();E._hasRethrowError||(E._hasRethrowError=!0,E._rethrowError=v)}},rethrowCaughtError:function(){return na.apply(E,arguments)},hasCaughtError:function(){return E._hasCaughtError},clearCaughtError:function(){if(E._hasCaughtError){var a=
@@ -28855,7 +29022,7 @@ X.injectIntoDevTools({findFiberByHostInstance:Ua,bundleType:0,version:"16.3.2",r
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(11), __webpack_require__(2));
+		module.exports = factory(__webpack_require__(11), __webpack_require__(1));
 	else if(typeof define === 'function' && define.amd)
 		define(["react-dom", "react"], factory);
 	else if(typeof exports === 'object')
@@ -31606,7 +31773,7 @@ process.umask = function() { return 0; };
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
@@ -32043,7 +32210,7 @@ var _assign = __webpack_require__(4);
 var emptyObject = __webpack_require__(5);
 var invariant = __webpack_require__(3);
 var warning = __webpack_require__(6);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(8);
 
 // TODO: this is special because it gets imported during build.
@@ -33396,7 +33563,7 @@ module.exports = react;
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(4),n=__webpack_require__(5),p=__webpack_require__(1),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(4),n=__webpack_require__(5),p=__webpack_require__(2),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -33417,7 +33584,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 "use strict";
 
 
-var encode = __webpack_require__(21);
+var encode = __webpack_require__(22);
 var alphabet = __webpack_require__(9);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
@@ -33497,7 +33664,7 @@ module.exports = decode;
 
 
 var alphabet = __webpack_require__(9);
-var encode = __webpack_require__(21);
+var encode = __webpack_require__(22);
 var decode = __webpack_require__(53);
 var build = __webpack_require__(52);
 var isValid = __webpack_require__(55);
@@ -34173,7 +34340,7 @@ if (typeof window !== 'undefined') { // Browser window
 
 var Emitter = __webpack_require__(33);
 var RequestBase = __webpack_require__(63);
-var isObject = __webpack_require__(22);
+var isObject = __webpack_require__(23);
 var ResponseBase = __webpack_require__(64);
 var Agent = __webpack_require__(61);
 
@@ -35089,7 +35256,7 @@ request.put = function(url, data, fn) {
 /**
  * Module of mixed-in functions shared between node and client code
  */
-var isObject = __webpack_require__(22);
+var isObject = __webpack_require__(23);
 
 /**
  * Expose `RequestBase`.

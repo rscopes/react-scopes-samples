@@ -87,7 +87,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 156);
+/******/ 	return __webpack_require__(__webpack_require__.s = 155);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -350,7 +350,7 @@ var PrivateKey = __webpack_require__(6);
 var Key = __webpack_require__(4);
 var crypto = __webpack_require__(1);
 var algs = __webpack_require__(5);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 
 var ec, jsbn;
 var nacl;
@@ -733,7 +733,7 @@ var PrivateKey = __webpack_require__(6);
 var edCompat;
 
 try {
-	edCompat = __webpack_require__(98);
+	edCompat = __webpack_require__(99);
 } catch (e) {
 	/* Just continue through, and bail out if we try to use it. */
 }
@@ -742,12 +742,12 @@ var InvalidAlgorithmError = errs.InvalidAlgorithmError;
 var KeyParseError = errs.KeyParseError;
 
 var formats = {};
-formats['auto'] = __webpack_require__(99);
+formats['auto'] = __webpack_require__(100);
 formats['pem'] = __webpack_require__(17);
 formats['pkcs1'] = __webpack_require__(56);
 formats['pkcs8'] = __webpack_require__(27);
 formats['rfc4253'] = __webpack_require__(20);
-formats['ssh'] = __webpack_require__(100);
+formats['ssh'] = __webpack_require__(101);
 formats['ssh-private'] = __webpack_require__(39);
 formats['openssh'] = formats['ssh-private'];
 formats['dnssec'] = __webpack_require__(55);
@@ -1189,7 +1189,7 @@ var edCompat;
 var nacl;
 
 try {
-	edCompat = __webpack_require__(98);
+	edCompat = __webpack_require__(99);
 } catch (e) {
 	/* Just continue through, and bail out if we try to use it. */
 }
@@ -1201,7 +1201,7 @@ var KeyParseError = errs.KeyParseError;
 var KeyEncryptedError = errs.KeyEncryptedError;
 
 var formats = {};
-formats['auto'] = __webpack_require__(99);
+formats['auto'] = __webpack_require__(100);
 formats['pem'] = __webpack_require__(17);
 formats['pkcs1'] = __webpack_require__(56);
 formats['pkcs8'] = __webpack_require__(27);
@@ -1434,12 +1434,26 @@ module.exports = require("url");
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(225);
+} else {
+  module.exports = __webpack_require__(224);
+}
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
 
 // If you have no idea what ASN.1 or BER is, see this:
 // ftp://ftp.rsa.com/pub/pkcs/ascii/layman.asc
 
-var Ber = __webpack_require__(146);
+var Ber = __webpack_require__(145);
 
 
 
@@ -1457,7 +1471,7 @@ module.exports = {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1497,20 +1511,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(226);
-} else {
-  module.exports = __webpack_require__(225);
-}
-
 
 /***/ }),
 /* 11 */
@@ -1615,7 +1615,7 @@ var algs = __webpack_require__(5);
 var crypto = __webpack_require__(1);
 var errs = __webpack_require__(11);
 var utils = __webpack_require__(3);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 var SSHBuffer = __webpack_require__(29);
 
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
@@ -5755,7 +5755,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(0);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 var crypto = __webpack_require__(1);
 var algs = __webpack_require__(5);
 var utils = __webpack_require__(3);
@@ -5956,7 +5956,7 @@ module.exports = {
   toHash: toHash,
   getProperty: getProperty,
   escapeQuotes: escapeQuotes,
-  ucs2length: __webpack_require__(124),
+  ucs2length: __webpack_require__(123),
   varOccurences: varOccurences,
   varReplace: varReplace,
   cleanUpCode: cleanUpCode,
@@ -7077,7 +7077,7 @@ module.exports = exports
 
 
 
-var emptyFunction = __webpack_require__(9);
+var emptyFunction = __webpack_require__(10);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -7219,9 +7219,9 @@ var PrivateKey = __webpack_require__(6);
 var Identity = __webpack_require__(28);
 
 var formats = {};
-formats['openssh'] = __webpack_require__(244);
-formats['x509'] = __webpack_require__(101);
-formats['pem'] = __webpack_require__(245);
+formats['openssh'] = __webpack_require__(243);
+formats['x509'] = __webpack_require__(102);
+formats['pem'] = __webpack_require__(244);
 
 var CertificateParseError = errs.CertificateParseError;
 var InvalidAlgorithmError = errs.InvalidAlgorithmError;
@@ -7765,7 +7765,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(0);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 var algs = __webpack_require__(5);
 var utils = __webpack_require__(3);
 var Key = __webpack_require__(4);
@@ -8386,7 +8386,7 @@ var Signature = __webpack_require__(12);
 var errs = __webpack_require__(11);
 var util = __webpack_require__(2);
 var utils = __webpack_require__(3);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 
 /*JSSTYLED*/
 var DNS_NAME_RE = /^([*]|[a-z0-9][a-z0-9\-]{0,62})(?:\.([*]|[a-z0-9][a-z0-9\-]{0,62}))*$/i;
@@ -9279,7 +9279,7 @@ exports.badImplementation = function (message, data) {
 
 // Load modules
 
-const Sntp = __webpack_require__(97);
+const Sntp = __webpack_require__(98);
 const Boom = __webpack_require__(32);
 
 
@@ -9290,7 +9290,7 @@ const internals = {};
 
 exports.version = function () {
 
-    return __webpack_require__(200).version;
+    return __webpack_require__(199).version;
 };
 
 
@@ -9475,7 +9475,7 @@ exports.unauthorized = function (message, attributes) {
 const Crypto = __webpack_require__(1);
 const Path = __webpack_require__(60);
 const Util = __webpack_require__(2);
-const Escape = __webpack_require__(174);
+const Escape = __webpack_require__(173);
 
 
 // Declare internals
@@ -11446,7 +11446,7 @@ module.exports = checkPropTypes;
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(242);
+var randomFromSeed = __webpack_require__(241);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -11557,7 +11557,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(0);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 var algs = __webpack_require__(5);
 var utils = __webpack_require__(3);
 var crypto = __webpack_require__(1);
@@ -11616,7 +11616,7 @@ function readSSHPrivate(type, buf, options) {
 		var rounds = kdfOptsBuf.readInt();
 		var cinf = utils.opensshCipherInfo(cipher);
 		if (bcrypt === undefined) {
-			bcrypt = __webpack_require__(78);
+			bcrypt = __webpack_require__(79);
 		}
 
 		if (typeof (options.passphrase) === 'string') {
@@ -11737,7 +11737,7 @@ function write(key, options) {
 		kdfopts = kdfssh.toBuffer();
 
 		if (bcrypt === undefined) {
-			bcrypt = __webpack_require__(78);
+			bcrypt = __webpack_require__(79);
 		}
 		var pass = new Uint8Array(passphrase);
 		var salti = new Uint8Array(salt);
@@ -11862,9 +11862,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(221);
-} else {
   module.exports = __webpack_require__(220);
+} else {
+  module.exports = __webpack_require__(219);
 }
 
 
@@ -12126,7 +12126,7 @@ module.exports = function extend() {
 
 
 
-var hyphenate = __webpack_require__(162);
+var hyphenate = __webpack_require__(161);
 
 var msPattern = /^ms-/;
 
@@ -12291,7 +12291,7 @@ exports.timestampMessage = function (credentials, localtimeOffsetMsec) {
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(205);
+var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(204);
 
 module.exports = function (obj, opts) {
     if (!opts) opts = {};
@@ -12403,7 +12403,7 @@ module.exports = ReactPropTypesSecret;
 "use strict";
 
 
-var jsonSafeStringify = __webpack_require__(204)
+var jsonSafeStringify = __webpack_require__(203)
 var crypto = __webpack_require__(1)
 var Buffer = __webpack_require__(24).Buffer
 
@@ -12475,7 +12475,7 @@ exports.defer = defer
 
 "use strict";
 
-module.exports = __webpack_require__(239);
+module.exports = __webpack_require__(238);
 
 
 /***/ }),
@@ -12527,7 +12527,7 @@ function DiffieHellman(key) {
 	} else if (key.type === 'ecdsa') {
 		if (!CRYPTO_HAVE_ECDH) {
 			if (ecdh === undefined)
-				ecdh = __webpack_require__(82);
+				ecdh = __webpack_require__(83);
 			if (ec === undefined)
 				ec = __webpack_require__(22);
 			if (jsbn === undefined)
@@ -12858,7 +12858,7 @@ function generateECDSA(curve) {
 		return (key);
 	} else {
 		if (ecdh === undefined)
-			ecdh = __webpack_require__(82);
+			ecdh = __webpack_require__(83);
 		if (ec === undefined)
 			ec = __webpack_require__(22);
 		if (jsbn === undefined)
@@ -13203,7 +13203,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(0);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 var algs = __webpack_require__(5);
 var utils = __webpack_require__(3);
 
@@ -13620,8 +13620,8 @@ module.exports = {
 /* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var v1 = __webpack_require__(250);
-var v4 = __webpack_require__(251);
+var v1 = __webpack_require__(249);
+var v4 = __webpack_require__(250);
 
 var uuid = v4;
 uuid.v1 = v1;
@@ -13644,5722 +13644,6 @@ module.exports = require("path");
 
 /***/ }),
 /* 61 */
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 61;
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = {
-  setup: setupAsync,
-  compile: compileAsync
-};
-
-
-var util = __webpack_require__(18);
-
-var ASYNC = {
-  '*': checkGenerators,
-  'co*': checkGenerators,
-  'es7': checkAsyncFunction
-};
-
-var TRANSPILE = {
-  'nodent': getNodent,
-  'regenerator': getRegenerator
-};
-
-var MODES = [
-  { async: 'co*' },
-  { async: 'es7', transpile: 'nodent' },
-  { async: 'co*', transpile: 'regenerator' }
-];
-
-
-var regenerator, nodent;
-
-
-function setupAsync(opts, required) {
-  if (required !== false) required = true;
-  var async = opts.async
-    , transpile = opts.transpile
-    , check;
-
-  switch (typeof transpile) {
-    case 'string':
-      var get = TRANSPILE[transpile];
-      if (!get) throw new Error('bad transpiler: ' + transpile);
-      return (opts._transpileFunc = get(opts, required));
-    case 'undefined':
-    case 'boolean':
-      if (typeof async == 'string') {
-        check = ASYNC[async];
-        if (!check) throw new Error('bad async mode: ' + async);
-        return (opts.transpile = check(opts, required));
-      }
-
-      for (var i=0; i<MODES.length; i++) {
-        var _opts = MODES[i];
-        if (setupAsync(_opts, false)) {
-          util.copy(_opts, opts);
-          return opts.transpile;
-        }
-      }
-      /* istanbul ignore next */
-      throw new Error('generators, nodent and regenerator are not available');
-    case 'function':
-      return (opts._transpileFunc = opts.transpile);
-    default:
-      throw new Error('bad transpiler: ' + transpile);
-  }
-}
-
-
-function checkGenerators(opts, required) {
-  /* jshint evil: true */
-  try {
-    (new Function('(function*(){})()'))();
-    return true;
-  } catch(e) {
-    /* istanbul ignore next */
-    if (required) throw new Error('generators not supported');
-  }
-}
-
-
-function checkAsyncFunction(opts, required) {
-  /* jshint evil: true */
-  try {
-    (new Function('(async function(){})()'))();
-    /* istanbul ignore next */
-    return true;
-  } catch(e) {
-    if (required) throw new Error('es7 async functions not supported');
-  }
-}
-
-
-function getRegenerator(opts, required) {
-  try {
-    if (!regenerator) {
-      var name = 'regenerator';
-      regenerator = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-      regenerator.runtime();
-    }
-    if (!opts.async || opts.async === true)
-      opts.async = 'es7';
-    return regeneratorTranspile;
-  } catch(e) {
-    /* istanbul ignore next */
-    if (required) throw new Error('regenerator not available');
-  }
-}
-
-
-function regeneratorTranspile(code) {
-  return regenerator.compile(code).code;
-}
-
-
-function getNodent(opts, required) {
-  /* jshint evil: true */
-  try {
-    if (!nodent) {
-      var name = 'nodent';
-      nodent = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())({ log: false, dontInstallRequireHook: true });
-    }
-    if (opts.async != 'es7') {
-      if (opts.async && opts.async !== true) console.warn('nodent transpiles only es7 async functions');
-      opts.async = 'es7';
-    }
-    return nodentTranspile;
-  } catch(e) {
-    /* istanbul ignore next */
-    if (required) throw new Error('nodent not available');
-  }
-}
-
-
-function nodentTranspile(code) {
-  return nodent.compile(code, '', { promises: true, sourcemap: false }).code;
-}
-
-
-/**
- * Creates validating function for passed schema with asynchronous loading of missing schemas.
- * `loadSchema` option should be a function that accepts schema uri and node-style callback.
- * @this  Ajv
- * @param {Object}   schema schema object
- * @param {Function} callback node-style callback, it is always called with 2 parameters: error (or null) and validating function.
- */
-function compileAsync(schema, callback) {
-  /* eslint no-shadow: 0 */
-  /* jshint validthis: true */
-  var schemaObj;
-  var self = this;
-  try {
-    schemaObj = this._addSchema(schema);
-  } catch(e) {
-    setTimeout(function() { callback(e); });
-    return;
-  }
-  if (schemaObj.validate) {
-    setTimeout(function() { callback(null, schemaObj.validate); });
-  } else {
-    if (typeof this._opts.loadSchema != 'function')
-      throw new Error('options.loadSchema should be a function');
-    _compileAsync(schema, callback, true);
-  }
-
-
-  function _compileAsync(schema, callback, firstCall) {
-    var validate;
-    try { validate = self.compile(schema); }
-    catch(e) {
-      if (e.missingSchema) loadMissingSchema(e);
-      else deferCallback(e);
-      return;
-    }
-    deferCallback(null, validate);
-
-    function loadMissingSchema(e) {
-      var ref = e.missingSchema;
-      if (self._refs[ref] || self._schemas[ref])
-        return callback(new Error('Schema ' + ref + ' is loaded but ' + e.missingRef + ' cannot be resolved'));
-      var _callbacks = self._loadingSchemas[ref];
-      if (_callbacks) {
-        if (typeof _callbacks == 'function')
-          self._loadingSchemas[ref] = [_callbacks, schemaLoaded];
-        else
-          _callbacks[_callbacks.length] = schemaLoaded;
-      } else {
-        self._loadingSchemas[ref] = schemaLoaded;
-        self._opts.loadSchema(ref, function (err, sch) {
-          var _callbacks = self._loadingSchemas[ref];
-          delete self._loadingSchemas[ref];
-          if (typeof _callbacks == 'function') {
-            _callbacks(err, sch);
-          } else {
-            for (var i=0; i<_callbacks.length; i++)
-              _callbacks[i](err, sch);
-          }
-        });
-      }
-
-      function schemaLoaded(err, sch) {
-        if (err) return callback(err);
-        if (!(self._refs[ref] || self._schemas[ref])) {
-          try {
-            self.addSchema(sch, ref);
-          } catch(e) {
-            callback(e);
-            return;
-          }
-        }
-        _compileAsync(schema, callback);
-      }
-    }
-
-    function deferCallback(err, validate) {
-      if (firstCall) setTimeout(function() { callback(err, validate); });
-      else return callback(err, validate);
-    }
-  }
-}
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/*eslint complexity: 0*/
-
-module.exports = function equal(a, b) {
-  if (a === b) return true;
-
-  var arrA = Array.isArray(a)
-    , arrB = Array.isArray(b)
-    , i;
-
-  if (arrA && arrB) {
-    if (a.length != b.length) return false;
-    for (i = 0; i < a.length; i++)
-      if (!equal(a[i], b[i])) return false;
-    return true;
-  }
-
-  if (arrA != arrB) return false;
-
-  if (a && b && typeof a === 'object' && typeof b === 'object') {
-    var keys = Object.keys(a);
-    if (keys.length !== Object.keys(b).length) return false;
-
-    var dateA = a instanceof Date
-      , dateB = b instanceof Date;
-    if (dateA && dateB) return a.getTime() == b.getTime();
-    if (dateA != dateB) return false;
-
-    var regexpA = a instanceof RegExp
-      , regexpB = b instanceof RegExp;
-    if (regexpA && regexpB) return a.toString() == b.toString();
-    if (regexpA != regexpB) return false;
-
-    for (i = 0; i < keys.length; i++)
-      if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
-
-    for (i = 0; i < keys.length; i++)
-      if(!equal(a[keys[i]], b[keys[i]])) return false;
-
-    return true;
-  }
-
-  return false;
-};
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var url = __webpack_require__(7)
-  , equal = __webpack_require__(63)
-  , util = __webpack_require__(18)
-  , SchemaObject = __webpack_require__(65);
-
-module.exports = resolve;
-
-resolve.normalizeId = normalizeId;
-resolve.fullPath = getFullPath;
-resolve.url = resolveUrl;
-resolve.ids = resolveIds;
-resolve.inlineRef = inlineRef;
-resolve.schema = resolveSchema;
-
-/**
- * [resolve and compile the references ($ref)]
- * @this   Ajv
- * @param  {Function} compile reference to schema compilation funciton (localCompile)
- * @param  {Object} root object with information about the root schema for the current schema
- * @param  {String} ref reference to resolve
- * @return {Object|Function} schema object (if the schema can be inlined) or validation function
- */
-function resolve(compile, root, ref) {
-  /* jshint validthis: true */
-  var refVal = this._refs[ref];
-  if (typeof refVal == 'string') {
-    if (this._refs[refVal]) refVal = this._refs[refVal];
-    else return resolve.call(this, compile, root, refVal);
-  }
-
-  refVal = refVal || this._schemas[ref];
-  if (refVal instanceof SchemaObject) {
-    return inlineRef(refVal.schema, this._opts.inlineRefs)
-            ? refVal.schema
-            : refVal.validate || this._compile(refVal);
-  }
-
-  var res = resolveSchema.call(this, root, ref);
-  var schema, v, baseId;
-  if (res) {
-    schema = res.schema;
-    root = res.root;
-    baseId = res.baseId;
-  }
-
-  if (schema instanceof SchemaObject) {
-    v = schema.validate || compile.call(this, schema.schema, root, undefined, baseId);
-  } else if (schema) {
-    v = inlineRef(schema, this._opts.inlineRefs)
-        ? schema
-        : compile.call(this, schema, root, undefined, baseId);
-  }
-
-  return v;
-}
-
-
-/**
- * Resolve schema, its root and baseId
- * @this Ajv
- * @param  {Object} root root object with properties schema, refVal, refs
- * @param  {String} ref  reference to resolve
- * @return {Object} object with properties schema, root, baseId
- */
-function resolveSchema(root, ref) {
-  /* jshint validthis: true */
-  var p = url.parse(ref, false, true)
-    , refPath = _getFullPath(p)
-    , baseId = getFullPath(root.schema.id);
-  if (refPath !== baseId) {
-    var id = normalizeId(refPath);
-    var refVal = this._refs[id];
-    if (typeof refVal == 'string') {
-      return resolveRecursive.call(this, root, refVal, p);
-    } else if (refVal instanceof SchemaObject) {
-      if (!refVal.validate) this._compile(refVal);
-      root = refVal;
-    } else {
-      refVal = this._schemas[id];
-      if (refVal instanceof SchemaObject) {
-        if (!refVal.validate) this._compile(refVal);
-        if (id == normalizeId(ref))
-          return { schema: refVal, root: root, baseId: baseId };
-        root = refVal;
-      } else {
-        return;
-      }
-    }
-    if (!root.schema) return;
-    baseId = getFullPath(root.schema.id);
-  }
-  return getJsonPointer.call(this, p, baseId, root.schema, root);
-}
-
-
-/* @this Ajv */
-function resolveRecursive(root, ref, parsedRef) {
-  /* jshint validthis: true */
-  var res = resolveSchema.call(this, root, ref);
-  if (res) {
-    var schema = res.schema;
-    var baseId = res.baseId;
-    root = res.root;
-    if (schema.id) baseId = resolveUrl(baseId, schema.id);
-    return getJsonPointer.call(this, parsedRef, baseId, schema, root);
-  }
-}
-
-
-var PREVENT_SCOPE_CHANGE = util.toHash(['properties', 'patternProperties', 'enum', 'dependencies', 'definitions']);
-/* @this Ajv */
-function getJsonPointer(parsedRef, baseId, schema, root) {
-  /* jshint validthis: true */
-  parsedRef.hash = parsedRef.hash || '';
-  if (parsedRef.hash.slice(0,2) != '#/') return;
-  var parts = parsedRef.hash.split('/');
-
-  for (var i = 1; i < parts.length; i++) {
-    var part = parts[i];
-    if (part) {
-      part = util.unescapeFragment(part);
-      schema = schema[part];
-      if (!schema) break;
-      if (schema.id && !PREVENT_SCOPE_CHANGE[part]) baseId = resolveUrl(baseId, schema.id);
-      if (schema.$ref) {
-        var $ref = resolveUrl(baseId, schema.$ref);
-        var res = resolveSchema.call(this, root, $ref);
-        if (res) {
-          schema = res.schema;
-          root = res.root;
-          baseId = res.baseId;
-        }
-      }
-    }
-  }
-  if (schema && schema != root.schema)
-    return { schema: schema, root: root, baseId: baseId };
-}
-
-
-var SIMPLE_INLINED = util.toHash([
-  'type', 'format', 'pattern',
-  'maxLength', 'minLength',
-  'maxProperties', 'minProperties',
-  'maxItems', 'minItems',
-  'maximum', 'minimum',
-  'uniqueItems', 'multipleOf',
-  'required', 'enum'
-]);
-function inlineRef(schema, limit) {
-  if (limit === false) return false;
-  if (limit === undefined || limit === true) return checkNoRef(schema);
-  else if (limit) return countKeys(schema) <= limit;
-}
-
-
-function checkNoRef(schema) {
-  var item;
-  if (Array.isArray(schema)) {
-    for (var i=0; i<schema.length; i++) {
-      item = schema[i];
-      if (typeof item == 'object' && !checkNoRef(item)) return false;
-    }
-  } else {
-    for (var key in schema) {
-      if (key == '$ref') return false;
-      item = schema[key];
-      if (typeof item == 'object' && !checkNoRef(item)) return false;
-    }
-  }
-  return true;
-}
-
-
-function countKeys(schema) {
-  var count = 0, item;
-  if (Array.isArray(schema)) {
-    for (var i=0; i<schema.length; i++) {
-      item = schema[i];
-      if (typeof item == 'object') count += countKeys(item);
-      if (count == Infinity) return Infinity;
-    }
-  } else {
-    for (var key in schema) {
-      if (key == '$ref') return Infinity;
-      if (SIMPLE_INLINED[key]) {
-        count++;
-      } else {
-        item = schema[key];
-        if (typeof item == 'object') count += countKeys(item) + 1;
-        if (count == Infinity) return Infinity;
-      }
-    }
-  }
-  return count;
-}
-
-
-function getFullPath(id, normalize) {
-  if (normalize !== false) id = normalizeId(id);
-  var p = url.parse(id, false, true);
-  return _getFullPath(p);
-}
-
-
-function _getFullPath(p) {
-  var protocolSeparator = p.protocol || p.href.slice(0,2) == '//' ? '//' : '';
-  return (p.protocol||'') + protocolSeparator + (p.host||'') + (p.path||'')  + '#';
-}
-
-
-var TRAILING_SLASH_HASH = /#\/?$/;
-function normalizeId(id) {
-  return id ? id.replace(TRAILING_SLASH_HASH, '') : '';
-}
-
-
-function resolveUrl(baseId, id) {
-  id = normalizeId(id);
-  return url.resolve(baseId, id);
-}
-
-
-/* @this Ajv */
-function resolveIds(schema) {
-  /* eslint no-shadow: 0 */
-  /* jshint validthis: true */
-  var id = normalizeId(schema.id);
-  var localRefs = {};
-  _resolveIds.call(this, schema, getFullPath(id, false), id);
-  return localRefs;
-
-  /* @this Ajv */
-  function _resolveIds(schema, fullPath, baseId) {
-    /* jshint validthis: true */
-    if (Array.isArray(schema)) {
-      for (var i=0; i<schema.length; i++)
-        _resolveIds.call(this, schema[i], fullPath+'/'+i, baseId);
-    } else if (schema && typeof schema == 'object') {
-      if (typeof schema.id == 'string') {
-        var id = baseId = baseId
-                          ? url.resolve(baseId, schema.id)
-                          : schema.id;
-        id = normalizeId(id);
-
-        var refVal = this._refs[id];
-        if (typeof refVal == 'string') refVal = this._refs[refVal];
-        if (refVal && refVal.schema) {
-          if (!equal(schema, refVal.schema))
-            throw new Error('id "' + id + '" resolves to more than one schema');
-        } else if (id != normalizeId(fullPath)) {
-          if (id[0] == '#') {
-            if (localRefs[id] && !equal(schema, localRefs[id]))
-              throw new Error('id "' + id + '" resolves to more than one schema');
-            localRefs[id] = schema;
-          } else {
-            this._refs[id] = fullPath;
-          }
-        }
-      }
-      for (var key in schema)
-        _resolveIds.call(this, schema[key], fullPath+'/'+util.escapeFragment(key), baseId);
-    }
-  }
-}
-
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var util = __webpack_require__(18);
-
-module.exports = SchemaObject;
-
-function SchemaObject(obj) {
-  util.copy(obj, this);
-}
-
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = ValidationError;
-
-
-function ValidationError(errors) {
-  this.message = 'validation failed';
-  this.errors = errors;
-  this.ajv = this.validation = true;
-}
-
-
-ValidationError.prototype = Object.create(Error.prototype);
-ValidationError.prototype.constructor = ValidationError;
-
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function generate__limit(it, $keyword) {
-  var out = ' ';
-  var $lvl = it.level;
-  var $dataLvl = it.dataLevel;
-  var $schema = it.schema[$keyword];
-  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
-  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
-  var $breakOnError = !it.opts.allErrors;
-  var $errorKeyword;
-  var $data = 'data' + ($dataLvl || '');
-  var $isData = it.opts.v5 && $schema && $schema.$data,
-    $schemaValue;
-  if ($isData) {
-    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
-    $schemaValue = 'schema' + $lvl;
-  } else {
-    $schemaValue = $schema;
-  }
-  var $isMax = $keyword == 'maximum',
-    $exclusiveKeyword = $isMax ? 'exclusiveMaximum' : 'exclusiveMinimum',
-    $schemaExcl = it.schema[$exclusiveKeyword],
-    $isDataExcl = it.opts.v5 && $schemaExcl && $schemaExcl.$data,
-    $op = $isMax ? '<' : '>',
-    $notOp = $isMax ? '>' : '<';
-  if ($isDataExcl) {
-    var $schemaValueExcl = it.util.getData($schemaExcl.$data, $dataLvl, it.dataPathArr),
-      $exclusive = 'exclusive' + $lvl,
-      $opExpr = 'op' + $lvl,
-      $opStr = '\' + ' + $opExpr + ' + \'';
-    out += ' var schemaExcl' + ($lvl) + ' = ' + ($schemaValueExcl) + '; ';
-    $schemaValueExcl = 'schemaExcl' + $lvl;
-    out += ' var exclusive' + ($lvl) + '; if (typeof ' + ($schemaValueExcl) + ' != \'boolean\' && typeof ' + ($schemaValueExcl) + ' != \'undefined\') { ';
-    var $errorKeyword = $exclusiveKeyword;
-    var $$outStack = $$outStack || [];
-    $$outStack.push(out);
-    out = ''; /* istanbul ignore else */
-    if (it.createErrors !== false) {
-      out += ' { keyword: \'' + ($errorKeyword || '_exclusiveLimit') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: {} ';
-      if (it.opts.messages !== false) {
-        out += ' , message: \'' + ($exclusiveKeyword) + ' should be boolean\' ';
-      }
-      if (it.opts.verbose) {
-        out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-      }
-      out += ' } ';
-    } else {
-      out += ' {} ';
-    }
-    var __err = out;
-    out = $$outStack.pop();
-    if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-      if (it.async) {
-        out += ' throw new ValidationError([' + (__err) + ']); ';
-      } else {
-        out += ' validate.errors = [' + (__err) + ']; return false; ';
-      }
-    } else {
-      out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-    }
-    out += ' } else if( ';
-    if ($isData) {
-      out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
-    }
-    out += ' ((exclusive' + ($lvl) + ' = ' + ($schemaValueExcl) + ' === true) ? ' + ($data) + ' ' + ($notOp) + '= ' + ($schemaValue) + ' : ' + ($data) + ' ' + ($notOp) + ' ' + ($schemaValue) + ') || ' + ($data) + ' !== ' + ($data) + ') { var op' + ($lvl) + ' = exclusive' + ($lvl) + ' ? \'' + ($op) + '\' : \'' + ($op) + '=\';';
-  } else {
-    var $exclusive = $schemaExcl === true,
-      $opStr = $op;
-    if (!$exclusive) $opStr += '=';
-    var $opExpr = '\'' + $opStr + '\'';
-    out += ' if ( ';
-    if ($isData) {
-      out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
-    }
-    out += ' ' + ($data) + ' ' + ($notOp);
-    if ($exclusive) {
-      out += '=';
-    }
-    out += ' ' + ($schemaValue) + ' || ' + ($data) + ' !== ' + ($data) + ') {';
-  }
-  var $errorKeyword = $keyword;
-  var $$outStack = $$outStack || [];
-  $$outStack.push(out);
-  out = ''; /* istanbul ignore else */
-  if (it.createErrors !== false) {
-    out += ' { keyword: \'' + ($errorKeyword || '_limit') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { comparison: ' + ($opExpr) + ', limit: ' + ($schemaValue) + ', exclusive: ' + ($exclusive) + ' } ';
-    if (it.opts.messages !== false) {
-      out += ' , message: \'should be ' + ($opStr) + ' ';
-      if ($isData) {
-        out += '\' + ' + ($schemaValue);
-      } else {
-        out += '' + ($schema) + '\'';
-      }
-    }
-    if (it.opts.verbose) {
-      out += ' , schema:  ';
-      if ($isData) {
-        out += 'validate.schema' + ($schemaPath);
-      } else {
-        out += '' + ($schema);
-      }
-      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-    }
-    out += ' } ';
-  } else {
-    out += ' {} ';
-  }
-  var __err = out;
-  out = $$outStack.pop();
-  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-    if (it.async) {
-      out += ' throw new ValidationError([' + (__err) + ']); ';
-    } else {
-      out += ' validate.errors = [' + (__err) + ']; return false; ';
-    }
-  } else {
-    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-  }
-  out += ' } ';
-  if ($breakOnError) {
-    out += ' else { ';
-  }
-  return out;
-}
-
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function generate__limitItems(it, $keyword) {
-  var out = ' ';
-  var $lvl = it.level;
-  var $dataLvl = it.dataLevel;
-  var $schema = it.schema[$keyword];
-  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
-  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
-  var $breakOnError = !it.opts.allErrors;
-  var $errorKeyword;
-  var $data = 'data' + ($dataLvl || '');
-  var $isData = it.opts.v5 && $schema && $schema.$data,
-    $schemaValue;
-  if ($isData) {
-    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
-    $schemaValue = 'schema' + $lvl;
-  } else {
-    $schemaValue = $schema;
-  }
-  var $op = $keyword == 'maxItems' ? '>' : '<';
-  out += 'if ( ';
-  if ($isData) {
-    out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
-  }
-  out += ' ' + ($data) + '.length ' + ($op) + ' ' + ($schemaValue) + ') { ';
-  var $errorKeyword = $keyword;
-  var $$outStack = $$outStack || [];
-  $$outStack.push(out);
-  out = ''; /* istanbul ignore else */
-  if (it.createErrors !== false) {
-    out += ' { keyword: \'' + ($errorKeyword || '_limitItems') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { limit: ' + ($schemaValue) + ' } ';
-    if (it.opts.messages !== false) {
-      out += ' , message: \'should NOT have ';
-      if ($keyword == 'maxItems') {
-        out += 'more';
-      } else {
-        out += 'less';
-      }
-      out += ' than ';
-      if ($isData) {
-        out += '\' + ' + ($schemaValue) + ' + \'';
-      } else {
-        out += '' + ($schema);
-      }
-      out += ' items\' ';
-    }
-    if (it.opts.verbose) {
-      out += ' , schema:  ';
-      if ($isData) {
-        out += 'validate.schema' + ($schemaPath);
-      } else {
-        out += '' + ($schema);
-      }
-      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-    }
-    out += ' } ';
-  } else {
-    out += ' {} ';
-  }
-  var __err = out;
-  out = $$outStack.pop();
-  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-    if (it.async) {
-      out += ' throw new ValidationError([' + (__err) + ']); ';
-    } else {
-      out += ' validate.errors = [' + (__err) + ']; return false; ';
-    }
-  } else {
-    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-  }
-  out += '} ';
-  if ($breakOnError) {
-    out += ' else { ';
-  }
-  return out;
-}
-
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function generate__limitLength(it, $keyword) {
-  var out = ' ';
-  var $lvl = it.level;
-  var $dataLvl = it.dataLevel;
-  var $schema = it.schema[$keyword];
-  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
-  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
-  var $breakOnError = !it.opts.allErrors;
-  var $errorKeyword;
-  var $data = 'data' + ($dataLvl || '');
-  var $isData = it.opts.v5 && $schema && $schema.$data,
-    $schemaValue;
-  if ($isData) {
-    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
-    $schemaValue = 'schema' + $lvl;
-  } else {
-    $schemaValue = $schema;
-  }
-  var $op = $keyword == 'maxLength' ? '>' : '<';
-  out += 'if ( ';
-  if ($isData) {
-    out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
-  }
-  if (it.opts.unicode === false) {
-    out += ' ' + ($data) + '.length ';
-  } else {
-    out += ' ucs2length(' + ($data) + ') ';
-  }
-  out += ' ' + ($op) + ' ' + ($schemaValue) + ') { ';
-  var $errorKeyword = $keyword;
-  var $$outStack = $$outStack || [];
-  $$outStack.push(out);
-  out = ''; /* istanbul ignore else */
-  if (it.createErrors !== false) {
-    out += ' { keyword: \'' + ($errorKeyword || '_limitLength') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { limit: ' + ($schemaValue) + ' } ';
-    if (it.opts.messages !== false) {
-      out += ' , message: \'should NOT be ';
-      if ($keyword == 'maxLength') {
-        out += 'longer';
-      } else {
-        out += 'shorter';
-      }
-      out += ' than ';
-      if ($isData) {
-        out += '\' + ' + ($schemaValue) + ' + \'';
-      } else {
-        out += '' + ($schema);
-      }
-      out += ' characters\' ';
-    }
-    if (it.opts.verbose) {
-      out += ' , schema:  ';
-      if ($isData) {
-        out += 'validate.schema' + ($schemaPath);
-      } else {
-        out += '' + ($schema);
-      }
-      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-    }
-    out += ' } ';
-  } else {
-    out += ' {} ';
-  }
-  var __err = out;
-  out = $$outStack.pop();
-  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-    if (it.async) {
-      out += ' throw new ValidationError([' + (__err) + ']); ';
-    } else {
-      out += ' validate.errors = [' + (__err) + ']; return false; ';
-    }
-  } else {
-    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-  }
-  out += '} ';
-  if ($breakOnError) {
-    out += ' else { ';
-  }
-  return out;
-}
-
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function generate__limitProperties(it, $keyword) {
-  var out = ' ';
-  var $lvl = it.level;
-  var $dataLvl = it.dataLevel;
-  var $schema = it.schema[$keyword];
-  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
-  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
-  var $breakOnError = !it.opts.allErrors;
-  var $errorKeyword;
-  var $data = 'data' + ($dataLvl || '');
-  var $isData = it.opts.v5 && $schema && $schema.$data,
-    $schemaValue;
-  if ($isData) {
-    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
-    $schemaValue = 'schema' + $lvl;
-  } else {
-    $schemaValue = $schema;
-  }
-  var $op = $keyword == 'maxProperties' ? '>' : '<';
-  out += 'if ( ';
-  if ($isData) {
-    out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
-  }
-  out += ' Object.keys(' + ($data) + ').length ' + ($op) + ' ' + ($schemaValue) + ') { ';
-  var $errorKeyword = $keyword;
-  var $$outStack = $$outStack || [];
-  $$outStack.push(out);
-  out = ''; /* istanbul ignore else */
-  if (it.createErrors !== false) {
-    out += ' { keyword: \'' + ($errorKeyword || '_limitProperties') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { limit: ' + ($schemaValue) + ' } ';
-    if (it.opts.messages !== false) {
-      out += ' , message: \'should NOT have ';
-      if ($keyword == 'maxProperties') {
-        out += 'more';
-      } else {
-        out += 'less';
-      }
-      out += ' than ';
-      if ($isData) {
-        out += '\' + ' + ($schemaValue) + ' + \'';
-      } else {
-        out += '' + ($schema);
-      }
-      out += ' properties\' ';
-    }
-    if (it.opts.verbose) {
-      out += ' , schema:  ';
-      if ($isData) {
-        out += 'validate.schema' + ($schemaPath);
-      } else {
-        out += '' + ($schema);
-      }
-      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-    }
-    out += ' } ';
-  } else {
-    out += ' {} ';
-  }
-  var __err = out;
-  out = $$outStack.pop();
-  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-    if (it.async) {
-      out += ' throw new ValidationError([' + (__err) + ']); ';
-    } else {
-      out += ' validate.errors = [' + (__err) + ']; return false; ';
-    }
-  } else {
-    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-  }
-  out += '} ';
-  if ($breakOnError) {
-    out += ' else { ';
-  }
-  return out;
-}
-
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function generate_validate(it, $keyword) {
-  var out = '';
-  var $async = it.schema.$async === true;
-  if (it.isTop) {
-    var $top = it.isTop,
-      $lvl = it.level = 0,
-      $dataLvl = it.dataLevel = 0,
-      $data = 'data';
-    it.rootId = it.resolve.fullPath(it.root.schema.id);
-    it.baseId = it.baseId || it.rootId;
-    if ($async) {
-      it.async = true;
-      var $es7 = it.opts.async == 'es7';
-      it.yieldAwait = $es7 ? 'await' : 'yield';
-    }
-    delete it.isTop;
-    it.dataPathArr = [undefined];
-    out += ' var validate = ';
-    if ($async) {
-      if ($es7) {
-        out += ' (async function ';
-      } else {
-        if (it.opts.async == 'co*') {
-          out += 'co.wrap';
-        }
-        out += '(function* ';
-      }
-    } else {
-      out += ' (function ';
-    }
-    out += ' (data, dataPath, parentData, parentDataProperty, rootData) { \'use strict\'; var vErrors = null; ';
-    out += ' var errors = 0;     ';
-    out += ' if (rootData === undefined) rootData = data;';
-  } else {
-    var $lvl = it.level,
-      $dataLvl = it.dataLevel,
-      $data = 'data' + ($dataLvl || '');
-    if (it.schema.id) it.baseId = it.resolve.url(it.baseId, it.schema.id);
-    if ($async && !it.async) throw new Error('async schema in sync schema');
-    out += ' var errs_' + ($lvl) + ' = errors;';
-  }
-  var $valid = 'valid' + $lvl,
-    $breakOnError = !it.opts.allErrors,
-    $closingBraces1 = '',
-    $closingBraces2 = '';
-  var $typeSchema = it.schema.type,
-    $typeIsArray = Array.isArray($typeSchema);
-  if ($typeSchema && it.opts.coerceTypes) {
-    var $coerceToTypes = it.util.coerceToTypes(it.opts.coerceTypes, $typeSchema);
-    if ($coerceToTypes) {
-      var $schemaPath = it.schemaPath + '.type',
-        $errSchemaPath = it.errSchemaPath + '/type',
-        $method = $typeIsArray ? 'checkDataTypes' : 'checkDataType';
-      out += ' if (' + (it.util[$method]($typeSchema, $data, true)) + ') {  ';
-      var $dataType = 'dataType' + $lvl,
-        $coerced = 'coerced' + $lvl;
-      out += ' var ' + ($dataType) + ' = typeof ' + ($data) + '; ';
-      if (it.opts.coerceTypes == 'array') {
-        out += ' if (' + ($dataType) + ' == \'object\' && Array.isArray(' + ($data) + ')) ' + ($dataType) + ' = \'array\'; ';
-      }
-      out += ' var ' + ($coerced) + ' = undefined; ';
-      var $bracesCoercion = '';
-      var arr1 = $coerceToTypes;
-      if (arr1) {
-        var $type, $i = -1,
-          l1 = arr1.length - 1;
-        while ($i < l1) {
-          $type = arr1[$i += 1];
-          if ($i) {
-            out += ' if (' + ($coerced) + ' === undefined) { ';
-            $bracesCoercion += '}';
-          }
-          if (it.opts.coerceTypes == 'array' && $type != 'array') {
-            out += ' if (' + ($dataType) + ' == \'array\' && ' + ($data) + '.length == 1) { ' + ($coerced) + ' = ' + ($data) + ' = ' + ($data) + '[0]; ' + ($dataType) + ' = typeof ' + ($data) + ';  } ';
-          }
-          if ($type == 'string') {
-            out += ' if (' + ($dataType) + ' == \'number\' || ' + ($dataType) + ' == \'boolean\') ' + ($coerced) + ' = \'\' + ' + ($data) + '; else if (' + ($data) + ' === null) ' + ($coerced) + ' = \'\'; ';
-          } else if ($type == 'number' || $type == 'integer') {
-            out += ' if (' + ($dataType) + ' == \'boolean\' || ' + ($data) + ' === null || (' + ($dataType) + ' == \'string\' && ' + ($data) + ' && ' + ($data) + ' == +' + ($data) + ' ';
-            if ($type == 'integer') {
-              out += ' && !(' + ($data) + ' % 1)';
-            }
-            out += ')) ' + ($coerced) + ' = +' + ($data) + '; ';
-          } else if ($type == 'boolean') {
-            out += ' if (' + ($data) + ' === \'false\' || ' + ($data) + ' === 0 || ' + ($data) + ' === null) ' + ($coerced) + ' = false; else if (' + ($data) + ' === \'true\' || ' + ($data) + ' === 1) ' + ($coerced) + ' = true; ';
-          } else if ($type == 'null') {
-            out += ' if (' + ($data) + ' === \'\' || ' + ($data) + ' === 0 || ' + ($data) + ' === false) ' + ($coerced) + ' = null; ';
-          } else if (it.opts.coerceTypes == 'array' && $type == 'array') {
-            out += ' if (' + ($dataType) + ' == \'string\' || ' + ($dataType) + ' == \'number\' || ' + ($dataType) + ' == \'boolean\' || ' + ($data) + ' == null) ' + ($coerced) + ' = [' + ($data) + ']; ';
-          }
-        }
-      }
-      out += ' ' + ($bracesCoercion) + ' if (' + ($coerced) + ' === undefined) {   ';
-      var $$outStack = $$outStack || [];
-      $$outStack.push(out);
-      out = ''; /* istanbul ignore else */
-      if (it.createErrors !== false) {
-        out += ' { keyword: \'' + ('type') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { type: \'';
-        if ($typeIsArray) {
-          out += '' + ($typeSchema.join(","));
-        } else {
-          out += '' + ($typeSchema);
-        }
-        out += '\' } ';
-        if (it.opts.messages !== false) {
-          out += ' , message: \'should be ';
-          if ($typeIsArray) {
-            out += '' + ($typeSchema.join(","));
-          } else {
-            out += '' + ($typeSchema);
-          }
-          out += '\' ';
-        }
-        if (it.opts.verbose) {
-          out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-        }
-        out += ' } ';
-      } else {
-        out += ' {} ';
-      }
-      var __err = out;
-      out = $$outStack.pop();
-      if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-        if (it.async) {
-          out += ' throw new ValidationError([' + (__err) + ']); ';
-        } else {
-          out += ' validate.errors = [' + (__err) + ']; return false; ';
-        }
-      } else {
-        out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-      }
-      out += ' } else {  ';
-      var $parentData = $dataLvl ? 'data' + (($dataLvl - 1) || '') : 'parentData',
-        $parentDataProperty = $dataLvl ? it.dataPathArr[$dataLvl] : 'parentDataProperty';
-      out += ' ' + ($data) + ' = ' + ($coerced) + '; ';
-      if (!$dataLvl) {
-        out += 'if (' + ($parentData) + ' !== undefined)';
-      }
-      out += ' ' + ($parentData) + '[' + ($parentDataProperty) + '] = ' + ($coerced) + '; } } ';
-    }
-  }
-  var $refKeywords;
-  if (it.schema.$ref && ($refKeywords = it.util.schemaHasRulesExcept(it.schema, it.RULES.all, '$ref'))) {
-    if (it.opts.extendRefs == 'fail') {
-      throw new Error('$ref: validation keywords used in schema at path "' + it.errSchemaPath + '"');
-    } else if (it.opts.extendRefs == 'ignore') {
-      $refKeywords = false;
-      console.log('$ref: keywords ignored in schema at path "' + it.errSchemaPath + '"');
-    } else if (it.opts.extendRefs !== true) {
-      console.log('$ref: all keywords used in schema at path "' + it.errSchemaPath + '". It will change in the next major version, see issue #260. Use option { extendRefs: true } to keep current behaviour');
-    }
-  }
-  if (it.schema.$ref && !$refKeywords) {
-    out += ' ' + (it.RULES.all.$ref.code(it, '$ref')) + ' ';
-    if ($breakOnError) {
-      out += ' } if (errors === ';
-      if ($top) {
-        out += '0';
-      } else {
-        out += 'errs_' + ($lvl);
-      }
-      out += ') { ';
-      $closingBraces2 += '}';
-    }
-  } else {
-    var arr2 = it.RULES;
-    if (arr2) {
-      var $rulesGroup, i2 = -1,
-        l2 = arr2.length - 1;
-      while (i2 < l2) {
-        $rulesGroup = arr2[i2 += 1];
-        if ($shouldUseGroup($rulesGroup)) {
-          if ($rulesGroup.type) {
-            out += ' if (' + (it.util.checkDataType($rulesGroup.type, $data)) + ') { ';
-          }
-          if (it.opts.useDefaults && !it.compositeRule) {
-            if ($rulesGroup.type == 'object' && it.schema.properties) {
-              var $schema = it.schema.properties,
-                $schemaKeys = Object.keys($schema);
-              var arr3 = $schemaKeys;
-              if (arr3) {
-                var $propertyKey, i3 = -1,
-                  l3 = arr3.length - 1;
-                while (i3 < l3) {
-                  $propertyKey = arr3[i3 += 1];
-                  var $sch = $schema[$propertyKey];
-                  if ($sch.default !== undefined) {
-                    var $passData = $data + it.util.getProperty($propertyKey);
-                    out += '  if (' + ($passData) + ' === undefined) ' + ($passData) + ' = ';
-                    if (it.opts.useDefaults == 'shared') {
-                      out += ' ' + (it.useDefault($sch.default)) + ' ';
-                    } else {
-                      out += ' ' + (JSON.stringify($sch.default)) + ' ';
-                    }
-                    out += '; ';
-                  }
-                }
-              }
-            } else if ($rulesGroup.type == 'array' && Array.isArray(it.schema.items)) {
-              var arr4 = it.schema.items;
-              if (arr4) {
-                var $sch, $i = -1,
-                  l4 = arr4.length - 1;
-                while ($i < l4) {
-                  $sch = arr4[$i += 1];
-                  if ($sch.default !== undefined) {
-                    var $passData = $data + '[' + $i + ']';
-                    out += '  if (' + ($passData) + ' === undefined) ' + ($passData) + ' = ';
-                    if (it.opts.useDefaults == 'shared') {
-                      out += ' ' + (it.useDefault($sch.default)) + ' ';
-                    } else {
-                      out += ' ' + (JSON.stringify($sch.default)) + ' ';
-                    }
-                    out += '; ';
-                  }
-                }
-              }
-            }
-          }
-          var arr5 = $rulesGroup.rules;
-          if (arr5) {
-            var $rule, i5 = -1,
-              l5 = arr5.length - 1;
-            while (i5 < l5) {
-              $rule = arr5[i5 += 1];
-              if ($shouldUseRule($rule)) {
-                out += ' ' + ($rule.code(it, $rule.keyword)) + ' ';
-                if ($breakOnError) {
-                  $closingBraces1 += '}';
-                }
-              }
-            }
-          }
-          if ($breakOnError) {
-            out += ' ' + ($closingBraces1) + ' ';
-            $closingBraces1 = '';
-          }
-          if ($rulesGroup.type) {
-            out += ' } ';
-            if ($typeSchema && $typeSchema === $rulesGroup.type && !$coerceToTypes) {
-              var $typeChecked = true;
-              out += ' else { ';
-              var $schemaPath = it.schemaPath + '.type',
-                $errSchemaPath = it.errSchemaPath + '/type';
-              var $$outStack = $$outStack || [];
-              $$outStack.push(out);
-              out = ''; /* istanbul ignore else */
-              if (it.createErrors !== false) {
-                out += ' { keyword: \'' + ('type') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { type: \'';
-                if ($typeIsArray) {
-                  out += '' + ($typeSchema.join(","));
-                } else {
-                  out += '' + ($typeSchema);
-                }
-                out += '\' } ';
-                if (it.opts.messages !== false) {
-                  out += ' , message: \'should be ';
-                  if ($typeIsArray) {
-                    out += '' + ($typeSchema.join(","));
-                  } else {
-                    out += '' + ($typeSchema);
-                  }
-                  out += '\' ';
-                }
-                if (it.opts.verbose) {
-                  out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-                }
-                out += ' } ';
-              } else {
-                out += ' {} ';
-              }
-              var __err = out;
-              out = $$outStack.pop();
-              if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-                if (it.async) {
-                  out += ' throw new ValidationError([' + (__err) + ']); ';
-                } else {
-                  out += ' validate.errors = [' + (__err) + ']; return false; ';
-                }
-              } else {
-                out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-              }
-              out += ' } ';
-            }
-          }
-          if ($breakOnError) {
-            out += ' if (errors === ';
-            if ($top) {
-              out += '0';
-            } else {
-              out += 'errs_' + ($lvl);
-            }
-            out += ') { ';
-            $closingBraces2 += '}';
-          }
-        }
-      }
-    }
-  }
-  if ($typeSchema && !$typeChecked && !$coerceToTypes) {
-    var $schemaPath = it.schemaPath + '.type',
-      $errSchemaPath = it.errSchemaPath + '/type',
-      $method = $typeIsArray ? 'checkDataTypes' : 'checkDataType';
-    out += ' if (' + (it.util[$method]($typeSchema, $data, true)) + ') {   ';
-    var $$outStack = $$outStack || [];
-    $$outStack.push(out);
-    out = ''; /* istanbul ignore else */
-    if (it.createErrors !== false) {
-      out += ' { keyword: \'' + ('type') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { type: \'';
-      if ($typeIsArray) {
-        out += '' + ($typeSchema.join(","));
-      } else {
-        out += '' + ($typeSchema);
-      }
-      out += '\' } ';
-      if (it.opts.messages !== false) {
-        out += ' , message: \'should be ';
-        if ($typeIsArray) {
-          out += '' + ($typeSchema.join(","));
-        } else {
-          out += '' + ($typeSchema);
-        }
-        out += '\' ';
-      }
-      if (it.opts.verbose) {
-        out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
-      }
-      out += ' } ';
-    } else {
-      out += ' {} ';
-    }
-    var __err = out;
-    out = $$outStack.pop();
-    if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
-      if (it.async) {
-        out += ' throw new ValidationError([' + (__err) + ']); ';
-      } else {
-        out += ' validate.errors = [' + (__err) + ']; return false; ';
-      }
-    } else {
-      out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
-    }
-    out += ' }';
-  }
-  if ($breakOnError) {
-    out += ' ' + ($closingBraces2) + ' ';
-  }
-  if ($top) {
-    if ($async) {
-      out += ' if (errors === 0) return true;           ';
-      out += ' else throw new ValidationError(vErrors); ';
-    } else {
-      out += ' validate.errors = vErrors; ';
-      out += ' return errors === 0;       ';
-    }
-    out += ' }); return validate;';
-  } else {
-    out += ' var ' + ($valid) + ' = errors === errs_' + ($lvl) + ';';
-  }
-  out = it.util.cleanUpCode(out);
-  if ($top && $breakOnError) {
-    out = it.util.cleanUpVarErrors(out, $async);
-  }
-
-  function $shouldUseGroup($rulesGroup) {
-    for (var i = 0; i < $rulesGroup.rules.length; i++)
-      if ($shouldUseRule($rulesGroup.rules[i])) return true;
-  }
-
-  function $shouldUseRule($rule) {
-    return it.schema[$rule.keyword] !== undefined || ($rule.keyword == 'properties' && (it.schema.additionalProperties === false || typeof it.schema.additionalProperties == 'object' || (it.schema.patternProperties && Object.keys(it.schema.patternProperties).length) || (it.opts.v5 && it.schema.patternGroups && Object.keys(it.schema.patternGroups).length)));
-  }
-  return out;
-}
-
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports) {
-
-// API
-module.exports = abort;
-
-/**
- * Aborts leftover active jobs
- *
- * @param {object} state - current state object
- */
-function abort(state)
-{
-  Object.keys(state.jobs).forEach(clean.bind(state));
-
-  // reset leftover jobs
-  state.jobs = {};
-}
-
-/**
- * Cleans up leftover job by invoking abort function for the provided job id
- *
- * @this  state
- * @param {string|number} key - job id to abort
- */
-function clean(key)
-{
-  if (typeof this.jobs[key] == 'function')
-  {
-    this.jobs[key]();
-  }
-}
-
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var defer = __webpack_require__(150);
-
-// API
-module.exports = async;
-
-/**
- * Runs provided callback asynchronously
- * even if callback itself is not
- *
- * @param   {function} callback - callback to invoke
- * @returns {function} - augmented callback
- */
-function async(callback)
-{
-  var isAsync = false;
-
-  // check if async happened
-  defer(function() { isAsync = true; });
-
-  return function async_callback(err, result)
-  {
-    if (isAsync)
-    {
-      callback(err, result);
-    }
-    else
-    {
-      defer(function nextTick_callback()
-      {
-        callback(err, result);
-      });
-    }
-  };
-}
-
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var async = __webpack_require__(73)
-  , abort = __webpack_require__(72)
-  ;
-
-// API
-module.exports = iterate;
-
-/**
- * Iterates over each job object
- *
- * @param {array|object} list - array or object (named list) to iterate over
- * @param {function} iterator - iterator to run
- * @param {object} state - current job status
- * @param {function} callback - invoked when all elements processed
- */
-function iterate(list, iterator, state, callback)
-{
-  // store current index
-  var key = state['keyedList'] ? state['keyedList'][state.index] : state.index;
-
-  state.jobs[key] = runJob(iterator, key, list[key], function(error, output)
-  {
-    // don't repeat yourself
-    // skip secondary callbacks
-    if (!(key in state.jobs))
-    {
-      return;
-    }
-
-    // clean up jobs
-    delete state.jobs[key];
-
-    if (error)
-    {
-      // don't process rest of the results
-      // stop still active jobs
-      // and reset the list
-      abort(state);
-    }
-    else
-    {
-      state.results[key] = output;
-    }
-
-    // return salvaged results
-    callback(error, state.results);
-  });
-}
-
-/**
- * Runs iterator over provided job element
- *
- * @param   {function} iterator - iterator to invoke
- * @param   {string|number} key - key/index of the element in the list of jobs
- * @param   {mixed} item - job description
- * @param   {function} callback - invoked after iterator is done with the job
- * @returns {function|mixed} - job abort function or something else
- */
-function runJob(iterator, key, item, callback)
-{
-  var aborter;
-
-  // allow shortcut if iterator expects only two arguments
-  if (iterator.length == 2)
-  {
-    aborter = iterator(item, async(callback));
-  }
-  // otherwise go with full three arguments
-  else
-  {
-    aborter = iterator(item, key, async(callback));
-  }
-
-  return aborter;
-}
-
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports) {
-
-// API
-module.exports = state;
-
-/**
- * Creates initial state object
- * for iteration over list
- *
- * @param   {array|object} list - list to iterate over
- * @param   {function|null} sortMethod - function to use for keys sort,
- *                                     or `null` to keep them as is
- * @returns {object} - initial state object
- */
-function state(list, sortMethod)
-{
-  var isNamedList = !Array.isArray(list)
-    , initState =
-    {
-      index    : 0,
-      keyedList: isNamedList || sortMethod ? Object.keys(list) : null,
-      jobs     : {},
-      results  : isNamedList ? {} : [],
-      size     : isNamedList ? Object.keys(list).length : list.length
-    }
-    ;
-
-  if (sortMethod)
-  {
-    // sort array keys based on it's values
-    // sort object's keys just on own merit
-    initState.keyedList.sort(isNamedList ? sortMethod : function(a, b)
-    {
-      return sortMethod(list[a], list[b]);
-    });
-  }
-
-  return initState;
-}
-
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var abort = __webpack_require__(72)
-  , async = __webpack_require__(73)
-  ;
-
-// API
-module.exports = terminator;
-
-/**
- * Terminates jobs in the attached state context
- *
- * @this  AsyncKitState#
- * @param {function} callback - final callback to invoke after termination
- */
-function terminator(callback)
-{
-  if (!Object.keys(this.jobs).length)
-  {
-    return;
-  }
-
-  // fast forward iteration index
-  this.index = this.size;
-
-  // abort jobs
-  abort(this);
-
-  // send back results we have so far
-  async(callback)(null, this.results);
-}
-
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var iterate    = __webpack_require__(74)
-  , initState  = __webpack_require__(75)
-  , terminator = __webpack_require__(76)
-  ;
-
-// Public API
-module.exports = serialOrdered;
-// sorting helpers
-module.exports.ascending  = ascending;
-module.exports.descending = descending;
-
-/**
- * Runs iterator over provided sorted array elements in series
- *
- * @param   {array|object} list - array or object (named list) to iterate over
- * @param   {function} iterator - iterator to run
- * @param   {function} sortMethod - custom sort function
- * @param   {function} callback - invoked when all elements processed
- * @returns {function} - jobs terminator
- */
-function serialOrdered(list, iterator, sortMethod, callback)
-{
-  var state = initState(list, sortMethod);
-
-  iterate(list, iterator, state, function iteratorHandler(error, result)
-  {
-    if (error)
-    {
-      callback(error, result);
-      return;
-    }
-
-    state.index++;
-
-    // are we there yet?
-    if (state.index < (state['keyedList'] || list).length)
-    {
-      iterate(list, iterator, state, iteratorHandler);
-      return;
-    }
-
-    // done here
-    callback(null, state.results);
-  });
-
-  return terminator.bind(state, callback);
-}
-
-/*
- * -- Sort methods
- */
-
-/**
- * sort helper to sort array elements in ascending order
- *
- * @param   {mixed} a - an item to compare
- * @param   {mixed} b - an item to compare
- * @returns {number} - comparison result
- */
-function ascending(a, b)
-{
-  return a < b ? -1 : a > b ? 1 : 0;
-}
-
-/**
- * sort helper to sort array elements in descending order
- *
- * @param   {mixed} a - an item to compare
- * @param   {mixed} b - an item to compare
- * @returns {number} - comparison result
- */
-function descending(a, b)
-{
-  return -1 * ascending(a, b);
-}
-
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var crypto_hash_sha512 = __webpack_require__(13).lowlevel.crypto_hash;
-
-/*
- * This file is a 1:1 port from the OpenBSD blowfish.c and bcrypt_pbkdf.c. As a
- * result, it retains the original copyright and license. The two files are
- * under slightly different (but compatible) licenses, and are here combined in
- * one file.
- *
- * Credit for the actual porting work goes to:
- *  Devi Mandiri <me@devi.web.id>
- */
-
-/*
- * The Blowfish portions are under the following license:
- *
- * Blowfish block cipher for OpenBSD
- * Copyright 1997 Niels Provos <provos@physnet.uni-hamburg.de>
- * All rights reserved.
- *
- * Implementation advice by David Mazieres <dm@lcs.mit.edu>.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. The name of the author may not be used to endorse or promote products
- *    derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
- * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
- * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
- * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-/*
- * The bcrypt_pbkdf portions are under the following license:
- *
- * Copyright (c) 2013 Ted Unangst <tedu@openbsd.org>
- *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
- *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- */
-
-/*
- * Performance improvements (Javascript-specific):
- *
- * Copyright 2016, Joyent Inc
- * Author: Alex Wilson <alex.wilson@joyent.com>
- *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
- *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- */
-
-// Ported from OpenBSD bcrypt_pbkdf.c v1.9
-
-var BLF_J = 0;
-
-var Blowfish = function() {
-  this.S = [
-    new Uint32Array([
-      0xd1310ba6, 0x98dfb5ac, 0x2ffd72db, 0xd01adfb7,
-      0xb8e1afed, 0x6a267e96, 0xba7c9045, 0xf12c7f99,
-      0x24a19947, 0xb3916cf7, 0x0801f2e2, 0x858efc16,
-      0x636920d8, 0x71574e69, 0xa458fea3, 0xf4933d7e,
-      0x0d95748f, 0x728eb658, 0x718bcd58, 0x82154aee,
-      0x7b54a41d, 0xc25a59b5, 0x9c30d539, 0x2af26013,
-      0xc5d1b023, 0x286085f0, 0xca417918, 0xb8db38ef,
-      0x8e79dcb0, 0x603a180e, 0x6c9e0e8b, 0xb01e8a3e,
-      0xd71577c1, 0xbd314b27, 0x78af2fda, 0x55605c60,
-      0xe65525f3, 0xaa55ab94, 0x57489862, 0x63e81440,
-      0x55ca396a, 0x2aab10b6, 0xb4cc5c34, 0x1141e8ce,
-      0xa15486af, 0x7c72e993, 0xb3ee1411, 0x636fbc2a,
-      0x2ba9c55d, 0x741831f6, 0xce5c3e16, 0x9b87931e,
-      0xafd6ba33, 0x6c24cf5c, 0x7a325381, 0x28958677,
-      0x3b8f4898, 0x6b4bb9af, 0xc4bfe81b, 0x66282193,
-      0x61d809cc, 0xfb21a991, 0x487cac60, 0x5dec8032,
-      0xef845d5d, 0xe98575b1, 0xdc262302, 0xeb651b88,
-      0x23893e81, 0xd396acc5, 0x0f6d6ff3, 0x83f44239,
-      0x2e0b4482, 0xa4842004, 0x69c8f04a, 0x9e1f9b5e,
-      0x21c66842, 0xf6e96c9a, 0x670c9c61, 0xabd388f0,
-      0x6a51a0d2, 0xd8542f68, 0x960fa728, 0xab5133a3,
-      0x6eef0b6c, 0x137a3be4, 0xba3bf050, 0x7efb2a98,
-      0xa1f1651d, 0x39af0176, 0x66ca593e, 0x82430e88,
-      0x8cee8619, 0x456f9fb4, 0x7d84a5c3, 0x3b8b5ebe,
-      0xe06f75d8, 0x85c12073, 0x401a449f, 0x56c16aa6,
-      0x4ed3aa62, 0x363f7706, 0x1bfedf72, 0x429b023d,
-      0x37d0d724, 0xd00a1248, 0xdb0fead3, 0x49f1c09b,
-      0x075372c9, 0x80991b7b, 0x25d479d8, 0xf6e8def7,
-      0xe3fe501a, 0xb6794c3b, 0x976ce0bd, 0x04c006ba,
-      0xc1a94fb6, 0x409f60c4, 0x5e5c9ec2, 0x196a2463,
-      0x68fb6faf, 0x3e6c53b5, 0x1339b2eb, 0x3b52ec6f,
-      0x6dfc511f, 0x9b30952c, 0xcc814544, 0xaf5ebd09,
-      0xbee3d004, 0xde334afd, 0x660f2807, 0x192e4bb3,
-      0xc0cba857, 0x45c8740f, 0xd20b5f39, 0xb9d3fbdb,
-      0x5579c0bd, 0x1a60320a, 0xd6a100c6, 0x402c7279,
-      0x679f25fe, 0xfb1fa3cc, 0x8ea5e9f8, 0xdb3222f8,
-      0x3c7516df, 0xfd616b15, 0x2f501ec8, 0xad0552ab,
-      0x323db5fa, 0xfd238760, 0x53317b48, 0x3e00df82,
-      0x9e5c57bb, 0xca6f8ca0, 0x1a87562e, 0xdf1769db,
-      0xd542a8f6, 0x287effc3, 0xac6732c6, 0x8c4f5573,
-      0x695b27b0, 0xbbca58c8, 0xe1ffa35d, 0xb8f011a0,
-      0x10fa3d98, 0xfd2183b8, 0x4afcb56c, 0x2dd1d35b,
-      0x9a53e479, 0xb6f84565, 0xd28e49bc, 0x4bfb9790,
-      0xe1ddf2da, 0xa4cb7e33, 0x62fb1341, 0xcee4c6e8,
-      0xef20cada, 0x36774c01, 0xd07e9efe, 0x2bf11fb4,
-      0x95dbda4d, 0xae909198, 0xeaad8e71, 0x6b93d5a0,
-      0xd08ed1d0, 0xafc725e0, 0x8e3c5b2f, 0x8e7594b7,
-      0x8ff6e2fb, 0xf2122b64, 0x8888b812, 0x900df01c,
-      0x4fad5ea0, 0x688fc31c, 0xd1cff191, 0xb3a8c1ad,
-      0x2f2f2218, 0xbe0e1777, 0xea752dfe, 0x8b021fa1,
-      0xe5a0cc0f, 0xb56f74e8, 0x18acf3d6, 0xce89e299,
-      0xb4a84fe0, 0xfd13e0b7, 0x7cc43b81, 0xd2ada8d9,
-      0x165fa266, 0x80957705, 0x93cc7314, 0x211a1477,
-      0xe6ad2065, 0x77b5fa86, 0xc75442f5, 0xfb9d35cf,
-      0xebcdaf0c, 0x7b3e89a0, 0xd6411bd3, 0xae1e7e49,
-      0x00250e2d, 0x2071b35e, 0x226800bb, 0x57b8e0af,
-      0x2464369b, 0xf009b91e, 0x5563911d, 0x59dfa6aa,
-      0x78c14389, 0xd95a537f, 0x207d5ba2, 0x02e5b9c5,
-      0x83260376, 0x6295cfa9, 0x11c81968, 0x4e734a41,
-      0xb3472dca, 0x7b14a94a, 0x1b510052, 0x9a532915,
-      0xd60f573f, 0xbc9bc6e4, 0x2b60a476, 0x81e67400,
-      0x08ba6fb5, 0x571be91f, 0xf296ec6b, 0x2a0dd915,
-      0xb6636521, 0xe7b9f9b6, 0xff34052e, 0xc5855664,
-      0x53b02d5d, 0xa99f8fa1, 0x08ba4799, 0x6e85076a]),
-    new Uint32Array([
-      0x4b7a70e9, 0xb5b32944, 0xdb75092e, 0xc4192623,
-      0xad6ea6b0, 0x49a7df7d, 0x9cee60b8, 0x8fedb266,
-      0xecaa8c71, 0x699a17ff, 0x5664526c, 0xc2b19ee1,
-      0x193602a5, 0x75094c29, 0xa0591340, 0xe4183a3e,
-      0x3f54989a, 0x5b429d65, 0x6b8fe4d6, 0x99f73fd6,
-      0xa1d29c07, 0xefe830f5, 0x4d2d38e6, 0xf0255dc1,
-      0x4cdd2086, 0x8470eb26, 0x6382e9c6, 0x021ecc5e,
-      0x09686b3f, 0x3ebaefc9, 0x3c971814, 0x6b6a70a1,
-      0x687f3584, 0x52a0e286, 0xb79c5305, 0xaa500737,
-      0x3e07841c, 0x7fdeae5c, 0x8e7d44ec, 0x5716f2b8,
-      0xb03ada37, 0xf0500c0d, 0xf01c1f04, 0x0200b3ff,
-      0xae0cf51a, 0x3cb574b2, 0x25837a58, 0xdc0921bd,
-      0xd19113f9, 0x7ca92ff6, 0x94324773, 0x22f54701,
-      0x3ae5e581, 0x37c2dadc, 0xc8b57634, 0x9af3dda7,
-      0xa9446146, 0x0fd0030e, 0xecc8c73e, 0xa4751e41,
-      0xe238cd99, 0x3bea0e2f, 0x3280bba1, 0x183eb331,
-      0x4e548b38, 0x4f6db908, 0x6f420d03, 0xf60a04bf,
-      0x2cb81290, 0x24977c79, 0x5679b072, 0xbcaf89af,
-      0xde9a771f, 0xd9930810, 0xb38bae12, 0xdccf3f2e,
-      0x5512721f, 0x2e6b7124, 0x501adde6, 0x9f84cd87,
-      0x7a584718, 0x7408da17, 0xbc9f9abc, 0xe94b7d8c,
-      0xec7aec3a, 0xdb851dfa, 0x63094366, 0xc464c3d2,
-      0xef1c1847, 0x3215d908, 0xdd433b37, 0x24c2ba16,
-      0x12a14d43, 0x2a65c451, 0x50940002, 0x133ae4dd,
-      0x71dff89e, 0x10314e55, 0x81ac77d6, 0x5f11199b,
-      0x043556f1, 0xd7a3c76b, 0x3c11183b, 0x5924a509,
-      0xf28fe6ed, 0x97f1fbfa, 0x9ebabf2c, 0x1e153c6e,
-      0x86e34570, 0xeae96fb1, 0x860e5e0a, 0x5a3e2ab3,
-      0x771fe71c, 0x4e3d06fa, 0x2965dcb9, 0x99e71d0f,
-      0x803e89d6, 0x5266c825, 0x2e4cc978, 0x9c10b36a,
-      0xc6150eba, 0x94e2ea78, 0xa5fc3c53, 0x1e0a2df4,
-      0xf2f74ea7, 0x361d2b3d, 0x1939260f, 0x19c27960,
-      0x5223a708, 0xf71312b6, 0xebadfe6e, 0xeac31f66,
-      0xe3bc4595, 0xa67bc883, 0xb17f37d1, 0x018cff28,
-      0xc332ddef, 0xbe6c5aa5, 0x65582185, 0x68ab9802,
-      0xeecea50f, 0xdb2f953b, 0x2aef7dad, 0x5b6e2f84,
-      0x1521b628, 0x29076170, 0xecdd4775, 0x619f1510,
-      0x13cca830, 0xeb61bd96, 0x0334fe1e, 0xaa0363cf,
-      0xb5735c90, 0x4c70a239, 0xd59e9e0b, 0xcbaade14,
-      0xeecc86bc, 0x60622ca7, 0x9cab5cab, 0xb2f3846e,
-      0x648b1eaf, 0x19bdf0ca, 0xa02369b9, 0x655abb50,
-      0x40685a32, 0x3c2ab4b3, 0x319ee9d5, 0xc021b8f7,
-      0x9b540b19, 0x875fa099, 0x95f7997e, 0x623d7da8,
-      0xf837889a, 0x97e32d77, 0x11ed935f, 0x16681281,
-      0x0e358829, 0xc7e61fd6, 0x96dedfa1, 0x7858ba99,
-      0x57f584a5, 0x1b227263, 0x9b83c3ff, 0x1ac24696,
-      0xcdb30aeb, 0x532e3054, 0x8fd948e4, 0x6dbc3128,
-      0x58ebf2ef, 0x34c6ffea, 0xfe28ed61, 0xee7c3c73,
-      0x5d4a14d9, 0xe864b7e3, 0x42105d14, 0x203e13e0,
-      0x45eee2b6, 0xa3aaabea, 0xdb6c4f15, 0xfacb4fd0,
-      0xc742f442, 0xef6abbb5, 0x654f3b1d, 0x41cd2105,
-      0xd81e799e, 0x86854dc7, 0xe44b476a, 0x3d816250,
-      0xcf62a1f2, 0x5b8d2646, 0xfc8883a0, 0xc1c7b6a3,
-      0x7f1524c3, 0x69cb7492, 0x47848a0b, 0x5692b285,
-      0x095bbf00, 0xad19489d, 0x1462b174, 0x23820e00,
-      0x58428d2a, 0x0c55f5ea, 0x1dadf43e, 0x233f7061,
-      0x3372f092, 0x8d937e41, 0xd65fecf1, 0x6c223bdb,
-      0x7cde3759, 0xcbee7460, 0x4085f2a7, 0xce77326e,
-      0xa6078084, 0x19f8509e, 0xe8efd855, 0x61d99735,
-      0xa969a7aa, 0xc50c06c2, 0x5a04abfc, 0x800bcadc,
-      0x9e447a2e, 0xc3453484, 0xfdd56705, 0x0e1e9ec9,
-      0xdb73dbd3, 0x105588cd, 0x675fda79, 0xe3674340,
-      0xc5c43465, 0x713e38d8, 0x3d28f89e, 0xf16dff20,
-      0x153e21e7, 0x8fb03d4a, 0xe6e39f2b, 0xdb83adf7]),
-    new Uint32Array([
-      0xe93d5a68, 0x948140f7, 0xf64c261c, 0x94692934,
-      0x411520f7, 0x7602d4f7, 0xbcf46b2e, 0xd4a20068,
-      0xd4082471, 0x3320f46a, 0x43b7d4b7, 0x500061af,
-      0x1e39f62e, 0x97244546, 0x14214f74, 0xbf8b8840,
-      0x4d95fc1d, 0x96b591af, 0x70f4ddd3, 0x66a02f45,
-      0xbfbc09ec, 0x03bd9785, 0x7fac6dd0, 0x31cb8504,
-      0x96eb27b3, 0x55fd3941, 0xda2547e6, 0xabca0a9a,
-      0x28507825, 0x530429f4, 0x0a2c86da, 0xe9b66dfb,
-      0x68dc1462, 0xd7486900, 0x680ec0a4, 0x27a18dee,
-      0x4f3ffea2, 0xe887ad8c, 0xb58ce006, 0x7af4d6b6,
-      0xaace1e7c, 0xd3375fec, 0xce78a399, 0x406b2a42,
-      0x20fe9e35, 0xd9f385b9, 0xee39d7ab, 0x3b124e8b,
-      0x1dc9faf7, 0x4b6d1856, 0x26a36631, 0xeae397b2,
-      0x3a6efa74, 0xdd5b4332, 0x6841e7f7, 0xca7820fb,
-      0xfb0af54e, 0xd8feb397, 0x454056ac, 0xba489527,
-      0x55533a3a, 0x20838d87, 0xfe6ba9b7, 0xd096954b,
-      0x55a867bc, 0xa1159a58, 0xcca92963, 0x99e1db33,
-      0xa62a4a56, 0x3f3125f9, 0x5ef47e1c, 0x9029317c,
-      0xfdf8e802, 0x04272f70, 0x80bb155c, 0x05282ce3,
-      0x95c11548, 0xe4c66d22, 0x48c1133f, 0xc70f86dc,
-      0x07f9c9ee, 0x41041f0f, 0x404779a4, 0x5d886e17,
-      0x325f51eb, 0xd59bc0d1, 0xf2bcc18f, 0x41113564,
-      0x257b7834, 0x602a9c60, 0xdff8e8a3, 0x1f636c1b,
-      0x0e12b4c2, 0x02e1329e, 0xaf664fd1, 0xcad18115,
-      0x6b2395e0, 0x333e92e1, 0x3b240b62, 0xeebeb922,
-      0x85b2a20e, 0xe6ba0d99, 0xde720c8c, 0x2da2f728,
-      0xd0127845, 0x95b794fd, 0x647d0862, 0xe7ccf5f0,
-      0x5449a36f, 0x877d48fa, 0xc39dfd27, 0xf33e8d1e,
-      0x0a476341, 0x992eff74, 0x3a6f6eab, 0xf4f8fd37,
-      0xa812dc60, 0xa1ebddf8, 0x991be14c, 0xdb6e6b0d,
-      0xc67b5510, 0x6d672c37, 0x2765d43b, 0xdcd0e804,
-      0xf1290dc7, 0xcc00ffa3, 0xb5390f92, 0x690fed0b,
-      0x667b9ffb, 0xcedb7d9c, 0xa091cf0b, 0xd9155ea3,
-      0xbb132f88, 0x515bad24, 0x7b9479bf, 0x763bd6eb,
-      0x37392eb3, 0xcc115979, 0x8026e297, 0xf42e312d,
-      0x6842ada7, 0xc66a2b3b, 0x12754ccc, 0x782ef11c,
-      0x6a124237, 0xb79251e7, 0x06a1bbe6, 0x4bfb6350,
-      0x1a6b1018, 0x11caedfa, 0x3d25bdd8, 0xe2e1c3c9,
-      0x44421659, 0x0a121386, 0xd90cec6e, 0xd5abea2a,
-      0x64af674e, 0xda86a85f, 0xbebfe988, 0x64e4c3fe,
-      0x9dbc8057, 0xf0f7c086, 0x60787bf8, 0x6003604d,
-      0xd1fd8346, 0xf6381fb0, 0x7745ae04, 0xd736fccc,
-      0x83426b33, 0xf01eab71, 0xb0804187, 0x3c005e5f,
-      0x77a057be, 0xbde8ae24, 0x55464299, 0xbf582e61,
-      0x4e58f48f, 0xf2ddfda2, 0xf474ef38, 0x8789bdc2,
-      0x5366f9c3, 0xc8b38e74, 0xb475f255, 0x46fcd9b9,
-      0x7aeb2661, 0x8b1ddf84, 0x846a0e79, 0x915f95e2,
-      0x466e598e, 0x20b45770, 0x8cd55591, 0xc902de4c,
-      0xb90bace1, 0xbb8205d0, 0x11a86248, 0x7574a99e,
-      0xb77f19b6, 0xe0a9dc09, 0x662d09a1, 0xc4324633,
-      0xe85a1f02, 0x09f0be8c, 0x4a99a025, 0x1d6efe10,
-      0x1ab93d1d, 0x0ba5a4df, 0xa186f20f, 0x2868f169,
-      0xdcb7da83, 0x573906fe, 0xa1e2ce9b, 0x4fcd7f52,
-      0x50115e01, 0xa70683fa, 0xa002b5c4, 0x0de6d027,
-      0x9af88c27, 0x773f8641, 0xc3604c06, 0x61a806b5,
-      0xf0177a28, 0xc0f586e0, 0x006058aa, 0x30dc7d62,
-      0x11e69ed7, 0x2338ea63, 0x53c2dd94, 0xc2c21634,
-      0xbbcbee56, 0x90bcb6de, 0xebfc7da1, 0xce591d76,
-      0x6f05e409, 0x4b7c0188, 0x39720a3d, 0x7c927c24,
-      0x86e3725f, 0x724d9db9, 0x1ac15bb4, 0xd39eb8fc,
-      0xed545578, 0x08fca5b5, 0xd83d7cd3, 0x4dad0fc4,
-      0x1e50ef5e, 0xb161e6f8, 0xa28514d9, 0x6c51133c,
-      0x6fd5c7e7, 0x56e14ec4, 0x362abfce, 0xddc6c837,
-      0xd79a3234, 0x92638212, 0x670efa8e, 0x406000e0]),
-    new Uint32Array([
-      0x3a39ce37, 0xd3faf5cf, 0xabc27737, 0x5ac52d1b,
-      0x5cb0679e, 0x4fa33742, 0xd3822740, 0x99bc9bbe,
-      0xd5118e9d, 0xbf0f7315, 0xd62d1c7e, 0xc700c47b,
-      0xb78c1b6b, 0x21a19045, 0xb26eb1be, 0x6a366eb4,
-      0x5748ab2f, 0xbc946e79, 0xc6a376d2, 0x6549c2c8,
-      0x530ff8ee, 0x468dde7d, 0xd5730a1d, 0x4cd04dc6,
-      0x2939bbdb, 0xa9ba4650, 0xac9526e8, 0xbe5ee304,
-      0xa1fad5f0, 0x6a2d519a, 0x63ef8ce2, 0x9a86ee22,
-      0xc089c2b8, 0x43242ef6, 0xa51e03aa, 0x9cf2d0a4,
-      0x83c061ba, 0x9be96a4d, 0x8fe51550, 0xba645bd6,
-      0x2826a2f9, 0xa73a3ae1, 0x4ba99586, 0xef5562e9,
-      0xc72fefd3, 0xf752f7da, 0x3f046f69, 0x77fa0a59,
-      0x80e4a915, 0x87b08601, 0x9b09e6ad, 0x3b3ee593,
-      0xe990fd5a, 0x9e34d797, 0x2cf0b7d9, 0x022b8b51,
-      0x96d5ac3a, 0x017da67d, 0xd1cf3ed6, 0x7c7d2d28,
-      0x1f9f25cf, 0xadf2b89b, 0x5ad6b472, 0x5a88f54c,
-      0xe029ac71, 0xe019a5e6, 0x47b0acfd, 0xed93fa9b,
-      0xe8d3c48d, 0x283b57cc, 0xf8d56629, 0x79132e28,
-      0x785f0191, 0xed756055, 0xf7960e44, 0xe3d35e8c,
-      0x15056dd4, 0x88f46dba, 0x03a16125, 0x0564f0bd,
-      0xc3eb9e15, 0x3c9057a2, 0x97271aec, 0xa93a072a,
-      0x1b3f6d9b, 0x1e6321f5, 0xf59c66fb, 0x26dcf319,
-      0x7533d928, 0xb155fdf5, 0x03563482, 0x8aba3cbb,
-      0x28517711, 0xc20ad9f8, 0xabcc5167, 0xccad925f,
-      0x4de81751, 0x3830dc8e, 0x379d5862, 0x9320f991,
-      0xea7a90c2, 0xfb3e7bce, 0x5121ce64, 0x774fbe32,
-      0xa8b6e37e, 0xc3293d46, 0x48de5369, 0x6413e680,
-      0xa2ae0810, 0xdd6db224, 0x69852dfd, 0x09072166,
-      0xb39a460a, 0x6445c0dd, 0x586cdecf, 0x1c20c8ae,
-      0x5bbef7dd, 0x1b588d40, 0xccd2017f, 0x6bb4e3bb,
-      0xdda26a7e, 0x3a59ff45, 0x3e350a44, 0xbcb4cdd5,
-      0x72eacea8, 0xfa6484bb, 0x8d6612ae, 0xbf3c6f47,
-      0xd29be463, 0x542f5d9e, 0xaec2771b, 0xf64e6370,
-      0x740e0d8d, 0xe75b1357, 0xf8721671, 0xaf537d5d,
-      0x4040cb08, 0x4eb4e2cc, 0x34d2466a, 0x0115af84,
-      0xe1b00428, 0x95983a1d, 0x06b89fb4, 0xce6ea048,
-      0x6f3f3b82, 0x3520ab82, 0x011a1d4b, 0x277227f8,
-      0x611560b1, 0xe7933fdc, 0xbb3a792b, 0x344525bd,
-      0xa08839e1, 0x51ce794b, 0x2f32c9b7, 0xa01fbac9,
-      0xe01cc87e, 0xbcc7d1f6, 0xcf0111c3, 0xa1e8aac7,
-      0x1a908749, 0xd44fbd9a, 0xd0dadecb, 0xd50ada38,
-      0x0339c32a, 0xc6913667, 0x8df9317c, 0xe0b12b4f,
-      0xf79e59b7, 0x43f5bb3a, 0xf2d519ff, 0x27d9459c,
-      0xbf97222c, 0x15e6fc2a, 0x0f91fc71, 0x9b941525,
-      0xfae59361, 0xceb69ceb, 0xc2a86459, 0x12baa8d1,
-      0xb6c1075e, 0xe3056a0c, 0x10d25065, 0xcb03a442,
-      0xe0ec6e0e, 0x1698db3b, 0x4c98a0be, 0x3278e964,
-      0x9f1f9532, 0xe0d392df, 0xd3a0342b, 0x8971f21e,
-      0x1b0a7441, 0x4ba3348c, 0xc5be7120, 0xc37632d8,
-      0xdf359f8d, 0x9b992f2e, 0xe60b6f47, 0x0fe3f11d,
-      0xe54cda54, 0x1edad891, 0xce6279cf, 0xcd3e7e6f,
-      0x1618b166, 0xfd2c1d05, 0x848fd2c5, 0xf6fb2299,
-      0xf523f357, 0xa6327623, 0x93a83531, 0x56cccd02,
-      0xacf08162, 0x5a75ebb5, 0x6e163697, 0x88d273cc,
-      0xde966292, 0x81b949d0, 0x4c50901b, 0x71c65614,
-      0xe6c6c7bd, 0x327a140a, 0x45e1d006, 0xc3f27b9a,
-      0xc9aa53fd, 0x62a80f00, 0xbb25bfe2, 0x35bdd2f6,
-      0x71126905, 0xb2040222, 0xb6cbcf7c, 0xcd769c2b,
-      0x53113ec0, 0x1640e3d3, 0x38abbd60, 0x2547adf0,
-      0xba38209c, 0xf746ce76, 0x77afa1c5, 0x20756060,
-      0x85cbfe4e, 0x8ae88dd8, 0x7aaaf9b0, 0x4cf9aa7e,
-      0x1948c25c, 0x02fb8a8c, 0x01c36ae4, 0xd6ebe1f9,
-      0x90d4f869, 0xa65cdea0, 0x3f09252d, 0xc208e69f,
-      0xb74e6132, 0xce77e25b, 0x578fdfe3, 0x3ac372e6])
-    ];
-  this.P = new Uint32Array([
-    0x243f6a88, 0x85a308d3, 0x13198a2e, 0x03707344,
-    0xa4093822, 0x299f31d0, 0x082efa98, 0xec4e6c89,
-    0x452821e6, 0x38d01377, 0xbe5466cf, 0x34e90c6c,
-    0xc0ac29b7, 0xc97c50dd, 0x3f84d5b5, 0xb5470917,
-    0x9216d5d9, 0x8979fb1b]);
-};
-
-function F(S, x8, i) {
-  return (((S[0][x8[i+3]] +
-            S[1][x8[i+2]]) ^
-            S[2][x8[i+1]]) +
-            S[3][x8[i]]);
-};
-
-Blowfish.prototype.encipher = function(x, x8) {
-  if (x8 === undefined) {
-    x8 = new Uint8Array(x.buffer);
-    if (x.byteOffset !== 0)
-      x8 = x8.subarray(x.byteOffset);
-  }
-  x[0] ^= this.P[0];
-  for (var i = 1; i < 16; i += 2) {
-    x[1] ^= F(this.S, x8, 0) ^ this.P[i];
-    x[0] ^= F(this.S, x8, 4) ^ this.P[i+1];
-  }
-  var t = x[0];
-  x[0] = x[1] ^ this.P[17];
-  x[1] = t;
-};
-
-Blowfish.prototype.decipher = function(x) {
-  var x8 = new Uint8Array(x.buffer);
-  if (x.byteOffset !== 0)
-    x8 = x8.subarray(x.byteOffset);
-  x[0] ^= this.P[17];
-  for (var i = 16; i > 0; i -= 2) {
-    x[1] ^= F(this.S, x8, 0) ^ this.P[i];
-    x[0] ^= F(this.S, x8, 4) ^ this.P[i-1];
-  }
-  var t = x[0];
-  x[0] = x[1] ^ this.P[0];
-  x[1] = t;
-};
-
-function stream2word(data, databytes){
-  var i, temp = 0;
-  for (i = 0; i < 4; i++, BLF_J++) {
-    if (BLF_J >= databytes) BLF_J = 0;
-    temp = (temp << 8) | data[BLF_J];
-  }
-  return temp;
-};
-
-Blowfish.prototype.expand0state = function(key, keybytes) {
-  var d = new Uint32Array(2), i, k;
-  var d8 = new Uint8Array(d.buffer);
-
-  for (i = 0, BLF_J = 0; i < 18; i++) {
-    this.P[i] ^= stream2word(key, keybytes);
-  }
-  BLF_J = 0;
-
-  for (i = 0; i < 18; i += 2) {
-    this.encipher(d, d8);
-    this.P[i]   = d[0];
-    this.P[i+1] = d[1];
-  }
-
-  for (i = 0; i < 4; i++) {
-    for (k = 0; k < 256; k += 2) {
-      this.encipher(d, d8);
-      this.S[i][k]   = d[0];
-      this.S[i][k+1] = d[1];
-    }
-  }
-};
-
-Blowfish.prototype.expandstate = function(data, databytes, key, keybytes) {
-  var d = new Uint32Array(2), i, k;
-
-  for (i = 0, BLF_J = 0; i < 18; i++) {
-    this.P[i] ^= stream2word(key, keybytes);
-  }
-
-  for (i = 0, BLF_J = 0; i < 18; i += 2) {
-    d[0] ^= stream2word(data, databytes);
-    d[1] ^= stream2word(data, databytes);
-    this.encipher(d);
-    this.P[i]   = d[0];
-    this.P[i+1] = d[1];
-  }
-
-  for (i = 0; i < 4; i++) {
-    for (k = 0; k < 256; k += 2) {
-      d[0] ^= stream2word(data, databytes);
-      d[1] ^= stream2word(data, databytes);
-      this.encipher(d);
-      this.S[i][k]   = d[0];
-      this.S[i][k+1] = d[1];
-    }
-  }
-  BLF_J = 0;
-};
-
-Blowfish.prototype.enc = function(data, blocks) {
-  for (var i = 0; i < blocks; i++) {
-    this.encipher(data.subarray(i*2));
-  }
-};
-
-Blowfish.prototype.dec = function(data, blocks) {
-  for (var i = 0; i < blocks; i++) {
-    this.decipher(data.subarray(i*2));
-  }
-};
-
-var BCRYPT_BLOCKS = 8,
-    BCRYPT_HASHSIZE = 32;
-
-function bcrypt_hash(sha2pass, sha2salt, out) {
-  var state = new Blowfish(),
-      cdata = new Uint32Array(BCRYPT_BLOCKS), i,
-      ciphertext = new Uint8Array([79,120,121,99,104,114,111,109,97,116,105,
-            99,66,108,111,119,102,105,115,104,83,119,97,116,68,121,110,97,109,
-            105,116,101]); //"OxychromaticBlowfishSwatDynamite"
-
-  state.expandstate(sha2salt, 64, sha2pass, 64);
-  for (i = 0; i < 64; i++) {
-    state.expand0state(sha2salt, 64);
-    state.expand0state(sha2pass, 64);
-  }
-
-  for (i = 0; i < BCRYPT_BLOCKS; i++)
-    cdata[i] = stream2word(ciphertext, ciphertext.byteLength);
-  for (i = 0; i < 64; i++)
-    state.enc(cdata, cdata.byteLength / 8);
-
-  for (i = 0; i < BCRYPT_BLOCKS; i++) {
-    out[4*i+3] = cdata[i] >>> 24;
-    out[4*i+2] = cdata[i] >>> 16;
-    out[4*i+1] = cdata[i] >>> 8;
-    out[4*i+0] = cdata[i];
-  }
-};
-
-function bcrypt_pbkdf(pass, passlen, salt, saltlen, key, keylen, rounds) {
-  var sha2pass = new Uint8Array(64),
-      sha2salt = new Uint8Array(64),
-      out = new Uint8Array(BCRYPT_HASHSIZE),
-      tmpout = new Uint8Array(BCRYPT_HASHSIZE),
-      countsalt = new Uint8Array(saltlen+4),
-      i, j, amt, stride, dest, count,
-      origkeylen = keylen;
-
-  if (rounds < 1)
-    return -1;
-  if (passlen === 0 || saltlen === 0 || keylen === 0 ||
-      keylen > (out.byteLength * out.byteLength) || saltlen > (1<<20))
-    return -1;
-
-  stride = Math.floor((keylen + out.byteLength - 1) / out.byteLength);
-  amt = Math.floor((keylen + stride - 1) / stride);
-
-  for (i = 0; i < saltlen; i++)
-    countsalt[i] = salt[i];
-
-  crypto_hash_sha512(sha2pass, pass, passlen);
-
-  for (count = 1; keylen > 0; count++) {
-    countsalt[saltlen+0] = count >>> 24;
-    countsalt[saltlen+1] = count >>> 16;
-    countsalt[saltlen+2] = count >>>  8;
-    countsalt[saltlen+3] = count;
-
-    crypto_hash_sha512(sha2salt, countsalt, saltlen + 4);
-    bcrypt_hash(sha2pass, sha2salt, tmpout);
-    for (i = out.byteLength; i--;)
-      out[i] = tmpout[i];
-
-    for (i = 1; i < rounds; i++) {
-      crypto_hash_sha512(sha2salt, tmpout, tmpout.byteLength);
-      bcrypt_hash(sha2pass, sha2salt, tmpout);
-      for (j = 0; j < out.byteLength; j++)
-        out[j] ^= tmpout[j];
-    }
-
-    amt = Math.min(amt, keylen);
-    for (i = 0; i < amt; i++) {
-      dest = i * stride + (count - 1);
-      if (dest >= origkeylen)
-        break;
-      key[dest] = out[i];
-    }
-    keylen -= i;
-  }
-
-  return 0;
-};
-
-module.exports = {
-      BLOCKS: BCRYPT_BLOCKS,
-      HASHSIZE: BCRYPT_HASHSIZE,
-      hash: bcrypt_hash,
-      pbkdf: bcrypt_pbkdf
-};
-
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports) {
-
-
-/**
- * slice() reference.
- */
-
-var slice = Array.prototype.slice;
-
-/**
- * Expose `co`.
- */
-
-module.exports = co['default'] = co.co = co;
-
-/**
- * Wrap the given generator `fn` into a
- * function that returns a promise.
- * This is a separate function so that
- * every `co()` call doesn't create a new,
- * unnecessary closure.
- *
- * @param {GeneratorFunction} fn
- * @return {Function}
- * @api public
- */
-
-co.wrap = function (fn) {
-  createPromise.__generatorFunction__ = fn;
-  return createPromise;
-  function createPromise() {
-    return co.call(this, fn.apply(this, arguments));
-  }
-};
-
-/**
- * Execute the generator function or a generator
- * and return a promise.
- *
- * @param {Function} fn
- * @return {Promise}
- * @api public
- */
-
-function co(gen) {
-  var ctx = this;
-  var args = slice.call(arguments, 1)
-
-  // we wrap everything in a promise to avoid promise chaining,
-  // which leads to memory leak errors.
-  // see https://github.com/tj/co/issues/180
-  return new Promise(function(resolve, reject) {
-    if (typeof gen === 'function') gen = gen.apply(ctx, args);
-    if (!gen || typeof gen.next !== 'function') return resolve(gen);
-
-    onFulfilled();
-
-    /**
-     * @param {Mixed} res
-     * @return {Promise}
-     * @api private
-     */
-
-    function onFulfilled(res) {
-      var ret;
-      try {
-        ret = gen.next(res);
-      } catch (e) {
-        return reject(e);
-      }
-      next(ret);
-    }
-
-    /**
-     * @param {Error} err
-     * @return {Promise}
-     * @api private
-     */
-
-    function onRejected(err) {
-      var ret;
-      try {
-        ret = gen.throw(err);
-      } catch (e) {
-        return reject(e);
-      }
-      next(ret);
-    }
-
-    /**
-     * Get the next value in the generator,
-     * return a promise.
-     *
-     * @param {Object} ret
-     * @return {Promise}
-     * @api private
-     */
-
-    function next(ret) {
-      if (ret.done) return resolve(ret.value);
-      var value = toPromise.call(ctx, ret.value);
-      if (value && isPromise(value)) return value.then(onFulfilled, onRejected);
-      return onRejected(new TypeError('You may only yield a function, promise, generator, array, or object, '
-        + 'but the following object was passed: "' + String(ret.value) + '"'));
-    }
-  });
-}
-
-/**
- * Convert a `yield`ed value into a promise.
- *
- * @param {Mixed} obj
- * @return {Promise}
- * @api private
- */
-
-function toPromise(obj) {
-  if (!obj) return obj;
-  if (isPromise(obj)) return obj;
-  if (isGeneratorFunction(obj) || isGenerator(obj)) return co.call(this, obj);
-  if ('function' == typeof obj) return thunkToPromise.call(this, obj);
-  if (Array.isArray(obj)) return arrayToPromise.call(this, obj);
-  if (isObject(obj)) return objectToPromise.call(this, obj);
-  return obj;
-}
-
-/**
- * Convert a thunk to a promise.
- *
- * @param {Function}
- * @return {Promise}
- * @api private
- */
-
-function thunkToPromise(fn) {
-  var ctx = this;
-  return new Promise(function (resolve, reject) {
-    fn.call(ctx, function (err, res) {
-      if (err) return reject(err);
-      if (arguments.length > 2) res = slice.call(arguments, 1);
-      resolve(res);
-    });
-  });
-}
-
-/**
- * Convert an array of "yieldables" to a promise.
- * Uses `Promise.all()` internally.
- *
- * @param {Array} obj
- * @return {Promise}
- * @api private
- */
-
-function arrayToPromise(obj) {
-  return Promise.all(obj.map(toPromise, this));
-}
-
-/**
- * Convert an object of "yieldables" to a promise.
- * Uses `Promise.all()` internally.
- *
- * @param {Object} obj
- * @return {Promise}
- * @api private
- */
-
-function objectToPromise(obj){
-  var results = new obj.constructor();
-  var keys = Object.keys(obj);
-  var promises = [];
-  for (var i = 0; i < keys.length; i++) {
-    var key = keys[i];
-    var promise = toPromise.call(this, obj[key]);
-    if (promise && isPromise(promise)) defer(promise, key);
-    else results[key] = obj[key];
-  }
-  return Promise.all(promises).then(function () {
-    return results;
-  });
-
-  function defer(promise, key) {
-    // predefine the key in the result
-    results[key] = undefined;
-    promises.push(promise.then(function (res) {
-      results[key] = res;
-    }));
-  }
-}
-
-/**
- * Check if `obj` is a promise.
- *
- * @param {Object} obj
- * @return {Boolean}
- * @api private
- */
-
-function isPromise(obj) {
-  return 'function' == typeof obj.then;
-}
-
-/**
- * Check if `obj` is a generator.
- *
- * @param {Mixed} obj
- * @return {Boolean}
- * @api private
- */
-
-function isGenerator(obj) {
-  return 'function' == typeof obj.next && 'function' == typeof obj.throw;
-}
-
-/**
- * Check if `obj` is a generator function.
- *
- * @param {Mixed} obj
- * @return {Boolean}
- * @api private
- */
-function isGeneratorFunction(obj) {
-  var constructor = obj.constructor;
-  if (!constructor) return false;
-  if ('GeneratorFunction' === constructor.name || 'GeneratorFunction' === constructor.displayName) return true;
-  return isGenerator(constructor.prototype);
-}
-
-/**
- * Check for plain object.
- *
- * @param {Mixed} val
- * @return {Boolean}
- * @api private
- */
-
-function isObject(val) {
-  return Object == val.constructor;
-}
-
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var util = __webpack_require__(2);
-var Stream = __webpack_require__(14).Stream;
-var DelayedStream = __webpack_require__(159);
-var defer = __webpack_require__(157);
-
-module.exports = CombinedStream;
-function CombinedStream() {
-  this.writable = false;
-  this.readable = true;
-  this.dataSize = 0;
-  this.maxDataSize = 2 * 1024 * 1024;
-  this.pauseStreams = true;
-
-  this._released = false;
-  this._streams = [];
-  this._currentStream = null;
-}
-util.inherits(CombinedStream, Stream);
-
-CombinedStream.create = function(options) {
-  var combinedStream = new this();
-
-  options = options || {};
-  for (var option in options) {
-    combinedStream[option] = options[option];
-  }
-
-  return combinedStream;
-};
-
-CombinedStream.isStreamLike = function(stream) {
-  return (typeof stream !== 'function')
-    && (typeof stream !== 'string')
-    && (typeof stream !== 'boolean')
-    && (typeof stream !== 'number')
-    && (!Buffer.isBuffer(stream));
-};
-
-CombinedStream.prototype.append = function(stream) {
-  var isStreamLike = CombinedStream.isStreamLike(stream);
-
-  if (isStreamLike) {
-    if (!(stream instanceof DelayedStream)) {
-      var newStream = DelayedStream.create(stream, {
-        maxDataSize: Infinity,
-        pauseStream: this.pauseStreams,
-      });
-      stream.on('data', this._checkDataSize.bind(this));
-      stream = newStream;
-    }
-
-    this._handleErrors(stream);
-
-    if (this.pauseStreams) {
-      stream.pause();
-    }
-  }
-
-  this._streams.push(stream);
-  return this;
-};
-
-CombinedStream.prototype.pipe = function(dest, options) {
-  Stream.prototype.pipe.call(this, dest, options);
-  this.resume();
-  return dest;
-};
-
-CombinedStream.prototype._getNext = function() {
-  this._currentStream = null;
-  var stream = this._streams.shift();
-
-
-  if (typeof stream == 'undefined') {
-    this.end();
-    return;
-  }
-
-  if (typeof stream !== 'function') {
-    this._pipeNext(stream);
-    return;
-  }
-
-  var getStream = stream;
-  getStream(function(stream) {
-    var isStreamLike = CombinedStream.isStreamLike(stream);
-    if (isStreamLike) {
-      stream.on('data', this._checkDataSize.bind(this));
-      this._handleErrors(stream);
-    }
-
-    defer(this._pipeNext.bind(this, stream));
-  }.bind(this));
-};
-
-CombinedStream.prototype._pipeNext = function(stream) {
-  this._currentStream = stream;
-
-  var isStreamLike = CombinedStream.isStreamLike(stream);
-  if (isStreamLike) {
-    stream.on('end', this._getNext.bind(this));
-    stream.pipe(this, {end: false});
-    return;
-  }
-
-  var value = stream;
-  this.write(value);
-  this._getNext();
-};
-
-CombinedStream.prototype._handleErrors = function(stream) {
-  var self = this;
-  stream.on('error', function(err) {
-    self._emitError(err);
-  });
-};
-
-CombinedStream.prototype.write = function(data) {
-  this.emit('data', data);
-};
-
-CombinedStream.prototype.pause = function() {
-  if (!this.pauseStreams) {
-    return;
-  }
-
-  if(this.pauseStreams && this._currentStream && typeof(this._currentStream.pause) == 'function') this._currentStream.pause();
-  this.emit('pause');
-};
-
-CombinedStream.prototype.resume = function() {
-  if (!this._released) {
-    this._released = true;
-    this.writable = true;
-    this._getNext();
-  }
-
-  if(this.pauseStreams && this._currentStream && typeof(this._currentStream.resume) == 'function') this._currentStream.resume();
-  this.emit('resume');
-};
-
-CombinedStream.prototype.end = function() {
-  this._reset();
-  this.emit('end');
-};
-
-CombinedStream.prototype.destroy = function() {
-  this._reset();
-  this.emit('close');
-};
-
-CombinedStream.prototype._reset = function() {
-  this.writable = false;
-  this._streams = [];
-  this._currentStream = null;
-};
-
-CombinedStream.prototype._checkDataSize = function() {
-  this._updateDataSize();
-  if (this.dataSize <= this.maxDataSize) {
-    return;
-  }
-
-  var message =
-    'DelayedStream#maxDataSize of ' + this.maxDataSize + ' bytes exceeded.';
-  this._emitError(new Error(message));
-};
-
-CombinedStream.prototype._updateDataSize = function() {
-  this.dataSize = 0;
-
-  var self = this;
-  this._streams.forEach(function(stream) {
-    if (!stream.dataSize) {
-      return;
-    }
-
-    self.dataSize += stream.dataSize;
-  });
-
-  if (this._currentStream && this._currentStream.dataSize) {
-    this.dataSize += this._currentStream.dataSize;
-  }
-};
-
-CombinedStream.prototype._emitError = function(err) {
-  this._reset();
-  this.emit('error', err);
-};
-
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// Load modules
-
-const Crypto = __webpack_require__(1);
-const Boom = __webpack_require__(32);
-
-
-// Declare internals
-
-const internals = {};
-
-
-// Generate a cryptographically strong pseudo-random data
-
-exports.randomString = function (size) {
-
-    const buffer = exports.randomBits((size + 1) * 6);
-    if (buffer instanceof Error) {
-        return buffer;
-    }
-
-    const string = buffer.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/\=/g, '');
-    return string.slice(0, size);
-};
-
-
-// Return a random string of digits
-
-exports.randomDigits = function (size) {
-
-    const buffer = exports.randomBits(size * 8);
-    if (buffer instanceof Error) {
-        return buffer;
-    }
-
-    const digits = [];
-    for (let i = 0; i < buffer.length; ++i) {
-        digits.push(Math.floor(buffer[i] / 25.6));
-    }
-
-    return digits.join('');
-};
-
-
-// Generate a buffer of random bits
-
-exports.randomBits = function (bits) {
-
-    if (!bits ||
-        bits < 0) {
-
-        return Boom.internal('Invalid random bits count');
-    }
-
-    const bytes = Math.ceil(bits / 8);
-    try {
-        return Crypto.randomBytes(bytes);
-    }
-    catch (err) {
-        return Boom.internal('Failed generating random bits: ' + err.message);
-    }
-};
-
-
-// Compare two strings using fixed time algorithm (to prevent time-based analysis of MAC digest match)
-
-exports.fixedTimeComparison = function (a, b) {
-
-    if (typeof a !== 'string' ||
-        typeof b !== 'string') {
-
-        return false;
-    }
-
-    let mismatch = (a.length === b.length ? 0 : 1);
-    if (mismatch) {
-        b = a;
-    }
-
-    for (let i = 0; i < a.length; ++i) {
-        const ac = a.charCodeAt(i);
-        const bc = b.charCodeAt(i);
-        mismatch |= (ac ^ bc);
-    }
-
-    return (mismatch === 0);
-};
-
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var crypto = __webpack_require__(1);
-var BigInteger = __webpack_require__(16).BigInteger;
-var ECPointFp = __webpack_require__(22).ECPointFp;
-exports.ECCurves = __webpack_require__(160);
-
-// zero prepad
-function unstupid(hex,len)
-{
-	return (hex.length >= len) ? hex : unstupid("0"+hex,len);
-}
-
-exports.ECKey = function(curve, key, isPublic)
-{
-  var priv;
-	var c = curve();
-	var n = c.getN();
-  var bytes = Math.floor(n.bitLength()/8);
-
-  if(key)
-  {
-    if(isPublic)
-    {
-      var curve = c.getCurve();
-//      var x = key.slice(1,bytes+1); // skip the 04 for uncompressed format
-//      var y = key.slice(bytes+1);
-//      this.P = new ECPointFp(curve,
-//        curve.fromBigInteger(new BigInteger(x.toString("hex"), 16)),
-//        curve.fromBigInteger(new BigInteger(y.toString("hex"), 16)));      
-      this.P = curve.decodePointHex(key.toString("hex"));
-    }else{
-      if(key.length != bytes) return false;
-      priv = new BigInteger(key.toString("hex"), 16);      
-    }
-  }else{
-    var n1 = n.subtract(BigInteger.ONE);
-    var r = new BigInteger(crypto.randomBytes(n.bitLength()));
-    priv = r.mod(n1).add(BigInteger.ONE);
-    this.P = c.getG().multiply(priv);
-  }
-  if(this.P)
-  {
-//  var pubhex = unstupid(this.P.getX().toBigInteger().toString(16),bytes*2)+unstupid(this.P.getY().toBigInteger().toString(16),bytes*2);
-//  this.PublicKey = new Buffer("04"+pubhex,"hex");
-    this.PublicKey = new Buffer(c.getCurve().encodeCompressedPointHex(this.P),"hex");
-  }
-  if(priv)
-  {
-    this.PrivateKey = new Buffer(unstupid(priv.toString(16),bytes*2),"hex");
-    this.deriveSharedSecret = function(key)
-    {
-      if(!key || !key.P) return false;
-      var S = key.P.multiply(priv);
-      return new Buffer(unstupid(S.getX().toBigInteger().toString(16),bytes*2),"hex");
-   }     
-  }
-}
-
-
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
- * extsprintf.js: extended POSIX-style sprintf
- */
-
-var mod_assert = __webpack_require__(30);
-var mod_util = __webpack_require__(2);
-
-/*
- * Public interface
- */
-exports.sprintf = jsSprintf;
-exports.printf = jsPrintf;
-exports.fprintf = jsFprintf;
-
-/*
- * Stripped down version of s[n]printf(3c).  We make a best effort to throw an
- * exception when given a format string we don't understand, rather than
- * ignoring it, so that we won't break existing programs if/when we go implement
- * the rest of this.
- *
- * This implementation currently supports specifying
- *	- field alignment ('-' flag),
- * 	- zero-pad ('0' flag)
- *	- always show numeric sign ('+' flag),
- *	- field width
- *	- conversions for strings, decimal integers, and floats (numbers).
- *	- argument size specifiers.  These are all accepted but ignored, since
- *	  Javascript has no notion of the physical size of an argument.
- *
- * Everything else is currently unsupported, most notably precision, unsigned
- * numbers, non-decimal numbers, and characters.
- */
-function jsSprintf(fmt)
-{
-	var regex = [
-	    '([^%]*)',				/* normal text */
-	    '%',				/* start of format */
-	    '([\'\\-+ #0]*?)',			/* flags (optional) */
-	    '([1-9]\\d*)?',			/* width (optional) */
-	    '(\\.([1-9]\\d*))?',		/* precision (optional) */
-	    '[lhjztL]*?',			/* length mods (ignored) */
-	    '([diouxXfFeEgGaAcCsSp%jr])'	/* conversion */
-	].join('');
-
-	var re = new RegExp(regex);
-	var args = Array.prototype.slice.call(arguments, 1);
-	var flags, width, precision, conversion;
-	var left, pad, sign, arg, match;
-	var ret = '';
-	var argn = 1;
-
-	mod_assert.equal('string', typeof (fmt));
-
-	while ((match = re.exec(fmt)) !== null) {
-		ret += match[1];
-		fmt = fmt.substring(match[0].length);
-
-		flags = match[2] || '';
-		width = match[3] || 0;
-		precision = match[4] || '';
-		conversion = match[6];
-		left = false;
-		sign = false;
-		pad = ' ';
-
-		if (conversion == '%') {
-			ret += '%';
-			continue;
-		}
-
-		if (args.length === 0)
-			throw (new Error('too few args to sprintf'));
-
-		arg = args.shift();
-		argn++;
-
-		if (flags.match(/[\' #]/))
-			throw (new Error(
-			    'unsupported flags: ' + flags));
-
-		if (precision.length > 0)
-			throw (new Error(
-			    'non-zero precision not supported'));
-
-		if (flags.match(/-/))
-			left = true;
-
-		if (flags.match(/0/))
-			pad = '0';
-
-		if (flags.match(/\+/))
-			sign = true;
-
-		switch (conversion) {
-		case 's':
-			if (arg === undefined || arg === null)
-				throw (new Error('argument ' + argn +
-				    ': attempted to print undefined or null ' +
-				    'as a string'));
-			ret += doPad(pad, width, left, arg.toString());
-			break;
-
-		case 'd':
-			arg = Math.floor(arg);
-			/*jsl:fallthru*/
-		case 'f':
-			sign = sign && arg > 0 ? '+' : '';
-			ret += sign + doPad(pad, width, left,
-			    arg.toString());
-			break;
-
-		case 'x':
-			ret += doPad(pad, width, left, arg.toString(16));
-			break;
-
-		case 'j': /* non-standard */
-			if (width === 0)
-				width = 10;
-			ret += mod_util.inspect(arg, false, width);
-			break;
-
-		case 'r': /* non-standard */
-			ret += dumpException(arg);
-			break;
-
-		default:
-			throw (new Error('unsupported conversion: ' +
-			    conversion));
-		}
-	}
-
-	ret += fmt;
-	return (ret);
-}
-
-function jsPrintf() {
-	var args = Array.prototype.slice.call(arguments);
-	args.unshift(process.stdout);
-	jsFprintf.apply(null, args);
-}
-
-function jsFprintf(stream) {
-	var args = Array.prototype.slice.call(arguments, 1);
-	return (stream.write(jsSprintf.apply(this, args)));
-}
-
-function doPad(chr, width, left, str)
-{
-	var ret = str;
-
-	while (ret.length < width) {
-		if (left)
-			ret += chr;
-		else
-			ret = chr + ret;
-	}
-
-	return (ret);
-}
-
-/*
- * This function dumps long stack traces for exceptions having a cause() method.
- * See node-verror for an example.
- */
-function dumpException(ex)
-{
-	var ret;
-
-	if (!(ex instanceof Error))
-		throw (new Error(jsSprintf('invalid type for %%r: %j', ex)));
-
-	/* Note that V8 prepends "ex.stack" with ex.toString(). */
-	ret = 'EXCEPTION: ' + ex.constructor.name + ': ' + ex.stack;
-
-	if (ex.cause && typeof (ex.cause) === 'function') {
-		var cex = ex.cause();
-		if (cex) {
-			ret += '\nCaused by: ' + dumpException(cex);
-		}
-	}
-
-	return (ret);
-}
-
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
-/**
- * Simple, lightweight module assisting with the detection and context of
- * Worker. Helps avoid circular dependencies and allows code to reason about
- * whether or not they are in a Worker, even if they never include the main
- * `ReactWorker` dependency.
- */
-var ExecutionEnvironment = {
-
-  canUseDOM: canUseDOM,
-
-  canUseWorkers: typeof Worker !== 'undefined',
-
-  canUseEventListeners: canUseDOM && !!(window.addEventListener || window.attachEvent),
-
-  canUseViewport: canUseDOM && !!window.screen,
-
-  isInWorker: !canUseDOM // For now, this is true - might change in the future.
-
-};
-
-module.exports = ExecutionEnvironment;
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-
-
-var camelize = __webpack_require__(161);
-
-var msPattern = /^-ms-/;
-
-/**
- * Camelcases a hyphenated CSS property name, for example:
- *
- *   > camelizeStyleName('background-color')
- *   < "backgroundColor"
- *   > camelizeStyleName('-moz-transition')
- *   < "MozTransition"
- *   > camelizeStyleName('-ms-transition')
- *   < "msTransition"
- *
- * As Andi Smith suggests
- * (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
- * is converted to lowercase `ms`.
- *
- * @param {string} string
- * @return {string}
- */
-function camelizeStyleName(string) {
-  return camelize(string.replace(msPattern, 'ms-'));
-}
-
-module.exports = camelizeStyleName;
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-var isTextNode = __webpack_require__(164);
-
-/*eslint-disable no-bitwise */
-
-/**
- * Checks if a given DOM node contains or is another DOM node.
- */
-function containsNode(outerNode, innerNode) {
-  if (!outerNode || !innerNode) {
-    return false;
-  } else if (outerNode === innerNode) {
-    return true;
-  } else if (isTextNode(outerNode)) {
-    return false;
-  } else if (isTextNode(innerNode)) {
-    return containsNode(outerNode, innerNode.parentNode);
-  } else if ('contains' in outerNode) {
-    return outerNode.contains(innerNode);
-  } else if (outerNode.compareDocumentPosition) {
-    return !!(outerNode.compareDocumentPosition(innerNode) & 16);
-  } else {
-    return false;
-  }
-}
-
-module.exports = containsNode;
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-/* eslint-disable fb-www/typeof-undefined */
-
-/**
- * Same as document.activeElement but wraps in a try-catch block. In IE it is
- * not safe to call document.activeElement if there is nothing focused.
- *
- * The activeElement will be null only if the document or document body is not
- * yet defined.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
- */
-function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || (typeof document !== 'undefined' ? document : undefined);
-  if (typeof doc === 'undefined') {
-    return null;
-  }
-  try {
-    return doc.activeElement || doc.body;
-  } catch (e) {
-    return doc.body;
-  }
-}
-
-module.exports = getActiveElement;
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- * @typechecks static-only
- */
-
-
-
-/**
- * Memoizes the return value of a function that accepts one string argument.
- */
-
-function memoizeStringOnly(callback) {
-  var cache = {};
-  return function (string) {
-    if (!cache.hasOwnProperty(string)) {
-      cache[string] = callback.call(this, string);
-    }
-    return cache[string];
-  };
-}
-
-module.exports = memoizeStringOnly;
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- * 
- */
-
-/*eslint-disable no-self-compare */
-
-
-
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-/**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
- */
-function is(x, y) {
-  // SameValue algorithm
-  if (x === y) {
-    // Steps 1-5, 7-10
-    // Steps 6.b-6.e: +0 != -0
-    // Added the nonzero y check to make Flow happy, but it is redundant
-    return x !== 0 || y !== 0 || 1 / x === 1 / y;
-  } else {
-    // Step 6.a: NaN == NaN
-    return x !== x && y !== y;
-  }
-}
-
-/**
- * Performs equality by iterating through keys on an object and returning false
- * when any key has values which are not strictly equal between the arguments.
- * Returns true when the values of all keys are strictly equal.
- */
-function shallowEqual(objA, objB) {
-  if (is(objA, objB)) {
-    return true;
-  }
-
-  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
-    return false;
-  }
-
-  var keysA = Object.keys(objA);
-  var keysB = Object.keys(objB);
-
-  if (keysA.length !== keysB.length) {
-    return false;
-  }
-
-  // Test for A's keys different from B.
-  for (var i = 0; i < keysA.length; i++) {
-    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-module.exports = shallowEqual;
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var stream = __webpack_require__(14)
-
-
-function isStream (obj) {
-  return obj instanceof stream.Stream
-}
-
-
-function isReadable (obj) {
-  return isStream(obj) && typeof obj._read == 'function' && typeof obj._readableState == 'object'
-}
-
-
-function isWritable (obj) {
-  return isStream(obj) && typeof obj._write == 'function' && typeof obj._writableState == 'object'
-}
-
-
-function isDuplex (obj) {
-  return isReadable(obj) && isWritable(obj)
-}
-
-
-module.exports            = isStream
-module.exports.isReadable = isReadable
-module.exports.isWritable = isWritable
-module.exports.isDuplex   = isDuplex
-
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*!
- * mime-types
- * Copyright(c) 2014 Jonathan Ong
- * Copyright(c) 2015 Douglas Christopher Wilson
- * MIT Licensed
- */
-
-
-
-/**
- * Module dependencies.
- * @private
- */
-
-var db = __webpack_require__(209)
-var extname = __webpack_require__(60).extname
-
-/**
- * Module variables.
- * @private
- */
-
-var EXTRACT_TYPE_REGEXP = /^\s*([^;\s]*)(?:;|\s|$)/
-var TEXT_TYPE_REGEXP = /^text\//i
-
-/**
- * Module exports.
- * @public
- */
-
-exports.charset = charset
-exports.charsets = { lookup: charset }
-exports.contentType = contentType
-exports.extension = extension
-exports.extensions = Object.create(null)
-exports.lookup = lookup
-exports.types = Object.create(null)
-
-// Populate the extensions/types maps
-populateMaps(exports.extensions, exports.types)
-
-/**
- * Get the default charset for a MIME type.
- *
- * @param {string} type
- * @return {boolean|string}
- */
-
-function charset (type) {
-  if (!type || typeof type !== 'string') {
-    return false
-  }
-
-  // TODO: use media-typer
-  var match = EXTRACT_TYPE_REGEXP.exec(type)
-  var mime = match && db[match[1].toLowerCase()]
-
-  if (mime && mime.charset) {
-    return mime.charset
-  }
-
-  // default text/* to utf-8
-  if (match && TEXT_TYPE_REGEXP.test(match[1])) {
-    return 'UTF-8'
-  }
-
-  return false
-}
-
-/**
- * Create a full Content-Type header given a MIME type or extension.
- *
- * @param {string} str
- * @return {boolean|string}
- */
-
-function contentType (str) {
-  // TODO: should this even be in this module?
-  if (!str || typeof str !== 'string') {
-    return false
-  }
-
-  var mime = str.indexOf('/') === -1
-    ? exports.lookup(str)
-    : str
-
-  if (!mime) {
-    return false
-  }
-
-  // TODO: use content-type or other module
-  if (mime.indexOf('charset') === -1) {
-    var charset = exports.charset(mime)
-    if (charset) mime += '; charset=' + charset.toLowerCase()
-  }
-
-  return mime
-}
-
-/**
- * Get the default extension for a MIME type.
- *
- * @param {string} type
- * @return {boolean|string}
- */
-
-function extension (type) {
-  if (!type || typeof type !== 'string') {
-    return false
-  }
-
-  // TODO: use media-typer
-  var match = EXTRACT_TYPE_REGEXP.exec(type)
-
-  // get extensions
-  var exts = match && exports.extensions[match[1].toLowerCase()]
-
-  if (!exts || !exts.length) {
-    return false
-  }
-
-  return exts[0]
-}
-
-/**
- * Lookup the MIME type for a file path/extension.
- *
- * @param {string} path
- * @return {boolean|string}
- */
-
-function lookup (path) {
-  if (!path || typeof path !== 'string') {
-    return false
-  }
-
-  // get the extension ("ext" or ".ext" or full path)
-  var extension = extname('x.' + path)
-    .toLowerCase()
-    .substr(1)
-
-  if (!extension) {
-    return false
-  }
-
-  return exports.types[extension] || false
-}
-
-/**
- * Populate the extensions and types maps.
- * @private
- */
-
-function populateMaps (extensions, types) {
-  // source preference (least -> most)
-  var preference = ['nginx', 'apache', undefined, 'iana']
-
-  Object.keys(db).forEach(function forEachMimeType (type) {
-    var mime = db[type]
-    var exts = mime.extensions
-
-    if (!exts || !exts.length) {
-      return
-    }
-
-    // mime -> extensions
-    extensions[type] = exts
-
-    // extension -> mime
-    for (var i = 0; i < exts.length; i++) {
-      var extension = exts[i]
-
-      if (types[extension]) {
-        var from = preference.indexOf(db[types[extension]].source)
-        var to = preference.indexOf(mime.source)
-
-        if (types[extension] !== 'application/octet-stream' &&
-          (from > to || (from === to && types[extension].substr(0, 12) === 'application/'))) {
-          // skip the remapping
-          continue
-        }
-      }
-
-      // set the extension -> mime
-      types[extension] = type
-    }
-  })
-}
-
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var replace = String.prototype.replace;
-var percentTwenties = /%20/g;
-
-module.exports = {
-    'default': 'RFC3986',
-    formatters: {
-        RFC1738: function (value) {
-            return replace.call(value, percentTwenties, '+');
-        },
-        RFC3986: function (value) {
-            return value;
-        }
-    },
-    RFC1738: 'RFC1738',
-    RFC3986: 'RFC3986'
-};
-
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var stringify = __webpack_require__(216);
-var parse = __webpack_require__(215);
-var formats = __webpack_require__(92);
-
-module.exports = {
-    formats: formats,
-    parse: parse,
-    stringify: stringify
-};
-
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var has = Object.prototype.hasOwnProperty;
-
-var hexTable = (function () {
-    var array = [];
-    for (var i = 0; i < 256; ++i) {
-        array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
-    }
-
-    return array;
-}());
-
-var compactQueue = function compactQueue(queue) {
-    var obj;
-
-    while (queue.length) {
-        var item = queue.pop();
-        obj = item.obj[item.prop];
-
-        if (Array.isArray(obj)) {
-            var compacted = [];
-
-            for (var j = 0; j < obj.length; ++j) {
-                if (typeof obj[j] !== 'undefined') {
-                    compacted.push(obj[j]);
-                }
-            }
-
-            item.obj[item.prop] = compacted;
-        }
-    }
-
-    return obj;
-};
-
-exports.arrayToObject = function arrayToObject(source, options) {
-    var obj = options && options.plainObjects ? Object.create(null) : {};
-    for (var i = 0; i < source.length; ++i) {
-        if (typeof source[i] !== 'undefined') {
-            obj[i] = source[i];
-        }
-    }
-
-    return obj;
-};
-
-exports.merge = function merge(target, source, options) {
-    if (!source) {
-        return target;
-    }
-
-    if (typeof source !== 'object') {
-        if (Array.isArray(target)) {
-            target.push(source);
-        } else if (typeof target === 'object') {
-            if (options.plainObjects || options.allowPrototypes || !has.call(Object.prototype, source)) {
-                target[source] = true;
-            }
-        } else {
-            return [target, source];
-        }
-
-        return target;
-    }
-
-    if (typeof target !== 'object') {
-        return [target].concat(source);
-    }
-
-    var mergeTarget = target;
-    if (Array.isArray(target) && !Array.isArray(source)) {
-        mergeTarget = exports.arrayToObject(target, options);
-    }
-
-    if (Array.isArray(target) && Array.isArray(source)) {
-        source.forEach(function (item, i) {
-            if (has.call(target, i)) {
-                if (target[i] && typeof target[i] === 'object') {
-                    target[i] = exports.merge(target[i], item, options);
-                } else {
-                    target.push(item);
-                }
-            } else {
-                target[i] = item;
-            }
-        });
-        return target;
-    }
-
-    return Object.keys(source).reduce(function (acc, key) {
-        var value = source[key];
-
-        if (has.call(acc, key)) {
-            acc[key] = exports.merge(acc[key], value, options);
-        } else {
-            acc[key] = value;
-        }
-        return acc;
-    }, mergeTarget);
-};
-
-exports.assign = function assignSingleSource(target, source) {
-    return Object.keys(source).reduce(function (acc, key) {
-        acc[key] = source[key];
-        return acc;
-    }, target);
-};
-
-exports.decode = function (str) {
-    try {
-        return decodeURIComponent(str.replace(/\+/g, ' '));
-    } catch (e) {
-        return str;
-    }
-};
-
-exports.encode = function encode(str) {
-    // This code was originally written by Brian White (mscdex) for the io.js core querystring library.
-    // It has been adapted here for stricter adherence to RFC 3986
-    if (str.length === 0) {
-        return str;
-    }
-
-    var string = typeof str === 'string' ? str : String(str);
-
-    var out = '';
-    for (var i = 0; i < string.length; ++i) {
-        var c = string.charCodeAt(i);
-
-        if (
-            c === 0x2D // -
-            || c === 0x2E // .
-            || c === 0x5F // _
-            || c === 0x7E // ~
-            || (c >= 0x30 && c <= 0x39) // 0-9
-            || (c >= 0x41 && c <= 0x5A) // a-z
-            || (c >= 0x61 && c <= 0x7A) // A-Z
-        ) {
-            out += string.charAt(i);
-            continue;
-        }
-
-        if (c < 0x80) {
-            out = out + hexTable[c];
-            continue;
-        }
-
-        if (c < 0x800) {
-            out = out + (hexTable[0xC0 | (c >> 6)] + hexTable[0x80 | (c & 0x3F)]);
-            continue;
-        }
-
-        if (c < 0xD800 || c >= 0xE000) {
-            out = out + (hexTable[0xE0 | (c >> 12)] + hexTable[0x80 | ((c >> 6) & 0x3F)] + hexTable[0x80 | (c & 0x3F)]);
-            continue;
-        }
-
-        i += 1;
-        c = 0x10000 + (((c & 0x3FF) << 10) | (string.charCodeAt(i) & 0x3FF));
-        out += hexTable[0xF0 | (c >> 18)]
-            + hexTable[0x80 | ((c >> 12) & 0x3F)]
-            + hexTable[0x80 | ((c >> 6) & 0x3F)]
-            + hexTable[0x80 | (c & 0x3F)];
-    }
-
-    return out;
-};
-
-exports.compact = function compact(value) {
-    var queue = [{ obj: { o: value }, prop: 'o' }];
-    var refs = [];
-
-    for (var i = 0; i < queue.length; ++i) {
-        var item = queue[i];
-        var obj = item.obj[item.prop];
-
-        var keys = Object.keys(obj);
-        for (var j = 0; j < keys.length; ++j) {
-            var key = keys[j];
-            var val = obj[key];
-            if (typeof val === 'object' && val !== null && refs.indexOf(val) === -1) {
-                queue.push({ obj: obj, prop: key });
-                refs.push(val);
-            }
-        }
-    }
-
-    return compactQueue(queue);
-};
-
-exports.isRegExp = function isRegExp(obj) {
-    return Object.prototype.toString.call(obj) === '[object RegExp]';
-};
-
-exports.isBuffer = function isBuffer(obj) {
-    if (obj === null || typeof obj === 'undefined') {
-        return false;
-    }
-
-    return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
-};
-
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var tough = __webpack_require__(247)
-
-var Cookie = tough.Cookie
-var CookieJar = tough.CookieJar
-
-exports.parse = function (str) {
-  if (str && str.uri) {
-    str = str.uri
-  }
-  if (typeof str !== 'string') {
-    throw new Error('The cookie function only accepts STRING as param')
-  }
-  return Cookie.parse(str, {loose: true})
-}
-
-// Adapt the sometimes-Async api of tough.CookieJar to our requirements
-function RequestJar (store) {
-  var self = this
-  self._jar = new CookieJar(store, {looseMode: true})
-}
-RequestJar.prototype.setCookie = function (cookieOrStr, uri, options) {
-  var self = this
-  return self._jar.setCookieSync(cookieOrStr, uri, options || {})
-}
-RequestJar.prototype.getCookieString = function (uri) {
-  var self = this
-  return self._jar.getCookieStringSync(uri)
-}
-RequestJar.prototype.getCookies = function (uri) {
-  var self = this
-  return self._jar.getCookiesSync(uri)
-}
-
-exports.jar = function (store) {
-  return new RequestJar(store)
-}
-
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var randomByte = __webpack_require__(241);
-
-function encode(lookup, number) {
-    var loopCounter = 0;
-    var done;
-
-    var str = '';
-
-    while (!done) {
-        str = str + lookup( ( (number >> (4 * loopCounter)) & 0x0f ) | randomByte() );
-        done = number < (Math.pow(16, loopCounter + 1 ) );
-        loopCounter++;
-    }
-    return str;
-}
-
-module.exports = encode;
-
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// Load modules
-
-const Dgram = __webpack_require__(256);
-const Dns = __webpack_require__(257);
-
-const Hoek = __webpack_require__(34);
-
-
-// Declare internals
-
-const internals = {};
-
-
-exports.time = function (options, callback) {
-
-    if (arguments.length !== 2) {
-        callback = arguments[0];
-        options = {};
-    }
-
-    const settings = Hoek.clone(options);
-    settings.host = settings.host || 'time.google.com';
-    settings.port = settings.port || 123;
-    settings.resolveReference = settings.resolveReference || false;
-
-    // Declare variables used by callback
-
-    let timeoutId = null;
-    let sent = 0;
-
-    // Ensure callback is only called once
-
-    const finish = Hoek.once((err, result) => {
-
-        clearTimeout(timeoutId);
-
-        socket.removeAllListeners();
-        socket.once('error', Hoek.ignore);
-
-        try {
-            socket.close();
-        }
-        catch (ignoreErr) { }       // Ignore errors if the socket is already closed
-
-        return callback(err, result);
-    });
-
-    // Set timeout
-
-    if (settings.timeout) {
-        timeoutId = setTimeout(() => {
-
-            return finish(new Error('Timeout'));
-        }, settings.timeout);
-    }
-
-    // Create UDP socket
-
-    const socket = Dgram.createSocket('udp4');
-
-    socket.once('error', (err) => finish(err));
-
-    // Listen to incoming messages
-
-    socket.on('message', (buffer, rinfo) => {
-
-        const received = Date.now();
-
-        const message = new internals.NtpMessage(buffer);
-        if (!message.isValid) {
-            return finish(new Error('Invalid server response'), message);
-        }
-
-        if (message.originateTimestamp !== sent) {
-            return finish(new Error('Wrong originate timestamp'), message);
-        }
-
-        // Timestamp Name          ID   When Generated
-        // ------------------------------------------------------------
-        // Originate Timestamp     T1   time request sent by client
-        // Receive Timestamp       T2   time request received by server
-        // Transmit Timestamp      T3   time reply sent by server
-        // Destination Timestamp   T4   time reply received by client
-        //
-        // The roundtrip delay d and system clock offset t are defined as:
-        //
-        // d = (T4 - T1) - (T3 - T2)     t = ((T2 - T1) + (T3 - T4)) / 2
-
-        const T1 = message.originateTimestamp;
-        const T2 = message.receiveTimestamp;
-        const T3 = message.transmitTimestamp;
-        const T4 = received;
-
-        message.d = (T4 - T1) - (T3 - T2);
-        message.t = ((T2 - T1) + (T3 - T4)) / 2;
-        message.receivedLocally = received;
-
-        if (!settings.resolveReference ||
-            message.stratum !== 'secondary') {
-
-            return finish(null, message);
-        }
-
-        // Resolve reference IP address
-
-        Dns.reverse(message.referenceId, (err, domains) => {
-
-            if (/* $lab:coverage:off$ */ !err /* $lab:coverage:on$ */) {
-                message.referenceHost = domains[0];
-            }
-
-            return finish(null, message);
-        });
-    });
-
-    // Construct NTP message
-
-    const message = new Buffer(48);
-    for (let i = 0; i < 48; ++i) {                      // Zero message
-        message[i] = 0;
-    }
-
-    message[0] = (0 << 6) + (4 << 3) + (3 << 0);        // Set version number to 4 and Mode to 3 (client)
-    sent = Date.now();
-    internals.fromMsecs(sent, message, 40);             // Set transmit timestamp (returns as originate)
-
-    // Send NTP request
-
-    socket.send(message, 0, message.length, settings.port, settings.host, (err, bytes) => {
-
-        if (err ||
-            bytes !== 48) {
-
-            return finish(err || new Error('Could not send entire message'));
-        }
-    });
-};
-
-
-internals.NtpMessage = function (buffer) {
-
-    this.isValid = false;
-
-    // Validate
-
-    if (buffer.length !== 48) {
-        return;
-    }
-
-    // Leap indicator
-
-    const li = (buffer[0] >> 6);
-    switch (li) {
-        case 0: this.leapIndicator = 'no-warning'; break;
-        case 1: this.leapIndicator = 'last-minute-61'; break;
-        case 2: this.leapIndicator = 'last-minute-59'; break;
-        case 3: this.leapIndicator = 'alarm'; break;
-    }
-
-    // Version
-
-    const vn = ((buffer[0] & 0x38) >> 3);
-    this.version = vn;
-
-    // Mode
-
-    const mode = (buffer[0] & 0x7);
-    switch (mode) {
-        case 1: this.mode = 'symmetric-active'; break;
-        case 2: this.mode = 'symmetric-passive'; break;
-        case 3: this.mode = 'client'; break;
-        case 4: this.mode = 'server'; break;
-        case 5: this.mode = 'broadcast'; break;
-        case 0:
-        case 6:
-        case 7: this.mode = 'reserved'; break;
-    }
-
-    // Stratum
-
-    const stratum = buffer[1];
-    if (stratum === 0) {
-        this.stratum = 'death';
-    }
-    else if (stratum === 1) {
-        this.stratum = 'primary';
-    }
-    else if (stratum <= 15) {
-        this.stratum = 'secondary';
-    }
-    else {
-        this.stratum = 'reserved';
-    }
-
-    // Poll interval (msec)
-
-    this.pollInterval = Math.round(Math.pow(2, buffer[2])) * 1000;
-
-    // Precision (msecs)
-
-    this.precision = Math.pow(2, buffer[3]) * 1000;
-
-    // Root delay (msecs)
-
-    const rootDelay = 256 * (256 * (256 * buffer[4] + buffer[5]) + buffer[6]) + buffer[7];
-    this.rootDelay = 1000 * (rootDelay / 0x10000);
-
-    // Root dispersion (msecs)
-
-    this.rootDispersion = ((buffer[8] << 8) + buffer[9] + ((buffer[10] << 8) + buffer[11]) / Math.pow(2, 16)) * 1000;
-
-    // Reference identifier
-
-    this.referenceId = '';
-    switch (this.stratum) {
-        case 'death':
-        case 'primary':
-            this.referenceId = String.fromCharCode(buffer[12]) + String.fromCharCode(buffer[13]) + String.fromCharCode(buffer[14]) + String.fromCharCode(buffer[15]);
-            break;
-        case 'secondary':
-            this.referenceId = '' + buffer[12] + '.' + buffer[13] + '.' + buffer[14] + '.' + buffer[15];
-            break;
-    }
-
-    // Reference timestamp
-
-    this.referenceTimestamp = internals.toMsecs(buffer, 16);
-
-    // Originate timestamp
-
-    this.originateTimestamp = internals.toMsecs(buffer, 24);
-
-    // Receive timestamp
-
-    this.receiveTimestamp = internals.toMsecs(buffer, 32);
-
-    // Transmit timestamp
-
-    this.transmitTimestamp = internals.toMsecs(buffer, 40);
-
-    // Validate
-
-    if (this.version === 4 &&
-        this.stratum !== 'reserved' &&
-        this.mode === 'server' &&
-        this.originateTimestamp &&
-        this.receiveTimestamp &&
-        this.transmitTimestamp) {
-
-        this.isValid = true;
-    }
-
-    return this;
-};
-
-
-internals.toMsecs = function (buffer, offset) {
-
-    let seconds = 0;
-    let fraction = 0;
-
-    for (let i = 0; i < 4; ++i) {
-        seconds = (seconds * 256) + buffer[offset + i];
-    }
-
-    for (let i = 4; i < 8; ++i) {
-        fraction = (fraction * 256) + buffer[offset + i];
-    }
-
-    return ((seconds - 2208988800 + (fraction / Math.pow(2, 32))) * 1000);
-};
-
-
-internals.fromMsecs = function (ts, buffer, offset) {
-
-    const seconds = Math.floor(ts / 1000) + 2208988800;
-    const fraction = Math.round((ts % 1000) / 1000 * Math.pow(2, 32));
-
-    buffer[offset + 0] = (seconds & 0xFF000000) >> 24;
-    buffer[offset + 1] = (seconds & 0x00FF0000) >> 16;
-    buffer[offset + 2] = (seconds & 0x0000FF00) >> 8;
-    buffer[offset + 3] = (seconds & 0x000000FF);
-
-    buffer[offset + 4] = (fraction & 0xFF000000) >> 24;
-    buffer[offset + 5] = (fraction & 0x00FF0000) >> 16;
-    buffer[offset + 6] = (fraction & 0x0000FF00) >> 8;
-    buffer[offset + 7] = (fraction & 0x000000FF);
-};
-
-
-// Offset singleton
-
-internals.last = {
-    offset: 0,
-    expires: 0,
-    host: '',
-    port: 0
-};
-
-
-exports.offset = function (options, callback) {
-
-    if (arguments.length !== 2) {
-        callback = arguments[0];
-        options = {};
-    }
-
-    const now = Date.now();
-    const clockSyncRefresh = options.clockSyncRefresh || 24 * 60 * 60 * 1000;                    // Daily
-
-    if (internals.last.offset &&
-        internals.last.host === options.host &&
-        internals.last.port === options.port &&
-        now < internals.last.expires) {
-
-        process.nextTick(() => callback(null, internals.last.offset));
-        return;
-    }
-
-    exports.time(options, (err, time) => {
-
-        if (err) {
-            return callback(err, 0);
-        }
-
-        internals.last = {
-            offset: Math.round(time.t),
-            expires: now + clockSyncRefresh,
-            host: options.host,
-            port: options.port
-        };
-
-        return callback(null, internals.last.offset);
-    });
-};
-
-
-// Now singleton
-
-internals.now = {
-    started: false,
-    intervalId: null
-};
-
-
-exports.start = function (options, callback) {
-
-    if (arguments.length !== 2) {
-        callback = arguments[0];
-        options = {};
-    }
-
-    if (internals.now.started) {
-        process.nextTick(() => callback());
-        return;
-    }
-
-    const report = (err) => {
-
-        if (err &&
-            options.onError) {
-
-            options.onError(err);
-        }
-    };
-
-    internals.now.started = true;
-    exports.offset(options, (err, offset) => {
-
-        report(err);
-
-        internals.now.intervalId = setInterval(() => {
-
-            exports.offset(options, report);
-        }, options.clockSyncRefresh || 24 * 60 * 60 * 1000);                                // Daily
-
-        return callback();
-    });
-};
-
-
-exports.stop = function () {
-
-    if (!internals.now.started) {
-        return;
-    }
-
-    clearInterval(internals.now.intervalId);
-    internals.now.started = false;
-    internals.now.intervalId = null;
-};
-
-
-exports.isLive = function () {
-
-    return internals.now.started;
-};
-
-
-exports.now = function () {
-
-    const now = Date.now();
-    if (!exports.isLive() ||
-        now >= internals.last.expires) {
-
-        return now;
-    }
-
-    return now + internals.last.offset;
-};
-
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Copyright 2015 Joyent, Inc.
-
-module.exports = {
-	Verifier: Verifier,
-	Signer: Signer
-};
-
-var nacl;
-var stream = __webpack_require__(14);
-var util = __webpack_require__(2);
-var assert = __webpack_require__(0);
-var Signature = __webpack_require__(12);
-
-function Verifier(key, hashAlgo) {
-	if (nacl === undefined)
-		nacl = __webpack_require__(13);
-
-	if (hashAlgo.toLowerCase() !== 'sha512')
-		throw (new Error('ED25519 only supports the use of ' +
-		    'SHA-512 hashes'));
-
-	this.key = key;
-	this.chunks = [];
-
-	stream.Writable.call(this, {});
-}
-util.inherits(Verifier, stream.Writable);
-
-Verifier.prototype._write = function (chunk, enc, cb) {
-	this.chunks.push(chunk);
-	cb();
-};
-
-Verifier.prototype.update = function (chunk) {
-	if (typeof (chunk) === 'string')
-		chunk = new Buffer(chunk, 'binary');
-	this.chunks.push(chunk);
-};
-
-Verifier.prototype.verify = function (signature, fmt) {
-	var sig;
-	if (Signature.isSignature(signature, [2, 0])) {
-		if (signature.type !== 'ed25519')
-			return (false);
-		sig = signature.toBuffer('raw');
-
-	} else if (typeof (signature) === 'string') {
-		sig = new Buffer(signature, 'base64');
-
-	} else if (Signature.isSignature(signature, [1, 0])) {
-		throw (new Error('signature was created by too old ' +
-		    'a version of sshpk and cannot be verified'));
-	}
-
-	assert.buffer(sig);
-	return (nacl.sign.detached.verify(
-	    new Uint8Array(Buffer.concat(this.chunks)),
-	    new Uint8Array(sig),
-	    new Uint8Array(this.key.part.A.data)));
-};
-
-function Signer(key, hashAlgo) {
-	if (nacl === undefined)
-		nacl = __webpack_require__(13);
-
-	if (hashAlgo.toLowerCase() !== 'sha512')
-		throw (new Error('ED25519 only supports the use of ' +
-		    'SHA-512 hashes'));
-
-	this.key = key;
-	this.chunks = [];
-
-	stream.Writable.call(this, {});
-}
-util.inherits(Signer, stream.Writable);
-
-Signer.prototype._write = function (chunk, enc, cb) {
-	this.chunks.push(chunk);
-	cb();
-};
-
-Signer.prototype.update = function (chunk) {
-	if (typeof (chunk) === 'string')
-		chunk = new Buffer(chunk, 'binary');
-	this.chunks.push(chunk);
-};
-
-Signer.prototype.sign = function () {
-	var sig = nacl.sign.detached(
-	    new Uint8Array(Buffer.concat(this.chunks)),
-	    new Uint8Array(Buffer.concat([
-		this.key.part.k.data, this.key.part.A.data])));
-	var sigBuf = new Buffer(sig);
-	var sigObj = Signature.parse(sigBuf, 'ed25519', 'raw');
-	sigObj.hashAlgorithm = 'sha512';
-	return (sigObj);
-};
-
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Copyright 2015 Joyent, Inc.
-
-module.exports = {
-	read: read,
-	write: write
-};
-
-var assert = __webpack_require__(0);
-var utils = __webpack_require__(3);
-var Key = __webpack_require__(4);
-var PrivateKey = __webpack_require__(6);
-
-var pem = __webpack_require__(17);
-var ssh = __webpack_require__(100);
-var rfc4253 = __webpack_require__(20);
-var dnssec = __webpack_require__(55);
-
-var DNSSEC_PRIVKEY_HEADER_PREFIX = 'Private-key-format: v1';
-
-function read(buf, options) {
-	if (typeof (buf) === 'string') {
-		if (buf.trim().match(/^[-]+[ ]*BEGIN/))
-			return (pem.read(buf, options));
-		if (buf.match(/^\s*ssh-[a-z]/))
-			return (ssh.read(buf, options));
-		if (buf.match(/^\s*ecdsa-/))
-			return (ssh.read(buf, options));
-		if (findDNSSECHeader(buf))
-			return (dnssec.read(buf, options));
-		buf = new Buffer(buf, 'binary');
-	} else {
-		assert.buffer(buf);
-		if (findPEMHeader(buf))
-			return (pem.read(buf, options));
-		if (findSSHHeader(buf))
-			return (ssh.read(buf, options));
-		if (findDNSSECHeader(buf))
-			return (dnssec.read(buf, options));
-	}
-	if (buf.readUInt32BE(0) < buf.length)
-		return (rfc4253.read(buf, options));
-	throw (new Error('Failed to auto-detect format of key'));
-}
-
-function findSSHHeader(buf) {
-	var offset = 0;
-	while (offset < buf.length &&
-	    (buf[offset] === 32 || buf[offset] === 10 || buf[offset] === 9))
-		++offset;
-	if (offset + 4 <= buf.length &&
-	    buf.slice(offset, offset + 4).toString('ascii') === 'ssh-')
-		return (true);
-	if (offset + 6 <= buf.length &&
-	    buf.slice(offset, offset + 6).toString('ascii') === 'ecdsa-')
-		return (true);
-	return (false);
-}
-
-function findPEMHeader(buf) {
-	var offset = 0;
-	while (offset < buf.length &&
-	    (buf[offset] === 32 || buf[offset] === 10))
-		++offset;
-	if (buf[offset] !== 45)
-		return (false);
-	while (offset < buf.length &&
-	    (buf[offset] === 45))
-		++offset;
-	while (offset < buf.length &&
-	    (buf[offset] === 32))
-		++offset;
-	if (offset + 5 > buf.length ||
-	    buf.slice(offset, offset + 5).toString('ascii') !== 'BEGIN')
-		return (false);
-	return (true);
-}
-
-function findDNSSECHeader(buf) {
-	// private case first
-	if (buf.length <= DNSSEC_PRIVKEY_HEADER_PREFIX.length)
-		return (false);
-	var headerCheck = buf.slice(0, DNSSEC_PRIVKEY_HEADER_PREFIX.length);
-	if (headerCheck.toString('ascii') === DNSSEC_PRIVKEY_HEADER_PREFIX)
-		return (true);
-
-	// public-key RFC3110 ?
-	// 'domain.com. IN KEY ...' or 'domain.com. IN DNSKEY ...'
-	// skip any comment-lines
-	if (typeof (buf) !== 'string') {
-		buf = buf.toString('ascii');
-	}
-	var lines = buf.split('\n');
-	var line = 0;
-	/* JSSTYLED */
-	while (lines[line].match(/^\;/))
-		line++;
-	if (lines[line].toString('ascii').match(/\. IN KEY /))
-		return (true);
-	if (lines[line].toString('ascii').match(/\. IN DNSKEY /))
-		return (true);
-	return (false);
-}
-
-function write(key, options) {
-	throw (new Error('"auto" format cannot be used for writing'));
-}
-
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Copyright 2015 Joyent, Inc.
-
-module.exports = {
-	read: read,
-	write: write
-};
-
-var assert = __webpack_require__(0);
-var rfc4253 = __webpack_require__(20);
-var utils = __webpack_require__(3);
-var Key = __webpack_require__(4);
-var PrivateKey = __webpack_require__(6);
-
-var sshpriv = __webpack_require__(39);
-
-/*JSSTYLED*/
-var SSHKEY_RE = /^([a-z0-9-]+)[ \t]+([a-zA-Z0-9+\/]+[=]*)([ \t]+([^ \t][^\n]*[\n]*)?)?$/;
-/*JSSTYLED*/
-var SSHKEY_RE2 = /^([a-z0-9-]+)[ \t\n]+([a-zA-Z0-9+\/][a-zA-Z0-9+\/ \t\n=]*)([^a-zA-Z0-9+\/ \t\n=].*)?$/;
-
-function read(buf, options) {
-	if (typeof (buf) !== 'string') {
-		assert.buffer(buf, 'buf');
-		buf = buf.toString('ascii');
-	}
-
-	var trimmed = buf.trim().replace(/[\\\r]/g, '');
-	var m = trimmed.match(SSHKEY_RE);
-	if (!m)
-		m = trimmed.match(SSHKEY_RE2);
-	assert.ok(m, 'key must match regex');
-
-	var type = rfc4253.algToKeyType(m[1]);
-	var kbuf = new Buffer(m[2], 'base64');
-
-	/*
-	 * This is a bit tricky. If we managed to parse the key and locate the
-	 * key comment with the regex, then do a non-partial read and assert
-	 * that we have consumed all bytes. If we couldn't locate the key
-	 * comment, though, there may be whitespace shenanigans going on that
-	 * have conjoined the comment to the rest of the key. We do a partial
-	 * read in this case to try to make the best out of a sorry situation.
-	 */
-	var key;
-	var ret = {};
-	if (m[4]) {
-		try {
-			key = rfc4253.read(kbuf);
-
-		} catch (e) {
-			m = trimmed.match(SSHKEY_RE2);
-			assert.ok(m, 'key must match regex');
-			kbuf = new Buffer(m[2], 'base64');
-			key = rfc4253.readInternal(ret, 'public', kbuf);
-		}
-	} else {
-		key = rfc4253.readInternal(ret, 'public', kbuf);
-	}
-
-	assert.strictEqual(type, key.type);
-
-	if (m[4] && m[4].length > 0) {
-		key.comment = m[4];
-
-	} else if (ret.consumed) {
-		/*
-		 * Now the magic: trying to recover the key comment when it's
-		 * gotten conjoined to the key or otherwise shenanigan'd.
-		 *
-		 * Work out how much base64 we used, then drop all non-base64
-		 * chars from the beginning up to this point in the the string.
-		 * Then offset in this and try to make up for missing = chars.
-		 */
-		var data = m[2] + (m[3] ? m[3] : '');
-		var realOffset = Math.ceil(ret.consumed / 3) * 4;
-		data = data.slice(0, realOffset - 2). /*JSSTYLED*/
-		    replace(/[^a-zA-Z0-9+\/=]/g, '') +
-		    data.slice(realOffset - 2);
-
-		var padding = ret.consumed % 3;
-		if (padding > 0 &&
-		    data.slice(realOffset - 1, realOffset) !== '=')
-			realOffset--;
-		while (data.slice(realOffset, realOffset + 1) === '=')
-			realOffset++;
-
-		/* Finally, grab what we think is the comment & clean it up. */
-		var trailer = data.slice(realOffset);
-		trailer = trailer.replace(/[\r\n]/g, ' ').
-		    replace(/^\s+/, '');
-		if (trailer.match(/^[a-zA-Z0-9]/))
-			key.comment = trailer;
-	}
-
-	return (key);
-}
-
-function write(key, options) {
-	assert.object(key);
-	if (!Key.isKey(key))
-		throw (new Error('Must be a public key'));
-
-	var parts = [];
-	var alg = rfc4253.keyTypeToAlg(key);
-	parts.push(alg);
-
-	var buf = rfc4253.write(key);
-	parts.push(buf.toString('base64'));
-
-	if (key.comment)
-		parts.push(key.comment);
-
-	return (new Buffer(parts.join(' ')));
-}
-
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Copyright 2017 Joyent, Inc.
-
-module.exports = {
-	read: read,
-	verify: verify,
-	sign: sign,
-	signAsync: signAsync,
-	write: write
-};
-
-var assert = __webpack_require__(0);
-var asn1 = __webpack_require__(8);
-var algs = __webpack_require__(5);
-var utils = __webpack_require__(3);
-var Key = __webpack_require__(4);
-var PrivateKey = __webpack_require__(6);
-var pem = __webpack_require__(17);
-var Identity = __webpack_require__(28);
-var Signature = __webpack_require__(12);
-var Certificate = __webpack_require__(25);
-var pkcs8 = __webpack_require__(27);
-
-/*
- * This file is based on RFC5280 (X.509).
- */
-
-/* Helper to read in a single mpint */
-function readMPInt(der, nm) {
-	assert.strictEqual(der.peek(), asn1.Ber.Integer,
-	    nm + ' is not an Integer');
-	return (utils.mpNormalize(der.readString(asn1.Ber.Integer, true)));
-}
-
-function verify(cert, key) {
-	var sig = cert.signatures.x509;
-	assert.object(sig, 'x509 signature');
-
-	var algParts = sig.algo.split('-');
-	if (algParts[0] !== key.type)
-		return (false);
-
-	var blob = sig.cache;
-	if (blob === undefined) {
-		var der = new asn1.BerWriter();
-		writeTBSCert(cert, der);
-		blob = der.buffer;
-	}
-
-	var verifier = key.createVerify(algParts[1]);
-	verifier.write(blob);
-	return (verifier.verify(sig.signature));
-}
-
-function Local(i) {
-	return (asn1.Ber.Context | asn1.Ber.Constructor | i);
-}
-
-function Context(i) {
-	return (asn1.Ber.Context | i);
-}
-
-var SIGN_ALGS = {
-	'rsa-md5': '1.2.840.113549.1.1.4',
-	'rsa-sha1': '1.2.840.113549.1.1.5',
-	'rsa-sha256': '1.2.840.113549.1.1.11',
-	'rsa-sha384': '1.2.840.113549.1.1.12',
-	'rsa-sha512': '1.2.840.113549.1.1.13',
-	'dsa-sha1': '1.2.840.10040.4.3',
-	'dsa-sha256': '2.16.840.1.101.3.4.3.2',
-	'ecdsa-sha1': '1.2.840.10045.4.1',
-	'ecdsa-sha256': '1.2.840.10045.4.3.2',
-	'ecdsa-sha384': '1.2.840.10045.4.3.3',
-	'ecdsa-sha512': '1.2.840.10045.4.3.4',
-	'ed25519-sha512': '1.3.101.112'
-};
-Object.keys(SIGN_ALGS).forEach(function (k) {
-	SIGN_ALGS[SIGN_ALGS[k]] = k;
-});
-SIGN_ALGS['1.3.14.3.2.3'] = 'rsa-md5';
-SIGN_ALGS['1.3.14.3.2.29'] = 'rsa-sha1';
-
-var EXTS = {
-	'issuerKeyId': '2.5.29.35',
-	'altName': '2.5.29.17',
-	'basicConstraints': '2.5.29.19',
-	'keyUsage': '2.5.29.15',
-	'extKeyUsage': '2.5.29.37'
-};
-
-function read(buf, options) {
-	if (typeof (buf) === 'string') {
-		buf = new Buffer(buf, 'binary');
-	}
-	assert.buffer(buf, 'buf');
-
-	var der = new asn1.BerReader(buf);
-
-	der.readSequence();
-	if (Math.abs(der.length - der.remain) > 1) {
-		throw (new Error('DER sequence does not contain whole byte ' +
-		    'stream'));
-	}
-
-	var tbsStart = der.offset;
-	der.readSequence();
-	var sigOffset = der.offset + der.length;
-	var tbsEnd = sigOffset;
-
-	if (der.peek() === Local(0)) {
-		der.readSequence(Local(0));
-		var version = der.readInt();
-		assert.ok(version <= 3,
-		    'only x.509 versions up to v3 supported');
-	}
-
-	var cert = {};
-	cert.signatures = {};
-	var sig = (cert.signatures.x509 = {});
-	sig.extras = {};
-
-	cert.serial = readMPInt(der, 'serial');
-
-	der.readSequence();
-	var after = der.offset + der.length;
-	var certAlgOid = der.readOID();
-	var certAlg = SIGN_ALGS[certAlgOid];
-	if (certAlg === undefined)
-		throw (new Error('unknown signature algorithm ' + certAlgOid));
-
-	der._offset = after;
-	cert.issuer = Identity.parseAsn1(der);
-
-	der.readSequence();
-	cert.validFrom = readDate(der);
-	cert.validUntil = readDate(der);
-
-	cert.subjects = [Identity.parseAsn1(der)];
-
-	der.readSequence();
-	after = der.offset + der.length;
-	cert.subjectKey = pkcs8.readPkcs8(undefined, 'public', der);
-	der._offset = after;
-
-	/* issuerUniqueID */
-	if (der.peek() === Local(1)) {
-		der.readSequence(Local(1));
-		sig.extras.issuerUniqueID =
-		    buf.slice(der.offset, der.offset + der.length);
-		der._offset += der.length;
-	}
-
-	/* subjectUniqueID */
-	if (der.peek() === Local(2)) {
-		der.readSequence(Local(2));
-		sig.extras.subjectUniqueID =
-		    buf.slice(der.offset, der.offset + der.length);
-		der._offset += der.length;
-	}
-
-	/* extensions */
-	if (der.peek() === Local(3)) {
-		der.readSequence(Local(3));
-		var extEnd = der.offset + der.length;
-		der.readSequence();
-
-		while (der.offset < extEnd)
-			readExtension(cert, buf, der);
-
-		assert.strictEqual(der.offset, extEnd);
-	}
-
-	assert.strictEqual(der.offset, sigOffset);
-
-	der.readSequence();
-	after = der.offset + der.length;
-	var sigAlgOid = der.readOID();
-	var sigAlg = SIGN_ALGS[sigAlgOid];
-	if (sigAlg === undefined)
-		throw (new Error('unknown signature algorithm ' + sigAlgOid));
-	der._offset = after;
-
-	var sigData = der.readString(asn1.Ber.BitString, true);
-	if (sigData[0] === 0)
-		sigData = sigData.slice(1);
-	var algParts = sigAlg.split('-');
-
-	sig.signature = Signature.parse(sigData, algParts[0], 'asn1');
-	sig.signature.hashAlgorithm = algParts[1];
-	sig.algo = sigAlg;
-	sig.cache = buf.slice(tbsStart, tbsEnd);
-
-	return (new Certificate(cert));
-}
-
-function readDate(der) {
-	if (der.peek() === asn1.Ber.UTCTime) {
-		return (utcTimeToDate(der.readString(asn1.Ber.UTCTime)));
-	} else if (der.peek() === asn1.Ber.GeneralizedTime) {
-		return (gTimeToDate(der.readString(asn1.Ber.GeneralizedTime)));
-	} else {
-		throw (new Error('Unsupported date format'));
-	}
-}
-
-/* RFC5280, section 4.2.1.6 (GeneralName type) */
-var ALTNAME = {
-	OtherName: Local(0),
-	RFC822Name: Context(1),
-	DNSName: Context(2),
-	X400Address: Local(3),
-	DirectoryName: Local(4),
-	EDIPartyName: Local(5),
-	URI: Context(6),
-	IPAddress: Context(7),
-	OID: Context(8)
-};
-
-/* RFC5280, section 4.2.1.12 (KeyPurposeId) */
-var EXTPURPOSE = {
-	'serverAuth': '1.3.6.1.5.5.7.3.1',
-	'clientAuth': '1.3.6.1.5.5.7.3.2',
-	'codeSigning': '1.3.6.1.5.5.7.3.3',
-
-	/* See https://github.com/joyent/oid-docs/blob/master/root.md */
-	'joyentDocker': '1.3.6.1.4.1.38678.1.4.1',
-	'joyentCmon': '1.3.6.1.4.1.38678.1.4.2'
-};
-var EXTPURPOSE_REV = {};
-Object.keys(EXTPURPOSE).forEach(function (k) {
-	EXTPURPOSE_REV[EXTPURPOSE[k]] = k;
-});
-
-var KEYUSEBITS = [
-	'signature', 'identity', 'keyEncryption',
-	'encryption', 'keyAgreement', 'ca', 'crl'
-];
-
-function readExtension(cert, buf, der) {
-	der.readSequence();
-	var after = der.offset + der.length;
-	var extId = der.readOID();
-	var id;
-	var sig = cert.signatures.x509;
-	sig.extras.exts = [];
-
-	var critical;
-	if (der.peek() === asn1.Ber.Boolean)
-		critical = der.readBoolean();
-
-	switch (extId) {
-	case (EXTS.basicConstraints):
-		der.readSequence(asn1.Ber.OctetString);
-		der.readSequence();
-		var bcEnd = der.offset + der.length;
-		var ca = false;
-		if (der.peek() === asn1.Ber.Boolean)
-			ca = der.readBoolean();
-		if (cert.purposes === undefined)
-			cert.purposes = [];
-		if (ca === true)
-			cert.purposes.push('ca');
-		var bc = { oid: extId, critical: critical };
-		if (der.offset < bcEnd && der.peek() === asn1.Ber.Integer)
-			bc.pathLen = der.readInt();
-		sig.extras.exts.push(bc);
-		break;
-	case (EXTS.extKeyUsage):
-		der.readSequence(asn1.Ber.OctetString);
-		der.readSequence();
-		if (cert.purposes === undefined)
-			cert.purposes = [];
-		var ekEnd = der.offset + der.length;
-		while (der.offset < ekEnd) {
-			var oid = der.readOID();
-			cert.purposes.push(EXTPURPOSE_REV[oid] || oid);
-		}
-		/*
-		 * This is a bit of a hack: in the case where we have a cert
-		 * that's only allowed to do serverAuth or clientAuth (and not
-		 * the other), we want to make sure all our Subjects are of
-		 * the right type. But we already parsed our Subjects and
-		 * decided if they were hosts or users earlier (since it appears
-		 * first in the cert).
-		 *
-		 * So we go through and mutate them into the right kind here if
-		 * it doesn't match. This might not be hugely beneficial, as it
-		 * seems that single-purpose certs are not often seen in the
-		 * wild.
-		 */
-		if (cert.purposes.indexOf('serverAuth') !== -1 &&
-		    cert.purposes.indexOf('clientAuth') === -1) {
-			cert.subjects.forEach(function (ide) {
-				if (ide.type !== 'host') {
-					ide.type = 'host';
-					ide.hostname = ide.uid ||
-					    ide.email ||
-					    ide.components[0].value;
-				}
-			});
-		} else if (cert.purposes.indexOf('clientAuth') !== -1 &&
-		    cert.purposes.indexOf('serverAuth') === -1) {
-			cert.subjects.forEach(function (ide) {
-				if (ide.type !== 'user') {
-					ide.type = 'user';
-					ide.uid = ide.hostname ||
-					    ide.email ||
-					    ide.components[0].value;
-				}
-			});
-		}
-		sig.extras.exts.push({ oid: extId, critical: critical });
-		break;
-	case (EXTS.keyUsage):
-		der.readSequence(asn1.Ber.OctetString);
-		var bits = der.readString(asn1.Ber.BitString, true);
-		var setBits = readBitField(bits, KEYUSEBITS);
-		setBits.forEach(function (bit) {
-			if (cert.purposes === undefined)
-				cert.purposes = [];
-			if (cert.purposes.indexOf(bit) === -1)
-				cert.purposes.push(bit);
-		});
-		sig.extras.exts.push({ oid: extId, critical: critical,
-		    bits: bits });
-		break;
-	case (EXTS.altName):
-		der.readSequence(asn1.Ber.OctetString);
-		der.readSequence();
-		var aeEnd = der.offset + der.length;
-		while (der.offset < aeEnd) {
-			switch (der.peek()) {
-			case ALTNAME.OtherName:
-			case ALTNAME.EDIPartyName:
-				der.readSequence();
-				der._offset += der.length;
-				break;
-			case ALTNAME.OID:
-				der.readOID(ALTNAME.OID);
-				break;
-			case ALTNAME.RFC822Name:
-				/* RFC822 specifies email addresses */
-				var email = der.readString(ALTNAME.RFC822Name);
-				id = Identity.forEmail(email);
-				if (!cert.subjects[0].equals(id))
-					cert.subjects.push(id);
-				break;
-			case ALTNAME.DirectoryName:
-				der.readSequence(ALTNAME.DirectoryName);
-				id = Identity.parseAsn1(der);
-				if (!cert.subjects[0].equals(id))
-					cert.subjects.push(id);
-				break;
-			case ALTNAME.DNSName:
-				var host = der.readString(
-				    ALTNAME.DNSName);
-				id = Identity.forHost(host);
-				if (!cert.subjects[0].equals(id))
-					cert.subjects.push(id);
-				break;
-			default:
-				der.readString(der.peek());
-				break;
-			}
-		}
-		sig.extras.exts.push({ oid: extId, critical: critical });
-		break;
-	default:
-		sig.extras.exts.push({
-			oid: extId,
-			critical: critical,
-			data: der.readString(asn1.Ber.OctetString, true)
-		});
-		break;
-	}
-
-	der._offset = after;
-}
-
-var UTCTIME_RE =
-    /^([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
-function utcTimeToDate(t) {
-	var m = t.match(UTCTIME_RE);
-	assert.ok(m, 'timestamps must be in UTC');
-	var d = new Date();
-
-	var thisYear = d.getUTCFullYear();
-	var century = Math.floor(thisYear / 100) * 100;
-
-	var year = parseInt(m[1], 10);
-	if (thisYear % 100 < 50 && year >= 60)
-		year += (century - 1);
-	else
-		year += century;
-	d.setUTCFullYear(year, parseInt(m[2], 10) - 1, parseInt(m[3], 10));
-	d.setUTCHours(parseInt(m[4], 10), parseInt(m[5], 10));
-	if (m[6] && m[6].length > 0)
-		d.setUTCSeconds(parseInt(m[6], 10));
-	return (d);
-}
-
-var GTIME_RE =
-    /^([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
-function gTimeToDate(t) {
-	var m = t.match(GTIME_RE);
-	assert.ok(m);
-	var d = new Date();
-
-	d.setUTCFullYear(parseInt(m[1], 10), parseInt(m[2], 10) - 1,
-	    parseInt(m[3], 10));
-	d.setUTCHours(parseInt(m[4], 10), parseInt(m[5], 10));
-	if (m[6] && m[6].length > 0)
-		d.setUTCSeconds(parseInt(m[6], 10));
-	return (d);
-}
-
-function zeroPad(n) {
-	var s = '' + n;
-	while (s.length < 2)
-		s = '0' + s;
-	return (s);
-}
-
-function dateToUTCTime(d) {
-	var s = '';
-	s += zeroPad(d.getUTCFullYear() % 100);
-	s += zeroPad(d.getUTCMonth() + 1);
-	s += zeroPad(d.getUTCDate());
-	s += zeroPad(d.getUTCHours());
-	s += zeroPad(d.getUTCMinutes());
-	s += zeroPad(d.getUTCSeconds());
-	s += 'Z';
-	return (s);
-}
-
-function sign(cert, key) {
-	if (cert.signatures.x509 === undefined)
-		cert.signatures.x509 = {};
-	var sig = cert.signatures.x509;
-
-	sig.algo = key.type + '-' + key.defaultHashAlgorithm();
-	if (SIGN_ALGS[sig.algo] === undefined)
-		return (false);
-
-	var der = new asn1.BerWriter();
-	writeTBSCert(cert, der);
-	var blob = der.buffer;
-	sig.cache = blob;
-
-	var signer = key.createSign();
-	signer.write(blob);
-	cert.signatures.x509.signature = signer.sign();
-
-	return (true);
-}
-
-function signAsync(cert, signer, done) {
-	if (cert.signatures.x509 === undefined)
-		cert.signatures.x509 = {};
-	var sig = cert.signatures.x509;
-
-	var der = new asn1.BerWriter();
-	writeTBSCert(cert, der);
-	var blob = der.buffer;
-	sig.cache = blob;
-
-	signer(blob, function (err, signature) {
-		if (err) {
-			done(err);
-			return;
-		}
-		sig.algo = signature.type + '-' + signature.hashAlgorithm;
-		if (SIGN_ALGS[sig.algo] === undefined) {
-			done(new Error('Invalid signing algorithm "' +
-			    sig.algo + '"'));
-			return;
-		}
-		sig.signature = signature;
-		done();
-	});
-}
-
-function write(cert, options) {
-	var sig = cert.signatures.x509;
-	assert.object(sig, 'x509 signature');
-
-	var der = new asn1.BerWriter();
-	der.startSequence();
-	if (sig.cache) {
-		der._ensure(sig.cache.length);
-		sig.cache.copy(der._buf, der._offset);
-		der._offset += sig.cache.length;
-	} else {
-		writeTBSCert(cert, der);
-	}
-
-	der.startSequence();
-	der.writeOID(SIGN_ALGS[sig.algo]);
-	if (sig.algo.match(/^rsa-/))
-		der.writeNull();
-	der.endSequence();
-
-	var sigData = sig.signature.toBuffer('asn1');
-	var data = new Buffer(sigData.length + 1);
-	data[0] = 0;
-	sigData.copy(data, 1);
-	der.writeBuffer(data, asn1.Ber.BitString);
-	der.endSequence();
-
-	return (der.buffer);
-}
-
-function writeTBSCert(cert, der) {
-	var sig = cert.signatures.x509;
-	assert.object(sig, 'x509 signature');
-
-	der.startSequence();
-
-	der.startSequence(Local(0));
-	der.writeInt(2);
-	der.endSequence();
-
-	der.writeBuffer(utils.mpNormalize(cert.serial), asn1.Ber.Integer);
-
-	der.startSequence();
-	der.writeOID(SIGN_ALGS[sig.algo]);
-	if (sig.algo.match(/^rsa-/))
-		der.writeNull();
-	der.endSequence();
-
-	cert.issuer.toAsn1(der);
-
-	der.startSequence();
-	der.writeString(dateToUTCTime(cert.validFrom), asn1.Ber.UTCTime);
-	der.writeString(dateToUTCTime(cert.validUntil), asn1.Ber.UTCTime);
-	der.endSequence();
-
-	var subject = cert.subjects[0];
-	var altNames = cert.subjects.slice(1);
-	subject.toAsn1(der);
-
-	pkcs8.writePkcs8(der, cert.subjectKey);
-
-	if (sig.extras && sig.extras.issuerUniqueID) {
-		der.writeBuffer(sig.extras.issuerUniqueID, Local(1));
-	}
-
-	if (sig.extras && sig.extras.subjectUniqueID) {
-		der.writeBuffer(sig.extras.subjectUniqueID, Local(2));
-	}
-
-	if (altNames.length > 0 || subject.type === 'host' ||
-	    (cert.purposes !== undefined && cert.purposes.length > 0) ||
-	    (sig.extras && sig.extras.exts)) {
-		der.startSequence(Local(3));
-		der.startSequence();
-
-		var exts = [];
-		if (cert.purposes !== undefined && cert.purposes.length > 0) {
-			exts.push({
-				oid: EXTS.basicConstraints,
-				critical: true
-			});
-			exts.push({
-				oid: EXTS.keyUsage,
-				critical: true
-			});
-			exts.push({
-				oid: EXTS.extKeyUsage,
-				critical: true
-			});
-		}
-		exts.push({ oid: EXTS.altName });
-		if (sig.extras && sig.extras.exts)
-			exts = sig.extras.exts;
-
-		for (var i = 0; i < exts.length; ++i) {
-			der.startSequence();
-			der.writeOID(exts[i].oid);
-
-			if (exts[i].critical !== undefined)
-				der.writeBoolean(exts[i].critical);
-
-			if (exts[i].oid === EXTS.altName) {
-				der.startSequence(asn1.Ber.OctetString);
-				der.startSequence();
-				if (subject.type === 'host') {
-					der.writeString(subject.hostname,
-					    Context(2));
-				}
-				for (var j = 0; j < altNames.length; ++j) {
-					if (altNames[j].type === 'host') {
-						der.writeString(
-						    altNames[j].hostname,
-						    ALTNAME.DNSName);
-					} else if (altNames[j].type ===
-					    'email') {
-						der.writeString(
-						    altNames[j].email,
-						    ALTNAME.RFC822Name);
-					} else {
-						/*
-						 * Encode anything else as a
-						 * DN style name for now.
-						 */
-						der.startSequence(
-						    ALTNAME.DirectoryName);
-						altNames[j].toAsn1(der);
-						der.endSequence();
-					}
-				}
-				der.endSequence();
-				der.endSequence();
-			} else if (exts[i].oid === EXTS.basicConstraints) {
-				der.startSequence(asn1.Ber.OctetString);
-				der.startSequence();
-				var ca = (cert.purposes.indexOf('ca') !== -1);
-				var pathLen = exts[i].pathLen;
-				der.writeBoolean(ca);
-				if (pathLen !== undefined)
-					der.writeInt(pathLen);
-				der.endSequence();
-				der.endSequence();
-			} else if (exts[i].oid === EXTS.extKeyUsage) {
-				der.startSequence(asn1.Ber.OctetString);
-				der.startSequence();
-				cert.purposes.forEach(function (purpose) {
-					if (purpose === 'ca')
-						return;
-					if (KEYUSEBITS.indexOf(purpose) !== -1)
-						return;
-					var oid = purpose;
-					if (EXTPURPOSE[purpose] !== undefined)
-						oid = EXTPURPOSE[purpose];
-					der.writeOID(oid);
-				});
-				der.endSequence();
-				der.endSequence();
-			} else if (exts[i].oid === EXTS.keyUsage) {
-				der.startSequence(asn1.Ber.OctetString);
-				/*
-				 * If we parsed this certificate from a byte
-				 * stream (i.e. we didn't generate it in sshpk)
-				 * then we'll have a ".bits" property on the
-				 * ext with the original raw byte contents.
-				 *
-				 * If we have this, use it here instead of
-				 * regenerating it. This guarantees we output
-				 * the same data we parsed, so signatures still
-				 * validate.
-				 */
-				if (exts[i].bits !== undefined) {
-					der.writeBuffer(exts[i].bits,
-					    asn1.Ber.BitString);
-				} else {
-					var bits = writeBitField(cert.purposes,
-					    KEYUSEBITS);
-					der.writeBuffer(bits,
-					    asn1.Ber.BitString);
-				}
-				der.endSequence();
-			} else {
-				der.writeBuffer(exts[i].data,
-				    asn1.Ber.OctetString);
-			}
-
-			der.endSequence();
-		}
-
-		der.endSequence();
-		der.endSequence();
-	}
-
-	der.endSequence();
-}
-
-/*
- * Reads an ASN.1 BER bitfield out of the Buffer produced by doing
- * `BerReader#readString(asn1.Ber.BitString)`. That function gives us the raw
- * contents of the BitString tag, which is a count of unused bits followed by
- * the bits as a right-padded byte string.
- *
- * `bits` is the Buffer, `bitIndex` should contain an array of string names
- * for the bits in the string, ordered starting with bit #0 in the ASN.1 spec.
- *
- * Returns an array of Strings, the names of the bits that were set to 1.
- */
-function readBitField(bits, bitIndex) {
-	var bitLen = 8 * (bits.length - 1) - bits[0];
-	var setBits = {};
-	for (var i = 0; i < bitLen; ++i) {
-		var byteN = 1 + Math.floor(i / 8);
-		var bit = 7 - (i % 8);
-		var mask = 1 << bit;
-		var bitVal = ((bits[byteN] & mask) !== 0);
-		var name = bitIndex[i];
-		if (bitVal && typeof (name) === 'string') {
-			setBits[name] = true;
-		}
-	}
-	return (Object.keys(setBits));
-}
-
-/*
- * `setBits` is an array of strings, containing the names for each bit that
- * sould be set to 1. `bitIndex` is same as in `readBitField()`.
- *
- * Returns a Buffer, ready to be written out with `BerWriter#writeString()`.
- */
-function writeBitField(setBits, bitIndex) {
-	var bitLen = bitIndex.length;
-	var blen = Math.ceil(bitLen / 8);
-	var unused = blen * 8 - bitLen;
-	var bits = new Buffer(1 + blen);
-	bits.fill(0);
-	bits[0] = unused;
-	for (var i = 0; i < bitLen; ++i) {
-		var byteN = 1 + Math.floor(i / 8);
-		var bit = 7 - (i % 8);
-		var mask = 1 << bit;
-		var name = bitIndex[i];
-		if (name === undefined)
-			continue;
-		var bitVal = (setBits.indexOf(name) !== -1);
-		if (bitVal) {
-			bits[byteN] |= mask;
-		}
-	}
-	return (bits);
-}
-
-
-/***/ }),
-/* 102 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*!
- * Copyright (c) 2015, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-/*
- * "A request-path path-matches a given cookie-path if at least one of the
- * following conditions holds:"
- */
-function pathMatch (reqPath, cookiePath) {
-  // "o  The cookie-path and the request-path are identical."
-  if (cookiePath === reqPath) {
-    return true;
-  }
-
-  var idx = reqPath.indexOf(cookiePath);
-  if (idx === 0) {
-    // "o  The cookie-path is a prefix of the request-path, and the last
-    // character of the cookie-path is %x2F ("/")."
-    if (cookiePath.substr(-1) === "/") {
-      return true;
-    }
-
-    // " o  The cookie-path is a prefix of the request-path, and the first
-    // character of the request-path that is not included in the cookie- path
-    // is a %x2F ("/") character."
-    if (reqPath.substr(cookiePath.length, 1) === "/") {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-exports.pathMatch = pathMatch;
-
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*!
- * Copyright (c) 2015, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-var pubsuffix = __webpack_require__(104);
-
-// Gives the permutation of all possible domainMatch()es of a given domain. The
-// array is in shortest-to-longest order.  Handy for indexing.
-function permuteDomain (domain) {
-  var pubSuf = pubsuffix.getPublicSuffix(domain);
-  if (!pubSuf) {
-    return null;
-  }
-  if (pubSuf == domain) {
-    return [domain];
-  }
-
-  var prefix = domain.slice(0, -(pubSuf.length + 1)); // ".example.com"
-  var parts = prefix.split('.').reverse();
-  var cur = pubSuf;
-  var permutations = [cur];
-  while (parts.length) {
-    cur = parts.shift() + '.' + cur;
-    permutations.push(cur);
-  }
-  return permutations;
-}
-
-exports.permuteDomain = permuteDomain;
-
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/****************************************************
- * AUTOMATICALLY GENERATED by generate-pubsuffix.js *
- *                  DO NOT EDIT!                    *
- ****************************************************/
-
-
-
-var punycode = __webpack_require__(109);
-
-module.exports.getPublicSuffix = function getPublicSuffix(domain) {
-  /*!
-   * Copyright (c) 2015, Salesforce.com, Inc.
-   * All rights reserved.
-   *
-   * Redistribution and use in source and binary forms, with or without
-   * modification, are permitted provided that the following conditions are met:
-   *
-   * 1. Redistributions of source code must retain the above copyright notice,
-   * this list of conditions and the following disclaimer.
-   *
-   * 2. Redistributions in binary form must reproduce the above copyright notice,
-   * this list of conditions and the following disclaimer in the documentation
-   * and/or other materials provided with the distribution.
-   *
-   * 3. Neither the name of Salesforce.com nor the names of its contributors may
-   * be used to endorse or promote products derived from this software without
-   * specific prior written permission.
-   *
-   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-   * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-   * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-   * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-   * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-   * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-   * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-   * POSSIBILITY OF SUCH DAMAGE.
-   */
-  if (!domain) {
-    return null;
-  }
-  if (domain.match(/^\./)) {
-    return null;
-  }
-  var asciiDomain = punycode.toASCII(domain);
-  var converted = false;
-  if (asciiDomain !== domain) {
-    domain = asciiDomain;
-    converted = true;
-  }
-  if (index[domain]) {
-    return null;
-  }
-
-  domain = domain.toLowerCase();
-  var parts = domain.split('.').reverse();
-
-  var suffix = '';
-  var suffixLen = 0;
-  for (var i=0; i<parts.length; i++) {
-    var part = parts[i];
-    var starstr = '*'+suffix;
-    var partstr = part+suffix;
-
-    if (index[starstr]) { // star rule matches
-      suffixLen = i+1;
-      if (index[partstr] === false) { // exception rule matches (NB: false, not undefined)
-        suffixLen--;
-      }
-    } else if (index[partstr]) { // exact match, not exception
-      suffixLen = i+1;
-    }
-
-    suffix = '.'+partstr;
-  }
-
-  if (index['*'+suffix]) { // *.domain exists (e.g. *.kyoto.jp for domain='kyoto.jp');
-    return null;
-  }
-
-  suffixLen = suffixLen || 1;
-  if (parts.length > suffixLen) {
-    var publicSuffix = parts.slice(0,suffixLen+1).reverse().join('.');
-    return converted ? punycode.toUnicode(publicSuffix) : publicSuffix;
-  }
-
-  return null;
-};
-
-// The following generated structure is used under the MPL version 2.0
-// See public-suffix.txt for more information
-
-var index = module.exports.index = Object.freeze(
-{"ac":true,"com.ac":true,"edu.ac":true,"gov.ac":true,"net.ac":true,"mil.ac":true,"org.ac":true,"ad":true,"nom.ad":true,"ae":true,"co.ae":true,"net.ae":true,"org.ae":true,"sch.ae":true,"ac.ae":true,"gov.ae":true,"mil.ae":true,"aero":true,"accident-investigation.aero":true,"accident-prevention.aero":true,"aerobatic.aero":true,"aeroclub.aero":true,"aerodrome.aero":true,"agents.aero":true,"aircraft.aero":true,"airline.aero":true,"airport.aero":true,"air-surveillance.aero":true,"airtraffic.aero":true,"air-traffic-control.aero":true,"ambulance.aero":true,"amusement.aero":true,"association.aero":true,"author.aero":true,"ballooning.aero":true,"broker.aero":true,"caa.aero":true,"cargo.aero":true,"catering.aero":true,"certification.aero":true,"championship.aero":true,"charter.aero":true,"civilaviation.aero":true,"club.aero":true,"conference.aero":true,"consultant.aero":true,"consulting.aero":true,"control.aero":true,"council.aero":true,"crew.aero":true,"design.aero":true,"dgca.aero":true,"educator.aero":true,"emergency.aero":true,"engine.aero":true,"engineer.aero":true,"entertainment.aero":true,"equipment.aero":true,"exchange.aero":true,"express.aero":true,"federation.aero":true,"flight.aero":true,"freight.aero":true,"fuel.aero":true,"gliding.aero":true,"government.aero":true,"groundhandling.aero":true,"group.aero":true,"hanggliding.aero":true,"homebuilt.aero":true,"insurance.aero":true,"journal.aero":true,"journalist.aero":true,"leasing.aero":true,"logistics.aero":true,"magazine.aero":true,"maintenance.aero":true,"media.aero":true,"microlight.aero":true,"modelling.aero":true,"navigation.aero":true,"parachuting.aero":true,"paragliding.aero":true,"passenger-association.aero":true,"pilot.aero":true,"press.aero":true,"production.aero":true,"recreation.aero":true,"repbody.aero":true,"res.aero":true,"research.aero":true,"rotorcraft.aero":true,"safety.aero":true,"scientist.aero":true,"services.aero":true,"show.aero":true,"skydiving.aero":true,"software.aero":true,"student.aero":true,"trader.aero":true,"trading.aero":true,"trainer.aero":true,"union.aero":true,"workinggroup.aero":true,"works.aero":true,"af":true,"gov.af":true,"com.af":true,"org.af":true,"net.af":true,"edu.af":true,"ag":true,"com.ag":true,"org.ag":true,"net.ag":true,"co.ag":true,"nom.ag":true,"ai":true,"off.ai":true,"com.ai":true,"net.ai":true,"org.ai":true,"al":true,"com.al":true,"edu.al":true,"gov.al":true,"mil.al":true,"net.al":true,"org.al":true,"am":true,"ao":true,"ed.ao":true,"gv.ao":true,"og.ao":true,"co.ao":true,"pb.ao":true,"it.ao":true,"aq":true,"ar":true,"com.ar":true,"edu.ar":true,"gob.ar":true,"gov.ar":true,"int.ar":true,"mil.ar":true,"musica.ar":true,"net.ar":true,"org.ar":true,"tur.ar":true,"arpa":true,"e164.arpa":true,"in-addr.arpa":true,"ip6.arpa":true,"iris.arpa":true,"uri.arpa":true,"urn.arpa":true,"as":true,"gov.as":true,"asia":true,"at":true,"ac.at":true,"co.at":true,"gv.at":true,"or.at":true,"au":true,"com.au":true,"net.au":true,"org.au":true,"edu.au":true,"gov.au":true,"asn.au":true,"id.au":true,"info.au":true,"conf.au":true,"oz.au":true,"act.au":true,"nsw.au":true,"nt.au":true,"qld.au":true,"sa.au":true,"tas.au":true,"vic.au":true,"wa.au":true,"act.edu.au":true,"nsw.edu.au":true,"nt.edu.au":true,"qld.edu.au":true,"sa.edu.au":true,"tas.edu.au":true,"vic.edu.au":true,"wa.edu.au":true,"qld.gov.au":true,"sa.gov.au":true,"tas.gov.au":true,"vic.gov.au":true,"wa.gov.au":true,"aw":true,"com.aw":true,"ax":true,"az":true,"com.az":true,"net.az":true,"int.az":true,"gov.az":true,"org.az":true,"edu.az":true,"info.az":true,"pp.az":true,"mil.az":true,"name.az":true,"pro.az":true,"biz.az":true,"ba":true,"com.ba":true,"edu.ba":true,"gov.ba":true,"mil.ba":true,"net.ba":true,"org.ba":true,"bb":true,"biz.bb":true,"co.bb":true,"com.bb":true,"edu.bb":true,"gov.bb":true,"info.bb":true,"net.bb":true,"org.bb":true,"store.bb":true,"tv.bb":true,"*.bd":true,"be":true,"ac.be":true,"bf":true,"gov.bf":true,"bg":true,"a.bg":true,"b.bg":true,"c.bg":true,"d.bg":true,"e.bg":true,"f.bg":true,"g.bg":true,"h.bg":true,"i.bg":true,"j.bg":true,"k.bg":true,"l.bg":true,"m.bg":true,"n.bg":true,"o.bg":true,"p.bg":true,"q.bg":true,"r.bg":true,"s.bg":true,"t.bg":true,"u.bg":true,"v.bg":true,"w.bg":true,"x.bg":true,"y.bg":true,"z.bg":true,"0.bg":true,"1.bg":true,"2.bg":true,"3.bg":true,"4.bg":true,"5.bg":true,"6.bg":true,"7.bg":true,"8.bg":true,"9.bg":true,"bh":true,"com.bh":true,"edu.bh":true,"net.bh":true,"org.bh":true,"gov.bh":true,"bi":true,"co.bi":true,"com.bi":true,"edu.bi":true,"or.bi":true,"org.bi":true,"biz":true,"bj":true,"asso.bj":true,"barreau.bj":true,"gouv.bj":true,"bm":true,"com.bm":true,"edu.bm":true,"gov.bm":true,"net.bm":true,"org.bm":true,"*.bn":true,"bo":true,"com.bo":true,"edu.bo":true,"gob.bo":true,"int.bo":true,"org.bo":true,"net.bo":true,"mil.bo":true,"tv.bo":true,"web.bo":true,"academia.bo":true,"agro.bo":true,"arte.bo":true,"blog.bo":true,"bolivia.bo":true,"ciencia.bo":true,"cooperativa.bo":true,"democracia.bo":true,"deporte.bo":true,"ecologia.bo":true,"economia.bo":true,"empresa.bo":true,"indigena.bo":true,"industria.bo":true,"info.bo":true,"medicina.bo":true,"movimiento.bo":true,"musica.bo":true,"natural.bo":true,"nombre.bo":true,"noticias.bo":true,"patria.bo":true,"politica.bo":true,"profesional.bo":true,"plurinacional.bo":true,"pueblo.bo":true,"revista.bo":true,"salud.bo":true,"tecnologia.bo":true,"tksat.bo":true,"transporte.bo":true,"wiki.bo":true,"br":true,"9guacu.br":true,"abc.br":true,"adm.br":true,"adv.br":true,"agr.br":true,"aju.br":true,"am.br":true,"anani.br":true,"aparecida.br":true,"arq.br":true,"art.br":true,"ato.br":true,"b.br":true,"belem.br":true,"bhz.br":true,"bio.br":true,"blog.br":true,"bmd.br":true,"boavista.br":true,"bsb.br":true,"campinagrande.br":true,"campinas.br":true,"caxias.br":true,"cim.br":true,"cng.br":true,"cnt.br":true,"com.br":true,"contagem.br":true,"coop.br":true,"cri.br":true,"cuiaba.br":true,"curitiba.br":true,"def.br":true,"ecn.br":true,"eco.br":true,"edu.br":true,"emp.br":true,"eng.br":true,"esp.br":true,"etc.br":true,"eti.br":true,"far.br":true,"feira.br":true,"flog.br":true,"floripa.br":true,"fm.br":true,"fnd.br":true,"fortal.br":true,"fot.br":true,"foz.br":true,"fst.br":true,"g12.br":true,"ggf.br":true,"goiania.br":true,"gov.br":true,"ac.gov.br":true,"al.gov.br":true,"am.gov.br":true,"ap.gov.br":true,"ba.gov.br":true,"ce.gov.br":true,"df.gov.br":true,"es.gov.br":true,"go.gov.br":true,"ma.gov.br":true,"mg.gov.br":true,"ms.gov.br":true,"mt.gov.br":true,"pa.gov.br":true,"pb.gov.br":true,"pe.gov.br":true,"pi.gov.br":true,"pr.gov.br":true,"rj.gov.br":true,"rn.gov.br":true,"ro.gov.br":true,"rr.gov.br":true,"rs.gov.br":true,"sc.gov.br":true,"se.gov.br":true,"sp.gov.br":true,"to.gov.br":true,"gru.br":true,"imb.br":true,"ind.br":true,"inf.br":true,"jab.br":true,"jampa.br":true,"jdf.br":true,"joinville.br":true,"jor.br":true,"jus.br":true,"leg.br":true,"lel.br":true,"londrina.br":true,"macapa.br":true,"maceio.br":true,"manaus.br":true,"maringa.br":true,"mat.br":true,"med.br":true,"mil.br":true,"morena.br":true,"mp.br":true,"mus.br":true,"natal.br":true,"net.br":true,"niteroi.br":true,"*.nom.br":true,"not.br":true,"ntr.br":true,"odo.br":true,"org.br":true,"osasco.br":true,"palmas.br":true,"poa.br":true,"ppg.br":true,"pro.br":true,"psc.br":true,"psi.br":true,"pvh.br":true,"qsl.br":true,"radio.br":true,"rec.br":true,"recife.br":true,"ribeirao.br":true,"rio.br":true,"riobranco.br":true,"riopreto.br":true,"salvador.br":true,"sampa.br":true,"santamaria.br":true,"santoandre.br":true,"saobernardo.br":true,"saogonca.br":true,"sjc.br":true,"slg.br":true,"slz.br":true,"sorocaba.br":true,"srv.br":true,"taxi.br":true,"teo.br":true,"the.br":true,"tmp.br":true,"trd.br":true,"tur.br":true,"tv.br":true,"udi.br":true,"vet.br":true,"vix.br":true,"vlog.br":true,"wiki.br":true,"zlg.br":true,"bs":true,"com.bs":true,"net.bs":true,"org.bs":true,"edu.bs":true,"gov.bs":true,"bt":true,"com.bt":true,"edu.bt":true,"gov.bt":true,"net.bt":true,"org.bt":true,"bv":true,"bw":true,"co.bw":true,"org.bw":true,"by":true,"gov.by":true,"mil.by":true,"com.by":true,"of.by":true,"bz":true,"com.bz":true,"net.bz":true,"org.bz":true,"edu.bz":true,"gov.bz":true,"ca":true,"ab.ca":true,"bc.ca":true,"mb.ca":true,"nb.ca":true,"nf.ca":true,"nl.ca":true,"ns.ca":true,"nt.ca":true,"nu.ca":true,"on.ca":true,"pe.ca":true,"qc.ca":true,"sk.ca":true,"yk.ca":true,"gc.ca":true,"cat":true,"cc":true,"cd":true,"gov.cd":true,"cf":true,"cg":true,"ch":true,"ci":true,"org.ci":true,"or.ci":true,"com.ci":true,"co.ci":true,"edu.ci":true,"ed.ci":true,"ac.ci":true,"net.ci":true,"go.ci":true,"asso.ci":true,"xn--aroport-bya.ci":true,"int.ci":true,"presse.ci":true,"md.ci":true,"gouv.ci":true,"*.ck":true,"www.ck":false,"cl":true,"gov.cl":true,"gob.cl":true,"co.cl":true,"mil.cl":true,"cm":true,"co.cm":true,"com.cm":true,"gov.cm":true,"net.cm":true,"cn":true,"ac.cn":true,"com.cn":true,"edu.cn":true,"gov.cn":true,"net.cn":true,"org.cn":true,"mil.cn":true,"xn--55qx5d.cn":true,"xn--io0a7i.cn":true,"xn--od0alg.cn":true,"ah.cn":true,"bj.cn":true,"cq.cn":true,"fj.cn":true,"gd.cn":true,"gs.cn":true,"gz.cn":true,"gx.cn":true,"ha.cn":true,"hb.cn":true,"he.cn":true,"hi.cn":true,"hl.cn":true,"hn.cn":true,"jl.cn":true,"js.cn":true,"jx.cn":true,"ln.cn":true,"nm.cn":true,"nx.cn":true,"qh.cn":true,"sc.cn":true,"sd.cn":true,"sh.cn":true,"sn.cn":true,"sx.cn":true,"tj.cn":true,"xj.cn":true,"xz.cn":true,"yn.cn":true,"zj.cn":true,"hk.cn":true,"mo.cn":true,"tw.cn":true,"co":true,"arts.co":true,"com.co":true,"edu.co":true,"firm.co":true,"gov.co":true,"info.co":true,"int.co":true,"mil.co":true,"net.co":true,"nom.co":true,"org.co":true,"rec.co":true,"web.co":true,"com":true,"coop":true,"cr":true,"ac.cr":true,"co.cr":true,"ed.cr":true,"fi.cr":true,"go.cr":true,"or.cr":true,"sa.cr":true,"cu":true,"com.cu":true,"edu.cu":true,"org.cu":true,"net.cu":true,"gov.cu":true,"inf.cu":true,"cv":true,"cw":true,"com.cw":true,"edu.cw":true,"net.cw":true,"org.cw":true,"cx":true,"gov.cx":true,"cy":true,"ac.cy":true,"biz.cy":true,"com.cy":true,"ekloges.cy":true,"gov.cy":true,"ltd.cy":true,"name.cy":true,"net.cy":true,"org.cy":true,"parliament.cy":true,"press.cy":true,"pro.cy":true,"tm.cy":true,"cz":true,"de":true,"dj":true,"dk":true,"dm":true,"com.dm":true,"net.dm":true,"org.dm":true,"edu.dm":true,"gov.dm":true,"do":true,"art.do":true,"com.do":true,"edu.do":true,"gob.do":true,"gov.do":true,"mil.do":true,"net.do":true,"org.do":true,"sld.do":true,"web.do":true,"dz":true,"com.dz":true,"org.dz":true,"net.dz":true,"gov.dz":true,"edu.dz":true,"asso.dz":true,"pol.dz":true,"art.dz":true,"ec":true,"com.ec":true,"info.ec":true,"net.ec":true,"fin.ec":true,"k12.ec":true,"med.ec":true,"pro.ec":true,"org.ec":true,"edu.ec":true,"gov.ec":true,"gob.ec":true,"mil.ec":true,"edu":true,"ee":true,"edu.ee":true,"gov.ee":true,"riik.ee":true,"lib.ee":true,"med.ee":true,"com.ee":true,"pri.ee":true,"aip.ee":true,"org.ee":true,"fie.ee":true,"eg":true,"com.eg":true,"edu.eg":true,"eun.eg":true,"gov.eg":true,"mil.eg":true,"name.eg":true,"net.eg":true,"org.eg":true,"sci.eg":true,"*.er":true,"es":true,"com.es":true,"nom.es":true,"org.es":true,"gob.es":true,"edu.es":true,"et":true,"com.et":true,"gov.et":true,"org.et":true,"edu.et":true,"biz.et":true,"name.et":true,"info.et":true,"net.et":true,"eu":true,"fi":true,"aland.fi":true,"*.fj":true,"*.fk":true,"fm":true,"fo":true,"fr":true,"com.fr":true,"asso.fr":true,"nom.fr":true,"prd.fr":true,"presse.fr":true,"tm.fr":true,"aeroport.fr":true,"assedic.fr":true,"avocat.fr":true,"avoues.fr":true,"cci.fr":true,"chambagri.fr":true,"chirurgiens-dentistes.fr":true,"experts-comptables.fr":true,"geometre-expert.fr":true,"gouv.fr":true,"greta.fr":true,"huissier-justice.fr":true,"medecin.fr":true,"notaires.fr":true,"pharmacien.fr":true,"port.fr":true,"veterinaire.fr":true,"ga":true,"gb":true,"gd":true,"ge":true,"com.ge":true,"edu.ge":true,"gov.ge":true,"org.ge":true,"mil.ge":true,"net.ge":true,"pvt.ge":true,"gf":true,"gg":true,"co.gg":true,"net.gg":true,"org.gg":true,"gh":true,"com.gh":true,"edu.gh":true,"gov.gh":true,"org.gh":true,"mil.gh":true,"gi":true,"com.gi":true,"ltd.gi":true,"gov.gi":true,"mod.gi":true,"edu.gi":true,"org.gi":true,"gl":true,"co.gl":true,"com.gl":true,"edu.gl":true,"net.gl":true,"org.gl":true,"gm":true,"gn":true,"ac.gn":true,"com.gn":true,"edu.gn":true,"gov.gn":true,"org.gn":true,"net.gn":true,"gov":true,"gp":true,"com.gp":true,"net.gp":true,"mobi.gp":true,"edu.gp":true,"org.gp":true,"asso.gp":true,"gq":true,"gr":true,"com.gr":true,"edu.gr":true,"net.gr":true,"org.gr":true,"gov.gr":true,"gs":true,"gt":true,"com.gt":true,"edu.gt":true,"gob.gt":true,"ind.gt":true,"mil.gt":true,"net.gt":true,"org.gt":true,"*.gu":true,"gw":true,"gy":true,"co.gy":true,"com.gy":true,"edu.gy":true,"gov.gy":true,"net.gy":true,"org.gy":true,"hk":true,"com.hk":true,"edu.hk":true,"gov.hk":true,"idv.hk":true,"net.hk":true,"org.hk":true,"xn--55qx5d.hk":true,"xn--wcvs22d.hk":true,"xn--lcvr32d.hk":true,"xn--mxtq1m.hk":true,"xn--gmqw5a.hk":true,"xn--ciqpn.hk":true,"xn--gmq050i.hk":true,"xn--zf0avx.hk":true,"xn--io0a7i.hk":true,"xn--mk0axi.hk":true,"xn--od0alg.hk":true,"xn--od0aq3b.hk":true,"xn--tn0ag.hk":true,"xn--uc0atv.hk":true,"xn--uc0ay4a.hk":true,"hm":true,"hn":true,"com.hn":true,"edu.hn":true,"org.hn":true,"net.hn":true,"mil.hn":true,"gob.hn":true,"hr":true,"iz.hr":true,"from.hr":true,"name.hr":true,"com.hr":true,"ht":true,"com.ht":true,"shop.ht":true,"firm.ht":true,"info.ht":true,"adult.ht":true,"net.ht":true,"pro.ht":true,"org.ht":true,"med.ht":true,"art.ht":true,"coop.ht":true,"pol.ht":true,"asso.ht":true,"edu.ht":true,"rel.ht":true,"gouv.ht":true,"perso.ht":true,"hu":true,"co.hu":true,"info.hu":true,"org.hu":true,"priv.hu":true,"sport.hu":true,"tm.hu":true,"2000.hu":true,"agrar.hu":true,"bolt.hu":true,"casino.hu":true,"city.hu":true,"erotica.hu":true,"erotika.hu":true,"film.hu":true,"forum.hu":true,"games.hu":true,"hotel.hu":true,"ingatlan.hu":true,"jogasz.hu":true,"konyvelo.hu":true,"lakas.hu":true,"media.hu":true,"news.hu":true,"reklam.hu":true,"sex.hu":true,"shop.hu":true,"suli.hu":true,"szex.hu":true,"tozsde.hu":true,"utazas.hu":true,"video.hu":true,"id":true,"ac.id":true,"biz.id":true,"co.id":true,"desa.id":true,"go.id":true,"mil.id":true,"my.id":true,"net.id":true,"or.id":true,"sch.id":true,"web.id":true,"ie":true,"gov.ie":true,"il":true,"ac.il":true,"co.il":true,"gov.il":true,"idf.il":true,"k12.il":true,"muni.il":true,"net.il":true,"org.il":true,"im":true,"ac.im":true,"co.im":true,"com.im":true,"ltd.co.im":true,"net.im":true,"org.im":true,"plc.co.im":true,"tt.im":true,"tv.im":true,"in":true,"co.in":true,"firm.in":true,"net.in":true,"org.in":true,"gen.in":true,"ind.in":true,"nic.in":true,"ac.in":true,"edu.in":true,"res.in":true,"gov.in":true,"mil.in":true,"info":true,"int":true,"eu.int":true,"io":true,"com.io":true,"iq":true,"gov.iq":true,"edu.iq":true,"mil.iq":true,"com.iq":true,"org.iq":true,"net.iq":true,"ir":true,"ac.ir":true,"co.ir":true,"gov.ir":true,"id.ir":true,"net.ir":true,"org.ir":true,"sch.ir":true,"xn--mgba3a4f16a.ir":true,"xn--mgba3a4fra.ir":true,"is":true,"net.is":true,"com.is":true,"edu.is":true,"gov.is":true,"org.is":true,"int.is":true,"it":true,"gov.it":true,"edu.it":true,"abr.it":true,"abruzzo.it":true,"aosta-valley.it":true,"aostavalley.it":true,"bas.it":true,"basilicata.it":true,"cal.it":true,"calabria.it":true,"cam.it":true,"campania.it":true,"emilia-romagna.it":true,"emiliaromagna.it":true,"emr.it":true,"friuli-v-giulia.it":true,"friuli-ve-giulia.it":true,"friuli-vegiulia.it":true,"friuli-venezia-giulia.it":true,"friuli-veneziagiulia.it":true,"friuli-vgiulia.it":true,"friuliv-giulia.it":true,"friulive-giulia.it":true,"friulivegiulia.it":true,"friulivenezia-giulia.it":true,"friuliveneziagiulia.it":true,"friulivgiulia.it":true,"fvg.it":true,"laz.it":true,"lazio.it":true,"lig.it":true,"liguria.it":true,"lom.it":true,"lombardia.it":true,"lombardy.it":true,"lucania.it":true,"mar.it":true,"marche.it":true,"mol.it":true,"molise.it":true,"piedmont.it":true,"piemonte.it":true,"pmn.it":true,"pug.it":true,"puglia.it":true,"sar.it":true,"sardegna.it":true,"sardinia.it":true,"sic.it":true,"sicilia.it":true,"sicily.it":true,"taa.it":true,"tos.it":true,"toscana.it":true,"trentino-a-adige.it":true,"trentino-aadige.it":true,"trentino-alto-adige.it":true,"trentino-altoadige.it":true,"trentino-s-tirol.it":true,"trentino-stirol.it":true,"trentino-sud-tirol.it":true,"trentino-sudtirol.it":true,"trentino-sued-tirol.it":true,"trentino-suedtirol.it":true,"trentinoa-adige.it":true,"trentinoaadige.it":true,"trentinoalto-adige.it":true,"trentinoaltoadige.it":true,"trentinos-tirol.it":true,"trentinostirol.it":true,"trentinosud-tirol.it":true,"trentinosudtirol.it":true,"trentinosued-tirol.it":true,"trentinosuedtirol.it":true,"tuscany.it":true,"umb.it":true,"umbria.it":true,"val-d-aosta.it":true,"val-daosta.it":true,"vald-aosta.it":true,"valdaosta.it":true,"valle-aosta.it":true,"valle-d-aosta.it":true,"valle-daosta.it":true,"valleaosta.it":true,"valled-aosta.it":true,"valledaosta.it":true,"vallee-aoste.it":true,"valleeaoste.it":true,"vao.it":true,"vda.it":true,"ven.it":true,"veneto.it":true,"ag.it":true,"agrigento.it":true,"al.it":true,"alessandria.it":true,"alto-adige.it":true,"altoadige.it":true,"an.it":true,"ancona.it":true,"andria-barletta-trani.it":true,"andria-trani-barletta.it":true,"andriabarlettatrani.it":true,"andriatranibarletta.it":true,"ao.it":true,"aosta.it":true,"aoste.it":true,"ap.it":true,"aq.it":true,"aquila.it":true,"ar.it":true,"arezzo.it":true,"ascoli-piceno.it":true,"ascolipiceno.it":true,"asti.it":true,"at.it":true,"av.it":true,"avellino.it":true,"ba.it":true,"balsan.it":true,"bari.it":true,"barletta-trani-andria.it":true,"barlettatraniandria.it":true,"belluno.it":true,"benevento.it":true,"bergamo.it":true,"bg.it":true,"bi.it":true,"biella.it":true,"bl.it":true,"bn.it":true,"bo.it":true,"bologna.it":true,"bolzano.it":true,"bozen.it":true,"br.it":true,"brescia.it":true,"brindisi.it":true,"bs.it":true,"bt.it":true,"bz.it":true,"ca.it":true,"cagliari.it":true,"caltanissetta.it":true,"campidano-medio.it":true,"campidanomedio.it":true,"campobasso.it":true,"carbonia-iglesias.it":true,"carboniaiglesias.it":true,"carrara-massa.it":true,"carraramassa.it":true,"caserta.it":true,"catania.it":true,"catanzaro.it":true,"cb.it":true,"ce.it":true,"cesena-forli.it":true,"cesenaforli.it":true,"ch.it":true,"chieti.it":true,"ci.it":true,"cl.it":true,"cn.it":true,"co.it":true,"como.it":true,"cosenza.it":true,"cr.it":true,"cremona.it":true,"crotone.it":true,"cs.it":true,"ct.it":true,"cuneo.it":true,"cz.it":true,"dell-ogliastra.it":true,"dellogliastra.it":true,"en.it":true,"enna.it":true,"fc.it":true,"fe.it":true,"fermo.it":true,"ferrara.it":true,"fg.it":true,"fi.it":true,"firenze.it":true,"florence.it":true,"fm.it":true,"foggia.it":true,"forli-cesena.it":true,"forlicesena.it":true,"fr.it":true,"frosinone.it":true,"ge.it":true,"genoa.it":true,"genova.it":true,"go.it":true,"gorizia.it":true,"gr.it":true,"grosseto.it":true,"iglesias-carbonia.it":true,"iglesiascarbonia.it":true,"im.it":true,"imperia.it":true,"is.it":true,"isernia.it":true,"kr.it":true,"la-spezia.it":true,"laquila.it":true,"laspezia.it":true,"latina.it":true,"lc.it":true,"le.it":true,"lecce.it":true,"lecco.it":true,"li.it":true,"livorno.it":true,"lo.it":true,"lodi.it":true,"lt.it":true,"lu.it":true,"lucca.it":true,"macerata.it":true,"mantova.it":true,"massa-carrara.it":true,"massacarrara.it":true,"matera.it":true,"mb.it":true,"mc.it":true,"me.it":true,"medio-campidano.it":true,"mediocampidano.it":true,"messina.it":true,"mi.it":true,"milan.it":true,"milano.it":true,"mn.it":true,"mo.it":true,"modena.it":true,"monza-brianza.it":true,"monza-e-della-brianza.it":true,"monza.it":true,"monzabrianza.it":true,"monzaebrianza.it":true,"monzaedellabrianza.it":true,"ms.it":true,"mt.it":true,"na.it":true,"naples.it":true,"napoli.it":true,"no.it":true,"novara.it":true,"nu.it":true,"nuoro.it":true,"og.it":true,"ogliastra.it":true,"olbia-tempio.it":true,"olbiatempio.it":true,"or.it":true,"oristano.it":true,"ot.it":true,"pa.it":true,"padova.it":true,"padua.it":true,"palermo.it":true,"parma.it":true,"pavia.it":true,"pc.it":true,"pd.it":true,"pe.it":true,"perugia.it":true,"pesaro-urbino.it":true,"pesarourbino.it":true,"pescara.it":true,"pg.it":true,"pi.it":true,"piacenza.it":true,"pisa.it":true,"pistoia.it":true,"pn.it":true,"po.it":true,"pordenone.it":true,"potenza.it":true,"pr.it":true,"prato.it":true,"pt.it":true,"pu.it":true,"pv.it":true,"pz.it":true,"ra.it":true,"ragusa.it":true,"ravenna.it":true,"rc.it":true,"re.it":true,"reggio-calabria.it":true,"reggio-emilia.it":true,"reggiocalabria.it":true,"reggioemilia.it":true,"rg.it":true,"ri.it":true,"rieti.it":true,"rimini.it":true,"rm.it":true,"rn.it":true,"ro.it":true,"roma.it":true,"rome.it":true,"rovigo.it":true,"sa.it":true,"salerno.it":true,"sassari.it":true,"savona.it":true,"si.it":true,"siena.it":true,"siracusa.it":true,"so.it":true,"sondrio.it":true,"sp.it":true,"sr.it":true,"ss.it":true,"suedtirol.it":true,"sv.it":true,"ta.it":true,"taranto.it":true,"te.it":true,"tempio-olbia.it":true,"tempioolbia.it":true,"teramo.it":true,"terni.it":true,"tn.it":true,"to.it":true,"torino.it":true,"tp.it":true,"tr.it":true,"trani-andria-barletta.it":true,"trani-barletta-andria.it":true,"traniandriabarletta.it":true,"tranibarlettaandria.it":true,"trapani.it":true,"trentino.it":true,"trento.it":true,"treviso.it":true,"trieste.it":true,"ts.it":true,"turin.it":true,"tv.it":true,"ud.it":true,"udine.it":true,"urbino-pesaro.it":true,"urbinopesaro.it":true,"va.it":true,"varese.it":true,"vb.it":true,"vc.it":true,"ve.it":true,"venezia.it":true,"venice.it":true,"verbania.it":true,"vercelli.it":true,"verona.it":true,"vi.it":true,"vibo-valentia.it":true,"vibovalentia.it":true,"vicenza.it":true,"viterbo.it":true,"vr.it":true,"vs.it":true,"vt.it":true,"vv.it":true,"je":true,"co.je":true,"net.je":true,"org.je":true,"*.jm":true,"jo":true,"com.jo":true,"org.jo":true,"net.jo":true,"edu.jo":true,"sch.jo":true,"gov.jo":true,"mil.jo":true,"name.jo":true,"jobs":true,"jp":true,"ac.jp":true,"ad.jp":true,"co.jp":true,"ed.jp":true,"go.jp":true,"gr.jp":true,"lg.jp":true,"ne.jp":true,"or.jp":true,"aichi.jp":true,"akita.jp":true,"aomori.jp":true,"chiba.jp":true,"ehime.jp":true,"fukui.jp":true,"fukuoka.jp":true,"fukushima.jp":true,"gifu.jp":true,"gunma.jp":true,"hiroshima.jp":true,"hokkaido.jp":true,"hyogo.jp":true,"ibaraki.jp":true,"ishikawa.jp":true,"iwate.jp":true,"kagawa.jp":true,"kagoshima.jp":true,"kanagawa.jp":true,"kochi.jp":true,"kumamoto.jp":true,"kyoto.jp":true,"mie.jp":true,"miyagi.jp":true,"miyazaki.jp":true,"nagano.jp":true,"nagasaki.jp":true,"nara.jp":true,"niigata.jp":true,"oita.jp":true,"okayama.jp":true,"okinawa.jp":true,"osaka.jp":true,"saga.jp":true,"saitama.jp":true,"shiga.jp":true,"shimane.jp":true,"shizuoka.jp":true,"tochigi.jp":true,"tokushima.jp":true,"tokyo.jp":true,"tottori.jp":true,"toyama.jp":true,"wakayama.jp":true,"yamagata.jp":true,"yamaguchi.jp":true,"yamanashi.jp":true,"xn--4pvxs.jp":true,"xn--vgu402c.jp":true,"xn--c3s14m.jp":true,"xn--f6qx53a.jp":true,"xn--8pvr4u.jp":true,"xn--uist22h.jp":true,"xn--djrs72d6uy.jp":true,"xn--mkru45i.jp":true,"xn--0trq7p7nn.jp":true,"xn--8ltr62k.jp":true,"xn--2m4a15e.jp":true,"xn--efvn9s.jp":true,"xn--32vp30h.jp":true,"xn--4it797k.jp":true,"xn--1lqs71d.jp":true,"xn--5rtp49c.jp":true,"xn--5js045d.jp":true,"xn--ehqz56n.jp":true,"xn--1lqs03n.jp":true,"xn--qqqt11m.jp":true,"xn--kbrq7o.jp":true,"xn--pssu33l.jp":true,"xn--ntsq17g.jp":true,"xn--uisz3g.jp":true,"xn--6btw5a.jp":true,"xn--1ctwo.jp":true,"xn--6orx2r.jp":true,"xn--rht61e.jp":true,"xn--rht27z.jp":true,"xn--djty4k.jp":true,"xn--nit225k.jp":true,"xn--rht3d.jp":true,"xn--klty5x.jp":true,"xn--kltx9a.jp":true,"xn--kltp7d.jp":true,"xn--uuwu58a.jp":true,"xn--zbx025d.jp":true,"xn--ntso0iqx3a.jp":true,"xn--elqq16h.jp":true,"xn--4it168d.jp":true,"xn--klt787d.jp":true,"xn--rny31h.jp":true,"xn--7t0a264c.jp":true,"xn--5rtq34k.jp":true,"xn--k7yn95e.jp":true,"xn--tor131o.jp":true,"xn--d5qv7z876c.jp":true,"*.kawasaki.jp":true,"*.kitakyushu.jp":true,"*.kobe.jp":true,"*.nagoya.jp":true,"*.sapporo.jp":true,"*.sendai.jp":true,"*.yokohama.jp":true,"city.kawasaki.jp":false,"city.kitakyushu.jp":false,"city.kobe.jp":false,"city.nagoya.jp":false,"city.sapporo.jp":false,"city.sendai.jp":false,"city.yokohama.jp":false,"aisai.aichi.jp":true,"ama.aichi.jp":true,"anjo.aichi.jp":true,"asuke.aichi.jp":true,"chiryu.aichi.jp":true,"chita.aichi.jp":true,"fuso.aichi.jp":true,"gamagori.aichi.jp":true,"handa.aichi.jp":true,"hazu.aichi.jp":true,"hekinan.aichi.jp":true,"higashiura.aichi.jp":true,"ichinomiya.aichi.jp":true,"inazawa.aichi.jp":true,"inuyama.aichi.jp":true,"isshiki.aichi.jp":true,"iwakura.aichi.jp":true,"kanie.aichi.jp":true,"kariya.aichi.jp":true,"kasugai.aichi.jp":true,"kira.aichi.jp":true,"kiyosu.aichi.jp":true,"komaki.aichi.jp":true,"konan.aichi.jp":true,"kota.aichi.jp":true,"mihama.aichi.jp":true,"miyoshi.aichi.jp":true,"nishio.aichi.jp":true,"nisshin.aichi.jp":true,"obu.aichi.jp":true,"oguchi.aichi.jp":true,"oharu.aichi.jp":true,"okazaki.aichi.jp":true,"owariasahi.aichi.jp":true,"seto.aichi.jp":true,"shikatsu.aichi.jp":true,"shinshiro.aichi.jp":true,"shitara.aichi.jp":true,"tahara.aichi.jp":true,"takahama.aichi.jp":true,"tobishima.aichi.jp":true,"toei.aichi.jp":true,"togo.aichi.jp":true,"tokai.aichi.jp":true,"tokoname.aichi.jp":true,"toyoake.aichi.jp":true,"toyohashi.aichi.jp":true,"toyokawa.aichi.jp":true,"toyone.aichi.jp":true,"toyota.aichi.jp":true,"tsushima.aichi.jp":true,"yatomi.aichi.jp":true,"akita.akita.jp":true,"daisen.akita.jp":true,"fujisato.akita.jp":true,"gojome.akita.jp":true,"hachirogata.akita.jp":true,"happou.akita.jp":true,"higashinaruse.akita.jp":true,"honjo.akita.jp":true,"honjyo.akita.jp":true,"ikawa.akita.jp":true,"kamikoani.akita.jp":true,"kamioka.akita.jp":true,"katagami.akita.jp":true,"kazuno.akita.jp":true,"kitaakita.akita.jp":true,"kosaka.akita.jp":true,"kyowa.akita.jp":true,"misato.akita.jp":true,"mitane.akita.jp":true,"moriyoshi.akita.jp":true,"nikaho.akita.jp":true,"noshiro.akita.jp":true,"odate.akita.jp":true,"oga.akita.jp":true,"ogata.akita.jp":true,"semboku.akita.jp":true,"yokote.akita.jp":true,"yurihonjo.akita.jp":true,"aomori.aomori.jp":true,"gonohe.aomori.jp":true,"hachinohe.aomori.jp":true,"hashikami.aomori.jp":true,"hiranai.aomori.jp":true,"hirosaki.aomori.jp":true,"itayanagi.aomori.jp":true,"kuroishi.aomori.jp":true,"misawa.aomori.jp":true,"mutsu.aomori.jp":true,"nakadomari.aomori.jp":true,"noheji.aomori.jp":true,"oirase.aomori.jp":true,"owani.aomori.jp":true,"rokunohe.aomori.jp":true,"sannohe.aomori.jp":true,"shichinohe.aomori.jp":true,"shingo.aomori.jp":true,"takko.aomori.jp":true,"towada.aomori.jp":true,"tsugaru.aomori.jp":true,"tsuruta.aomori.jp":true,"abiko.chiba.jp":true,"asahi.chiba.jp":true,"chonan.chiba.jp":true,"chosei.chiba.jp":true,"choshi.chiba.jp":true,"chuo.chiba.jp":true,"funabashi.chiba.jp":true,"futtsu.chiba.jp":true,"hanamigawa.chiba.jp":true,"ichihara.chiba.jp":true,"ichikawa.chiba.jp":true,"ichinomiya.chiba.jp":true,"inzai.chiba.jp":true,"isumi.chiba.jp":true,"kamagaya.chiba.jp":true,"kamogawa.chiba.jp":true,"kashiwa.chiba.jp":true,"katori.chiba.jp":true,"katsuura.chiba.jp":true,"kimitsu.chiba.jp":true,"kisarazu.chiba.jp":true,"kozaki.chiba.jp":true,"kujukuri.chiba.jp":true,"kyonan.chiba.jp":true,"matsudo.chiba.jp":true,"midori.chiba.jp":true,"mihama.chiba.jp":true,"minamiboso.chiba.jp":true,"mobara.chiba.jp":true,"mutsuzawa.chiba.jp":true,"nagara.chiba.jp":true,"nagareyama.chiba.jp":true,"narashino.chiba.jp":true,"narita.chiba.jp":true,"noda.chiba.jp":true,"oamishirasato.chiba.jp":true,"omigawa.chiba.jp":true,"onjuku.chiba.jp":true,"otaki.chiba.jp":true,"sakae.chiba.jp":true,"sakura.chiba.jp":true,"shimofusa.chiba.jp":true,"shirako.chiba.jp":true,"shiroi.chiba.jp":true,"shisui.chiba.jp":true,"sodegaura.chiba.jp":true,"sosa.chiba.jp":true,"tako.chiba.jp":true,"tateyama.chiba.jp":true,"togane.chiba.jp":true,"tohnosho.chiba.jp":true,"tomisato.chiba.jp":true,"urayasu.chiba.jp":true,"yachimata.chiba.jp":true,"yachiyo.chiba.jp":true,"yokaichiba.chiba.jp":true,"yokoshibahikari.chiba.jp":true,"yotsukaido.chiba.jp":true,"ainan.ehime.jp":true,"honai.ehime.jp":true,"ikata.ehime.jp":true,"imabari.ehime.jp":true,"iyo.ehime.jp":true,"kamijima.ehime.jp":true,"kihoku.ehime.jp":true,"kumakogen.ehime.jp":true,"masaki.ehime.jp":true,"matsuno.ehime.jp":true,"matsuyama.ehime.jp":true,"namikata.ehime.jp":true,"niihama.ehime.jp":true,"ozu.ehime.jp":true,"saijo.ehime.jp":true,"seiyo.ehime.jp":true,"shikokuchuo.ehime.jp":true,"tobe.ehime.jp":true,"toon.ehime.jp":true,"uchiko.ehime.jp":true,"uwajima.ehime.jp":true,"yawatahama.ehime.jp":true,"echizen.fukui.jp":true,"eiheiji.fukui.jp":true,"fukui.fukui.jp":true,"ikeda.fukui.jp":true,"katsuyama.fukui.jp":true,"mihama.fukui.jp":true,"minamiechizen.fukui.jp":true,"obama.fukui.jp":true,"ohi.fukui.jp":true,"ono.fukui.jp":true,"sabae.fukui.jp":true,"sakai.fukui.jp":true,"takahama.fukui.jp":true,"tsuruga.fukui.jp":true,"wakasa.fukui.jp":true,"ashiya.fukuoka.jp":true,"buzen.fukuoka.jp":true,"chikugo.fukuoka.jp":true,"chikuho.fukuoka.jp":true,"chikujo.fukuoka.jp":true,"chikushino.fukuoka.jp":true,"chikuzen.fukuoka.jp":true,"chuo.fukuoka.jp":true,"dazaifu.fukuoka.jp":true,"fukuchi.fukuoka.jp":true,"hakata.fukuoka.jp":true,"higashi.fukuoka.jp":true,"hirokawa.fukuoka.jp":true,"hisayama.fukuoka.jp":true,"iizuka.fukuoka.jp":true,"inatsuki.fukuoka.jp":true,"kaho.fukuoka.jp":true,"kasuga.fukuoka.jp":true,"kasuya.fukuoka.jp":true,"kawara.fukuoka.jp":true,"keisen.fukuoka.jp":true,"koga.fukuoka.jp":true,"kurate.fukuoka.jp":true,"kurogi.fukuoka.jp":true,"kurume.fukuoka.jp":true,"minami.fukuoka.jp":true,"miyako.fukuoka.jp":true,"miyama.fukuoka.jp":true,"miyawaka.fukuoka.jp":true,"mizumaki.fukuoka.jp":true,"munakata.fukuoka.jp":true,"nakagawa.fukuoka.jp":true,"nakama.fukuoka.jp":true,"nishi.fukuoka.jp":true,"nogata.fukuoka.jp":true,"ogori.fukuoka.jp":true,"okagaki.fukuoka.jp":true,"okawa.fukuoka.jp":true,"oki.fukuoka.jp":true,"omuta.fukuoka.jp":true,"onga.fukuoka.jp":true,"onojo.fukuoka.jp":true,"oto.fukuoka.jp":true,"saigawa.fukuoka.jp":true,"sasaguri.fukuoka.jp":true,"shingu.fukuoka.jp":true,"shinyoshitomi.fukuoka.jp":true,"shonai.fukuoka.jp":true,"soeda.fukuoka.jp":true,"sue.fukuoka.jp":true,"tachiarai.fukuoka.jp":true,"tagawa.fukuoka.jp":true,"takata.fukuoka.jp":true,"toho.fukuoka.jp":true,"toyotsu.fukuoka.jp":true,"tsuiki.fukuoka.jp":true,"ukiha.fukuoka.jp":true,"umi.fukuoka.jp":true,"usui.fukuoka.jp":true,"yamada.fukuoka.jp":true,"yame.fukuoka.jp":true,"yanagawa.fukuoka.jp":true,"yukuhashi.fukuoka.jp":true,"aizubange.fukushima.jp":true,"aizumisato.fukushima.jp":true,"aizuwakamatsu.fukushima.jp":true,"asakawa.fukushima.jp":true,"bandai.fukushima.jp":true,"date.fukushima.jp":true,"fukushima.fukushima.jp":true,"furudono.fukushima.jp":true,"futaba.fukushima.jp":true,"hanawa.fukushima.jp":true,"higashi.fukushima.jp":true,"hirata.fukushima.jp":true,"hirono.fukushima.jp":true,"iitate.fukushima.jp":true,"inawashiro.fukushima.jp":true,"ishikawa.fukushima.jp":true,"iwaki.fukushima.jp":true,"izumizaki.fukushima.jp":true,"kagamiishi.fukushima.jp":true,"kaneyama.fukushima.jp":true,"kawamata.fukushima.jp":true,"kitakata.fukushima.jp":true,"kitashiobara.fukushima.jp":true,"koori.fukushima.jp":true,"koriyama.fukushima.jp":true,"kunimi.fukushima.jp":true,"miharu.fukushima.jp":true,"mishima.fukushima.jp":true,"namie.fukushima.jp":true,"nango.fukushima.jp":true,"nishiaizu.fukushima.jp":true,"nishigo.fukushima.jp":true,"okuma.fukushima.jp":true,"omotego.fukushima.jp":true,"ono.fukushima.jp":true,"otama.fukushima.jp":true,"samegawa.fukushima.jp":true,"shimogo.fukushima.jp":true,"shirakawa.fukushima.jp":true,"showa.fukushima.jp":true,"soma.fukushima.jp":true,"sukagawa.fukushima.jp":true,"taishin.fukushima.jp":true,"tamakawa.fukushima.jp":true,"tanagura.fukushima.jp":true,"tenei.fukushima.jp":true,"yabuki.fukushima.jp":true,"yamato.fukushima.jp":true,"yamatsuri.fukushima.jp":true,"yanaizu.fukushima.jp":true,"yugawa.fukushima.jp":true,"anpachi.gifu.jp":true,"ena.gifu.jp":true,"gifu.gifu.jp":true,"ginan.gifu.jp":true,"godo.gifu.jp":true,"gujo.gifu.jp":true,"hashima.gifu.jp":true,"hichiso.gifu.jp":true,"hida.gifu.jp":true,"higashishirakawa.gifu.jp":true,"ibigawa.gifu.jp":true,"ikeda.gifu.jp":true,"kakamigahara.gifu.jp":true,"kani.gifu.jp":true,"kasahara.gifu.jp":true,"kasamatsu.gifu.jp":true,"kawaue.gifu.jp":true,"kitagata.gifu.jp":true,"mino.gifu.jp":true,"minokamo.gifu.jp":true,"mitake.gifu.jp":true,"mizunami.gifu.jp":true,"motosu.gifu.jp":true,"nakatsugawa.gifu.jp":true,"ogaki.gifu.jp":true,"sakahogi.gifu.jp":true,"seki.gifu.jp":true,"sekigahara.gifu.jp":true,"shirakawa.gifu.jp":true,"tajimi.gifu.jp":true,"takayama.gifu.jp":true,"tarui.gifu.jp":true,"toki.gifu.jp":true,"tomika.gifu.jp":true,"wanouchi.gifu.jp":true,"yamagata.gifu.jp":true,"yaotsu.gifu.jp":true,"yoro.gifu.jp":true,"annaka.gunma.jp":true,"chiyoda.gunma.jp":true,"fujioka.gunma.jp":true,"higashiagatsuma.gunma.jp":true,"isesaki.gunma.jp":true,"itakura.gunma.jp":true,"kanna.gunma.jp":true,"kanra.gunma.jp":true,"katashina.gunma.jp":true,"kawaba.gunma.jp":true,"kiryu.gunma.jp":true,"kusatsu.gunma.jp":true,"maebashi.gunma.jp":true,"meiwa.gunma.jp":true,"midori.gunma.jp":true,"minakami.gunma.jp":true,"naganohara.gunma.jp":true,"nakanojo.gunma.jp":true,"nanmoku.gunma.jp":true,"numata.gunma.jp":true,"oizumi.gunma.jp":true,"ora.gunma.jp":true,"ota.gunma.jp":true,"shibukawa.gunma.jp":true,"shimonita.gunma.jp":true,"shinto.gunma.jp":true,"showa.gunma.jp":true,"takasaki.gunma.jp":true,"takayama.gunma.jp":true,"tamamura.gunma.jp":true,"tatebayashi.gunma.jp":true,"tomioka.gunma.jp":true,"tsukiyono.gunma.jp":true,"tsumagoi.gunma.jp":true,"ueno.gunma.jp":true,"yoshioka.gunma.jp":true,"asaminami.hiroshima.jp":true,"daiwa.hiroshima.jp":true,"etajima.hiroshima.jp":true,"fuchu.hiroshima.jp":true,"fukuyama.hiroshima.jp":true,"hatsukaichi.hiroshima.jp":true,"higashihiroshima.hiroshima.jp":true,"hongo.hiroshima.jp":true,"jinsekikogen.hiroshima.jp":true,"kaita.hiroshima.jp":true,"kui.hiroshima.jp":true,"kumano.hiroshima.jp":true,"kure.hiroshima.jp":true,"mihara.hiroshima.jp":true,"miyoshi.hiroshima.jp":true,"naka.hiroshima.jp":true,"onomichi.hiroshima.jp":true,"osakikamijima.hiroshima.jp":true,"otake.hiroshima.jp":true,"saka.hiroshima.jp":true,"sera.hiroshima.jp":true,"seranishi.hiroshima.jp":true,"shinichi.hiroshima.jp":true,"shobara.hiroshima.jp":true,"takehara.hiroshima.jp":true,"abashiri.hokkaido.jp":true,"abira.hokkaido.jp":true,"aibetsu.hokkaido.jp":true,"akabira.hokkaido.jp":true,"akkeshi.hokkaido.jp":true,"asahikawa.hokkaido.jp":true,"ashibetsu.hokkaido.jp":true,"ashoro.hokkaido.jp":true,"assabu.hokkaido.jp":true,"atsuma.hokkaido.jp":true,"bibai.hokkaido.jp":true,"biei.hokkaido.jp":true,"bifuka.hokkaido.jp":true,"bihoro.hokkaido.jp":true,"biratori.hokkaido.jp":true,"chippubetsu.hokkaido.jp":true,"chitose.hokkaido.jp":true,"date.hokkaido.jp":true,"ebetsu.hokkaido.jp":true,"embetsu.hokkaido.jp":true,"eniwa.hokkaido.jp":true,"erimo.hokkaido.jp":true,"esan.hokkaido.jp":true,"esashi.hokkaido.jp":true,"fukagawa.hokkaido.jp":true,"fukushima.hokkaido.jp":true,"furano.hokkaido.jp":true,"furubira.hokkaido.jp":true,"haboro.hokkaido.jp":true,"hakodate.hokkaido.jp":true,"hamatonbetsu.hokkaido.jp":true,"hidaka.hokkaido.jp":true,"higashikagura.hokkaido.jp":true,"higashikawa.hokkaido.jp":true,"hiroo.hokkaido.jp":true,"hokuryu.hokkaido.jp":true,"hokuto.hokkaido.jp":true,"honbetsu.hokkaido.jp":true,"horokanai.hokkaido.jp":true,"horonobe.hokkaido.jp":true,"ikeda.hokkaido.jp":true,"imakane.hokkaido.jp":true,"ishikari.hokkaido.jp":true,"iwamizawa.hokkaido.jp":true,"iwanai.hokkaido.jp":true,"kamifurano.hokkaido.jp":true,"kamikawa.hokkaido.jp":true,"kamishihoro.hokkaido.jp":true,"kamisunagawa.hokkaido.jp":true,"kamoenai.hokkaido.jp":true,"kayabe.hokkaido.jp":true,"kembuchi.hokkaido.jp":true,"kikonai.hokkaido.jp":true,"kimobetsu.hokkaido.jp":true,"kitahiroshima.hokkaido.jp":true,"kitami.hokkaido.jp":true,"kiyosato.hokkaido.jp":true,"koshimizu.hokkaido.jp":true,"kunneppu.hokkaido.jp":true,"kuriyama.hokkaido.jp":true,"kuromatsunai.hokkaido.jp":true,"kushiro.hokkaido.jp":true,"kutchan.hokkaido.jp":true,"kyowa.hokkaido.jp":true,"mashike.hokkaido.jp":true,"matsumae.hokkaido.jp":true,"mikasa.hokkaido.jp":true,"minamifurano.hokkaido.jp":true,"mombetsu.hokkaido.jp":true,"moseushi.hokkaido.jp":true,"mukawa.hokkaido.jp":true,"muroran.hokkaido.jp":true,"naie.hokkaido.jp":true,"nakagawa.hokkaido.jp":true,"nakasatsunai.hokkaido.jp":true,"nakatombetsu.hokkaido.jp":true,"nanae.hokkaido.jp":true,"nanporo.hokkaido.jp":true,"nayoro.hokkaido.jp":true,"nemuro.hokkaido.jp":true,"niikappu.hokkaido.jp":true,"niki.hokkaido.jp":true,"nishiokoppe.hokkaido.jp":true,"noboribetsu.hokkaido.jp":true,"numata.hokkaido.jp":true,"obihiro.hokkaido.jp":true,"obira.hokkaido.jp":true,"oketo.hokkaido.jp":true,"okoppe.hokkaido.jp":true,"otaru.hokkaido.jp":true,"otobe.hokkaido.jp":true,"otofuke.hokkaido.jp":true,"otoineppu.hokkaido.jp":true,"oumu.hokkaido.jp":true,"ozora.hokkaido.jp":true,"pippu.hokkaido.jp":true,"rankoshi.hokkaido.jp":true,"rebun.hokkaido.jp":true,"rikubetsu.hokkaido.jp":true,"rishiri.hokkaido.jp":true,"rishirifuji.hokkaido.jp":true,"saroma.hokkaido.jp":true,"sarufutsu.hokkaido.jp":true,"shakotan.hokkaido.jp":true,"shari.hokkaido.jp":true,"shibecha.hokkaido.jp":true,"shibetsu.hokkaido.jp":true,"shikabe.hokkaido.jp":true,"shikaoi.hokkaido.jp":true,"shimamaki.hokkaido.jp":true,"shimizu.hokkaido.jp":true,"shimokawa.hokkaido.jp":true,"shinshinotsu.hokkaido.jp":true,"shintoku.hokkaido.jp":true,"shiranuka.hokkaido.jp":true,"shiraoi.hokkaido.jp":true,"shiriuchi.hokkaido.jp":true,"sobetsu.hokkaido.jp":true,"sunagawa.hokkaido.jp":true,"taiki.hokkaido.jp":true,"takasu.hokkaido.jp":true,"takikawa.hokkaido.jp":true,"takinoue.hokkaido.jp":true,"teshikaga.hokkaido.jp":true,"tobetsu.hokkaido.jp":true,"tohma.hokkaido.jp":true,"tomakomai.hokkaido.jp":true,"tomari.hokkaido.jp":true,"toya.hokkaido.jp":true,"toyako.hokkaido.jp":true,"toyotomi.hokkaido.jp":true,"toyoura.hokkaido.jp":true,"tsubetsu.hokkaido.jp":true,"tsukigata.hokkaido.jp":true,"urakawa.hokkaido.jp":true,"urausu.hokkaido.jp":true,"uryu.hokkaido.jp":true,"utashinai.hokkaido.jp":true,"wakkanai.hokkaido.jp":true,"wassamu.hokkaido.jp":true,"yakumo.hokkaido.jp":true,"yoichi.hokkaido.jp":true,"aioi.hyogo.jp":true,"akashi.hyogo.jp":true,"ako.hyogo.jp":true,"amagasaki.hyogo.jp":true,"aogaki.hyogo.jp":true,"asago.hyogo.jp":true,"ashiya.hyogo.jp":true,"awaji.hyogo.jp":true,"fukusaki.hyogo.jp":true,"goshiki.hyogo.jp":true,"harima.hyogo.jp":true,"himeji.hyogo.jp":true,"ichikawa.hyogo.jp":true,"inagawa.hyogo.jp":true,"itami.hyogo.jp":true,"kakogawa.hyogo.jp":true,"kamigori.hyogo.jp":true,"kamikawa.hyogo.jp":true,"kasai.hyogo.jp":true,"kasuga.hyogo.jp":true,"kawanishi.hyogo.jp":true,"miki.hyogo.jp":true,"minamiawaji.hyogo.jp":true,"nishinomiya.hyogo.jp":true,"nishiwaki.hyogo.jp":true,"ono.hyogo.jp":true,"sanda.hyogo.jp":true,"sannan.hyogo.jp":true,"sasayama.hyogo.jp":true,"sayo.hyogo.jp":true,"shingu.hyogo.jp":true,"shinonsen.hyogo.jp":true,"shiso.hyogo.jp":true,"sumoto.hyogo.jp":true,"taishi.hyogo.jp":true,"taka.hyogo.jp":true,"takarazuka.hyogo.jp":true,"takasago.hyogo.jp":true,"takino.hyogo.jp":true,"tamba.hyogo.jp":true,"tatsuno.hyogo.jp":true,"toyooka.hyogo.jp":true,"yabu.hyogo.jp":true,"yashiro.hyogo.jp":true,"yoka.hyogo.jp":true,"yokawa.hyogo.jp":true,"ami.ibaraki.jp":true,"asahi.ibaraki.jp":true,"bando.ibaraki.jp":true,"chikusei.ibaraki.jp":true,"daigo.ibaraki.jp":true,"fujishiro.ibaraki.jp":true,"hitachi.ibaraki.jp":true,"hitachinaka.ibaraki.jp":true,"hitachiomiya.ibaraki.jp":true,"hitachiota.ibaraki.jp":true,"ibaraki.ibaraki.jp":true,"ina.ibaraki.jp":true,"inashiki.ibaraki.jp":true,"itako.ibaraki.jp":true,"iwama.ibaraki.jp":true,"joso.ibaraki.jp":true,"kamisu.ibaraki.jp":true,"kasama.ibaraki.jp":true,"kashima.ibaraki.jp":true,"kasumigaura.ibaraki.jp":true,"koga.ibaraki.jp":true,"miho.ibaraki.jp":true,"mito.ibaraki.jp":true,"moriya.ibaraki.jp":true,"naka.ibaraki.jp":true,"namegata.ibaraki.jp":true,"oarai.ibaraki.jp":true,"ogawa.ibaraki.jp":true,"omitama.ibaraki.jp":true,"ryugasaki.ibaraki.jp":true,"sakai.ibaraki.jp":true,"sakuragawa.ibaraki.jp":true,"shimodate.ibaraki.jp":true,"shimotsuma.ibaraki.jp":true,"shirosato.ibaraki.jp":true,"sowa.ibaraki.jp":true,"suifu.ibaraki.jp":true,"takahagi.ibaraki.jp":true,"tamatsukuri.ibaraki.jp":true,"tokai.ibaraki.jp":true,"tomobe.ibaraki.jp":true,"tone.ibaraki.jp":true,"toride.ibaraki.jp":true,"tsuchiura.ibaraki.jp":true,"tsukuba.ibaraki.jp":true,"uchihara.ibaraki.jp":true,"ushiku.ibaraki.jp":true,"yachiyo.ibaraki.jp":true,"yamagata.ibaraki.jp":true,"yawara.ibaraki.jp":true,"yuki.ibaraki.jp":true,"anamizu.ishikawa.jp":true,"hakui.ishikawa.jp":true,"hakusan.ishikawa.jp":true,"kaga.ishikawa.jp":true,"kahoku.ishikawa.jp":true,"kanazawa.ishikawa.jp":true,"kawakita.ishikawa.jp":true,"komatsu.ishikawa.jp":true,"nakanoto.ishikawa.jp":true,"nanao.ishikawa.jp":true,"nomi.ishikawa.jp":true,"nonoichi.ishikawa.jp":true,"noto.ishikawa.jp":true,"shika.ishikawa.jp":true,"suzu.ishikawa.jp":true,"tsubata.ishikawa.jp":true,"tsurugi.ishikawa.jp":true,"uchinada.ishikawa.jp":true,"wajima.ishikawa.jp":true,"fudai.iwate.jp":true,"fujisawa.iwate.jp":true,"hanamaki.iwate.jp":true,"hiraizumi.iwate.jp":true,"hirono.iwate.jp":true,"ichinohe.iwate.jp":true,"ichinoseki.iwate.jp":true,"iwaizumi.iwate.jp":true,"iwate.iwate.jp":true,"joboji.iwate.jp":true,"kamaishi.iwate.jp":true,"kanegasaki.iwate.jp":true,"karumai.iwate.jp":true,"kawai.iwate.jp":true,"kitakami.iwate.jp":true,"kuji.iwate.jp":true,"kunohe.iwate.jp":true,"kuzumaki.iwate.jp":true,"miyako.iwate.jp":true,"mizusawa.iwate.jp":true,"morioka.iwate.jp":true,"ninohe.iwate.jp":true,"noda.iwate.jp":true,"ofunato.iwate.jp":true,"oshu.iwate.jp":true,"otsuchi.iwate.jp":true,"rikuzentakata.iwate.jp":true,"shiwa.iwate.jp":true,"shizukuishi.iwate.jp":true,"sumita.iwate.jp":true,"tanohata.iwate.jp":true,"tono.iwate.jp":true,"yahaba.iwate.jp":true,"yamada.iwate.jp":true,"ayagawa.kagawa.jp":true,"higashikagawa.kagawa.jp":true,"kanonji.kagawa.jp":true,"kotohira.kagawa.jp":true,"manno.kagawa.jp":true,"marugame.kagawa.jp":true,"mitoyo.kagawa.jp":true,"naoshima.kagawa.jp":true,"sanuki.kagawa.jp":true,"tadotsu.kagawa.jp":true,"takamatsu.kagawa.jp":true,"tonosho.kagawa.jp":true,"uchinomi.kagawa.jp":true,"utazu.kagawa.jp":true,"zentsuji.kagawa.jp":true,"akune.kagoshima.jp":true,"amami.kagoshima.jp":true,"hioki.kagoshima.jp":true,"isa.kagoshima.jp":true,"isen.kagoshima.jp":true,"izumi.kagoshima.jp":true,"kagoshima.kagoshima.jp":true,"kanoya.kagoshima.jp":true,"kawanabe.kagoshima.jp":true,"kinko.kagoshima.jp":true,"kouyama.kagoshima.jp":true,"makurazaki.kagoshima.jp":true,"matsumoto.kagoshima.jp":true,"minamitane.kagoshima.jp":true,"nakatane.kagoshima.jp":true,"nishinoomote.kagoshima.jp":true,"satsumasendai.kagoshima.jp":true,"soo.kagoshima.jp":true,"tarumizu.kagoshima.jp":true,"yusui.kagoshima.jp":true,"aikawa.kanagawa.jp":true,"atsugi.kanagawa.jp":true,"ayase.kanagawa.jp":true,"chigasaki.kanagawa.jp":true,"ebina.kanagawa.jp":true,"fujisawa.kanagawa.jp":true,"hadano.kanagawa.jp":true,"hakone.kanagawa.jp":true,"hiratsuka.kanagawa.jp":true,"isehara.kanagawa.jp":true,"kaisei.kanagawa.jp":true,"kamakura.kanagawa.jp":true,"kiyokawa.kanagawa.jp":true,"matsuda.kanagawa.jp":true,"minamiashigara.kanagawa.jp":true,"miura.kanagawa.jp":true,"nakai.kanagawa.jp":true,"ninomiya.kanagawa.jp":true,"odawara.kanagawa.jp":true,"oi.kanagawa.jp":true,"oiso.kanagawa.jp":true,"sagamihara.kanagawa.jp":true,"samukawa.kanagawa.jp":true,"tsukui.kanagawa.jp":true,"yamakita.kanagawa.jp":true,"yamato.kanagawa.jp":true,"yokosuka.kanagawa.jp":true,"yugawara.kanagawa.jp":true,"zama.kanagawa.jp":true,"zushi.kanagawa.jp":true,"aki.kochi.jp":true,"geisei.kochi.jp":true,"hidaka.kochi.jp":true,"higashitsuno.kochi.jp":true,"ino.kochi.jp":true,"kagami.kochi.jp":true,"kami.kochi.jp":true,"kitagawa.kochi.jp":true,"kochi.kochi.jp":true,"mihara.kochi.jp":true,"motoyama.kochi.jp":true,"muroto.kochi.jp":true,"nahari.kochi.jp":true,"nakamura.kochi.jp":true,"nankoku.kochi.jp":true,"nishitosa.kochi.jp":true,"niyodogawa.kochi.jp":true,"ochi.kochi.jp":true,"okawa.kochi.jp":true,"otoyo.kochi.jp":true,"otsuki.kochi.jp":true,"sakawa.kochi.jp":true,"sukumo.kochi.jp":true,"susaki.kochi.jp":true,"tosa.kochi.jp":true,"tosashimizu.kochi.jp":true,"toyo.kochi.jp":true,"tsuno.kochi.jp":true,"umaji.kochi.jp":true,"yasuda.kochi.jp":true,"yusuhara.kochi.jp":true,"amakusa.kumamoto.jp":true,"arao.kumamoto.jp":true,"aso.kumamoto.jp":true,"choyo.kumamoto.jp":true,"gyokuto.kumamoto.jp":true,"kamiamakusa.kumamoto.jp":true,"kikuchi.kumamoto.jp":true,"kumamoto.kumamoto.jp":true,"mashiki.kumamoto.jp":true,"mifune.kumamoto.jp":true,"minamata.kumamoto.jp":true,"minamioguni.kumamoto.jp":true,"nagasu.kumamoto.jp":true,"nishihara.kumamoto.jp":true,"oguni.kumamoto.jp":true,"ozu.kumamoto.jp":true,"sumoto.kumamoto.jp":true,"takamori.kumamoto.jp":true,"uki.kumamoto.jp":true,"uto.kumamoto.jp":true,"yamaga.kumamoto.jp":true,"yamato.kumamoto.jp":true,"yatsushiro.kumamoto.jp":true,"ayabe.kyoto.jp":true,"fukuchiyama.kyoto.jp":true,"higashiyama.kyoto.jp":true,"ide.kyoto.jp":true,"ine.kyoto.jp":true,"joyo.kyoto.jp":true,"kameoka.kyoto.jp":true,"kamo.kyoto.jp":true,"kita.kyoto.jp":true,"kizu.kyoto.jp":true,"kumiyama.kyoto.jp":true,"kyotamba.kyoto.jp":true,"kyotanabe.kyoto.jp":true,"kyotango.kyoto.jp":true,"maizuru.kyoto.jp":true,"minami.kyoto.jp":true,"minamiyamashiro.kyoto.jp":true,"miyazu.kyoto.jp":true,"muko.kyoto.jp":true,"nagaokakyo.kyoto.jp":true,"nakagyo.kyoto.jp":true,"nantan.kyoto.jp":true,"oyamazaki.kyoto.jp":true,"sakyo.kyoto.jp":true,"seika.kyoto.jp":true,"tanabe.kyoto.jp":true,"uji.kyoto.jp":true,"ujitawara.kyoto.jp":true,"wazuka.kyoto.jp":true,"yamashina.kyoto.jp":true,"yawata.kyoto.jp":true,"asahi.mie.jp":true,"inabe.mie.jp":true,"ise.mie.jp":true,"kameyama.mie.jp":true,"kawagoe.mie.jp":true,"kiho.mie.jp":true,"kisosaki.mie.jp":true,"kiwa.mie.jp":true,"komono.mie.jp":true,"kumano.mie.jp":true,"kuwana.mie.jp":true,"matsusaka.mie.jp":true,"meiwa.mie.jp":true,"mihama.mie.jp":true,"minamiise.mie.jp":true,"misugi.mie.jp":true,"miyama.mie.jp":true,"nabari.mie.jp":true,"shima.mie.jp":true,"suzuka.mie.jp":true,"tado.mie.jp":true,"taiki.mie.jp":true,"taki.mie.jp":true,"tamaki.mie.jp":true,"toba.mie.jp":true,"tsu.mie.jp":true,"udono.mie.jp":true,"ureshino.mie.jp":true,"watarai.mie.jp":true,"yokkaichi.mie.jp":true,"furukawa.miyagi.jp":true,"higashimatsushima.miyagi.jp":true,"ishinomaki.miyagi.jp":true,"iwanuma.miyagi.jp":true,"kakuda.miyagi.jp":true,"kami.miyagi.jp":true,"kawasaki.miyagi.jp":true,"marumori.miyagi.jp":true,"matsushima.miyagi.jp":true,"minamisanriku.miyagi.jp":true,"misato.miyagi.jp":true,"murata.miyagi.jp":true,"natori.miyagi.jp":true,"ogawara.miyagi.jp":true,"ohira.miyagi.jp":true,"onagawa.miyagi.jp":true,"osaki.miyagi.jp":true,"rifu.miyagi.jp":true,"semine.miyagi.jp":true,"shibata.miyagi.jp":true,"shichikashuku.miyagi.jp":true,"shikama.miyagi.jp":true,"shiogama.miyagi.jp":true,"shiroishi.miyagi.jp":true,"tagajo.miyagi.jp":true,"taiwa.miyagi.jp":true,"tome.miyagi.jp":true,"tomiya.miyagi.jp":true,"wakuya.miyagi.jp":true,"watari.miyagi.jp":true,"yamamoto.miyagi.jp":true,"zao.miyagi.jp":true,"aya.miyazaki.jp":true,"ebino.miyazaki.jp":true,"gokase.miyazaki.jp":true,"hyuga.miyazaki.jp":true,"kadogawa.miyazaki.jp":true,"kawaminami.miyazaki.jp":true,"kijo.miyazaki.jp":true,"kitagawa.miyazaki.jp":true,"kitakata.miyazaki.jp":true,"kitaura.miyazaki.jp":true,"kobayashi.miyazaki.jp":true,"kunitomi.miyazaki.jp":true,"kushima.miyazaki.jp":true,"mimata.miyazaki.jp":true,"miyakonojo.miyazaki.jp":true,"miyazaki.miyazaki.jp":true,"morotsuka.miyazaki.jp":true,"nichinan.miyazaki.jp":true,"nishimera.miyazaki.jp":true,"nobeoka.miyazaki.jp":true,"saito.miyazaki.jp":true,"shiiba.miyazaki.jp":true,"shintomi.miyazaki.jp":true,"takaharu.miyazaki.jp":true,"takanabe.miyazaki.jp":true,"takazaki.miyazaki.jp":true,"tsuno.miyazaki.jp":true,"achi.nagano.jp":true,"agematsu.nagano.jp":true,"anan.nagano.jp":true,"aoki.nagano.jp":true,"asahi.nagano.jp":true,"azumino.nagano.jp":true,"chikuhoku.nagano.jp":true,"chikuma.nagano.jp":true,"chino.nagano.jp":true,"fujimi.nagano.jp":true,"hakuba.nagano.jp":true,"hara.nagano.jp":true,"hiraya.nagano.jp":true,"iida.nagano.jp":true,"iijima.nagano.jp":true,"iiyama.nagano.jp":true,"iizuna.nagano.jp":true,"ikeda.nagano.jp":true,"ikusaka.nagano.jp":true,"ina.nagano.jp":true,"karuizawa.nagano.jp":true,"kawakami.nagano.jp":true,"kiso.nagano.jp":true,"kisofukushima.nagano.jp":true,"kitaaiki.nagano.jp":true,"komagane.nagano.jp":true,"komoro.nagano.jp":true,"matsukawa.nagano.jp":true,"matsumoto.nagano.jp":true,"miasa.nagano.jp":true,"minamiaiki.nagano.jp":true,"minamimaki.nagano.jp":true,"minamiminowa.nagano.jp":true,"minowa.nagano.jp":true,"miyada.nagano.jp":true,"miyota.nagano.jp":true,"mochizuki.nagano.jp":true,"nagano.nagano.jp":true,"nagawa.nagano.jp":true,"nagiso.nagano.jp":true,"nakagawa.nagano.jp":true,"nakano.nagano.jp":true,"nozawaonsen.nagano.jp":true,"obuse.nagano.jp":true,"ogawa.nagano.jp":true,"okaya.nagano.jp":true,"omachi.nagano.jp":true,"omi.nagano.jp":true,"ookuwa.nagano.jp":true,"ooshika.nagano.jp":true,"otaki.nagano.jp":true,"otari.nagano.jp":true,"sakae.nagano.jp":true,"sakaki.nagano.jp":true,"saku.nagano.jp":true,"sakuho.nagano.jp":true,"shimosuwa.nagano.jp":true,"shinanomachi.nagano.jp":true,"shiojiri.nagano.jp":true,"suwa.nagano.jp":true,"suzaka.nagano.jp":true,"takagi.nagano.jp":true,"takamori.nagano.jp":true,"takayama.nagano.jp":true,"tateshina.nagano.jp":true,"tatsuno.nagano.jp":true,"togakushi.nagano.jp":true,"togura.nagano.jp":true,"tomi.nagano.jp":true,"ueda.nagano.jp":true,"wada.nagano.jp":true,"yamagata.nagano.jp":true,"yamanouchi.nagano.jp":true,"yasaka.nagano.jp":true,"yasuoka.nagano.jp":true,"chijiwa.nagasaki.jp":true,"futsu.nagasaki.jp":true,"goto.nagasaki.jp":true,"hasami.nagasaki.jp":true,"hirado.nagasaki.jp":true,"iki.nagasaki.jp":true,"isahaya.nagasaki.jp":true,"kawatana.nagasaki.jp":true,"kuchinotsu.nagasaki.jp":true,"matsuura.nagasaki.jp":true,"nagasaki.nagasaki.jp":true,"obama.nagasaki.jp":true,"omura.nagasaki.jp":true,"oseto.nagasaki.jp":true,"saikai.nagasaki.jp":true,"sasebo.nagasaki.jp":true,"seihi.nagasaki.jp":true,"shimabara.nagasaki.jp":true,"shinkamigoto.nagasaki.jp":true,"togitsu.nagasaki.jp":true,"tsushima.nagasaki.jp":true,"unzen.nagasaki.jp":true,"ando.nara.jp":true,"gose.nara.jp":true,"heguri.nara.jp":true,"higashiyoshino.nara.jp":true,"ikaruga.nara.jp":true,"ikoma.nara.jp":true,"kamikitayama.nara.jp":true,"kanmaki.nara.jp":true,"kashiba.nara.jp":true,"kashihara.nara.jp":true,"katsuragi.nara.jp":true,"kawai.nara.jp":true,"kawakami.nara.jp":true,"kawanishi.nara.jp":true,"koryo.nara.jp":true,"kurotaki.nara.jp":true,"mitsue.nara.jp":true,"miyake.nara.jp":true,"nara.nara.jp":true,"nosegawa.nara.jp":true,"oji.nara.jp":true,"ouda.nara.jp":true,"oyodo.nara.jp":true,"sakurai.nara.jp":true,"sango.nara.jp":true,"shimoichi.nara.jp":true,"shimokitayama.nara.jp":true,"shinjo.nara.jp":true,"soni.nara.jp":true,"takatori.nara.jp":true,"tawaramoto.nara.jp":true,"tenkawa.nara.jp":true,"tenri.nara.jp":true,"uda.nara.jp":true,"yamatokoriyama.nara.jp":true,"yamatotakada.nara.jp":true,"yamazoe.nara.jp":true,"yoshino.nara.jp":true,"aga.niigata.jp":true,"agano.niigata.jp":true,"gosen.niigata.jp":true,"itoigawa.niigata.jp":true,"izumozaki.niigata.jp":true,"joetsu.niigata.jp":true,"kamo.niigata.jp":true,"kariwa.niigata.jp":true,"kashiwazaki.niigata.jp":true,"minamiuonuma.niigata.jp":true,"mitsuke.niigata.jp":true,"muika.niigata.jp":true,"murakami.niigata.jp":true,"myoko.niigata.jp":true,"nagaoka.niigata.jp":true,"niigata.niigata.jp":true,"ojiya.niigata.jp":true,"omi.niigata.jp":true,"sado.niigata.jp":true,"sanjo.niigata.jp":true,"seiro.niigata.jp":true,"seirou.niigata.jp":true,"sekikawa.niigata.jp":true,"shibata.niigata.jp":true,"tagami.niigata.jp":true,"tainai.niigata.jp":true,"tochio.niigata.jp":true,"tokamachi.niigata.jp":true,"tsubame.niigata.jp":true,"tsunan.niigata.jp":true,"uonuma.niigata.jp":true,"yahiko.niigata.jp":true,"yoita.niigata.jp":true,"yuzawa.niigata.jp":true,"beppu.oita.jp":true,"bungoono.oita.jp":true,"bungotakada.oita.jp":true,"hasama.oita.jp":true,"hiji.oita.jp":true,"himeshima.oita.jp":true,"hita.oita.jp":true,"kamitsue.oita.jp":true,"kokonoe.oita.jp":true,"kuju.oita.jp":true,"kunisaki.oita.jp":true,"kusu.oita.jp":true,"oita.oita.jp":true,"saiki.oita.jp":true,"taketa.oita.jp":true,"tsukumi.oita.jp":true,"usa.oita.jp":true,"usuki.oita.jp":true,"yufu.oita.jp":true,"akaiwa.okayama.jp":true,"asakuchi.okayama.jp":true,"bizen.okayama.jp":true,"hayashima.okayama.jp":true,"ibara.okayama.jp":true,"kagamino.okayama.jp":true,"kasaoka.okayama.jp":true,"kibichuo.okayama.jp":true,"kumenan.okayama.jp":true,"kurashiki.okayama.jp":true,"maniwa.okayama.jp":true,"misaki.okayama.jp":true,"nagi.okayama.jp":true,"niimi.okayama.jp":true,"nishiawakura.okayama.jp":true,"okayama.okayama.jp":true,"satosho.okayama.jp":true,"setouchi.okayama.jp":true,"shinjo.okayama.jp":true,"shoo.okayama.jp":true,"soja.okayama.jp":true,"takahashi.okayama.jp":true,"tamano.okayama.jp":true,"tsuyama.okayama.jp":true,"wake.okayama.jp":true,"yakage.okayama.jp":true,"aguni.okinawa.jp":true,"ginowan.okinawa.jp":true,"ginoza.okinawa.jp":true,"gushikami.okinawa.jp":true,"haebaru.okinawa.jp":true,"higashi.okinawa.jp":true,"hirara.okinawa.jp":true,"iheya.okinawa.jp":true,"ishigaki.okinawa.jp":true,"ishikawa.okinawa.jp":true,"itoman.okinawa.jp":true,"izena.okinawa.jp":true,"kadena.okinawa.jp":true,"kin.okinawa.jp":true,"kitadaito.okinawa.jp":true,"kitanakagusuku.okinawa.jp":true,"kumejima.okinawa.jp":true,"kunigami.okinawa.jp":true,"minamidaito.okinawa.jp":true,"motobu.okinawa.jp":true,"nago.okinawa.jp":true,"naha.okinawa.jp":true,"nakagusuku.okinawa.jp":true,"nakijin.okinawa.jp":true,"nanjo.okinawa.jp":true,"nishihara.okinawa.jp":true,"ogimi.okinawa.jp":true,"okinawa.okinawa.jp":true,"onna.okinawa.jp":true,"shimoji.okinawa.jp":true,"taketomi.okinawa.jp":true,"tarama.okinawa.jp":true,"tokashiki.okinawa.jp":true,"tomigusuku.okinawa.jp":true,"tonaki.okinawa.jp":true,"urasoe.okinawa.jp":true,"uruma.okinawa.jp":true,"yaese.okinawa.jp":true,"yomitan.okinawa.jp":true,"yonabaru.okinawa.jp":true,"yonaguni.okinawa.jp":true,"zamami.okinawa.jp":true,"abeno.osaka.jp":true,"chihayaakasaka.osaka.jp":true,"chuo.osaka.jp":true,"daito.osaka.jp":true,"fujiidera.osaka.jp":true,"habikino.osaka.jp":true,"hannan.osaka.jp":true,"higashiosaka.osaka.jp":true,"higashisumiyoshi.osaka.jp":true,"higashiyodogawa.osaka.jp":true,"hirakata.osaka.jp":true,"ibaraki.osaka.jp":true,"ikeda.osaka.jp":true,"izumi.osaka.jp":true,"izumiotsu.osaka.jp":true,"izumisano.osaka.jp":true,"kadoma.osaka.jp":true,"kaizuka.osaka.jp":true,"kanan.osaka.jp":true,"kashiwara.osaka.jp":true,"katano.osaka.jp":true,"kawachinagano.osaka.jp":true,"kishiwada.osaka.jp":true,"kita.osaka.jp":true,"kumatori.osaka.jp":true,"matsubara.osaka.jp":true,"minato.osaka.jp":true,"minoh.osaka.jp":true,"misaki.osaka.jp":true,"moriguchi.osaka.jp":true,"neyagawa.osaka.jp":true,"nishi.osaka.jp":true,"nose.osaka.jp":true,"osakasayama.osaka.jp":true,"sakai.osaka.jp":true,"sayama.osaka.jp":true,"sennan.osaka.jp":true,"settsu.osaka.jp":true,"shijonawate.osaka.jp":true,"shimamoto.osaka.jp":true,"suita.osaka.jp":true,"tadaoka.osaka.jp":true,"taishi.osaka.jp":true,"tajiri.osaka.jp":true,"takaishi.osaka.jp":true,"takatsuki.osaka.jp":true,"tondabayashi.osaka.jp":true,"toyonaka.osaka.jp":true,"toyono.osaka.jp":true,"yao.osaka.jp":true,"ariake.saga.jp":true,"arita.saga.jp":true,"fukudomi.saga.jp":true,"genkai.saga.jp":true,"hamatama.saga.jp":true,"hizen.saga.jp":true,"imari.saga.jp":true,"kamimine.saga.jp":true,"kanzaki.saga.jp":true,"karatsu.saga.jp":true,"kashima.saga.jp":true,"kitagata.saga.jp":true,"kitahata.saga.jp":true,"kiyama.saga.jp":true,"kouhoku.saga.jp":true,"kyuragi.saga.jp":true,"nishiarita.saga.jp":true,"ogi.saga.jp":true,"omachi.saga.jp":true,"ouchi.saga.jp":true,"saga.saga.jp":true,"shiroishi.saga.jp":true,"taku.saga.jp":true,"tara.saga.jp":true,"tosu.saga.jp":true,"yoshinogari.saga.jp":true,"arakawa.saitama.jp":true,"asaka.saitama.jp":true,"chichibu.saitama.jp":true,"fujimi.saitama.jp":true,"fujimino.saitama.jp":true,"fukaya.saitama.jp":true,"hanno.saitama.jp":true,"hanyu.saitama.jp":true,"hasuda.saitama.jp":true,"hatogaya.saitama.jp":true,"hatoyama.saitama.jp":true,"hidaka.saitama.jp":true,"higashichichibu.saitama.jp":true,"higashimatsuyama.saitama.jp":true,"honjo.saitama.jp":true,"ina.saitama.jp":true,"iruma.saitama.jp":true,"iwatsuki.saitama.jp":true,"kamiizumi.saitama.jp":true,"kamikawa.saitama.jp":true,"kamisato.saitama.jp":true,"kasukabe.saitama.jp":true,"kawagoe.saitama.jp":true,"kawaguchi.saitama.jp":true,"kawajima.saitama.jp":true,"kazo.saitama.jp":true,"kitamoto.saitama.jp":true,"koshigaya.saitama.jp":true,"kounosu.saitama.jp":true,"kuki.saitama.jp":true,"kumagaya.saitama.jp":true,"matsubushi.saitama.jp":true,"minano.saitama.jp":true,"misato.saitama.jp":true,"miyashiro.saitama.jp":true,"miyoshi.saitama.jp":true,"moroyama.saitama.jp":true,"nagatoro.saitama.jp":true,"namegawa.saitama.jp":true,"niiza.saitama.jp":true,"ogano.saitama.jp":true,"ogawa.saitama.jp":true,"ogose.saitama.jp":true,"okegawa.saitama.jp":true,"omiya.saitama.jp":true,"otaki.saitama.jp":true,"ranzan.saitama.jp":true,"ryokami.saitama.jp":true,"saitama.saitama.jp":true,"sakado.saitama.jp":true,"satte.saitama.jp":true,"sayama.saitama.jp":true,"shiki.saitama.jp":true,"shiraoka.saitama.jp":true,"soka.saitama.jp":true,"sugito.saitama.jp":true,"toda.saitama.jp":true,"tokigawa.saitama.jp":true,"tokorozawa.saitama.jp":true,"tsurugashima.saitama.jp":true,"urawa.saitama.jp":true,"warabi.saitama.jp":true,"yashio.saitama.jp":true,"yokoze.saitama.jp":true,"yono.saitama.jp":true,"yorii.saitama.jp":true,"yoshida.saitama.jp":true,"yoshikawa.saitama.jp":true,"yoshimi.saitama.jp":true,"aisho.shiga.jp":true,"gamo.shiga.jp":true,"higashiomi.shiga.jp":true,"hikone.shiga.jp":true,"koka.shiga.jp":true,"konan.shiga.jp":true,"kosei.shiga.jp":true,"koto.shiga.jp":true,"kusatsu.shiga.jp":true,"maibara.shiga.jp":true,"moriyama.shiga.jp":true,"nagahama.shiga.jp":true,"nishiazai.shiga.jp":true,"notogawa.shiga.jp":true,"omihachiman.shiga.jp":true,"otsu.shiga.jp":true,"ritto.shiga.jp":true,"ryuoh.shiga.jp":true,"takashima.shiga.jp":true,"takatsuki.shiga.jp":true,"torahime.shiga.jp":true,"toyosato.shiga.jp":true,"yasu.shiga.jp":true,"akagi.shimane.jp":true,"ama.shimane.jp":true,"gotsu.shimane.jp":true,"hamada.shimane.jp":true,"higashiizumo.shimane.jp":true,"hikawa.shimane.jp":true,"hikimi.shimane.jp":true,"izumo.shimane.jp":true,"kakinoki.shimane.jp":true,"masuda.shimane.jp":true,"matsue.shimane.jp":true,"misato.shimane.jp":true,"nishinoshima.shimane.jp":true,"ohda.shimane.jp":true,"okinoshima.shimane.jp":true,"okuizumo.shimane.jp":true,"shimane.shimane.jp":true,"tamayu.shimane.jp":true,"tsuwano.shimane.jp":true,"unnan.shimane.jp":true,"yakumo.shimane.jp":true,"yasugi.shimane.jp":true,"yatsuka.shimane.jp":true,"arai.shizuoka.jp":true,"atami.shizuoka.jp":true,"fuji.shizuoka.jp":true,"fujieda.shizuoka.jp":true,"fujikawa.shizuoka.jp":true,"fujinomiya.shizuoka.jp":true,"fukuroi.shizuoka.jp":true,"gotemba.shizuoka.jp":true,"haibara.shizuoka.jp":true,"hamamatsu.shizuoka.jp":true,"higashiizu.shizuoka.jp":true,"ito.shizuoka.jp":true,"iwata.shizuoka.jp":true,"izu.shizuoka.jp":true,"izunokuni.shizuoka.jp":true,"kakegawa.shizuoka.jp":true,"kannami.shizuoka.jp":true,"kawanehon.shizuoka.jp":true,"kawazu.shizuoka.jp":true,"kikugawa.shizuoka.jp":true,"kosai.shizuoka.jp":true,"makinohara.shizuoka.jp":true,"matsuzaki.shizuoka.jp":true,"minamiizu.shizuoka.jp":true,"mishima.shizuoka.jp":true,"morimachi.shizuoka.jp":true,"nishiizu.shizuoka.jp":true,"numazu.shizuoka.jp":true,"omaezaki.shizuoka.jp":true,"shimada.shizuoka.jp":true,"shimizu.shizuoka.jp":true,"shimoda.shizuoka.jp":true,"shizuoka.shizuoka.jp":true,"susono.shizuoka.jp":true,"yaizu.shizuoka.jp":true,"yoshida.shizuoka.jp":true,"ashikaga.tochigi.jp":true,"bato.tochigi.jp":true,"haga.tochigi.jp":true,"ichikai.tochigi.jp":true,"iwafune.tochigi.jp":true,"kaminokawa.tochigi.jp":true,"kanuma.tochigi.jp":true,"karasuyama.tochigi.jp":true,"kuroiso.tochigi.jp":true,"mashiko.tochigi.jp":true,"mibu.tochigi.jp":true,"moka.tochigi.jp":true,"motegi.tochigi.jp":true,"nasu.tochigi.jp":true,"nasushiobara.tochigi.jp":true,"nikko.tochigi.jp":true,"nishikata.tochigi.jp":true,"nogi.tochigi.jp":true,"ohira.tochigi.jp":true,"ohtawara.tochigi.jp":true,"oyama.tochigi.jp":true,"sakura.tochigi.jp":true,"sano.tochigi.jp":true,"shimotsuke.tochigi.jp":true,"shioya.tochigi.jp":true,"takanezawa.tochigi.jp":true,"tochigi.tochigi.jp":true,"tsuga.tochigi.jp":true,"ujiie.tochigi.jp":true,"utsunomiya.tochigi.jp":true,"yaita.tochigi.jp":true,"aizumi.tokushima.jp":true,"anan.tokushima.jp":true,"ichiba.tokushima.jp":true,"itano.tokushima.jp":true,"kainan.tokushima.jp":true,"komatsushima.tokushima.jp":true,"matsushige.tokushima.jp":true,"mima.tokushima.jp":true,"minami.tokushima.jp":true,"miyoshi.tokushima.jp":true,"mugi.tokushima.jp":true,"nakagawa.tokushima.jp":true,"naruto.tokushima.jp":true,"sanagochi.tokushima.jp":true,"shishikui.tokushima.jp":true,"tokushima.tokushima.jp":true,"wajiki.tokushima.jp":true,"adachi.tokyo.jp":true,"akiruno.tokyo.jp":true,"akishima.tokyo.jp":true,"aogashima.tokyo.jp":true,"arakawa.tokyo.jp":true,"bunkyo.tokyo.jp":true,"chiyoda.tokyo.jp":true,"chofu.tokyo.jp":true,"chuo.tokyo.jp":true,"edogawa.tokyo.jp":true,"fuchu.tokyo.jp":true,"fussa.tokyo.jp":true,"hachijo.tokyo.jp":true,"hachioji.tokyo.jp":true,"hamura.tokyo.jp":true,"higashikurume.tokyo.jp":true,"higashimurayama.tokyo.jp":true,"higashiyamato.tokyo.jp":true,"hino.tokyo.jp":true,"hinode.tokyo.jp":true,"hinohara.tokyo.jp":true,"inagi.tokyo.jp":true,"itabashi.tokyo.jp":true,"katsushika.tokyo.jp":true,"kita.tokyo.jp":true,"kiyose.tokyo.jp":true,"kodaira.tokyo.jp":true,"koganei.tokyo.jp":true,"kokubunji.tokyo.jp":true,"komae.tokyo.jp":true,"koto.tokyo.jp":true,"kouzushima.tokyo.jp":true,"kunitachi.tokyo.jp":true,"machida.tokyo.jp":true,"meguro.tokyo.jp":true,"minato.tokyo.jp":true,"mitaka.tokyo.jp":true,"mizuho.tokyo.jp":true,"musashimurayama.tokyo.jp":true,"musashino.tokyo.jp":true,"nakano.tokyo.jp":true,"nerima.tokyo.jp":true,"ogasawara.tokyo.jp":true,"okutama.tokyo.jp":true,"ome.tokyo.jp":true,"oshima.tokyo.jp":true,"ota.tokyo.jp":true,"setagaya.tokyo.jp":true,"shibuya.tokyo.jp":true,"shinagawa.tokyo.jp":true,"shinjuku.tokyo.jp":true,"suginami.tokyo.jp":true,"sumida.tokyo.jp":true,"tachikawa.tokyo.jp":true,"taito.tokyo.jp":true,"tama.tokyo.jp":true,"toshima.tokyo.jp":true,"chizu.tottori.jp":true,"hino.tottori.jp":true,"kawahara.tottori.jp":true,"koge.tottori.jp":true,"kotoura.tottori.jp":true,"misasa.tottori.jp":true,"nanbu.tottori.jp":true,"nichinan.tottori.jp":true,"sakaiminato.tottori.jp":true,"tottori.tottori.jp":true,"wakasa.tottori.jp":true,"yazu.tottori.jp":true,"yonago.tottori.jp":true,"asahi.toyama.jp":true,"fuchu.toyama.jp":true,"fukumitsu.toyama.jp":true,"funahashi.toyama.jp":true,"himi.toyama.jp":true,"imizu.toyama.jp":true,"inami.toyama.jp":true,"johana.toyama.jp":true,"kamiichi.toyama.jp":true,"kurobe.toyama.jp":true,"nakaniikawa.toyama.jp":true,"namerikawa.toyama.jp":true,"nanto.toyama.jp":true,"nyuzen.toyama.jp":true,"oyabe.toyama.jp":true,"taira.toyama.jp":true,"takaoka.toyama.jp":true,"tateyama.toyama.jp":true,"toga.toyama.jp":true,"tonami.toyama.jp":true,"toyama.toyama.jp":true,"unazuki.toyama.jp":true,"uozu.toyama.jp":true,"yamada.toyama.jp":true,"arida.wakayama.jp":true,"aridagawa.wakayama.jp":true,"gobo.wakayama.jp":true,"hashimoto.wakayama.jp":true,"hidaka.wakayama.jp":true,"hirogawa.wakayama.jp":true,"inami.wakayama.jp":true,"iwade.wakayama.jp":true,"kainan.wakayama.jp":true,"kamitonda.wakayama.jp":true,"katsuragi.wakayama.jp":true,"kimino.wakayama.jp":true,"kinokawa.wakayama.jp":true,"kitayama.wakayama.jp":true,"koya.wakayama.jp":true,"koza.wakayama.jp":true,"kozagawa.wakayama.jp":true,"kudoyama.wakayama.jp":true,"kushimoto.wakayama.jp":true,"mihama.wakayama.jp":true,"misato.wakayama.jp":true,"nachikatsuura.wakayama.jp":true,"shingu.wakayama.jp":true,"shirahama.wakayama.jp":true,"taiji.wakayama.jp":true,"tanabe.wakayama.jp":true,"wakayama.wakayama.jp":true,"yuasa.wakayama.jp":true,"yura.wakayama.jp":true,"asahi.yamagata.jp":true,"funagata.yamagata.jp":true,"higashine.yamagata.jp":true,"iide.yamagata.jp":true,"kahoku.yamagata.jp":true,"kaminoyama.yamagata.jp":true,"kaneyama.yamagata.jp":true,"kawanishi.yamagata.jp":true,"mamurogawa.yamagata.jp":true,"mikawa.yamagata.jp":true,"murayama.yamagata.jp":true,"nagai.yamagata.jp":true,"nakayama.yamagata.jp":true,"nanyo.yamagata.jp":true,"nishikawa.yamagata.jp":true,"obanazawa.yamagata.jp":true,"oe.yamagata.jp":true,"oguni.yamagata.jp":true,"ohkura.yamagata.jp":true,"oishida.yamagata.jp":true,"sagae.yamagata.jp":true,"sakata.yamagata.jp":true,"sakegawa.yamagata.jp":true,"shinjo.yamagata.jp":true,"shirataka.yamagata.jp":true,"shonai.yamagata.jp":true,"takahata.yamagata.jp":true,"tendo.yamagata.jp":true,"tozawa.yamagata.jp":true,"tsuruoka.yamagata.jp":true,"yamagata.yamagata.jp":true,"yamanobe.yamagata.jp":true,"yonezawa.yamagata.jp":true,"yuza.yamagata.jp":true,"abu.yamaguchi.jp":true,"hagi.yamaguchi.jp":true,"hikari.yamaguchi.jp":true,"hofu.yamaguchi.jp":true,"iwakuni.yamaguchi.jp":true,"kudamatsu.yamaguchi.jp":true,"mitou.yamaguchi.jp":true,"nagato.yamaguchi.jp":true,"oshima.yamaguchi.jp":true,"shimonoseki.yamaguchi.jp":true,"shunan.yamaguchi.jp":true,"tabuse.yamaguchi.jp":true,"tokuyama.yamaguchi.jp":true,"toyota.yamaguchi.jp":true,"ube.yamaguchi.jp":true,"yuu.yamaguchi.jp":true,"chuo.yamanashi.jp":true,"doshi.yamanashi.jp":true,"fuefuki.yamanashi.jp":true,"fujikawa.yamanashi.jp":true,"fujikawaguchiko.yamanashi.jp":true,"fujiyoshida.yamanashi.jp":true,"hayakawa.yamanashi.jp":true,"hokuto.yamanashi.jp":true,"ichikawamisato.yamanashi.jp":true,"kai.yamanashi.jp":true,"kofu.yamanashi.jp":true,"koshu.yamanashi.jp":true,"kosuge.yamanashi.jp":true,"minami-alps.yamanashi.jp":true,"minobu.yamanashi.jp":true,"nakamichi.yamanashi.jp":true,"nanbu.yamanashi.jp":true,"narusawa.yamanashi.jp":true,"nirasaki.yamanashi.jp":true,"nishikatsura.yamanashi.jp":true,"oshino.yamanashi.jp":true,"otsuki.yamanashi.jp":true,"showa.yamanashi.jp":true,"tabayama.yamanashi.jp":true,"tsuru.yamanashi.jp":true,"uenohara.yamanashi.jp":true,"yamanakako.yamanashi.jp":true,"yamanashi.yamanashi.jp":true,"ke":true,"ac.ke":true,"co.ke":true,"go.ke":true,"info.ke":true,"me.ke":true,"mobi.ke":true,"ne.ke":true,"or.ke":true,"sc.ke":true,"kg":true,"org.kg":true,"net.kg":true,"com.kg":true,"edu.kg":true,"gov.kg":true,"mil.kg":true,"*.kh":true,"ki":true,"edu.ki":true,"biz.ki":true,"net.ki":true,"org.ki":true,"gov.ki":true,"info.ki":true,"com.ki":true,"km":true,"org.km":true,"nom.km":true,"gov.km":true,"prd.km":true,"tm.km":true,"edu.km":true,"mil.km":true,"ass.km":true,"com.km":true,"coop.km":true,"asso.km":true,"presse.km":true,"medecin.km":true,"notaires.km":true,"pharmaciens.km":true,"veterinaire.km":true,"gouv.km":true,"kn":true,"net.kn":true,"org.kn":true,"edu.kn":true,"gov.kn":true,"kp":true,"com.kp":true,"edu.kp":true,"gov.kp":true,"org.kp":true,"rep.kp":true,"tra.kp":true,"kr":true,"ac.kr":true,"co.kr":true,"es.kr":true,"go.kr":true,"hs.kr":true,"kg.kr":true,"mil.kr":true,"ms.kr":true,"ne.kr":true,"or.kr":true,"pe.kr":true,"re.kr":true,"sc.kr":true,"busan.kr":true,"chungbuk.kr":true,"chungnam.kr":true,"daegu.kr":true,"daejeon.kr":true,"gangwon.kr":true,"gwangju.kr":true,"gyeongbuk.kr":true,"gyeonggi.kr":true,"gyeongnam.kr":true,"incheon.kr":true,"jeju.kr":true,"jeonbuk.kr":true,"jeonnam.kr":true,"seoul.kr":true,"ulsan.kr":true,"*.kw":true,"ky":true,"edu.ky":true,"gov.ky":true,"com.ky":true,"org.ky":true,"net.ky":true,"kz":true,"org.kz":true,"edu.kz":true,"net.kz":true,"gov.kz":true,"mil.kz":true,"com.kz":true,"la":true,"int.la":true,"net.la":true,"info.la":true,"edu.la":true,"gov.la":true,"per.la":true,"com.la":true,"org.la":true,"lb":true,"com.lb":true,"edu.lb":true,"gov.lb":true,"net.lb":true,"org.lb":true,"lc":true,"com.lc":true,"net.lc":true,"co.lc":true,"org.lc":true,"edu.lc":true,"gov.lc":true,"li":true,"lk":true,"gov.lk":true,"sch.lk":true,"net.lk":true,"int.lk":true,"com.lk":true,"org.lk":true,"edu.lk":true,"ngo.lk":true,"soc.lk":true,"web.lk":true,"ltd.lk":true,"assn.lk":true,"grp.lk":true,"hotel.lk":true,"ac.lk":true,"lr":true,"com.lr":true,"edu.lr":true,"gov.lr":true,"org.lr":true,"net.lr":true,"ls":true,"co.ls":true,"org.ls":true,"lt":true,"gov.lt":true,"lu":true,"lv":true,"com.lv":true,"edu.lv":true,"gov.lv":true,"org.lv":true,"mil.lv":true,"id.lv":true,"net.lv":true,"asn.lv":true,"conf.lv":true,"ly":true,"com.ly":true,"net.ly":true,"gov.ly":true,"plc.ly":true,"edu.ly":true,"sch.ly":true,"med.ly":true,"org.ly":true,"id.ly":true,"ma":true,"co.ma":true,"net.ma":true,"gov.ma":true,"org.ma":true,"ac.ma":true,"press.ma":true,"mc":true,"tm.mc":true,"asso.mc":true,"md":true,"me":true,"co.me":true,"net.me":true,"org.me":true,"edu.me":true,"ac.me":true,"gov.me":true,"its.me":true,"priv.me":true,"mg":true,"org.mg":true,"nom.mg":true,"gov.mg":true,"prd.mg":true,"tm.mg":true,"edu.mg":true,"mil.mg":true,"com.mg":true,"co.mg":true,"mh":true,"mil":true,"mk":true,"com.mk":true,"org.mk":true,"net.mk":true,"edu.mk":true,"gov.mk":true,"inf.mk":true,"name.mk":true,"ml":true,"com.ml":true,"edu.ml":true,"gouv.ml":true,"gov.ml":true,"net.ml":true,"org.ml":true,"presse.ml":true,"*.mm":true,"mn":true,"gov.mn":true,"edu.mn":true,"org.mn":true,"mo":true,"com.mo":true,"net.mo":true,"org.mo":true,"edu.mo":true,"gov.mo":true,"mobi":true,"mp":true,"mq":true,"mr":true,"gov.mr":true,"ms":true,"com.ms":true,"edu.ms":true,"gov.ms":true,"net.ms":true,"org.ms":true,"mt":true,"com.mt":true,"edu.mt":true,"net.mt":true,"org.mt":true,"mu":true,"com.mu":true,"net.mu":true,"org.mu":true,"gov.mu":true,"ac.mu":true,"co.mu":true,"or.mu":true,"museum":true,"academy.museum":true,"agriculture.museum":true,"air.museum":true,"airguard.museum":true,"alabama.museum":true,"alaska.museum":true,"amber.museum":true,"ambulance.museum":true,"american.museum":true,"americana.museum":true,"americanantiques.museum":true,"americanart.museum":true,"amsterdam.museum":true,"and.museum":true,"annefrank.museum":true,"anthro.museum":true,"anthropology.museum":true,"antiques.museum":true,"aquarium.museum":true,"arboretum.museum":true,"archaeological.museum":true,"archaeology.museum":true,"architecture.museum":true,"art.museum":true,"artanddesign.museum":true,"artcenter.museum":true,"artdeco.museum":true,"arteducation.museum":true,"artgallery.museum":true,"arts.museum":true,"artsandcrafts.museum":true,"asmatart.museum":true,"assassination.museum":true,"assisi.museum":true,"association.museum":true,"astronomy.museum":true,"atlanta.museum":true,"austin.museum":true,"australia.museum":true,"automotive.museum":true,"aviation.museum":true,"axis.museum":true,"badajoz.museum":true,"baghdad.museum":true,"bahn.museum":true,"bale.museum":true,"baltimore.museum":true,"barcelona.museum":true,"baseball.museum":true,"basel.museum":true,"baths.museum":true,"bauern.museum":true,"beauxarts.museum":true,"beeldengeluid.museum":true,"bellevue.museum":true,"bergbau.museum":true,"berkeley.museum":true,"berlin.museum":true,"bern.museum":true,"bible.museum":true,"bilbao.museum":true,"bill.museum":true,"birdart.museum":true,"birthplace.museum":true,"bonn.museum":true,"boston.museum":true,"botanical.museum":true,"botanicalgarden.museum":true,"botanicgarden.museum":true,"botany.museum":true,"brandywinevalley.museum":true,"brasil.museum":true,"bristol.museum":true,"british.museum":true,"britishcolumbia.museum":true,"broadcast.museum":true,"brunel.museum":true,"brussel.museum":true,"brussels.museum":true,"bruxelles.museum":true,"building.museum":true,"burghof.museum":true,"bus.museum":true,"bushey.museum":true,"cadaques.museum":true,"california.museum":true,"cambridge.museum":true,"can.museum":true,"canada.museum":true,"capebreton.museum":true,"carrier.museum":true,"cartoonart.museum":true,"casadelamoneda.museum":true,"castle.museum":true,"castres.museum":true,"celtic.museum":true,"center.museum":true,"chattanooga.museum":true,"cheltenham.museum":true,"chesapeakebay.museum":true,"chicago.museum":true,"children.museum":true,"childrens.museum":true,"childrensgarden.museum":true,"chiropractic.museum":true,"chocolate.museum":true,"christiansburg.museum":true,"cincinnati.museum":true,"cinema.museum":true,"circus.museum":true,"civilisation.museum":true,"civilization.museum":true,"civilwar.museum":true,"clinton.museum":true,"clock.museum":true,"coal.museum":true,"coastaldefence.museum":true,"cody.museum":true,"coldwar.museum":true,"collection.museum":true,"colonialwilliamsburg.museum":true,"coloradoplateau.museum":true,"columbia.museum":true,"columbus.museum":true,"communication.museum":true,"communications.museum":true,"community.museum":true,"computer.museum":true,"computerhistory.museum":true,"xn--comunicaes-v6a2o.museum":true,"contemporary.museum":true,"contemporaryart.museum":true,"convent.museum":true,"copenhagen.museum":true,"corporation.museum":true,"xn--correios-e-telecomunicaes-ghc29a.museum":true,"corvette.museum":true,"costume.museum":true,"countryestate.museum":true,"county.museum":true,"crafts.museum":true,"cranbrook.museum":true,"creation.museum":true,"cultural.museum":true,"culturalcenter.museum":true,"culture.museum":true,"cyber.museum":true,"cymru.museum":true,"dali.museum":true,"dallas.museum":true,"database.museum":true,"ddr.museum":true,"decorativearts.museum":true,"delaware.museum":true,"delmenhorst.museum":true,"denmark.museum":true,"depot.museum":true,"design.museum":true,"detroit.museum":true,"dinosaur.museum":true,"discovery.museum":true,"dolls.museum":true,"donostia.museum":true,"durham.museum":true,"eastafrica.museum":true,"eastcoast.museum":true,"education.museum":true,"educational.museum":true,"egyptian.museum":true,"eisenbahn.museum":true,"elburg.museum":true,"elvendrell.museum":true,"embroidery.museum":true,"encyclopedic.museum":true,"england.museum":true,"entomology.museum":true,"environment.museum":true,"environmentalconservation.museum":true,"epilepsy.museum":true,"essex.museum":true,"estate.museum":true,"ethnology.museum":true,"exeter.museum":true,"exhibition.museum":true,"family.museum":true,"farm.museum":true,"farmequipment.museum":true,"farmers.museum":true,"farmstead.museum":true,"field.museum":true,"figueres.museum":true,"filatelia.museum":true,"film.museum":true,"fineart.museum":true,"finearts.museum":true,"finland.museum":true,"flanders.museum":true,"florida.museum":true,"force.museum":true,"fortmissoula.museum":true,"fortworth.museum":true,"foundation.museum":true,"francaise.museum":true,"frankfurt.museum":true,"franziskaner.museum":true,"freemasonry.museum":true,"freiburg.museum":true,"fribourg.museum":true,"frog.museum":true,"fundacio.museum":true,"furniture.museum":true,"gallery.museum":true,"garden.museum":true,"gateway.museum":true,"geelvinck.museum":true,"gemological.museum":true,"geology.museum":true,"georgia.museum":true,"giessen.museum":true,"glas.museum":true,"glass.museum":true,"gorge.museum":true,"grandrapids.museum":true,"graz.museum":true,"guernsey.museum":true,"halloffame.museum":true,"hamburg.museum":true,"handson.museum":true,"harvestcelebration.museum":true,"hawaii.museum":true,"health.museum":true,"heimatunduhren.museum":true,"hellas.museum":true,"helsinki.museum":true,"hembygdsforbund.museum":true,"heritage.museum":true,"histoire.museum":true,"historical.museum":true,"historicalsociety.museum":true,"historichouses.museum":true,"historisch.museum":true,"historisches.museum":true,"history.museum":true,"historyofscience.museum":true,"horology.museum":true,"house.museum":true,"humanities.museum":true,"illustration.museum":true,"imageandsound.museum":true,"indian.museum":true,"indiana.museum":true,"indianapolis.museum":true,"indianmarket.museum":true,"intelligence.museum":true,"interactive.museum":true,"iraq.museum":true,"iron.museum":true,"isleofman.museum":true,"jamison.museum":true,"jefferson.museum":true,"jerusalem.museum":true,"jewelry.museum":true,"jewish.museum":true,"jewishart.museum":true,"jfk.museum":true,"journalism.museum":true,"judaica.museum":true,"judygarland.museum":true,"juedisches.museum":true,"juif.museum":true,"karate.museum":true,"karikatur.museum":true,"kids.museum":true,"koebenhavn.museum":true,"koeln.museum":true,"kunst.museum":true,"kunstsammlung.museum":true,"kunstunddesign.museum":true,"labor.museum":true,"labour.museum":true,"lajolla.museum":true,"lancashire.museum":true,"landes.museum":true,"lans.museum":true,"xn--lns-qla.museum":true,"larsson.museum":true,"lewismiller.museum":true,"lincoln.museum":true,"linz.museum":true,"living.museum":true,"livinghistory.museum":true,"localhistory.museum":true,"london.museum":true,"losangeles.museum":true,"louvre.museum":true,"loyalist.museum":true,"lucerne.museum":true,"luxembourg.museum":true,"luzern.museum":true,"mad.museum":true,"madrid.museum":true,"mallorca.museum":true,"manchester.museum":true,"mansion.museum":true,"mansions.museum":true,"manx.museum":true,"marburg.museum":true,"maritime.museum":true,"maritimo.museum":true,"maryland.museum":true,"marylhurst.museum":true,"media.museum":true,"medical.museum":true,"medizinhistorisches.museum":true,"meeres.museum":true,"memorial.museum":true,"mesaverde.museum":true,"michigan.museum":true,"midatlantic.museum":true,"military.museum":true,"mill.museum":true,"miners.museum":true,"mining.museum":true,"minnesota.museum":true,"missile.museum":true,"missoula.museum":true,"modern.museum":true,"moma.museum":true,"money.museum":true,"monmouth.museum":true,"monticello.museum":true,"montreal.museum":true,"moscow.museum":true,"motorcycle.museum":true,"muenchen.museum":true,"muenster.museum":true,"mulhouse.museum":true,"muncie.museum":true,"museet.museum":true,"museumcenter.museum":true,"museumvereniging.museum":true,"music.museum":true,"national.museum":true,"nationalfirearms.museum":true,"nationalheritage.museum":true,"nativeamerican.museum":true,"naturalhistory.museum":true,"naturalhistorymuseum.museum":true,"naturalsciences.museum":true,"nature.museum":true,"naturhistorisches.museum":true,"natuurwetenschappen.museum":true,"naumburg.museum":true,"naval.museum":true,"nebraska.museum":true,"neues.museum":true,"newhampshire.museum":true,"newjersey.museum":true,"newmexico.museum":true,"newport.museum":true,"newspaper.museum":true,"newyork.museum":true,"niepce.museum":true,"norfolk.museum":true,"north.museum":true,"nrw.museum":true,"nuernberg.museum":true,"nuremberg.museum":true,"nyc.museum":true,"nyny.museum":true,"oceanographic.museum":true,"oceanographique.museum":true,"omaha.museum":true,"online.museum":true,"ontario.museum":true,"openair.museum":true,"oregon.museum":true,"oregontrail.museum":true,"otago.museum":true,"oxford.museum":true,"pacific.museum":true,"paderborn.museum":true,"palace.museum":true,"paleo.museum":true,"palmsprings.museum":true,"panama.museum":true,"paris.museum":true,"pasadena.museum":true,"pharmacy.museum":true,"philadelphia.museum":true,"philadelphiaarea.museum":true,"philately.museum":true,"phoenix.museum":true,"photography.museum":true,"pilots.museum":true,"pittsburgh.museum":true,"planetarium.museum":true,"plantation.museum":true,"plants.museum":true,"plaza.museum":true,"portal.museum":true,"portland.museum":true,"portlligat.museum":true,"posts-and-telecommunications.museum":true,"preservation.museum":true,"presidio.museum":true,"press.museum":true,"project.museum":true,"public.museum":true,"pubol.museum":true,"quebec.museum":true,"railroad.museum":true,"railway.museum":true,"research.museum":true,"resistance.museum":true,"riodejaneiro.museum":true,"rochester.museum":true,"rockart.museum":true,"roma.museum":true,"russia.museum":true,"saintlouis.museum":true,"salem.museum":true,"salvadordali.museum":true,"salzburg.museum":true,"sandiego.museum":true,"sanfrancisco.museum":true,"santabarbara.museum":true,"santacruz.museum":true,"santafe.museum":true,"saskatchewan.museum":true,"satx.museum":true,"savannahga.museum":true,"schlesisches.museum":true,"schoenbrunn.museum":true,"schokoladen.museum":true,"school.museum":true,"schweiz.museum":true,"science.museum":true,"scienceandhistory.museum":true,"scienceandindustry.museum":true,"sciencecenter.museum":true,"sciencecenters.museum":true,"science-fiction.museum":true,"sciencehistory.museum":true,"sciences.museum":true,"sciencesnaturelles.museum":true,"scotland.museum":true,"seaport.museum":true,"settlement.museum":true,"settlers.museum":true,"shell.museum":true,"sherbrooke.museum":true,"sibenik.museum":true,"silk.museum":true,"ski.museum":true,"skole.museum":true,"society.museum":true,"sologne.museum":true,"soundandvision.museum":true,"southcarolina.museum":true,"southwest.museum":true,"space.museum":true,"spy.museum":true,"square.museum":true,"stadt.museum":true,"stalbans.museum":true,"starnberg.museum":true,"state.museum":true,"stateofdelaware.museum":true,"station.museum":true,"steam.museum":true,"steiermark.museum":true,"stjohn.museum":true,"stockholm.museum":true,"stpetersburg.museum":true,"stuttgart.museum":true,"suisse.museum":true,"surgeonshall.museum":true,"surrey.museum":true,"svizzera.museum":true,"sweden.museum":true,"sydney.museum":true,"tank.museum":true,"tcm.museum":true,"technology.museum":true,"telekommunikation.museum":true,"television.museum":true,"texas.museum":true,"textile.museum":true,"theater.museum":true,"time.museum":true,"timekeeping.museum":true,"topology.museum":true,"torino.museum":true,"touch.museum":true,"town.museum":true,"transport.museum":true,"tree.museum":true,"trolley.museum":true,"trust.museum":true,"trustee.museum":true,"uhren.museum":true,"ulm.museum":true,"undersea.museum":true,"university.museum":true,"usa.museum":true,"usantiques.museum":true,"usarts.museum":true,"uscountryestate.museum":true,"usculture.museum":true,"usdecorativearts.museum":true,"usgarden.museum":true,"ushistory.museum":true,"ushuaia.museum":true,"uslivinghistory.museum":true,"utah.museum":true,"uvic.museum":true,"valley.museum":true,"vantaa.museum":true,"versailles.museum":true,"viking.museum":true,"village.museum":true,"virginia.museum":true,"virtual.museum":true,"virtuel.museum":true,"vlaanderen.museum":true,"volkenkunde.museum":true,"wales.museum":true,"wallonie.museum":true,"war.museum":true,"washingtondc.museum":true,"watchandclock.museum":true,"watch-and-clock.museum":true,"western.museum":true,"westfalen.museum":true,"whaling.museum":true,"wildlife.museum":true,"williamsburg.museum":true,"windmill.museum":true,"workshop.museum":true,"york.museum":true,"yorkshire.museum":true,"yosemite.museum":true,"youth.museum":true,"zoological.museum":true,"zoology.museum":true,"xn--9dbhblg6di.museum":true,"xn--h1aegh.museum":true,"mv":true,"aero.mv":true,"biz.mv":true,"com.mv":true,"coop.mv":true,"edu.mv":true,"gov.mv":true,"info.mv":true,"int.mv":true,"mil.mv":true,"museum.mv":true,"name.mv":true,"net.mv":true,"org.mv":true,"pro.mv":true,"mw":true,"ac.mw":true,"biz.mw":true,"co.mw":true,"com.mw":true,"coop.mw":true,"edu.mw":true,"gov.mw":true,"int.mw":true,"museum.mw":true,"net.mw":true,"org.mw":true,"mx":true,"com.mx":true,"org.mx":true,"gob.mx":true,"edu.mx":true,"net.mx":true,"my":true,"com.my":true,"net.my":true,"org.my":true,"gov.my":true,"edu.my":true,"mil.my":true,"name.my":true,"mz":true,"ac.mz":true,"adv.mz":true,"co.mz":true,"edu.mz":true,"gov.mz":true,"mil.mz":true,"net.mz":true,"org.mz":true,"na":true,"info.na":true,"pro.na":true,"name.na":true,"school.na":true,"or.na":true,"dr.na":true,"us.na":true,"mx.na":true,"ca.na":true,"in.na":true,"cc.na":true,"tv.na":true,"ws.na":true,"mobi.na":true,"co.na":true,"com.na":true,"org.na":true,"name":true,"nc":true,"asso.nc":true,"nom.nc":true,"ne":true,"net":true,"nf":true,"com.nf":true,"net.nf":true,"per.nf":true,"rec.nf":true,"web.nf":true,"arts.nf":true,"firm.nf":true,"info.nf":true,"other.nf":true,"store.nf":true,"ng":true,"com.ng":true,"edu.ng":true,"gov.ng":true,"i.ng":true,"mil.ng":true,"mobi.ng":true,"name.ng":true,"net.ng":true,"org.ng":true,"sch.ng":true,"ni":true,"ac.ni":true,"biz.ni":true,"co.ni":true,"com.ni":true,"edu.ni":true,"gob.ni":true,"in.ni":true,"info.ni":true,"int.ni":true,"mil.ni":true,"net.ni":true,"nom.ni":true,"org.ni":true,"web.ni":true,"nl":true,"bv.nl":true,"no":true,"fhs.no":true,"vgs.no":true,"fylkesbibl.no":true,"folkebibl.no":true,"museum.no":true,"idrett.no":true,"priv.no":true,"mil.no":true,"stat.no":true,"dep.no":true,"kommune.no":true,"herad.no":true,"aa.no":true,"ah.no":true,"bu.no":true,"fm.no":true,"hl.no":true,"hm.no":true,"jan-mayen.no":true,"mr.no":true,"nl.no":true,"nt.no":true,"of.no":true,"ol.no":true,"oslo.no":true,"rl.no":true,"sf.no":true,"st.no":true,"svalbard.no":true,"tm.no":true,"tr.no":true,"va.no":true,"vf.no":true,"gs.aa.no":true,"gs.ah.no":true,"gs.bu.no":true,"gs.fm.no":true,"gs.hl.no":true,"gs.hm.no":true,"gs.jan-mayen.no":true,"gs.mr.no":true,"gs.nl.no":true,"gs.nt.no":true,"gs.of.no":true,"gs.ol.no":true,"gs.oslo.no":true,"gs.rl.no":true,"gs.sf.no":true,"gs.st.no":true,"gs.svalbard.no":true,"gs.tm.no":true,"gs.tr.no":true,"gs.va.no":true,"gs.vf.no":true,"akrehamn.no":true,"xn--krehamn-dxa.no":true,"algard.no":true,"xn--lgrd-poac.no":true,"arna.no":true,"brumunddal.no":true,"bryne.no":true,"bronnoysund.no":true,"xn--brnnysund-m8ac.no":true,"drobak.no":true,"xn--drbak-wua.no":true,"egersund.no":true,"fetsund.no":true,"floro.no":true,"xn--flor-jra.no":true,"fredrikstad.no":true,"hokksund.no":true,"honefoss.no":true,"xn--hnefoss-q1a.no":true,"jessheim.no":true,"jorpeland.no":true,"xn--jrpeland-54a.no":true,"kirkenes.no":true,"kopervik.no":true,"krokstadelva.no":true,"langevag.no":true,"xn--langevg-jxa.no":true,"leirvik.no":true,"mjondalen.no":true,"xn--mjndalen-64a.no":true,"mo-i-rana.no":true,"mosjoen.no":true,"xn--mosjen-eya.no":true,"nesoddtangen.no":true,"orkanger.no":true,"osoyro.no":true,"xn--osyro-wua.no":true,"raholt.no":true,"xn--rholt-mra.no":true,"sandnessjoen.no":true,"xn--sandnessjen-ogb.no":true,"skedsmokorset.no":true,"slattum.no":true,"spjelkavik.no":true,"stathelle.no":true,"stavern.no":true,"stjordalshalsen.no":true,"xn--stjrdalshalsen-sqb.no":true,"tananger.no":true,"tranby.no":true,"vossevangen.no":true,"afjord.no":true,"xn--fjord-lra.no":true,"agdenes.no":true,"al.no":true,"xn--l-1fa.no":true,"alesund.no":true,"xn--lesund-hua.no":true,"alstahaug.no":true,"alta.no":true,"xn--lt-liac.no":true,"alaheadju.no":true,"xn--laheadju-7ya.no":true,"alvdal.no":true,"amli.no":true,"xn--mli-tla.no":true,"amot.no":true,"xn--mot-tla.no":true,"andebu.no":true,"andoy.no":true,"xn--andy-ira.no":true,"andasuolo.no":true,"ardal.no":true,"xn--rdal-poa.no":true,"aremark.no":true,"arendal.no":true,"xn--s-1fa.no":true,"aseral.no":true,"xn--seral-lra.no":true,"asker.no":true,"askim.no":true,"askvoll.no":true,"askoy.no":true,"xn--asky-ira.no":true,"asnes.no":true,"xn--snes-poa.no":true,"audnedaln.no":true,"aukra.no":true,"aure.no":true,"aurland.no":true,"aurskog-holand.no":true,"xn--aurskog-hland-jnb.no":true,"austevoll.no":true,"austrheim.no":true,"averoy.no":true,"xn--avery-yua.no":true,"balestrand.no":true,"ballangen.no":true,"balat.no":true,"xn--blt-elab.no":true,"balsfjord.no":true,"bahccavuotna.no":true,"xn--bhccavuotna-k7a.no":true,"bamble.no":true,"bardu.no":true,"beardu.no":true,"beiarn.no":true,"bajddar.no":true,"xn--bjddar-pta.no":true,"baidar.no":true,"xn--bidr-5nac.no":true,"berg.no":true,"bergen.no":true,"berlevag.no":true,"xn--berlevg-jxa.no":true,"bearalvahki.no":true,"xn--bearalvhki-y4a.no":true,"bindal.no":true,"birkenes.no":true,"bjarkoy.no":true,"xn--bjarky-fya.no":true,"bjerkreim.no":true,"bjugn.no":true,"bodo.no":true,"xn--bod-2na.no":true,"badaddja.no":true,"xn--bdddj-mrabd.no":true,"budejju.no":true,"bokn.no":true,"bremanger.no":true,"bronnoy.no":true,"xn--brnny-wuac.no":true,"bygland.no":true,"bykle.no":true,"barum.no":true,"xn--brum-voa.no":true,"bo.telemark.no":true,"xn--b-5ga.telemark.no":true,"bo.nordland.no":true,"xn--b-5ga.nordland.no":true,"bievat.no":true,"xn--bievt-0qa.no":true,"bomlo.no":true,"xn--bmlo-gra.no":true,"batsfjord.no":true,"xn--btsfjord-9za.no":true,"bahcavuotna.no":true,"xn--bhcavuotna-s4a.no":true,"dovre.no":true,"drammen.no":true,"drangedal.no":true,"dyroy.no":true,"xn--dyry-ira.no":true,"donna.no":true,"xn--dnna-gra.no":true,"eid.no":true,"eidfjord.no":true,"eidsberg.no":true,"eidskog.no":true,"eidsvoll.no":true,"eigersund.no":true,"elverum.no":true,"enebakk.no":true,"engerdal.no":true,"etne.no":true,"etnedal.no":true,"evenes.no":true,"evenassi.no":true,"xn--eveni-0qa01ga.no":true,"evje-og-hornnes.no":true,"farsund.no":true,"fauske.no":true,"fuossko.no":true,"fuoisku.no":true,"fedje.no":true,"fet.no":true,"finnoy.no":true,"xn--finny-yua.no":true,"fitjar.no":true,"fjaler.no":true,"fjell.no":true,"flakstad.no":true,"flatanger.no":true,"flekkefjord.no":true,"flesberg.no":true,"flora.no":true,"fla.no":true,"xn--fl-zia.no":true,"folldal.no":true,"forsand.no":true,"fosnes.no":true,"frei.no":true,"frogn.no":true,"froland.no":true,"frosta.no":true,"frana.no":true,"xn--frna-woa.no":true,"froya.no":true,"xn--frya-hra.no":true,"fusa.no":true,"fyresdal.no":true,"forde.no":true,"xn--frde-gra.no":true,"gamvik.no":true,"gangaviika.no":true,"xn--ggaviika-8ya47h.no":true,"gaular.no":true,"gausdal.no":true,"gildeskal.no":true,"xn--gildeskl-g0a.no":true,"giske.no":true,"gjemnes.no":true,"gjerdrum.no":true,"gjerstad.no":true,"gjesdal.no":true,"gjovik.no":true,"xn--gjvik-wua.no":true,"gloppen.no":true,"gol.no":true,"gran.no":true,"grane.no":true,"granvin.no":true,"gratangen.no":true,"grimstad.no":true,"grong.no":true,"kraanghke.no":true,"xn--kranghke-b0a.no":true,"grue.no":true,"gulen.no":true,"hadsel.no":true,"halden.no":true,"halsa.no":true,"hamar.no":true,"hamaroy.no":true,"habmer.no":true,"xn--hbmer-xqa.no":true,"hapmir.no":true,"xn--hpmir-xqa.no":true,"hammerfest.no":true,"hammarfeasta.no":true,"xn--hmmrfeasta-s4ac.no":true,"haram.no":true,"hareid.no":true,"harstad.no":true,"hasvik.no":true,"aknoluokta.no":true,"xn--koluokta-7ya57h.no":true,"hattfjelldal.no":true,"aarborte.no":true,"haugesund.no":true,"hemne.no":true,"hemnes.no":true,"hemsedal.no":true,"heroy.more-og-romsdal.no":true,"xn--hery-ira.xn--mre-og-romsdal-qqb.no":true,"heroy.nordland.no":true,"xn--hery-ira.nordland.no":true,"hitra.no":true,"hjartdal.no":true,"hjelmeland.no":true,"hobol.no":true,"xn--hobl-ira.no":true,"hof.no":true,"hol.no":true,"hole.no":true,"holmestrand.no":true,"holtalen.no":true,"xn--holtlen-hxa.no":true,"hornindal.no":true,"horten.no":true,"hurdal.no":true,"hurum.no":true,"hvaler.no":true,"hyllestad.no":true,"hagebostad.no":true,"xn--hgebostad-g3a.no":true,"hoyanger.no":true,"xn--hyanger-q1a.no":true,"hoylandet.no":true,"xn--hylandet-54a.no":true,"ha.no":true,"xn--h-2fa.no":true,"ibestad.no":true,"inderoy.no":true,"xn--indery-fya.no":true,"iveland.no":true,"jevnaker.no":true,"jondal.no":true,"jolster.no":true,"xn--jlster-bya.no":true,"karasjok.no":true,"karasjohka.no":true,"xn--krjohka-hwab49j.no":true,"karlsoy.no":true,"galsa.no":true,"xn--gls-elac.no":true,"karmoy.no":true,"xn--karmy-yua.no":true,"kautokeino.no":true,"guovdageaidnu.no":true,"klepp.no":true,"klabu.no":true,"xn--klbu-woa.no":true,"kongsberg.no":true,"kongsvinger.no":true,"kragero.no":true,"xn--krager-gya.no":true,"kristiansand.no":true,"kristiansund.no":true,"krodsherad.no":true,"xn--krdsherad-m8a.no":true,"kvalsund.no":true,"rahkkeravju.no":true,"xn--rhkkervju-01af.no":true,"kvam.no":true,"kvinesdal.no":true,"kvinnherad.no":true,"kviteseid.no":true,"kvitsoy.no":true,"xn--kvitsy-fya.no":true,"kvafjord.no":true,"xn--kvfjord-nxa.no":true,"giehtavuoatna.no":true,"kvanangen.no":true,"xn--kvnangen-k0a.no":true,"navuotna.no":true,"xn--nvuotna-hwa.no":true,"kafjord.no":true,"xn--kfjord-iua.no":true,"gaivuotna.no":true,"xn--givuotna-8ya.no":true,"larvik.no":true,"lavangen.no":true,"lavagis.no":true,"loabat.no":true,"xn--loabt-0qa.no":true,"lebesby.no":true,"davvesiida.no":true,"leikanger.no":true,"leirfjord.no":true,"leka.no":true,"leksvik.no":true,"lenvik.no":true,"leangaviika.no":true,"xn--leagaviika-52b.no":true,"lesja.no":true,"levanger.no":true,"lier.no":true,"lierne.no":true,"lillehammer.no":true,"lillesand.no":true,"lindesnes.no":true,"lindas.no":true,"xn--linds-pra.no":true,"lom.no":true,"loppa.no":true,"lahppi.no":true,"xn--lhppi-xqa.no":true,"lund.no":true,"lunner.no":true,"luroy.no":true,"xn--lury-ira.no":true,"luster.no":true,"lyngdal.no":true,"lyngen.no":true,"ivgu.no":true,"lardal.no":true,"lerdal.no":true,"xn--lrdal-sra.no":true,"lodingen.no":true,"xn--ldingen-q1a.no":true,"lorenskog.no":true,"xn--lrenskog-54a.no":true,"loten.no":true,"xn--lten-gra.no":true,"malvik.no":true,"masoy.no":true,"xn--msy-ula0h.no":true,"muosat.no":true,"xn--muost-0qa.no":true,"mandal.no":true,"marker.no":true,"marnardal.no":true,"masfjorden.no":true,"meland.no":true,"meldal.no":true,"melhus.no":true,"meloy.no":true,"xn--mely-ira.no":true,"meraker.no":true,"xn--merker-kua.no":true,"moareke.no":true,"xn--moreke-jua.no":true,"midsund.no":true,"midtre-gauldal.no":true,"modalen.no":true,"modum.no":true,"molde.no":true,"moskenes.no":true,"moss.no":true,"mosvik.no":true,"malselv.no":true,"xn--mlselv-iua.no":true,"malatvuopmi.no":true,"xn--mlatvuopmi-s4a.no":true,"namdalseid.no":true,"aejrie.no":true,"namsos.no":true,"namsskogan.no":true,"naamesjevuemie.no":true,"xn--nmesjevuemie-tcba.no":true,"laakesvuemie.no":true,"nannestad.no":true,"narvik.no":true,"narviika.no":true,"naustdal.no":true,"nedre-eiker.no":true,"nes.akershus.no":true,"nes.buskerud.no":true,"nesna.no":true,"nesodden.no":true,"nesseby.no":true,"unjarga.no":true,"xn--unjrga-rta.no":true,"nesset.no":true,"nissedal.no":true,"nittedal.no":true,"nord-aurdal.no":true,"nord-fron.no":true,"nord-odal.no":true,"norddal.no":true,"nordkapp.no":true,"davvenjarga.no":true,"xn--davvenjrga-y4a.no":true,"nordre-land.no":true,"nordreisa.no":true,"raisa.no":true,"xn--risa-5na.no":true,"nore-og-uvdal.no":true,"notodden.no":true,"naroy.no":true,"xn--nry-yla5g.no":true,"notteroy.no":true,"xn--nttery-byae.no":true,"odda.no":true,"oksnes.no":true,"xn--ksnes-uua.no":true,"oppdal.no":true,"oppegard.no":true,"xn--oppegrd-ixa.no":true,"orkdal.no":true,"orland.no":true,"xn--rland-uua.no":true,"orskog.no":true,"xn--rskog-uua.no":true,"orsta.no":true,"xn--rsta-fra.no":true,"os.hedmark.no":true,"os.hordaland.no":true,"osen.no":true,"osteroy.no":true,"xn--ostery-fya.no":true,"ostre-toten.no":true,"xn--stre-toten-zcb.no":true,"overhalla.no":true,"ovre-eiker.no":true,"xn--vre-eiker-k8a.no":true,"oyer.no":true,"xn--yer-zna.no":true,"oygarden.no":true,"xn--ygarden-p1a.no":true,"oystre-slidre.no":true,"xn--ystre-slidre-ujb.no":true,"porsanger.no":true,"porsangu.no":true,"xn--porsgu-sta26f.no":true,"porsgrunn.no":true,"radoy.no":true,"xn--rady-ira.no":true,"rakkestad.no":true,"rana.no":true,"ruovat.no":true,"randaberg.no":true,"rauma.no":true,"rendalen.no":true,"rennebu.no":true,"rennesoy.no":true,"xn--rennesy-v1a.no":true,"rindal.no":true,"ringebu.no":true,"ringerike.no":true,"ringsaker.no":true,"rissa.no":true,"risor.no":true,"xn--risr-ira.no":true,"roan.no":true,"rollag.no":true,"rygge.no":true,"ralingen.no":true,"xn--rlingen-mxa.no":true,"rodoy.no":true,"xn--rdy-0nab.no":true,"romskog.no":true,"xn--rmskog-bya.no":true,"roros.no":true,"xn--rros-gra.no":true,"rost.no":true,"xn--rst-0na.no":true,"royken.no":true,"xn--ryken-vua.no":true,"royrvik.no":true,"xn--ryrvik-bya.no":true,"rade.no":true,"xn--rde-ula.no":true,"salangen.no":true,"siellak.no":true,"saltdal.no":true,"salat.no":true,"xn--slt-elab.no":true,"xn--slat-5na.no":true,"samnanger.no":true,"sande.more-og-romsdal.no":true,"sande.xn--mre-og-romsdal-qqb.no":true,"sande.vestfold.no":true,"sandefjord.no":true,"sandnes.no":true,"sandoy.no":true,"xn--sandy-yua.no":true,"sarpsborg.no":true,"sauda.no":true,"sauherad.no":true,"sel.no":true,"selbu.no":true,"selje.no":true,"seljord.no":true,"sigdal.no":true,"siljan.no":true,"sirdal.no":true,"skaun.no":true,"skedsmo.no":true,"ski.no":true,"skien.no":true,"skiptvet.no":true,"skjervoy.no":true,"xn--skjervy-v1a.no":true,"skierva.no":true,"xn--skierv-uta.no":true,"skjak.no":true,"xn--skjk-soa.no":true,"skodje.no":true,"skanland.no":true,"xn--sknland-fxa.no":true,"skanit.no":true,"xn--sknit-yqa.no":true,"smola.no":true,"xn--smla-hra.no":true,"snillfjord.no":true,"snasa.no":true,"xn--snsa-roa.no":true,"snoasa.no":true,"snaase.no":true,"xn--snase-nra.no":true,"sogndal.no":true,"sokndal.no":true,"sola.no":true,"solund.no":true,"songdalen.no":true,"sortland.no":true,"spydeberg.no":true,"stange.no":true,"stavanger.no":true,"steigen.no":true,"steinkjer.no":true,"stjordal.no":true,"xn--stjrdal-s1a.no":true,"stokke.no":true,"stor-elvdal.no":true,"stord.no":true,"stordal.no":true,"storfjord.no":true,"omasvuotna.no":true,"strand.no":true,"stranda.no":true,"stryn.no":true,"sula.no":true,"suldal.no":true,"sund.no":true,"sunndal.no":true,"surnadal.no":true,"sveio.no":true,"svelvik.no":true,"sykkylven.no":true,"sogne.no":true,"xn--sgne-gra.no":true,"somna.no":true,"xn--smna-gra.no":true,"sondre-land.no":true,"xn--sndre-land-0cb.no":true,"sor-aurdal.no":true,"xn--sr-aurdal-l8a.no":true,"sor-fron.no":true,"xn--sr-fron-q1a.no":true,"sor-odal.no":true,"xn--sr-odal-q1a.no":true,"sor-varanger.no":true,"xn--sr-varanger-ggb.no":true,"matta-varjjat.no":true,"xn--mtta-vrjjat-k7af.no":true,"sorfold.no":true,"xn--srfold-bya.no":true,"sorreisa.no":true,"xn--srreisa-q1a.no":true,"sorum.no":true,"xn--srum-gra.no":true,"tana.no":true,"deatnu.no":true,"time.no":true,"tingvoll.no":true,"tinn.no":true,"tjeldsund.no":true,"dielddanuorri.no":true,"tjome.no":true,"xn--tjme-hra.no":true,"tokke.no":true,"tolga.no":true,"torsken.no":true,"tranoy.no":true,"xn--trany-yua.no":true,"tromso.no":true,"xn--troms-zua.no":true,"tromsa.no":true,"romsa.no":true,"trondheim.no":true,"troandin.no":true,"trysil.no":true,"trana.no":true,"xn--trna-woa.no":true,"trogstad.no":true,"xn--trgstad-r1a.no":true,"tvedestrand.no":true,"tydal.no":true,"tynset.no":true,"tysfjord.no":true,"divtasvuodna.no":true,"divttasvuotna.no":true,"tysnes.no":true,"tysvar.no":true,"xn--tysvr-vra.no":true,"tonsberg.no":true,"xn--tnsberg-q1a.no":true,"ullensaker.no":true,"ullensvang.no":true,"ulvik.no":true,"utsira.no":true,"vadso.no":true,"xn--vads-jra.no":true,"cahcesuolo.no":true,"xn--hcesuolo-7ya35b.no":true,"vaksdal.no":true,"valle.no":true,"vang.no":true,"vanylven.no":true,"vardo.no":true,"xn--vard-jra.no":true,"varggat.no":true,"xn--vrggt-xqad.no":true,"vefsn.no":true,"vaapste.no":true,"vega.no":true,"vegarshei.no":true,"xn--vegrshei-c0a.no":true,"vennesla.no":true,"verdal.no":true,"verran.no":true,"vestby.no":true,"vestnes.no":true,"vestre-slidre.no":true,"vestre-toten.no":true,"vestvagoy.no":true,"xn--vestvgy-ixa6o.no":true,"vevelstad.no":true,"vik.no":true,"vikna.no":true,"vindafjord.no":true,"volda.no":true,"voss.no":true,"varoy.no":true,"xn--vry-yla5g.no":true,"vagan.no":true,"xn--vgan-qoa.no":true,"voagat.no":true,"vagsoy.no":true,"xn--vgsy-qoa0j.no":true,"vaga.no":true,"xn--vg-yiab.no":true,"valer.ostfold.no":true,"xn--vler-qoa.xn--stfold-9xa.no":true,"valer.hedmark.no":true,"xn--vler-qoa.hedmark.no":true,"*.np":true,"nr":true,"biz.nr":true,"info.nr":true,"gov.nr":true,"edu.nr":true,"org.nr":true,"net.nr":true,"com.nr":true,"nu":true,"nz":true,"ac.nz":true,"co.nz":true,"cri.nz":true,"geek.nz":true,"gen.nz":true,"govt.nz":true,"health.nz":true,"iwi.nz":true,"kiwi.nz":true,"maori.nz":true,"mil.nz":true,"xn--mori-qsa.nz":true,"net.nz":true,"org.nz":true,"parliament.nz":true,"school.nz":true,"om":true,"co.om":true,"com.om":true,"edu.om":true,"gov.om":true,"med.om":true,"museum.om":true,"net.om":true,"org.om":true,"pro.om":true,"onion":true,"org":true,"pa":true,"ac.pa":true,"gob.pa":true,"com.pa":true,"org.pa":true,"sld.pa":true,"edu.pa":true,"net.pa":true,"ing.pa":true,"abo.pa":true,"med.pa":true,"nom.pa":true,"pe":true,"edu.pe":true,"gob.pe":true,"nom.pe":true,"mil.pe":true,"org.pe":true,"com.pe":true,"net.pe":true,"pf":true,"com.pf":true,"org.pf":true,"edu.pf":true,"*.pg":true,"ph":true,"com.ph":true,"net.ph":true,"org.ph":true,"gov.ph":true,"edu.ph":true,"ngo.ph":true,"mil.ph":true,"i.ph":true,"pk":true,"com.pk":true,"net.pk":true,"edu.pk":true,"org.pk":true,"fam.pk":true,"biz.pk":true,"web.pk":true,"gov.pk":true,"gob.pk":true,"gok.pk":true,"gon.pk":true,"gop.pk":true,"gos.pk":true,"info.pk":true,"pl":true,"com.pl":true,"net.pl":true,"org.pl":true,"aid.pl":true,"agro.pl":true,"atm.pl":true,"auto.pl":true,"biz.pl":true,"edu.pl":true,"gmina.pl":true,"gsm.pl":true,"info.pl":true,"mail.pl":true,"miasta.pl":true,"media.pl":true,"mil.pl":true,"nieruchomosci.pl":true,"nom.pl":true,"pc.pl":true,"powiat.pl":true,"priv.pl":true,"realestate.pl":true,"rel.pl":true,"sex.pl":true,"shop.pl":true,"sklep.pl":true,"sos.pl":true,"szkola.pl":true,"targi.pl":true,"tm.pl":true,"tourism.pl":true,"travel.pl":true,"turystyka.pl":true,"gov.pl":true,"ap.gov.pl":true,"ic.gov.pl":true,"is.gov.pl":true,"us.gov.pl":true,"kmpsp.gov.pl":true,"kppsp.gov.pl":true,"kwpsp.gov.pl":true,"psp.gov.pl":true,"wskr.gov.pl":true,"kwp.gov.pl":true,"mw.gov.pl":true,"ug.gov.pl":true,"um.gov.pl":true,"umig.gov.pl":true,"ugim.gov.pl":true,"upow.gov.pl":true,"uw.gov.pl":true,"starostwo.gov.pl":true,"pa.gov.pl":true,"po.gov.pl":true,"psse.gov.pl":true,"pup.gov.pl":true,"rzgw.gov.pl":true,"sa.gov.pl":true,"so.gov.pl":true,"sr.gov.pl":true,"wsa.gov.pl":true,"sko.gov.pl":true,"uzs.gov.pl":true,"wiih.gov.pl":true,"winb.gov.pl":true,"pinb.gov.pl":true,"wios.gov.pl":true,"witd.gov.pl":true,"wzmiuw.gov.pl":true,"piw.gov.pl":true,"wiw.gov.pl":true,"griw.gov.pl":true,"wif.gov.pl":true,"oum.gov.pl":true,"sdn.gov.pl":true,"zp.gov.pl":true,"uppo.gov.pl":true,"mup.gov.pl":true,"wuoz.gov.pl":true,"konsulat.gov.pl":true,"oirm.gov.pl":true,"augustow.pl":true,"babia-gora.pl":true,"bedzin.pl":true,"beskidy.pl":true,"bialowieza.pl":true,"bialystok.pl":true,"bielawa.pl":true,"bieszczady.pl":true,"boleslawiec.pl":true,"bydgoszcz.pl":true,"bytom.pl":true,"cieszyn.pl":true,"czeladz.pl":true,"czest.pl":true,"dlugoleka.pl":true,"elblag.pl":true,"elk.pl":true,"glogow.pl":true,"gniezno.pl":true,"gorlice.pl":true,"grajewo.pl":true,"ilawa.pl":true,"jaworzno.pl":true,"jelenia-gora.pl":true,"jgora.pl":true,"kalisz.pl":true,"kazimierz-dolny.pl":true,"karpacz.pl":true,"kartuzy.pl":true,"kaszuby.pl":true,"katowice.pl":true,"kepno.pl":true,"ketrzyn.pl":true,"klodzko.pl":true,"kobierzyce.pl":true,"kolobrzeg.pl":true,"konin.pl":true,"konskowola.pl":true,"kutno.pl":true,"lapy.pl":true,"lebork.pl":true,"legnica.pl":true,"lezajsk.pl":true,"limanowa.pl":true,"lomza.pl":true,"lowicz.pl":true,"lubin.pl":true,"lukow.pl":true,"malbork.pl":true,"malopolska.pl":true,"mazowsze.pl":true,"mazury.pl":true,"mielec.pl":true,"mielno.pl":true,"mragowo.pl":true,"naklo.pl":true,"nowaruda.pl":true,"nysa.pl":true,"olawa.pl":true,"olecko.pl":true,"olkusz.pl":true,"olsztyn.pl":true,"opoczno.pl":true,"opole.pl":true,"ostroda.pl":true,"ostroleka.pl":true,"ostrowiec.pl":true,"ostrowwlkp.pl":true,"pila.pl":true,"pisz.pl":true,"podhale.pl":true,"podlasie.pl":true,"polkowice.pl":true,"pomorze.pl":true,"pomorskie.pl":true,"prochowice.pl":true,"pruszkow.pl":true,"przeworsk.pl":true,"pulawy.pl":true,"radom.pl":true,"rawa-maz.pl":true,"rybnik.pl":true,"rzeszow.pl":true,"sanok.pl":true,"sejny.pl":true,"slask.pl":true,"slupsk.pl":true,"sosnowiec.pl":true,"stalowa-wola.pl":true,"skoczow.pl":true,"starachowice.pl":true,"stargard.pl":true,"suwalki.pl":true,"swidnica.pl":true,"swiebodzin.pl":true,"swinoujscie.pl":true,"szczecin.pl":true,"szczytno.pl":true,"tarnobrzeg.pl":true,"tgory.pl":true,"turek.pl":true,"tychy.pl":true,"ustka.pl":true,"walbrzych.pl":true,"warmia.pl":true,"warszawa.pl":true,"waw.pl":true,"wegrow.pl":true,"wielun.pl":true,"wlocl.pl":true,"wloclawek.pl":true,"wodzislaw.pl":true,"wolomin.pl":true,"wroclaw.pl":true,"zachpomor.pl":true,"zagan.pl":true,"zarow.pl":true,"zgora.pl":true,"zgorzelec.pl":true,"pm":true,"pn":true,"gov.pn":true,"co.pn":true,"org.pn":true,"edu.pn":true,"net.pn":true,"post":true,"pr":true,"com.pr":true,"net.pr":true,"org.pr":true,"gov.pr":true,"edu.pr":true,"isla.pr":true,"pro.pr":true,"biz.pr":true,"info.pr":true,"name.pr":true,"est.pr":true,"prof.pr":true,"ac.pr":true,"pro":true,"aaa.pro":true,"aca.pro":true,"acct.pro":true,"avocat.pro":true,"bar.pro":true,"cpa.pro":true,"eng.pro":true,"jur.pro":true,"law.pro":true,"med.pro":true,"recht.pro":true,"ps":true,"edu.ps":true,"gov.ps":true,"sec.ps":true,"plo.ps":true,"com.ps":true,"org.ps":true,"net.ps":true,"pt":true,"net.pt":true,"gov.pt":true,"org.pt":true,"edu.pt":true,"int.pt":true,"publ.pt":true,"com.pt":true,"nome.pt":true,"pw":true,"co.pw":true,"ne.pw":true,"or.pw":true,"ed.pw":true,"go.pw":true,"belau.pw":true,"py":true,"com.py":true,"coop.py":true,"edu.py":true,"gov.py":true,"mil.py":true,"net.py":true,"org.py":true,"qa":true,"com.qa":true,"edu.qa":true,"gov.qa":true,"mil.qa":true,"name.qa":true,"net.qa":true,"org.qa":true,"sch.qa":true,"re":true,"asso.re":true,"com.re":true,"nom.re":true,"ro":true,"arts.ro":true,"com.ro":true,"firm.ro":true,"info.ro":true,"nom.ro":true,"nt.ro":true,"org.ro":true,"rec.ro":true,"store.ro":true,"tm.ro":true,"www.ro":true,"rs":true,"ac.rs":true,"co.rs":true,"edu.rs":true,"gov.rs":true,"in.rs":true,"org.rs":true,"ru":true,"ac.ru":true,"edu.ru":true,"gov.ru":true,"int.ru":true,"mil.ru":true,"test.ru":true,"rw":true,"gov.rw":true,"net.rw":true,"edu.rw":true,"ac.rw":true,"com.rw":true,"co.rw":true,"int.rw":true,"mil.rw":true,"gouv.rw":true,"sa":true,"com.sa":true,"net.sa":true,"org.sa":true,"gov.sa":true,"med.sa":true,"pub.sa":true,"edu.sa":true,"sch.sa":true,"sb":true,"com.sb":true,"edu.sb":true,"gov.sb":true,"net.sb":true,"org.sb":true,"sc":true,"com.sc":true,"gov.sc":true,"net.sc":true,"org.sc":true,"edu.sc":true,"sd":true,"com.sd":true,"net.sd":true,"org.sd":true,"edu.sd":true,"med.sd":true,"tv.sd":true,"gov.sd":true,"info.sd":true,"se":true,"a.se":true,"ac.se":true,"b.se":true,"bd.se":true,"brand.se":true,"c.se":true,"d.se":true,"e.se":true,"f.se":true,"fh.se":true,"fhsk.se":true,"fhv.se":true,"g.se":true,"h.se":true,"i.se":true,"k.se":true,"komforb.se":true,"kommunalforbund.se":true,"komvux.se":true,"l.se":true,"lanbib.se":true,"m.se":true,"n.se":true,"naturbruksgymn.se":true,"o.se":true,"org.se":true,"p.se":true,"parti.se":true,"pp.se":true,"press.se":true,"r.se":true,"s.se":true,"t.se":true,"tm.se":true,"u.se":true,"w.se":true,"x.se":true,"y.se":true,"z.se":true,"sg":true,"com.sg":true,"net.sg":true,"org.sg":true,"gov.sg":true,"edu.sg":true,"per.sg":true,"sh":true,"com.sh":true,"net.sh":true,"gov.sh":true,"org.sh":true,"mil.sh":true,"si":true,"sj":true,"sk":true,"sl":true,"com.sl":true,"net.sl":true,"edu.sl":true,"gov.sl":true,"org.sl":true,"sm":true,"sn":true,"art.sn":true,"com.sn":true,"edu.sn":true,"gouv.sn":true,"org.sn":true,"perso.sn":true,"univ.sn":true,"so":true,"com.so":true,"net.so":true,"org.so":true,"sr":true,"st":true,"co.st":true,"com.st":true,"consulado.st":true,"edu.st":true,"embaixada.st":true,"gov.st":true,"mil.st":true,"net.st":true,"org.st":true,"principe.st":true,"saotome.st":true,"store.st":true,"su":true,"sv":true,"com.sv":true,"edu.sv":true,"gob.sv":true,"org.sv":true,"red.sv":true,"sx":true,"gov.sx":true,"sy":true,"edu.sy":true,"gov.sy":true,"net.sy":true,"mil.sy":true,"com.sy":true,"org.sy":true,"sz":true,"co.sz":true,"ac.sz":true,"org.sz":true,"tc":true,"td":true,"tel":true,"tf":true,"tg":true,"th":true,"ac.th":true,"co.th":true,"go.th":true,"in.th":true,"mi.th":true,"net.th":true,"or.th":true,"tj":true,"ac.tj":true,"biz.tj":true,"co.tj":true,"com.tj":true,"edu.tj":true,"go.tj":true,"gov.tj":true,"int.tj":true,"mil.tj":true,"name.tj":true,"net.tj":true,"nic.tj":true,"org.tj":true,"test.tj":true,"web.tj":true,"tk":true,"tl":true,"gov.tl":true,"tm":true,"com.tm":true,"co.tm":true,"org.tm":true,"net.tm":true,"nom.tm":true,"gov.tm":true,"mil.tm":true,"edu.tm":true,"tn":true,"com.tn":true,"ens.tn":true,"fin.tn":true,"gov.tn":true,"ind.tn":true,"intl.tn":true,"nat.tn":true,"net.tn":true,"org.tn":true,"info.tn":true,"perso.tn":true,"tourism.tn":true,"edunet.tn":true,"rnrt.tn":true,"rns.tn":true,"rnu.tn":true,"mincom.tn":true,"agrinet.tn":true,"defense.tn":true,"turen.tn":true,"to":true,"com.to":true,"gov.to":true,"net.to":true,"org.to":true,"edu.to":true,"mil.to":true,"tr":true,"com.tr":true,"info.tr":true,"biz.tr":true,"net.tr":true,"org.tr":true,"web.tr":true,"gen.tr":true,"tv.tr":true,"av.tr":true,"dr.tr":true,"bbs.tr":true,"name.tr":true,"tel.tr":true,"gov.tr":true,"bel.tr":true,"pol.tr":true,"mil.tr":true,"k12.tr":true,"edu.tr":true,"kep.tr":true,"nc.tr":true,"gov.nc.tr":true,"travel":true,"tt":true,"co.tt":true,"com.tt":true,"org.tt":true,"net.tt":true,"biz.tt":true,"info.tt":true,"pro.tt":true,"int.tt":true,"coop.tt":true,"jobs.tt":true,"mobi.tt":true,"travel.tt":true,"museum.tt":true,"aero.tt":true,"name.tt":true,"gov.tt":true,"edu.tt":true,"tv":true,"tw":true,"edu.tw":true,"gov.tw":true,"mil.tw":true,"com.tw":true,"net.tw":true,"org.tw":true,"idv.tw":true,"game.tw":true,"ebiz.tw":true,"club.tw":true,"xn--zf0ao64a.tw":true,"xn--uc0atv.tw":true,"xn--czrw28b.tw":true,"tz":true,"ac.tz":true,"co.tz":true,"go.tz":true,"hotel.tz":true,"info.tz":true,"me.tz":true,"mil.tz":true,"mobi.tz":true,"ne.tz":true,"or.tz":true,"sc.tz":true,"tv.tz":true,"ua":true,"com.ua":true,"edu.ua":true,"gov.ua":true,"in.ua":true,"net.ua":true,"org.ua":true,"cherkassy.ua":true,"cherkasy.ua":true,"chernigov.ua":true,"chernihiv.ua":true,"chernivtsi.ua":true,"chernovtsy.ua":true,"ck.ua":true,"cn.ua":true,"cr.ua":true,"crimea.ua":true,"cv.ua":true,"dn.ua":true,"dnepropetrovsk.ua":true,"dnipropetrovsk.ua":true,"dominic.ua":true,"donetsk.ua":true,"dp.ua":true,"if.ua":true,"ivano-frankivsk.ua":true,"kh.ua":true,"kharkiv.ua":true,"kharkov.ua":true,"kherson.ua":true,"khmelnitskiy.ua":true,"khmelnytskyi.ua":true,"kiev.ua":true,"kirovograd.ua":true,"km.ua":true,"kr.ua":true,"krym.ua":true,"ks.ua":true,"kv.ua":true,"kyiv.ua":true,"lg.ua":true,"lt.ua":true,"lugansk.ua":true,"lutsk.ua":true,"lv.ua":true,"lviv.ua":true,"mk.ua":true,"mykolaiv.ua":true,"nikolaev.ua":true,"od.ua":true,"odesa.ua":true,"odessa.ua":true,"pl.ua":true,"poltava.ua":true,"rivne.ua":true,"rovno.ua":true,"rv.ua":true,"sb.ua":true,"sebastopol.ua":true,"sevastopol.ua":true,"sm.ua":true,"sumy.ua":true,"te.ua":true,"ternopil.ua":true,"uz.ua":true,"uzhgorod.ua":true,"vinnica.ua":true,"vinnytsia.ua":true,"vn.ua":true,"volyn.ua":true,"yalta.ua":true,"zaporizhzhe.ua":true,"zaporizhzhia.ua":true,"zhitomir.ua":true,"zhytomyr.ua":true,"zp.ua":true,"zt.ua":true,"ug":true,"co.ug":true,"or.ug":true,"ac.ug":true,"sc.ug":true,"go.ug":true,"ne.ug":true,"com.ug":true,"org.ug":true,"uk":true,"ac.uk":true,"co.uk":true,"gov.uk":true,"ltd.uk":true,"me.uk":true,"net.uk":true,"nhs.uk":true,"org.uk":true,"plc.uk":true,"police.uk":true,"*.sch.uk":true,"us":true,"dni.us":true,"fed.us":true,"isa.us":true,"kids.us":true,"nsn.us":true,"ak.us":true,"al.us":true,"ar.us":true,"as.us":true,"az.us":true,"ca.us":true,"co.us":true,"ct.us":true,"dc.us":true,"de.us":true,"fl.us":true,"ga.us":true,"gu.us":true,"hi.us":true,"ia.us":true,"id.us":true,"il.us":true,"in.us":true,"ks.us":true,"ky.us":true,"la.us":true,"ma.us":true,"md.us":true,"me.us":true,"mi.us":true,"mn.us":true,"mo.us":true,"ms.us":true,"mt.us":true,"nc.us":true,"nd.us":true,"ne.us":true,"nh.us":true,"nj.us":true,"nm.us":true,"nv.us":true,"ny.us":true,"oh.us":true,"ok.us":true,"or.us":true,"pa.us":true,"pr.us":true,"ri.us":true,"sc.us":true,"sd.us":true,"tn.us":true,"tx.us":true,"ut.us":true,"vi.us":true,"vt.us":true,"va.us":true,"wa.us":true,"wi.us":true,"wv.us":true,"wy.us":true,"k12.ak.us":true,"k12.al.us":true,"k12.ar.us":true,"k12.as.us":true,"k12.az.us":true,"k12.ca.us":true,"k12.co.us":true,"k12.ct.us":true,"k12.dc.us":true,"k12.de.us":true,"k12.fl.us":true,"k12.ga.us":true,"k12.gu.us":true,"k12.ia.us":true,"k12.id.us":true,"k12.il.us":true,"k12.in.us":true,"k12.ks.us":true,"k12.ky.us":true,"k12.la.us":true,"k12.ma.us":true,"k12.md.us":true,"k12.me.us":true,"k12.mi.us":true,"k12.mn.us":true,"k12.mo.us":true,"k12.ms.us":true,"k12.mt.us":true,"k12.nc.us":true,"k12.ne.us":true,"k12.nh.us":true,"k12.nj.us":true,"k12.nm.us":true,"k12.nv.us":true,"k12.ny.us":true,"k12.oh.us":true,"k12.ok.us":true,"k12.or.us":true,"k12.pa.us":true,"k12.pr.us":true,"k12.ri.us":true,"k12.sc.us":true,"k12.tn.us":true,"k12.tx.us":true,"k12.ut.us":true,"k12.vi.us":true,"k12.vt.us":true,"k12.va.us":true,"k12.wa.us":true,"k12.wi.us":true,"k12.wy.us":true,"cc.ak.us":true,"cc.al.us":true,"cc.ar.us":true,"cc.as.us":true,"cc.az.us":true,"cc.ca.us":true,"cc.co.us":true,"cc.ct.us":true,"cc.dc.us":true,"cc.de.us":true,"cc.fl.us":true,"cc.ga.us":true,"cc.gu.us":true,"cc.hi.us":true,"cc.ia.us":true,"cc.id.us":true,"cc.il.us":true,"cc.in.us":true,"cc.ks.us":true,"cc.ky.us":true,"cc.la.us":true,"cc.ma.us":true,"cc.md.us":true,"cc.me.us":true,"cc.mi.us":true,"cc.mn.us":true,"cc.mo.us":true,"cc.ms.us":true,"cc.mt.us":true,"cc.nc.us":true,"cc.nd.us":true,"cc.ne.us":true,"cc.nh.us":true,"cc.nj.us":true,"cc.nm.us":true,"cc.nv.us":true,"cc.ny.us":true,"cc.oh.us":true,"cc.ok.us":true,"cc.or.us":true,"cc.pa.us":true,"cc.pr.us":true,"cc.ri.us":true,"cc.sc.us":true,"cc.sd.us":true,"cc.tn.us":true,"cc.tx.us":true,"cc.ut.us":true,"cc.vi.us":true,"cc.vt.us":true,"cc.va.us":true,"cc.wa.us":true,"cc.wi.us":true,"cc.wv.us":true,"cc.wy.us":true,"lib.ak.us":true,"lib.al.us":true,"lib.ar.us":true,"lib.as.us":true,"lib.az.us":true,"lib.ca.us":true,"lib.co.us":true,"lib.ct.us":true,"lib.dc.us":true,"lib.fl.us":true,"lib.ga.us":true,"lib.gu.us":true,"lib.hi.us":true,"lib.ia.us":true,"lib.id.us":true,"lib.il.us":true,"lib.in.us":true,"lib.ks.us":true,"lib.ky.us":true,"lib.la.us":true,"lib.ma.us":true,"lib.md.us":true,"lib.me.us":true,"lib.mi.us":true,"lib.mn.us":true,"lib.mo.us":true,"lib.ms.us":true,"lib.mt.us":true,"lib.nc.us":true,"lib.nd.us":true,"lib.ne.us":true,"lib.nh.us":true,"lib.nj.us":true,"lib.nm.us":true,"lib.nv.us":true,"lib.ny.us":true,"lib.oh.us":true,"lib.ok.us":true,"lib.or.us":true,"lib.pa.us":true,"lib.pr.us":true,"lib.ri.us":true,"lib.sc.us":true,"lib.sd.us":true,"lib.tn.us":true,"lib.tx.us":true,"lib.ut.us":true,"lib.vi.us":true,"lib.vt.us":true,"lib.va.us":true,"lib.wa.us":true,"lib.wi.us":true,"lib.wy.us":true,"pvt.k12.ma.us":true,"chtr.k12.ma.us":true,"paroch.k12.ma.us":true,"ann-arbor.mi.us":true,"cog.mi.us":true,"dst.mi.us":true,"eaton.mi.us":true,"gen.mi.us":true,"mus.mi.us":true,"tec.mi.us":true,"washtenaw.mi.us":true,"uy":true,"com.uy":true,"edu.uy":true,"gub.uy":true,"mil.uy":true,"net.uy":true,"org.uy":true,"uz":true,"co.uz":true,"com.uz":true,"net.uz":true,"org.uz":true,"va":true,"vc":true,"com.vc":true,"net.vc":true,"org.vc":true,"gov.vc":true,"mil.vc":true,"edu.vc":true,"ve":true,"arts.ve":true,"co.ve":true,"com.ve":true,"e12.ve":true,"edu.ve":true,"firm.ve":true,"gob.ve":true,"gov.ve":true,"info.ve":true,"int.ve":true,"mil.ve":true,"net.ve":true,"org.ve":true,"rec.ve":true,"store.ve":true,"tec.ve":true,"web.ve":true,"vg":true,"vi":true,"co.vi":true,"com.vi":true,"k12.vi":true,"net.vi":true,"org.vi":true,"vn":true,"com.vn":true,"net.vn":true,"org.vn":true,"edu.vn":true,"gov.vn":true,"int.vn":true,"ac.vn":true,"biz.vn":true,"info.vn":true,"name.vn":true,"pro.vn":true,"health.vn":true,"vu":true,"com.vu":true,"edu.vu":true,"net.vu":true,"org.vu":true,"wf":true,"ws":true,"com.ws":true,"net.ws":true,"org.ws":true,"gov.ws":true,"edu.ws":true,"yt":true,"xn--mgbaam7a8h":true,"xn--y9a3aq":true,"xn--54b7fta0cc":true,"xn--90ae":true,"xn--90ais":true,"xn--fiqs8s":true,"xn--fiqz9s":true,"xn--lgbbat1ad8j":true,"xn--wgbh1c":true,"xn--e1a4c":true,"xn--node":true,"xn--qxam":true,"xn--j6w193g":true,"xn--2scrj9c":true,"xn--3hcrj9c":true,"xn--45br5cyl":true,"xn--h2breg3eve":true,"xn--h2brj9c8c":true,"xn--mgbgu82a":true,"xn--rvc1e0am3e":true,"xn--h2brj9c":true,"xn--mgbbh1a71e":true,"xn--fpcrj9c3d":true,"xn--gecrj9c":true,"xn--s9brj9c":true,"xn--45brj9c":true,"xn--xkc2dl3a5ee0h":true,"xn--mgba3a4f16a":true,"xn--mgba3a4fra":true,"xn--mgbtx2b":true,"xn--mgbayh7gpa":true,"xn--3e0b707e":true,"xn--80ao21a":true,"xn--fzc2c9e2c":true,"xn--xkc2al3hye2a":true,"xn--mgbc0a9azcg":true,"xn--d1alf":true,"xn--l1acc":true,"xn--mix891f":true,"xn--mix082f":true,"xn--mgbx4cd0ab":true,"xn--mgb9awbf":true,"xn--mgbai9azgqp6j":true,"xn--mgbai9a5eva00b":true,"xn--ygbi2ammx":true,"xn--90a3ac":true,"xn--o1ac.xn--90a3ac":true,"xn--c1avg.xn--90a3ac":true,"xn--90azh.xn--90a3ac":true,"xn--d1at.xn--90a3ac":true,"xn--o1ach.xn--90a3ac":true,"xn--80au.xn--90a3ac":true,"xn--p1ai":true,"xn--wgbl6a":true,"xn--mgberp4a5d4ar":true,"xn--mgberp4a5d4a87g":true,"xn--mgbqly7c0a67fbc":true,"xn--mgbqly7cvafr":true,"xn--mgbpl2fh":true,"xn--yfro4i67o":true,"xn--clchc0ea0b2g2a9gcd":true,"xn--ogbpf8fl":true,"xn--mgbtf8fl":true,"xn--o3cw4h":true,"xn--12c1fe0br.xn--o3cw4h":true,"xn--12co0c3b4eva.xn--o3cw4h":true,"xn--h3cuzk1di.xn--o3cw4h":true,"xn--o3cyx2a.xn--o3cw4h":true,"xn--m3ch0j3a.xn--o3cw4h":true,"xn--12cfi8ixb8l.xn--o3cw4h":true,"xn--pgbs0dh":true,"xn--kpry57d":true,"xn--kprw13d":true,"xn--nnx388a":true,"xn--j1amh":true,"xn--mgb2ddes":true,"xxx":true,"*.ye":true,"ac.za":true,"agric.za":true,"alt.za":true,"co.za":true,"edu.za":true,"gov.za":true,"grondar.za":true,"law.za":true,"mil.za":true,"net.za":true,"ngo.za":true,"nis.za":true,"nom.za":true,"org.za":true,"school.za":true,"tm.za":true,"web.za":true,"zm":true,"ac.zm":true,"biz.zm":true,"co.zm":true,"com.zm":true,"edu.zm":true,"gov.zm":true,"info.zm":true,"mil.zm":true,"net.zm":true,"org.zm":true,"sch.zm":true,"zw":true,"ac.zw":true,"co.zw":true,"gov.zw":true,"mil.zw":true,"org.zw":true,"aaa":true,"aarp":true,"abarth":true,"abb":true,"abbott":true,"abbvie":true,"abc":true,"able":true,"abogado":true,"abudhabi":true,"academy":true,"accenture":true,"accountant":true,"accountants":true,"aco":true,"active":true,"actor":true,"adac":true,"ads":true,"adult":true,"aeg":true,"aetna":true,"afamilycompany":true,"afl":true,"africa":true,"agakhan":true,"agency":true,"aig":true,"aigo":true,"airbus":true,"airforce":true,"airtel":true,"akdn":true,"alfaromeo":true,"alibaba":true,"alipay":true,"allfinanz":true,"allstate":true,"ally":true,"alsace":true,"alstom":true,"americanexpress":true,"americanfamily":true,"amex":true,"amfam":true,"amica":true,"amsterdam":true,"analytics":true,"android":true,"anquan":true,"anz":true,"aol":true,"apartments":true,"app":true,"apple":true,"aquarelle":true,"arab":true,"aramco":true,"archi":true,"army":true,"art":true,"arte":true,"asda":true,"associates":true,"athleta":true,"attorney":true,"auction":true,"audi":true,"audible":true,"audio":true,"auspost":true,"author":true,"auto":true,"autos":true,"avianca":true,"aws":true,"axa":true,"azure":true,"baby":true,"baidu":true,"banamex":true,"bananarepublic":true,"band":true,"bank":true,"bar":true,"barcelona":true,"barclaycard":true,"barclays":true,"barefoot":true,"bargains":true,"baseball":true,"basketball":true,"bauhaus":true,"bayern":true,"bbc":true,"bbt":true,"bbva":true,"bcg":true,"bcn":true,"beats":true,"beauty":true,"beer":true,"bentley":true,"berlin":true,"best":true,"bestbuy":true,"bet":true,"bharti":true,"bible":true,"bid":true,"bike":true,"bing":true,"bingo":true,"bio":true,"black":true,"blackfriday":true,"blanco":true,"blockbuster":true,"blog":true,"bloomberg":true,"blue":true,"bms":true,"bmw":true,"bnl":true,"bnpparibas":true,"boats":true,"boehringer":true,"bofa":true,"bom":true,"bond":true,"boo":true,"book":true,"booking":true,"boots":true,"bosch":true,"bostik":true,"boston":true,"bot":true,"boutique":true,"box":true,"bradesco":true,"bridgestone":true,"broadway":true,"broker":true,"brother":true,"brussels":true,"budapest":true,"bugatti":true,"build":true,"builders":true,"business":true,"buy":true,"buzz":true,"bzh":true,"cab":true,"cafe":true,"cal":true,"call":true,"calvinklein":true,"cam":true,"camera":true,"camp":true,"cancerresearch":true,"canon":true,"capetown":true,"capital":true,"capitalone":true,"car":true,"caravan":true,"cards":true,"care":true,"career":true,"careers":true,"cars":true,"cartier":true,"casa":true,"case":true,"caseih":true,"cash":true,"casino":true,"catering":true,"catholic":true,"cba":true,"cbn":true,"cbre":true,"cbs":true,"ceb":true,"center":true,"ceo":true,"cern":true,"cfa":true,"cfd":true,"chanel":true,"channel":true,"chase":true,"chat":true,"cheap":true,"chintai":true,"christmas":true,"chrome":true,"chrysler":true,"church":true,"cipriani":true,"circle":true,"cisco":true,"citadel":true,"citi":true,"citic":true,"city":true,"cityeats":true,"claims":true,"cleaning":true,"click":true,"clinic":true,"clinique":true,"clothing":true,"cloud":true,"club":true,"clubmed":true,"coach":true,"codes":true,"coffee":true,"college":true,"cologne":true,"comcast":true,"commbank":true,"community":true,"company":true,"compare":true,"computer":true,"comsec":true,"condos":true,"construction":true,"consulting":true,"contact":true,"contractors":true,"cooking":true,"cookingchannel":true,"cool":true,"corsica":true,"country":true,"coupon":true,"coupons":true,"courses":true,"credit":true,"creditcard":true,"creditunion":true,"cricket":true,"crown":true,"crs":true,"cruise":true,"cruises":true,"csc":true,"cuisinella":true,"cymru":true,"cyou":true,"dabur":true,"dad":true,"dance":true,"data":true,"date":true,"dating":true,"datsun":true,"day":true,"dclk":true,"dds":true,"deal":true,"dealer":true,"deals":true,"degree":true,"delivery":true,"dell":true,"deloitte":true,"delta":true,"democrat":true,"dental":true,"dentist":true,"desi":true,"design":true,"dev":true,"dhl":true,"diamonds":true,"diet":true,"digital":true,"direct":true,"directory":true,"discount":true,"discover":true,"dish":true,"diy":true,"dnp":true,"docs":true,"doctor":true,"dodge":true,"dog":true,"doha":true,"domains":true,"dot":true,"download":true,"drive":true,"dtv":true,"dubai":true,"duck":true,"dunlop":true,"duns":true,"dupont":true,"durban":true,"dvag":true,"dvr":true,"earth":true,"eat":true,"eco":true,"edeka":true,"education":true,"email":true,"emerck":true,"energy":true,"engineer":true,"engineering":true,"enterprises":true,"epost":true,"epson":true,"equipment":true,"ericsson":true,"erni":true,"esq":true,"estate":true,"esurance":true,"etisalat":true,"eurovision":true,"eus":true,"events":true,"everbank":true,"exchange":true,"expert":true,"exposed":true,"express":true,"extraspace":true,"fage":true,"fail":true,"fairwinds":true,"faith":true,"family":true,"fan":true,"fans":true,"farm":true,"farmers":true,"fashion":true,"fast":true,"fedex":true,"feedback":true,"ferrari":true,"ferrero":true,"fiat":true,"fidelity":true,"fido":true,"film":true,"final":true,"finance":true,"financial":true,"fire":true,"firestone":true,"firmdale":true,"fish":true,"fishing":true,"fit":true,"fitness":true,"flickr":true,"flights":true,"flir":true,"florist":true,"flowers":true,"fly":true,"foo":true,"food":true,"foodnetwork":true,"football":true,"ford":true,"forex":true,"forsale":true,"forum":true,"foundation":true,"fox":true,"free":true,"fresenius":true,"frl":true,"frogans":true,"frontdoor":true,"frontier":true,"ftr":true,"fujitsu":true,"fujixerox":true,"fun":true,"fund":true,"furniture":true,"futbol":true,"fyi":true,"gal":true,"gallery":true,"gallo":true,"gallup":true,"game":true,"games":true,"gap":true,"garden":true,"gbiz":true,"gdn":true,"gea":true,"gent":true,"genting":true,"george":true,"ggee":true,"gift":true,"gifts":true,"gives":true,"giving":true,"glade":true,"glass":true,"gle":true,"global":true,"globo":true,"gmail":true,"gmbh":true,"gmo":true,"gmx":true,"godaddy":true,"gold":true,"goldpoint":true,"golf":true,"goo":true,"goodhands":true,"goodyear":true,"goog":true,"google":true,"gop":true,"got":true,"grainger":true,"graphics":true,"gratis":true,"green":true,"gripe":true,"grocery":true,"group":true,"guardian":true,"gucci":true,"guge":true,"guide":true,"guitars":true,"guru":true,"hair":true,"hamburg":true,"hangout":true,"haus":true,"hbo":true,"hdfc":true,"hdfcbank":true,"health":true,"healthcare":true,"help":true,"helsinki":true,"here":true,"hermes":true,"hgtv":true,"hiphop":true,"hisamitsu":true,"hitachi":true,"hiv":true,"hkt":true,"hockey":true,"holdings":true,"holiday":true,"homedepot":true,"homegoods":true,"homes":true,"homesense":true,"honda":true,"honeywell":true,"horse":true,"hospital":true,"host":true,"hosting":true,"hot":true,"hoteles":true,"hotels":true,"hotmail":true,"house":true,"how":true,"hsbc":true,"hughes":true,"hyatt":true,"hyundai":true,"ibm":true,"icbc":true,"ice":true,"icu":true,"ieee":true,"ifm":true,"ikano":true,"imamat":true,"imdb":true,"immo":true,"immobilien":true,"industries":true,"infiniti":true,"ing":true,"ink":true,"institute":true,"insurance":true,"insure":true,"intel":true,"international":true,"intuit":true,"investments":true,"ipiranga":true,"irish":true,"iselect":true,"ismaili":true,"ist":true,"istanbul":true,"itau":true,"itv":true,"iveco":true,"iwc":true,"jaguar":true,"java":true,"jcb":true,"jcp":true,"jeep":true,"jetzt":true,"jewelry":true,"jio":true,"jlc":true,"jll":true,"jmp":true,"jnj":true,"joburg":true,"jot":true,"joy":true,"jpmorgan":true,"jprs":true,"juegos":true,"juniper":true,"kaufen":true,"kddi":true,"kerryhotels":true,"kerrylogistics":true,"kerryproperties":true,"kfh":true,"kia":true,"kim":true,"kinder":true,"kindle":true,"kitchen":true,"kiwi":true,"koeln":true,"komatsu":true,"kosher":true,"kpmg":true,"kpn":true,"krd":true,"kred":true,"kuokgroup":true,"kyoto":true,"lacaixa":true,"ladbrokes":true,"lamborghini":true,"lamer":true,"lancaster":true,"lancia":true,"lancome":true,"land":true,"landrover":true,"lanxess":true,"lasalle":true,"lat":true,"latino":true,"latrobe":true,"law":true,"lawyer":true,"lds":true,"lease":true,"leclerc":true,"lefrak":true,"legal":true,"lego":true,"lexus":true,"lgbt":true,"liaison":true,"lidl":true,"life":true,"lifeinsurance":true,"lifestyle":true,"lighting":true,"like":true,"lilly":true,"limited":true,"limo":true,"lincoln":true,"linde":true,"link":true,"lipsy":true,"live":true,"living":true,"lixil":true,"loan":true,"loans":true,"locker":true,"locus":true,"loft":true,"lol":true,"london":true,"lotte":true,"lotto":true,"love":true,"lpl":true,"lplfinancial":true,"ltd":true,"ltda":true,"lundbeck":true,"lupin":true,"luxe":true,"luxury":true,"macys":true,"madrid":true,"maif":true,"maison":true,"makeup":true,"man":true,"management":true,"mango":true,"map":true,"market":true,"marketing":true,"markets":true,"marriott":true,"marshalls":true,"maserati":true,"mattel":true,"mba":true,"mckinsey":true,"med":true,"media":true,"meet":true,"melbourne":true,"meme":true,"memorial":true,"men":true,"menu":true,"meo":true,"merckmsd":true,"metlife":true,"miami":true,"microsoft":true,"mini":true,"mint":true,"mit":true,"mitsubishi":true,"mlb":true,"mls":true,"mma":true,"mobile":true,"mobily":true,"moda":true,"moe":true,"moi":true,"mom":true,"monash":true,"money":true,"monster":true,"mopar":true,"mormon":true,"mortgage":true,"moscow":true,"moto":true,"motorcycles":true,"mov":true,"movie":true,"movistar":true,"msd":true,"mtn":true,"mtpc":true,"mtr":true,"mutual":true,"nab":true,"nadex":true,"nagoya":true,"nationwide":true,"natura":true,"navy":true,"nba":true,"nec":true,"netbank":true,"netflix":true,"network":true,"neustar":true,"new":true,"newholland":true,"news":true,"next":true,"nextdirect":true,"nexus":true,"nfl":true,"ngo":true,"nhk":true,"nico":true,"nike":true,"nikon":true,"ninja":true,"nissan":true,"nissay":true,"nokia":true,"northwesternmutual":true,"norton":true,"now":true,"nowruz":true,"nowtv":true,"nra":true,"nrw":true,"ntt":true,"nyc":true,"obi":true,"observer":true,"off":true,"office":true,"okinawa":true,"olayan":true,"olayangroup":true,"oldnavy":true,"ollo":true,"omega":true,"one":true,"ong":true,"onl":true,"online":true,"onyourside":true,"ooo":true,"open":true,"oracle":true,"orange":true,"organic":true,"origins":true,"osaka":true,"otsuka":true,"ott":true,"ovh":true,"page":true,"panasonic":true,"panerai":true,"paris":true,"pars":true,"partners":true,"parts":true,"party":true,"passagens":true,"pay":true,"pccw":true,"pet":true,"pfizer":true,"pharmacy":true,"phd":true,"philips":true,"phone":true,"photo":true,"photography":true,"photos":true,"physio":true,"piaget":true,"pics":true,"pictet":true,"pictures":true,"pid":true,"pin":true,"ping":true,"pink":true,"pioneer":true,"pizza":true,"place":true,"play":true,"playstation":true,"plumbing":true,"plus":true,"pnc":true,"pohl":true,"poker":true,"politie":true,"porn":true,"pramerica":true,"praxi":true,"press":true,"prime":true,"prod":true,"productions":true,"prof":true,"progressive":true,"promo":true,"properties":true,"property":true,"protection":true,"pru":true,"prudential":true,"pub":true,"pwc":true,"qpon":true,"quebec":true,"quest":true,"qvc":true,"racing":true,"radio":true,"raid":true,"read":true,"realestate":true,"realtor":true,"realty":true,"recipes":true,"red":true,"redstone":true,"redumbrella":true,"rehab":true,"reise":true,"reisen":true,"reit":true,"reliance":true,"ren":true,"rent":true,"rentals":true,"repair":true,"report":true,"republican":true,"rest":true,"restaurant":true,"review":true,"reviews":true,"rexroth":true,"rich":true,"richardli":true,"ricoh":true,"rightathome":true,"ril":true,"rio":true,"rip":true,"rmit":true,"rocher":true,"rocks":true,"rodeo":true,"rogers":true,"room":true,"rsvp":true,"rugby":true,"ruhr":true,"run":true,"rwe":true,"ryukyu":true,"saarland":true,"safe":true,"safety":true,"sakura":true,"sale":true,"salon":true,"samsclub":true,"samsung":true,"sandvik":true,"sandvikcoromant":true,"sanofi":true,"sap":true,"sapo":true,"sarl":true,"sas":true,"save":true,"saxo":true,"sbi":true,"sbs":true,"sca":true,"scb":true,"schaeffler":true,"schmidt":true,"scholarships":true,"school":true,"schule":true,"schwarz":true,"science":true,"scjohnson":true,"scor":true,"scot":true,"search":true,"seat":true,"secure":true,"security":true,"seek":true,"select":true,"sener":true,"services":true,"ses":true,"seven":true,"sew":true,"sex":true,"sexy":true,"sfr":true,"shangrila":true,"sharp":true,"shaw":true,"shell":true,"shia":true,"shiksha":true,"shoes":true,"shop":true,"shopping":true,"shouji":true,"show":true,"showtime":true,"shriram":true,"silk":true,"sina":true,"singles":true,"site":true,"ski":true,"skin":true,"sky":true,"skype":true,"sling":true,"smart":true,"smile":true,"sncf":true,"soccer":true,"social":true,"softbank":true,"software":true,"sohu":true,"solar":true,"solutions":true,"song":true,"sony":true,"soy":true,"space":true,"spiegel":true,"spot":true,"spreadbetting":true,"srl":true,"srt":true,"stada":true,"staples":true,"star":true,"starhub":true,"statebank":true,"statefarm":true,"statoil":true,"stc":true,"stcgroup":true,"stockholm":true,"storage":true,"store":true,"stream":true,"studio":true,"study":true,"style":true,"sucks":true,"supplies":true,"supply":true,"support":true,"surf":true,"surgery":true,"suzuki":true,"swatch":true,"swiftcover":true,"swiss":true,"sydney":true,"symantec":true,"systems":true,"tab":true,"taipei":true,"talk":true,"taobao":true,"target":true,"tatamotors":true,"tatar":true,"tattoo":true,"tax":true,"taxi":true,"tci":true,"tdk":true,"team":true,"tech":true,"technology":true,"telecity":true,"telefonica":true,"temasek":true,"tennis":true,"teva":true,"thd":true,"theater":true,"theatre":true,"tiaa":true,"tickets":true,"tienda":true,"tiffany":true,"tips":true,"tires":true,"tirol":true,"tjmaxx":true,"tjx":true,"tkmaxx":true,"tmall":true,"today":true,"tokyo":true,"tools":true,"top":true,"toray":true,"toshiba":true,"total":true,"tours":true,"town":true,"toyota":true,"toys":true,"trade":true,"trading":true,"training":true,"travelchannel":true,"travelers":true,"travelersinsurance":true,"trust":true,"trv":true,"tube":true,"tui":true,"tunes":true,"tushu":true,"tvs":true,"ubank":true,"ubs":true,"uconnect":true,"unicom":true,"university":true,"uno":true,"uol":true,"ups":true,"vacations":true,"vana":true,"vanguard":true,"vegas":true,"ventures":true,"verisign":true,"versicherung":true,"vet":true,"viajes":true,"video":true,"vig":true,"viking":true,"villas":true,"vin":true,"vip":true,"virgin":true,"visa":true,"vision":true,"vista":true,"vistaprint":true,"viva":true,"vivo":true,"vlaanderen":true,"vodka":true,"volkswagen":true,"volvo":true,"vote":true,"voting":true,"voto":true,"voyage":true,"vuelos":true,"wales":true,"walmart":true,"walter":true,"wang":true,"wanggou":true,"warman":true,"watch":true,"watches":true,"weather":true,"weatherchannel":true,"webcam":true,"weber":true,"website":true,"wed":true,"wedding":true,"weibo":true,"weir":true,"whoswho":true,"wien":true,"wiki":true,"williamhill":true,"win":true,"windows":true,"wine":true,"winners":true,"wme":true,"wolterskluwer":true,"woodside":true,"work":true,"works":true,"world":true,"wow":true,"wtc":true,"wtf":true,"xbox":true,"xerox":true,"xfinity":true,"xihuan":true,"xin":true,"xn--11b4c3d":true,"xn--1ck2e1b":true,"xn--1qqw23a":true,"xn--30rr7y":true,"xn--3bst00m":true,"xn--3ds443g":true,"xn--3oq18vl8pn36a":true,"xn--3pxu8k":true,"xn--42c2d9a":true,"xn--45q11c":true,"xn--4gbrim":true,"xn--55qw42g":true,"xn--55qx5d":true,"xn--5su34j936bgsg":true,"xn--5tzm5g":true,"xn--6frz82g":true,"xn--6qq986b3xl":true,"xn--80adxhks":true,"xn--80aqecdr1a":true,"xn--80asehdb":true,"xn--80aswg":true,"xn--8y0a063a":true,"xn--9dbq2a":true,"xn--9et52u":true,"xn--9krt00a":true,"xn--b4w605ferd":true,"xn--bck1b9a5dre4c":true,"xn--c1avg":true,"xn--c2br7g":true,"xn--cck2b3b":true,"xn--cg4bki":true,"xn--czr694b":true,"xn--czrs0t":true,"xn--czru2d":true,"xn--d1acj3b":true,"xn--eckvdtc9d":true,"xn--efvy88h":true,"xn--estv75g":true,"xn--fct429k":true,"xn--fhbei":true,"xn--fiq228c5hs":true,"xn--fiq64b":true,"xn--fjq720a":true,"xn--flw351e":true,"xn--fzys8d69uvgm":true,"xn--g2xx48c":true,"xn--gckr3f0f":true,"xn--gk3at1e":true,"xn--hxt814e":true,"xn--i1b6b1a6a2e":true,"xn--imr513n":true,"xn--io0a7i":true,"xn--j1aef":true,"xn--jlq61u9w7b":true,"xn--jvr189m":true,"xn--kcrx77d1x4a":true,"xn--kpu716f":true,"xn--kput3i":true,"xn--mgba3a3ejt":true,"xn--mgba7c0bbn0a":true,"xn--mgbaakc7dvf":true,"xn--mgbab2bd":true,"xn--mgbb9fbpob":true,"xn--mgbca7dzdo":true,"xn--mgbi4ecexp":true,"xn--mgbt3dhd":true,"xn--mk1bu44c":true,"xn--mxtq1m":true,"xn--ngbc5azd":true,"xn--ngbe9e0a":true,"xn--ngbrx":true,"xn--nqv7f":true,"xn--nqv7fs00ema":true,"xn--nyqy26a":true,"xn--p1acf":true,"xn--pbt977c":true,"xn--pssy2u":true,"xn--q9jyb4c":true,"xn--qcka1pmc":true,"xn--rhqv96g":true,"xn--rovu88b":true,"xn--ses554g":true,"xn--t60b56a":true,"xn--tckwe":true,"xn--tiq49xqyj":true,"xn--unup4y":true,"xn--vermgensberater-ctb":true,"xn--vermgensberatung-pwb":true,"xn--vhquv":true,"xn--vuq861b":true,"xn--w4r85el8fhu5dnra":true,"xn--w4rs40l":true,"xn--xhq521b":true,"xn--zfr164b":true,"xperia":true,"xyz":true,"yachts":true,"yahoo":true,"yamaxun":true,"yandex":true,"yodobashi":true,"yoga":true,"yokohama":true,"you":true,"youtube":true,"yun":true,"zappos":true,"zara":true,"zero":true,"zip":true,"zippo":true,"zone":true,"zuerich":true,"cc.ua":true,"inf.ua":true,"ltd.ua":true,"1password.ca":true,"1password.com":true,"1password.eu":true,"beep.pl":true,"*.compute.estate":true,"*.alces.network":true,"alwaysdata.net":true,"cloudfront.net":true,"*.compute.amazonaws.com":true,"*.compute-1.amazonaws.com":true,"*.compute.amazonaws.com.cn":true,"us-east-1.amazonaws.com":true,"cn-north-1.eb.amazonaws.com.cn":true,"elasticbeanstalk.com":true,"ap-northeast-1.elasticbeanstalk.com":true,"ap-northeast-2.elasticbeanstalk.com":true,"ap-south-1.elasticbeanstalk.com":true,"ap-southeast-1.elasticbeanstalk.com":true,"ap-southeast-2.elasticbeanstalk.com":true,"ca-central-1.elasticbeanstalk.com":true,"eu-central-1.elasticbeanstalk.com":true,"eu-west-1.elasticbeanstalk.com":true,"eu-west-2.elasticbeanstalk.com":true,"eu-west-3.elasticbeanstalk.com":true,"sa-east-1.elasticbeanstalk.com":true,"us-east-1.elasticbeanstalk.com":true,"us-east-2.elasticbeanstalk.com":true,"us-gov-west-1.elasticbeanstalk.com":true,"us-west-1.elasticbeanstalk.com":true,"us-west-2.elasticbeanstalk.com":true,"*.elb.amazonaws.com":true,"*.elb.amazonaws.com.cn":true,"s3.amazonaws.com":true,"s3-ap-northeast-1.amazonaws.com":true,"s3-ap-northeast-2.amazonaws.com":true,"s3-ap-south-1.amazonaws.com":true,"s3-ap-southeast-1.amazonaws.com":true,"s3-ap-southeast-2.amazonaws.com":true,"s3-ca-central-1.amazonaws.com":true,"s3-eu-central-1.amazonaws.com":true,"s3-eu-west-1.amazonaws.com":true,"s3-eu-west-2.amazonaws.com":true,"s3-eu-west-3.amazonaws.com":true,"s3-external-1.amazonaws.com":true,"s3-fips-us-gov-west-1.amazonaws.com":true,"s3-sa-east-1.amazonaws.com":true,"s3-us-gov-west-1.amazonaws.com":true,"s3-us-east-2.amazonaws.com":true,"s3-us-west-1.amazonaws.com":true,"s3-us-west-2.amazonaws.com":true,"s3.ap-northeast-2.amazonaws.com":true,"s3.ap-south-1.amazonaws.com":true,"s3.cn-north-1.amazonaws.com.cn":true,"s3.ca-central-1.amazonaws.com":true,"s3.eu-central-1.amazonaws.com":true,"s3.eu-west-2.amazonaws.com":true,"s3.eu-west-3.amazonaws.com":true,"s3.us-east-2.amazonaws.com":true,"s3.dualstack.ap-northeast-1.amazonaws.com":true,"s3.dualstack.ap-northeast-2.amazonaws.com":true,"s3.dualstack.ap-south-1.amazonaws.com":true,"s3.dualstack.ap-southeast-1.amazonaws.com":true,"s3.dualstack.ap-southeast-2.amazonaws.com":true,"s3.dualstack.ca-central-1.amazonaws.com":true,"s3.dualstack.eu-central-1.amazonaws.com":true,"s3.dualstack.eu-west-1.amazonaws.com":true,"s3.dualstack.eu-west-2.amazonaws.com":true,"s3.dualstack.eu-west-3.amazonaws.com":true,"s3.dualstack.sa-east-1.amazonaws.com":true,"s3.dualstack.us-east-1.amazonaws.com":true,"s3.dualstack.us-east-2.amazonaws.com":true,"s3-website-us-east-1.amazonaws.com":true,"s3-website-us-west-1.amazonaws.com":true,"s3-website-us-west-2.amazonaws.com":true,"s3-website-ap-northeast-1.amazonaws.com":true,"s3-website-ap-southeast-1.amazonaws.com":true,"s3-website-ap-southeast-2.amazonaws.com":true,"s3-website-eu-west-1.amazonaws.com":true,"s3-website-sa-east-1.amazonaws.com":true,"s3-website.ap-northeast-2.amazonaws.com":true,"s3-website.ap-south-1.amazonaws.com":true,"s3-website.ca-central-1.amazonaws.com":true,"s3-website.eu-central-1.amazonaws.com":true,"s3-website.eu-west-2.amazonaws.com":true,"s3-website.eu-west-3.amazonaws.com":true,"s3-website.us-east-2.amazonaws.com":true,"t3l3p0rt.net":true,"tele.amune.org":true,"on-aptible.com":true,"user.party.eus":true,"pimienta.org":true,"poivron.org":true,"potager.org":true,"sweetpepper.org":true,"myasustor.com":true,"myfritz.net":true,"*.awdev.ca":true,"*.advisor.ws":true,"backplaneapp.io":true,"betainabox.com":true,"bnr.la":true,"boomla.net":true,"boxfuse.io":true,"square7.ch":true,"bplaced.com":true,"bplaced.de":true,"square7.de":true,"bplaced.net":true,"square7.net":true,"browsersafetymark.io":true,"mycd.eu":true,"ae.org":true,"ar.com":true,"br.com":true,"cn.com":true,"com.de":true,"com.se":true,"de.com":true,"eu.com":true,"gb.com":true,"gb.net":true,"hu.com":true,"hu.net":true,"jp.net":true,"jpn.com":true,"kr.com":true,"mex.com":true,"no.com":true,"qc.com":true,"ru.com":true,"sa.com":true,"se.com":true,"se.net":true,"uk.com":true,"uk.net":true,"us.com":true,"uy.com":true,"za.bz":true,"za.com":true,"africa.com":true,"gr.com":true,"in.net":true,"us.org":true,"co.com":true,"c.la":true,"certmgr.org":true,"xenapponazure.com":true,"virtueeldomein.nl":true,"c66.me":true,"cloud66.ws":true,"jdevcloud.com":true,"wpdevcloud.com":true,"cloudaccess.host":true,"freesite.host":true,"cloudaccess.net":true,"cloudcontrolled.com":true,"cloudcontrolapp.com":true,"co.ca":true,"co.cz":true,"c.cdn77.org":true,"cdn77-ssl.net":true,"r.cdn77.net":true,"rsc.cdn77.org":true,"ssl.origin.cdn77-secure.org":true,"cloudns.asia":true,"cloudns.biz":true,"cloudns.club":true,"cloudns.cc":true,"cloudns.eu":true,"cloudns.in":true,"cloudns.info":true,"cloudns.org":true,"cloudns.pro":true,"cloudns.pw":true,"cloudns.us":true,"co.nl":true,"co.no":true,"webhosting.be":true,"hosting-cluster.nl":true,"dyn.cosidns.de":true,"dynamisches-dns.de":true,"dnsupdater.de":true,"internet-dns.de":true,"l-o-g-i-n.de":true,"dynamic-dns.info":true,"feste-ip.net":true,"knx-server.net":true,"static-access.net":true,"realm.cz":true,"*.cryptonomic.net":true,"cupcake.is":true,"cyon.link":true,"cyon.site":true,"daplie.me":true,"localhost.daplie.me":true,"biz.dk":true,"co.dk":true,"firm.dk":true,"reg.dk":true,"store.dk":true,"debian.net":true,"dedyn.io":true,"dnshome.de":true,"drayddns.com":true,"dreamhosters.com":true,"mydrobo.com":true,"drud.io":true,"drud.us":true,"duckdns.org":true,"dy.fi":true,"tunk.org":true,"dyndns-at-home.com":true,"dyndns-at-work.com":true,"dyndns-blog.com":true,"dyndns-free.com":true,"dyndns-home.com":true,"dyndns-ip.com":true,"dyndns-mail.com":true,"dyndns-office.com":true,"dyndns-pics.com":true,"dyndns-remote.com":true,"dyndns-server.com":true,"dyndns-web.com":true,"dyndns-wiki.com":true,"dyndns-work.com":true,"dyndns.biz":true,"dyndns.info":true,"dyndns.org":true,"dyndns.tv":true,"at-band-camp.net":true,"ath.cx":true,"barrel-of-knowledge.info":true,"barrell-of-knowledge.info":true,"better-than.tv":true,"blogdns.com":true,"blogdns.net":true,"blogdns.org":true,"blogsite.org":true,"boldlygoingnowhere.org":true,"broke-it.net":true,"buyshouses.net":true,"cechire.com":true,"dnsalias.com":true,"dnsalias.net":true,"dnsalias.org":true,"dnsdojo.com":true,"dnsdojo.net":true,"dnsdojo.org":true,"does-it.net":true,"doesntexist.com":true,"doesntexist.org":true,"dontexist.com":true,"dontexist.net":true,"dontexist.org":true,"doomdns.com":true,"doomdns.org":true,"dvrdns.org":true,"dyn-o-saur.com":true,"dynalias.com":true,"dynalias.net":true,"dynalias.org":true,"dynathome.net":true,"dyndns.ws":true,"endofinternet.net":true,"endofinternet.org":true,"endoftheinternet.org":true,"est-a-la-maison.com":true,"est-a-la-masion.com":true,"est-le-patron.com":true,"est-mon-blogueur.com":true,"for-better.biz":true,"for-more.biz":true,"for-our.info":true,"for-some.biz":true,"for-the.biz":true,"forgot.her.name":true,"forgot.his.name":true,"from-ak.com":true,"from-al.com":true,"from-ar.com":true,"from-az.net":true,"from-ca.com":true,"from-co.net":true,"from-ct.com":true,"from-dc.com":true,"from-de.com":true,"from-fl.com":true,"from-ga.com":true,"from-hi.com":true,"from-ia.com":true,"from-id.com":true,"from-il.com":true,"from-in.com":true,"from-ks.com":true,"from-ky.com":true,"from-la.net":true,"from-ma.com":true,"from-md.com":true,"from-me.org":true,"from-mi.com":true,"from-mn.com":true,"from-mo.com":true,"from-ms.com":true,"from-mt.com":true,"from-nc.com":true,"from-nd.com":true,"from-ne.com":true,"from-nh.com":true,"from-nj.com":true,"from-nm.com":true,"from-nv.com":true,"from-ny.net":true,"from-oh.com":true,"from-ok.com":true,"from-or.com":true,"from-pa.com":true,"from-pr.com":true,"from-ri.com":true,"from-sc.com":true,"from-sd.com":true,"from-tn.com":true,"from-tx.com":true,"from-ut.com":true,"from-va.com":true,"from-vt.com":true,"from-wa.com":true,"from-wi.com":true,"from-wv.com":true,"from-wy.com":true,"ftpaccess.cc":true,"fuettertdasnetz.de":true,"game-host.org":true,"game-server.cc":true,"getmyip.com":true,"gets-it.net":true,"go.dyndns.org":true,"gotdns.com":true,"gotdns.org":true,"groks-the.info":true,"groks-this.info":true,"ham-radio-op.net":true,"here-for-more.info":true,"hobby-site.com":true,"hobby-site.org":true,"home.dyndns.org":true,"homedns.org":true,"homeftp.net":true,"homeftp.org":true,"homeip.net":true,"homelinux.com":true,"homelinux.net":true,"homelinux.org":true,"homeunix.com":true,"homeunix.net":true,"homeunix.org":true,"iamallama.com":true,"in-the-band.net":true,"is-a-anarchist.com":true,"is-a-blogger.com":true,"is-a-bookkeeper.com":true,"is-a-bruinsfan.org":true,"is-a-bulls-fan.com":true,"is-a-candidate.org":true,"is-a-caterer.com":true,"is-a-celticsfan.org":true,"is-a-chef.com":true,"is-a-chef.net":true,"is-a-chef.org":true,"is-a-conservative.com":true,"is-a-cpa.com":true,"is-a-cubicle-slave.com":true,"is-a-democrat.com":true,"is-a-designer.com":true,"is-a-doctor.com":true,"is-a-financialadvisor.com":true,"is-a-geek.com":true,"is-a-geek.net":true,"is-a-geek.org":true,"is-a-green.com":true,"is-a-guru.com":true,"is-a-hard-worker.com":true,"is-a-hunter.com":true,"is-a-knight.org":true,"is-a-landscaper.com":true,"is-a-lawyer.com":true,"is-a-liberal.com":true,"is-a-libertarian.com":true,"is-a-linux-user.org":true,"is-a-llama.com":true,"is-a-musician.com":true,"is-a-nascarfan.com":true,"is-a-nurse.com":true,"is-a-painter.com":true,"is-a-patsfan.org":true,"is-a-personaltrainer.com":true,"is-a-photographer.com":true,"is-a-player.com":true,"is-a-republican.com":true,"is-a-rockstar.com":true,"is-a-socialist.com":true,"is-a-soxfan.org":true,"is-a-student.com":true,"is-a-teacher.com":true,"is-a-techie.com":true,"is-a-therapist.com":true,"is-an-accountant.com":true,"is-an-actor.com":true,"is-an-actress.com":true,"is-an-anarchist.com":true,"is-an-artist.com":true,"is-an-engineer.com":true,"is-an-entertainer.com":true,"is-by.us":true,"is-certified.com":true,"is-found.org":true,"is-gone.com":true,"is-into-anime.com":true,"is-into-cars.com":true,"is-into-cartoons.com":true,"is-into-games.com":true,"is-leet.com":true,"is-lost.org":true,"is-not-certified.com":true,"is-saved.org":true,"is-slick.com":true,"is-uberleet.com":true,"is-very-bad.org":true,"is-very-evil.org":true,"is-very-good.org":true,"is-very-nice.org":true,"is-very-sweet.org":true,"is-with-theband.com":true,"isa-geek.com":true,"isa-geek.net":true,"isa-geek.org":true,"isa-hockeynut.com":true,"issmarterthanyou.com":true,"isteingeek.de":true,"istmein.de":true,"kicks-ass.net":true,"kicks-ass.org":true,"knowsitall.info":true,"land-4-sale.us":true,"lebtimnetz.de":true,"leitungsen.de":true,"likes-pie.com":true,"likescandy.com":true,"merseine.nu":true,"mine.nu":true,"misconfused.org":true,"mypets.ws":true,"myphotos.cc":true,"neat-url.com":true,"office-on-the.net":true,"on-the-web.tv":true,"podzone.net":true,"podzone.org":true,"readmyblog.org":true,"saves-the-whales.com":true,"scrapper-site.net":true,"scrapping.cc":true,"selfip.biz":true,"selfip.com":true,"selfip.info":true,"selfip.net":true,"selfip.org":true,"sells-for-less.com":true,"sells-for-u.com":true,"sells-it.net":true,"sellsyourhome.org":true,"servebbs.com":true,"servebbs.net":true,"servebbs.org":true,"serveftp.net":true,"serveftp.org":true,"servegame.org":true,"shacknet.nu":true,"simple-url.com":true,"space-to-rent.com":true,"stuff-4-sale.org":true,"stuff-4-sale.us":true,"teaches-yoga.com":true,"thruhere.net":true,"traeumtgerade.de":true,"webhop.biz":true,"webhop.info":true,"webhop.net":true,"webhop.org":true,"worse-than.tv":true,"writesthisblog.com":true,"ddnss.de":true,"dyn.ddnss.de":true,"dyndns.ddnss.de":true,"dyndns1.de":true,"dyn-ip24.de":true,"home-webserver.de":true,"dyn.home-webserver.de":true,"myhome-server.de":true,"ddnss.org":true,"definima.net":true,"definima.io":true,"ddnsfree.com":true,"ddnsgeek.com":true,"giize.com":true,"gleeze.com":true,"kozow.com":true,"loseyourip.com":true,"ooguy.com":true,"theworkpc.com":true,"casacam.net":true,"dynu.net":true,"accesscam.org":true,"camdvr.org":true,"freeddns.org":true,"mywire.org":true,"webredirect.org":true,"myddns.rocks":true,"blogsite.xyz":true,"dynv6.net":true,"e4.cz":true,"mytuleap.com":true,"enonic.io":true,"customer.enonic.io":true,"eu.org":true,"al.eu.org":true,"asso.eu.org":true,"at.eu.org":true,"au.eu.org":true,"be.eu.org":true,"bg.eu.org":true,"ca.eu.org":true,"cd.eu.org":true,"ch.eu.org":true,"cn.eu.org":true,"cy.eu.org":true,"cz.eu.org":true,"de.eu.org":true,"dk.eu.org":true,"edu.eu.org":true,"ee.eu.org":true,"es.eu.org":true,"fi.eu.org":true,"fr.eu.org":true,"gr.eu.org":true,"hr.eu.org":true,"hu.eu.org":true,"ie.eu.org":true,"il.eu.org":true,"in.eu.org":true,"int.eu.org":true,"is.eu.org":true,"it.eu.org":true,"jp.eu.org":true,"kr.eu.org":true,"lt.eu.org":true,"lu.eu.org":true,"lv.eu.org":true,"mc.eu.org":true,"me.eu.org":true,"mk.eu.org":true,"mt.eu.org":true,"my.eu.org":true,"net.eu.org":true,"ng.eu.org":true,"nl.eu.org":true,"no.eu.org":true,"nz.eu.org":true,"paris.eu.org":true,"pl.eu.org":true,"pt.eu.org":true,"q-a.eu.org":true,"ro.eu.org":true,"ru.eu.org":true,"se.eu.org":true,"si.eu.org":true,"sk.eu.org":true,"tr.eu.org":true,"uk.eu.org":true,"us.eu.org":true,"eu-1.evennode.com":true,"eu-2.evennode.com":true,"eu-3.evennode.com":true,"eu-4.evennode.com":true,"us-1.evennode.com":true,"us-2.evennode.com":true,"us-3.evennode.com":true,"us-4.evennode.com":true,"twmail.cc":true,"twmail.net":true,"twmail.org":true,"mymailer.com.tw":true,"url.tw":true,"apps.fbsbx.com":true,"ru.net":true,"adygeya.ru":true,"bashkiria.ru":true,"bir.ru":true,"cbg.ru":true,"com.ru":true,"dagestan.ru":true,"grozny.ru":true,"kalmykia.ru":true,"kustanai.ru":true,"marine.ru":true,"mordovia.ru":true,"msk.ru":true,"mytis.ru":true,"nalchik.ru":true,"nov.ru":true,"pyatigorsk.ru":true,"spb.ru":true,"vladikavkaz.ru":true,"vladimir.ru":true,"abkhazia.su":true,"adygeya.su":true,"aktyubinsk.su":true,"arkhangelsk.su":true,"armenia.su":true,"ashgabad.su":true,"azerbaijan.su":true,"balashov.su":true,"bashkiria.su":true,"bryansk.su":true,"bukhara.su":true,"chimkent.su":true,"dagestan.su":true,"east-kazakhstan.su":true,"exnet.su":true,"georgia.su":true,"grozny.su":true,"ivanovo.su":true,"jambyl.su":true,"kalmykia.su":true,"kaluga.su":true,"karacol.su":true,"karaganda.su":true,"karelia.su":true,"khakassia.su":true,"krasnodar.su":true,"kurgan.su":true,"kustanai.su":true,"lenug.su":true,"mangyshlak.su":true,"mordovia.su":true,"msk.su":true,"murmansk.su":true,"nalchik.su":true,"navoi.su":true,"north-kazakhstan.su":true,"nov.su":true,"obninsk.su":true,"penza.su":true,"pokrovsk.su":true,"sochi.su":true,"spb.su":true,"tashkent.su":true,"termez.su":true,"togliatti.su":true,"troitsk.su":true,"tselinograd.su":true,"tula.su":true,"tuva.su":true,"vladikavkaz.su":true,"vladimir.su":true,"vologda.su":true,"channelsdvr.net":true,"fastlylb.net":true,"map.fastlylb.net":true,"freetls.fastly.net":true,"map.fastly.net":true,"a.prod.fastly.net":true,"global.prod.fastly.net":true,"a.ssl.fastly.net":true,"b.ssl.fastly.net":true,"global.ssl.fastly.net":true,"fhapp.xyz":true,"fedorainfracloud.org":true,"fedorapeople.org":true,"cloud.fedoraproject.org":true,"app.os.fedoraproject.org":true,"app.os.stg.fedoraproject.org":true,"filegear.me":true,"firebaseapp.com":true,"flynnhub.com":true,"flynnhosting.net":true,"freebox-os.com":true,"freeboxos.com":true,"fbx-os.fr":true,"fbxos.fr":true,"freebox-os.fr":true,"freeboxos.fr":true,"*.futurecms.at":true,"futurehosting.at":true,"futuremailing.at":true,"*.ex.ortsinfo.at":true,"*.kunden.ortsinfo.at":true,"*.statics.cloud":true,"service.gov.uk":true,"github.io":true,"githubusercontent.com":true,"gitlab.io":true,"homeoffice.gov.uk":true,"ro.im":true,"shop.ro":true,"goip.de":true,"*.0emm.com":true,"appspot.com":true,"blogspot.ae":true,"blogspot.al":true,"blogspot.am":true,"blogspot.ba":true,"blogspot.be":true,"blogspot.bg":true,"blogspot.bj":true,"blogspot.ca":true,"blogspot.cf":true,"blogspot.ch":true,"blogspot.cl":true,"blogspot.co.at":true,"blogspot.co.id":true,"blogspot.co.il":true,"blogspot.co.ke":true,"blogspot.co.nz":true,"blogspot.co.uk":true,"blogspot.co.za":true,"blogspot.com":true,"blogspot.com.ar":true,"blogspot.com.au":true,"blogspot.com.br":true,"blogspot.com.by":true,"blogspot.com.co":true,"blogspot.com.cy":true,"blogspot.com.ee":true,"blogspot.com.eg":true,"blogspot.com.es":true,"blogspot.com.mt":true,"blogspot.com.ng":true,"blogspot.com.tr":true,"blogspot.com.uy":true,"blogspot.cv":true,"blogspot.cz":true,"blogspot.de":true,"blogspot.dk":true,"blogspot.fi":true,"blogspot.fr":true,"blogspot.gr":true,"blogspot.hk":true,"blogspot.hr":true,"blogspot.hu":true,"blogspot.ie":true,"blogspot.in":true,"blogspot.is":true,"blogspot.it":true,"blogspot.jp":true,"blogspot.kr":true,"blogspot.li":true,"blogspot.lt":true,"blogspot.lu":true,"blogspot.md":true,"blogspot.mk":true,"blogspot.mr":true,"blogspot.mx":true,"blogspot.my":true,"blogspot.nl":true,"blogspot.no":true,"blogspot.pe":true,"blogspot.pt":true,"blogspot.qa":true,"blogspot.re":true,"blogspot.ro":true,"blogspot.rs":true,"blogspot.ru":true,"blogspot.se":true,"blogspot.sg":true,"blogspot.si":true,"blogspot.sk":true,"blogspot.sn":true,"blogspot.td":true,"blogspot.tw":true,"blogspot.ug":true,"blogspot.vn":true,"cloudfunctions.net":true,"cloud.goog":true,"codespot.com":true,"googleapis.com":true,"googlecode.com":true,"pagespeedmobilizer.com":true,"publishproxy.com":true,"withgoogle.com":true,"withyoutube.com":true,"hashbang.sh":true,"hasura-app.io":true,"hepforge.org":true,"herokuapp.com":true,"herokussl.com":true,"moonscale.net":true,"iki.fi":true,"biz.at":true,"info.at":true,"info.cx":true,"ac.leg.br":true,"al.leg.br":true,"am.leg.br":true,"ap.leg.br":true,"ba.leg.br":true,"ce.leg.br":true,"df.leg.br":true,"es.leg.br":true,"go.leg.br":true,"ma.leg.br":true,"mg.leg.br":true,"ms.leg.br":true,"mt.leg.br":true,"pa.leg.br":true,"pb.leg.br":true,"pe.leg.br":true,"pi.leg.br":true,"pr.leg.br":true,"rj.leg.br":true,"rn.leg.br":true,"ro.leg.br":true,"rr.leg.br":true,"rs.leg.br":true,"sc.leg.br":true,"se.leg.br":true,"sp.leg.br":true,"to.leg.br":true,"pixolino.com":true,"ipifony.net":true,"*.triton.zone":true,"*.cns.joyent.com":true,"js.org":true,"keymachine.de":true,"knightpoint.systems":true,"co.krd":true,"edu.krd":true,"git-repos.de":true,"lcube-server.de":true,"svn-repos.de":true,"linkyard.cloud":true,"linkyard-cloud.ch":true,"we.bs":true,"barsy.bg":true,"barsyonline.com":true,"barsy.de":true,"barsy.eu":true,"barsy.in":true,"barsy.net":true,"barsy.online":true,"barsy.support":true,"*.magentosite.cloud":true,"hb.cldmail.ru":true,"cloud.metacentrum.cz":true,"custom.metacentrum.cz":true,"meteorapp.com":true,"eu.meteorapp.com":true,"co.pl":true,"azurewebsites.net":true,"azure-mobile.net":true,"cloudapp.net":true,"mozilla-iot.org":true,"bmoattachments.org":true,"net.ru":true,"org.ru":true,"pp.ru":true,"bitballoon.com":true,"netlify.com":true,"4u.com":true,"ngrok.io":true,"nh-serv.co.uk":true,"nfshost.com":true,"nsupdate.info":true,"nerdpol.ovh":true,"blogsyte.com":true,"brasilia.me":true,"cable-modem.org":true,"ciscofreak.com":true,"collegefan.org":true,"couchpotatofries.org":true,"damnserver.com":true,"ddns.me":true,"ditchyourip.com":true,"dnsfor.me":true,"dnsiskinky.com":true,"dvrcam.info":true,"dynns.com":true,"eating-organic.net":true,"fantasyleague.cc":true,"geekgalaxy.com":true,"golffan.us":true,"health-carereform.com":true,"homesecuritymac.com":true,"homesecuritypc.com":true,"hopto.me":true,"ilovecollege.info":true,"loginto.me":true,"mlbfan.org":true,"mmafan.biz":true,"myactivedirectory.com":true,"mydissent.net":true,"myeffect.net":true,"mymediapc.net":true,"mypsx.net":true,"mysecuritycamera.com":true,"mysecuritycamera.net":true,"mysecuritycamera.org":true,"net-freaks.com":true,"nflfan.org":true,"nhlfan.net":true,"no-ip.ca":true,"no-ip.co.uk":true,"no-ip.net":true,"noip.us":true,"onthewifi.com":true,"pgafan.net":true,"point2this.com":true,"pointto.us":true,"privatizehealthinsurance.net":true,"quicksytes.com":true,"read-books.org":true,"securitytactics.com":true,"serveexchange.com":true,"servehumour.com":true,"servep2p.com":true,"servesarcasm.com":true,"stufftoread.com":true,"ufcfan.org":true,"unusualperson.com":true,"workisboring.com":true,"3utilities.com":true,"bounceme.net":true,"ddns.net":true,"ddnsking.com":true,"gotdns.ch":true,"hopto.org":true,"myftp.biz":true,"myftp.org":true,"myvnc.com":true,"no-ip.biz":true,"no-ip.info":true,"no-ip.org":true,"noip.me":true,"redirectme.net":true,"servebeer.com":true,"serveblog.net":true,"servecounterstrike.com":true,"serveftp.com":true,"servegame.com":true,"servehalflife.com":true,"servehttp.com":true,"serveirc.com":true,"serveminecraft.net":true,"servemp3.com":true,"servepics.com":true,"servequake.com":true,"sytes.net":true,"webhop.me":true,"zapto.org":true,"stage.nodeart.io":true,"nodum.co":true,"nodum.io":true,"nyc.mn":true,"nom.ae":true,"nom.ai":true,"nom.al":true,"nym.by":true,"nym.bz":true,"nom.cl":true,"nom.gd":true,"nom.gl":true,"nym.gr":true,"nom.gt":true,"nom.hn":true,"nom.im":true,"nym.kz":true,"nym.la":true,"nom.li":true,"nym.li":true,"nym.lt":true,"nym.lu":true,"nym.me":true,"nom.mk":true,"nym.mx":true,"nom.nu":true,"nym.nz":true,"nym.pe":true,"nym.pt":true,"nom.pw":true,"nom.qa":true,"nom.rs":true,"nom.si":true,"nym.sk":true,"nym.su":true,"nym.sx":true,"nym.tw":true,"nom.ug":true,"nom.uy":true,"nom.vc":true,"nom.vg":true,"cya.gg":true,"nid.io":true,"opencraft.hosting":true,"operaunite.com":true,"outsystemscloud.com":true,"ownprovider.com":true,"oy.lc":true,"pgfog.com":true,"pagefrontapp.com":true,"art.pl":true,"gliwice.pl":true,"krakow.pl":true,"poznan.pl":true,"wroc.pl":true,"zakopane.pl":true,"pantheonsite.io":true,"gotpantheon.com":true,"mypep.link":true,"on-web.fr":true,"*.platform.sh":true,"*.platformsh.site":true,"xen.prgmr.com":true,"priv.at":true,"protonet.io":true,"chirurgiens-dentistes-en-france.fr":true,"byen.site":true,"qa2.com":true,"dev-myqnapcloud.com":true,"alpha-myqnapcloud.com":true,"myqnapcloud.com":true,"*.quipelements.com":true,"vapor.cloud":true,"vaporcloud.io":true,"rackmaze.com":true,"rackmaze.net":true,"rhcloud.com":true,"resindevice.io":true,"devices.resinstaging.io":true,"hzc.io":true,"wellbeingzone.eu":true,"ptplus.fit":true,"wellbeingzone.co.uk":true,"sandcats.io":true,"logoip.de":true,"logoip.com":true,"schokokeks.net":true,"scrysec.com":true,"firewall-gateway.com":true,"firewall-gateway.de":true,"my-gateway.de":true,"my-router.de":true,"spdns.de":true,"spdns.eu":true,"firewall-gateway.net":true,"my-firewall.org":true,"myfirewall.org":true,"spdns.org":true,"*.s5y.io":true,"*.sensiosite.cloud":true,"biz.ua":true,"co.ua":true,"pp.ua":true,"shiftedit.io":true,"myshopblocks.com":true,"1kapp.com":true,"appchizi.com":true,"applinzi.com":true,"sinaapp.com":true,"vipsinaapp.com":true,"bounty-full.com":true,"alpha.bounty-full.com":true,"beta.bounty-full.com":true,"static.land":true,"dev.static.land":true,"sites.static.land":true,"apps.lair.io":true,"*.stolos.io":true,"spacekit.io":true,"stackspace.space":true,"storj.farm":true,"temp-dns.com":true,"diskstation.me":true,"dscloud.biz":true,"dscloud.me":true,"dscloud.mobi":true,"dsmynas.com":true,"dsmynas.net":true,"dsmynas.org":true,"familyds.com":true,"familyds.net":true,"familyds.org":true,"i234.me":true,"myds.me":true,"synology.me":true,"vpnplus.to":true,"taifun-dns.de":true,"gda.pl":true,"gdansk.pl":true,"gdynia.pl":true,"med.pl":true,"sopot.pl":true,"cust.dev.thingdust.io":true,"cust.disrec.thingdust.io":true,"cust.prod.thingdust.io":true,"cust.testing.thingdust.io":true,"bloxcms.com":true,"townnews-staging.com":true,"12hp.at":true,"2ix.at":true,"4lima.at":true,"lima-city.at":true,"12hp.ch":true,"2ix.ch":true,"4lima.ch":true,"lima-city.ch":true,"trafficplex.cloud":true,"de.cool":true,"12hp.de":true,"2ix.de":true,"4lima.de":true,"lima-city.de":true,"1337.pictures":true,"clan.rip":true,"lima-city.rocks":true,"webspace.rocks":true,"lima.zone":true,"*.transurl.be":true,"*.transurl.eu":true,"*.transurl.nl":true,"tuxfamily.org":true,"dd-dns.de":true,"diskstation.eu":true,"diskstation.org":true,"dray-dns.de":true,"draydns.de":true,"dyn-vpn.de":true,"dynvpn.de":true,"mein-vigor.de":true,"my-vigor.de":true,"my-wan.de":true,"syno-ds.de":true,"synology-diskstation.de":true,"synology-ds.de":true,"uber.space":true,"hk.com":true,"hk.org":true,"ltd.hk":true,"inc.hk":true,"lib.de.us":true,"2038.io":true,"router.management":true,"v-info.info":true,"wedeploy.io":true,"wedeploy.me":true,"wedeploy.sh":true,"remotewd.com":true,"wmflabs.org":true,"cistron.nl":true,"demon.nl":true,"xs4all.space":true,"official.academy":true,"yolasite.com":true,"ybo.faith":true,"yombo.me":true,"homelink.one":true,"ybo.party":true,"ybo.review":true,"ybo.science":true,"ybo.trade":true,"za.net":true,"za.org":true,"now.sh":true});
-
-// END of automatically generated file
-
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*!
- * Copyright (c) 2015, Salesforce.com, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of Salesforce.com nor the names of its contributors may
- * be used to endorse or promote products derived from this software without
- * specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-/*jshint unused:false */
-
-function Store() {
-}
-exports.Store = Store;
-
-// Stores may be synchronous, but are still required to use a
-// Continuation-Passing Style API.  The CookieJar itself will expose a "*Sync"
-// API that converts from synchronous-callbacks to imperative style.
-Store.prototype.synchronous = false;
-
-Store.prototype.findCookie = function(domain, path, key, cb) {
-  throw new Error('findCookie is not implemented');
-};
-
-Store.prototype.findCookies = function(domain, path, cb) {
-  throw new Error('findCookies is not implemented');
-};
-
-Store.prototype.putCookie = function(cookie, cb) {
-  throw new Error('putCookie is not implemented');
-};
-
-Store.prototype.updateCookie = function(oldCookie, newCookie, cb) {
-  // recommended default implementation:
-  // return this.putCookie(newCookie, cb);
-  throw new Error('updateCookie is not implemented');
-};
-
-Store.prototype.removeCookie = function(domain, path, key, cb) {
-  throw new Error('removeCookie is not implemented');
-};
-
-Store.prototype.removeCookies = function(domain, path, cb) {
-  throw new Error('removeCookies is not implemented');
-};
-
-Store.prototype.getAllCookies = function(cb) {
-  throw new Error('getAllCookies is not implemented (therefore jar cannot be serialized)');
-};
-
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports) {
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */
-var byteToHex = [];
-for (var i = 0; i < 256; ++i) {
-  byteToHex[i] = (i + 0x100).toString(16).substr(1);
-}
-
-function bytesToUuid(buf, offset) {
-  var i = offset || 0;
-  var bth = byteToHex;
-  return bth[buf[i++]] + bth[buf[i++]] +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] +
-          bth[buf[i++]] + bth[buf[i++]] +
-          bth[buf[i++]] + bth[buf[i++]];
-}
-
-module.exports = bytesToUuid;
-
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Unique ID creation requires a high quality random # generator.  In node.js
-// this is pretty straight-forward - we use the crypto API.
-
-var crypto = __webpack_require__(1);
-
-module.exports = function nodeRNG() {
-  return crypto.randomBytes(16);
-};
-
-
-/***/ }),
-/* 108 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs");
-
-/***/ }),
-/* 109 */
-/***/ (function(module, exports) {
-
-module.exports = require("punycode");
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports) {
-
-module.exports = require("tls");
-
-/***/ }),
-/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -20113,7 +14397,7 @@ module.exports =
 /* 3 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(10);
+	module.exports = __webpack_require__(8);
 
 /***/ }),
 /* 4 */
@@ -20125,11 +14409,5727 @@ module.exports =
 /* 5 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(214);
+	module.exports = __webpack_require__(213);
 
 /***/ })
 /******/ ]);
 //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay9ib290c3RyYXAgNThjODUwN2IwYWYwOTRiMWZiYTIiLCJ3ZWJwYWNrOi8vLy4vc3JjL2luZGV4LmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlc2NvcGVcIiIsIndlYnBhY2s6Ly8vLi9zcmMvUmVhY3RIb2NzLmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiaXNcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJwcm9wLXR5cGVzXCIiXSwibmFtZXMiOlsiUlRvb2xzIiwiQ29tcG9uZW50IiwicmVTY29wZVByb3BzIiwic2NvcGVUb1Byb3BzIiwicHJvcHNUb1Njb3BlIiwicHJvcHNUb1N0b3JlIiwiU2ltcGxlT2JqZWN0UHJvdG8iLCJjb25zdHJ1Y3RvciIsImFyZ3oiLCJCYXNlQ29tcG9uZW50IiwicHJvdG90eXBlIiwic2hpZnQiLCJzY29wZSIsImZuIiwidXNlIiwiYXJyYXkiLCJwcm92aWRlciIsInJlU2NvcGVUb1N0YXRlIiwiY29udGV4dCIsInByb3BzIiwic3RhdGUiLCIkZGlzcGF0Y2giLCIkYWN0aW9ucyIsIiRzdG9yZXMiLCJfb3JpZ2luQ29tcG9uZW50IiwiY2hpbGRDb250ZXh0VHlwZXMiLCJjb250ZXh0VHlwZXMiLCJyZXNjb3BlIiwib2JqZWN0IiwiZGlzcGxheU5hbWUiLCJuYW1lIiwic3RhdGVNYXAiLCJhZGRpdGlvbmFsQ29udGV4dCIsImluaXRpYWxTdGF0ZSIsInN0YXRlTWFwVG9SZWZMaXN0IiwiT2JqZWN0Iiwia2V5cyIsInJlZHVjZSIsImgiLCJrIiwiYW55IiwiUmVTY29wZVByb3ZpZGVyIiwicCIsImN0eCIsInEiLCJfc2NvcGVXaWxsVXBkYXRlIiwic2NvcGVXaWxsVXBkYXRlIiwic2V0U3RhdGUiLCIkc2NvcGUiLCJfX3Njb3BlIiwiZGVhZCIsImNvbnNvbGUiLCJlcnJvciIsInJldGFpbiIsInN0b3JlcyIsImFjdGlvbnMiLCJsZW5ndGgiLCJtYXAiLCJyZW5kZXIiLCJiaW5kIiwiZGlzcGF0Y2giLCJ1bkJpbmQiLCJkaXNwb3NlIiwibnAiLCJuYyIsIm5TY29wZSIsImRlZmF1bHRQcm9wcyIsIkNvbXAiLCJyZVNjb3BlIiwic2NvcGVkIiwic2NvcGVDZmciLCJwYXJlbnQiLCJwYXJlbnRJZCIsInN0cmluZyIsImNvbXBOYW1lIiwiU2NvcGVQcm92aWRlciIsIl9wYXJlbnQiLCJnZXRTY29wZSIsImF1dG9EZXN0cm95Iiwia2V5Iiwic2NvcGVkUHJvcHMiLCJmaWx0ZXIiLCJmb3JFYWNoIiwiYXJndW1lbnRzIiwiZlByb3BzIiwiaW5jbHVkZXMiLCJzdG9yZUNvbXAiLCJzdG9yZU5hbWUiLCJkZWZhdWx0Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EsdUJBQWU7QUFDZjtBQUNBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7O0FBR0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7Ozs7Ozs7Ozs7OztBQ1hBOzs7O0FBQ0E7O0tBQVlBLE07Ozs7OztBQTVCWjs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBOEJBLG1CQUFHQyxTQUFILEdBQWtCRCxPQUFPQyxTQUF6QjtBQUNBLG1CQUFHQyxZQUFILEdBQWtCRixPQUFPRSxZQUF6QjtBQUNBLG1CQUFHQyxZQUFILEdBQWtCSCxPQUFPRSxZQUF6QjtBQUNBLG1CQUFHRSxZQUFILEdBQWtCSixPQUFPSSxZQUF6QjtBQUNBLG1CQUFHQyxZQUFILEdBQWtCTCxPQUFPSyxZQUF6Qjs7Ozs7Ozs7QUNsQ0EscUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUMyQkE7O0FBQ0E7Ozs7QUFDQTs7OztBQUNBOzs7Ozs7Ozs7Ozs7OztnZkE5QkE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQWdDQSxLQUFNQyxvQkFBc0IsRUFBRixDQUFPQyxXQUFqQzs7QUFHQTs7Ozs7Ozs7Ozs7OztBQWFBLFVBQVNMLFlBQVQsR0FBaUM7QUFBQTs7QUFBQSx1Q0FBUE0sSUFBTztBQUFQQSxhQUFPO0FBQUE7O0FBQzdCLFNBQUlDLGdCQUFnQixDQUFFLENBQUNELEtBQU0sQ0FBTixDQUFELElBQWNBLEtBQU0sQ0FBTixFQUFVRSxTQUFWLFlBQStCLGdCQUFNVCxTQUFuRCxJQUFnRU8sS0FBTSxDQUFOLE1BQWMsZ0JBQU1QLFNBQXRGLEtBQXFHTyxLQUFLRyxLQUFMLEVBQXpIO0FBQUEsU0FDSUMsUUFBZ0IsQ0FBRSxDQUFDSixLQUFNLENBQU4sQ0FBRCxJQUFjQSxLQUFNLENBQU4sMkJBQWQsSUFBNEMsYUFBR0ssRUFBSCxDQUFNTCxLQUFNLENBQU4sQ0FBTixDQUE5QyxLQUFvRUEsS0FBS0csS0FBTCxFQUR4RjtBQUFBLFNBRUlHLE1BQWdCLENBQUUsQ0FBQ04sS0FBTSxDQUFOLENBQUQsSUFBYyxhQUFHTyxLQUFILENBQVNQLEtBQU0sQ0FBTixDQUFULENBQWQsSUFBcUNBLEtBQU0sQ0FBTixhQUFxQkYsaUJBQTVELEtBQW1GRSxLQUFLRyxLQUFMLEVBRnZHOztBQUlBLFNBQUssRUFBR0Ysa0JBQW1CQSxjQUFjQyxTQUFkLFlBQW1DLGdCQUFNVCxTQUF6QyxJQUFzRFEsa0JBQWtCLGdCQUFNUixTQUFqRyxDQUFILENBQUwsRUFBeUg7QUFDckgsZ0JBQU8sVUFBV1EsYUFBWCxFQUEyQjtBQUM5QixvQkFBT1AsYUFBYU8sYUFBYixFQUE0QkcsS0FBNUIsRUFBbUNFLEdBQW5DLENBQVA7QUFDSCxVQUZEO0FBR0g7O0FBR0QsU0FBSUUsV0FBV0M7QUFBQTs7QUFBQTtBQUFBOztBQUFBO0FBQUE7O0FBQUE7QUFBQTtBQUFBLCtDQWNPO0FBQ2Qsd0JBQU8sS0FBS0MsT0FBWjtBQUNIO0FBaEJVO0FBQUE7QUFBQSxzQ0FrQkY7QUFDTCx3QkFBTyw4QkFBQyxhQUFELGVBQW9CLEtBQUtDLEtBQXpCLEVBQ29CLEtBQUtDLEtBRHpCO0FBRWUsZ0NBQVksS0FBS0MsU0FGaEM7QUFHZSwrQkFBVyxLQUFLQyxRQUgvQjtBQUllLDhCQUFVLEtBQUtDLE9BSjlCLElBQVA7QUFLSDtBQXhCVTs7QUFBQTtBQUFBLE9BQWtELGdCQUFNdEIsU0FBeEQsVUFDSnVCLGdCQURJLEdBQ2dCZixjQUFjZSxnQkFBZCxJQUFrQ2YsYUFEbEQsU0FFSkssR0FGSSxHQUVnQkwsY0FBY0ssR0FGOUIsU0FHSlcsaUJBSEksZ0JBSUZoQixjQUFjaUIsWUFBZCxJQUE4QixFQUo1QjtBQUtQQyxrQkFBUyxvQkFBVUMsTUFMWjtBQU1QTCxrQkFBUyxvQkFBVUs7QUFOWixnQkFRSkYsWUFSSSxnQkFTRmpCLGNBQWNpQixZQUFkLElBQThCLEVBVDVCO0FBVVBDLGtCQUFTLG9CQUFVQyxNQVZaO0FBV1BMLGtCQUFTLG9CQUFVSztBQVhaLGlCQXlCWmhCLEtBekJZLEVBeUJMRSxHQXpCSyxDQUFmO0FBMEJBRSxjQUFTYSxXQUFULEdBQStCLFVBQVdwQixjQUFjb0IsV0FBZCxJQUE2QnBCLGNBQWNxQixJQUF0RCxJQUErRCxHQUE5RjtBQUNBLFlBQU9kLFFBQVA7QUFDSDs7QUFFRDs7Ozs7Ozs7Ozs7Ozs7OztBQWdCQSxVQUFTQyxjQUFULEdBQW1DO0FBQUE7O0FBQUEsd0NBQVBULElBQU87QUFBUEEsYUFBTztBQUFBOztBQUMvQixTQUFJQyxnQkFBb0IsQ0FBRSxDQUFDRCxLQUFNLENBQU4sQ0FBRCxJQUFjQSxLQUFNLENBQU4sRUFBVUUsU0FBVixZQUErQixnQkFBTVQsU0FBbkQsSUFBZ0VPLEtBQU0sQ0FBTixNQUFjLGdCQUFNUCxTQUF0RixLQUFxR08sS0FBS0csS0FBTCxFQUE3SDtBQUFBLFNBQ0lDLFFBQW9CLENBQUUsQ0FBQ0osS0FBTSxDQUFOLENBQUQsSUFBY0EsS0FBTSxDQUFOLDJCQUFkLElBQTRDLGFBQUdLLEVBQUgsQ0FBTUwsS0FBTSxDQUFOLENBQU4sQ0FBOUMsS0FBb0VBLEtBQUtHLEtBQUwsRUFENUY7QUFBQSxTQUVJRyxNQUFzQixhQUFHQyxLQUFILENBQVNQLEtBQU0sQ0FBTixDQUFULENBQUYsSUFBMkJBLEtBQUtHLEtBQUwsRUFGbkQ7QUFBQSxTQUdJb0IsV0FBb0IsQ0FBQ2pCLEdBQUQsS0FBVSxDQUFDTixLQUFNLENBQU4sQ0FBRCxJQUFjQSxLQUFNLENBQU4sYUFBcUJGLGlCQUE3QyxLQUFvRUUsS0FBS0csS0FBTCxFQUg1RjtBQUFBLFNBSUlxQixvQkFBb0IsQ0FBRSxDQUFDeEIsS0FBTSxDQUFOLENBQUQsSUFBY0EsS0FBTSxDQUFOLGFBQXFCRixpQkFBckMsS0FBNERFLEtBQUtHLEtBQUwsRUFKcEY7QUFBQSxTQUtJc0IsZUFBb0IsRUFMeEI7O0FBT0FuQix3Q0FBYUwsY0FBY0ssR0FBZCxJQUFxQixFQUFsQyxzQkFBNkNBLE9BQU8sRUFBcEQ7QUFDQWlCLGlCQUFZLGVBQU1HLGlCQUFOLENBQXdCSCxRQUF4QixFQUFrQ0UsWUFBbEMsRUFBZ0RuQixHQUFoRCxDQUFaOztBQUVBa0IseUJBQW9CQSxxQkFBcUJHLE9BQU9DLElBQVAsQ0FBWUosaUJBQVosRUFBK0JLLE1BQS9CLENBQXNDLFVBQUVDLENBQUYsRUFBS0MsQ0FBTDtBQUFBLGdCQUFjRCxFQUFHQyxDQUFILElBQVMsb0JBQVVDLEdBQW5CLEVBQXdCRixDQUF0QztBQUFBLE1BQXRDLEVBQWlGLEVBQWpGLENBQXJCLElBQTZHLEVBQWpJOztBQVgrQixTQWF6QkcsZUFieUI7QUFBQTs7QUFtRDNCLGtDQUFhQyxDQUFiLEVBQWdCQyxHQUFoQixFQUFxQkMsQ0FBckIsRUFBeUI7QUFBQTs7QUFBQSw0SUFDZkYsQ0FEZSxFQUNaQyxHQURZLEVBQ1BDLENBRE87O0FBQUEsb0JBbkJ6QkMsZ0JBbUJ5QixHQW5CTixVQUFFekIsS0FBRixFQUFhO0FBQzVCO0FBQ0Esd0JBQUswQixlQUFMLElBQXdCLE9BQUtBLGVBQUwsQ0FBcUIxQixLQUFyQixFQUE0QixPQUFLRyxPQUFqQyxDQUF4Qjs7QUFFQTtBQUNBSCx5QkFBUWUsT0FBT0MsSUFBUCxDQUFZaEIsS0FBWixFQUNPaUIsTUFEUCxDQUVVLFVBQUVDLENBQUYsRUFBS0MsQ0FBTDtBQUFBLDRCQUNJRCxFQUFHQyxDQUFILElBQVMsYUFBR3hCLEtBQUgsQ0FBU0ssTUFBT21CLENBQVAsQ0FBVCxpQ0FDT25CLE1BQU9tQixDQUFQLENBRFAsS0FFRW5CLE1BQU9tQixDQUFQLGFBQXNCakMsaUJBQXRCLGdCQUNPYyxNQUFPbUIsQ0FBUCxDQURQLElBRUVuQixNQUFPbUIsQ0FBUCxDQUpiLEVBS0lELENBTlI7QUFBQSxrQkFGVixFQVF1QixFQVJ2QixDQUFSO0FBVUEsd0JBQUtTLFFBQUwsQ0FBYzNCLEtBQWQ7QUFDSCxjQUd3Qjs7QUFFckIsb0JBQUs0QixNQUFMLEdBQWMsT0FBS0EsTUFBTCxJQUNBTixFQUFFTyxPQURGLElBRUcsYUFBR3BDLEVBQUgsQ0FBTUQsS0FBTixLQUFnQkEsY0FBWThCLENBQVosRUFBZUMsR0FBZixDQUZuQixJQUUwQy9CLEtBRjFDLElBR0crQixJQUFJaEIsT0FIckI7O0FBS0EsaUJBQUssT0FBS3FCLE1BQUwsSUFBZSxPQUFLQSxNQUFMLENBQVlFLElBQWhDLEVBQXVDO0FBQ25DQyx5QkFBUUMsS0FBUixDQUFjLDhCQUFkO0FBQ0Esd0JBQUtKLE1BQUwsR0FBYyxJQUFkO0FBQ0g7O0FBRUQsb0JBQUtBLE1BQUwsSUFBZSxhQUFHbkMsRUFBSCxDQUFNRCxLQUFOLENBQWYsSUFDRyxPQUFLb0MsTUFBTCxDQUFZSyxNQUFaLENBQW1CLEtBQW5CLENBREg7O0FBR0Esb0JBQUs5QixPQUFMLEdBQWdCLE9BQUt5QixNQUFMLElBQWUsT0FBS0EsTUFBTCxDQUFZTSxNQUEzQztBQUNBLG9CQUFLaEMsUUFBTCxHQUFnQixPQUFLMEIsTUFBTCxJQUFlLE9BQUtBLE1BQUwsQ0FBWU8sT0FBM0M7QUFDQSxpQkFBSyxPQUFLUCxNQUFMLElBQWVsQyxJQUFJMEMsTUFBeEIsRUFBaUM7QUFDN0Isd0JBQUtwQyxLQUFMLGdCQUNPLE9BQUtBLEtBRFosRUFFT2EsWUFGUCxFQUdPLE9BQUtlLE1BQUwsQ0FBWVMsR0FBWixTQUFzQjNDLEdBQXRCLEVBQTJCLEtBQTNCLENBSFA7QUFLSCxjQU5ELE1BT0ssSUFBSyxDQUFDLE9BQUtrQyxNQUFYLEVBQ0QsT0FBS1UsTUFBTCxHQUFjO0FBQUEsd0JBQU07QUFBQTtBQUFBO0FBQUE7QUFBeUJqRCxtQ0FBY3FCO0FBQXZDLGtCQUFOO0FBQUEsY0FBZDs7QUFFSixvQkFBS1QsU0FBTCxHQUFpQixPQUFLQSxTQUFMLENBQWVzQyxJQUFmLFFBQWpCO0FBM0JxQjtBQTRCeEI7O0FBL0UwQjtBQUFBO0FBQUEseUNBaUZOO0FBQUE7O0FBQ2pCLHNCQUFLWCxNQUFMLElBQWUsZ0JBQUtBLE1BQUwsRUFBWVksUUFBWiwwQkFBZjtBQUNIO0FBbkYwQjtBQUFBO0FBQUEsa0RBcUZOO0FBQ2pCLHFCQUFLOUMsSUFBSTBDLE1BQVQsRUFBa0I7QUFDZCwwQkFBS1IsTUFBTCxDQUFZVyxJQUFaLENBQWlCLEtBQUtkLGdCQUF0QixFQUF3Qy9CLEdBQXhDLEVBQTZDLEtBQTdDO0FBQ0g7QUFDRDtBQUNIO0FBMUYwQjtBQUFBO0FBQUEsb0RBNEZKO0FBQ25CO0FBQ0EscUJBQUssS0FBS2tDLE1BQUwsSUFBZSxDQUFDLEtBQUtBLE1BQUwsQ0FBWUUsSUFBakMsRUFBd0M7QUFDcENwQyx5QkFBSTBDLE1BQUosSUFBYyxLQUFLUixNQUFMLENBQVlhLE1BQVosQ0FBbUIsS0FBS2hCLGdCQUF4QixFQUEwQy9CLEdBQTFDLENBQWQ7QUFDQSxrQ0FBR0QsRUFBSCxDQUFNRCxLQUFOLEtBQWdCLEtBQUtvQyxNQUFMLENBQVljLE9BQVosQ0FBb0IsS0FBcEIsQ0FBaEI7QUFDSDtBQUNKO0FBbEcwQjtBQUFBO0FBQUEsdURBb0dBQyxFQXBHQSxFQW9HSUMsRUFwR0osRUFvR1M7QUFDaEMscUJBQUlDLFNBQVNGLEdBQUdkLE9BQUgsSUFDR3JDLFNBQVMsS0FBS29DLE1BRGpCLElBRUdnQixHQUFHckMsT0FGTixJQUdHLEtBQUtxQixNQUhyQjs7QUFLQSxxQkFBS2lCLFVBQVUsS0FBS2pCLE1BQXBCLEVBQTZCO0FBQ3pCbEMseUJBQUkwQyxNQUFKLElBQWMsS0FBS1IsTUFBTCxDQUFZYSxNQUFaLENBQW1CLEtBQUtoQixnQkFBeEIsRUFBMEMvQixHQUExQyxDQUFkO0FBQ0EsMEJBQUtrQyxNQUFMLEdBQWNpQixNQUFkOztBQUVBLHlCQUFLLEtBQUtqQixNQUFMLElBQWUsS0FBS0EsTUFBTCxDQUFZRSxJQUFoQyxFQUF1QztBQUNuQ0MsaUNBQVFDLEtBQVIsQ0FBYyw0QkFBZDtBQUNBLDhCQUFLOUIsUUFBTCxHQUFnQixLQUFLQyxPQUFMLEdBQWUsS0FBS3lCLE1BQUwsR0FBYyxJQUE3QztBQUNILHNCQUhELE1BSUs7QUFDRCw4QkFBSzFCLFFBQUwsR0FBZ0IsS0FBSzBCLE1BQUwsQ0FBWU8sT0FBNUI7QUFDQSw4QkFBS2hDLE9BQUwsR0FBZ0IsS0FBS3lCLE1BQUwsQ0FBWU0sTUFBNUI7QUFDQXhDLDZCQUFJMEMsTUFBSixJQUFjUyxPQUFPTixJQUFQLENBQVksS0FBS2QsZ0JBQWpCLEVBQW1DL0IsR0FBbkMsQ0FBZDtBQUNIO0FBQ0o7QUFDRCxpU0FBbUVpRCxFQUFuRSxFQUF1RUMsRUFBdkU7QUFDSDtBQXpIMEI7QUFBQTtBQUFBLCtDQTJIVDtBQUNkLHFCQUFJckIsTUFBTSwrUEFBb0QsRUFBOUQ7QUFDQSxxQ0FDT0EsR0FEUDtBQUVJaEIsOEJBQVMsS0FBS3FCLE1BQUwsSUFBZSxLQUFLOUIsT0FBTCxDQUFhUyxPQUZ6QztBQUdJSiw4QkFBUyxLQUFLeUIsTUFBTCxDQUFZTSxNQUFaLElBQXNCLEtBQUtwQyxPQUFMLENBQWFLO0FBSGhEO0FBS0g7QUFsSTBCOztBQUFBO0FBQUEsT0FhRGQsYUFiQyxXQWNwQmUsZ0JBZG9CLEdBY0FmLGNBQWNlLGdCQUFkLElBQWtDZixhQWRsQyxVQWVwQmdCLGlCQWZvQixnQkFnQmxCaEIsY0FBY2dCLGlCQUFkLElBQW1DLEVBaEJqQixFQWlCbEJPLGlCQWpCa0I7QUFrQnZCTCxrQkFBUyxvQkFBVUMsTUFsQkk7QUFtQnZCTCxrQkFBUyxvQkFBVUs7QUFuQkksaUJBcUJwQkYsWUFyQm9CLGdCQXNCbEJqQixjQUFjaUIsWUFBZCxJQUE4QixFQXRCWixFQXVCbEJNLGlCQXZCa0I7QUF3QnZCTCxrQkFBUyxvQkFBVUMsTUF4Qkk7QUF5QnZCTCxrQkFBUyxvQkFBVUs7QUF6QkksaUJBMkJwQnNDLFlBM0JvQixnQkE0QmxCekQsY0FBY3lELFlBQWQsSUFBOEIsRUE1QlosV0E4QnBCckMsV0E5Qm9CLEdBOEJBLFVBQVdwQixjQUFjb0IsV0FBZCxJQUE2QnBCLGNBQWNxQixJQUF0RCxJQUErRCxHQTlCL0Q7OztBQXFJL0IsWUFBT1csZUFBUDtBQUNIOztBQUVELCtCQUNJLFVBQUUwQixJQUFGO0FBQUEsWUFBY0EsU0FBVUEsS0FBS3pELFNBQUwsWUFBMEIsZ0JBQU1ULFNBQWhDLElBQTZDa0UsU0FBUyxnQkFBTWxFLFNBQXRFLENBQWQ7QUFBQSxFQURKLEVBRUlnQixjQUZKLEVBRW9CLEtBRnBCLEVBRTJCLElBRjNCOztBQUtBOzs7Ozs7Ozs7Ozs7QUFZQSxVQUFTbUQsT0FBVCxHQUE0QjtBQUFBOztBQUFBLHdDQUFQNUQsSUFBTztBQUFQQSxhQUFPO0FBQUE7O0FBQ3hCLFNBQUlDLGdCQUFnQixDQUFFLENBQUNELEtBQU0sQ0FBTixDQUFELElBQWNBLEtBQU0sQ0FBTixFQUFVRSxTQUFWLFlBQStCLGdCQUFNVCxTQUFuRCxJQUFnRU8sS0FBTSxDQUFOLE1BQWMsZ0JBQU1QLFNBQXRGLEtBQXFHTyxLQUFLRyxLQUFMLEVBQXpIO0FBQUEsU0FDSTBELFNBQWdCLENBQUUsQ0FBQzdELEtBQU0sQ0FBTixDQUFELElBQWNBLEtBQU0sQ0FBTixhQUFxQkYsaUJBQXJCLElBQTBDLEVBQUdFLEtBQU0sQ0FBTiwyQkFBSCxDQUExRCxLQUErRkEsS0FBS0csS0FBTCxFQURuSDtBQUFBLFNBRUkyRCxXQUFnQixDQUFFLENBQUM5RCxLQUFNLENBQU4sQ0FBRCxJQUFjQSxLQUFNLENBQU4sYUFBcUJGLGlCQUFyQyxLQUE0REUsS0FBS0csS0FBTCxFQUE1RCxJQUE0RSxFQUZoRztBQUFBLFNBR0k0RCxTQUFnQixDQUFFLENBQUMvRCxLQUFNLENBQU4sQ0FBRCxJQUFjQSxLQUFNLENBQU4sMkJBQWhCLEtBQWdEQSxLQUFLRyxLQUFMLEVBSHBFO0FBQUEsU0FJSTZELFdBQWdCLENBQUUsQ0FBQ2hFLEtBQU0sQ0FBTixDQUFELElBQWMsYUFBR2lFLE1BQUgsQ0FBVWpFLEtBQU0sQ0FBTixDQUFWLENBQWhCLEtBQTBDQSxLQUFLRyxLQUFMLEVBSjlEOztBQU1BLFNBQUkrRCxXQUFXakUsY0FBY29CLFdBQWQsSUFBNkJwQixjQUFjcUIsSUFBMUQ7O0FBUHdCLFNBVWxCNkMsYUFWa0I7QUFBQTs7QUEyQnBCLGdDQUFhakMsQ0FBYixFQUFnQkMsR0FBaEIsRUFBcUJDLENBQXJCLEVBQXlCO0FBQUE7O0FBQ3JCLGlCQUFJZ0MsVUFBVUwsVUFBVUMsWUFBWSxlQUFNSyxRQUFOLENBQWVMLFFBQWYsQ0FBdEIsSUFBa0Q5QixFQUFFTyxPQUFwRCxJQUErRE4sSUFBSWhCLE9BQWpGO0FBQUEsaUJBQ0lxQixTQUFVLG1CQUNOcUIsVUFBVSxFQURKO0FBR0ZTLDhCQUFhLElBSFg7QUFJRkMsc0JBQWFMLFFBSlg7QUFLRkgseUJBQWFLO0FBTFgsZ0JBTUNOLFFBTkQsRUFEZDs7QUFEcUIsd0lBWWY1QixDQVplLGVBWVBDLEdBWk8sSUFZRmhCLFNBQVNxQixNQVpQLEVBWWV6QixTQUFTeUIsT0FBT00sTUFaL0IsS0FZeUNWLENBWnpDOztBQWNyQixvQkFBS0ksTUFBTCxHQUFjLE9BQUtBLE1BQUwsSUFBZUEsTUFBN0I7O0FBRUEsaUJBQUssQ0FBQyxPQUFLQSxNQUFYLEVBQW9CO0FBQ2hCLHFCQUFLLE9BQUtBLE1BQUwsSUFBZSxPQUFLQSxNQUFMLENBQVlFLElBQWhDLEVBQXVDO0FBQ25DQyw2QkFBUUMsS0FBUixDQUFjLGlDQUFkO0FBQ0EsNEJBQUtKLE1BQUwsR0FBYyxJQUFkO0FBQ0g7O0FBRUQsd0JBQUtBLE1BQUwsR0FBYyxtQkFDVnFCLFVBQVUsRUFEQSxFQUVWO0FBQ0lTLGtDQUFhLElBRGpCO0FBRUlDLDBCQUFhTCxRQUZqQjtBQUdJSCw2QkFBYSxPQUFLdkI7QUFIdEIsa0JBRlUsQ0FBZDs7QUFTQSx3QkFBSzFCLFFBQUwsR0FBZ0IsT0FBSzBCLE1BQUwsSUFBZSxPQUFLQSxNQUFMLENBQVlPLE9BQTNDO0FBQ0Esd0JBQUtoQyxPQUFMLEdBQWdCLE9BQUt5QixNQUFMLElBQWUsT0FBS0EsTUFBTCxDQUFZTSxNQUEzQztBQUNIO0FBQ0Qsb0JBQUtOLE1BQUwsQ0FBWUssTUFBWjtBQWxDcUI7QUFtQ3hCOztBQTlEbUI7QUFBQTtBQUFBLG9EQWdFRztBQUNuQjtBQUNBLHNCQUFLTCxNQUFMLElBQWUsS0FBS0EsTUFBTCxDQUFZYyxPQUFaLEVBQWY7QUFDSDtBQW5FbUI7QUFBQTtBQUFBLCtDQXFFRjtBQUNkLHFCQUFJbkIsTUFBTSx1UEFBb0QsRUFBOUQ7QUFDQSxxQ0FDT0EsR0FEUDtBQUVJaEIsOEJBQVMsS0FBS3FCLE1BRmxCO0FBR0l6Qiw4QkFBUyxLQUFLeUIsTUFBTCxDQUFZTTtBQUh6QjtBQUtIO0FBNUVtQjtBQUFBO0FBQUEsc0NBOEVYO0FBQ0wsd0JBQU8sOEJBQUMsYUFBRCxlQUFvQixLQUFLbkMsS0FBekI7QUFDZSxnQ0FBWSxLQUFLRSxTQURoQztBQUVlLCtCQUFXLEtBQUtDLFFBRi9CO0FBR2UsOEJBQVUsS0FBS0MsT0FIOUIsSUFBUDtBQUlIO0FBbkZtQjs7QUFBQTtBQUFBLE9BVUksZ0JBQU10QixTQVZWLFdBV2J1QixnQkFYYSxHQVdPZixjQUFjZSxnQkFBZCxJQUFrQ2YsYUFYekMsVUFZYmdCLGlCQVphLGdCQWFYaEIsY0FBY2dCLGlCQUFkLElBQW1DLEVBYnhCO0FBY2hCRSxrQkFBUyxvQkFBVUMsTUFkSDtBQWVoQkwsa0JBQVMsb0JBQVVLO0FBZkgsaUJBaUJiRixZQWpCYSxnQkFrQlhqQixjQUFjaUIsWUFBZCxJQUE4QixFQWxCbkI7QUFtQmhCQyxrQkFBUyxvQkFBVUMsTUFuQkg7QUFvQmhCTCxrQkFBUyxvQkFBVUs7QUFwQkgsaUJBc0Jic0MsWUF0QmEsZ0JBdUJYekQsY0FBY3lELFlBQWQsSUFBOEIsRUF2Qm5CLFdBeUJickMsV0F6QmEsR0F5Qk8sUUFBUTZDLFFBQVIsR0FBbUIsR0F6QjFCOzs7QUFzRnhCLFlBQU9DLGFBQVA7QUFDSDs7QUFFRCwrQkFDSSxVQUFFUixJQUFGO0FBQUEsWUFBY0EsU0FBVUEsS0FBS3pELFNBQUwsWUFBMEIsZ0JBQU1ULFNBQWhDLElBQTZDa0UsU0FBUyxnQkFBTWxFLFNBQXRFLENBQWQ7QUFBQSxFQURKLEVBRUltRSxPQUZKOztBQUtBOzs7Ozs7Ozs7O0FBVUEsVUFBU2hFLFlBQVQsR0FBaUM7QUFBQTs7QUFBQSx3Q0FBUEksSUFBTztBQUFQQSxhQUFPO0FBQUE7O0FBQzdCLFNBQUlDLGdCQUFnQixDQUFFLENBQUNELEtBQU0sQ0FBTixDQUFELElBQWNBLEtBQU0sQ0FBTixFQUFVRSxTQUFWLFlBQStCLGdCQUFNVCxTQUFuRCxJQUFnRU8sS0FBTSxDQUFOLE1BQWMsZ0JBQU1QLFNBQXRGLEtBQXFHTyxLQUFLRyxLQUFMLEVBQXpIO0FBQUEsU0FDSXFFLGNBQWdCLENBQUUsQ0FBQ3hFLEtBQU0sQ0FBTixDQUFELElBQWMsYUFBR08sS0FBSCxDQUFTUCxLQUFNLENBQU4sQ0FBVCxDQUFoQixLQUF5Q0EsS0FBS0csS0FBTCxFQUF6QyxJQUF5RCxFQUQ3RTtBQUFBLFNBRUkyRCxXQUFnQixDQUFFLENBQUM5RCxLQUFNLENBQU4sQ0FBRCxJQUFjQSxLQUFNLENBQU4sYUFBcUJGLGlCQUFyQyxLQUE0REUsS0FBS0csS0FBTCxFQUE1RCxJQUE0RSxFQUZoRztBQUFBLFNBR0k0RCxTQUFnQixDQUFFLENBQUMvRCxLQUFNLENBQU4sQ0FBRCxJQUFjQSxLQUFNLENBQU4sMkJBQWhCLEtBQWdEQSxLQUFLRyxLQUFMLEVBSHBFO0FBQUEsU0FJSTZELFdBQWdCLENBQUUsQ0FBQ2hFLEtBQU0sQ0FBTixDQUFELElBQWMsYUFBR2lFLE1BQUgsQ0FBVWpFLEtBQU0sQ0FBTixDQUFWLENBQWhCLEtBQTBDQSxLQUFLRyxLQUFMLEVBSjlEOztBQU1BLFNBQUkrRCxXQUFXakUsY0FBY29CLFdBQWQsSUFBNkJwQixjQUFjcUIsSUFBMUQ7O0FBRUEsU0FBSyxFQUFHckIsa0JBQW1CQSxjQUFjQyxTQUFkLFlBQW1DLGdCQUFNVCxTQUF6QyxJQUFzRFEsa0JBQWtCLGdCQUFNUixTQUFqRyxDQUFILENBQUwsRUFBeUg7QUFDckgsZ0JBQU8sVUFBV1EsYUFBWCxFQUEyQjtBQUM5QixvQkFBT0wsYUFBYUssYUFBYixFQUE0QnVFLFdBQTVCLEVBQXlDVixRQUF6QyxFQUFtREMsTUFBbkQsRUFBMkRDLFFBQTNELENBQVA7QUFDSCxVQUZEO0FBR0g7O0FBYjRCLFNBZXZCRyxhQWZ1QjtBQUFBOztBQWdDekIsZ0NBQWFqQyxDQUFiLEVBQWdCQyxHQUFoQixFQUFxQkMsQ0FBckIsRUFBeUI7QUFBQTs7QUFDckIsaUJBQUlnQyxVQUFVTCxVQUFVQyxZQUFZLGVBQU1LLFFBQU4sQ0FBZUwsUUFBZixDQUF0QixJQUFrRDlCLEVBQUVPLE9BQXBELElBQStETixJQUFJaEIsT0FBakY7QUFBQSxpQkFDSXFCLFNBQVUsZ0NBRUNnQyxZQUNFQyxNQURGLENBQ1M7QUFBQSx3QkFBSyxDQUFDTCxRQUFRdEIsTUFBUixDQUFnQmYsQ0FBaEIsQ0FBTjtBQUFBLGNBRFQsRUFFRUYsTUFGRixDQUdLLFVBQUVDLENBQUYsRUFBS0MsQ0FBTDtBQUFBLHdCQUFjRCxFQUFHQyxDQUFILG9CQUFnQkQsQ0FBOUI7QUFBQSxjQUhMLEVBSUssRUFKTCxDQUZEO0FBVUZ3Qyw4QkFBYSxJQVZYO0FBV0ZDLHNCQUFhTCxRQVhYO0FBWUZILHlCQUFhSztBQVpYLGdCQWFDTixRQWJELEVBRGQ7O0FBRHFCLHdJQW1CZjVCLENBbkJlLGVBbUJQQyxHQW5CTyxJQW1CRmhCLFNBQVNxQixNQW5CUCxFQW1CZXpCLFNBQVN5QixPQUFPTSxNQW5CL0IsS0FtQnlDVixDQW5CekM7O0FBcUJyQixvQkFBS0ksTUFBTCxHQUFnQixPQUFLQSxNQUFMLElBQWVBLE1BQS9CO0FBQ0Esb0JBQUsxQixRQUFMLEdBQWdCLE9BQUswQixNQUFMLElBQWUsT0FBS0EsTUFBTCxDQUFZTyxPQUEzQztBQUNBLG9CQUFLaEMsT0FBTCxHQUFnQixPQUFLeUIsTUFBTCxJQUFlLE9BQUtBLE1BQUwsQ0FBWU0sTUFBM0M7QUFDQSxvQkFBS04sTUFBTCxDQUFZSyxNQUFaO0FBQ0EyQix5QkFBWUUsT0FBWixDQUNJLFVBQUUzQyxDQUFGO0FBQUEsd0JBQ0ksT0FBS1MsTUFBTCxDQUFZNUIsS0FBWixDQUFtQm1CLENBQW5CLElBQXlCRyxFQUFHSCxDQUFILEtBQ0c5QixjQUFjeUQsWUFBZCxJQUNBekQsY0FBY3lELFlBQWQsQ0FBNEIzQixDQUE1QixDQUhoQztBQUFBLGNBREo7QUF6QnFCO0FBZ0N4Qjs7QUFoRXdCO0FBQUE7QUFBQSx1REFrRUV3QixFQWxFRixFQWtFTztBQUFBOztBQUM1QmlCLDZCQUFZRSxPQUFaLENBQ0k7QUFBQSw0QkFBTyxPQUFLL0QsS0FBTCxDQUFZdUIsQ0FBWixNQUFvQnFCLEdBQUlyQixDQUFKLENBQXBCLElBQStCLE9BQUtuQixPQUFMLENBQWNtQixDQUFkLEVBQWtCSyxRQUFsQixDQUEyQmdCLEdBQUlyQixDQUFKLENBQTNCLENBQXRDO0FBQUEsa0JBREo7QUFHQSwwUkFBc0V5QyxTQUF0RTtBQUNIO0FBdkV3QjtBQUFBO0FBQUEsb0RBMEVGO0FBQ25CO0FBQ0Esc0JBQUtuQyxNQUFMLElBQWUsS0FBS0EsTUFBTCxDQUFZYyxPQUFaLEVBQWY7QUFDSDtBQTdFd0I7QUFBQTtBQUFBLCtDQStFUDtBQUNkLHFCQUFJbkIsTUFBTSx1UEFBb0QsRUFBOUQ7QUFDQSxxQ0FDT0EsR0FEUDtBQUVJaEIsOEJBQVMsS0FBS3FCLE1BRmxCO0FBR0l6Qiw4QkFBUyxLQUFLeUIsTUFBTCxDQUFZTTtBQUh6QjtBQUtIO0FBdEZ3QjtBQUFBO0FBQUEsc0NBd0ZoQjtBQUFBOztBQUNMLHFCQUFJOEIsU0FBU2pELE9BQU9DLElBQVAsQ0FBWSxLQUFLakIsS0FBakIsRUFBd0JrQixNQUF4QixDQUErQixVQUFFQyxDQUFGLEVBQUtDLENBQUw7QUFBQSw0QkFBYyxDQUFDeUMsWUFBWUssUUFBWixDQUFxQjlDLENBQXJCLENBQUQsS0FBOEJELEVBQUdDLENBQUgsSUFBUyxPQUFLcEIsS0FBTCxDQUFZb0IsQ0FBWixDQUF2QyxHQUEwREQsQ0FBeEU7QUFBQSxrQkFBL0IsRUFBNEcsRUFBNUcsQ0FBYjtBQUNBLHdCQUFPLDhCQUFDLGFBQUQsZUFBb0I4QyxNQUFwQixFQUNvQixLQUFLaEUsS0FEekI7QUFFZSxnQ0FBWSxLQUFLQyxTQUZoQztBQUdlLCtCQUFXLEtBQUtDLFFBSC9CO0FBSWUsOEJBQVUsS0FBS0MsT0FKOUIsSUFBUDtBQUtIO0FBL0Z3Qjs7QUFBQTtBQUFBLE9BZUQsZ0JBQU10QixTQWZMLFdBZ0JsQnVCLGdCQWhCa0IsR0FnQkVmLGNBQWNlLGdCQUFkLElBQWtDZixhQWhCcEMsVUFpQmxCZ0IsaUJBakJrQixnQkFrQmhCaEIsY0FBY2dCLGlCQUFkLElBQW1DLEVBbEJuQjtBQW1CckJFLGtCQUFTLG9CQUFVQyxNQW5CRTtBQW9CckJMLGtCQUFTLG9CQUFVSztBQXBCRSxpQkFzQmxCRixZQXRCa0IsZ0JBdUJoQmpCLGNBQWNpQixZQUFkLElBQThCLEVBdkJkO0FBd0JyQkMsa0JBQVMsb0JBQVVDLE1BeEJFO0FBeUJyQkwsa0JBQVMsb0JBQVVLO0FBekJFLGlCQTJCbEJzQyxZQTNCa0IsZ0JBNEJoQnpELGNBQWN5RCxZQUFkLElBQThCLEVBNUJkLFdBOEJsQnJDLFdBOUJrQixHQThCRSxVQUFVNkMsUUFBVixHQUFxQixHQTlCdkI7OztBQWtHN0IsWUFBT0MsYUFBUDtBQUNIOztBQUVEOzs7Ozs7Ozs7Ozs7QUFZQSxVQUFTdEUsWUFBVCxHQUFpQztBQUFBOztBQUFBLHdDQUFQRyxJQUFPO0FBQVBBLGFBQU87QUFBQTs7QUFDN0IsU0FBSUMsZ0JBQWdCLENBQUUsQ0FBQ0QsS0FBTSxDQUFOLENBQUQsSUFBY0EsS0FBTSxDQUFOLEVBQVVFLFNBQVYsWUFBK0IsZ0JBQU1ULFNBQW5ELElBQWdFTyxLQUFNLENBQU4sTUFBYyxnQkFBTVAsU0FBdEYsS0FBcUdPLEtBQUtHLEtBQUwsRUFBekg7QUFBQSxTQUNJMkUsWUFBZ0IsQ0FBRSxDQUFDOUUsS0FBTSxDQUFOLENBQUQsSUFBY0EsS0FBTSxDQUFOLDJCQUFoQixLQUFnREEsS0FBS0csS0FBTCxFQUFoRCxrQkFEcEI7QUFBQSxTQUVJNEUsWUFBZ0IsQ0FBRSxDQUFDL0UsS0FBTSxDQUFOLENBQUQsSUFBYyxhQUFHaUUsTUFBSCxDQUFVakUsS0FBTSxDQUFOLENBQVYsQ0FBaEIsS0FBMENBLEtBQUtHLEtBQUwsRUFBMUMsSUFBMEQyRSxVQUFVekQsV0FBcEUsSUFBbUYsT0FGdkc7QUFBQSxTQUdJeUMsV0FBZ0IsQ0FBRSxDQUFDOUQsS0FBTSxDQUFOLENBQUQsSUFBY0EsS0FBTSxDQUFOLGFBQXFCRixpQkFBckMsS0FBNERFLEtBQUtHLEtBQUwsRUFBNUQsSUFBNEUsRUFIaEc7QUFBQSxTQUlJNEQsU0FBZ0IsQ0FBRSxDQUFDL0QsS0FBTSxDQUFOLENBQUQsSUFBY0EsS0FBTSxDQUFOLDJCQUFoQixLQUFnREEsS0FBS0csS0FBTCxFQUpwRTtBQUFBLFNBS0k2RCxXQUFnQixDQUFFLENBQUNoRSxLQUFNLENBQU4sQ0FBRCxJQUFjLGFBQUdpRSxNQUFILENBQVVqRSxLQUFNLENBQU4sQ0FBVixDQUFoQixLQUEwQ0EsS0FBS0csS0FBTCxFQUw5RDs7QUFPQSxTQUFJK0QsV0FBV2pFLGNBQWNvQixXQUFkLElBQTZCcEIsY0FBY3FCLElBQTFEOztBQUVBLFNBQUssRUFBR3JCLGtCQUFtQkEsY0FBY0MsU0FBZCxZQUFtQyxnQkFBTVQsU0FBekMsSUFBc0RRLGtCQUFrQixnQkFBTVIsU0FBakcsQ0FBSCxDQUFMLEVBQXlIO0FBQ3JILGdCQUFPLFVBQVdRLGFBQVgsRUFBMkI7QUFDOUIsb0JBQU9KLGFBQWFJLGFBQWIsRUFDYTZFLFNBRGIsRUFFYUMsU0FGYixFQUdhakIsUUFIYixFQUlhQyxNQUpiLEVBS2FDLFFBTGIsQ0FBUDtBQU9ILFVBUkQ7QUFTSDs7QUFwQjRCLFNBc0J2QkcsYUF0QnVCO0FBQUE7O0FBdUN6QixnQ0FBYWpDLENBQWIsRUFBZ0JDLEdBQWhCLEVBQXFCQyxDQUFyQixFQUF5QjtBQUFBOztBQUNyQixpQkFBSWdDLFVBQVVMLFVBQVVDLFlBQVksZUFBTUssUUFBTixDQUFlTCxRQUFmLENBQXRCLElBQWtEOUIsRUFBRU8sT0FBcEQsSUFBK0ROLElBQUloQixPQUFqRjtBQUFBLGlCQUNJcUIsU0FBVTRCLFdBQVdBLFFBQVF0QixNQUFSLENBQWdCaUMsU0FBaEIsQ0FBWCxJQUEwQ1gsT0FBMUMsSUFDRyx1Q0FFQ1csU0FGRCxFQUVjRCxTQUZkO0FBS0RSLDhCQUFhLElBTFo7QUFNREMsc0JBQWFMLFFBTlo7QUFPREgseUJBQWFLO0FBUFosZ0JBUUVOLFFBUkYsRUFGakI7O0FBRHFCLHdJQWVmNUIsQ0FmZSxlQWVQQyxHQWZPLElBZUZoQixTQUFTcUIsTUFmUCxFQWVlekIsU0FBU3lCLE9BQU9NLE1BZi9CLEtBZXlDVixDQWZ6Qzs7QUFpQnJCLG9CQUFLSSxNQUFMLEdBQWdCLE9BQUtBLE1BQUwsSUFBZUEsTUFBL0I7QUFDQSxvQkFBSzFCLFFBQUwsR0FBZ0IsT0FBSzBCLE1BQUwsSUFBZSxPQUFLQSxNQUFMLENBQVlPLE9BQTNDO0FBQ0Esb0JBQUtoQyxPQUFMLEdBQWdCLE9BQUt5QixNQUFMLElBQWUsT0FBS0EsTUFBTCxDQUFZTSxNQUEzQztBQUNBLG9CQUFLTixNQUFMLENBQVlLLE1BQVo7QUFDQSxvQkFBS0wsTUFBTCxDQUFZNUIsS0FBWixDQUFtQm1FLFNBQW5CLGlCQUNTOUUsY0FBY3lELFlBQWQsSUFBOEIsRUFEdkMsRUFFT3hCLENBRlA7QUFyQnFCO0FBeUJ4Qjs7QUFoRXdCO0FBQUE7QUFBQSx1REFrRUVxQixFQWxFRixFQWtFTztBQUM1QjtBQUNBLHNCQUFLeEMsT0FBTCxJQUFnQixLQUFLQSxPQUFMLENBQWNnRSxTQUFkLENBQWhCLElBQTZDLEtBQUtoRSxPQUFMLENBQWNnRSxTQUFkLEVBQTBCeEMsUUFBMUIsQ0FBbUNnQixFQUFuQyxDQUE3QztBQUNBLDBSQUFzRW9CLFNBQXRFO0FBQ0g7QUF0RXdCO0FBQUE7QUFBQSxvREF5RUY7QUFDbkI7QUFDQSxzQkFBS25DLE1BQUwsSUFBZSxLQUFLQSxNQUFMLENBQVljLE9BQVosRUFBZjtBQUNIO0FBNUV3QjtBQUFBO0FBQUEsK0NBOEVQO0FBQ2QscUJBQUluQixNQUFNLHVQQUFvRCxFQUE5RDtBQUNBLHFDQUNPQSxHQURQO0FBRUloQiw4QkFBUyxLQUFLcUIsTUFGbEI7QUFHSXpCLDhCQUFTLEtBQUt5QixNQUFMLENBQVlNO0FBSHpCO0FBS0g7QUFyRndCO0FBQUE7QUFBQSxzQ0F1RmhCO0FBQ0wsd0JBQU8sOEJBQUMsYUFBRCxlQUFzQixLQUFLbEMsS0FBTCxJQUFjLEtBQUtBLEtBQUwsQ0FBWW1FLFNBQVosQ0FBZCxJQUF5QyxFQUEvRDtBQUNlLGdDQUFZLEtBQUtsRSxTQURoQztBQUVlLCtCQUFXLEtBQUtDLFFBRi9CO0FBR2UsOEJBQVUsS0FBS0MsT0FIOUIsSUFBUDtBQUlIO0FBNUZ3Qjs7QUFBQTtBQUFBLE9Bc0JDTixlQUFlLGdCQUFNaEIsU0FBckIsRUFBZ0MsQ0FBRXNGLFNBQUYsQ0FBaEMsQ0F0QkQsV0F1QmxCL0QsZ0JBdkJrQixHQXVCRWYsY0FBY2UsZ0JBQWQsSUFBa0NmLGFBdkJwQyxVQXdCbEJnQixpQkF4QmtCLGdCQXlCaEJoQixjQUFjZ0IsaUJBQWQsSUFBbUMsRUF6Qm5CO0FBMEJyQkUsa0JBQVMsb0JBQVVDLE1BMUJFO0FBMkJyQkwsa0JBQVMsb0JBQVVLO0FBM0JFLGlCQTZCbEJGLFlBN0JrQixnQkE4QmhCakIsY0FBY2lCLFlBQWQsSUFBOEIsRUE5QmQ7QUErQnJCQyxrQkFBUyxvQkFBVUMsTUEvQkU7QUFnQ3JCTCxrQkFBUyxvQkFBVUs7QUFoQ0UsaUJBa0NsQnNDLFlBbENrQixnQkFtQ2hCekQsY0FBY3lELFlBQWQsSUFBOEIsRUFuQ2QsV0FxQ2xCckMsV0FyQ2tCLEdBcUNFLFVBQVU2QyxRQUFWLEdBQXFCLEdBckN2Qjs7O0FBK0Y3QixZQUFPQyxhQUFQO0FBQ0g7O0FBRUQsS0FBSTFFLFlBQVlnQixlQUFlLGdCQUFNaEIsU0FBckIsQ0FBaEI7O1NBR2lCdUYsTyxHQUFidkYsUztTQUNBQSxTLEdBQUFBLFM7U0FDQUMsWSxHQUFBQSxZO1NBQ0FFLFksR0FBQUEsWTtTQUNBQyxZLEdBQUFBLFk7Ozs7OztBQ3JrQkosbUM7Ozs7OztBQ0FBLGdDOzs7Ozs7QUNBQSx3QyIsImZpbGUiOiJkaXN0L1JlYWN0UmVTY29wZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIiBcdC8vIFRoZSBtb2R1bGUgY2FjaGVcbiBcdHZhciBpbnN0YWxsZWRNb2R1bGVzID0ge307XG5cbiBcdC8vIFRoZSByZXF1aXJlIGZ1bmN0aW9uXG4gXHRmdW5jdGlvbiBfX3dlYnBhY2tfcmVxdWlyZV9fKG1vZHVsZUlkKSB7XG5cbiBcdFx0Ly8gQ2hlY2sgaWYgbW9kdWxlIGlzIGluIGNhY2hlXG4gXHRcdGlmKGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdKVxuIFx0XHRcdHJldHVybiBpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXS5leHBvcnRzO1xuXG4gXHRcdC8vIENyZWF0ZSBhIG5ldyBtb2R1bGUgKGFuZCBwdXQgaXQgaW50byB0aGUgY2FjaGUpXG4gXHRcdHZhciBtb2R1bGUgPSBpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSA9IHtcbiBcdFx0XHRleHBvcnRzOiB7fSxcbiBcdFx0XHRpZDogbW9kdWxlSWQsXG4gXHRcdFx0bG9hZGVkOiBmYWxzZVxuIFx0XHR9O1xuXG4gXHRcdC8vIEV4ZWN1dGUgdGhlIG1vZHVsZSBmdW5jdGlvblxuIFx0XHRtb2R1bGVzW21vZHVsZUlkXS5jYWxsKG1vZHVsZS5leHBvcnRzLCBtb2R1bGUsIG1vZHVsZS5leHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKTtcblxuIFx0XHQvLyBGbGFnIHRoZSBtb2R1bGUgYXMgbG9hZGVkXG4gXHRcdG1vZHVsZS5sb2FkZWQgPSB0cnVlO1xuXG4gXHRcdC8vIFJldHVybiB0aGUgZXhwb3J0cyBvZiB0aGUgbW9kdWxlXG4gXHRcdHJldHVybiBtb2R1bGUuZXhwb3J0cztcbiBcdH1cblxuXG4gXHQvLyBleHBvc2UgdGhlIG1vZHVsZXMgb2JqZWN0IChfX3dlYnBhY2tfbW9kdWxlc19fKVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5tID0gbW9kdWxlcztcblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGUgY2FjaGVcbiBcdF9fd2VicGFja19yZXF1aXJlX18uYyA9IGluc3RhbGxlZE1vZHVsZXM7XG5cbiBcdC8vIF9fd2VicGFja19wdWJsaWNfcGF0aF9fXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLnAgPSBcIi9cIjtcblxuIFx0Ly8gTG9hZCBlbnRyeSBtb2R1bGUgYW5kIHJldHVybiBleHBvcnRzXG4gXHRyZXR1cm4gX193ZWJwYWNrX3JlcXVpcmVfXygwKTtcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyB3ZWJwYWNrL2Jvb3RzdHJhcCA1OGM4NTA3YjBhZjA5NGIxZmJhMiIsIi8qXG4gKiBDb3B5cmlnaHQgKGMpICAyMDE4IFdpc2UgV2lsZCBXZWIgLlxuICpcbiAqICBNSVQgTGljZW5zZVxuICpcbiAqICBQZXJtaXNzaW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwgdG8gYW55IHBlcnNvbiBvYnRhaW5pbmcgYSBjb3B5XG4gKiAgb2YgdGhpcyBzb2Z0d2FyZSBhbmQgYXNzb2NpYXRlZCBkb2N1bWVudGF0aW9uIGZpbGVzICh0aGUgXCJTb2Z0d2FyZVwiKSwgdG8gZGVhbFxuICogIGluIHRoZSBTb2Z0d2FyZSB3aXRob3V0IHJlc3RyaWN0aW9uLCBpbmNsdWRpbmcgd2l0aG91dCBsaW1pdGF0aW9uIHRoZSByaWdodHNcbiAqICB0byB1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsXG4gKiAgY29waWVzIG9mIHRoZSBTb2Z0d2FyZSwgYW5kIHRvIHBlcm1pdCBwZXJzb25zIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzXG4gKiAgZnVybmlzaGVkIHRvIGRvIHNvLCBzdWJqZWN0IHRvIHRoZSBmb2xsb3dpbmcgY29uZGl0aW9uczpcbiAqXG4gKiAgVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsXG4gKiAgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS5cbiAqXG4gKiAgVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuICogIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuICogIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRVxuICogIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcbiAqICBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuICogIE9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFXG4gKiAgU09GVFdBUkUuXG4gKlxuICogQGF1dGhvciA6IE5hdGhhbmFlbCBCcmF1blxuICogQGNvbnRhY3QgOiBjYWlwaWxhYnNAZ21haWwuY29tXG4gKi9cblxuaW1wb3J0IFJTICAgICAgICAgIGZyb20gXCJyZXNjb3BlXCI7XG5pbXBvcnQgKiBhcyBSVG9vbHMgZnJvbSBcIi4vUmVhY3RIb2NzXCI7XG5cblJTLkNvbXBvbmVudCAgICA9IFJUb29scy5Db21wb25lbnQ7XG5SUy5yZVNjb3BlUHJvcHMgPSBSVG9vbHMucmVTY29wZVByb3BzO1xuUlMuc2NvcGVUb1Byb3BzID0gUlRvb2xzLnJlU2NvcGVQcm9wcztcblJTLnByb3BzVG9TY29wZSA9IFJUb29scy5wcm9wc1RvU2NvcGU7XG5SUy5wcm9wc1RvU3RvcmUgPSBSVG9vbHMucHJvcHNUb1N0b3JlO1xuZXhwb3J0IGRlZmF1bHQgUlM7XG5cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyAuL3NyYy9pbmRleC5qcyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlc2NvcGVcIik7XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gZXh0ZXJuYWwgXCJyZXNjb3BlXCJcbi8vIG1vZHVsZSBpZCA9IDFcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwiLypcbiAqIENvcHlyaWdodCAoYykgIDIwMTggV2lzZSBXaWxkIFdlYiAuXG4gKlxuICogIE1JVCBMaWNlbnNlXG4gKiAgXG4gKiAgUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weVxuICogIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcbiAqICBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4gKiAgdG8gdXNlLCBjb3B5LCBtb2RpZnksIG1lcmdlLCBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbFxuICogIGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuICogIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4gKiAgXG4gKiAgVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsXG4gKiAgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS5cbiAqICBcbiAqICBUSEUgU09GVFdBUkUgSVMgUFJPVklERUQgXCJBUyBJU1wiLCBXSVRIT1VUIFdBUlJBTlRZIE9GIEFOWSBLSU5ELCBFWFBSRVNTIE9SXG4gKiAgSU1QTElFRCwgSU5DTFVESU5HIEJVVCBOT1QgTElNSVRFRCBUTyBUSEUgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFCSUxJVFksXG4gKiAgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFXG4gKiAgQVVUSE9SUyBPUiBDT1BZUklHSFQgSE9MREVSUyBCRSBMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdFUyBPUiBPVEhFUlxuICogIExJQUJJTElUWSwgV0hFVEhFUiBJTiBBTiBBQ1RJT04gT0YgQ09OVFJBQ1QsIFRPUlQgT1IgT1RIRVJXSVNFLCBBUklTSU5HIEZST00sXG4gKiAgT1VUIE9GIE9SIElOIENPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUgT1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUyBJTiBUSEVcbiAqICBTT0ZUV0FSRS5cbiAqICBcbiAqIEBhdXRob3IgOiBOYXRoYW5hZWwgQnJhdW5cbiAqIEBjb250YWN0IDogY2FpcGlsYWJzQGdtYWlsLmNvbVxuICovXG5cbmltcG9ydCB7IFNjb3BlLCBTdG9yZSwgYWRkU2NvcGFibGVUeXBlLCBzY29wZVRvU3RhdGUgfSBmcm9tIFwicmVzY29wZVwiO1xuaW1wb3J0IFJlYWN0ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZyb20gJ3JlYWN0J1xuaW1wb3J0IGlzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZyb20gJ2lzJ1xuaW1wb3J0IFByb3BUeXBlcyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZyb20gJ3Byb3AtdHlwZXMnO1xuXG5jb25zdCBTaW1wbGVPYmplY3RQcm90byA9ICgge30gKS5jb25zdHJ1Y3RvcjtcblxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIEluamVjdCAmIG1haW50YWluIHRoZSBzdG9yZXMgbGlzdGVkIGJhc2VDb21wb25lbnQ6OnVzZSBhbmQvb3IgKHVzZSkgaW4gdGhlXG4gKiBpbnN0YW5jZXMgcHJvcHMuXG4gKiAgLSBQcm9wYWcgKHNjb3BlKSBpbiB0aGUgcmV0dXJuZWQgUmVhY3QgQ29tcG9uZW50IGNvbnRleHRcbiAqXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOlxuICogICAgIFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc2NvcGUge1JlU2NvcGUuU2NvcGV8ZnVuY3Rpb259IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZVxuICogICAgIHNlYXJjaGVkICggZGVmYXVsdCA6IHRoZSBkZWZhdWx0IFJlU2NvcGU6OlNjb3BlOjpzY29wZXMuc3RhdGljIHNjb3BlIClcbiAqIEBwYXJhbSB1c2Uge2FycmF5fSB0aGUgbGlzdCBvZiBzdG9yZXMgdG8gaW5qZWN0IGZyb20gdGhlIGN1cnJlbnQgc2NvcGVcbiAqIEByZXR1cm5zIHtSZVNjb3BlUHJvdmlkZXJ9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGVQcm9wcyggLi4uYXJneiApIHtcbiAgICBsZXQgQmFzZUNvbXBvbmVudCA9ICggIWFyZ3pbIDAgXSB8fCBhcmd6WyAwIF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbIDAgXSA9PT0gUmVhY3QuQ29tcG9uZW50ICkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZSAgICAgICAgID0gKCAhYXJnelsgMCBdIHx8IGFyZ3pbIDAgXSBpbnN0YW5jZW9mIFNjb3BlIHx8IGlzLmZuKGFyZ3pbIDAgXSkgKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHVzZSAgICAgICAgICAgPSAoICFhcmd6WyAwIF0gfHwgaXMuYXJyYXkoYXJnelsgMCBdKSB8fCBhcmd6WyAwIF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90byApICYmIGFyZ3ouc2hpZnQoKTtcbiAgICBcbiAgICBpZiAoICEoIEJhc2VDb21wb25lbnQgJiYgKCBCYXNlQ29tcG9uZW50LnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCB8fCBCYXNlQ29tcG9uZW50ID09PSBSZWFjdC5Db21wb25lbnQgKSApICkge1xuICAgICAgICByZXR1cm4gZnVuY3Rpb24gKCBCYXNlQ29tcG9uZW50ICkge1xuICAgICAgICAgICAgcmV0dXJuIHJlU2NvcGVQcm9wcyhCYXNlQ29tcG9uZW50LCBzY29wZSwgdXNlKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIFxuICAgIGxldCBwcm92aWRlciA9IHJlU2NvcGVUb1N0YXRlKGNsYXNzIFJlU2NvcGVQcm9wc1Byb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICAgICAgc3RhdGljIF9vcmlnaW5Db21wb25lbnQgID0gQmFzZUNvbXBvbmVudC5fb3JpZ2luQ29tcG9uZW50IHx8IEJhc2VDb21wb25lbnQ7XG4gICAgICAgIHN0YXRpYyB1c2UgICAgICAgICAgICAgICA9IEJhc2VDb21wb25lbnQudXNlO1xuICAgICAgICBzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG4gICAgICAgICAgICAuLi4oIEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9ICksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9O1xuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oIEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9ICksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9O1xuICAgICAgICBcbiAgICAgICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICAgICAgcmV0dXJuIHRoaXMuY29udGV4dDtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgcmVuZGVyKCkge1xuICAgICAgICAgICAgcmV0dXJuIDxCYXNlQ29tcG9uZW50IHsgLi4udGhpcy5wcm9wcyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyAuLi50aGlzLnN0YXRlIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkc3RvcmVzPXsgdGhpcy4kc3RvcmVzIH0vPlxuICAgICAgICB9XG4gICAgfSwgc2NvcGUsIHVzZSk7XG4gICAgcHJvdmlkZXIuZGlzcGxheU5hbWUgICAgICAgICA9IFwiczJwKFwiICsgKCBCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZSApICsgXCIpXCI7XG4gICAgcmV0dXJuIHByb3ZpZGVyO1xufVxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIEluaGVyaXQgQmFzZUNvbXBvbmVudCxcbiAqICAtIEluamVjdCAmIG1haW50YWluIHRoZSBzdG9yZXMgaW4gQmFzZUNvbXBvbmVudDo6dXNlIGFuZC9vciAodXNlKSBpbiB0aGUgaW5zdGFuY2VzXG4gKiBzdGF0ZS5cbiAqICAtIFByb3BhZyAoc2NvcGUpIGluIHRoZSByZXR1cm5lZCBSZWFjdCBDb21wb25lbnQgY29udGV4dFxuICpcbiAqXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOlxuICogICAgIFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc2NvcGUge1JlU2NvcGUuU2NvcGV8ZnVuY3Rpb259IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZVxuICogICAgIHNlYXJjaGVkXG4gKiBAcGFyYW0gdXNlIHthcnJheX0gdGhlIGxpc3Qgb2Ygc3RvcmVzIGluamVjdGVkIGZyb20gdGhlIGN1cnJlbnQgc2NvcGVcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHtSZVNjb3BlUHJvdmlkZXJ9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGVUb1N0YXRlKCAuLi5hcmd6ICkge1xuICAgIGxldCBCYXNlQ29tcG9uZW50ICAgICA9ICggIWFyZ3pbIDAgXSB8fCBhcmd6WyAwIF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbIDAgXSA9PT0gUmVhY3QuQ29tcG9uZW50ICkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZSAgICAgICAgICAgICA9ICggIWFyZ3pbIDAgXSB8fCBhcmd6WyAwIF0gaW5zdGFuY2VvZiBTY29wZSB8fCBpcy5mbihhcmd6WyAwIF0pICkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICB1c2UgICAgICAgICAgICAgICA9ICggaXMuYXJyYXkoYXJnelsgMCBdKSApICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgc3RhdGVNYXAgICAgICAgICAgPSAhdXNlICYmICggIWFyZ3pbIDAgXSB8fCBhcmd6WyAwIF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90byApICYmIGFyZ3ouc2hpZnQoKSxcbiAgICAgICAgYWRkaXRpb25hbENvbnRleHQgPSAoICFhcmd6WyAwIF0gfHwgYXJnelsgMCBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8gKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIGluaXRpYWxTdGF0ZSAgICAgID0ge307XG4gICAgXG4gICAgdXNlID0gWyAuLi4oIEJhc2VDb21wb25lbnQudXNlIHx8IFtdICksIC4uLiggdXNlIHx8IFtdICkgXTtcbiAgICBzdGF0ZU1hcCAmJiBTY29wZS5zdGF0ZU1hcFRvUmVmTGlzdChzdGF0ZU1hcCwgaW5pdGlhbFN0YXRlLCB1c2UpO1xuICAgIFxuICAgIGFkZGl0aW9uYWxDb250ZXh0ID0gYWRkaXRpb25hbENvbnRleHQgJiYgT2JqZWN0LmtleXMoYWRkaXRpb25hbENvbnRleHQpLnJlZHVjZSgoIGgsIGsgKSA9PiAoIGhbIGsgXSA9IFByb3BUeXBlcy5hbnksIGggKSwge30pIHx8IHt9O1xuICAgIFxuICAgIGNsYXNzIFJlU2NvcGVQcm92aWRlciBleHRlbmRzIEJhc2VDb21wb25lbnQge1xuICAgICAgICBzdGF0aWMgX29yaWdpbkNvbXBvbmVudCAgPSBCYXNlQ29tcG9uZW50Ll9vcmlnaW5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudDtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKCBCYXNlQ29tcG9uZW50LmNoaWxkQ29udGV4dFR5cGVzIHx8IHt9ICksXG4gICAgICAgICAgICAuLi4oIGFkZGl0aW9uYWxDb250ZXh0ICksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLiggQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30gKSxcbiAgICAgICAgICAgIC4uLiggYWRkaXRpb25hbENvbnRleHQgKSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRlZmF1bHRQcm9wcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKCBCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wcyB8fCB7fSApLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwiczJzKFwiICsgKCBCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZSApICsgXCIpXCI7XG4gICAgICAgIFxuICAgICAgICBfc2NvcGVXaWxsVXBkYXRlID0gKCBzdGF0ZSApID0+IHtcbiAgICAgICAgICAgIC8vIHRyaWdnZXIgdXBkYXRlIGhvb2tcbiAgICAgICAgICAgIHRoaXMuc2NvcGVXaWxsVXBkYXRlICYmIHRoaXMuc2NvcGVXaWxsVXBkYXRlKHN0YXRlLCB0aGlzLiRzdG9yZXMpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICAvLyBjbG9uZSB1cGRhdGVkIG9iamVjdHMgc28gcmVhY3Qgd2lsbCBwcm9wYWcgdGhlbS4uLlxuICAgICAgICAgICAgc3RhdGUgPSBPYmplY3Qua2V5cyhzdGF0ZSlcbiAgICAgICAgICAgICAgICAgICAgICAgICAgLnJlZHVjZShcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICggaCwgayApID0+IChcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoWyBrIF0gPSBpcy5hcnJheShzdGF0ZVsgayBdKVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID8gWyAuLi5zdGF0ZVsgayBdIF1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IHN0YXRlWyBrIF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90b1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPyB7IC4uLnN0YXRlWyBrIF0gfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBzdGF0ZVsgayBdLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoICksIHt9XG4gICAgICAgICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgIHRoaXMuc2V0U3RhdGUoc3RhdGUpO1xuICAgICAgICB9O1xuICAgICAgICBcbiAgICAgICAgXG4gICAgICAgIGNvbnN0cnVjdG9yKCBwLCBjdHgsIHEgKSB7XG4gICAgICAgICAgICBzdXBlcihwLCBjdHgsIHEpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSB0aGlzLiRzY29wZSB8fFxuICAgICAgICAgICAgICAgICAgICAgICAgICBwLl9fc2NvcGVcbiAgICAgICAgICAgICAgICAgICAgICAgICAgfHwgaXMuZm4oc2NvcGUpICYmIHNjb3BlKHRoaXMsIHAsIGN0eCkgfHwgc2NvcGVcbiAgICAgICAgICAgICAgICAgICAgICAgICAgfHwgY3R4LnJlc2NvcGU7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiUmVTY29waW5nIHVzaW5nIGRlYWQgc2NvcGUgIVwiKVxuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gbnVsbDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgaXMuZm4oc2NvcGUpXG4gICAgICAgICAgICAmJiB0aGlzLiRzY29wZS5yZXRhaW4oXCJob2NcIik7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5zdG9yZXM7XG4gICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdXNlLmxlbmd0aCApIHtcbiAgICAgICAgICAgICAgICB0aGlzLnN0YXRlID0ge1xuICAgICAgICAgICAgICAgICAgICAuLi50aGlzLnN0YXRlLFxuICAgICAgICAgICAgICAgICAgICAuLi5pbml0aWFsU3RhdGUsXG4gICAgICAgICAgICAgICAgICAgIC4uLnRoaXMuJHNjb3BlLm1hcCh0aGlzLCB1c2UsIGZhbHNlKS8vIGRvbid0IGJpbmQgbm93IGR1ZSB0byBTU1JcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBlbHNlIGlmICggIXRoaXMuJHNjb3BlIClcbiAgICAgICAgICAgICAgICB0aGlzLnJlbmRlciA9ICgpID0+IDxkaXY+Tm8gU2NvcGUgZm91bmQgaW4geyBCYXNlQ29tcG9uZW50Lm5hbWUgfTwvZGl2PlxuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRkaXNwYXRjaCA9IHRoaXMuJGRpc3BhdGNoLmJpbmQodGhpcyk7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgICRkaXNwYXRjaCggLi4uYXJneiApIHtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3BhdGNoKC4uLmFyZ3opXG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxNb3VudCgpIHtcbiAgICAgICAgICAgIGlmICggdXNlLmxlbmd0aCApIHtcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZS5iaW5kKHRoaXMuX3Njb3BlV2lsbFVwZGF0ZSwgdXNlLCBmYWxzZSlcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxNb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsTW91bnQoKVxuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50ICYmIHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50KCk7XG4gICAgICAgICAgICBpZiAoIHRoaXMuJHNjb3BlICYmICF0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgICAgIHVzZS5sZW5ndGggJiYgdGhpcy4kc2NvcGUudW5CaW5kKHRoaXMuX3Njb3BlV2lsbFVwZGF0ZSwgdXNlKTtcbiAgICAgICAgICAgICAgICBpcy5mbihzY29wZSkgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZShcImhvY1wiKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyggbnAsIG5jICkge1xuICAgICAgICAgICAgbGV0IG5TY29wZSA9IG5wLl9fc2NvcGVcbiAgICAgICAgICAgICAgICAgICAgICAgICB8fCBzY29wZSAmJiB0aGlzLiRzY29wZVxuICAgICAgICAgICAgICAgICAgICAgICAgIHx8IG5jLnJlc2NvcGVcbiAgICAgICAgICAgICAgICAgICAgICAgICB8fCB0aGlzLiRzY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCBuU2NvcGUgIT0gdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiB0aGlzLiRzY29wZS51bkJpbmQodGhpcy5fc2NvcGVXaWxsVXBkYXRlLCB1c2UpO1xuICAgICAgICAgICAgICAgIHRoaXMuJHNjb3BlID0gblNjb3BlO1xuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcbiAgICAgICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIlJlU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlXCIpXG4gICAgICAgICAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZSA9IG51bGw7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGVsc2Uge1xuICAgICAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgICAgICAgICAgdXNlLmxlbmd0aCAmJiBuU2NvcGUuYmluZCh0aGlzLl9zY29wZVdpbGxVcGRhdGUsIHVzZSk7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyAmJiBzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKG5wLCBuYyk7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGdldENoaWxkQ29udGV4dCgpIHtcbiAgICAgICAgICAgIGxldCBjdHggPSBzdXBlci5nZXRDaGlsZENvbnRleHQgJiYgc3VwZXIuZ2V0Q2hpbGRDb250ZXh0KCkgfHwge307XG4gICAgICAgICAgICByZXR1cm4ge1xuICAgICAgICAgICAgICAgIC4uLmN0eCxcbiAgICAgICAgICAgICAgICByZXNjb3BlOiB0aGlzLiRzY29wZSB8fCB0aGlzLmNvbnRleHQucmVzY29wZSxcbiAgICAgICAgICAgICAgICAkc3RvcmVzOiB0aGlzLiRzY29wZS5zdG9yZXMgfHwgdGhpcy5jb250ZXh0LiRzdG9yZXNcbiAgICAgICAgICAgIH07XG4gICAgICAgIH1cbiAgICB9XG4gICAgXG4gICAgcmV0dXJuIFJlU2NvcGVQcm92aWRlcjtcbn1cblxuYWRkU2NvcGFibGVUeXBlKFxuICAgICggQ29tcCApID0+ICggQ29tcCAmJiAoIENvbXAucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IENvbXAgPT09IFJlYWN0LkNvbXBvbmVudCApICksXG4gICAgcmVTY29wZVRvU3RhdGUsIGZhbHNlLCB0cnVlXG4pXG5cbi8qKlxuICogUmV0dXJuIGEgUmVhY3QgXCJIT0NcIiAoSGlnaCBPcmRlciBDb21wb25lbnQpIHRoYXQgOlxuICogIC0gUmVuZGVyIEJhc2VDb21wb25lbnQgd2l0aCBuZXcgc2NvcGUgdGhhdCBpbmhlcml0IHRoZSBnaXZlbiBzY29wZSBvciBjb250ZXh0IHNjb3BlXG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDpcbiAqICAgICBSZWFjdC5Db21wb25lbnQgKVxuICogQHBhcmFtIHN0b3Jlc01hcCB7T2JqZWN0fSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZSB7U2NvcGV9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlSWQge3N0cmluZ30gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gYWRkaXRpb25hbENvbnRleHQge09iamVjdH0gY29udGV4dCB0byBiZSBwcm9wYWdhdGVkXG4gKiBAcmV0dXJucyB7Kn1cbiAqL1xuZnVuY3Rpb24gcmVTY29wZSggLi4uYXJneiApIHtcbiAgICBsZXQgQmFzZUNvbXBvbmVudCA9ICggIWFyZ3pbIDAgXSB8fCBhcmd6WyAwIF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbIDAgXSA9PT0gUmVhY3QuQ29tcG9uZW50ICkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZWQgICAgICAgID0gKCAhYXJnelsgMCBdIHx8IGFyZ3pbIDAgXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvICYmICEoIGFyZ3pbIDAgXSBpbnN0YW5jZW9mIFNjb3BlICkgKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHNjb3BlQ2ZnICAgICAgPSAoICFhcmd6WyAwIF0gfHwgYXJnelsgMCBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8gKSAmJiBhcmd6LnNoaWZ0KCkgfHwge30sXG4gICAgICAgIHBhcmVudCAgICAgICAgPSAoICFhcmd6WyAwIF0gfHwgYXJnelsgMCBdIGluc3RhbmNlb2YgU2NvcGUgKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHBhcmVudElkICAgICAgPSAoICFhcmd6WyAwIF0gfHwgaXMuc3RyaW5nKGFyZ3pbIDAgXSkgKSAmJiBhcmd6LnNoaWZ0KCk7XG4gICAgXG4gICAgbGV0IGNvbXBOYW1lID0gQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWU7XG4gICAgXG4gICAgXG4gICAgY2xhc3MgU2NvcGVQcm92aWRlciBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgICAgIHN0YXRpYyBfb3JpZ2luQ29tcG9uZW50ICA9IEJhc2VDb21wb25lbnQuX29yaWdpbkNvbXBvbmVudCB8fCBCYXNlQ29tcG9uZW50O1xuICAgICAgICBzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG4gICAgICAgICAgICAuLi4oIEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30gKSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKCBCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSApLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGVmYXVsdFByb3BzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oIEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzIHx8IHt9ICksXG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJycyhcIiArIGNvbXBOYW1lICsgXCIpXCI7XG4gICAgICAgIFxuICAgICAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICAgICAgbGV0IF9wYXJlbnQgPSBwYXJlbnQgfHwgcGFyZW50SWQgJiYgU2NvcGUuZ2V0U2NvcGUocGFyZW50SWQpIHx8IHAuX19zY29wZSB8fCBjdHgucmVzY29wZSxcbiAgICAgICAgICAgICAgICAkc2NvcGUgID0gbmV3IFNjb3BlKFxuICAgICAgICAgICAgICAgICAgICBzY29wZWQgfHwge30sXG4gICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9EZXN0cm95OiB0cnVlLFxuICAgICAgICAgICAgICAgICAgICAgICAga2V5ICAgICAgICA6IGNvbXBOYW1lLFxuICAgICAgICAgICAgICAgICAgICAgICAgcGFyZW50ICAgICA6IF9wYXJlbnQsXG4gICAgICAgICAgICAgICAgICAgICAgICAuLi5zY29wZUNmZ1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgXG4gICAgICAgICAgICBzdXBlcihwLCB7IC4uLmN0eCwgcmVzY29wZTogJHNjb3BlLCAkc3RvcmVzOiAkc2NvcGUuc3RvcmVzIH0sIHEpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzY29wZSA9IHRoaXMuJHNjb3BlIHx8ICRzY29wZTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgaWYgKCAhdGhpcy4kc2NvcGUgKSB7XG4gICAgICAgICAgICAgICAgaWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuICAgICAgICAgICAgICAgICAgICBjb25zb2xlLmVycm9yKFwiU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlIHBhcmVudFwiKTtcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUgPSBudWxsO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICB0aGlzLiRzY29wZSA9IG5ldyBTY29wZShcbiAgICAgICAgICAgICAgICAgICAgc2NvcGVkIHx8IHt9LFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICBhdXRvRGVzdHJveTogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIGtleSAgICAgICAgOiBjb21wTmFtZSxcbiAgICAgICAgICAgICAgICAgICAgICAgIHBhcmVudCAgICAgOiB0aGlzLiRzY29wZVxuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICB0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYWN0aW9ucztcbiAgICAgICAgICAgICAgICB0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgdGhpcy4kc2NvcGUucmV0YWluKCk7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQgJiYgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQoKTtcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3Bvc2UoKTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgZ2V0Q2hpbGRDb250ZXh0KCkge1xuICAgICAgICAgICAgbGV0IGN0eCA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fTtcbiAgICAgICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICAgICAgLi4uY3R4LFxuICAgICAgICAgICAgICAgIHJlc2NvcGU6IHRoaXMuJHNjb3BlLFxuICAgICAgICAgICAgICAgICRzdG9yZXM6IHRoaXMuJHNjb3BlLnN0b3Jlc1xuICAgICAgICAgICAgfTtcbiAgICAgICAgfVxuICAgICAgICBcbiAgICAgICAgcmVuZGVyKCkge1xuICAgICAgICAgICAgcmV0dXJuIDxCYXNlQ29tcG9uZW50IHsgLi4udGhpcy5wcm9wcyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGRpc3BhdGNoPXsgdGhpcy4kZGlzcGF0Y2ggfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRhY3Rpb25zPXsgdGhpcy4kYWN0aW9ucyB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJHN0b3Jlcz17IHRoaXMuJHN0b3JlcyB9Lz5cbiAgICAgICAgfVxuICAgIH1cbiAgICBcbiAgICByZXR1cm4gU2NvcGVQcm92aWRlcjtcbn1cblxuYWRkU2NvcGFibGVUeXBlKFxuICAgICggQ29tcCApID0+ICggQ29tcCAmJiAoIENvbXAucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IENvbXAgPT09IFJlYWN0LkNvbXBvbmVudCApICksXG4gICAgcmVTY29wZVxuKVxuXG4vKipcbiAqIE1hcCBzcGVjaWZpZWQgcHJvcHMgdG9cbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6XG4gKiAgICAgUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzdG9yZXNNYXAge09iamVjdH0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGUge1Njb3BlfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZUlkIHtzdHJpbmd9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIGFkZGl0aW9uYWxDb250ZXh0IHtPYmplY3R9IGNvbnRleHQgdG8gYmUgcHJvcGFnYXRlZFxuICogQHJldHVybnMgeyp9XG4gKi9cbmZ1bmN0aW9uIHByb3BzVG9TY29wZSggLi4uYXJneiApIHtcbiAgICBsZXQgQmFzZUNvbXBvbmVudCA9ICggIWFyZ3pbIDAgXSB8fCBhcmd6WyAwIF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbIDAgXSA9PT0gUmVhY3QuQ29tcG9uZW50ICkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzY29wZWRQcm9wcyAgID0gKCAhYXJnelsgMCBdIHx8IGlzLmFycmF5KGFyZ3pbIDAgXSkgKSAmJiBhcmd6LnNoaWZ0KCkgfHwgW10sXG4gICAgICAgIHNjb3BlQ2ZnICAgICAgPSAoICFhcmd6WyAwIF0gfHwgYXJnelsgMCBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8gKSAmJiBhcmd6LnNoaWZ0KCkgfHwge30sXG4gICAgICAgIHBhcmVudCAgICAgICAgPSAoICFhcmd6WyAwIF0gfHwgYXJnelsgMCBdIGluc3RhbmNlb2YgU2NvcGUgKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHBhcmVudElkICAgICAgPSAoICFhcmd6WyAwIF0gfHwgaXMuc3RyaW5nKGFyZ3pbIDAgXSkgKSAmJiBhcmd6LnNoaWZ0KCk7XG4gICAgXG4gICAgbGV0IGNvbXBOYW1lID0gQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWU7XG4gICAgXG4gICAgaWYgKCAhKCBCYXNlQ29tcG9uZW50ICYmICggQmFzZUNvbXBvbmVudC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudCA9PT0gUmVhY3QuQ29tcG9uZW50ICkgKSApIHtcbiAgICAgICAgcmV0dXJuIGZ1bmN0aW9uICggQmFzZUNvbXBvbmVudCApIHtcbiAgICAgICAgICAgIHJldHVybiBwcm9wc1RvU2NvcGUoQmFzZUNvbXBvbmVudCwgc2NvcGVkUHJvcHMsIHNjb3BlQ2ZnLCBwYXJlbnQsIHBhcmVudElkKVxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIGNsYXNzIFNjb3BlUHJvdmlkZXIgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgICAgICBzdGF0aWMgX29yaWdpbkNvbXBvbmVudCAgPSBCYXNlQ29tcG9uZW50Ll9vcmlnaW5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudDtcbiAgICAgICAgc3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuICAgICAgICAgICAgLi4uKCBCYXNlQ29tcG9uZW50LmNoaWxkQ29udGV4dFR5cGVzIHx8IHt9ICksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLiggQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30gKSxcbiAgICAgICAgICAgIHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG4gICAgICAgICAgICAkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG4gICAgICAgIH1cbiAgICAgICAgc3RhdGljIGRlZmF1bHRQcm9wcyAgICAgID0ge1xuICAgICAgICAgICAgLi4uKCBCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wcyB8fCB7fSApLFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwicDJzYyhcIiArIGNvbXBOYW1lICsgXCIpXCI7XG4gICAgICAgIFxuICAgICAgICBjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuICAgICAgICAgICAgbGV0IF9wYXJlbnQgPSBwYXJlbnQgfHwgcGFyZW50SWQgJiYgU2NvcGUuZ2V0U2NvcGUocGFyZW50SWQpIHx8IHAuX19zY29wZSB8fCBjdHgucmVzY29wZSxcbiAgICAgICAgICAgICAgICAkc2NvcGUgID0gbmV3IFNjb3BlKFxuICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICAuLi5zY29wZWRQcm9wc1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgIC5maWx0ZXIoayA9PiAhX3BhcmVudC5zdG9yZXNbIGsgXSlcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAucmVkdWNlKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoIGgsIGsgKSA9PiAoIGhbIGsgXSA9IFN0b3JlLCBoICksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgKSxcbiAgICAgICAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0Rlc3Ryb3k6IHRydWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBrZXkgICAgICAgIDogY29tcE5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICBwYXJlbnQgICAgIDogX3BhcmVudCxcbiAgICAgICAgICAgICAgICAgICAgICAgIC4uLnNjb3BlQ2ZnLFxuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgXG4gICAgICAgICAgICBzdXBlcihwLCB7IC4uLmN0eCwgcmVzY29wZTogJHNjb3BlLCAkc3RvcmVzOiAkc2NvcGUuc3RvcmVzIH0sIHEpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICB0aGlzLiRzY29wZSAgID0gdGhpcy4kc2NvcGUgfHwgJHNjb3BlO1xuICAgICAgICAgICAgdGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmFjdGlvbnM7XG4gICAgICAgICAgICB0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUucmV0YWluKCk7XG4gICAgICAgICAgICBzY29wZWRQcm9wcy5mb3JFYWNoKFxuICAgICAgICAgICAgICAgICggayApID0+IChcbiAgICAgICAgICAgICAgICAgICAgdGhpcy4kc2NvcGUuc3RhdGVbIGsgXSA9IHBbIGsgXVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfHwgQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHNcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICYmIEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzWyBrIF1cbiAgICAgICAgICAgICAgICApXG4gICAgICAgICAgICApXG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoIG5wICkge1xuICAgICAgICAgICAgc2NvcGVkUHJvcHMuZm9yRWFjaChcbiAgICAgICAgICAgICAgICBwID0+ICggdGhpcy5wcm9wc1sgcCBdICE9PSBucFsgcCBdICYmIHRoaXMuJHN0b3Jlc1sgcCBdLnNldFN0YXRlKG5wWyBwIF0pIClcbiAgICAgICAgICAgIClcbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMgJiYgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyguLi5hcmd1bWVudHMpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBcbiAgICAgICAgY29tcG9uZW50V2lsbFVubW91bnQoKSB7XG4gICAgICAgICAgICBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZSgpO1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBnZXRDaGlsZENvbnRleHQoKSB7XG4gICAgICAgICAgICBsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5jdHgsXG4gICAgICAgICAgICAgICAgcmVzY29wZTogdGhpcy4kc2NvcGUsXG4gICAgICAgICAgICAgICAgJHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICByZW5kZXIoKSB7XG4gICAgICAgICAgICBsZXQgZlByb3BzID0gT2JqZWN0LmtleXModGhpcy5wcm9wcykucmVkdWNlKCggaCwgayApID0+ICggIXNjb3BlZFByb3BzLmluY2x1ZGVzKGspICYmICggaFsgayBdID0gdGhpcy5wcm9wc1sgayBdICksIGggKSwge30pO1xuICAgICAgICAgICAgcmV0dXJuIDxCYXNlQ29tcG9uZW50IHsgLi4uZlByb3BzIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7IC4uLnRoaXMuc3RhdGUgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRkaXNwYXRjaD17IHRoaXMuJGRpc3BhdGNoIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkYWN0aW9ucz17IHRoaXMuJGFjdGlvbnMgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICRzdG9yZXM9eyB0aGlzLiRzdG9yZXMgfS8+XG4gICAgICAgIH1cbiAgICB9XG4gICAgXG4gICAgcmV0dXJuIFNjb3BlUHJvdmlkZXI7XG59XG5cbi8qKlxuICogQmluZCBhIGNvbXBvbmVudCBwcm9wcyB0byB0aGUgc3BlY2lmaWVkIHN0b3JlLFxuICogcmVuZGVyIHdpdGggdGhlIHNwZWNpZmllZCBzdG9yZSByZXN1bHQgZGF0YVxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6XG4gKiAgICAgUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzdG9yZXNNYXAge09iamVjdH0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGUge1Njb3BlfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZUlkIHtzdHJpbmd9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIGFkZGl0aW9uYWxDb250ZXh0IHtPYmplY3R9IGNvbnRleHQgdG8gYmUgcHJvcGFnYXRlZFxuICogQHJldHVybnMgeyp9XG4gKi9cbmZ1bmN0aW9uIHByb3BzVG9TdG9yZSggLi4uYXJneiApIHtcbiAgICBsZXQgQmFzZUNvbXBvbmVudCA9ICggIWFyZ3pbIDAgXSB8fCBhcmd6WyAwIF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbIDAgXSA9PT0gUmVhY3QuQ29tcG9uZW50ICkgJiYgYXJnei5zaGlmdCgpLFxuICAgICAgICBzdG9yZUNvbXAgICAgID0gKCAhYXJnelsgMCBdIHx8IGFyZ3pbIDAgXSBpbnN0YW5jZW9mIFN0b3JlICkgJiYgYXJnei5zaGlmdCgpIHx8IFN0b3JlLFxuICAgICAgICBzdG9yZU5hbWUgICAgID0gKCAhYXJnelsgMCBdIHx8IGlzLnN0cmluZyhhcmd6WyAwIF0pICkgJiYgYXJnei5zaGlmdCgpIHx8IHN0b3JlQ29tcC5kaXNwbGF5TmFtZSB8fCBcInByb3BzXCIsXG4gICAgICAgIHNjb3BlQ2ZnICAgICAgPSAoICFhcmd6WyAwIF0gfHwgYXJnelsgMCBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8gKSAmJiBhcmd6LnNoaWZ0KCkgfHwge30sXG4gICAgICAgIHBhcmVudCAgICAgICAgPSAoICFhcmd6WyAwIF0gfHwgYXJnelsgMCBdIGluc3RhbmNlb2YgU2NvcGUgKSAmJiBhcmd6LnNoaWZ0KCksXG4gICAgICAgIHBhcmVudElkICAgICAgPSAoICFhcmd6WyAwIF0gfHwgaXMuc3RyaW5nKGFyZ3pbIDAgXSkgKSAmJiBhcmd6LnNoaWZ0KCk7XG4gICAgXG4gICAgbGV0IGNvbXBOYW1lID0gQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWU7XG4gICAgXG4gICAgaWYgKCAhKCBCYXNlQ29tcG9uZW50ICYmICggQmFzZUNvbXBvbmVudC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudCA9PT0gUmVhY3QuQ29tcG9uZW50ICkgKSApIHtcbiAgICAgICAgcmV0dXJuIGZ1bmN0aW9uICggQmFzZUNvbXBvbmVudCApIHtcbiAgICAgICAgICAgIHJldHVybiBwcm9wc1RvU3RvcmUoQmFzZUNvbXBvbmVudCxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RvcmVDb21wLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdG9yZU5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjb3BlQ2ZnLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwYXJlbnQsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhcmVudElkXG4gICAgICAgICAgICApXG4gICAgICAgIH1cbiAgICB9XG4gICAgXG4gICAgY2xhc3MgU2NvcGVQcm92aWRlciBleHRlbmRzICggcmVTY29wZVRvU3RhdGUoUmVhY3QuQ29tcG9uZW50LCBbIHN0b3JlTmFtZSBdKSApIHtcbiAgICAgICAgc3RhdGljIF9vcmlnaW5Db21wb25lbnQgID0gQmFzZUNvbXBvbmVudC5fb3JpZ2luQ29tcG9uZW50IHx8IEJhc2VDb21wb25lbnQ7XG4gICAgICAgIHN0YXRpYyBjaGlsZENvbnRleHRUeXBlcyA9IHtcbiAgICAgICAgICAgIC4uLiggQmFzZUNvbXBvbmVudC5jaGlsZENvbnRleHRUeXBlcyB8fCB7fSApLFxuICAgICAgICAgICAgcmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcbiAgICAgICAgICAgICRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3RcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG4gICAgICAgICAgICAuLi4oIEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9ICksXG4gICAgICAgICAgICByZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuICAgICAgICAgICAgJHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuICAgICAgICB9XG4gICAgICAgIHN0YXRpYyBkZWZhdWx0UHJvcHMgICAgICA9IHtcbiAgICAgICAgICAgIC4uLiggQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30gKSxcbiAgICAgICAgfVxuICAgICAgICBzdGF0aWMgZGlzcGxheU5hbWUgICAgICAgPSBcInAyc3QoXCIgKyBjb21wTmFtZSArIFwiKVwiO1xuICAgICAgICBcbiAgICAgICAgY29uc3RydWN0b3IoIHAsIGN0eCwgcSApIHtcbiAgICAgICAgICAgIGxldCBfcGFyZW50ID0gcGFyZW50IHx8IHBhcmVudElkICYmIFNjb3BlLmdldFNjb3BlKHBhcmVudElkKSB8fCBwLl9fc2NvcGUgfHwgY3R4LnJlc2NvcGUsXG4gICAgICAgICAgICAgICAgJHNjb3BlICA9IF9wYXJlbnQgJiYgX3BhcmVudC5zdG9yZXNbIHN0b3JlTmFtZSBdICYmIF9wYXJlbnRcbiAgICAgICAgICAgICAgICAgICAgICAgICAgfHwgbmV3IFNjb3BlKFxuICAgICAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgIFsgc3RvcmVOYW1lIF06IHN0b3JlQ29tcFxuICAgICAgICAgICAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhdXRvRGVzdHJveTogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZXkgICAgICAgIDogY29tcE5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcGFyZW50ICAgICA6IF9wYXJlbnQsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgLi4uc2NvcGVDZmdcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgc3VwZXIocCwgeyAuLi5jdHgsIHJlc2NvcGU6ICRzY29wZSwgJHN0b3JlczogJHNjb3BlLnN0b3JlcyB9LCBxKTtcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgdGhpcy4kc2NvcGUgICA9IHRoaXMuJHNjb3BlIHx8ICRzY29wZTtcbiAgICAgICAgICAgIHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuICAgICAgICAgICAgdGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLnN0b3JlcztcbiAgICAgICAgICAgIHRoaXMuJHNjb3BlLnJldGFpbigpO1xuICAgICAgICAgICAgdGhpcy4kc2NvcGUuc3RhdGVbIHN0b3JlTmFtZSBdID0ge1xuICAgICAgICAgICAgICAgIC4uLiggQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30gKSxcbiAgICAgICAgICAgICAgICAuLi5wXG4gICAgICAgICAgICB9O1xuICAgICAgICB9XG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCApIHtcbiAgICAgICAgICAgIC8vIEB0b2RvIGNvbnRleHQgc3dpdGNoaW5nXG4gICAgICAgICAgICB0aGlzLiRzdG9yZXMgJiYgdGhpcy4kc3RvcmVzWyBzdG9yZU5hbWUgXSAmJiB0aGlzLiRzdG9yZXNbIHN0b3JlTmFtZSBdLnNldFN0YXRlKG5wKVxuICAgICAgICAgICAgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyAmJiBzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKC4uLmFyZ3VtZW50cyk7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIFxuICAgICAgICBjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcbiAgICAgICAgICAgIHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50ICYmIHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50KCk7XG4gICAgICAgICAgICB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kaXNwb3NlKCk7XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIGdldENoaWxkQ29udGV4dCgpIHtcbiAgICAgICAgICAgIGxldCBjdHggPSBzdXBlci5nZXRDaGlsZENvbnRleHQgJiYgc3VwZXIuZ2V0Q2hpbGRDb250ZXh0KCkgfHwge307XG4gICAgICAgICAgICByZXR1cm4ge1xuICAgICAgICAgICAgICAgIC4uLmN0eCxcbiAgICAgICAgICAgICAgICByZXNjb3BlOiB0aGlzLiRzY29wZSxcbiAgICAgICAgICAgICAgICAkc3RvcmVzOiB0aGlzLiRzY29wZS5zdG9yZXNcbiAgICAgICAgICAgIH07XG4gICAgICAgIH1cbiAgICAgICAgXG4gICAgICAgIHJlbmRlcigpIHtcbiAgICAgICAgICAgIHJldHVybiA8QmFzZUNvbXBvbmVudCB7IC4uLiggdGhpcy5zdGF0ZSAmJiB0aGlzLnN0YXRlWyBzdG9yZU5hbWUgXSB8fCB7fSApIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAkc3RvcmVzPXsgdGhpcy4kc3RvcmVzIH0vPlxuICAgICAgICB9XG4gICAgfVxuICAgIFxuICAgIHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG5sZXQgQ29tcG9uZW50ID0gcmVTY29wZVRvU3RhdGUoUmVhY3QuQ29tcG9uZW50KTtcblxuZXhwb3J0IHtcbiAgICBDb21wb25lbnQgYXMgZGVmYXVsdCxcbiAgICBDb21wb25lbnQsXG4gICAgcmVTY29wZVByb3BzLFxuICAgIHByb3BzVG9TY29wZSxcbiAgICBwcm9wc1RvU3RvcmVcbn07XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vc3JjL1JlYWN0SG9jcy5qcyIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0XCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVhY3RcIlxuLy8gbW9kdWxlIGlkID0gM1xuLy8gbW9kdWxlIGNodW5rcyA9IDAiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJpc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcImlzXCJcbi8vIG1vZHVsZSBpZCA9IDRcbi8vIG1vZHVsZSBjaHVua3MgPSAwIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicHJvcC10eXBlc1wiKTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyBleHRlcm5hbCBcInByb3AtdHlwZXNcIlxuLy8gbW9kdWxlIGlkID0gNVxuLy8gbW9kdWxlIGNodW5rcyA9IDAiXSwic291cmNlUm9vdCI6IiJ9
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
+
+function webpackEmptyContext(req) {
+	throw new Error("Cannot find module '" + req + "'.");
+}
+webpackEmptyContext.keys = function() { return []; };
+webpackEmptyContext.resolve = webpackEmptyContext;
+module.exports = webpackEmptyContext;
+webpackEmptyContext.id = 62;
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+  setup: setupAsync,
+  compile: compileAsync
+};
+
+
+var util = __webpack_require__(18);
+
+var ASYNC = {
+  '*': checkGenerators,
+  'co*': checkGenerators,
+  'es7': checkAsyncFunction
+};
+
+var TRANSPILE = {
+  'nodent': getNodent,
+  'regenerator': getRegenerator
+};
+
+var MODES = [
+  { async: 'co*' },
+  { async: 'es7', transpile: 'nodent' },
+  { async: 'co*', transpile: 'regenerator' }
+];
+
+
+var regenerator, nodent;
+
+
+function setupAsync(opts, required) {
+  if (required !== false) required = true;
+  var async = opts.async
+    , transpile = opts.transpile
+    , check;
+
+  switch (typeof transpile) {
+    case 'string':
+      var get = TRANSPILE[transpile];
+      if (!get) throw new Error('bad transpiler: ' + transpile);
+      return (opts._transpileFunc = get(opts, required));
+    case 'undefined':
+    case 'boolean':
+      if (typeof async == 'string') {
+        check = ASYNC[async];
+        if (!check) throw new Error('bad async mode: ' + async);
+        return (opts.transpile = check(opts, required));
+      }
+
+      for (var i=0; i<MODES.length; i++) {
+        var _opts = MODES[i];
+        if (setupAsync(_opts, false)) {
+          util.copy(_opts, opts);
+          return opts.transpile;
+        }
+      }
+      /* istanbul ignore next */
+      throw new Error('generators, nodent and regenerator are not available');
+    case 'function':
+      return (opts._transpileFunc = opts.transpile);
+    default:
+      throw new Error('bad transpiler: ' + transpile);
+  }
+}
+
+
+function checkGenerators(opts, required) {
+  /* jshint evil: true */
+  try {
+    (new Function('(function*(){})()'))();
+    return true;
+  } catch(e) {
+    /* istanbul ignore next */
+    if (required) throw new Error('generators not supported');
+  }
+}
+
+
+function checkAsyncFunction(opts, required) {
+  /* jshint evil: true */
+  try {
+    (new Function('(async function(){})()'))();
+    /* istanbul ignore next */
+    return true;
+  } catch(e) {
+    if (required) throw new Error('es7 async functions not supported');
+  }
+}
+
+
+function getRegenerator(opts, required) {
+  try {
+    if (!regenerator) {
+      var name = 'regenerator';
+      regenerator = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+      regenerator.runtime();
+    }
+    if (!opts.async || opts.async === true)
+      opts.async = 'es7';
+    return regeneratorTranspile;
+  } catch(e) {
+    /* istanbul ignore next */
+    if (required) throw new Error('regenerator not available');
+  }
+}
+
+
+function regeneratorTranspile(code) {
+  return regenerator.compile(code).code;
+}
+
+
+function getNodent(opts, required) {
+  /* jshint evil: true */
+  try {
+    if (!nodent) {
+      var name = 'nodent';
+      nodent = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())({ log: false, dontInstallRequireHook: true });
+    }
+    if (opts.async != 'es7') {
+      if (opts.async && opts.async !== true) console.warn('nodent transpiles only es7 async functions');
+      opts.async = 'es7';
+    }
+    return nodentTranspile;
+  } catch(e) {
+    /* istanbul ignore next */
+    if (required) throw new Error('nodent not available');
+  }
+}
+
+
+function nodentTranspile(code) {
+  return nodent.compile(code, '', { promises: true, sourcemap: false }).code;
+}
+
+
+/**
+ * Creates validating function for passed schema with asynchronous loading of missing schemas.
+ * `loadSchema` option should be a function that accepts schema uri and node-style callback.
+ * @this  Ajv
+ * @param {Object}   schema schema object
+ * @param {Function} callback node-style callback, it is always called with 2 parameters: error (or null) and validating function.
+ */
+function compileAsync(schema, callback) {
+  /* eslint no-shadow: 0 */
+  /* jshint validthis: true */
+  var schemaObj;
+  var self = this;
+  try {
+    schemaObj = this._addSchema(schema);
+  } catch(e) {
+    setTimeout(function() { callback(e); });
+    return;
+  }
+  if (schemaObj.validate) {
+    setTimeout(function() { callback(null, schemaObj.validate); });
+  } else {
+    if (typeof this._opts.loadSchema != 'function')
+      throw new Error('options.loadSchema should be a function');
+    _compileAsync(schema, callback, true);
+  }
+
+
+  function _compileAsync(schema, callback, firstCall) {
+    var validate;
+    try { validate = self.compile(schema); }
+    catch(e) {
+      if (e.missingSchema) loadMissingSchema(e);
+      else deferCallback(e);
+      return;
+    }
+    deferCallback(null, validate);
+
+    function loadMissingSchema(e) {
+      var ref = e.missingSchema;
+      if (self._refs[ref] || self._schemas[ref])
+        return callback(new Error('Schema ' + ref + ' is loaded but ' + e.missingRef + ' cannot be resolved'));
+      var _callbacks = self._loadingSchemas[ref];
+      if (_callbacks) {
+        if (typeof _callbacks == 'function')
+          self._loadingSchemas[ref] = [_callbacks, schemaLoaded];
+        else
+          _callbacks[_callbacks.length] = schemaLoaded;
+      } else {
+        self._loadingSchemas[ref] = schemaLoaded;
+        self._opts.loadSchema(ref, function (err, sch) {
+          var _callbacks = self._loadingSchemas[ref];
+          delete self._loadingSchemas[ref];
+          if (typeof _callbacks == 'function') {
+            _callbacks(err, sch);
+          } else {
+            for (var i=0; i<_callbacks.length; i++)
+              _callbacks[i](err, sch);
+          }
+        });
+      }
+
+      function schemaLoaded(err, sch) {
+        if (err) return callback(err);
+        if (!(self._refs[ref] || self._schemas[ref])) {
+          try {
+            self.addSchema(sch, ref);
+          } catch(e) {
+            callback(e);
+            return;
+          }
+        }
+        _compileAsync(schema, callback);
+      }
+    }
+
+    function deferCallback(err, validate) {
+      if (firstCall) setTimeout(function() { callback(err, validate); });
+      else return callback(err, validate);
+    }
+  }
+}
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*eslint complexity: 0*/
+
+module.exports = function equal(a, b) {
+  if (a === b) return true;
+
+  var arrA = Array.isArray(a)
+    , arrB = Array.isArray(b)
+    , i;
+
+  if (arrA && arrB) {
+    if (a.length != b.length) return false;
+    for (i = 0; i < a.length; i++)
+      if (!equal(a[i], b[i])) return false;
+    return true;
+  }
+
+  if (arrA != arrB) return false;
+
+  if (a && b && typeof a === 'object' && typeof b === 'object') {
+    var keys = Object.keys(a);
+    if (keys.length !== Object.keys(b).length) return false;
+
+    var dateA = a instanceof Date
+      , dateB = b instanceof Date;
+    if (dateA && dateB) return a.getTime() == b.getTime();
+    if (dateA != dateB) return false;
+
+    var regexpA = a instanceof RegExp
+      , regexpB = b instanceof RegExp;
+    if (regexpA && regexpB) return a.toString() == b.toString();
+    if (regexpA != regexpB) return false;
+
+    for (i = 0; i < keys.length; i++)
+      if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
+
+    for (i = 0; i < keys.length; i++)
+      if(!equal(a[keys[i]], b[keys[i]])) return false;
+
+    return true;
+  }
+
+  return false;
+};
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var url = __webpack_require__(7)
+  , equal = __webpack_require__(64)
+  , util = __webpack_require__(18)
+  , SchemaObject = __webpack_require__(66);
+
+module.exports = resolve;
+
+resolve.normalizeId = normalizeId;
+resolve.fullPath = getFullPath;
+resolve.url = resolveUrl;
+resolve.ids = resolveIds;
+resolve.inlineRef = inlineRef;
+resolve.schema = resolveSchema;
+
+/**
+ * [resolve and compile the references ($ref)]
+ * @this   Ajv
+ * @param  {Function} compile reference to schema compilation funciton (localCompile)
+ * @param  {Object} root object with information about the root schema for the current schema
+ * @param  {String} ref reference to resolve
+ * @return {Object|Function} schema object (if the schema can be inlined) or validation function
+ */
+function resolve(compile, root, ref) {
+  /* jshint validthis: true */
+  var refVal = this._refs[ref];
+  if (typeof refVal == 'string') {
+    if (this._refs[refVal]) refVal = this._refs[refVal];
+    else return resolve.call(this, compile, root, refVal);
+  }
+
+  refVal = refVal || this._schemas[ref];
+  if (refVal instanceof SchemaObject) {
+    return inlineRef(refVal.schema, this._opts.inlineRefs)
+            ? refVal.schema
+            : refVal.validate || this._compile(refVal);
+  }
+
+  var res = resolveSchema.call(this, root, ref);
+  var schema, v, baseId;
+  if (res) {
+    schema = res.schema;
+    root = res.root;
+    baseId = res.baseId;
+  }
+
+  if (schema instanceof SchemaObject) {
+    v = schema.validate || compile.call(this, schema.schema, root, undefined, baseId);
+  } else if (schema) {
+    v = inlineRef(schema, this._opts.inlineRefs)
+        ? schema
+        : compile.call(this, schema, root, undefined, baseId);
+  }
+
+  return v;
+}
+
+
+/**
+ * Resolve schema, its root and baseId
+ * @this Ajv
+ * @param  {Object} root root object with properties schema, refVal, refs
+ * @param  {String} ref  reference to resolve
+ * @return {Object} object with properties schema, root, baseId
+ */
+function resolveSchema(root, ref) {
+  /* jshint validthis: true */
+  var p = url.parse(ref, false, true)
+    , refPath = _getFullPath(p)
+    , baseId = getFullPath(root.schema.id);
+  if (refPath !== baseId) {
+    var id = normalizeId(refPath);
+    var refVal = this._refs[id];
+    if (typeof refVal == 'string') {
+      return resolveRecursive.call(this, root, refVal, p);
+    } else if (refVal instanceof SchemaObject) {
+      if (!refVal.validate) this._compile(refVal);
+      root = refVal;
+    } else {
+      refVal = this._schemas[id];
+      if (refVal instanceof SchemaObject) {
+        if (!refVal.validate) this._compile(refVal);
+        if (id == normalizeId(ref))
+          return { schema: refVal, root: root, baseId: baseId };
+        root = refVal;
+      } else {
+        return;
+      }
+    }
+    if (!root.schema) return;
+    baseId = getFullPath(root.schema.id);
+  }
+  return getJsonPointer.call(this, p, baseId, root.schema, root);
+}
+
+
+/* @this Ajv */
+function resolveRecursive(root, ref, parsedRef) {
+  /* jshint validthis: true */
+  var res = resolveSchema.call(this, root, ref);
+  if (res) {
+    var schema = res.schema;
+    var baseId = res.baseId;
+    root = res.root;
+    if (schema.id) baseId = resolveUrl(baseId, schema.id);
+    return getJsonPointer.call(this, parsedRef, baseId, schema, root);
+  }
+}
+
+
+var PREVENT_SCOPE_CHANGE = util.toHash(['properties', 'patternProperties', 'enum', 'dependencies', 'definitions']);
+/* @this Ajv */
+function getJsonPointer(parsedRef, baseId, schema, root) {
+  /* jshint validthis: true */
+  parsedRef.hash = parsedRef.hash || '';
+  if (parsedRef.hash.slice(0,2) != '#/') return;
+  var parts = parsedRef.hash.split('/');
+
+  for (var i = 1; i < parts.length; i++) {
+    var part = parts[i];
+    if (part) {
+      part = util.unescapeFragment(part);
+      schema = schema[part];
+      if (!schema) break;
+      if (schema.id && !PREVENT_SCOPE_CHANGE[part]) baseId = resolveUrl(baseId, schema.id);
+      if (schema.$ref) {
+        var $ref = resolveUrl(baseId, schema.$ref);
+        var res = resolveSchema.call(this, root, $ref);
+        if (res) {
+          schema = res.schema;
+          root = res.root;
+          baseId = res.baseId;
+        }
+      }
+    }
+  }
+  if (schema && schema != root.schema)
+    return { schema: schema, root: root, baseId: baseId };
+}
+
+
+var SIMPLE_INLINED = util.toHash([
+  'type', 'format', 'pattern',
+  'maxLength', 'minLength',
+  'maxProperties', 'minProperties',
+  'maxItems', 'minItems',
+  'maximum', 'minimum',
+  'uniqueItems', 'multipleOf',
+  'required', 'enum'
+]);
+function inlineRef(schema, limit) {
+  if (limit === false) return false;
+  if (limit === undefined || limit === true) return checkNoRef(schema);
+  else if (limit) return countKeys(schema) <= limit;
+}
+
+
+function checkNoRef(schema) {
+  var item;
+  if (Array.isArray(schema)) {
+    for (var i=0; i<schema.length; i++) {
+      item = schema[i];
+      if (typeof item == 'object' && !checkNoRef(item)) return false;
+    }
+  } else {
+    for (var key in schema) {
+      if (key == '$ref') return false;
+      item = schema[key];
+      if (typeof item == 'object' && !checkNoRef(item)) return false;
+    }
+  }
+  return true;
+}
+
+
+function countKeys(schema) {
+  var count = 0, item;
+  if (Array.isArray(schema)) {
+    for (var i=0; i<schema.length; i++) {
+      item = schema[i];
+      if (typeof item == 'object') count += countKeys(item);
+      if (count == Infinity) return Infinity;
+    }
+  } else {
+    for (var key in schema) {
+      if (key == '$ref') return Infinity;
+      if (SIMPLE_INLINED[key]) {
+        count++;
+      } else {
+        item = schema[key];
+        if (typeof item == 'object') count += countKeys(item) + 1;
+        if (count == Infinity) return Infinity;
+      }
+    }
+  }
+  return count;
+}
+
+
+function getFullPath(id, normalize) {
+  if (normalize !== false) id = normalizeId(id);
+  var p = url.parse(id, false, true);
+  return _getFullPath(p);
+}
+
+
+function _getFullPath(p) {
+  var protocolSeparator = p.protocol || p.href.slice(0,2) == '//' ? '//' : '';
+  return (p.protocol||'') + protocolSeparator + (p.host||'') + (p.path||'')  + '#';
+}
+
+
+var TRAILING_SLASH_HASH = /#\/?$/;
+function normalizeId(id) {
+  return id ? id.replace(TRAILING_SLASH_HASH, '') : '';
+}
+
+
+function resolveUrl(baseId, id) {
+  id = normalizeId(id);
+  return url.resolve(baseId, id);
+}
+
+
+/* @this Ajv */
+function resolveIds(schema) {
+  /* eslint no-shadow: 0 */
+  /* jshint validthis: true */
+  var id = normalizeId(schema.id);
+  var localRefs = {};
+  _resolveIds.call(this, schema, getFullPath(id, false), id);
+  return localRefs;
+
+  /* @this Ajv */
+  function _resolveIds(schema, fullPath, baseId) {
+    /* jshint validthis: true */
+    if (Array.isArray(schema)) {
+      for (var i=0; i<schema.length; i++)
+        _resolveIds.call(this, schema[i], fullPath+'/'+i, baseId);
+    } else if (schema && typeof schema == 'object') {
+      if (typeof schema.id == 'string') {
+        var id = baseId = baseId
+                          ? url.resolve(baseId, schema.id)
+                          : schema.id;
+        id = normalizeId(id);
+
+        var refVal = this._refs[id];
+        if (typeof refVal == 'string') refVal = this._refs[refVal];
+        if (refVal && refVal.schema) {
+          if (!equal(schema, refVal.schema))
+            throw new Error('id "' + id + '" resolves to more than one schema');
+        } else if (id != normalizeId(fullPath)) {
+          if (id[0] == '#') {
+            if (localRefs[id] && !equal(schema, localRefs[id]))
+              throw new Error('id "' + id + '" resolves to more than one schema');
+            localRefs[id] = schema;
+          } else {
+            this._refs[id] = fullPath;
+          }
+        }
+      }
+      for (var key in schema)
+        _resolveIds.call(this, schema[key], fullPath+'/'+util.escapeFragment(key), baseId);
+    }
+  }
+}
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var util = __webpack_require__(18);
+
+module.exports = SchemaObject;
+
+function SchemaObject(obj) {
+  util.copy(obj, this);
+}
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = ValidationError;
+
+
+function ValidationError(errors) {
+  this.message = 'validation failed';
+  this.errors = errors;
+  this.ajv = this.validation = true;
+}
+
+
+ValidationError.prototype = Object.create(Error.prototype);
+ValidationError.prototype.constructor = ValidationError;
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function generate__limit(it, $keyword) {
+  var out = ' ';
+  var $lvl = it.level;
+  var $dataLvl = it.dataLevel;
+  var $schema = it.schema[$keyword];
+  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
+  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
+  var $breakOnError = !it.opts.allErrors;
+  var $errorKeyword;
+  var $data = 'data' + ($dataLvl || '');
+  var $isData = it.opts.v5 && $schema && $schema.$data,
+    $schemaValue;
+  if ($isData) {
+    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
+    $schemaValue = 'schema' + $lvl;
+  } else {
+    $schemaValue = $schema;
+  }
+  var $isMax = $keyword == 'maximum',
+    $exclusiveKeyword = $isMax ? 'exclusiveMaximum' : 'exclusiveMinimum',
+    $schemaExcl = it.schema[$exclusiveKeyword],
+    $isDataExcl = it.opts.v5 && $schemaExcl && $schemaExcl.$data,
+    $op = $isMax ? '<' : '>',
+    $notOp = $isMax ? '>' : '<';
+  if ($isDataExcl) {
+    var $schemaValueExcl = it.util.getData($schemaExcl.$data, $dataLvl, it.dataPathArr),
+      $exclusive = 'exclusive' + $lvl,
+      $opExpr = 'op' + $lvl,
+      $opStr = '\' + ' + $opExpr + ' + \'';
+    out += ' var schemaExcl' + ($lvl) + ' = ' + ($schemaValueExcl) + '; ';
+    $schemaValueExcl = 'schemaExcl' + $lvl;
+    out += ' var exclusive' + ($lvl) + '; if (typeof ' + ($schemaValueExcl) + ' != \'boolean\' && typeof ' + ($schemaValueExcl) + ' != \'undefined\') { ';
+    var $errorKeyword = $exclusiveKeyword;
+    var $$outStack = $$outStack || [];
+    $$outStack.push(out);
+    out = ''; /* istanbul ignore else */
+    if (it.createErrors !== false) {
+      out += ' { keyword: \'' + ($errorKeyword || '_exclusiveLimit') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: {} ';
+      if (it.opts.messages !== false) {
+        out += ' , message: \'' + ($exclusiveKeyword) + ' should be boolean\' ';
+      }
+      if (it.opts.verbose) {
+        out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+      }
+      out += ' } ';
+    } else {
+      out += ' {} ';
+    }
+    var __err = out;
+    out = $$outStack.pop();
+    if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+      if (it.async) {
+        out += ' throw new ValidationError([' + (__err) + ']); ';
+      } else {
+        out += ' validate.errors = [' + (__err) + ']; return false; ';
+      }
+    } else {
+      out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+    }
+    out += ' } else if( ';
+    if ($isData) {
+      out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
+    }
+    out += ' ((exclusive' + ($lvl) + ' = ' + ($schemaValueExcl) + ' === true) ? ' + ($data) + ' ' + ($notOp) + '= ' + ($schemaValue) + ' : ' + ($data) + ' ' + ($notOp) + ' ' + ($schemaValue) + ') || ' + ($data) + ' !== ' + ($data) + ') { var op' + ($lvl) + ' = exclusive' + ($lvl) + ' ? \'' + ($op) + '\' : \'' + ($op) + '=\';';
+  } else {
+    var $exclusive = $schemaExcl === true,
+      $opStr = $op;
+    if (!$exclusive) $opStr += '=';
+    var $opExpr = '\'' + $opStr + '\'';
+    out += ' if ( ';
+    if ($isData) {
+      out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
+    }
+    out += ' ' + ($data) + ' ' + ($notOp);
+    if ($exclusive) {
+      out += '=';
+    }
+    out += ' ' + ($schemaValue) + ' || ' + ($data) + ' !== ' + ($data) + ') {';
+  }
+  var $errorKeyword = $keyword;
+  var $$outStack = $$outStack || [];
+  $$outStack.push(out);
+  out = ''; /* istanbul ignore else */
+  if (it.createErrors !== false) {
+    out += ' { keyword: \'' + ($errorKeyword || '_limit') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { comparison: ' + ($opExpr) + ', limit: ' + ($schemaValue) + ', exclusive: ' + ($exclusive) + ' } ';
+    if (it.opts.messages !== false) {
+      out += ' , message: \'should be ' + ($opStr) + ' ';
+      if ($isData) {
+        out += '\' + ' + ($schemaValue);
+      } else {
+        out += '' + ($schema) + '\'';
+      }
+    }
+    if (it.opts.verbose) {
+      out += ' , schema:  ';
+      if ($isData) {
+        out += 'validate.schema' + ($schemaPath);
+      } else {
+        out += '' + ($schema);
+      }
+      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+    }
+    out += ' } ';
+  } else {
+    out += ' {} ';
+  }
+  var __err = out;
+  out = $$outStack.pop();
+  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+    if (it.async) {
+      out += ' throw new ValidationError([' + (__err) + ']); ';
+    } else {
+      out += ' validate.errors = [' + (__err) + ']; return false; ';
+    }
+  } else {
+    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+  }
+  out += ' } ';
+  if ($breakOnError) {
+    out += ' else { ';
+  }
+  return out;
+}
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function generate__limitItems(it, $keyword) {
+  var out = ' ';
+  var $lvl = it.level;
+  var $dataLvl = it.dataLevel;
+  var $schema = it.schema[$keyword];
+  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
+  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
+  var $breakOnError = !it.opts.allErrors;
+  var $errorKeyword;
+  var $data = 'data' + ($dataLvl || '');
+  var $isData = it.opts.v5 && $schema && $schema.$data,
+    $schemaValue;
+  if ($isData) {
+    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
+    $schemaValue = 'schema' + $lvl;
+  } else {
+    $schemaValue = $schema;
+  }
+  var $op = $keyword == 'maxItems' ? '>' : '<';
+  out += 'if ( ';
+  if ($isData) {
+    out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
+  }
+  out += ' ' + ($data) + '.length ' + ($op) + ' ' + ($schemaValue) + ') { ';
+  var $errorKeyword = $keyword;
+  var $$outStack = $$outStack || [];
+  $$outStack.push(out);
+  out = ''; /* istanbul ignore else */
+  if (it.createErrors !== false) {
+    out += ' { keyword: \'' + ($errorKeyword || '_limitItems') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { limit: ' + ($schemaValue) + ' } ';
+    if (it.opts.messages !== false) {
+      out += ' , message: \'should NOT have ';
+      if ($keyword == 'maxItems') {
+        out += 'more';
+      } else {
+        out += 'less';
+      }
+      out += ' than ';
+      if ($isData) {
+        out += '\' + ' + ($schemaValue) + ' + \'';
+      } else {
+        out += '' + ($schema);
+      }
+      out += ' items\' ';
+    }
+    if (it.opts.verbose) {
+      out += ' , schema:  ';
+      if ($isData) {
+        out += 'validate.schema' + ($schemaPath);
+      } else {
+        out += '' + ($schema);
+      }
+      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+    }
+    out += ' } ';
+  } else {
+    out += ' {} ';
+  }
+  var __err = out;
+  out = $$outStack.pop();
+  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+    if (it.async) {
+      out += ' throw new ValidationError([' + (__err) + ']); ';
+    } else {
+      out += ' validate.errors = [' + (__err) + ']; return false; ';
+    }
+  } else {
+    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+  }
+  out += '} ';
+  if ($breakOnError) {
+    out += ' else { ';
+  }
+  return out;
+}
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function generate__limitLength(it, $keyword) {
+  var out = ' ';
+  var $lvl = it.level;
+  var $dataLvl = it.dataLevel;
+  var $schema = it.schema[$keyword];
+  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
+  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
+  var $breakOnError = !it.opts.allErrors;
+  var $errorKeyword;
+  var $data = 'data' + ($dataLvl || '');
+  var $isData = it.opts.v5 && $schema && $schema.$data,
+    $schemaValue;
+  if ($isData) {
+    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
+    $schemaValue = 'schema' + $lvl;
+  } else {
+    $schemaValue = $schema;
+  }
+  var $op = $keyword == 'maxLength' ? '>' : '<';
+  out += 'if ( ';
+  if ($isData) {
+    out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
+  }
+  if (it.opts.unicode === false) {
+    out += ' ' + ($data) + '.length ';
+  } else {
+    out += ' ucs2length(' + ($data) + ') ';
+  }
+  out += ' ' + ($op) + ' ' + ($schemaValue) + ') { ';
+  var $errorKeyword = $keyword;
+  var $$outStack = $$outStack || [];
+  $$outStack.push(out);
+  out = ''; /* istanbul ignore else */
+  if (it.createErrors !== false) {
+    out += ' { keyword: \'' + ($errorKeyword || '_limitLength') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { limit: ' + ($schemaValue) + ' } ';
+    if (it.opts.messages !== false) {
+      out += ' , message: \'should NOT be ';
+      if ($keyword == 'maxLength') {
+        out += 'longer';
+      } else {
+        out += 'shorter';
+      }
+      out += ' than ';
+      if ($isData) {
+        out += '\' + ' + ($schemaValue) + ' + \'';
+      } else {
+        out += '' + ($schema);
+      }
+      out += ' characters\' ';
+    }
+    if (it.opts.verbose) {
+      out += ' , schema:  ';
+      if ($isData) {
+        out += 'validate.schema' + ($schemaPath);
+      } else {
+        out += '' + ($schema);
+      }
+      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+    }
+    out += ' } ';
+  } else {
+    out += ' {} ';
+  }
+  var __err = out;
+  out = $$outStack.pop();
+  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+    if (it.async) {
+      out += ' throw new ValidationError([' + (__err) + ']); ';
+    } else {
+      out += ' validate.errors = [' + (__err) + ']; return false; ';
+    }
+  } else {
+    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+  }
+  out += '} ';
+  if ($breakOnError) {
+    out += ' else { ';
+  }
+  return out;
+}
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function generate__limitProperties(it, $keyword) {
+  var out = ' ';
+  var $lvl = it.level;
+  var $dataLvl = it.dataLevel;
+  var $schema = it.schema[$keyword];
+  var $schemaPath = it.schemaPath + it.util.getProperty($keyword);
+  var $errSchemaPath = it.errSchemaPath + '/' + $keyword;
+  var $breakOnError = !it.opts.allErrors;
+  var $errorKeyword;
+  var $data = 'data' + ($dataLvl || '');
+  var $isData = it.opts.v5 && $schema && $schema.$data,
+    $schemaValue;
+  if ($isData) {
+    out += ' var schema' + ($lvl) + ' = ' + (it.util.getData($schema.$data, $dataLvl, it.dataPathArr)) + '; ';
+    $schemaValue = 'schema' + $lvl;
+  } else {
+    $schemaValue = $schema;
+  }
+  var $op = $keyword == 'maxProperties' ? '>' : '<';
+  out += 'if ( ';
+  if ($isData) {
+    out += ' (' + ($schemaValue) + ' !== undefined && typeof ' + ($schemaValue) + ' != \'number\') || ';
+  }
+  out += ' Object.keys(' + ($data) + ').length ' + ($op) + ' ' + ($schemaValue) + ') { ';
+  var $errorKeyword = $keyword;
+  var $$outStack = $$outStack || [];
+  $$outStack.push(out);
+  out = ''; /* istanbul ignore else */
+  if (it.createErrors !== false) {
+    out += ' { keyword: \'' + ($errorKeyword || '_limitProperties') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { limit: ' + ($schemaValue) + ' } ';
+    if (it.opts.messages !== false) {
+      out += ' , message: \'should NOT have ';
+      if ($keyword == 'maxProperties') {
+        out += 'more';
+      } else {
+        out += 'less';
+      }
+      out += ' than ';
+      if ($isData) {
+        out += '\' + ' + ($schemaValue) + ' + \'';
+      } else {
+        out += '' + ($schema);
+      }
+      out += ' properties\' ';
+    }
+    if (it.opts.verbose) {
+      out += ' , schema:  ';
+      if ($isData) {
+        out += 'validate.schema' + ($schemaPath);
+      } else {
+        out += '' + ($schema);
+      }
+      out += '         , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+    }
+    out += ' } ';
+  } else {
+    out += ' {} ';
+  }
+  var __err = out;
+  out = $$outStack.pop();
+  if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+    if (it.async) {
+      out += ' throw new ValidationError([' + (__err) + ']); ';
+    } else {
+      out += ' validate.errors = [' + (__err) + ']; return false; ';
+    }
+  } else {
+    out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+  }
+  out += '} ';
+  if ($breakOnError) {
+    out += ' else { ';
+  }
+  return out;
+}
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function generate_validate(it, $keyword) {
+  var out = '';
+  var $async = it.schema.$async === true;
+  if (it.isTop) {
+    var $top = it.isTop,
+      $lvl = it.level = 0,
+      $dataLvl = it.dataLevel = 0,
+      $data = 'data';
+    it.rootId = it.resolve.fullPath(it.root.schema.id);
+    it.baseId = it.baseId || it.rootId;
+    if ($async) {
+      it.async = true;
+      var $es7 = it.opts.async == 'es7';
+      it.yieldAwait = $es7 ? 'await' : 'yield';
+    }
+    delete it.isTop;
+    it.dataPathArr = [undefined];
+    out += ' var validate = ';
+    if ($async) {
+      if ($es7) {
+        out += ' (async function ';
+      } else {
+        if (it.opts.async == 'co*') {
+          out += 'co.wrap';
+        }
+        out += '(function* ';
+      }
+    } else {
+      out += ' (function ';
+    }
+    out += ' (data, dataPath, parentData, parentDataProperty, rootData) { \'use strict\'; var vErrors = null; ';
+    out += ' var errors = 0;     ';
+    out += ' if (rootData === undefined) rootData = data;';
+  } else {
+    var $lvl = it.level,
+      $dataLvl = it.dataLevel,
+      $data = 'data' + ($dataLvl || '');
+    if (it.schema.id) it.baseId = it.resolve.url(it.baseId, it.schema.id);
+    if ($async && !it.async) throw new Error('async schema in sync schema');
+    out += ' var errs_' + ($lvl) + ' = errors;';
+  }
+  var $valid = 'valid' + $lvl,
+    $breakOnError = !it.opts.allErrors,
+    $closingBraces1 = '',
+    $closingBraces2 = '';
+  var $typeSchema = it.schema.type,
+    $typeIsArray = Array.isArray($typeSchema);
+  if ($typeSchema && it.opts.coerceTypes) {
+    var $coerceToTypes = it.util.coerceToTypes(it.opts.coerceTypes, $typeSchema);
+    if ($coerceToTypes) {
+      var $schemaPath = it.schemaPath + '.type',
+        $errSchemaPath = it.errSchemaPath + '/type',
+        $method = $typeIsArray ? 'checkDataTypes' : 'checkDataType';
+      out += ' if (' + (it.util[$method]($typeSchema, $data, true)) + ') {  ';
+      var $dataType = 'dataType' + $lvl,
+        $coerced = 'coerced' + $lvl;
+      out += ' var ' + ($dataType) + ' = typeof ' + ($data) + '; ';
+      if (it.opts.coerceTypes == 'array') {
+        out += ' if (' + ($dataType) + ' == \'object\' && Array.isArray(' + ($data) + ')) ' + ($dataType) + ' = \'array\'; ';
+      }
+      out += ' var ' + ($coerced) + ' = undefined; ';
+      var $bracesCoercion = '';
+      var arr1 = $coerceToTypes;
+      if (arr1) {
+        var $type, $i = -1,
+          l1 = arr1.length - 1;
+        while ($i < l1) {
+          $type = arr1[$i += 1];
+          if ($i) {
+            out += ' if (' + ($coerced) + ' === undefined) { ';
+            $bracesCoercion += '}';
+          }
+          if (it.opts.coerceTypes == 'array' && $type != 'array') {
+            out += ' if (' + ($dataType) + ' == \'array\' && ' + ($data) + '.length == 1) { ' + ($coerced) + ' = ' + ($data) + ' = ' + ($data) + '[0]; ' + ($dataType) + ' = typeof ' + ($data) + ';  } ';
+          }
+          if ($type == 'string') {
+            out += ' if (' + ($dataType) + ' == \'number\' || ' + ($dataType) + ' == \'boolean\') ' + ($coerced) + ' = \'\' + ' + ($data) + '; else if (' + ($data) + ' === null) ' + ($coerced) + ' = \'\'; ';
+          } else if ($type == 'number' || $type == 'integer') {
+            out += ' if (' + ($dataType) + ' == \'boolean\' || ' + ($data) + ' === null || (' + ($dataType) + ' == \'string\' && ' + ($data) + ' && ' + ($data) + ' == +' + ($data) + ' ';
+            if ($type == 'integer') {
+              out += ' && !(' + ($data) + ' % 1)';
+            }
+            out += ')) ' + ($coerced) + ' = +' + ($data) + '; ';
+          } else if ($type == 'boolean') {
+            out += ' if (' + ($data) + ' === \'false\' || ' + ($data) + ' === 0 || ' + ($data) + ' === null) ' + ($coerced) + ' = false; else if (' + ($data) + ' === \'true\' || ' + ($data) + ' === 1) ' + ($coerced) + ' = true; ';
+          } else if ($type == 'null') {
+            out += ' if (' + ($data) + ' === \'\' || ' + ($data) + ' === 0 || ' + ($data) + ' === false) ' + ($coerced) + ' = null; ';
+          } else if (it.opts.coerceTypes == 'array' && $type == 'array') {
+            out += ' if (' + ($dataType) + ' == \'string\' || ' + ($dataType) + ' == \'number\' || ' + ($dataType) + ' == \'boolean\' || ' + ($data) + ' == null) ' + ($coerced) + ' = [' + ($data) + ']; ';
+          }
+        }
+      }
+      out += ' ' + ($bracesCoercion) + ' if (' + ($coerced) + ' === undefined) {   ';
+      var $$outStack = $$outStack || [];
+      $$outStack.push(out);
+      out = ''; /* istanbul ignore else */
+      if (it.createErrors !== false) {
+        out += ' { keyword: \'' + ('type') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { type: \'';
+        if ($typeIsArray) {
+          out += '' + ($typeSchema.join(","));
+        } else {
+          out += '' + ($typeSchema);
+        }
+        out += '\' } ';
+        if (it.opts.messages !== false) {
+          out += ' , message: \'should be ';
+          if ($typeIsArray) {
+            out += '' + ($typeSchema.join(","));
+          } else {
+            out += '' + ($typeSchema);
+          }
+          out += '\' ';
+        }
+        if (it.opts.verbose) {
+          out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+        }
+        out += ' } ';
+      } else {
+        out += ' {} ';
+      }
+      var __err = out;
+      out = $$outStack.pop();
+      if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+        if (it.async) {
+          out += ' throw new ValidationError([' + (__err) + ']); ';
+        } else {
+          out += ' validate.errors = [' + (__err) + ']; return false; ';
+        }
+      } else {
+        out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+      }
+      out += ' } else {  ';
+      var $parentData = $dataLvl ? 'data' + (($dataLvl - 1) || '') : 'parentData',
+        $parentDataProperty = $dataLvl ? it.dataPathArr[$dataLvl] : 'parentDataProperty';
+      out += ' ' + ($data) + ' = ' + ($coerced) + '; ';
+      if (!$dataLvl) {
+        out += 'if (' + ($parentData) + ' !== undefined)';
+      }
+      out += ' ' + ($parentData) + '[' + ($parentDataProperty) + '] = ' + ($coerced) + '; } } ';
+    }
+  }
+  var $refKeywords;
+  if (it.schema.$ref && ($refKeywords = it.util.schemaHasRulesExcept(it.schema, it.RULES.all, '$ref'))) {
+    if (it.opts.extendRefs == 'fail') {
+      throw new Error('$ref: validation keywords used in schema at path "' + it.errSchemaPath + '"');
+    } else if (it.opts.extendRefs == 'ignore') {
+      $refKeywords = false;
+      console.log('$ref: keywords ignored in schema at path "' + it.errSchemaPath + '"');
+    } else if (it.opts.extendRefs !== true) {
+      console.log('$ref: all keywords used in schema at path "' + it.errSchemaPath + '". It will change in the next major version, see issue #260. Use option { extendRefs: true } to keep current behaviour');
+    }
+  }
+  if (it.schema.$ref && !$refKeywords) {
+    out += ' ' + (it.RULES.all.$ref.code(it, '$ref')) + ' ';
+    if ($breakOnError) {
+      out += ' } if (errors === ';
+      if ($top) {
+        out += '0';
+      } else {
+        out += 'errs_' + ($lvl);
+      }
+      out += ') { ';
+      $closingBraces2 += '}';
+    }
+  } else {
+    var arr2 = it.RULES;
+    if (arr2) {
+      var $rulesGroup, i2 = -1,
+        l2 = arr2.length - 1;
+      while (i2 < l2) {
+        $rulesGroup = arr2[i2 += 1];
+        if ($shouldUseGroup($rulesGroup)) {
+          if ($rulesGroup.type) {
+            out += ' if (' + (it.util.checkDataType($rulesGroup.type, $data)) + ') { ';
+          }
+          if (it.opts.useDefaults && !it.compositeRule) {
+            if ($rulesGroup.type == 'object' && it.schema.properties) {
+              var $schema = it.schema.properties,
+                $schemaKeys = Object.keys($schema);
+              var arr3 = $schemaKeys;
+              if (arr3) {
+                var $propertyKey, i3 = -1,
+                  l3 = arr3.length - 1;
+                while (i3 < l3) {
+                  $propertyKey = arr3[i3 += 1];
+                  var $sch = $schema[$propertyKey];
+                  if ($sch.default !== undefined) {
+                    var $passData = $data + it.util.getProperty($propertyKey);
+                    out += '  if (' + ($passData) + ' === undefined) ' + ($passData) + ' = ';
+                    if (it.opts.useDefaults == 'shared') {
+                      out += ' ' + (it.useDefault($sch.default)) + ' ';
+                    } else {
+                      out += ' ' + (JSON.stringify($sch.default)) + ' ';
+                    }
+                    out += '; ';
+                  }
+                }
+              }
+            } else if ($rulesGroup.type == 'array' && Array.isArray(it.schema.items)) {
+              var arr4 = it.schema.items;
+              if (arr4) {
+                var $sch, $i = -1,
+                  l4 = arr4.length - 1;
+                while ($i < l4) {
+                  $sch = arr4[$i += 1];
+                  if ($sch.default !== undefined) {
+                    var $passData = $data + '[' + $i + ']';
+                    out += '  if (' + ($passData) + ' === undefined) ' + ($passData) + ' = ';
+                    if (it.opts.useDefaults == 'shared') {
+                      out += ' ' + (it.useDefault($sch.default)) + ' ';
+                    } else {
+                      out += ' ' + (JSON.stringify($sch.default)) + ' ';
+                    }
+                    out += '; ';
+                  }
+                }
+              }
+            }
+          }
+          var arr5 = $rulesGroup.rules;
+          if (arr5) {
+            var $rule, i5 = -1,
+              l5 = arr5.length - 1;
+            while (i5 < l5) {
+              $rule = arr5[i5 += 1];
+              if ($shouldUseRule($rule)) {
+                out += ' ' + ($rule.code(it, $rule.keyword)) + ' ';
+                if ($breakOnError) {
+                  $closingBraces1 += '}';
+                }
+              }
+            }
+          }
+          if ($breakOnError) {
+            out += ' ' + ($closingBraces1) + ' ';
+            $closingBraces1 = '';
+          }
+          if ($rulesGroup.type) {
+            out += ' } ';
+            if ($typeSchema && $typeSchema === $rulesGroup.type && !$coerceToTypes) {
+              var $typeChecked = true;
+              out += ' else { ';
+              var $schemaPath = it.schemaPath + '.type',
+                $errSchemaPath = it.errSchemaPath + '/type';
+              var $$outStack = $$outStack || [];
+              $$outStack.push(out);
+              out = ''; /* istanbul ignore else */
+              if (it.createErrors !== false) {
+                out += ' { keyword: \'' + ('type') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { type: \'';
+                if ($typeIsArray) {
+                  out += '' + ($typeSchema.join(","));
+                } else {
+                  out += '' + ($typeSchema);
+                }
+                out += '\' } ';
+                if (it.opts.messages !== false) {
+                  out += ' , message: \'should be ';
+                  if ($typeIsArray) {
+                    out += '' + ($typeSchema.join(","));
+                  } else {
+                    out += '' + ($typeSchema);
+                  }
+                  out += '\' ';
+                }
+                if (it.opts.verbose) {
+                  out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+                }
+                out += ' } ';
+              } else {
+                out += ' {} ';
+              }
+              var __err = out;
+              out = $$outStack.pop();
+              if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+                if (it.async) {
+                  out += ' throw new ValidationError([' + (__err) + ']); ';
+                } else {
+                  out += ' validate.errors = [' + (__err) + ']; return false; ';
+                }
+              } else {
+                out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+              }
+              out += ' } ';
+            }
+          }
+          if ($breakOnError) {
+            out += ' if (errors === ';
+            if ($top) {
+              out += '0';
+            } else {
+              out += 'errs_' + ($lvl);
+            }
+            out += ') { ';
+            $closingBraces2 += '}';
+          }
+        }
+      }
+    }
+  }
+  if ($typeSchema && !$typeChecked && !$coerceToTypes) {
+    var $schemaPath = it.schemaPath + '.type',
+      $errSchemaPath = it.errSchemaPath + '/type',
+      $method = $typeIsArray ? 'checkDataTypes' : 'checkDataType';
+    out += ' if (' + (it.util[$method]($typeSchema, $data, true)) + ') {   ';
+    var $$outStack = $$outStack || [];
+    $$outStack.push(out);
+    out = ''; /* istanbul ignore else */
+    if (it.createErrors !== false) {
+      out += ' { keyword: \'' + ('type') + '\' , dataPath: (dataPath || \'\') + ' + (it.errorPath) + ' , schemaPath: ' + (it.util.toQuotedString($errSchemaPath)) + ' , params: { type: \'';
+      if ($typeIsArray) {
+        out += '' + ($typeSchema.join(","));
+      } else {
+        out += '' + ($typeSchema);
+      }
+      out += '\' } ';
+      if (it.opts.messages !== false) {
+        out += ' , message: \'should be ';
+        if ($typeIsArray) {
+          out += '' + ($typeSchema.join(","));
+        } else {
+          out += '' + ($typeSchema);
+        }
+        out += '\' ';
+      }
+      if (it.opts.verbose) {
+        out += ' , schema: validate.schema' + ($schemaPath) + ' , parentSchema: validate.schema' + (it.schemaPath) + ' , data: ' + ($data) + ' ';
+      }
+      out += ' } ';
+    } else {
+      out += ' {} ';
+    }
+    var __err = out;
+    out = $$outStack.pop();
+    if (!it.compositeRule && $breakOnError) { /* istanbul ignore if */
+      if (it.async) {
+        out += ' throw new ValidationError([' + (__err) + ']); ';
+      } else {
+        out += ' validate.errors = [' + (__err) + ']; return false; ';
+      }
+    } else {
+      out += ' var err = ' + (__err) + ';  if (vErrors === null) vErrors = [err]; else vErrors.push(err); errors++; ';
+    }
+    out += ' }';
+  }
+  if ($breakOnError) {
+    out += ' ' + ($closingBraces2) + ' ';
+  }
+  if ($top) {
+    if ($async) {
+      out += ' if (errors === 0) return true;           ';
+      out += ' else throw new ValidationError(vErrors); ';
+    } else {
+      out += ' validate.errors = vErrors; ';
+      out += ' return errors === 0;       ';
+    }
+    out += ' }); return validate;';
+  } else {
+    out += ' var ' + ($valid) + ' = errors === errs_' + ($lvl) + ';';
+  }
+  out = it.util.cleanUpCode(out);
+  if ($top && $breakOnError) {
+    out = it.util.cleanUpVarErrors(out, $async);
+  }
+
+  function $shouldUseGroup($rulesGroup) {
+    for (var i = 0; i < $rulesGroup.rules.length; i++)
+      if ($shouldUseRule($rulesGroup.rules[i])) return true;
+  }
+
+  function $shouldUseRule($rule) {
+    return it.schema[$rule.keyword] !== undefined || ($rule.keyword == 'properties' && (it.schema.additionalProperties === false || typeof it.schema.additionalProperties == 'object' || (it.schema.patternProperties && Object.keys(it.schema.patternProperties).length) || (it.opts.v5 && it.schema.patternGroups && Object.keys(it.schema.patternGroups).length)));
+  }
+  return out;
+}
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports) {
+
+// API
+module.exports = abort;
+
+/**
+ * Aborts leftover active jobs
+ *
+ * @param {object} state - current state object
+ */
+function abort(state)
+{
+  Object.keys(state.jobs).forEach(clean.bind(state));
+
+  // reset leftover jobs
+  state.jobs = {};
+}
+
+/**
+ * Cleans up leftover job by invoking abort function for the provided job id
+ *
+ * @this  state
+ * @param {string|number} key - job id to abort
+ */
+function clean(key)
+{
+  if (typeof this.jobs[key] == 'function')
+  {
+    this.jobs[key]();
+  }
+}
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var defer = __webpack_require__(149);
+
+// API
+module.exports = async;
+
+/**
+ * Runs provided callback asynchronously
+ * even if callback itself is not
+ *
+ * @param   {function} callback - callback to invoke
+ * @returns {function} - augmented callback
+ */
+function async(callback)
+{
+  var isAsync = false;
+
+  // check if async happened
+  defer(function() { isAsync = true; });
+
+  return function async_callback(err, result)
+  {
+    if (isAsync)
+    {
+      callback(err, result);
+    }
+    else
+    {
+      defer(function nextTick_callback()
+      {
+        callback(err, result);
+      });
+    }
+  };
+}
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var async = __webpack_require__(74)
+  , abort = __webpack_require__(73)
+  ;
+
+// API
+module.exports = iterate;
+
+/**
+ * Iterates over each job object
+ *
+ * @param {array|object} list - array or object (named list) to iterate over
+ * @param {function} iterator - iterator to run
+ * @param {object} state - current job status
+ * @param {function} callback - invoked when all elements processed
+ */
+function iterate(list, iterator, state, callback)
+{
+  // store current index
+  var key = state['keyedList'] ? state['keyedList'][state.index] : state.index;
+
+  state.jobs[key] = runJob(iterator, key, list[key], function(error, output)
+  {
+    // don't repeat yourself
+    // skip secondary callbacks
+    if (!(key in state.jobs))
+    {
+      return;
+    }
+
+    // clean up jobs
+    delete state.jobs[key];
+
+    if (error)
+    {
+      // don't process rest of the results
+      // stop still active jobs
+      // and reset the list
+      abort(state);
+    }
+    else
+    {
+      state.results[key] = output;
+    }
+
+    // return salvaged results
+    callback(error, state.results);
+  });
+}
+
+/**
+ * Runs iterator over provided job element
+ *
+ * @param   {function} iterator - iterator to invoke
+ * @param   {string|number} key - key/index of the element in the list of jobs
+ * @param   {mixed} item - job description
+ * @param   {function} callback - invoked after iterator is done with the job
+ * @returns {function|mixed} - job abort function or something else
+ */
+function runJob(iterator, key, item, callback)
+{
+  var aborter;
+
+  // allow shortcut if iterator expects only two arguments
+  if (iterator.length == 2)
+  {
+    aborter = iterator(item, async(callback));
+  }
+  // otherwise go with full three arguments
+  else
+  {
+    aborter = iterator(item, key, async(callback));
+  }
+
+  return aborter;
+}
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+// API
+module.exports = state;
+
+/**
+ * Creates initial state object
+ * for iteration over list
+ *
+ * @param   {array|object} list - list to iterate over
+ * @param   {function|null} sortMethod - function to use for keys sort,
+ *                                     or `null` to keep them as is
+ * @returns {object} - initial state object
+ */
+function state(list, sortMethod)
+{
+  var isNamedList = !Array.isArray(list)
+    , initState =
+    {
+      index    : 0,
+      keyedList: isNamedList || sortMethod ? Object.keys(list) : null,
+      jobs     : {},
+      results  : isNamedList ? {} : [],
+      size     : isNamedList ? Object.keys(list).length : list.length
+    }
+    ;
+
+  if (sortMethod)
+  {
+    // sort array keys based on it's values
+    // sort object's keys just on own merit
+    initState.keyedList.sort(isNamedList ? sortMethod : function(a, b)
+    {
+      return sortMethod(list[a], list[b]);
+    });
+  }
+
+  return initState;
+}
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var abort = __webpack_require__(73)
+  , async = __webpack_require__(74)
+  ;
+
+// API
+module.exports = terminator;
+
+/**
+ * Terminates jobs in the attached state context
+ *
+ * @this  AsyncKitState#
+ * @param {function} callback - final callback to invoke after termination
+ */
+function terminator(callback)
+{
+  if (!Object.keys(this.jobs).length)
+  {
+    return;
+  }
+
+  // fast forward iteration index
+  this.index = this.size;
+
+  // abort jobs
+  abort(this);
+
+  // send back results we have so far
+  async(callback)(null, this.results);
+}
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var iterate    = __webpack_require__(75)
+  , initState  = __webpack_require__(76)
+  , terminator = __webpack_require__(77)
+  ;
+
+// Public API
+module.exports = serialOrdered;
+// sorting helpers
+module.exports.ascending  = ascending;
+module.exports.descending = descending;
+
+/**
+ * Runs iterator over provided sorted array elements in series
+ *
+ * @param   {array|object} list - array or object (named list) to iterate over
+ * @param   {function} iterator - iterator to run
+ * @param   {function} sortMethod - custom sort function
+ * @param   {function} callback - invoked when all elements processed
+ * @returns {function} - jobs terminator
+ */
+function serialOrdered(list, iterator, sortMethod, callback)
+{
+  var state = initState(list, sortMethod);
+
+  iterate(list, iterator, state, function iteratorHandler(error, result)
+  {
+    if (error)
+    {
+      callback(error, result);
+      return;
+    }
+
+    state.index++;
+
+    // are we there yet?
+    if (state.index < (state['keyedList'] || list).length)
+    {
+      iterate(list, iterator, state, iteratorHandler);
+      return;
+    }
+
+    // done here
+    callback(null, state.results);
+  });
+
+  return terminator.bind(state, callback);
+}
+
+/*
+ * -- Sort methods
+ */
+
+/**
+ * sort helper to sort array elements in ascending order
+ *
+ * @param   {mixed} a - an item to compare
+ * @param   {mixed} b - an item to compare
+ * @returns {number} - comparison result
+ */
+function ascending(a, b)
+{
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+
+/**
+ * sort helper to sort array elements in descending order
+ *
+ * @param   {mixed} a - an item to compare
+ * @param   {mixed} b - an item to compare
+ * @returns {number} - comparison result
+ */
+function descending(a, b)
+{
+  return -1 * ascending(a, b);
+}
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var crypto_hash_sha512 = __webpack_require__(13).lowlevel.crypto_hash;
+
+/*
+ * This file is a 1:1 port from the OpenBSD blowfish.c and bcrypt_pbkdf.c. As a
+ * result, it retains the original copyright and license. The two files are
+ * under slightly different (but compatible) licenses, and are here combined in
+ * one file.
+ *
+ * Credit for the actual porting work goes to:
+ *  Devi Mandiri <me@devi.web.id>
+ */
+
+/*
+ * The Blowfish portions are under the following license:
+ *
+ * Blowfish block cipher for OpenBSD
+ * Copyright 1997 Niels Provos <provos@physnet.uni-hamburg.de>
+ * All rights reserved.
+ *
+ * Implementation advice by David Mazieres <dm@lcs.mit.edu>.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. The name of the author may not be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * The bcrypt_pbkdf portions are under the following license:
+ *
+ * Copyright (c) 2013 Ted Unangst <tedu@openbsd.org>
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+/*
+ * Performance improvements (Javascript-specific):
+ *
+ * Copyright 2016, Joyent Inc
+ * Author: Alex Wilson <alex.wilson@joyent.com>
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+// Ported from OpenBSD bcrypt_pbkdf.c v1.9
+
+var BLF_J = 0;
+
+var Blowfish = function() {
+  this.S = [
+    new Uint32Array([
+      0xd1310ba6, 0x98dfb5ac, 0x2ffd72db, 0xd01adfb7,
+      0xb8e1afed, 0x6a267e96, 0xba7c9045, 0xf12c7f99,
+      0x24a19947, 0xb3916cf7, 0x0801f2e2, 0x858efc16,
+      0x636920d8, 0x71574e69, 0xa458fea3, 0xf4933d7e,
+      0x0d95748f, 0x728eb658, 0x718bcd58, 0x82154aee,
+      0x7b54a41d, 0xc25a59b5, 0x9c30d539, 0x2af26013,
+      0xc5d1b023, 0x286085f0, 0xca417918, 0xb8db38ef,
+      0x8e79dcb0, 0x603a180e, 0x6c9e0e8b, 0xb01e8a3e,
+      0xd71577c1, 0xbd314b27, 0x78af2fda, 0x55605c60,
+      0xe65525f3, 0xaa55ab94, 0x57489862, 0x63e81440,
+      0x55ca396a, 0x2aab10b6, 0xb4cc5c34, 0x1141e8ce,
+      0xa15486af, 0x7c72e993, 0xb3ee1411, 0x636fbc2a,
+      0x2ba9c55d, 0x741831f6, 0xce5c3e16, 0x9b87931e,
+      0xafd6ba33, 0x6c24cf5c, 0x7a325381, 0x28958677,
+      0x3b8f4898, 0x6b4bb9af, 0xc4bfe81b, 0x66282193,
+      0x61d809cc, 0xfb21a991, 0x487cac60, 0x5dec8032,
+      0xef845d5d, 0xe98575b1, 0xdc262302, 0xeb651b88,
+      0x23893e81, 0xd396acc5, 0x0f6d6ff3, 0x83f44239,
+      0x2e0b4482, 0xa4842004, 0x69c8f04a, 0x9e1f9b5e,
+      0x21c66842, 0xf6e96c9a, 0x670c9c61, 0xabd388f0,
+      0x6a51a0d2, 0xd8542f68, 0x960fa728, 0xab5133a3,
+      0x6eef0b6c, 0x137a3be4, 0xba3bf050, 0x7efb2a98,
+      0xa1f1651d, 0x39af0176, 0x66ca593e, 0x82430e88,
+      0x8cee8619, 0x456f9fb4, 0x7d84a5c3, 0x3b8b5ebe,
+      0xe06f75d8, 0x85c12073, 0x401a449f, 0x56c16aa6,
+      0x4ed3aa62, 0x363f7706, 0x1bfedf72, 0x429b023d,
+      0x37d0d724, 0xd00a1248, 0xdb0fead3, 0x49f1c09b,
+      0x075372c9, 0x80991b7b, 0x25d479d8, 0xf6e8def7,
+      0xe3fe501a, 0xb6794c3b, 0x976ce0bd, 0x04c006ba,
+      0xc1a94fb6, 0x409f60c4, 0x5e5c9ec2, 0x196a2463,
+      0x68fb6faf, 0x3e6c53b5, 0x1339b2eb, 0x3b52ec6f,
+      0x6dfc511f, 0x9b30952c, 0xcc814544, 0xaf5ebd09,
+      0xbee3d004, 0xde334afd, 0x660f2807, 0x192e4bb3,
+      0xc0cba857, 0x45c8740f, 0xd20b5f39, 0xb9d3fbdb,
+      0x5579c0bd, 0x1a60320a, 0xd6a100c6, 0x402c7279,
+      0x679f25fe, 0xfb1fa3cc, 0x8ea5e9f8, 0xdb3222f8,
+      0x3c7516df, 0xfd616b15, 0x2f501ec8, 0xad0552ab,
+      0x323db5fa, 0xfd238760, 0x53317b48, 0x3e00df82,
+      0x9e5c57bb, 0xca6f8ca0, 0x1a87562e, 0xdf1769db,
+      0xd542a8f6, 0x287effc3, 0xac6732c6, 0x8c4f5573,
+      0x695b27b0, 0xbbca58c8, 0xe1ffa35d, 0xb8f011a0,
+      0x10fa3d98, 0xfd2183b8, 0x4afcb56c, 0x2dd1d35b,
+      0x9a53e479, 0xb6f84565, 0xd28e49bc, 0x4bfb9790,
+      0xe1ddf2da, 0xa4cb7e33, 0x62fb1341, 0xcee4c6e8,
+      0xef20cada, 0x36774c01, 0xd07e9efe, 0x2bf11fb4,
+      0x95dbda4d, 0xae909198, 0xeaad8e71, 0x6b93d5a0,
+      0xd08ed1d0, 0xafc725e0, 0x8e3c5b2f, 0x8e7594b7,
+      0x8ff6e2fb, 0xf2122b64, 0x8888b812, 0x900df01c,
+      0x4fad5ea0, 0x688fc31c, 0xd1cff191, 0xb3a8c1ad,
+      0x2f2f2218, 0xbe0e1777, 0xea752dfe, 0x8b021fa1,
+      0xe5a0cc0f, 0xb56f74e8, 0x18acf3d6, 0xce89e299,
+      0xb4a84fe0, 0xfd13e0b7, 0x7cc43b81, 0xd2ada8d9,
+      0x165fa266, 0x80957705, 0x93cc7314, 0x211a1477,
+      0xe6ad2065, 0x77b5fa86, 0xc75442f5, 0xfb9d35cf,
+      0xebcdaf0c, 0x7b3e89a0, 0xd6411bd3, 0xae1e7e49,
+      0x00250e2d, 0x2071b35e, 0x226800bb, 0x57b8e0af,
+      0x2464369b, 0xf009b91e, 0x5563911d, 0x59dfa6aa,
+      0x78c14389, 0xd95a537f, 0x207d5ba2, 0x02e5b9c5,
+      0x83260376, 0x6295cfa9, 0x11c81968, 0x4e734a41,
+      0xb3472dca, 0x7b14a94a, 0x1b510052, 0x9a532915,
+      0xd60f573f, 0xbc9bc6e4, 0x2b60a476, 0x81e67400,
+      0x08ba6fb5, 0x571be91f, 0xf296ec6b, 0x2a0dd915,
+      0xb6636521, 0xe7b9f9b6, 0xff34052e, 0xc5855664,
+      0x53b02d5d, 0xa99f8fa1, 0x08ba4799, 0x6e85076a]),
+    new Uint32Array([
+      0x4b7a70e9, 0xb5b32944, 0xdb75092e, 0xc4192623,
+      0xad6ea6b0, 0x49a7df7d, 0x9cee60b8, 0x8fedb266,
+      0xecaa8c71, 0x699a17ff, 0x5664526c, 0xc2b19ee1,
+      0x193602a5, 0x75094c29, 0xa0591340, 0xe4183a3e,
+      0x3f54989a, 0x5b429d65, 0x6b8fe4d6, 0x99f73fd6,
+      0xa1d29c07, 0xefe830f5, 0x4d2d38e6, 0xf0255dc1,
+      0x4cdd2086, 0x8470eb26, 0x6382e9c6, 0x021ecc5e,
+      0x09686b3f, 0x3ebaefc9, 0x3c971814, 0x6b6a70a1,
+      0x687f3584, 0x52a0e286, 0xb79c5305, 0xaa500737,
+      0x3e07841c, 0x7fdeae5c, 0x8e7d44ec, 0x5716f2b8,
+      0xb03ada37, 0xf0500c0d, 0xf01c1f04, 0x0200b3ff,
+      0xae0cf51a, 0x3cb574b2, 0x25837a58, 0xdc0921bd,
+      0xd19113f9, 0x7ca92ff6, 0x94324773, 0x22f54701,
+      0x3ae5e581, 0x37c2dadc, 0xc8b57634, 0x9af3dda7,
+      0xa9446146, 0x0fd0030e, 0xecc8c73e, 0xa4751e41,
+      0xe238cd99, 0x3bea0e2f, 0x3280bba1, 0x183eb331,
+      0x4e548b38, 0x4f6db908, 0x6f420d03, 0xf60a04bf,
+      0x2cb81290, 0x24977c79, 0x5679b072, 0xbcaf89af,
+      0xde9a771f, 0xd9930810, 0xb38bae12, 0xdccf3f2e,
+      0x5512721f, 0x2e6b7124, 0x501adde6, 0x9f84cd87,
+      0x7a584718, 0x7408da17, 0xbc9f9abc, 0xe94b7d8c,
+      0xec7aec3a, 0xdb851dfa, 0x63094366, 0xc464c3d2,
+      0xef1c1847, 0x3215d908, 0xdd433b37, 0x24c2ba16,
+      0x12a14d43, 0x2a65c451, 0x50940002, 0x133ae4dd,
+      0x71dff89e, 0x10314e55, 0x81ac77d6, 0x5f11199b,
+      0x043556f1, 0xd7a3c76b, 0x3c11183b, 0x5924a509,
+      0xf28fe6ed, 0x97f1fbfa, 0x9ebabf2c, 0x1e153c6e,
+      0x86e34570, 0xeae96fb1, 0x860e5e0a, 0x5a3e2ab3,
+      0x771fe71c, 0x4e3d06fa, 0x2965dcb9, 0x99e71d0f,
+      0x803e89d6, 0x5266c825, 0x2e4cc978, 0x9c10b36a,
+      0xc6150eba, 0x94e2ea78, 0xa5fc3c53, 0x1e0a2df4,
+      0xf2f74ea7, 0x361d2b3d, 0x1939260f, 0x19c27960,
+      0x5223a708, 0xf71312b6, 0xebadfe6e, 0xeac31f66,
+      0xe3bc4595, 0xa67bc883, 0xb17f37d1, 0x018cff28,
+      0xc332ddef, 0xbe6c5aa5, 0x65582185, 0x68ab9802,
+      0xeecea50f, 0xdb2f953b, 0x2aef7dad, 0x5b6e2f84,
+      0x1521b628, 0x29076170, 0xecdd4775, 0x619f1510,
+      0x13cca830, 0xeb61bd96, 0x0334fe1e, 0xaa0363cf,
+      0xb5735c90, 0x4c70a239, 0xd59e9e0b, 0xcbaade14,
+      0xeecc86bc, 0x60622ca7, 0x9cab5cab, 0xb2f3846e,
+      0x648b1eaf, 0x19bdf0ca, 0xa02369b9, 0x655abb50,
+      0x40685a32, 0x3c2ab4b3, 0x319ee9d5, 0xc021b8f7,
+      0x9b540b19, 0x875fa099, 0x95f7997e, 0x623d7da8,
+      0xf837889a, 0x97e32d77, 0x11ed935f, 0x16681281,
+      0x0e358829, 0xc7e61fd6, 0x96dedfa1, 0x7858ba99,
+      0x57f584a5, 0x1b227263, 0x9b83c3ff, 0x1ac24696,
+      0xcdb30aeb, 0x532e3054, 0x8fd948e4, 0x6dbc3128,
+      0x58ebf2ef, 0x34c6ffea, 0xfe28ed61, 0xee7c3c73,
+      0x5d4a14d9, 0xe864b7e3, 0x42105d14, 0x203e13e0,
+      0x45eee2b6, 0xa3aaabea, 0xdb6c4f15, 0xfacb4fd0,
+      0xc742f442, 0xef6abbb5, 0x654f3b1d, 0x41cd2105,
+      0xd81e799e, 0x86854dc7, 0xe44b476a, 0x3d816250,
+      0xcf62a1f2, 0x5b8d2646, 0xfc8883a0, 0xc1c7b6a3,
+      0x7f1524c3, 0x69cb7492, 0x47848a0b, 0x5692b285,
+      0x095bbf00, 0xad19489d, 0x1462b174, 0x23820e00,
+      0x58428d2a, 0x0c55f5ea, 0x1dadf43e, 0x233f7061,
+      0x3372f092, 0x8d937e41, 0xd65fecf1, 0x6c223bdb,
+      0x7cde3759, 0xcbee7460, 0x4085f2a7, 0xce77326e,
+      0xa6078084, 0x19f8509e, 0xe8efd855, 0x61d99735,
+      0xa969a7aa, 0xc50c06c2, 0x5a04abfc, 0x800bcadc,
+      0x9e447a2e, 0xc3453484, 0xfdd56705, 0x0e1e9ec9,
+      0xdb73dbd3, 0x105588cd, 0x675fda79, 0xe3674340,
+      0xc5c43465, 0x713e38d8, 0x3d28f89e, 0xf16dff20,
+      0x153e21e7, 0x8fb03d4a, 0xe6e39f2b, 0xdb83adf7]),
+    new Uint32Array([
+      0xe93d5a68, 0x948140f7, 0xf64c261c, 0x94692934,
+      0x411520f7, 0x7602d4f7, 0xbcf46b2e, 0xd4a20068,
+      0xd4082471, 0x3320f46a, 0x43b7d4b7, 0x500061af,
+      0x1e39f62e, 0x97244546, 0x14214f74, 0xbf8b8840,
+      0x4d95fc1d, 0x96b591af, 0x70f4ddd3, 0x66a02f45,
+      0xbfbc09ec, 0x03bd9785, 0x7fac6dd0, 0x31cb8504,
+      0x96eb27b3, 0x55fd3941, 0xda2547e6, 0xabca0a9a,
+      0x28507825, 0x530429f4, 0x0a2c86da, 0xe9b66dfb,
+      0x68dc1462, 0xd7486900, 0x680ec0a4, 0x27a18dee,
+      0x4f3ffea2, 0xe887ad8c, 0xb58ce006, 0x7af4d6b6,
+      0xaace1e7c, 0xd3375fec, 0xce78a399, 0x406b2a42,
+      0x20fe9e35, 0xd9f385b9, 0xee39d7ab, 0x3b124e8b,
+      0x1dc9faf7, 0x4b6d1856, 0x26a36631, 0xeae397b2,
+      0x3a6efa74, 0xdd5b4332, 0x6841e7f7, 0xca7820fb,
+      0xfb0af54e, 0xd8feb397, 0x454056ac, 0xba489527,
+      0x55533a3a, 0x20838d87, 0xfe6ba9b7, 0xd096954b,
+      0x55a867bc, 0xa1159a58, 0xcca92963, 0x99e1db33,
+      0xa62a4a56, 0x3f3125f9, 0x5ef47e1c, 0x9029317c,
+      0xfdf8e802, 0x04272f70, 0x80bb155c, 0x05282ce3,
+      0x95c11548, 0xe4c66d22, 0x48c1133f, 0xc70f86dc,
+      0x07f9c9ee, 0x41041f0f, 0x404779a4, 0x5d886e17,
+      0x325f51eb, 0xd59bc0d1, 0xf2bcc18f, 0x41113564,
+      0x257b7834, 0x602a9c60, 0xdff8e8a3, 0x1f636c1b,
+      0x0e12b4c2, 0x02e1329e, 0xaf664fd1, 0xcad18115,
+      0x6b2395e0, 0x333e92e1, 0x3b240b62, 0xeebeb922,
+      0x85b2a20e, 0xe6ba0d99, 0xde720c8c, 0x2da2f728,
+      0xd0127845, 0x95b794fd, 0x647d0862, 0xe7ccf5f0,
+      0x5449a36f, 0x877d48fa, 0xc39dfd27, 0xf33e8d1e,
+      0x0a476341, 0x992eff74, 0x3a6f6eab, 0xf4f8fd37,
+      0xa812dc60, 0xa1ebddf8, 0x991be14c, 0xdb6e6b0d,
+      0xc67b5510, 0x6d672c37, 0x2765d43b, 0xdcd0e804,
+      0xf1290dc7, 0xcc00ffa3, 0xb5390f92, 0x690fed0b,
+      0x667b9ffb, 0xcedb7d9c, 0xa091cf0b, 0xd9155ea3,
+      0xbb132f88, 0x515bad24, 0x7b9479bf, 0x763bd6eb,
+      0x37392eb3, 0xcc115979, 0x8026e297, 0xf42e312d,
+      0x6842ada7, 0xc66a2b3b, 0x12754ccc, 0x782ef11c,
+      0x6a124237, 0xb79251e7, 0x06a1bbe6, 0x4bfb6350,
+      0x1a6b1018, 0x11caedfa, 0x3d25bdd8, 0xe2e1c3c9,
+      0x44421659, 0x0a121386, 0xd90cec6e, 0xd5abea2a,
+      0x64af674e, 0xda86a85f, 0xbebfe988, 0x64e4c3fe,
+      0x9dbc8057, 0xf0f7c086, 0x60787bf8, 0x6003604d,
+      0xd1fd8346, 0xf6381fb0, 0x7745ae04, 0xd736fccc,
+      0x83426b33, 0xf01eab71, 0xb0804187, 0x3c005e5f,
+      0x77a057be, 0xbde8ae24, 0x55464299, 0xbf582e61,
+      0x4e58f48f, 0xf2ddfda2, 0xf474ef38, 0x8789bdc2,
+      0x5366f9c3, 0xc8b38e74, 0xb475f255, 0x46fcd9b9,
+      0x7aeb2661, 0x8b1ddf84, 0x846a0e79, 0x915f95e2,
+      0x466e598e, 0x20b45770, 0x8cd55591, 0xc902de4c,
+      0xb90bace1, 0xbb8205d0, 0x11a86248, 0x7574a99e,
+      0xb77f19b6, 0xe0a9dc09, 0x662d09a1, 0xc4324633,
+      0xe85a1f02, 0x09f0be8c, 0x4a99a025, 0x1d6efe10,
+      0x1ab93d1d, 0x0ba5a4df, 0xa186f20f, 0x2868f169,
+      0xdcb7da83, 0x573906fe, 0xa1e2ce9b, 0x4fcd7f52,
+      0x50115e01, 0xa70683fa, 0xa002b5c4, 0x0de6d027,
+      0x9af88c27, 0x773f8641, 0xc3604c06, 0x61a806b5,
+      0xf0177a28, 0xc0f586e0, 0x006058aa, 0x30dc7d62,
+      0x11e69ed7, 0x2338ea63, 0x53c2dd94, 0xc2c21634,
+      0xbbcbee56, 0x90bcb6de, 0xebfc7da1, 0xce591d76,
+      0x6f05e409, 0x4b7c0188, 0x39720a3d, 0x7c927c24,
+      0x86e3725f, 0x724d9db9, 0x1ac15bb4, 0xd39eb8fc,
+      0xed545578, 0x08fca5b5, 0xd83d7cd3, 0x4dad0fc4,
+      0x1e50ef5e, 0xb161e6f8, 0xa28514d9, 0x6c51133c,
+      0x6fd5c7e7, 0x56e14ec4, 0x362abfce, 0xddc6c837,
+      0xd79a3234, 0x92638212, 0x670efa8e, 0x406000e0]),
+    new Uint32Array([
+      0x3a39ce37, 0xd3faf5cf, 0xabc27737, 0x5ac52d1b,
+      0x5cb0679e, 0x4fa33742, 0xd3822740, 0x99bc9bbe,
+      0xd5118e9d, 0xbf0f7315, 0xd62d1c7e, 0xc700c47b,
+      0xb78c1b6b, 0x21a19045, 0xb26eb1be, 0x6a366eb4,
+      0x5748ab2f, 0xbc946e79, 0xc6a376d2, 0x6549c2c8,
+      0x530ff8ee, 0x468dde7d, 0xd5730a1d, 0x4cd04dc6,
+      0x2939bbdb, 0xa9ba4650, 0xac9526e8, 0xbe5ee304,
+      0xa1fad5f0, 0x6a2d519a, 0x63ef8ce2, 0x9a86ee22,
+      0xc089c2b8, 0x43242ef6, 0xa51e03aa, 0x9cf2d0a4,
+      0x83c061ba, 0x9be96a4d, 0x8fe51550, 0xba645bd6,
+      0x2826a2f9, 0xa73a3ae1, 0x4ba99586, 0xef5562e9,
+      0xc72fefd3, 0xf752f7da, 0x3f046f69, 0x77fa0a59,
+      0x80e4a915, 0x87b08601, 0x9b09e6ad, 0x3b3ee593,
+      0xe990fd5a, 0x9e34d797, 0x2cf0b7d9, 0x022b8b51,
+      0x96d5ac3a, 0x017da67d, 0xd1cf3ed6, 0x7c7d2d28,
+      0x1f9f25cf, 0xadf2b89b, 0x5ad6b472, 0x5a88f54c,
+      0xe029ac71, 0xe019a5e6, 0x47b0acfd, 0xed93fa9b,
+      0xe8d3c48d, 0x283b57cc, 0xf8d56629, 0x79132e28,
+      0x785f0191, 0xed756055, 0xf7960e44, 0xe3d35e8c,
+      0x15056dd4, 0x88f46dba, 0x03a16125, 0x0564f0bd,
+      0xc3eb9e15, 0x3c9057a2, 0x97271aec, 0xa93a072a,
+      0x1b3f6d9b, 0x1e6321f5, 0xf59c66fb, 0x26dcf319,
+      0x7533d928, 0xb155fdf5, 0x03563482, 0x8aba3cbb,
+      0x28517711, 0xc20ad9f8, 0xabcc5167, 0xccad925f,
+      0x4de81751, 0x3830dc8e, 0x379d5862, 0x9320f991,
+      0xea7a90c2, 0xfb3e7bce, 0x5121ce64, 0x774fbe32,
+      0xa8b6e37e, 0xc3293d46, 0x48de5369, 0x6413e680,
+      0xa2ae0810, 0xdd6db224, 0x69852dfd, 0x09072166,
+      0xb39a460a, 0x6445c0dd, 0x586cdecf, 0x1c20c8ae,
+      0x5bbef7dd, 0x1b588d40, 0xccd2017f, 0x6bb4e3bb,
+      0xdda26a7e, 0x3a59ff45, 0x3e350a44, 0xbcb4cdd5,
+      0x72eacea8, 0xfa6484bb, 0x8d6612ae, 0xbf3c6f47,
+      0xd29be463, 0x542f5d9e, 0xaec2771b, 0xf64e6370,
+      0x740e0d8d, 0xe75b1357, 0xf8721671, 0xaf537d5d,
+      0x4040cb08, 0x4eb4e2cc, 0x34d2466a, 0x0115af84,
+      0xe1b00428, 0x95983a1d, 0x06b89fb4, 0xce6ea048,
+      0x6f3f3b82, 0x3520ab82, 0x011a1d4b, 0x277227f8,
+      0x611560b1, 0xe7933fdc, 0xbb3a792b, 0x344525bd,
+      0xa08839e1, 0x51ce794b, 0x2f32c9b7, 0xa01fbac9,
+      0xe01cc87e, 0xbcc7d1f6, 0xcf0111c3, 0xa1e8aac7,
+      0x1a908749, 0xd44fbd9a, 0xd0dadecb, 0xd50ada38,
+      0x0339c32a, 0xc6913667, 0x8df9317c, 0xe0b12b4f,
+      0xf79e59b7, 0x43f5bb3a, 0xf2d519ff, 0x27d9459c,
+      0xbf97222c, 0x15e6fc2a, 0x0f91fc71, 0x9b941525,
+      0xfae59361, 0xceb69ceb, 0xc2a86459, 0x12baa8d1,
+      0xb6c1075e, 0xe3056a0c, 0x10d25065, 0xcb03a442,
+      0xe0ec6e0e, 0x1698db3b, 0x4c98a0be, 0x3278e964,
+      0x9f1f9532, 0xe0d392df, 0xd3a0342b, 0x8971f21e,
+      0x1b0a7441, 0x4ba3348c, 0xc5be7120, 0xc37632d8,
+      0xdf359f8d, 0x9b992f2e, 0xe60b6f47, 0x0fe3f11d,
+      0xe54cda54, 0x1edad891, 0xce6279cf, 0xcd3e7e6f,
+      0x1618b166, 0xfd2c1d05, 0x848fd2c5, 0xf6fb2299,
+      0xf523f357, 0xa6327623, 0x93a83531, 0x56cccd02,
+      0xacf08162, 0x5a75ebb5, 0x6e163697, 0x88d273cc,
+      0xde966292, 0x81b949d0, 0x4c50901b, 0x71c65614,
+      0xe6c6c7bd, 0x327a140a, 0x45e1d006, 0xc3f27b9a,
+      0xc9aa53fd, 0x62a80f00, 0xbb25bfe2, 0x35bdd2f6,
+      0x71126905, 0xb2040222, 0xb6cbcf7c, 0xcd769c2b,
+      0x53113ec0, 0x1640e3d3, 0x38abbd60, 0x2547adf0,
+      0xba38209c, 0xf746ce76, 0x77afa1c5, 0x20756060,
+      0x85cbfe4e, 0x8ae88dd8, 0x7aaaf9b0, 0x4cf9aa7e,
+      0x1948c25c, 0x02fb8a8c, 0x01c36ae4, 0xd6ebe1f9,
+      0x90d4f869, 0xa65cdea0, 0x3f09252d, 0xc208e69f,
+      0xb74e6132, 0xce77e25b, 0x578fdfe3, 0x3ac372e6])
+    ];
+  this.P = new Uint32Array([
+    0x243f6a88, 0x85a308d3, 0x13198a2e, 0x03707344,
+    0xa4093822, 0x299f31d0, 0x082efa98, 0xec4e6c89,
+    0x452821e6, 0x38d01377, 0xbe5466cf, 0x34e90c6c,
+    0xc0ac29b7, 0xc97c50dd, 0x3f84d5b5, 0xb5470917,
+    0x9216d5d9, 0x8979fb1b]);
+};
+
+function F(S, x8, i) {
+  return (((S[0][x8[i+3]] +
+            S[1][x8[i+2]]) ^
+            S[2][x8[i+1]]) +
+            S[3][x8[i]]);
+};
+
+Blowfish.prototype.encipher = function(x, x8) {
+  if (x8 === undefined) {
+    x8 = new Uint8Array(x.buffer);
+    if (x.byteOffset !== 0)
+      x8 = x8.subarray(x.byteOffset);
+  }
+  x[0] ^= this.P[0];
+  for (var i = 1; i < 16; i += 2) {
+    x[1] ^= F(this.S, x8, 0) ^ this.P[i];
+    x[0] ^= F(this.S, x8, 4) ^ this.P[i+1];
+  }
+  var t = x[0];
+  x[0] = x[1] ^ this.P[17];
+  x[1] = t;
+};
+
+Blowfish.prototype.decipher = function(x) {
+  var x8 = new Uint8Array(x.buffer);
+  if (x.byteOffset !== 0)
+    x8 = x8.subarray(x.byteOffset);
+  x[0] ^= this.P[17];
+  for (var i = 16; i > 0; i -= 2) {
+    x[1] ^= F(this.S, x8, 0) ^ this.P[i];
+    x[0] ^= F(this.S, x8, 4) ^ this.P[i-1];
+  }
+  var t = x[0];
+  x[0] = x[1] ^ this.P[0];
+  x[1] = t;
+};
+
+function stream2word(data, databytes){
+  var i, temp = 0;
+  for (i = 0; i < 4; i++, BLF_J++) {
+    if (BLF_J >= databytes) BLF_J = 0;
+    temp = (temp << 8) | data[BLF_J];
+  }
+  return temp;
+};
+
+Blowfish.prototype.expand0state = function(key, keybytes) {
+  var d = new Uint32Array(2), i, k;
+  var d8 = new Uint8Array(d.buffer);
+
+  for (i = 0, BLF_J = 0; i < 18; i++) {
+    this.P[i] ^= stream2word(key, keybytes);
+  }
+  BLF_J = 0;
+
+  for (i = 0; i < 18; i += 2) {
+    this.encipher(d, d8);
+    this.P[i]   = d[0];
+    this.P[i+1] = d[1];
+  }
+
+  for (i = 0; i < 4; i++) {
+    for (k = 0; k < 256; k += 2) {
+      this.encipher(d, d8);
+      this.S[i][k]   = d[0];
+      this.S[i][k+1] = d[1];
+    }
+  }
+};
+
+Blowfish.prototype.expandstate = function(data, databytes, key, keybytes) {
+  var d = new Uint32Array(2), i, k;
+
+  for (i = 0, BLF_J = 0; i < 18; i++) {
+    this.P[i] ^= stream2word(key, keybytes);
+  }
+
+  for (i = 0, BLF_J = 0; i < 18; i += 2) {
+    d[0] ^= stream2word(data, databytes);
+    d[1] ^= stream2word(data, databytes);
+    this.encipher(d);
+    this.P[i]   = d[0];
+    this.P[i+1] = d[1];
+  }
+
+  for (i = 0; i < 4; i++) {
+    for (k = 0; k < 256; k += 2) {
+      d[0] ^= stream2word(data, databytes);
+      d[1] ^= stream2word(data, databytes);
+      this.encipher(d);
+      this.S[i][k]   = d[0];
+      this.S[i][k+1] = d[1];
+    }
+  }
+  BLF_J = 0;
+};
+
+Blowfish.prototype.enc = function(data, blocks) {
+  for (var i = 0; i < blocks; i++) {
+    this.encipher(data.subarray(i*2));
+  }
+};
+
+Blowfish.prototype.dec = function(data, blocks) {
+  for (var i = 0; i < blocks; i++) {
+    this.decipher(data.subarray(i*2));
+  }
+};
+
+var BCRYPT_BLOCKS = 8,
+    BCRYPT_HASHSIZE = 32;
+
+function bcrypt_hash(sha2pass, sha2salt, out) {
+  var state = new Blowfish(),
+      cdata = new Uint32Array(BCRYPT_BLOCKS), i,
+      ciphertext = new Uint8Array([79,120,121,99,104,114,111,109,97,116,105,
+            99,66,108,111,119,102,105,115,104,83,119,97,116,68,121,110,97,109,
+            105,116,101]); //"OxychromaticBlowfishSwatDynamite"
+
+  state.expandstate(sha2salt, 64, sha2pass, 64);
+  for (i = 0; i < 64; i++) {
+    state.expand0state(sha2salt, 64);
+    state.expand0state(sha2pass, 64);
+  }
+
+  for (i = 0; i < BCRYPT_BLOCKS; i++)
+    cdata[i] = stream2word(ciphertext, ciphertext.byteLength);
+  for (i = 0; i < 64; i++)
+    state.enc(cdata, cdata.byteLength / 8);
+
+  for (i = 0; i < BCRYPT_BLOCKS; i++) {
+    out[4*i+3] = cdata[i] >>> 24;
+    out[4*i+2] = cdata[i] >>> 16;
+    out[4*i+1] = cdata[i] >>> 8;
+    out[4*i+0] = cdata[i];
+  }
+};
+
+function bcrypt_pbkdf(pass, passlen, salt, saltlen, key, keylen, rounds) {
+  var sha2pass = new Uint8Array(64),
+      sha2salt = new Uint8Array(64),
+      out = new Uint8Array(BCRYPT_HASHSIZE),
+      tmpout = new Uint8Array(BCRYPT_HASHSIZE),
+      countsalt = new Uint8Array(saltlen+4),
+      i, j, amt, stride, dest, count,
+      origkeylen = keylen;
+
+  if (rounds < 1)
+    return -1;
+  if (passlen === 0 || saltlen === 0 || keylen === 0 ||
+      keylen > (out.byteLength * out.byteLength) || saltlen > (1<<20))
+    return -1;
+
+  stride = Math.floor((keylen + out.byteLength - 1) / out.byteLength);
+  amt = Math.floor((keylen + stride - 1) / stride);
+
+  for (i = 0; i < saltlen; i++)
+    countsalt[i] = salt[i];
+
+  crypto_hash_sha512(sha2pass, pass, passlen);
+
+  for (count = 1; keylen > 0; count++) {
+    countsalt[saltlen+0] = count >>> 24;
+    countsalt[saltlen+1] = count >>> 16;
+    countsalt[saltlen+2] = count >>>  8;
+    countsalt[saltlen+3] = count;
+
+    crypto_hash_sha512(sha2salt, countsalt, saltlen + 4);
+    bcrypt_hash(sha2pass, sha2salt, tmpout);
+    for (i = out.byteLength; i--;)
+      out[i] = tmpout[i];
+
+    for (i = 1; i < rounds; i++) {
+      crypto_hash_sha512(sha2salt, tmpout, tmpout.byteLength);
+      bcrypt_hash(sha2pass, sha2salt, tmpout);
+      for (j = 0; j < out.byteLength; j++)
+        out[j] ^= tmpout[j];
+    }
+
+    amt = Math.min(amt, keylen);
+    for (i = 0; i < amt; i++) {
+      dest = i * stride + (count - 1);
+      if (dest >= origkeylen)
+        break;
+      key[dest] = out[i];
+    }
+    keylen -= i;
+  }
+
+  return 0;
+};
+
+module.exports = {
+      BLOCKS: BCRYPT_BLOCKS,
+      HASHSIZE: BCRYPT_HASHSIZE,
+      hash: bcrypt_hash,
+      pbkdf: bcrypt_pbkdf
+};
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports) {
+
+
+/**
+ * slice() reference.
+ */
+
+var slice = Array.prototype.slice;
+
+/**
+ * Expose `co`.
+ */
+
+module.exports = co['default'] = co.co = co;
+
+/**
+ * Wrap the given generator `fn` into a
+ * function that returns a promise.
+ * This is a separate function so that
+ * every `co()` call doesn't create a new,
+ * unnecessary closure.
+ *
+ * @param {GeneratorFunction} fn
+ * @return {Function}
+ * @api public
+ */
+
+co.wrap = function (fn) {
+  createPromise.__generatorFunction__ = fn;
+  return createPromise;
+  function createPromise() {
+    return co.call(this, fn.apply(this, arguments));
+  }
+};
+
+/**
+ * Execute the generator function or a generator
+ * and return a promise.
+ *
+ * @param {Function} fn
+ * @return {Promise}
+ * @api public
+ */
+
+function co(gen) {
+  var ctx = this;
+  var args = slice.call(arguments, 1)
+
+  // we wrap everything in a promise to avoid promise chaining,
+  // which leads to memory leak errors.
+  // see https://github.com/tj/co/issues/180
+  return new Promise(function(resolve, reject) {
+    if (typeof gen === 'function') gen = gen.apply(ctx, args);
+    if (!gen || typeof gen.next !== 'function') return resolve(gen);
+
+    onFulfilled();
+
+    /**
+     * @param {Mixed} res
+     * @return {Promise}
+     * @api private
+     */
+
+    function onFulfilled(res) {
+      var ret;
+      try {
+        ret = gen.next(res);
+      } catch (e) {
+        return reject(e);
+      }
+      next(ret);
+    }
+
+    /**
+     * @param {Error} err
+     * @return {Promise}
+     * @api private
+     */
+
+    function onRejected(err) {
+      var ret;
+      try {
+        ret = gen.throw(err);
+      } catch (e) {
+        return reject(e);
+      }
+      next(ret);
+    }
+
+    /**
+     * Get the next value in the generator,
+     * return a promise.
+     *
+     * @param {Object} ret
+     * @return {Promise}
+     * @api private
+     */
+
+    function next(ret) {
+      if (ret.done) return resolve(ret.value);
+      var value = toPromise.call(ctx, ret.value);
+      if (value && isPromise(value)) return value.then(onFulfilled, onRejected);
+      return onRejected(new TypeError('You may only yield a function, promise, generator, array, or object, '
+        + 'but the following object was passed: "' + String(ret.value) + '"'));
+    }
+  });
+}
+
+/**
+ * Convert a `yield`ed value into a promise.
+ *
+ * @param {Mixed} obj
+ * @return {Promise}
+ * @api private
+ */
+
+function toPromise(obj) {
+  if (!obj) return obj;
+  if (isPromise(obj)) return obj;
+  if (isGeneratorFunction(obj) || isGenerator(obj)) return co.call(this, obj);
+  if ('function' == typeof obj) return thunkToPromise.call(this, obj);
+  if (Array.isArray(obj)) return arrayToPromise.call(this, obj);
+  if (isObject(obj)) return objectToPromise.call(this, obj);
+  return obj;
+}
+
+/**
+ * Convert a thunk to a promise.
+ *
+ * @param {Function}
+ * @return {Promise}
+ * @api private
+ */
+
+function thunkToPromise(fn) {
+  var ctx = this;
+  return new Promise(function (resolve, reject) {
+    fn.call(ctx, function (err, res) {
+      if (err) return reject(err);
+      if (arguments.length > 2) res = slice.call(arguments, 1);
+      resolve(res);
+    });
+  });
+}
+
+/**
+ * Convert an array of "yieldables" to a promise.
+ * Uses `Promise.all()` internally.
+ *
+ * @param {Array} obj
+ * @return {Promise}
+ * @api private
+ */
+
+function arrayToPromise(obj) {
+  return Promise.all(obj.map(toPromise, this));
+}
+
+/**
+ * Convert an object of "yieldables" to a promise.
+ * Uses `Promise.all()` internally.
+ *
+ * @param {Object} obj
+ * @return {Promise}
+ * @api private
+ */
+
+function objectToPromise(obj){
+  var results = new obj.constructor();
+  var keys = Object.keys(obj);
+  var promises = [];
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var promise = toPromise.call(this, obj[key]);
+    if (promise && isPromise(promise)) defer(promise, key);
+    else results[key] = obj[key];
+  }
+  return Promise.all(promises).then(function () {
+    return results;
+  });
+
+  function defer(promise, key) {
+    // predefine the key in the result
+    results[key] = undefined;
+    promises.push(promise.then(function (res) {
+      results[key] = res;
+    }));
+  }
+}
+
+/**
+ * Check if `obj` is a promise.
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isPromise(obj) {
+  return 'function' == typeof obj.then;
+}
+
+/**
+ * Check if `obj` is a generator.
+ *
+ * @param {Mixed} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isGenerator(obj) {
+  return 'function' == typeof obj.next && 'function' == typeof obj.throw;
+}
+
+/**
+ * Check if `obj` is a generator function.
+ *
+ * @param {Mixed} obj
+ * @return {Boolean}
+ * @api private
+ */
+function isGeneratorFunction(obj) {
+  var constructor = obj.constructor;
+  if (!constructor) return false;
+  if ('GeneratorFunction' === constructor.name || 'GeneratorFunction' === constructor.displayName) return true;
+  return isGenerator(constructor.prototype);
+}
+
+/**
+ * Check for plain object.
+ *
+ * @param {Mixed} val
+ * @return {Boolean}
+ * @api private
+ */
+
+function isObject(val) {
+  return Object == val.constructor;
+}
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var util = __webpack_require__(2);
+var Stream = __webpack_require__(14).Stream;
+var DelayedStream = __webpack_require__(158);
+var defer = __webpack_require__(156);
+
+module.exports = CombinedStream;
+function CombinedStream() {
+  this.writable = false;
+  this.readable = true;
+  this.dataSize = 0;
+  this.maxDataSize = 2 * 1024 * 1024;
+  this.pauseStreams = true;
+
+  this._released = false;
+  this._streams = [];
+  this._currentStream = null;
+}
+util.inherits(CombinedStream, Stream);
+
+CombinedStream.create = function(options) {
+  var combinedStream = new this();
+
+  options = options || {};
+  for (var option in options) {
+    combinedStream[option] = options[option];
+  }
+
+  return combinedStream;
+};
+
+CombinedStream.isStreamLike = function(stream) {
+  return (typeof stream !== 'function')
+    && (typeof stream !== 'string')
+    && (typeof stream !== 'boolean')
+    && (typeof stream !== 'number')
+    && (!Buffer.isBuffer(stream));
+};
+
+CombinedStream.prototype.append = function(stream) {
+  var isStreamLike = CombinedStream.isStreamLike(stream);
+
+  if (isStreamLike) {
+    if (!(stream instanceof DelayedStream)) {
+      var newStream = DelayedStream.create(stream, {
+        maxDataSize: Infinity,
+        pauseStream: this.pauseStreams,
+      });
+      stream.on('data', this._checkDataSize.bind(this));
+      stream = newStream;
+    }
+
+    this._handleErrors(stream);
+
+    if (this.pauseStreams) {
+      stream.pause();
+    }
+  }
+
+  this._streams.push(stream);
+  return this;
+};
+
+CombinedStream.prototype.pipe = function(dest, options) {
+  Stream.prototype.pipe.call(this, dest, options);
+  this.resume();
+  return dest;
+};
+
+CombinedStream.prototype._getNext = function() {
+  this._currentStream = null;
+  var stream = this._streams.shift();
+
+
+  if (typeof stream == 'undefined') {
+    this.end();
+    return;
+  }
+
+  if (typeof stream !== 'function') {
+    this._pipeNext(stream);
+    return;
+  }
+
+  var getStream = stream;
+  getStream(function(stream) {
+    var isStreamLike = CombinedStream.isStreamLike(stream);
+    if (isStreamLike) {
+      stream.on('data', this._checkDataSize.bind(this));
+      this._handleErrors(stream);
+    }
+
+    defer(this._pipeNext.bind(this, stream));
+  }.bind(this));
+};
+
+CombinedStream.prototype._pipeNext = function(stream) {
+  this._currentStream = stream;
+
+  var isStreamLike = CombinedStream.isStreamLike(stream);
+  if (isStreamLike) {
+    stream.on('end', this._getNext.bind(this));
+    stream.pipe(this, {end: false});
+    return;
+  }
+
+  var value = stream;
+  this.write(value);
+  this._getNext();
+};
+
+CombinedStream.prototype._handleErrors = function(stream) {
+  var self = this;
+  stream.on('error', function(err) {
+    self._emitError(err);
+  });
+};
+
+CombinedStream.prototype.write = function(data) {
+  this.emit('data', data);
+};
+
+CombinedStream.prototype.pause = function() {
+  if (!this.pauseStreams) {
+    return;
+  }
+
+  if(this.pauseStreams && this._currentStream && typeof(this._currentStream.pause) == 'function') this._currentStream.pause();
+  this.emit('pause');
+};
+
+CombinedStream.prototype.resume = function() {
+  if (!this._released) {
+    this._released = true;
+    this.writable = true;
+    this._getNext();
+  }
+
+  if(this.pauseStreams && this._currentStream && typeof(this._currentStream.resume) == 'function') this._currentStream.resume();
+  this.emit('resume');
+};
+
+CombinedStream.prototype.end = function() {
+  this._reset();
+  this.emit('end');
+};
+
+CombinedStream.prototype.destroy = function() {
+  this._reset();
+  this.emit('close');
+};
+
+CombinedStream.prototype._reset = function() {
+  this.writable = false;
+  this._streams = [];
+  this._currentStream = null;
+};
+
+CombinedStream.prototype._checkDataSize = function() {
+  this._updateDataSize();
+  if (this.dataSize <= this.maxDataSize) {
+    return;
+  }
+
+  var message =
+    'DelayedStream#maxDataSize of ' + this.maxDataSize + ' bytes exceeded.';
+  this._emitError(new Error(message));
+};
+
+CombinedStream.prototype._updateDataSize = function() {
+  this.dataSize = 0;
+
+  var self = this;
+  this._streams.forEach(function(stream) {
+    if (!stream.dataSize) {
+      return;
+    }
+
+    self.dataSize += stream.dataSize;
+  });
+
+  if (this._currentStream && this._currentStream.dataSize) {
+    this.dataSize += this._currentStream.dataSize;
+  }
+};
+
+CombinedStream.prototype._emitError = function(err) {
+  this._reset();
+  this.emit('error', err);
+};
+
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// Load modules
+
+const Crypto = __webpack_require__(1);
+const Boom = __webpack_require__(32);
+
+
+// Declare internals
+
+const internals = {};
+
+
+// Generate a cryptographically strong pseudo-random data
+
+exports.randomString = function (size) {
+
+    const buffer = exports.randomBits((size + 1) * 6);
+    if (buffer instanceof Error) {
+        return buffer;
+    }
+
+    const string = buffer.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/\=/g, '');
+    return string.slice(0, size);
+};
+
+
+// Return a random string of digits
+
+exports.randomDigits = function (size) {
+
+    const buffer = exports.randomBits(size * 8);
+    if (buffer instanceof Error) {
+        return buffer;
+    }
+
+    const digits = [];
+    for (let i = 0; i < buffer.length; ++i) {
+        digits.push(Math.floor(buffer[i] / 25.6));
+    }
+
+    return digits.join('');
+};
+
+
+// Generate a buffer of random bits
+
+exports.randomBits = function (bits) {
+
+    if (!bits ||
+        bits < 0) {
+
+        return Boom.internal('Invalid random bits count');
+    }
+
+    const bytes = Math.ceil(bits / 8);
+    try {
+        return Crypto.randomBytes(bytes);
+    }
+    catch (err) {
+        return Boom.internal('Failed generating random bits: ' + err.message);
+    }
+};
+
+
+// Compare two strings using fixed time algorithm (to prevent time-based analysis of MAC digest match)
+
+exports.fixedTimeComparison = function (a, b) {
+
+    if (typeof a !== 'string' ||
+        typeof b !== 'string') {
+
+        return false;
+    }
+
+    let mismatch = (a.length === b.length ? 0 : 1);
+    if (mismatch) {
+        b = a;
+    }
+
+    for (let i = 0; i < a.length; ++i) {
+        const ac = a.charCodeAt(i);
+        const bc = b.charCodeAt(i);
+        mismatch |= (ac ^ bc);
+    }
+
+    return (mismatch === 0);
+};
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var crypto = __webpack_require__(1);
+var BigInteger = __webpack_require__(16).BigInteger;
+var ECPointFp = __webpack_require__(22).ECPointFp;
+exports.ECCurves = __webpack_require__(159);
+
+// zero prepad
+function unstupid(hex,len)
+{
+	return (hex.length >= len) ? hex : unstupid("0"+hex,len);
+}
+
+exports.ECKey = function(curve, key, isPublic)
+{
+  var priv;
+	var c = curve();
+	var n = c.getN();
+  var bytes = Math.floor(n.bitLength()/8);
+
+  if(key)
+  {
+    if(isPublic)
+    {
+      var curve = c.getCurve();
+//      var x = key.slice(1,bytes+1); // skip the 04 for uncompressed format
+//      var y = key.slice(bytes+1);
+//      this.P = new ECPointFp(curve,
+//        curve.fromBigInteger(new BigInteger(x.toString("hex"), 16)),
+//        curve.fromBigInteger(new BigInteger(y.toString("hex"), 16)));      
+      this.P = curve.decodePointHex(key.toString("hex"));
+    }else{
+      if(key.length != bytes) return false;
+      priv = new BigInteger(key.toString("hex"), 16);      
+    }
+  }else{
+    var n1 = n.subtract(BigInteger.ONE);
+    var r = new BigInteger(crypto.randomBytes(n.bitLength()));
+    priv = r.mod(n1).add(BigInteger.ONE);
+    this.P = c.getG().multiply(priv);
+  }
+  if(this.P)
+  {
+//  var pubhex = unstupid(this.P.getX().toBigInteger().toString(16),bytes*2)+unstupid(this.P.getY().toBigInteger().toString(16),bytes*2);
+//  this.PublicKey = new Buffer("04"+pubhex,"hex");
+    this.PublicKey = new Buffer(c.getCurve().encodeCompressedPointHex(this.P),"hex");
+  }
+  if(priv)
+  {
+    this.PrivateKey = new Buffer(unstupid(priv.toString(16),bytes*2),"hex");
+    this.deriveSharedSecret = function(key)
+    {
+      if(!key || !key.P) return false;
+      var S = key.P.multiply(priv);
+      return new Buffer(unstupid(S.getX().toBigInteger().toString(16),bytes*2),"hex");
+   }     
+  }
+}
+
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+ * extsprintf.js: extended POSIX-style sprintf
+ */
+
+var mod_assert = __webpack_require__(30);
+var mod_util = __webpack_require__(2);
+
+/*
+ * Public interface
+ */
+exports.sprintf = jsSprintf;
+exports.printf = jsPrintf;
+exports.fprintf = jsFprintf;
+
+/*
+ * Stripped down version of s[n]printf(3c).  We make a best effort to throw an
+ * exception when given a format string we don't understand, rather than
+ * ignoring it, so that we won't break existing programs if/when we go implement
+ * the rest of this.
+ *
+ * This implementation currently supports specifying
+ *	- field alignment ('-' flag),
+ * 	- zero-pad ('0' flag)
+ *	- always show numeric sign ('+' flag),
+ *	- field width
+ *	- conversions for strings, decimal integers, and floats (numbers).
+ *	- argument size specifiers.  These are all accepted but ignored, since
+ *	  Javascript has no notion of the physical size of an argument.
+ *
+ * Everything else is currently unsupported, most notably precision, unsigned
+ * numbers, non-decimal numbers, and characters.
+ */
+function jsSprintf(fmt)
+{
+	var regex = [
+	    '([^%]*)',				/* normal text */
+	    '%',				/* start of format */
+	    '([\'\\-+ #0]*?)',			/* flags (optional) */
+	    '([1-9]\\d*)?',			/* width (optional) */
+	    '(\\.([1-9]\\d*))?',		/* precision (optional) */
+	    '[lhjztL]*?',			/* length mods (ignored) */
+	    '([diouxXfFeEgGaAcCsSp%jr])'	/* conversion */
+	].join('');
+
+	var re = new RegExp(regex);
+	var args = Array.prototype.slice.call(arguments, 1);
+	var flags, width, precision, conversion;
+	var left, pad, sign, arg, match;
+	var ret = '';
+	var argn = 1;
+
+	mod_assert.equal('string', typeof (fmt));
+
+	while ((match = re.exec(fmt)) !== null) {
+		ret += match[1];
+		fmt = fmt.substring(match[0].length);
+
+		flags = match[2] || '';
+		width = match[3] || 0;
+		precision = match[4] || '';
+		conversion = match[6];
+		left = false;
+		sign = false;
+		pad = ' ';
+
+		if (conversion == '%') {
+			ret += '%';
+			continue;
+		}
+
+		if (args.length === 0)
+			throw (new Error('too few args to sprintf'));
+
+		arg = args.shift();
+		argn++;
+
+		if (flags.match(/[\' #]/))
+			throw (new Error(
+			    'unsupported flags: ' + flags));
+
+		if (precision.length > 0)
+			throw (new Error(
+			    'non-zero precision not supported'));
+
+		if (flags.match(/-/))
+			left = true;
+
+		if (flags.match(/0/))
+			pad = '0';
+
+		if (flags.match(/\+/))
+			sign = true;
+
+		switch (conversion) {
+		case 's':
+			if (arg === undefined || arg === null)
+				throw (new Error('argument ' + argn +
+				    ': attempted to print undefined or null ' +
+				    'as a string'));
+			ret += doPad(pad, width, left, arg.toString());
+			break;
+
+		case 'd':
+			arg = Math.floor(arg);
+			/*jsl:fallthru*/
+		case 'f':
+			sign = sign && arg > 0 ? '+' : '';
+			ret += sign + doPad(pad, width, left,
+			    arg.toString());
+			break;
+
+		case 'x':
+			ret += doPad(pad, width, left, arg.toString(16));
+			break;
+
+		case 'j': /* non-standard */
+			if (width === 0)
+				width = 10;
+			ret += mod_util.inspect(arg, false, width);
+			break;
+
+		case 'r': /* non-standard */
+			ret += dumpException(arg);
+			break;
+
+		default:
+			throw (new Error('unsupported conversion: ' +
+			    conversion));
+		}
+	}
+
+	ret += fmt;
+	return (ret);
+}
+
+function jsPrintf() {
+	var args = Array.prototype.slice.call(arguments);
+	args.unshift(process.stdout);
+	jsFprintf.apply(null, args);
+}
+
+function jsFprintf(stream) {
+	var args = Array.prototype.slice.call(arguments, 1);
+	return (stream.write(jsSprintf.apply(this, args)));
+}
+
+function doPad(chr, width, left, str)
+{
+	var ret = str;
+
+	while (ret.length < width) {
+		if (left)
+			ret += chr;
+		else
+			ret = chr + ret;
+	}
+
+	return (ret);
+}
+
+/*
+ * This function dumps long stack traces for exceptions having a cause() method.
+ * See node-verror for an example.
+ */
+function dumpException(ex)
+{
+	var ret;
+
+	if (!(ex instanceof Error))
+		throw (new Error(jsSprintf('invalid type for %%r: %j', ex)));
+
+	/* Note that V8 prepends "ex.stack" with ex.toString(). */
+	ret = 'EXCEPTION: ' + ex.constructor.name + ': ' + ex.stack;
+
+	if (ex.cause && typeof (ex.cause) === 'function') {
+		var cex = ex.cause();
+		if (cex) {
+			ret += '\nCaused by: ' + dumpException(cex);
+		}
+	}
+
+	return (ret);
+}
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+/**
+ * Simple, lightweight module assisting with the detection and context of
+ * Worker. Helps avoid circular dependencies and allows code to reason about
+ * whether or not they are in a Worker, even if they never include the main
+ * `ReactWorker` dependency.
+ */
+var ExecutionEnvironment = {
+
+  canUseDOM: canUseDOM,
+
+  canUseWorkers: typeof Worker !== 'undefined',
+
+  canUseEventListeners: canUseDOM && !!(window.addEventListener || window.attachEvent),
+
+  canUseViewport: canUseDOM && !!window.screen,
+
+  isInWorker: !canUseDOM // For now, this is true - might change in the future.
+
+};
+
+module.exports = ExecutionEnvironment;
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+
+
+var camelize = __webpack_require__(160);
+
+var msPattern = /^-ms-/;
+
+/**
+ * Camelcases a hyphenated CSS property name, for example:
+ *
+ *   > camelizeStyleName('background-color')
+ *   < "backgroundColor"
+ *   > camelizeStyleName('-moz-transition')
+ *   < "MozTransition"
+ *   > camelizeStyleName('-ms-transition')
+ *   < "msTransition"
+ *
+ * As Andi Smith suggests
+ * (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
+ * is converted to lowercase `ms`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function camelizeStyleName(string) {
+  return camelize(string.replace(msPattern, 'ms-'));
+}
+
+module.exports = camelizeStyleName;
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+var isTextNode = __webpack_require__(163);
+
+/*eslint-disable no-bitwise */
+
+/**
+ * Checks if a given DOM node contains or is another DOM node.
+ */
+function containsNode(outerNode, innerNode) {
+  if (!outerNode || !innerNode) {
+    return false;
+  } else if (outerNode === innerNode) {
+    return true;
+  } else if (isTextNode(outerNode)) {
+    return false;
+  } else if (isTextNode(innerNode)) {
+    return containsNode(outerNode, innerNode.parentNode);
+  } else if ('contains' in outerNode) {
+    return outerNode.contains(innerNode);
+  } else if (outerNode.compareDocumentPosition) {
+    return !!(outerNode.compareDocumentPosition(innerNode) & 16);
+  } else {
+    return false;
+  }
+}
+
+module.exports = containsNode;
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+/* eslint-disable fb-www/typeof-undefined */
+
+/**
+ * Same as document.activeElement but wraps in a try-catch block. In IE it is
+ * not safe to call document.activeElement if there is nothing focused.
+ *
+ * The activeElement will be null only if the document or document body is not
+ * yet defined.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
+ */
+function getActiveElement(doc) /*?DOMElement*/{
+  doc = doc || (typeof document !== 'undefined' ? document : undefined);
+  if (typeof doc === 'undefined') {
+    return null;
+  }
+  try {
+    return doc.activeElement || doc.body;
+  } catch (e) {
+    return doc.body;
+  }
+}
+
+module.exports = getActiveElement;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ * @typechecks static-only
+ */
+
+
+
+/**
+ * Memoizes the return value of a function that accepts one string argument.
+ */
+
+function memoizeStringOnly(callback) {
+  var cache = {};
+  return function (string) {
+    if (!cache.hasOwnProperty(string)) {
+      cache[string] = callback.call(this, string);
+    }
+    return cache[string];
+  };
+}
+
+module.exports = memoizeStringOnly;
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ * 
+ */
+
+/*eslint-disable no-self-compare */
+
+
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+/**
+ * inlined Object.is polyfill to avoid requiring consumers ship their own
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ */
+function is(x, y) {
+  // SameValue algorithm
+  if (x === y) {
+    // Steps 1-5, 7-10
+    // Steps 6.b-6.e: +0 != -0
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    // Step 6.a: NaN == NaN
+    return x !== x && y !== y;
+  }
+}
+
+/**
+ * Performs equality by iterating through keys on an object and returning false
+ * when any key has values which are not strictly equal between the arguments.
+ * Returns true when the values of all keys are strictly equal.
+ */
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  // Test for A's keys different from B.
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = shallowEqual;
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var stream = __webpack_require__(14)
+
+
+function isStream (obj) {
+  return obj instanceof stream.Stream
+}
+
+
+function isReadable (obj) {
+  return isStream(obj) && typeof obj._read == 'function' && typeof obj._readableState == 'object'
+}
+
+
+function isWritable (obj) {
+  return isStream(obj) && typeof obj._write == 'function' && typeof obj._writableState == 'object'
+}
+
+
+function isDuplex (obj) {
+  return isReadable(obj) && isWritable(obj)
+}
+
+
+module.exports            = isStream
+module.exports.isReadable = isReadable
+module.exports.isWritable = isWritable
+module.exports.isDuplex   = isDuplex
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * mime-types
+ * Copyright(c) 2014 Jonathan Ong
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+
+
+/**
+ * Module dependencies.
+ * @private
+ */
+
+var db = __webpack_require__(208)
+var extname = __webpack_require__(60).extname
+
+/**
+ * Module variables.
+ * @private
+ */
+
+var EXTRACT_TYPE_REGEXP = /^\s*([^;\s]*)(?:;|\s|$)/
+var TEXT_TYPE_REGEXP = /^text\//i
+
+/**
+ * Module exports.
+ * @public
+ */
+
+exports.charset = charset
+exports.charsets = { lookup: charset }
+exports.contentType = contentType
+exports.extension = extension
+exports.extensions = Object.create(null)
+exports.lookup = lookup
+exports.types = Object.create(null)
+
+// Populate the extensions/types maps
+populateMaps(exports.extensions, exports.types)
+
+/**
+ * Get the default charset for a MIME type.
+ *
+ * @param {string} type
+ * @return {boolean|string}
+ */
+
+function charset (type) {
+  if (!type || typeof type !== 'string') {
+    return false
+  }
+
+  // TODO: use media-typer
+  var match = EXTRACT_TYPE_REGEXP.exec(type)
+  var mime = match && db[match[1].toLowerCase()]
+
+  if (mime && mime.charset) {
+    return mime.charset
+  }
+
+  // default text/* to utf-8
+  if (match && TEXT_TYPE_REGEXP.test(match[1])) {
+    return 'UTF-8'
+  }
+
+  return false
+}
+
+/**
+ * Create a full Content-Type header given a MIME type or extension.
+ *
+ * @param {string} str
+ * @return {boolean|string}
+ */
+
+function contentType (str) {
+  // TODO: should this even be in this module?
+  if (!str || typeof str !== 'string') {
+    return false
+  }
+
+  var mime = str.indexOf('/') === -1
+    ? exports.lookup(str)
+    : str
+
+  if (!mime) {
+    return false
+  }
+
+  // TODO: use content-type or other module
+  if (mime.indexOf('charset') === -1) {
+    var charset = exports.charset(mime)
+    if (charset) mime += '; charset=' + charset.toLowerCase()
+  }
+
+  return mime
+}
+
+/**
+ * Get the default extension for a MIME type.
+ *
+ * @param {string} type
+ * @return {boolean|string}
+ */
+
+function extension (type) {
+  if (!type || typeof type !== 'string') {
+    return false
+  }
+
+  // TODO: use media-typer
+  var match = EXTRACT_TYPE_REGEXP.exec(type)
+
+  // get extensions
+  var exts = match && exports.extensions[match[1].toLowerCase()]
+
+  if (!exts || !exts.length) {
+    return false
+  }
+
+  return exts[0]
+}
+
+/**
+ * Lookup the MIME type for a file path/extension.
+ *
+ * @param {string} path
+ * @return {boolean|string}
+ */
+
+function lookup (path) {
+  if (!path || typeof path !== 'string') {
+    return false
+  }
+
+  // get the extension ("ext" or ".ext" or full path)
+  var extension = extname('x.' + path)
+    .toLowerCase()
+    .substr(1)
+
+  if (!extension) {
+    return false
+  }
+
+  return exports.types[extension] || false
+}
+
+/**
+ * Populate the extensions and types maps.
+ * @private
+ */
+
+function populateMaps (extensions, types) {
+  // source preference (least -> most)
+  var preference = ['nginx', 'apache', undefined, 'iana']
+
+  Object.keys(db).forEach(function forEachMimeType (type) {
+    var mime = db[type]
+    var exts = mime.extensions
+
+    if (!exts || !exts.length) {
+      return
+    }
+
+    // mime -> extensions
+    extensions[type] = exts
+
+    // extension -> mime
+    for (var i = 0; i < exts.length; i++) {
+      var extension = exts[i]
+
+      if (types[extension]) {
+        var from = preference.indexOf(db[types[extension]].source)
+        var to = preference.indexOf(mime.source)
+
+        if (types[extension] !== 'application/octet-stream' &&
+          (from > to || (from === to && types[extension].substr(0, 12) === 'application/'))) {
+          // skip the remapping
+          continue
+        }
+      }
+
+      // set the extension -> mime
+      types[extension] = type
+    }
+  })
+}
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var replace = String.prototype.replace;
+var percentTwenties = /%20/g;
+
+module.exports = {
+    'default': 'RFC3986',
+    formatters: {
+        RFC1738: function (value) {
+            return replace.call(value, percentTwenties, '+');
+        },
+        RFC3986: function (value) {
+            return value;
+        }
+    },
+    RFC1738: 'RFC1738',
+    RFC3986: 'RFC3986'
+};
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var stringify = __webpack_require__(215);
+var parse = __webpack_require__(214);
+var formats = __webpack_require__(93);
+
+module.exports = {
+    formats: formats,
+    parse: parse,
+    stringify: stringify
+};
+
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var has = Object.prototype.hasOwnProperty;
+
+var hexTable = (function () {
+    var array = [];
+    for (var i = 0; i < 256; ++i) {
+        array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
+    }
+
+    return array;
+}());
+
+var compactQueue = function compactQueue(queue) {
+    var obj;
+
+    while (queue.length) {
+        var item = queue.pop();
+        obj = item.obj[item.prop];
+
+        if (Array.isArray(obj)) {
+            var compacted = [];
+
+            for (var j = 0; j < obj.length; ++j) {
+                if (typeof obj[j] !== 'undefined') {
+                    compacted.push(obj[j]);
+                }
+            }
+
+            item.obj[item.prop] = compacted;
+        }
+    }
+
+    return obj;
+};
+
+exports.arrayToObject = function arrayToObject(source, options) {
+    var obj = options && options.plainObjects ? Object.create(null) : {};
+    for (var i = 0; i < source.length; ++i) {
+        if (typeof source[i] !== 'undefined') {
+            obj[i] = source[i];
+        }
+    }
+
+    return obj;
+};
+
+exports.merge = function merge(target, source, options) {
+    if (!source) {
+        return target;
+    }
+
+    if (typeof source !== 'object') {
+        if (Array.isArray(target)) {
+            target.push(source);
+        } else if (typeof target === 'object') {
+            if (options.plainObjects || options.allowPrototypes || !has.call(Object.prototype, source)) {
+                target[source] = true;
+            }
+        } else {
+            return [target, source];
+        }
+
+        return target;
+    }
+
+    if (typeof target !== 'object') {
+        return [target].concat(source);
+    }
+
+    var mergeTarget = target;
+    if (Array.isArray(target) && !Array.isArray(source)) {
+        mergeTarget = exports.arrayToObject(target, options);
+    }
+
+    if (Array.isArray(target) && Array.isArray(source)) {
+        source.forEach(function (item, i) {
+            if (has.call(target, i)) {
+                if (target[i] && typeof target[i] === 'object') {
+                    target[i] = exports.merge(target[i], item, options);
+                } else {
+                    target.push(item);
+                }
+            } else {
+                target[i] = item;
+            }
+        });
+        return target;
+    }
+
+    return Object.keys(source).reduce(function (acc, key) {
+        var value = source[key];
+
+        if (has.call(acc, key)) {
+            acc[key] = exports.merge(acc[key], value, options);
+        } else {
+            acc[key] = value;
+        }
+        return acc;
+    }, mergeTarget);
+};
+
+exports.assign = function assignSingleSource(target, source) {
+    return Object.keys(source).reduce(function (acc, key) {
+        acc[key] = source[key];
+        return acc;
+    }, target);
+};
+
+exports.decode = function (str) {
+    try {
+        return decodeURIComponent(str.replace(/\+/g, ' '));
+    } catch (e) {
+        return str;
+    }
+};
+
+exports.encode = function encode(str) {
+    // This code was originally written by Brian White (mscdex) for the io.js core querystring library.
+    // It has been adapted here for stricter adherence to RFC 3986
+    if (str.length === 0) {
+        return str;
+    }
+
+    var string = typeof str === 'string' ? str : String(str);
+
+    var out = '';
+    for (var i = 0; i < string.length; ++i) {
+        var c = string.charCodeAt(i);
+
+        if (
+            c === 0x2D // -
+            || c === 0x2E // .
+            || c === 0x5F // _
+            || c === 0x7E // ~
+            || (c >= 0x30 && c <= 0x39) // 0-9
+            || (c >= 0x41 && c <= 0x5A) // a-z
+            || (c >= 0x61 && c <= 0x7A) // A-Z
+        ) {
+            out += string.charAt(i);
+            continue;
+        }
+
+        if (c < 0x80) {
+            out = out + hexTable[c];
+            continue;
+        }
+
+        if (c < 0x800) {
+            out = out + (hexTable[0xC0 | (c >> 6)] + hexTable[0x80 | (c & 0x3F)]);
+            continue;
+        }
+
+        if (c < 0xD800 || c >= 0xE000) {
+            out = out + (hexTable[0xE0 | (c >> 12)] + hexTable[0x80 | ((c >> 6) & 0x3F)] + hexTable[0x80 | (c & 0x3F)]);
+            continue;
+        }
+
+        i += 1;
+        c = 0x10000 + (((c & 0x3FF) << 10) | (string.charCodeAt(i) & 0x3FF));
+        out += hexTable[0xF0 | (c >> 18)]
+            + hexTable[0x80 | ((c >> 12) & 0x3F)]
+            + hexTable[0x80 | ((c >> 6) & 0x3F)]
+            + hexTable[0x80 | (c & 0x3F)];
+    }
+
+    return out;
+};
+
+exports.compact = function compact(value) {
+    var queue = [{ obj: { o: value }, prop: 'o' }];
+    var refs = [];
+
+    for (var i = 0; i < queue.length; ++i) {
+        var item = queue[i];
+        var obj = item.obj[item.prop];
+
+        var keys = Object.keys(obj);
+        for (var j = 0; j < keys.length; ++j) {
+            var key = keys[j];
+            var val = obj[key];
+            if (typeof val === 'object' && val !== null && refs.indexOf(val) === -1) {
+                queue.push({ obj: obj, prop: key });
+                refs.push(val);
+            }
+        }
+    }
+
+    return compactQueue(queue);
+};
+
+exports.isRegExp = function isRegExp(obj) {
+    return Object.prototype.toString.call(obj) === '[object RegExp]';
+};
+
+exports.isBuffer = function isBuffer(obj) {
+    if (obj === null || typeof obj === 'undefined') {
+        return false;
+    }
+
+    return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
+};
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var tough = __webpack_require__(246)
+
+var Cookie = tough.Cookie
+var CookieJar = tough.CookieJar
+
+exports.parse = function (str) {
+  if (str && str.uri) {
+    str = str.uri
+  }
+  if (typeof str !== 'string') {
+    throw new Error('The cookie function only accepts STRING as param')
+  }
+  return Cookie.parse(str, {loose: true})
+}
+
+// Adapt the sometimes-Async api of tough.CookieJar to our requirements
+function RequestJar (store) {
+  var self = this
+  self._jar = new CookieJar(store, {looseMode: true})
+}
+RequestJar.prototype.setCookie = function (cookieOrStr, uri, options) {
+  var self = this
+  return self._jar.setCookieSync(cookieOrStr, uri, options || {})
+}
+RequestJar.prototype.getCookieString = function (uri) {
+  var self = this
+  return self._jar.getCookieStringSync(uri)
+}
+RequestJar.prototype.getCookies = function (uri) {
+  var self = this
+  return self._jar.getCookiesSync(uri)
+}
+
+exports.jar = function (store) {
+  return new RequestJar(store)
+}
+
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var randomByte = __webpack_require__(240);
+
+function encode(lookup, number) {
+    var loopCounter = 0;
+    var done;
+
+    var str = '';
+
+    while (!done) {
+        str = str + lookup( ( (number >> (4 * loopCounter)) & 0x0f ) | randomByte() );
+        done = number < (Math.pow(16, loopCounter + 1 ) );
+        loopCounter++;
+    }
+    return str;
+}
+
+module.exports = encode;
+
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// Load modules
+
+const Dgram = __webpack_require__(256);
+const Dns = __webpack_require__(257);
+
+const Hoek = __webpack_require__(34);
+
+
+// Declare internals
+
+const internals = {};
+
+
+exports.time = function (options, callback) {
+
+    if (arguments.length !== 2) {
+        callback = arguments[0];
+        options = {};
+    }
+
+    const settings = Hoek.clone(options);
+    settings.host = settings.host || 'time.google.com';
+    settings.port = settings.port || 123;
+    settings.resolveReference = settings.resolveReference || false;
+
+    // Declare variables used by callback
+
+    let timeoutId = null;
+    let sent = 0;
+
+    // Ensure callback is only called once
+
+    const finish = Hoek.once((err, result) => {
+
+        clearTimeout(timeoutId);
+
+        socket.removeAllListeners();
+        socket.once('error', Hoek.ignore);
+
+        try {
+            socket.close();
+        }
+        catch (ignoreErr) { }       // Ignore errors if the socket is already closed
+
+        return callback(err, result);
+    });
+
+    // Set timeout
+
+    if (settings.timeout) {
+        timeoutId = setTimeout(() => {
+
+            return finish(new Error('Timeout'));
+        }, settings.timeout);
+    }
+
+    // Create UDP socket
+
+    const socket = Dgram.createSocket('udp4');
+
+    socket.once('error', (err) => finish(err));
+
+    // Listen to incoming messages
+
+    socket.on('message', (buffer, rinfo) => {
+
+        const received = Date.now();
+
+        const message = new internals.NtpMessage(buffer);
+        if (!message.isValid) {
+            return finish(new Error('Invalid server response'), message);
+        }
+
+        if (message.originateTimestamp !== sent) {
+            return finish(new Error('Wrong originate timestamp'), message);
+        }
+
+        // Timestamp Name          ID   When Generated
+        // ------------------------------------------------------------
+        // Originate Timestamp     T1   time request sent by client
+        // Receive Timestamp       T2   time request received by server
+        // Transmit Timestamp      T3   time reply sent by server
+        // Destination Timestamp   T4   time reply received by client
+        //
+        // The roundtrip delay d and system clock offset t are defined as:
+        //
+        // d = (T4 - T1) - (T3 - T2)     t = ((T2 - T1) + (T3 - T4)) / 2
+
+        const T1 = message.originateTimestamp;
+        const T2 = message.receiveTimestamp;
+        const T3 = message.transmitTimestamp;
+        const T4 = received;
+
+        message.d = (T4 - T1) - (T3 - T2);
+        message.t = ((T2 - T1) + (T3 - T4)) / 2;
+        message.receivedLocally = received;
+
+        if (!settings.resolveReference ||
+            message.stratum !== 'secondary') {
+
+            return finish(null, message);
+        }
+
+        // Resolve reference IP address
+
+        Dns.reverse(message.referenceId, (err, domains) => {
+
+            if (/* $lab:coverage:off$ */ !err /* $lab:coverage:on$ */) {
+                message.referenceHost = domains[0];
+            }
+
+            return finish(null, message);
+        });
+    });
+
+    // Construct NTP message
+
+    const message = new Buffer(48);
+    for (let i = 0; i < 48; ++i) {                      // Zero message
+        message[i] = 0;
+    }
+
+    message[0] = (0 << 6) + (4 << 3) + (3 << 0);        // Set version number to 4 and Mode to 3 (client)
+    sent = Date.now();
+    internals.fromMsecs(sent, message, 40);             // Set transmit timestamp (returns as originate)
+
+    // Send NTP request
+
+    socket.send(message, 0, message.length, settings.port, settings.host, (err, bytes) => {
+
+        if (err ||
+            bytes !== 48) {
+
+            return finish(err || new Error('Could not send entire message'));
+        }
+    });
+};
+
+
+internals.NtpMessage = function (buffer) {
+
+    this.isValid = false;
+
+    // Validate
+
+    if (buffer.length !== 48) {
+        return;
+    }
+
+    // Leap indicator
+
+    const li = (buffer[0] >> 6);
+    switch (li) {
+        case 0: this.leapIndicator = 'no-warning'; break;
+        case 1: this.leapIndicator = 'last-minute-61'; break;
+        case 2: this.leapIndicator = 'last-minute-59'; break;
+        case 3: this.leapIndicator = 'alarm'; break;
+    }
+
+    // Version
+
+    const vn = ((buffer[0] & 0x38) >> 3);
+    this.version = vn;
+
+    // Mode
+
+    const mode = (buffer[0] & 0x7);
+    switch (mode) {
+        case 1: this.mode = 'symmetric-active'; break;
+        case 2: this.mode = 'symmetric-passive'; break;
+        case 3: this.mode = 'client'; break;
+        case 4: this.mode = 'server'; break;
+        case 5: this.mode = 'broadcast'; break;
+        case 0:
+        case 6:
+        case 7: this.mode = 'reserved'; break;
+    }
+
+    // Stratum
+
+    const stratum = buffer[1];
+    if (stratum === 0) {
+        this.stratum = 'death';
+    }
+    else if (stratum === 1) {
+        this.stratum = 'primary';
+    }
+    else if (stratum <= 15) {
+        this.stratum = 'secondary';
+    }
+    else {
+        this.stratum = 'reserved';
+    }
+
+    // Poll interval (msec)
+
+    this.pollInterval = Math.round(Math.pow(2, buffer[2])) * 1000;
+
+    // Precision (msecs)
+
+    this.precision = Math.pow(2, buffer[3]) * 1000;
+
+    // Root delay (msecs)
+
+    const rootDelay = 256 * (256 * (256 * buffer[4] + buffer[5]) + buffer[6]) + buffer[7];
+    this.rootDelay = 1000 * (rootDelay / 0x10000);
+
+    // Root dispersion (msecs)
+
+    this.rootDispersion = ((buffer[8] << 8) + buffer[9] + ((buffer[10] << 8) + buffer[11]) / Math.pow(2, 16)) * 1000;
+
+    // Reference identifier
+
+    this.referenceId = '';
+    switch (this.stratum) {
+        case 'death':
+        case 'primary':
+            this.referenceId = String.fromCharCode(buffer[12]) + String.fromCharCode(buffer[13]) + String.fromCharCode(buffer[14]) + String.fromCharCode(buffer[15]);
+            break;
+        case 'secondary':
+            this.referenceId = '' + buffer[12] + '.' + buffer[13] + '.' + buffer[14] + '.' + buffer[15];
+            break;
+    }
+
+    // Reference timestamp
+
+    this.referenceTimestamp = internals.toMsecs(buffer, 16);
+
+    // Originate timestamp
+
+    this.originateTimestamp = internals.toMsecs(buffer, 24);
+
+    // Receive timestamp
+
+    this.receiveTimestamp = internals.toMsecs(buffer, 32);
+
+    // Transmit timestamp
+
+    this.transmitTimestamp = internals.toMsecs(buffer, 40);
+
+    // Validate
+
+    if (this.version === 4 &&
+        this.stratum !== 'reserved' &&
+        this.mode === 'server' &&
+        this.originateTimestamp &&
+        this.receiveTimestamp &&
+        this.transmitTimestamp) {
+
+        this.isValid = true;
+    }
+
+    return this;
+};
+
+
+internals.toMsecs = function (buffer, offset) {
+
+    let seconds = 0;
+    let fraction = 0;
+
+    for (let i = 0; i < 4; ++i) {
+        seconds = (seconds * 256) + buffer[offset + i];
+    }
+
+    for (let i = 4; i < 8; ++i) {
+        fraction = (fraction * 256) + buffer[offset + i];
+    }
+
+    return ((seconds - 2208988800 + (fraction / Math.pow(2, 32))) * 1000);
+};
+
+
+internals.fromMsecs = function (ts, buffer, offset) {
+
+    const seconds = Math.floor(ts / 1000) + 2208988800;
+    const fraction = Math.round((ts % 1000) / 1000 * Math.pow(2, 32));
+
+    buffer[offset + 0] = (seconds & 0xFF000000) >> 24;
+    buffer[offset + 1] = (seconds & 0x00FF0000) >> 16;
+    buffer[offset + 2] = (seconds & 0x0000FF00) >> 8;
+    buffer[offset + 3] = (seconds & 0x000000FF);
+
+    buffer[offset + 4] = (fraction & 0xFF000000) >> 24;
+    buffer[offset + 5] = (fraction & 0x00FF0000) >> 16;
+    buffer[offset + 6] = (fraction & 0x0000FF00) >> 8;
+    buffer[offset + 7] = (fraction & 0x000000FF);
+};
+
+
+// Offset singleton
+
+internals.last = {
+    offset: 0,
+    expires: 0,
+    host: '',
+    port: 0
+};
+
+
+exports.offset = function (options, callback) {
+
+    if (arguments.length !== 2) {
+        callback = arguments[0];
+        options = {};
+    }
+
+    const now = Date.now();
+    const clockSyncRefresh = options.clockSyncRefresh || 24 * 60 * 60 * 1000;                    // Daily
+
+    if (internals.last.offset &&
+        internals.last.host === options.host &&
+        internals.last.port === options.port &&
+        now < internals.last.expires) {
+
+        process.nextTick(() => callback(null, internals.last.offset));
+        return;
+    }
+
+    exports.time(options, (err, time) => {
+
+        if (err) {
+            return callback(err, 0);
+        }
+
+        internals.last = {
+            offset: Math.round(time.t),
+            expires: now + clockSyncRefresh,
+            host: options.host,
+            port: options.port
+        };
+
+        return callback(null, internals.last.offset);
+    });
+};
+
+
+// Now singleton
+
+internals.now = {
+    started: false,
+    intervalId: null
+};
+
+
+exports.start = function (options, callback) {
+
+    if (arguments.length !== 2) {
+        callback = arguments[0];
+        options = {};
+    }
+
+    if (internals.now.started) {
+        process.nextTick(() => callback());
+        return;
+    }
+
+    const report = (err) => {
+
+        if (err &&
+            options.onError) {
+
+            options.onError(err);
+        }
+    };
+
+    internals.now.started = true;
+    exports.offset(options, (err, offset) => {
+
+        report(err);
+
+        internals.now.intervalId = setInterval(() => {
+
+            exports.offset(options, report);
+        }, options.clockSyncRefresh || 24 * 60 * 60 * 1000);                                // Daily
+
+        return callback();
+    });
+};
+
+
+exports.stop = function () {
+
+    if (!internals.now.started) {
+        return;
+    }
+
+    clearInterval(internals.now.intervalId);
+    internals.now.started = false;
+    internals.now.intervalId = null;
+};
+
+
+exports.isLive = function () {
+
+    return internals.now.started;
+};
+
+
+exports.now = function () {
+
+    const now = Date.now();
+    if (!exports.isLive() ||
+        now >= internals.last.expires) {
+
+        return now;
+    }
+
+    return now + internals.last.offset;
+};
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Copyright 2015 Joyent, Inc.
+
+module.exports = {
+	Verifier: Verifier,
+	Signer: Signer
+};
+
+var nacl;
+var stream = __webpack_require__(14);
+var util = __webpack_require__(2);
+var assert = __webpack_require__(0);
+var Signature = __webpack_require__(12);
+
+function Verifier(key, hashAlgo) {
+	if (nacl === undefined)
+		nacl = __webpack_require__(13);
+
+	if (hashAlgo.toLowerCase() !== 'sha512')
+		throw (new Error('ED25519 only supports the use of ' +
+		    'SHA-512 hashes'));
+
+	this.key = key;
+	this.chunks = [];
+
+	stream.Writable.call(this, {});
+}
+util.inherits(Verifier, stream.Writable);
+
+Verifier.prototype._write = function (chunk, enc, cb) {
+	this.chunks.push(chunk);
+	cb();
+};
+
+Verifier.prototype.update = function (chunk) {
+	if (typeof (chunk) === 'string')
+		chunk = new Buffer(chunk, 'binary');
+	this.chunks.push(chunk);
+};
+
+Verifier.prototype.verify = function (signature, fmt) {
+	var sig;
+	if (Signature.isSignature(signature, [2, 0])) {
+		if (signature.type !== 'ed25519')
+			return (false);
+		sig = signature.toBuffer('raw');
+
+	} else if (typeof (signature) === 'string') {
+		sig = new Buffer(signature, 'base64');
+
+	} else if (Signature.isSignature(signature, [1, 0])) {
+		throw (new Error('signature was created by too old ' +
+		    'a version of sshpk and cannot be verified'));
+	}
+
+	assert.buffer(sig);
+	return (nacl.sign.detached.verify(
+	    new Uint8Array(Buffer.concat(this.chunks)),
+	    new Uint8Array(sig),
+	    new Uint8Array(this.key.part.A.data)));
+};
+
+function Signer(key, hashAlgo) {
+	if (nacl === undefined)
+		nacl = __webpack_require__(13);
+
+	if (hashAlgo.toLowerCase() !== 'sha512')
+		throw (new Error('ED25519 only supports the use of ' +
+		    'SHA-512 hashes'));
+
+	this.key = key;
+	this.chunks = [];
+
+	stream.Writable.call(this, {});
+}
+util.inherits(Signer, stream.Writable);
+
+Signer.prototype._write = function (chunk, enc, cb) {
+	this.chunks.push(chunk);
+	cb();
+};
+
+Signer.prototype.update = function (chunk) {
+	if (typeof (chunk) === 'string')
+		chunk = new Buffer(chunk, 'binary');
+	this.chunks.push(chunk);
+};
+
+Signer.prototype.sign = function () {
+	var sig = nacl.sign.detached(
+	    new Uint8Array(Buffer.concat(this.chunks)),
+	    new Uint8Array(Buffer.concat([
+		this.key.part.k.data, this.key.part.A.data])));
+	var sigBuf = new Buffer(sig);
+	var sigObj = Signature.parse(sigBuf, 'ed25519', 'raw');
+	sigObj.hashAlgorithm = 'sha512';
+	return (sigObj);
+};
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Copyright 2015 Joyent, Inc.
+
+module.exports = {
+	read: read,
+	write: write
+};
+
+var assert = __webpack_require__(0);
+var utils = __webpack_require__(3);
+var Key = __webpack_require__(4);
+var PrivateKey = __webpack_require__(6);
+
+var pem = __webpack_require__(17);
+var ssh = __webpack_require__(101);
+var rfc4253 = __webpack_require__(20);
+var dnssec = __webpack_require__(55);
+
+var DNSSEC_PRIVKEY_HEADER_PREFIX = 'Private-key-format: v1';
+
+function read(buf, options) {
+	if (typeof (buf) === 'string') {
+		if (buf.trim().match(/^[-]+[ ]*BEGIN/))
+			return (pem.read(buf, options));
+		if (buf.match(/^\s*ssh-[a-z]/))
+			return (ssh.read(buf, options));
+		if (buf.match(/^\s*ecdsa-/))
+			return (ssh.read(buf, options));
+		if (findDNSSECHeader(buf))
+			return (dnssec.read(buf, options));
+		buf = new Buffer(buf, 'binary');
+	} else {
+		assert.buffer(buf);
+		if (findPEMHeader(buf))
+			return (pem.read(buf, options));
+		if (findSSHHeader(buf))
+			return (ssh.read(buf, options));
+		if (findDNSSECHeader(buf))
+			return (dnssec.read(buf, options));
+	}
+	if (buf.readUInt32BE(0) < buf.length)
+		return (rfc4253.read(buf, options));
+	throw (new Error('Failed to auto-detect format of key'));
+}
+
+function findSSHHeader(buf) {
+	var offset = 0;
+	while (offset < buf.length &&
+	    (buf[offset] === 32 || buf[offset] === 10 || buf[offset] === 9))
+		++offset;
+	if (offset + 4 <= buf.length &&
+	    buf.slice(offset, offset + 4).toString('ascii') === 'ssh-')
+		return (true);
+	if (offset + 6 <= buf.length &&
+	    buf.slice(offset, offset + 6).toString('ascii') === 'ecdsa-')
+		return (true);
+	return (false);
+}
+
+function findPEMHeader(buf) {
+	var offset = 0;
+	while (offset < buf.length &&
+	    (buf[offset] === 32 || buf[offset] === 10))
+		++offset;
+	if (buf[offset] !== 45)
+		return (false);
+	while (offset < buf.length &&
+	    (buf[offset] === 45))
+		++offset;
+	while (offset < buf.length &&
+	    (buf[offset] === 32))
+		++offset;
+	if (offset + 5 > buf.length ||
+	    buf.slice(offset, offset + 5).toString('ascii') !== 'BEGIN')
+		return (false);
+	return (true);
+}
+
+function findDNSSECHeader(buf) {
+	// private case first
+	if (buf.length <= DNSSEC_PRIVKEY_HEADER_PREFIX.length)
+		return (false);
+	var headerCheck = buf.slice(0, DNSSEC_PRIVKEY_HEADER_PREFIX.length);
+	if (headerCheck.toString('ascii') === DNSSEC_PRIVKEY_HEADER_PREFIX)
+		return (true);
+
+	// public-key RFC3110 ?
+	// 'domain.com. IN KEY ...' or 'domain.com. IN DNSKEY ...'
+	// skip any comment-lines
+	if (typeof (buf) !== 'string') {
+		buf = buf.toString('ascii');
+	}
+	var lines = buf.split('\n');
+	var line = 0;
+	/* JSSTYLED */
+	while (lines[line].match(/^\;/))
+		line++;
+	if (lines[line].toString('ascii').match(/\. IN KEY /))
+		return (true);
+	if (lines[line].toString('ascii').match(/\. IN DNSKEY /))
+		return (true);
+	return (false);
+}
+
+function write(key, options) {
+	throw (new Error('"auto" format cannot be used for writing'));
+}
+
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Copyright 2015 Joyent, Inc.
+
+module.exports = {
+	read: read,
+	write: write
+};
+
+var assert = __webpack_require__(0);
+var rfc4253 = __webpack_require__(20);
+var utils = __webpack_require__(3);
+var Key = __webpack_require__(4);
+var PrivateKey = __webpack_require__(6);
+
+var sshpriv = __webpack_require__(39);
+
+/*JSSTYLED*/
+var SSHKEY_RE = /^([a-z0-9-]+)[ \t]+([a-zA-Z0-9+\/]+[=]*)([ \t]+([^ \t][^\n]*[\n]*)?)?$/;
+/*JSSTYLED*/
+var SSHKEY_RE2 = /^([a-z0-9-]+)[ \t\n]+([a-zA-Z0-9+\/][a-zA-Z0-9+\/ \t\n=]*)([^a-zA-Z0-9+\/ \t\n=].*)?$/;
+
+function read(buf, options) {
+	if (typeof (buf) !== 'string') {
+		assert.buffer(buf, 'buf');
+		buf = buf.toString('ascii');
+	}
+
+	var trimmed = buf.trim().replace(/[\\\r]/g, '');
+	var m = trimmed.match(SSHKEY_RE);
+	if (!m)
+		m = trimmed.match(SSHKEY_RE2);
+	assert.ok(m, 'key must match regex');
+
+	var type = rfc4253.algToKeyType(m[1]);
+	var kbuf = new Buffer(m[2], 'base64');
+
+	/*
+	 * This is a bit tricky. If we managed to parse the key and locate the
+	 * key comment with the regex, then do a non-partial read and assert
+	 * that we have consumed all bytes. If we couldn't locate the key
+	 * comment, though, there may be whitespace shenanigans going on that
+	 * have conjoined the comment to the rest of the key. We do a partial
+	 * read in this case to try to make the best out of a sorry situation.
+	 */
+	var key;
+	var ret = {};
+	if (m[4]) {
+		try {
+			key = rfc4253.read(kbuf);
+
+		} catch (e) {
+			m = trimmed.match(SSHKEY_RE2);
+			assert.ok(m, 'key must match regex');
+			kbuf = new Buffer(m[2], 'base64');
+			key = rfc4253.readInternal(ret, 'public', kbuf);
+		}
+	} else {
+		key = rfc4253.readInternal(ret, 'public', kbuf);
+	}
+
+	assert.strictEqual(type, key.type);
+
+	if (m[4] && m[4].length > 0) {
+		key.comment = m[4];
+
+	} else if (ret.consumed) {
+		/*
+		 * Now the magic: trying to recover the key comment when it's
+		 * gotten conjoined to the key or otherwise shenanigan'd.
+		 *
+		 * Work out how much base64 we used, then drop all non-base64
+		 * chars from the beginning up to this point in the the string.
+		 * Then offset in this and try to make up for missing = chars.
+		 */
+		var data = m[2] + (m[3] ? m[3] : '');
+		var realOffset = Math.ceil(ret.consumed / 3) * 4;
+		data = data.slice(0, realOffset - 2). /*JSSTYLED*/
+		    replace(/[^a-zA-Z0-9+\/=]/g, '') +
+		    data.slice(realOffset - 2);
+
+		var padding = ret.consumed % 3;
+		if (padding > 0 &&
+		    data.slice(realOffset - 1, realOffset) !== '=')
+			realOffset--;
+		while (data.slice(realOffset, realOffset + 1) === '=')
+			realOffset++;
+
+		/* Finally, grab what we think is the comment & clean it up. */
+		var trailer = data.slice(realOffset);
+		trailer = trailer.replace(/[\r\n]/g, ' ').
+		    replace(/^\s+/, '');
+		if (trailer.match(/^[a-zA-Z0-9]/))
+			key.comment = trailer;
+	}
+
+	return (key);
+}
+
+function write(key, options) {
+	assert.object(key);
+	if (!Key.isKey(key))
+		throw (new Error('Must be a public key'));
+
+	var parts = [];
+	var alg = rfc4253.keyTypeToAlg(key);
+	parts.push(alg);
+
+	var buf = rfc4253.write(key);
+	parts.push(buf.toString('base64'));
+
+	if (key.comment)
+		parts.push(key.comment);
+
+	return (new Buffer(parts.join(' ')));
+}
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Copyright 2017 Joyent, Inc.
+
+module.exports = {
+	read: read,
+	verify: verify,
+	sign: sign,
+	signAsync: signAsync,
+	write: write
+};
+
+var assert = __webpack_require__(0);
+var asn1 = __webpack_require__(9);
+var algs = __webpack_require__(5);
+var utils = __webpack_require__(3);
+var Key = __webpack_require__(4);
+var PrivateKey = __webpack_require__(6);
+var pem = __webpack_require__(17);
+var Identity = __webpack_require__(28);
+var Signature = __webpack_require__(12);
+var Certificate = __webpack_require__(25);
+var pkcs8 = __webpack_require__(27);
+
+/*
+ * This file is based on RFC5280 (X.509).
+ */
+
+/* Helper to read in a single mpint */
+function readMPInt(der, nm) {
+	assert.strictEqual(der.peek(), asn1.Ber.Integer,
+	    nm + ' is not an Integer');
+	return (utils.mpNormalize(der.readString(asn1.Ber.Integer, true)));
+}
+
+function verify(cert, key) {
+	var sig = cert.signatures.x509;
+	assert.object(sig, 'x509 signature');
+
+	var algParts = sig.algo.split('-');
+	if (algParts[0] !== key.type)
+		return (false);
+
+	var blob = sig.cache;
+	if (blob === undefined) {
+		var der = new asn1.BerWriter();
+		writeTBSCert(cert, der);
+		blob = der.buffer;
+	}
+
+	var verifier = key.createVerify(algParts[1]);
+	verifier.write(blob);
+	return (verifier.verify(sig.signature));
+}
+
+function Local(i) {
+	return (asn1.Ber.Context | asn1.Ber.Constructor | i);
+}
+
+function Context(i) {
+	return (asn1.Ber.Context | i);
+}
+
+var SIGN_ALGS = {
+	'rsa-md5': '1.2.840.113549.1.1.4',
+	'rsa-sha1': '1.2.840.113549.1.1.5',
+	'rsa-sha256': '1.2.840.113549.1.1.11',
+	'rsa-sha384': '1.2.840.113549.1.1.12',
+	'rsa-sha512': '1.2.840.113549.1.1.13',
+	'dsa-sha1': '1.2.840.10040.4.3',
+	'dsa-sha256': '2.16.840.1.101.3.4.3.2',
+	'ecdsa-sha1': '1.2.840.10045.4.1',
+	'ecdsa-sha256': '1.2.840.10045.4.3.2',
+	'ecdsa-sha384': '1.2.840.10045.4.3.3',
+	'ecdsa-sha512': '1.2.840.10045.4.3.4',
+	'ed25519-sha512': '1.3.101.112'
+};
+Object.keys(SIGN_ALGS).forEach(function (k) {
+	SIGN_ALGS[SIGN_ALGS[k]] = k;
+});
+SIGN_ALGS['1.3.14.3.2.3'] = 'rsa-md5';
+SIGN_ALGS['1.3.14.3.2.29'] = 'rsa-sha1';
+
+var EXTS = {
+	'issuerKeyId': '2.5.29.35',
+	'altName': '2.5.29.17',
+	'basicConstraints': '2.5.29.19',
+	'keyUsage': '2.5.29.15',
+	'extKeyUsage': '2.5.29.37'
+};
+
+function read(buf, options) {
+	if (typeof (buf) === 'string') {
+		buf = new Buffer(buf, 'binary');
+	}
+	assert.buffer(buf, 'buf');
+
+	var der = new asn1.BerReader(buf);
+
+	der.readSequence();
+	if (Math.abs(der.length - der.remain) > 1) {
+		throw (new Error('DER sequence does not contain whole byte ' +
+		    'stream'));
+	}
+
+	var tbsStart = der.offset;
+	der.readSequence();
+	var sigOffset = der.offset + der.length;
+	var tbsEnd = sigOffset;
+
+	if (der.peek() === Local(0)) {
+		der.readSequence(Local(0));
+		var version = der.readInt();
+		assert.ok(version <= 3,
+		    'only x.509 versions up to v3 supported');
+	}
+
+	var cert = {};
+	cert.signatures = {};
+	var sig = (cert.signatures.x509 = {});
+	sig.extras = {};
+
+	cert.serial = readMPInt(der, 'serial');
+
+	der.readSequence();
+	var after = der.offset + der.length;
+	var certAlgOid = der.readOID();
+	var certAlg = SIGN_ALGS[certAlgOid];
+	if (certAlg === undefined)
+		throw (new Error('unknown signature algorithm ' + certAlgOid));
+
+	der._offset = after;
+	cert.issuer = Identity.parseAsn1(der);
+
+	der.readSequence();
+	cert.validFrom = readDate(der);
+	cert.validUntil = readDate(der);
+
+	cert.subjects = [Identity.parseAsn1(der)];
+
+	der.readSequence();
+	after = der.offset + der.length;
+	cert.subjectKey = pkcs8.readPkcs8(undefined, 'public', der);
+	der._offset = after;
+
+	/* issuerUniqueID */
+	if (der.peek() === Local(1)) {
+		der.readSequence(Local(1));
+		sig.extras.issuerUniqueID =
+		    buf.slice(der.offset, der.offset + der.length);
+		der._offset += der.length;
+	}
+
+	/* subjectUniqueID */
+	if (der.peek() === Local(2)) {
+		der.readSequence(Local(2));
+		sig.extras.subjectUniqueID =
+		    buf.slice(der.offset, der.offset + der.length);
+		der._offset += der.length;
+	}
+
+	/* extensions */
+	if (der.peek() === Local(3)) {
+		der.readSequence(Local(3));
+		var extEnd = der.offset + der.length;
+		der.readSequence();
+
+		while (der.offset < extEnd)
+			readExtension(cert, buf, der);
+
+		assert.strictEqual(der.offset, extEnd);
+	}
+
+	assert.strictEqual(der.offset, sigOffset);
+
+	der.readSequence();
+	after = der.offset + der.length;
+	var sigAlgOid = der.readOID();
+	var sigAlg = SIGN_ALGS[sigAlgOid];
+	if (sigAlg === undefined)
+		throw (new Error('unknown signature algorithm ' + sigAlgOid));
+	der._offset = after;
+
+	var sigData = der.readString(asn1.Ber.BitString, true);
+	if (sigData[0] === 0)
+		sigData = sigData.slice(1);
+	var algParts = sigAlg.split('-');
+
+	sig.signature = Signature.parse(sigData, algParts[0], 'asn1');
+	sig.signature.hashAlgorithm = algParts[1];
+	sig.algo = sigAlg;
+	sig.cache = buf.slice(tbsStart, tbsEnd);
+
+	return (new Certificate(cert));
+}
+
+function readDate(der) {
+	if (der.peek() === asn1.Ber.UTCTime) {
+		return (utcTimeToDate(der.readString(asn1.Ber.UTCTime)));
+	} else if (der.peek() === asn1.Ber.GeneralizedTime) {
+		return (gTimeToDate(der.readString(asn1.Ber.GeneralizedTime)));
+	} else {
+		throw (new Error('Unsupported date format'));
+	}
+}
+
+/* RFC5280, section 4.2.1.6 (GeneralName type) */
+var ALTNAME = {
+	OtherName: Local(0),
+	RFC822Name: Context(1),
+	DNSName: Context(2),
+	X400Address: Local(3),
+	DirectoryName: Local(4),
+	EDIPartyName: Local(5),
+	URI: Context(6),
+	IPAddress: Context(7),
+	OID: Context(8)
+};
+
+/* RFC5280, section 4.2.1.12 (KeyPurposeId) */
+var EXTPURPOSE = {
+	'serverAuth': '1.3.6.1.5.5.7.3.1',
+	'clientAuth': '1.3.6.1.5.5.7.3.2',
+	'codeSigning': '1.3.6.1.5.5.7.3.3',
+
+	/* See https://github.com/joyent/oid-docs/blob/master/root.md */
+	'joyentDocker': '1.3.6.1.4.1.38678.1.4.1',
+	'joyentCmon': '1.3.6.1.4.1.38678.1.4.2'
+};
+var EXTPURPOSE_REV = {};
+Object.keys(EXTPURPOSE).forEach(function (k) {
+	EXTPURPOSE_REV[EXTPURPOSE[k]] = k;
+});
+
+var KEYUSEBITS = [
+	'signature', 'identity', 'keyEncryption',
+	'encryption', 'keyAgreement', 'ca', 'crl'
+];
+
+function readExtension(cert, buf, der) {
+	der.readSequence();
+	var after = der.offset + der.length;
+	var extId = der.readOID();
+	var id;
+	var sig = cert.signatures.x509;
+	sig.extras.exts = [];
+
+	var critical;
+	if (der.peek() === asn1.Ber.Boolean)
+		critical = der.readBoolean();
+
+	switch (extId) {
+	case (EXTS.basicConstraints):
+		der.readSequence(asn1.Ber.OctetString);
+		der.readSequence();
+		var bcEnd = der.offset + der.length;
+		var ca = false;
+		if (der.peek() === asn1.Ber.Boolean)
+			ca = der.readBoolean();
+		if (cert.purposes === undefined)
+			cert.purposes = [];
+		if (ca === true)
+			cert.purposes.push('ca');
+		var bc = { oid: extId, critical: critical };
+		if (der.offset < bcEnd && der.peek() === asn1.Ber.Integer)
+			bc.pathLen = der.readInt();
+		sig.extras.exts.push(bc);
+		break;
+	case (EXTS.extKeyUsage):
+		der.readSequence(asn1.Ber.OctetString);
+		der.readSequence();
+		if (cert.purposes === undefined)
+			cert.purposes = [];
+		var ekEnd = der.offset + der.length;
+		while (der.offset < ekEnd) {
+			var oid = der.readOID();
+			cert.purposes.push(EXTPURPOSE_REV[oid] || oid);
+		}
+		/*
+		 * This is a bit of a hack: in the case where we have a cert
+		 * that's only allowed to do serverAuth or clientAuth (and not
+		 * the other), we want to make sure all our Subjects are of
+		 * the right type. But we already parsed our Subjects and
+		 * decided if they were hosts or users earlier (since it appears
+		 * first in the cert).
+		 *
+		 * So we go through and mutate them into the right kind here if
+		 * it doesn't match. This might not be hugely beneficial, as it
+		 * seems that single-purpose certs are not often seen in the
+		 * wild.
+		 */
+		if (cert.purposes.indexOf('serverAuth') !== -1 &&
+		    cert.purposes.indexOf('clientAuth') === -1) {
+			cert.subjects.forEach(function (ide) {
+				if (ide.type !== 'host') {
+					ide.type = 'host';
+					ide.hostname = ide.uid ||
+					    ide.email ||
+					    ide.components[0].value;
+				}
+			});
+		} else if (cert.purposes.indexOf('clientAuth') !== -1 &&
+		    cert.purposes.indexOf('serverAuth') === -1) {
+			cert.subjects.forEach(function (ide) {
+				if (ide.type !== 'user') {
+					ide.type = 'user';
+					ide.uid = ide.hostname ||
+					    ide.email ||
+					    ide.components[0].value;
+				}
+			});
+		}
+		sig.extras.exts.push({ oid: extId, critical: critical });
+		break;
+	case (EXTS.keyUsage):
+		der.readSequence(asn1.Ber.OctetString);
+		var bits = der.readString(asn1.Ber.BitString, true);
+		var setBits = readBitField(bits, KEYUSEBITS);
+		setBits.forEach(function (bit) {
+			if (cert.purposes === undefined)
+				cert.purposes = [];
+			if (cert.purposes.indexOf(bit) === -1)
+				cert.purposes.push(bit);
+		});
+		sig.extras.exts.push({ oid: extId, critical: critical,
+		    bits: bits });
+		break;
+	case (EXTS.altName):
+		der.readSequence(asn1.Ber.OctetString);
+		der.readSequence();
+		var aeEnd = der.offset + der.length;
+		while (der.offset < aeEnd) {
+			switch (der.peek()) {
+			case ALTNAME.OtherName:
+			case ALTNAME.EDIPartyName:
+				der.readSequence();
+				der._offset += der.length;
+				break;
+			case ALTNAME.OID:
+				der.readOID(ALTNAME.OID);
+				break;
+			case ALTNAME.RFC822Name:
+				/* RFC822 specifies email addresses */
+				var email = der.readString(ALTNAME.RFC822Name);
+				id = Identity.forEmail(email);
+				if (!cert.subjects[0].equals(id))
+					cert.subjects.push(id);
+				break;
+			case ALTNAME.DirectoryName:
+				der.readSequence(ALTNAME.DirectoryName);
+				id = Identity.parseAsn1(der);
+				if (!cert.subjects[0].equals(id))
+					cert.subjects.push(id);
+				break;
+			case ALTNAME.DNSName:
+				var host = der.readString(
+				    ALTNAME.DNSName);
+				id = Identity.forHost(host);
+				if (!cert.subjects[0].equals(id))
+					cert.subjects.push(id);
+				break;
+			default:
+				der.readString(der.peek());
+				break;
+			}
+		}
+		sig.extras.exts.push({ oid: extId, critical: critical });
+		break;
+	default:
+		sig.extras.exts.push({
+			oid: extId,
+			critical: critical,
+			data: der.readString(asn1.Ber.OctetString, true)
+		});
+		break;
+	}
+
+	der._offset = after;
+}
+
+var UTCTIME_RE =
+    /^([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
+function utcTimeToDate(t) {
+	var m = t.match(UTCTIME_RE);
+	assert.ok(m, 'timestamps must be in UTC');
+	var d = new Date();
+
+	var thisYear = d.getUTCFullYear();
+	var century = Math.floor(thisYear / 100) * 100;
+
+	var year = parseInt(m[1], 10);
+	if (thisYear % 100 < 50 && year >= 60)
+		year += (century - 1);
+	else
+		year += century;
+	d.setUTCFullYear(year, parseInt(m[2], 10) - 1, parseInt(m[3], 10));
+	d.setUTCHours(parseInt(m[4], 10), parseInt(m[5], 10));
+	if (m[6] && m[6].length > 0)
+		d.setUTCSeconds(parseInt(m[6], 10));
+	return (d);
+}
+
+var GTIME_RE =
+    /^([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
+function gTimeToDate(t) {
+	var m = t.match(GTIME_RE);
+	assert.ok(m);
+	var d = new Date();
+
+	d.setUTCFullYear(parseInt(m[1], 10), parseInt(m[2], 10) - 1,
+	    parseInt(m[3], 10));
+	d.setUTCHours(parseInt(m[4], 10), parseInt(m[5], 10));
+	if (m[6] && m[6].length > 0)
+		d.setUTCSeconds(parseInt(m[6], 10));
+	return (d);
+}
+
+function zeroPad(n) {
+	var s = '' + n;
+	while (s.length < 2)
+		s = '0' + s;
+	return (s);
+}
+
+function dateToUTCTime(d) {
+	var s = '';
+	s += zeroPad(d.getUTCFullYear() % 100);
+	s += zeroPad(d.getUTCMonth() + 1);
+	s += zeroPad(d.getUTCDate());
+	s += zeroPad(d.getUTCHours());
+	s += zeroPad(d.getUTCMinutes());
+	s += zeroPad(d.getUTCSeconds());
+	s += 'Z';
+	return (s);
+}
+
+function sign(cert, key) {
+	if (cert.signatures.x509 === undefined)
+		cert.signatures.x509 = {};
+	var sig = cert.signatures.x509;
+
+	sig.algo = key.type + '-' + key.defaultHashAlgorithm();
+	if (SIGN_ALGS[sig.algo] === undefined)
+		return (false);
+
+	var der = new asn1.BerWriter();
+	writeTBSCert(cert, der);
+	var blob = der.buffer;
+	sig.cache = blob;
+
+	var signer = key.createSign();
+	signer.write(blob);
+	cert.signatures.x509.signature = signer.sign();
+
+	return (true);
+}
+
+function signAsync(cert, signer, done) {
+	if (cert.signatures.x509 === undefined)
+		cert.signatures.x509 = {};
+	var sig = cert.signatures.x509;
+
+	var der = new asn1.BerWriter();
+	writeTBSCert(cert, der);
+	var blob = der.buffer;
+	sig.cache = blob;
+
+	signer(blob, function (err, signature) {
+		if (err) {
+			done(err);
+			return;
+		}
+		sig.algo = signature.type + '-' + signature.hashAlgorithm;
+		if (SIGN_ALGS[sig.algo] === undefined) {
+			done(new Error('Invalid signing algorithm "' +
+			    sig.algo + '"'));
+			return;
+		}
+		sig.signature = signature;
+		done();
+	});
+}
+
+function write(cert, options) {
+	var sig = cert.signatures.x509;
+	assert.object(sig, 'x509 signature');
+
+	var der = new asn1.BerWriter();
+	der.startSequence();
+	if (sig.cache) {
+		der._ensure(sig.cache.length);
+		sig.cache.copy(der._buf, der._offset);
+		der._offset += sig.cache.length;
+	} else {
+		writeTBSCert(cert, der);
+	}
+
+	der.startSequence();
+	der.writeOID(SIGN_ALGS[sig.algo]);
+	if (sig.algo.match(/^rsa-/))
+		der.writeNull();
+	der.endSequence();
+
+	var sigData = sig.signature.toBuffer('asn1');
+	var data = new Buffer(sigData.length + 1);
+	data[0] = 0;
+	sigData.copy(data, 1);
+	der.writeBuffer(data, asn1.Ber.BitString);
+	der.endSequence();
+
+	return (der.buffer);
+}
+
+function writeTBSCert(cert, der) {
+	var sig = cert.signatures.x509;
+	assert.object(sig, 'x509 signature');
+
+	der.startSequence();
+
+	der.startSequence(Local(0));
+	der.writeInt(2);
+	der.endSequence();
+
+	der.writeBuffer(utils.mpNormalize(cert.serial), asn1.Ber.Integer);
+
+	der.startSequence();
+	der.writeOID(SIGN_ALGS[sig.algo]);
+	if (sig.algo.match(/^rsa-/))
+		der.writeNull();
+	der.endSequence();
+
+	cert.issuer.toAsn1(der);
+
+	der.startSequence();
+	der.writeString(dateToUTCTime(cert.validFrom), asn1.Ber.UTCTime);
+	der.writeString(dateToUTCTime(cert.validUntil), asn1.Ber.UTCTime);
+	der.endSequence();
+
+	var subject = cert.subjects[0];
+	var altNames = cert.subjects.slice(1);
+	subject.toAsn1(der);
+
+	pkcs8.writePkcs8(der, cert.subjectKey);
+
+	if (sig.extras && sig.extras.issuerUniqueID) {
+		der.writeBuffer(sig.extras.issuerUniqueID, Local(1));
+	}
+
+	if (sig.extras && sig.extras.subjectUniqueID) {
+		der.writeBuffer(sig.extras.subjectUniqueID, Local(2));
+	}
+
+	if (altNames.length > 0 || subject.type === 'host' ||
+	    (cert.purposes !== undefined && cert.purposes.length > 0) ||
+	    (sig.extras && sig.extras.exts)) {
+		der.startSequence(Local(3));
+		der.startSequence();
+
+		var exts = [];
+		if (cert.purposes !== undefined && cert.purposes.length > 0) {
+			exts.push({
+				oid: EXTS.basicConstraints,
+				critical: true
+			});
+			exts.push({
+				oid: EXTS.keyUsage,
+				critical: true
+			});
+			exts.push({
+				oid: EXTS.extKeyUsage,
+				critical: true
+			});
+		}
+		exts.push({ oid: EXTS.altName });
+		if (sig.extras && sig.extras.exts)
+			exts = sig.extras.exts;
+
+		for (var i = 0; i < exts.length; ++i) {
+			der.startSequence();
+			der.writeOID(exts[i].oid);
+
+			if (exts[i].critical !== undefined)
+				der.writeBoolean(exts[i].critical);
+
+			if (exts[i].oid === EXTS.altName) {
+				der.startSequence(asn1.Ber.OctetString);
+				der.startSequence();
+				if (subject.type === 'host') {
+					der.writeString(subject.hostname,
+					    Context(2));
+				}
+				for (var j = 0; j < altNames.length; ++j) {
+					if (altNames[j].type === 'host') {
+						der.writeString(
+						    altNames[j].hostname,
+						    ALTNAME.DNSName);
+					} else if (altNames[j].type ===
+					    'email') {
+						der.writeString(
+						    altNames[j].email,
+						    ALTNAME.RFC822Name);
+					} else {
+						/*
+						 * Encode anything else as a
+						 * DN style name for now.
+						 */
+						der.startSequence(
+						    ALTNAME.DirectoryName);
+						altNames[j].toAsn1(der);
+						der.endSequence();
+					}
+				}
+				der.endSequence();
+				der.endSequence();
+			} else if (exts[i].oid === EXTS.basicConstraints) {
+				der.startSequence(asn1.Ber.OctetString);
+				der.startSequence();
+				var ca = (cert.purposes.indexOf('ca') !== -1);
+				var pathLen = exts[i].pathLen;
+				der.writeBoolean(ca);
+				if (pathLen !== undefined)
+					der.writeInt(pathLen);
+				der.endSequence();
+				der.endSequence();
+			} else if (exts[i].oid === EXTS.extKeyUsage) {
+				der.startSequence(asn1.Ber.OctetString);
+				der.startSequence();
+				cert.purposes.forEach(function (purpose) {
+					if (purpose === 'ca')
+						return;
+					if (KEYUSEBITS.indexOf(purpose) !== -1)
+						return;
+					var oid = purpose;
+					if (EXTPURPOSE[purpose] !== undefined)
+						oid = EXTPURPOSE[purpose];
+					der.writeOID(oid);
+				});
+				der.endSequence();
+				der.endSequence();
+			} else if (exts[i].oid === EXTS.keyUsage) {
+				der.startSequence(asn1.Ber.OctetString);
+				/*
+				 * If we parsed this certificate from a byte
+				 * stream (i.e. we didn't generate it in sshpk)
+				 * then we'll have a ".bits" property on the
+				 * ext with the original raw byte contents.
+				 *
+				 * If we have this, use it here instead of
+				 * regenerating it. This guarantees we output
+				 * the same data we parsed, so signatures still
+				 * validate.
+				 */
+				if (exts[i].bits !== undefined) {
+					der.writeBuffer(exts[i].bits,
+					    asn1.Ber.BitString);
+				} else {
+					var bits = writeBitField(cert.purposes,
+					    KEYUSEBITS);
+					der.writeBuffer(bits,
+					    asn1.Ber.BitString);
+				}
+				der.endSequence();
+			} else {
+				der.writeBuffer(exts[i].data,
+				    asn1.Ber.OctetString);
+			}
+
+			der.endSequence();
+		}
+
+		der.endSequence();
+		der.endSequence();
+	}
+
+	der.endSequence();
+}
+
+/*
+ * Reads an ASN.1 BER bitfield out of the Buffer produced by doing
+ * `BerReader#readString(asn1.Ber.BitString)`. That function gives us the raw
+ * contents of the BitString tag, which is a count of unused bits followed by
+ * the bits as a right-padded byte string.
+ *
+ * `bits` is the Buffer, `bitIndex` should contain an array of string names
+ * for the bits in the string, ordered starting with bit #0 in the ASN.1 spec.
+ *
+ * Returns an array of Strings, the names of the bits that were set to 1.
+ */
+function readBitField(bits, bitIndex) {
+	var bitLen = 8 * (bits.length - 1) - bits[0];
+	var setBits = {};
+	for (var i = 0; i < bitLen; ++i) {
+		var byteN = 1 + Math.floor(i / 8);
+		var bit = 7 - (i % 8);
+		var mask = 1 << bit;
+		var bitVal = ((bits[byteN] & mask) !== 0);
+		var name = bitIndex[i];
+		if (bitVal && typeof (name) === 'string') {
+			setBits[name] = true;
+		}
+	}
+	return (Object.keys(setBits));
+}
+
+/*
+ * `setBits` is an array of strings, containing the names for each bit that
+ * sould be set to 1. `bitIndex` is same as in `readBitField()`.
+ *
+ * Returns a Buffer, ready to be written out with `BerWriter#writeString()`.
+ */
+function writeBitField(setBits, bitIndex) {
+	var bitLen = bitIndex.length;
+	var blen = Math.ceil(bitLen / 8);
+	var unused = blen * 8 - bitLen;
+	var bits = new Buffer(1 + blen);
+	bits.fill(0);
+	bits[0] = unused;
+	for (var i = 0; i < bitLen; ++i) {
+		var byteN = 1 + Math.floor(i / 8);
+		var bit = 7 - (i % 8);
+		var mask = 1 << bit;
+		var name = bitIndex[i];
+		if (name === undefined)
+			continue;
+		var bitVal = (setBits.indexOf(name) !== -1);
+		if (bitVal) {
+			bits[byteN] |= mask;
+		}
+	}
+	return (bits);
+}
+
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * "A request-path path-matches a given cookie-path if at least one of the
+ * following conditions holds:"
+ */
+function pathMatch (reqPath, cookiePath) {
+  // "o  The cookie-path and the request-path are identical."
+  if (cookiePath === reqPath) {
+    return true;
+  }
+
+  var idx = reqPath.indexOf(cookiePath);
+  if (idx === 0) {
+    // "o  The cookie-path is a prefix of the request-path, and the last
+    // character of the cookie-path is %x2F ("/")."
+    if (cookiePath.substr(-1) === "/") {
+      return true;
+    }
+
+    // " o  The cookie-path is a prefix of the request-path, and the first
+    // character of the request-path that is not included in the cookie- path
+    // is a %x2F ("/") character."
+    if (reqPath.substr(cookiePath.length, 1) === "/") {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+exports.pathMatch = pathMatch;
+
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+var pubsuffix = __webpack_require__(105);
+
+// Gives the permutation of all possible domainMatch()es of a given domain. The
+// array is in shortest-to-longest order.  Handy for indexing.
+function permuteDomain (domain) {
+  var pubSuf = pubsuffix.getPublicSuffix(domain);
+  if (!pubSuf) {
+    return null;
+  }
+  if (pubSuf == domain) {
+    return [domain];
+  }
+
+  var prefix = domain.slice(0, -(pubSuf.length + 1)); // ".example.com"
+  var parts = prefix.split('.').reverse();
+  var cur = pubSuf;
+  var permutations = [cur];
+  while (parts.length) {
+    cur = parts.shift() + '.' + cur;
+    permutations.push(cur);
+  }
+  return permutations;
+}
+
+exports.permuteDomain = permuteDomain;
+
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/****************************************************
+ * AUTOMATICALLY GENERATED by generate-pubsuffix.js *
+ *                  DO NOT EDIT!                    *
+ ****************************************************/
+
+
+
+var punycode = __webpack_require__(110);
+
+module.exports.getPublicSuffix = function getPublicSuffix(domain) {
+  /*!
+   * Copyright (c) 2015, Salesforce.com, Inc.
+   * All rights reserved.
+   *
+   * Redistribution and use in source and binary forms, with or without
+   * modification, are permitted provided that the following conditions are met:
+   *
+   * 1. Redistributions of source code must retain the above copyright notice,
+   * this list of conditions and the following disclaimer.
+   *
+   * 2. Redistributions in binary form must reproduce the above copyright notice,
+   * this list of conditions and the following disclaimer in the documentation
+   * and/or other materials provided with the distribution.
+   *
+   * 3. Neither the name of Salesforce.com nor the names of its contributors may
+   * be used to endorse or promote products derived from this software without
+   * specific prior written permission.
+   *
+   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+   * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+   * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+   * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+   * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+   * POSSIBILITY OF SUCH DAMAGE.
+   */
+  if (!domain) {
+    return null;
+  }
+  if (domain.match(/^\./)) {
+    return null;
+  }
+  var asciiDomain = punycode.toASCII(domain);
+  var converted = false;
+  if (asciiDomain !== domain) {
+    domain = asciiDomain;
+    converted = true;
+  }
+  if (index[domain]) {
+    return null;
+  }
+
+  domain = domain.toLowerCase();
+  var parts = domain.split('.').reverse();
+
+  var suffix = '';
+  var suffixLen = 0;
+  for (var i=0; i<parts.length; i++) {
+    var part = parts[i];
+    var starstr = '*'+suffix;
+    var partstr = part+suffix;
+
+    if (index[starstr]) { // star rule matches
+      suffixLen = i+1;
+      if (index[partstr] === false) { // exception rule matches (NB: false, not undefined)
+        suffixLen--;
+      }
+    } else if (index[partstr]) { // exact match, not exception
+      suffixLen = i+1;
+    }
+
+    suffix = '.'+partstr;
+  }
+
+  if (index['*'+suffix]) { // *.domain exists (e.g. *.kyoto.jp for domain='kyoto.jp');
+    return null;
+  }
+
+  suffixLen = suffixLen || 1;
+  if (parts.length > suffixLen) {
+    var publicSuffix = parts.slice(0,suffixLen+1).reverse().join('.');
+    return converted ? punycode.toUnicode(publicSuffix) : publicSuffix;
+  }
+
+  return null;
+};
+
+// The following generated structure is used under the MPL version 2.0
+// See public-suffix.txt for more information
+
+var index = module.exports.index = Object.freeze(
+{"ac":true,"com.ac":true,"edu.ac":true,"gov.ac":true,"net.ac":true,"mil.ac":true,"org.ac":true,"ad":true,"nom.ad":true,"ae":true,"co.ae":true,"net.ae":true,"org.ae":true,"sch.ae":true,"ac.ae":true,"gov.ae":true,"mil.ae":true,"aero":true,"accident-investigation.aero":true,"accident-prevention.aero":true,"aerobatic.aero":true,"aeroclub.aero":true,"aerodrome.aero":true,"agents.aero":true,"aircraft.aero":true,"airline.aero":true,"airport.aero":true,"air-surveillance.aero":true,"airtraffic.aero":true,"air-traffic-control.aero":true,"ambulance.aero":true,"amusement.aero":true,"association.aero":true,"author.aero":true,"ballooning.aero":true,"broker.aero":true,"caa.aero":true,"cargo.aero":true,"catering.aero":true,"certification.aero":true,"championship.aero":true,"charter.aero":true,"civilaviation.aero":true,"club.aero":true,"conference.aero":true,"consultant.aero":true,"consulting.aero":true,"control.aero":true,"council.aero":true,"crew.aero":true,"design.aero":true,"dgca.aero":true,"educator.aero":true,"emergency.aero":true,"engine.aero":true,"engineer.aero":true,"entertainment.aero":true,"equipment.aero":true,"exchange.aero":true,"express.aero":true,"federation.aero":true,"flight.aero":true,"freight.aero":true,"fuel.aero":true,"gliding.aero":true,"government.aero":true,"groundhandling.aero":true,"group.aero":true,"hanggliding.aero":true,"homebuilt.aero":true,"insurance.aero":true,"journal.aero":true,"journalist.aero":true,"leasing.aero":true,"logistics.aero":true,"magazine.aero":true,"maintenance.aero":true,"media.aero":true,"microlight.aero":true,"modelling.aero":true,"navigation.aero":true,"parachuting.aero":true,"paragliding.aero":true,"passenger-association.aero":true,"pilot.aero":true,"press.aero":true,"production.aero":true,"recreation.aero":true,"repbody.aero":true,"res.aero":true,"research.aero":true,"rotorcraft.aero":true,"safety.aero":true,"scientist.aero":true,"services.aero":true,"show.aero":true,"skydiving.aero":true,"software.aero":true,"student.aero":true,"trader.aero":true,"trading.aero":true,"trainer.aero":true,"union.aero":true,"workinggroup.aero":true,"works.aero":true,"af":true,"gov.af":true,"com.af":true,"org.af":true,"net.af":true,"edu.af":true,"ag":true,"com.ag":true,"org.ag":true,"net.ag":true,"co.ag":true,"nom.ag":true,"ai":true,"off.ai":true,"com.ai":true,"net.ai":true,"org.ai":true,"al":true,"com.al":true,"edu.al":true,"gov.al":true,"mil.al":true,"net.al":true,"org.al":true,"am":true,"ao":true,"ed.ao":true,"gv.ao":true,"og.ao":true,"co.ao":true,"pb.ao":true,"it.ao":true,"aq":true,"ar":true,"com.ar":true,"edu.ar":true,"gob.ar":true,"gov.ar":true,"int.ar":true,"mil.ar":true,"musica.ar":true,"net.ar":true,"org.ar":true,"tur.ar":true,"arpa":true,"e164.arpa":true,"in-addr.arpa":true,"ip6.arpa":true,"iris.arpa":true,"uri.arpa":true,"urn.arpa":true,"as":true,"gov.as":true,"asia":true,"at":true,"ac.at":true,"co.at":true,"gv.at":true,"or.at":true,"au":true,"com.au":true,"net.au":true,"org.au":true,"edu.au":true,"gov.au":true,"asn.au":true,"id.au":true,"info.au":true,"conf.au":true,"oz.au":true,"act.au":true,"nsw.au":true,"nt.au":true,"qld.au":true,"sa.au":true,"tas.au":true,"vic.au":true,"wa.au":true,"act.edu.au":true,"nsw.edu.au":true,"nt.edu.au":true,"qld.edu.au":true,"sa.edu.au":true,"tas.edu.au":true,"vic.edu.au":true,"wa.edu.au":true,"qld.gov.au":true,"sa.gov.au":true,"tas.gov.au":true,"vic.gov.au":true,"wa.gov.au":true,"aw":true,"com.aw":true,"ax":true,"az":true,"com.az":true,"net.az":true,"int.az":true,"gov.az":true,"org.az":true,"edu.az":true,"info.az":true,"pp.az":true,"mil.az":true,"name.az":true,"pro.az":true,"biz.az":true,"ba":true,"com.ba":true,"edu.ba":true,"gov.ba":true,"mil.ba":true,"net.ba":true,"org.ba":true,"bb":true,"biz.bb":true,"co.bb":true,"com.bb":true,"edu.bb":true,"gov.bb":true,"info.bb":true,"net.bb":true,"org.bb":true,"store.bb":true,"tv.bb":true,"*.bd":true,"be":true,"ac.be":true,"bf":true,"gov.bf":true,"bg":true,"a.bg":true,"b.bg":true,"c.bg":true,"d.bg":true,"e.bg":true,"f.bg":true,"g.bg":true,"h.bg":true,"i.bg":true,"j.bg":true,"k.bg":true,"l.bg":true,"m.bg":true,"n.bg":true,"o.bg":true,"p.bg":true,"q.bg":true,"r.bg":true,"s.bg":true,"t.bg":true,"u.bg":true,"v.bg":true,"w.bg":true,"x.bg":true,"y.bg":true,"z.bg":true,"0.bg":true,"1.bg":true,"2.bg":true,"3.bg":true,"4.bg":true,"5.bg":true,"6.bg":true,"7.bg":true,"8.bg":true,"9.bg":true,"bh":true,"com.bh":true,"edu.bh":true,"net.bh":true,"org.bh":true,"gov.bh":true,"bi":true,"co.bi":true,"com.bi":true,"edu.bi":true,"or.bi":true,"org.bi":true,"biz":true,"bj":true,"asso.bj":true,"barreau.bj":true,"gouv.bj":true,"bm":true,"com.bm":true,"edu.bm":true,"gov.bm":true,"net.bm":true,"org.bm":true,"*.bn":true,"bo":true,"com.bo":true,"edu.bo":true,"gob.bo":true,"int.bo":true,"org.bo":true,"net.bo":true,"mil.bo":true,"tv.bo":true,"web.bo":true,"academia.bo":true,"agro.bo":true,"arte.bo":true,"blog.bo":true,"bolivia.bo":true,"ciencia.bo":true,"cooperativa.bo":true,"democracia.bo":true,"deporte.bo":true,"ecologia.bo":true,"economia.bo":true,"empresa.bo":true,"indigena.bo":true,"industria.bo":true,"info.bo":true,"medicina.bo":true,"movimiento.bo":true,"musica.bo":true,"natural.bo":true,"nombre.bo":true,"noticias.bo":true,"patria.bo":true,"politica.bo":true,"profesional.bo":true,"plurinacional.bo":true,"pueblo.bo":true,"revista.bo":true,"salud.bo":true,"tecnologia.bo":true,"tksat.bo":true,"transporte.bo":true,"wiki.bo":true,"br":true,"9guacu.br":true,"abc.br":true,"adm.br":true,"adv.br":true,"agr.br":true,"aju.br":true,"am.br":true,"anani.br":true,"aparecida.br":true,"arq.br":true,"art.br":true,"ato.br":true,"b.br":true,"belem.br":true,"bhz.br":true,"bio.br":true,"blog.br":true,"bmd.br":true,"boavista.br":true,"bsb.br":true,"campinagrande.br":true,"campinas.br":true,"caxias.br":true,"cim.br":true,"cng.br":true,"cnt.br":true,"com.br":true,"contagem.br":true,"coop.br":true,"cri.br":true,"cuiaba.br":true,"curitiba.br":true,"def.br":true,"ecn.br":true,"eco.br":true,"edu.br":true,"emp.br":true,"eng.br":true,"esp.br":true,"etc.br":true,"eti.br":true,"far.br":true,"feira.br":true,"flog.br":true,"floripa.br":true,"fm.br":true,"fnd.br":true,"fortal.br":true,"fot.br":true,"foz.br":true,"fst.br":true,"g12.br":true,"ggf.br":true,"goiania.br":true,"gov.br":true,"ac.gov.br":true,"al.gov.br":true,"am.gov.br":true,"ap.gov.br":true,"ba.gov.br":true,"ce.gov.br":true,"df.gov.br":true,"es.gov.br":true,"go.gov.br":true,"ma.gov.br":true,"mg.gov.br":true,"ms.gov.br":true,"mt.gov.br":true,"pa.gov.br":true,"pb.gov.br":true,"pe.gov.br":true,"pi.gov.br":true,"pr.gov.br":true,"rj.gov.br":true,"rn.gov.br":true,"ro.gov.br":true,"rr.gov.br":true,"rs.gov.br":true,"sc.gov.br":true,"se.gov.br":true,"sp.gov.br":true,"to.gov.br":true,"gru.br":true,"imb.br":true,"ind.br":true,"inf.br":true,"jab.br":true,"jampa.br":true,"jdf.br":true,"joinville.br":true,"jor.br":true,"jus.br":true,"leg.br":true,"lel.br":true,"londrina.br":true,"macapa.br":true,"maceio.br":true,"manaus.br":true,"maringa.br":true,"mat.br":true,"med.br":true,"mil.br":true,"morena.br":true,"mp.br":true,"mus.br":true,"natal.br":true,"net.br":true,"niteroi.br":true,"*.nom.br":true,"not.br":true,"ntr.br":true,"odo.br":true,"org.br":true,"osasco.br":true,"palmas.br":true,"poa.br":true,"ppg.br":true,"pro.br":true,"psc.br":true,"psi.br":true,"pvh.br":true,"qsl.br":true,"radio.br":true,"rec.br":true,"recife.br":true,"ribeirao.br":true,"rio.br":true,"riobranco.br":true,"riopreto.br":true,"salvador.br":true,"sampa.br":true,"santamaria.br":true,"santoandre.br":true,"saobernardo.br":true,"saogonca.br":true,"sjc.br":true,"slg.br":true,"slz.br":true,"sorocaba.br":true,"srv.br":true,"taxi.br":true,"teo.br":true,"the.br":true,"tmp.br":true,"trd.br":true,"tur.br":true,"tv.br":true,"udi.br":true,"vet.br":true,"vix.br":true,"vlog.br":true,"wiki.br":true,"zlg.br":true,"bs":true,"com.bs":true,"net.bs":true,"org.bs":true,"edu.bs":true,"gov.bs":true,"bt":true,"com.bt":true,"edu.bt":true,"gov.bt":true,"net.bt":true,"org.bt":true,"bv":true,"bw":true,"co.bw":true,"org.bw":true,"by":true,"gov.by":true,"mil.by":true,"com.by":true,"of.by":true,"bz":true,"com.bz":true,"net.bz":true,"org.bz":true,"edu.bz":true,"gov.bz":true,"ca":true,"ab.ca":true,"bc.ca":true,"mb.ca":true,"nb.ca":true,"nf.ca":true,"nl.ca":true,"ns.ca":true,"nt.ca":true,"nu.ca":true,"on.ca":true,"pe.ca":true,"qc.ca":true,"sk.ca":true,"yk.ca":true,"gc.ca":true,"cat":true,"cc":true,"cd":true,"gov.cd":true,"cf":true,"cg":true,"ch":true,"ci":true,"org.ci":true,"or.ci":true,"com.ci":true,"co.ci":true,"edu.ci":true,"ed.ci":true,"ac.ci":true,"net.ci":true,"go.ci":true,"asso.ci":true,"xn--aroport-bya.ci":true,"int.ci":true,"presse.ci":true,"md.ci":true,"gouv.ci":true,"*.ck":true,"www.ck":false,"cl":true,"gov.cl":true,"gob.cl":true,"co.cl":true,"mil.cl":true,"cm":true,"co.cm":true,"com.cm":true,"gov.cm":true,"net.cm":true,"cn":true,"ac.cn":true,"com.cn":true,"edu.cn":true,"gov.cn":true,"net.cn":true,"org.cn":true,"mil.cn":true,"xn--55qx5d.cn":true,"xn--io0a7i.cn":true,"xn--od0alg.cn":true,"ah.cn":true,"bj.cn":true,"cq.cn":true,"fj.cn":true,"gd.cn":true,"gs.cn":true,"gz.cn":true,"gx.cn":true,"ha.cn":true,"hb.cn":true,"he.cn":true,"hi.cn":true,"hl.cn":true,"hn.cn":true,"jl.cn":true,"js.cn":true,"jx.cn":true,"ln.cn":true,"nm.cn":true,"nx.cn":true,"qh.cn":true,"sc.cn":true,"sd.cn":true,"sh.cn":true,"sn.cn":true,"sx.cn":true,"tj.cn":true,"xj.cn":true,"xz.cn":true,"yn.cn":true,"zj.cn":true,"hk.cn":true,"mo.cn":true,"tw.cn":true,"co":true,"arts.co":true,"com.co":true,"edu.co":true,"firm.co":true,"gov.co":true,"info.co":true,"int.co":true,"mil.co":true,"net.co":true,"nom.co":true,"org.co":true,"rec.co":true,"web.co":true,"com":true,"coop":true,"cr":true,"ac.cr":true,"co.cr":true,"ed.cr":true,"fi.cr":true,"go.cr":true,"or.cr":true,"sa.cr":true,"cu":true,"com.cu":true,"edu.cu":true,"org.cu":true,"net.cu":true,"gov.cu":true,"inf.cu":true,"cv":true,"cw":true,"com.cw":true,"edu.cw":true,"net.cw":true,"org.cw":true,"cx":true,"gov.cx":true,"cy":true,"ac.cy":true,"biz.cy":true,"com.cy":true,"ekloges.cy":true,"gov.cy":true,"ltd.cy":true,"name.cy":true,"net.cy":true,"org.cy":true,"parliament.cy":true,"press.cy":true,"pro.cy":true,"tm.cy":true,"cz":true,"de":true,"dj":true,"dk":true,"dm":true,"com.dm":true,"net.dm":true,"org.dm":true,"edu.dm":true,"gov.dm":true,"do":true,"art.do":true,"com.do":true,"edu.do":true,"gob.do":true,"gov.do":true,"mil.do":true,"net.do":true,"org.do":true,"sld.do":true,"web.do":true,"dz":true,"com.dz":true,"org.dz":true,"net.dz":true,"gov.dz":true,"edu.dz":true,"asso.dz":true,"pol.dz":true,"art.dz":true,"ec":true,"com.ec":true,"info.ec":true,"net.ec":true,"fin.ec":true,"k12.ec":true,"med.ec":true,"pro.ec":true,"org.ec":true,"edu.ec":true,"gov.ec":true,"gob.ec":true,"mil.ec":true,"edu":true,"ee":true,"edu.ee":true,"gov.ee":true,"riik.ee":true,"lib.ee":true,"med.ee":true,"com.ee":true,"pri.ee":true,"aip.ee":true,"org.ee":true,"fie.ee":true,"eg":true,"com.eg":true,"edu.eg":true,"eun.eg":true,"gov.eg":true,"mil.eg":true,"name.eg":true,"net.eg":true,"org.eg":true,"sci.eg":true,"*.er":true,"es":true,"com.es":true,"nom.es":true,"org.es":true,"gob.es":true,"edu.es":true,"et":true,"com.et":true,"gov.et":true,"org.et":true,"edu.et":true,"biz.et":true,"name.et":true,"info.et":true,"net.et":true,"eu":true,"fi":true,"aland.fi":true,"*.fj":true,"*.fk":true,"fm":true,"fo":true,"fr":true,"com.fr":true,"asso.fr":true,"nom.fr":true,"prd.fr":true,"presse.fr":true,"tm.fr":true,"aeroport.fr":true,"assedic.fr":true,"avocat.fr":true,"avoues.fr":true,"cci.fr":true,"chambagri.fr":true,"chirurgiens-dentistes.fr":true,"experts-comptables.fr":true,"geometre-expert.fr":true,"gouv.fr":true,"greta.fr":true,"huissier-justice.fr":true,"medecin.fr":true,"notaires.fr":true,"pharmacien.fr":true,"port.fr":true,"veterinaire.fr":true,"ga":true,"gb":true,"gd":true,"ge":true,"com.ge":true,"edu.ge":true,"gov.ge":true,"org.ge":true,"mil.ge":true,"net.ge":true,"pvt.ge":true,"gf":true,"gg":true,"co.gg":true,"net.gg":true,"org.gg":true,"gh":true,"com.gh":true,"edu.gh":true,"gov.gh":true,"org.gh":true,"mil.gh":true,"gi":true,"com.gi":true,"ltd.gi":true,"gov.gi":true,"mod.gi":true,"edu.gi":true,"org.gi":true,"gl":true,"co.gl":true,"com.gl":true,"edu.gl":true,"net.gl":true,"org.gl":true,"gm":true,"gn":true,"ac.gn":true,"com.gn":true,"edu.gn":true,"gov.gn":true,"org.gn":true,"net.gn":true,"gov":true,"gp":true,"com.gp":true,"net.gp":true,"mobi.gp":true,"edu.gp":true,"org.gp":true,"asso.gp":true,"gq":true,"gr":true,"com.gr":true,"edu.gr":true,"net.gr":true,"org.gr":true,"gov.gr":true,"gs":true,"gt":true,"com.gt":true,"edu.gt":true,"gob.gt":true,"ind.gt":true,"mil.gt":true,"net.gt":true,"org.gt":true,"*.gu":true,"gw":true,"gy":true,"co.gy":true,"com.gy":true,"edu.gy":true,"gov.gy":true,"net.gy":true,"org.gy":true,"hk":true,"com.hk":true,"edu.hk":true,"gov.hk":true,"idv.hk":true,"net.hk":true,"org.hk":true,"xn--55qx5d.hk":true,"xn--wcvs22d.hk":true,"xn--lcvr32d.hk":true,"xn--mxtq1m.hk":true,"xn--gmqw5a.hk":true,"xn--ciqpn.hk":true,"xn--gmq050i.hk":true,"xn--zf0avx.hk":true,"xn--io0a7i.hk":true,"xn--mk0axi.hk":true,"xn--od0alg.hk":true,"xn--od0aq3b.hk":true,"xn--tn0ag.hk":true,"xn--uc0atv.hk":true,"xn--uc0ay4a.hk":true,"hm":true,"hn":true,"com.hn":true,"edu.hn":true,"org.hn":true,"net.hn":true,"mil.hn":true,"gob.hn":true,"hr":true,"iz.hr":true,"from.hr":true,"name.hr":true,"com.hr":true,"ht":true,"com.ht":true,"shop.ht":true,"firm.ht":true,"info.ht":true,"adult.ht":true,"net.ht":true,"pro.ht":true,"org.ht":true,"med.ht":true,"art.ht":true,"coop.ht":true,"pol.ht":true,"asso.ht":true,"edu.ht":true,"rel.ht":true,"gouv.ht":true,"perso.ht":true,"hu":true,"co.hu":true,"info.hu":true,"org.hu":true,"priv.hu":true,"sport.hu":true,"tm.hu":true,"2000.hu":true,"agrar.hu":true,"bolt.hu":true,"casino.hu":true,"city.hu":true,"erotica.hu":true,"erotika.hu":true,"film.hu":true,"forum.hu":true,"games.hu":true,"hotel.hu":true,"ingatlan.hu":true,"jogasz.hu":true,"konyvelo.hu":true,"lakas.hu":true,"media.hu":true,"news.hu":true,"reklam.hu":true,"sex.hu":true,"shop.hu":true,"suli.hu":true,"szex.hu":true,"tozsde.hu":true,"utazas.hu":true,"video.hu":true,"id":true,"ac.id":true,"biz.id":true,"co.id":true,"desa.id":true,"go.id":true,"mil.id":true,"my.id":true,"net.id":true,"or.id":true,"sch.id":true,"web.id":true,"ie":true,"gov.ie":true,"il":true,"ac.il":true,"co.il":true,"gov.il":true,"idf.il":true,"k12.il":true,"muni.il":true,"net.il":true,"org.il":true,"im":true,"ac.im":true,"co.im":true,"com.im":true,"ltd.co.im":true,"net.im":true,"org.im":true,"plc.co.im":true,"tt.im":true,"tv.im":true,"in":true,"co.in":true,"firm.in":true,"net.in":true,"org.in":true,"gen.in":true,"ind.in":true,"nic.in":true,"ac.in":true,"edu.in":true,"res.in":true,"gov.in":true,"mil.in":true,"info":true,"int":true,"eu.int":true,"io":true,"com.io":true,"iq":true,"gov.iq":true,"edu.iq":true,"mil.iq":true,"com.iq":true,"org.iq":true,"net.iq":true,"ir":true,"ac.ir":true,"co.ir":true,"gov.ir":true,"id.ir":true,"net.ir":true,"org.ir":true,"sch.ir":true,"xn--mgba3a4f16a.ir":true,"xn--mgba3a4fra.ir":true,"is":true,"net.is":true,"com.is":true,"edu.is":true,"gov.is":true,"org.is":true,"int.is":true,"it":true,"gov.it":true,"edu.it":true,"abr.it":true,"abruzzo.it":true,"aosta-valley.it":true,"aostavalley.it":true,"bas.it":true,"basilicata.it":true,"cal.it":true,"calabria.it":true,"cam.it":true,"campania.it":true,"emilia-romagna.it":true,"emiliaromagna.it":true,"emr.it":true,"friuli-v-giulia.it":true,"friuli-ve-giulia.it":true,"friuli-vegiulia.it":true,"friuli-venezia-giulia.it":true,"friuli-veneziagiulia.it":true,"friuli-vgiulia.it":true,"friuliv-giulia.it":true,"friulive-giulia.it":true,"friulivegiulia.it":true,"friulivenezia-giulia.it":true,"friuliveneziagiulia.it":true,"friulivgiulia.it":true,"fvg.it":true,"laz.it":true,"lazio.it":true,"lig.it":true,"liguria.it":true,"lom.it":true,"lombardia.it":true,"lombardy.it":true,"lucania.it":true,"mar.it":true,"marche.it":true,"mol.it":true,"molise.it":true,"piedmont.it":true,"piemonte.it":true,"pmn.it":true,"pug.it":true,"puglia.it":true,"sar.it":true,"sardegna.it":true,"sardinia.it":true,"sic.it":true,"sicilia.it":true,"sicily.it":true,"taa.it":true,"tos.it":true,"toscana.it":true,"trentino-a-adige.it":true,"trentino-aadige.it":true,"trentino-alto-adige.it":true,"trentino-altoadige.it":true,"trentino-s-tirol.it":true,"trentino-stirol.it":true,"trentino-sud-tirol.it":true,"trentino-sudtirol.it":true,"trentino-sued-tirol.it":true,"trentino-suedtirol.it":true,"trentinoa-adige.it":true,"trentinoaadige.it":true,"trentinoalto-adige.it":true,"trentinoaltoadige.it":true,"trentinos-tirol.it":true,"trentinostirol.it":true,"trentinosud-tirol.it":true,"trentinosudtirol.it":true,"trentinosued-tirol.it":true,"trentinosuedtirol.it":true,"tuscany.it":true,"umb.it":true,"umbria.it":true,"val-d-aosta.it":true,"val-daosta.it":true,"vald-aosta.it":true,"valdaosta.it":true,"valle-aosta.it":true,"valle-d-aosta.it":true,"valle-daosta.it":true,"valleaosta.it":true,"valled-aosta.it":true,"valledaosta.it":true,"vallee-aoste.it":true,"valleeaoste.it":true,"vao.it":true,"vda.it":true,"ven.it":true,"veneto.it":true,"ag.it":true,"agrigento.it":true,"al.it":true,"alessandria.it":true,"alto-adige.it":true,"altoadige.it":true,"an.it":true,"ancona.it":true,"andria-barletta-trani.it":true,"andria-trani-barletta.it":true,"andriabarlettatrani.it":true,"andriatranibarletta.it":true,"ao.it":true,"aosta.it":true,"aoste.it":true,"ap.it":true,"aq.it":true,"aquila.it":true,"ar.it":true,"arezzo.it":true,"ascoli-piceno.it":true,"ascolipiceno.it":true,"asti.it":true,"at.it":true,"av.it":true,"avellino.it":true,"ba.it":true,"balsan.it":true,"bari.it":true,"barletta-trani-andria.it":true,"barlettatraniandria.it":true,"belluno.it":true,"benevento.it":true,"bergamo.it":true,"bg.it":true,"bi.it":true,"biella.it":true,"bl.it":true,"bn.it":true,"bo.it":true,"bologna.it":true,"bolzano.it":true,"bozen.it":true,"br.it":true,"brescia.it":true,"brindisi.it":true,"bs.it":true,"bt.it":true,"bz.it":true,"ca.it":true,"cagliari.it":true,"caltanissetta.it":true,"campidano-medio.it":true,"campidanomedio.it":true,"campobasso.it":true,"carbonia-iglesias.it":true,"carboniaiglesias.it":true,"carrara-massa.it":true,"carraramassa.it":true,"caserta.it":true,"catania.it":true,"catanzaro.it":true,"cb.it":true,"ce.it":true,"cesena-forli.it":true,"cesenaforli.it":true,"ch.it":true,"chieti.it":true,"ci.it":true,"cl.it":true,"cn.it":true,"co.it":true,"como.it":true,"cosenza.it":true,"cr.it":true,"cremona.it":true,"crotone.it":true,"cs.it":true,"ct.it":true,"cuneo.it":true,"cz.it":true,"dell-ogliastra.it":true,"dellogliastra.it":true,"en.it":true,"enna.it":true,"fc.it":true,"fe.it":true,"fermo.it":true,"ferrara.it":true,"fg.it":true,"fi.it":true,"firenze.it":true,"florence.it":true,"fm.it":true,"foggia.it":true,"forli-cesena.it":true,"forlicesena.it":true,"fr.it":true,"frosinone.it":true,"ge.it":true,"genoa.it":true,"genova.it":true,"go.it":true,"gorizia.it":true,"gr.it":true,"grosseto.it":true,"iglesias-carbonia.it":true,"iglesiascarbonia.it":true,"im.it":true,"imperia.it":true,"is.it":true,"isernia.it":true,"kr.it":true,"la-spezia.it":true,"laquila.it":true,"laspezia.it":true,"latina.it":true,"lc.it":true,"le.it":true,"lecce.it":true,"lecco.it":true,"li.it":true,"livorno.it":true,"lo.it":true,"lodi.it":true,"lt.it":true,"lu.it":true,"lucca.it":true,"macerata.it":true,"mantova.it":true,"massa-carrara.it":true,"massacarrara.it":true,"matera.it":true,"mb.it":true,"mc.it":true,"me.it":true,"medio-campidano.it":true,"mediocampidano.it":true,"messina.it":true,"mi.it":true,"milan.it":true,"milano.it":true,"mn.it":true,"mo.it":true,"modena.it":true,"monza-brianza.it":true,"monza-e-della-brianza.it":true,"monza.it":true,"monzabrianza.it":true,"monzaebrianza.it":true,"monzaedellabrianza.it":true,"ms.it":true,"mt.it":true,"na.it":true,"naples.it":true,"napoli.it":true,"no.it":true,"novara.it":true,"nu.it":true,"nuoro.it":true,"og.it":true,"ogliastra.it":true,"olbia-tempio.it":true,"olbiatempio.it":true,"or.it":true,"oristano.it":true,"ot.it":true,"pa.it":true,"padova.it":true,"padua.it":true,"palermo.it":true,"parma.it":true,"pavia.it":true,"pc.it":true,"pd.it":true,"pe.it":true,"perugia.it":true,"pesaro-urbino.it":true,"pesarourbino.it":true,"pescara.it":true,"pg.it":true,"pi.it":true,"piacenza.it":true,"pisa.it":true,"pistoia.it":true,"pn.it":true,"po.it":true,"pordenone.it":true,"potenza.it":true,"pr.it":true,"prato.it":true,"pt.it":true,"pu.it":true,"pv.it":true,"pz.it":true,"ra.it":true,"ragusa.it":true,"ravenna.it":true,"rc.it":true,"re.it":true,"reggio-calabria.it":true,"reggio-emilia.it":true,"reggiocalabria.it":true,"reggioemilia.it":true,"rg.it":true,"ri.it":true,"rieti.it":true,"rimini.it":true,"rm.it":true,"rn.it":true,"ro.it":true,"roma.it":true,"rome.it":true,"rovigo.it":true,"sa.it":true,"salerno.it":true,"sassari.it":true,"savona.it":true,"si.it":true,"siena.it":true,"siracusa.it":true,"so.it":true,"sondrio.it":true,"sp.it":true,"sr.it":true,"ss.it":true,"suedtirol.it":true,"sv.it":true,"ta.it":true,"taranto.it":true,"te.it":true,"tempio-olbia.it":true,"tempioolbia.it":true,"teramo.it":true,"terni.it":true,"tn.it":true,"to.it":true,"torino.it":true,"tp.it":true,"tr.it":true,"trani-andria-barletta.it":true,"trani-barletta-andria.it":true,"traniandriabarletta.it":true,"tranibarlettaandria.it":true,"trapani.it":true,"trentino.it":true,"trento.it":true,"treviso.it":true,"trieste.it":true,"ts.it":true,"turin.it":true,"tv.it":true,"ud.it":true,"udine.it":true,"urbino-pesaro.it":true,"urbinopesaro.it":true,"va.it":true,"varese.it":true,"vb.it":true,"vc.it":true,"ve.it":true,"venezia.it":true,"venice.it":true,"verbania.it":true,"vercelli.it":true,"verona.it":true,"vi.it":true,"vibo-valentia.it":true,"vibovalentia.it":true,"vicenza.it":true,"viterbo.it":true,"vr.it":true,"vs.it":true,"vt.it":true,"vv.it":true,"je":true,"co.je":true,"net.je":true,"org.je":true,"*.jm":true,"jo":true,"com.jo":true,"org.jo":true,"net.jo":true,"edu.jo":true,"sch.jo":true,"gov.jo":true,"mil.jo":true,"name.jo":true,"jobs":true,"jp":true,"ac.jp":true,"ad.jp":true,"co.jp":true,"ed.jp":true,"go.jp":true,"gr.jp":true,"lg.jp":true,"ne.jp":true,"or.jp":true,"aichi.jp":true,"akita.jp":true,"aomori.jp":true,"chiba.jp":true,"ehime.jp":true,"fukui.jp":true,"fukuoka.jp":true,"fukushima.jp":true,"gifu.jp":true,"gunma.jp":true,"hiroshima.jp":true,"hokkaido.jp":true,"hyogo.jp":true,"ibaraki.jp":true,"ishikawa.jp":true,"iwate.jp":true,"kagawa.jp":true,"kagoshima.jp":true,"kanagawa.jp":true,"kochi.jp":true,"kumamoto.jp":true,"kyoto.jp":true,"mie.jp":true,"miyagi.jp":true,"miyazaki.jp":true,"nagano.jp":true,"nagasaki.jp":true,"nara.jp":true,"niigata.jp":true,"oita.jp":true,"okayama.jp":true,"okinawa.jp":true,"osaka.jp":true,"saga.jp":true,"saitama.jp":true,"shiga.jp":true,"shimane.jp":true,"shizuoka.jp":true,"tochigi.jp":true,"tokushima.jp":true,"tokyo.jp":true,"tottori.jp":true,"toyama.jp":true,"wakayama.jp":true,"yamagata.jp":true,"yamaguchi.jp":true,"yamanashi.jp":true,"xn--4pvxs.jp":true,"xn--vgu402c.jp":true,"xn--c3s14m.jp":true,"xn--f6qx53a.jp":true,"xn--8pvr4u.jp":true,"xn--uist22h.jp":true,"xn--djrs72d6uy.jp":true,"xn--mkru45i.jp":true,"xn--0trq7p7nn.jp":true,"xn--8ltr62k.jp":true,"xn--2m4a15e.jp":true,"xn--efvn9s.jp":true,"xn--32vp30h.jp":true,"xn--4it797k.jp":true,"xn--1lqs71d.jp":true,"xn--5rtp49c.jp":true,"xn--5js045d.jp":true,"xn--ehqz56n.jp":true,"xn--1lqs03n.jp":true,"xn--qqqt11m.jp":true,"xn--kbrq7o.jp":true,"xn--pssu33l.jp":true,"xn--ntsq17g.jp":true,"xn--uisz3g.jp":true,"xn--6btw5a.jp":true,"xn--1ctwo.jp":true,"xn--6orx2r.jp":true,"xn--rht61e.jp":true,"xn--rht27z.jp":true,"xn--djty4k.jp":true,"xn--nit225k.jp":true,"xn--rht3d.jp":true,"xn--klty5x.jp":true,"xn--kltx9a.jp":true,"xn--kltp7d.jp":true,"xn--uuwu58a.jp":true,"xn--zbx025d.jp":true,"xn--ntso0iqx3a.jp":true,"xn--elqq16h.jp":true,"xn--4it168d.jp":true,"xn--klt787d.jp":true,"xn--rny31h.jp":true,"xn--7t0a264c.jp":true,"xn--5rtq34k.jp":true,"xn--k7yn95e.jp":true,"xn--tor131o.jp":true,"xn--d5qv7z876c.jp":true,"*.kawasaki.jp":true,"*.kitakyushu.jp":true,"*.kobe.jp":true,"*.nagoya.jp":true,"*.sapporo.jp":true,"*.sendai.jp":true,"*.yokohama.jp":true,"city.kawasaki.jp":false,"city.kitakyushu.jp":false,"city.kobe.jp":false,"city.nagoya.jp":false,"city.sapporo.jp":false,"city.sendai.jp":false,"city.yokohama.jp":false,"aisai.aichi.jp":true,"ama.aichi.jp":true,"anjo.aichi.jp":true,"asuke.aichi.jp":true,"chiryu.aichi.jp":true,"chita.aichi.jp":true,"fuso.aichi.jp":true,"gamagori.aichi.jp":true,"handa.aichi.jp":true,"hazu.aichi.jp":true,"hekinan.aichi.jp":true,"higashiura.aichi.jp":true,"ichinomiya.aichi.jp":true,"inazawa.aichi.jp":true,"inuyama.aichi.jp":true,"isshiki.aichi.jp":true,"iwakura.aichi.jp":true,"kanie.aichi.jp":true,"kariya.aichi.jp":true,"kasugai.aichi.jp":true,"kira.aichi.jp":true,"kiyosu.aichi.jp":true,"komaki.aichi.jp":true,"konan.aichi.jp":true,"kota.aichi.jp":true,"mihama.aichi.jp":true,"miyoshi.aichi.jp":true,"nishio.aichi.jp":true,"nisshin.aichi.jp":true,"obu.aichi.jp":true,"oguchi.aichi.jp":true,"oharu.aichi.jp":true,"okazaki.aichi.jp":true,"owariasahi.aichi.jp":true,"seto.aichi.jp":true,"shikatsu.aichi.jp":true,"shinshiro.aichi.jp":true,"shitara.aichi.jp":true,"tahara.aichi.jp":true,"takahama.aichi.jp":true,"tobishima.aichi.jp":true,"toei.aichi.jp":true,"togo.aichi.jp":true,"tokai.aichi.jp":true,"tokoname.aichi.jp":true,"toyoake.aichi.jp":true,"toyohashi.aichi.jp":true,"toyokawa.aichi.jp":true,"toyone.aichi.jp":true,"toyota.aichi.jp":true,"tsushima.aichi.jp":true,"yatomi.aichi.jp":true,"akita.akita.jp":true,"daisen.akita.jp":true,"fujisato.akita.jp":true,"gojome.akita.jp":true,"hachirogata.akita.jp":true,"happou.akita.jp":true,"higashinaruse.akita.jp":true,"honjo.akita.jp":true,"honjyo.akita.jp":true,"ikawa.akita.jp":true,"kamikoani.akita.jp":true,"kamioka.akita.jp":true,"katagami.akita.jp":true,"kazuno.akita.jp":true,"kitaakita.akita.jp":true,"kosaka.akita.jp":true,"kyowa.akita.jp":true,"misato.akita.jp":true,"mitane.akita.jp":true,"moriyoshi.akita.jp":true,"nikaho.akita.jp":true,"noshiro.akita.jp":true,"odate.akita.jp":true,"oga.akita.jp":true,"ogata.akita.jp":true,"semboku.akita.jp":true,"yokote.akita.jp":true,"yurihonjo.akita.jp":true,"aomori.aomori.jp":true,"gonohe.aomori.jp":true,"hachinohe.aomori.jp":true,"hashikami.aomori.jp":true,"hiranai.aomori.jp":true,"hirosaki.aomori.jp":true,"itayanagi.aomori.jp":true,"kuroishi.aomori.jp":true,"misawa.aomori.jp":true,"mutsu.aomori.jp":true,"nakadomari.aomori.jp":true,"noheji.aomori.jp":true,"oirase.aomori.jp":true,"owani.aomori.jp":true,"rokunohe.aomori.jp":true,"sannohe.aomori.jp":true,"shichinohe.aomori.jp":true,"shingo.aomori.jp":true,"takko.aomori.jp":true,"towada.aomori.jp":true,"tsugaru.aomori.jp":true,"tsuruta.aomori.jp":true,"abiko.chiba.jp":true,"asahi.chiba.jp":true,"chonan.chiba.jp":true,"chosei.chiba.jp":true,"choshi.chiba.jp":true,"chuo.chiba.jp":true,"funabashi.chiba.jp":true,"futtsu.chiba.jp":true,"hanamigawa.chiba.jp":true,"ichihara.chiba.jp":true,"ichikawa.chiba.jp":true,"ichinomiya.chiba.jp":true,"inzai.chiba.jp":true,"isumi.chiba.jp":true,"kamagaya.chiba.jp":true,"kamogawa.chiba.jp":true,"kashiwa.chiba.jp":true,"katori.chiba.jp":true,"katsuura.chiba.jp":true,"kimitsu.chiba.jp":true,"kisarazu.chiba.jp":true,"kozaki.chiba.jp":true,"kujukuri.chiba.jp":true,"kyonan.chiba.jp":true,"matsudo.chiba.jp":true,"midori.chiba.jp":true,"mihama.chiba.jp":true,"minamiboso.chiba.jp":true,"mobara.chiba.jp":true,"mutsuzawa.chiba.jp":true,"nagara.chiba.jp":true,"nagareyama.chiba.jp":true,"narashino.chiba.jp":true,"narita.chiba.jp":true,"noda.chiba.jp":true,"oamishirasato.chiba.jp":true,"omigawa.chiba.jp":true,"onjuku.chiba.jp":true,"otaki.chiba.jp":true,"sakae.chiba.jp":true,"sakura.chiba.jp":true,"shimofusa.chiba.jp":true,"shirako.chiba.jp":true,"shiroi.chiba.jp":true,"shisui.chiba.jp":true,"sodegaura.chiba.jp":true,"sosa.chiba.jp":true,"tako.chiba.jp":true,"tateyama.chiba.jp":true,"togane.chiba.jp":true,"tohnosho.chiba.jp":true,"tomisato.chiba.jp":true,"urayasu.chiba.jp":true,"yachimata.chiba.jp":true,"yachiyo.chiba.jp":true,"yokaichiba.chiba.jp":true,"yokoshibahikari.chiba.jp":true,"yotsukaido.chiba.jp":true,"ainan.ehime.jp":true,"honai.ehime.jp":true,"ikata.ehime.jp":true,"imabari.ehime.jp":true,"iyo.ehime.jp":true,"kamijima.ehime.jp":true,"kihoku.ehime.jp":true,"kumakogen.ehime.jp":true,"masaki.ehime.jp":true,"matsuno.ehime.jp":true,"matsuyama.ehime.jp":true,"namikata.ehime.jp":true,"niihama.ehime.jp":true,"ozu.ehime.jp":true,"saijo.ehime.jp":true,"seiyo.ehime.jp":true,"shikokuchuo.ehime.jp":true,"tobe.ehime.jp":true,"toon.ehime.jp":true,"uchiko.ehime.jp":true,"uwajima.ehime.jp":true,"yawatahama.ehime.jp":true,"echizen.fukui.jp":true,"eiheiji.fukui.jp":true,"fukui.fukui.jp":true,"ikeda.fukui.jp":true,"katsuyama.fukui.jp":true,"mihama.fukui.jp":true,"minamiechizen.fukui.jp":true,"obama.fukui.jp":true,"ohi.fukui.jp":true,"ono.fukui.jp":true,"sabae.fukui.jp":true,"sakai.fukui.jp":true,"takahama.fukui.jp":true,"tsuruga.fukui.jp":true,"wakasa.fukui.jp":true,"ashiya.fukuoka.jp":true,"buzen.fukuoka.jp":true,"chikugo.fukuoka.jp":true,"chikuho.fukuoka.jp":true,"chikujo.fukuoka.jp":true,"chikushino.fukuoka.jp":true,"chikuzen.fukuoka.jp":true,"chuo.fukuoka.jp":true,"dazaifu.fukuoka.jp":true,"fukuchi.fukuoka.jp":true,"hakata.fukuoka.jp":true,"higashi.fukuoka.jp":true,"hirokawa.fukuoka.jp":true,"hisayama.fukuoka.jp":true,"iizuka.fukuoka.jp":true,"inatsuki.fukuoka.jp":true,"kaho.fukuoka.jp":true,"kasuga.fukuoka.jp":true,"kasuya.fukuoka.jp":true,"kawara.fukuoka.jp":true,"keisen.fukuoka.jp":true,"koga.fukuoka.jp":true,"kurate.fukuoka.jp":true,"kurogi.fukuoka.jp":true,"kurume.fukuoka.jp":true,"minami.fukuoka.jp":true,"miyako.fukuoka.jp":true,"miyama.fukuoka.jp":true,"miyawaka.fukuoka.jp":true,"mizumaki.fukuoka.jp":true,"munakata.fukuoka.jp":true,"nakagawa.fukuoka.jp":true,"nakama.fukuoka.jp":true,"nishi.fukuoka.jp":true,"nogata.fukuoka.jp":true,"ogori.fukuoka.jp":true,"okagaki.fukuoka.jp":true,"okawa.fukuoka.jp":true,"oki.fukuoka.jp":true,"omuta.fukuoka.jp":true,"onga.fukuoka.jp":true,"onojo.fukuoka.jp":true,"oto.fukuoka.jp":true,"saigawa.fukuoka.jp":true,"sasaguri.fukuoka.jp":true,"shingu.fukuoka.jp":true,"shinyoshitomi.fukuoka.jp":true,"shonai.fukuoka.jp":true,"soeda.fukuoka.jp":true,"sue.fukuoka.jp":true,"tachiarai.fukuoka.jp":true,"tagawa.fukuoka.jp":true,"takata.fukuoka.jp":true,"toho.fukuoka.jp":true,"toyotsu.fukuoka.jp":true,"tsuiki.fukuoka.jp":true,"ukiha.fukuoka.jp":true,"umi.fukuoka.jp":true,"usui.fukuoka.jp":true,"yamada.fukuoka.jp":true,"yame.fukuoka.jp":true,"yanagawa.fukuoka.jp":true,"yukuhashi.fukuoka.jp":true,"aizubange.fukushima.jp":true,"aizumisato.fukushima.jp":true,"aizuwakamatsu.fukushima.jp":true,"asakawa.fukushima.jp":true,"bandai.fukushima.jp":true,"date.fukushima.jp":true,"fukushima.fukushima.jp":true,"furudono.fukushima.jp":true,"futaba.fukushima.jp":true,"hanawa.fukushima.jp":true,"higashi.fukushima.jp":true,"hirata.fukushima.jp":true,"hirono.fukushima.jp":true,"iitate.fukushima.jp":true,"inawashiro.fukushima.jp":true,"ishikawa.fukushima.jp":true,"iwaki.fukushima.jp":true,"izumizaki.fukushima.jp":true,"kagamiishi.fukushima.jp":true,"kaneyama.fukushima.jp":true,"kawamata.fukushima.jp":true,"kitakata.fukushima.jp":true,"kitashiobara.fukushima.jp":true,"koori.fukushima.jp":true,"koriyama.fukushima.jp":true,"kunimi.fukushima.jp":true,"miharu.fukushima.jp":true,"mishima.fukushima.jp":true,"namie.fukushima.jp":true,"nango.fukushima.jp":true,"nishiaizu.fukushima.jp":true,"nishigo.fukushima.jp":true,"okuma.fukushima.jp":true,"omotego.fukushima.jp":true,"ono.fukushima.jp":true,"otama.fukushima.jp":true,"samegawa.fukushima.jp":true,"shimogo.fukushima.jp":true,"shirakawa.fukushima.jp":true,"showa.fukushima.jp":true,"soma.fukushima.jp":true,"sukagawa.fukushima.jp":true,"taishin.fukushima.jp":true,"tamakawa.fukushima.jp":true,"tanagura.fukushima.jp":true,"tenei.fukushima.jp":true,"yabuki.fukushima.jp":true,"yamato.fukushima.jp":true,"yamatsuri.fukushima.jp":true,"yanaizu.fukushima.jp":true,"yugawa.fukushima.jp":true,"anpachi.gifu.jp":true,"ena.gifu.jp":true,"gifu.gifu.jp":true,"ginan.gifu.jp":true,"godo.gifu.jp":true,"gujo.gifu.jp":true,"hashima.gifu.jp":true,"hichiso.gifu.jp":true,"hida.gifu.jp":true,"higashishirakawa.gifu.jp":true,"ibigawa.gifu.jp":true,"ikeda.gifu.jp":true,"kakamigahara.gifu.jp":true,"kani.gifu.jp":true,"kasahara.gifu.jp":true,"kasamatsu.gifu.jp":true,"kawaue.gifu.jp":true,"kitagata.gifu.jp":true,"mino.gifu.jp":true,"minokamo.gifu.jp":true,"mitake.gifu.jp":true,"mizunami.gifu.jp":true,"motosu.gifu.jp":true,"nakatsugawa.gifu.jp":true,"ogaki.gifu.jp":true,"sakahogi.gifu.jp":true,"seki.gifu.jp":true,"sekigahara.gifu.jp":true,"shirakawa.gifu.jp":true,"tajimi.gifu.jp":true,"takayama.gifu.jp":true,"tarui.gifu.jp":true,"toki.gifu.jp":true,"tomika.gifu.jp":true,"wanouchi.gifu.jp":true,"yamagata.gifu.jp":true,"yaotsu.gifu.jp":true,"yoro.gifu.jp":true,"annaka.gunma.jp":true,"chiyoda.gunma.jp":true,"fujioka.gunma.jp":true,"higashiagatsuma.gunma.jp":true,"isesaki.gunma.jp":true,"itakura.gunma.jp":true,"kanna.gunma.jp":true,"kanra.gunma.jp":true,"katashina.gunma.jp":true,"kawaba.gunma.jp":true,"kiryu.gunma.jp":true,"kusatsu.gunma.jp":true,"maebashi.gunma.jp":true,"meiwa.gunma.jp":true,"midori.gunma.jp":true,"minakami.gunma.jp":true,"naganohara.gunma.jp":true,"nakanojo.gunma.jp":true,"nanmoku.gunma.jp":true,"numata.gunma.jp":true,"oizumi.gunma.jp":true,"ora.gunma.jp":true,"ota.gunma.jp":true,"shibukawa.gunma.jp":true,"shimonita.gunma.jp":true,"shinto.gunma.jp":true,"showa.gunma.jp":true,"takasaki.gunma.jp":true,"takayama.gunma.jp":true,"tamamura.gunma.jp":true,"tatebayashi.gunma.jp":true,"tomioka.gunma.jp":true,"tsukiyono.gunma.jp":true,"tsumagoi.gunma.jp":true,"ueno.gunma.jp":true,"yoshioka.gunma.jp":true,"asaminami.hiroshima.jp":true,"daiwa.hiroshima.jp":true,"etajima.hiroshima.jp":true,"fuchu.hiroshima.jp":true,"fukuyama.hiroshima.jp":true,"hatsukaichi.hiroshima.jp":true,"higashihiroshima.hiroshima.jp":true,"hongo.hiroshima.jp":true,"jinsekikogen.hiroshima.jp":true,"kaita.hiroshima.jp":true,"kui.hiroshima.jp":true,"kumano.hiroshima.jp":true,"kure.hiroshima.jp":true,"mihara.hiroshima.jp":true,"miyoshi.hiroshima.jp":true,"naka.hiroshima.jp":true,"onomichi.hiroshima.jp":true,"osakikamijima.hiroshima.jp":true,"otake.hiroshima.jp":true,"saka.hiroshima.jp":true,"sera.hiroshima.jp":true,"seranishi.hiroshima.jp":true,"shinichi.hiroshima.jp":true,"shobara.hiroshima.jp":true,"takehara.hiroshima.jp":true,"abashiri.hokkaido.jp":true,"abira.hokkaido.jp":true,"aibetsu.hokkaido.jp":true,"akabira.hokkaido.jp":true,"akkeshi.hokkaido.jp":true,"asahikawa.hokkaido.jp":true,"ashibetsu.hokkaido.jp":true,"ashoro.hokkaido.jp":true,"assabu.hokkaido.jp":true,"atsuma.hokkaido.jp":true,"bibai.hokkaido.jp":true,"biei.hokkaido.jp":true,"bifuka.hokkaido.jp":true,"bihoro.hokkaido.jp":true,"biratori.hokkaido.jp":true,"chippubetsu.hokkaido.jp":true,"chitose.hokkaido.jp":true,"date.hokkaido.jp":true,"ebetsu.hokkaido.jp":true,"embetsu.hokkaido.jp":true,"eniwa.hokkaido.jp":true,"erimo.hokkaido.jp":true,"esan.hokkaido.jp":true,"esashi.hokkaido.jp":true,"fukagawa.hokkaido.jp":true,"fukushima.hokkaido.jp":true,"furano.hokkaido.jp":true,"furubira.hokkaido.jp":true,"haboro.hokkaido.jp":true,"hakodate.hokkaido.jp":true,"hamatonbetsu.hokkaido.jp":true,"hidaka.hokkaido.jp":true,"higashikagura.hokkaido.jp":true,"higashikawa.hokkaido.jp":true,"hiroo.hokkaido.jp":true,"hokuryu.hokkaido.jp":true,"hokuto.hokkaido.jp":true,"honbetsu.hokkaido.jp":true,"horokanai.hokkaido.jp":true,"horonobe.hokkaido.jp":true,"ikeda.hokkaido.jp":true,"imakane.hokkaido.jp":true,"ishikari.hokkaido.jp":true,"iwamizawa.hokkaido.jp":true,"iwanai.hokkaido.jp":true,"kamifurano.hokkaido.jp":true,"kamikawa.hokkaido.jp":true,"kamishihoro.hokkaido.jp":true,"kamisunagawa.hokkaido.jp":true,"kamoenai.hokkaido.jp":true,"kayabe.hokkaido.jp":true,"kembuchi.hokkaido.jp":true,"kikonai.hokkaido.jp":true,"kimobetsu.hokkaido.jp":true,"kitahiroshima.hokkaido.jp":true,"kitami.hokkaido.jp":true,"kiyosato.hokkaido.jp":true,"koshimizu.hokkaido.jp":true,"kunneppu.hokkaido.jp":true,"kuriyama.hokkaido.jp":true,"kuromatsunai.hokkaido.jp":true,"kushiro.hokkaido.jp":true,"kutchan.hokkaido.jp":true,"kyowa.hokkaido.jp":true,"mashike.hokkaido.jp":true,"matsumae.hokkaido.jp":true,"mikasa.hokkaido.jp":true,"minamifurano.hokkaido.jp":true,"mombetsu.hokkaido.jp":true,"moseushi.hokkaido.jp":true,"mukawa.hokkaido.jp":true,"muroran.hokkaido.jp":true,"naie.hokkaido.jp":true,"nakagawa.hokkaido.jp":true,"nakasatsunai.hokkaido.jp":true,"nakatombetsu.hokkaido.jp":true,"nanae.hokkaido.jp":true,"nanporo.hokkaido.jp":true,"nayoro.hokkaido.jp":true,"nemuro.hokkaido.jp":true,"niikappu.hokkaido.jp":true,"niki.hokkaido.jp":true,"nishiokoppe.hokkaido.jp":true,"noboribetsu.hokkaido.jp":true,"numata.hokkaido.jp":true,"obihiro.hokkaido.jp":true,"obira.hokkaido.jp":true,"oketo.hokkaido.jp":true,"okoppe.hokkaido.jp":true,"otaru.hokkaido.jp":true,"otobe.hokkaido.jp":true,"otofuke.hokkaido.jp":true,"otoineppu.hokkaido.jp":true,"oumu.hokkaido.jp":true,"ozora.hokkaido.jp":true,"pippu.hokkaido.jp":true,"rankoshi.hokkaido.jp":true,"rebun.hokkaido.jp":true,"rikubetsu.hokkaido.jp":true,"rishiri.hokkaido.jp":true,"rishirifuji.hokkaido.jp":true,"saroma.hokkaido.jp":true,"sarufutsu.hokkaido.jp":true,"shakotan.hokkaido.jp":true,"shari.hokkaido.jp":true,"shibecha.hokkaido.jp":true,"shibetsu.hokkaido.jp":true,"shikabe.hokkaido.jp":true,"shikaoi.hokkaido.jp":true,"shimamaki.hokkaido.jp":true,"shimizu.hokkaido.jp":true,"shimokawa.hokkaido.jp":true,"shinshinotsu.hokkaido.jp":true,"shintoku.hokkaido.jp":true,"shiranuka.hokkaido.jp":true,"shiraoi.hokkaido.jp":true,"shiriuchi.hokkaido.jp":true,"sobetsu.hokkaido.jp":true,"sunagawa.hokkaido.jp":true,"taiki.hokkaido.jp":true,"takasu.hokkaido.jp":true,"takikawa.hokkaido.jp":true,"takinoue.hokkaido.jp":true,"teshikaga.hokkaido.jp":true,"tobetsu.hokkaido.jp":true,"tohma.hokkaido.jp":true,"tomakomai.hokkaido.jp":true,"tomari.hokkaido.jp":true,"toya.hokkaido.jp":true,"toyako.hokkaido.jp":true,"toyotomi.hokkaido.jp":true,"toyoura.hokkaido.jp":true,"tsubetsu.hokkaido.jp":true,"tsukigata.hokkaido.jp":true,"urakawa.hokkaido.jp":true,"urausu.hokkaido.jp":true,"uryu.hokkaido.jp":true,"utashinai.hokkaido.jp":true,"wakkanai.hokkaido.jp":true,"wassamu.hokkaido.jp":true,"yakumo.hokkaido.jp":true,"yoichi.hokkaido.jp":true,"aioi.hyogo.jp":true,"akashi.hyogo.jp":true,"ako.hyogo.jp":true,"amagasaki.hyogo.jp":true,"aogaki.hyogo.jp":true,"asago.hyogo.jp":true,"ashiya.hyogo.jp":true,"awaji.hyogo.jp":true,"fukusaki.hyogo.jp":true,"goshiki.hyogo.jp":true,"harima.hyogo.jp":true,"himeji.hyogo.jp":true,"ichikawa.hyogo.jp":true,"inagawa.hyogo.jp":true,"itami.hyogo.jp":true,"kakogawa.hyogo.jp":true,"kamigori.hyogo.jp":true,"kamikawa.hyogo.jp":true,"kasai.hyogo.jp":true,"kasuga.hyogo.jp":true,"kawanishi.hyogo.jp":true,"miki.hyogo.jp":true,"minamiawaji.hyogo.jp":true,"nishinomiya.hyogo.jp":true,"nishiwaki.hyogo.jp":true,"ono.hyogo.jp":true,"sanda.hyogo.jp":true,"sannan.hyogo.jp":true,"sasayama.hyogo.jp":true,"sayo.hyogo.jp":true,"shingu.hyogo.jp":true,"shinonsen.hyogo.jp":true,"shiso.hyogo.jp":true,"sumoto.hyogo.jp":true,"taishi.hyogo.jp":true,"taka.hyogo.jp":true,"takarazuka.hyogo.jp":true,"takasago.hyogo.jp":true,"takino.hyogo.jp":true,"tamba.hyogo.jp":true,"tatsuno.hyogo.jp":true,"toyooka.hyogo.jp":true,"yabu.hyogo.jp":true,"yashiro.hyogo.jp":true,"yoka.hyogo.jp":true,"yokawa.hyogo.jp":true,"ami.ibaraki.jp":true,"asahi.ibaraki.jp":true,"bando.ibaraki.jp":true,"chikusei.ibaraki.jp":true,"daigo.ibaraki.jp":true,"fujishiro.ibaraki.jp":true,"hitachi.ibaraki.jp":true,"hitachinaka.ibaraki.jp":true,"hitachiomiya.ibaraki.jp":true,"hitachiota.ibaraki.jp":true,"ibaraki.ibaraki.jp":true,"ina.ibaraki.jp":true,"inashiki.ibaraki.jp":true,"itako.ibaraki.jp":true,"iwama.ibaraki.jp":true,"joso.ibaraki.jp":true,"kamisu.ibaraki.jp":true,"kasama.ibaraki.jp":true,"kashima.ibaraki.jp":true,"kasumigaura.ibaraki.jp":true,"koga.ibaraki.jp":true,"miho.ibaraki.jp":true,"mito.ibaraki.jp":true,"moriya.ibaraki.jp":true,"naka.ibaraki.jp":true,"namegata.ibaraki.jp":true,"oarai.ibaraki.jp":true,"ogawa.ibaraki.jp":true,"omitama.ibaraki.jp":true,"ryugasaki.ibaraki.jp":true,"sakai.ibaraki.jp":true,"sakuragawa.ibaraki.jp":true,"shimodate.ibaraki.jp":true,"shimotsuma.ibaraki.jp":true,"shirosato.ibaraki.jp":true,"sowa.ibaraki.jp":true,"suifu.ibaraki.jp":true,"takahagi.ibaraki.jp":true,"tamatsukuri.ibaraki.jp":true,"tokai.ibaraki.jp":true,"tomobe.ibaraki.jp":true,"tone.ibaraki.jp":true,"toride.ibaraki.jp":true,"tsuchiura.ibaraki.jp":true,"tsukuba.ibaraki.jp":true,"uchihara.ibaraki.jp":true,"ushiku.ibaraki.jp":true,"yachiyo.ibaraki.jp":true,"yamagata.ibaraki.jp":true,"yawara.ibaraki.jp":true,"yuki.ibaraki.jp":true,"anamizu.ishikawa.jp":true,"hakui.ishikawa.jp":true,"hakusan.ishikawa.jp":true,"kaga.ishikawa.jp":true,"kahoku.ishikawa.jp":true,"kanazawa.ishikawa.jp":true,"kawakita.ishikawa.jp":true,"komatsu.ishikawa.jp":true,"nakanoto.ishikawa.jp":true,"nanao.ishikawa.jp":true,"nomi.ishikawa.jp":true,"nonoichi.ishikawa.jp":true,"noto.ishikawa.jp":true,"shika.ishikawa.jp":true,"suzu.ishikawa.jp":true,"tsubata.ishikawa.jp":true,"tsurugi.ishikawa.jp":true,"uchinada.ishikawa.jp":true,"wajima.ishikawa.jp":true,"fudai.iwate.jp":true,"fujisawa.iwate.jp":true,"hanamaki.iwate.jp":true,"hiraizumi.iwate.jp":true,"hirono.iwate.jp":true,"ichinohe.iwate.jp":true,"ichinoseki.iwate.jp":true,"iwaizumi.iwate.jp":true,"iwate.iwate.jp":true,"joboji.iwate.jp":true,"kamaishi.iwate.jp":true,"kanegasaki.iwate.jp":true,"karumai.iwate.jp":true,"kawai.iwate.jp":true,"kitakami.iwate.jp":true,"kuji.iwate.jp":true,"kunohe.iwate.jp":true,"kuzumaki.iwate.jp":true,"miyako.iwate.jp":true,"mizusawa.iwate.jp":true,"morioka.iwate.jp":true,"ninohe.iwate.jp":true,"noda.iwate.jp":true,"ofunato.iwate.jp":true,"oshu.iwate.jp":true,"otsuchi.iwate.jp":true,"rikuzentakata.iwate.jp":true,"shiwa.iwate.jp":true,"shizukuishi.iwate.jp":true,"sumita.iwate.jp":true,"tanohata.iwate.jp":true,"tono.iwate.jp":true,"yahaba.iwate.jp":true,"yamada.iwate.jp":true,"ayagawa.kagawa.jp":true,"higashikagawa.kagawa.jp":true,"kanonji.kagawa.jp":true,"kotohira.kagawa.jp":true,"manno.kagawa.jp":true,"marugame.kagawa.jp":true,"mitoyo.kagawa.jp":true,"naoshima.kagawa.jp":true,"sanuki.kagawa.jp":true,"tadotsu.kagawa.jp":true,"takamatsu.kagawa.jp":true,"tonosho.kagawa.jp":true,"uchinomi.kagawa.jp":true,"utazu.kagawa.jp":true,"zentsuji.kagawa.jp":true,"akune.kagoshima.jp":true,"amami.kagoshima.jp":true,"hioki.kagoshima.jp":true,"isa.kagoshima.jp":true,"isen.kagoshima.jp":true,"izumi.kagoshima.jp":true,"kagoshima.kagoshima.jp":true,"kanoya.kagoshima.jp":true,"kawanabe.kagoshima.jp":true,"kinko.kagoshima.jp":true,"kouyama.kagoshima.jp":true,"makurazaki.kagoshima.jp":true,"matsumoto.kagoshima.jp":true,"minamitane.kagoshima.jp":true,"nakatane.kagoshima.jp":true,"nishinoomote.kagoshima.jp":true,"satsumasendai.kagoshima.jp":true,"soo.kagoshima.jp":true,"tarumizu.kagoshima.jp":true,"yusui.kagoshima.jp":true,"aikawa.kanagawa.jp":true,"atsugi.kanagawa.jp":true,"ayase.kanagawa.jp":true,"chigasaki.kanagawa.jp":true,"ebina.kanagawa.jp":true,"fujisawa.kanagawa.jp":true,"hadano.kanagawa.jp":true,"hakone.kanagawa.jp":true,"hiratsuka.kanagawa.jp":true,"isehara.kanagawa.jp":true,"kaisei.kanagawa.jp":true,"kamakura.kanagawa.jp":true,"kiyokawa.kanagawa.jp":true,"matsuda.kanagawa.jp":true,"minamiashigara.kanagawa.jp":true,"miura.kanagawa.jp":true,"nakai.kanagawa.jp":true,"ninomiya.kanagawa.jp":true,"odawara.kanagawa.jp":true,"oi.kanagawa.jp":true,"oiso.kanagawa.jp":true,"sagamihara.kanagawa.jp":true,"samukawa.kanagawa.jp":true,"tsukui.kanagawa.jp":true,"yamakita.kanagawa.jp":true,"yamato.kanagawa.jp":true,"yokosuka.kanagawa.jp":true,"yugawara.kanagawa.jp":true,"zama.kanagawa.jp":true,"zushi.kanagawa.jp":true,"aki.kochi.jp":true,"geisei.kochi.jp":true,"hidaka.kochi.jp":true,"higashitsuno.kochi.jp":true,"ino.kochi.jp":true,"kagami.kochi.jp":true,"kami.kochi.jp":true,"kitagawa.kochi.jp":true,"kochi.kochi.jp":true,"mihara.kochi.jp":true,"motoyama.kochi.jp":true,"muroto.kochi.jp":true,"nahari.kochi.jp":true,"nakamura.kochi.jp":true,"nankoku.kochi.jp":true,"nishitosa.kochi.jp":true,"niyodogawa.kochi.jp":true,"ochi.kochi.jp":true,"okawa.kochi.jp":true,"otoyo.kochi.jp":true,"otsuki.kochi.jp":true,"sakawa.kochi.jp":true,"sukumo.kochi.jp":true,"susaki.kochi.jp":true,"tosa.kochi.jp":true,"tosashimizu.kochi.jp":true,"toyo.kochi.jp":true,"tsuno.kochi.jp":true,"umaji.kochi.jp":true,"yasuda.kochi.jp":true,"yusuhara.kochi.jp":true,"amakusa.kumamoto.jp":true,"arao.kumamoto.jp":true,"aso.kumamoto.jp":true,"choyo.kumamoto.jp":true,"gyokuto.kumamoto.jp":true,"kamiamakusa.kumamoto.jp":true,"kikuchi.kumamoto.jp":true,"kumamoto.kumamoto.jp":true,"mashiki.kumamoto.jp":true,"mifune.kumamoto.jp":true,"minamata.kumamoto.jp":true,"minamioguni.kumamoto.jp":true,"nagasu.kumamoto.jp":true,"nishihara.kumamoto.jp":true,"oguni.kumamoto.jp":true,"ozu.kumamoto.jp":true,"sumoto.kumamoto.jp":true,"takamori.kumamoto.jp":true,"uki.kumamoto.jp":true,"uto.kumamoto.jp":true,"yamaga.kumamoto.jp":true,"yamato.kumamoto.jp":true,"yatsushiro.kumamoto.jp":true,"ayabe.kyoto.jp":true,"fukuchiyama.kyoto.jp":true,"higashiyama.kyoto.jp":true,"ide.kyoto.jp":true,"ine.kyoto.jp":true,"joyo.kyoto.jp":true,"kameoka.kyoto.jp":true,"kamo.kyoto.jp":true,"kita.kyoto.jp":true,"kizu.kyoto.jp":true,"kumiyama.kyoto.jp":true,"kyotamba.kyoto.jp":true,"kyotanabe.kyoto.jp":true,"kyotango.kyoto.jp":true,"maizuru.kyoto.jp":true,"minami.kyoto.jp":true,"minamiyamashiro.kyoto.jp":true,"miyazu.kyoto.jp":true,"muko.kyoto.jp":true,"nagaokakyo.kyoto.jp":true,"nakagyo.kyoto.jp":true,"nantan.kyoto.jp":true,"oyamazaki.kyoto.jp":true,"sakyo.kyoto.jp":true,"seika.kyoto.jp":true,"tanabe.kyoto.jp":true,"uji.kyoto.jp":true,"ujitawara.kyoto.jp":true,"wazuka.kyoto.jp":true,"yamashina.kyoto.jp":true,"yawata.kyoto.jp":true,"asahi.mie.jp":true,"inabe.mie.jp":true,"ise.mie.jp":true,"kameyama.mie.jp":true,"kawagoe.mie.jp":true,"kiho.mie.jp":true,"kisosaki.mie.jp":true,"kiwa.mie.jp":true,"komono.mie.jp":true,"kumano.mie.jp":true,"kuwana.mie.jp":true,"matsusaka.mie.jp":true,"meiwa.mie.jp":true,"mihama.mie.jp":true,"minamiise.mie.jp":true,"misugi.mie.jp":true,"miyama.mie.jp":true,"nabari.mie.jp":true,"shima.mie.jp":true,"suzuka.mie.jp":true,"tado.mie.jp":true,"taiki.mie.jp":true,"taki.mie.jp":true,"tamaki.mie.jp":true,"toba.mie.jp":true,"tsu.mie.jp":true,"udono.mie.jp":true,"ureshino.mie.jp":true,"watarai.mie.jp":true,"yokkaichi.mie.jp":true,"furukawa.miyagi.jp":true,"higashimatsushima.miyagi.jp":true,"ishinomaki.miyagi.jp":true,"iwanuma.miyagi.jp":true,"kakuda.miyagi.jp":true,"kami.miyagi.jp":true,"kawasaki.miyagi.jp":true,"marumori.miyagi.jp":true,"matsushima.miyagi.jp":true,"minamisanriku.miyagi.jp":true,"misato.miyagi.jp":true,"murata.miyagi.jp":true,"natori.miyagi.jp":true,"ogawara.miyagi.jp":true,"ohira.miyagi.jp":true,"onagawa.miyagi.jp":true,"osaki.miyagi.jp":true,"rifu.miyagi.jp":true,"semine.miyagi.jp":true,"shibata.miyagi.jp":true,"shichikashuku.miyagi.jp":true,"shikama.miyagi.jp":true,"shiogama.miyagi.jp":true,"shiroishi.miyagi.jp":true,"tagajo.miyagi.jp":true,"taiwa.miyagi.jp":true,"tome.miyagi.jp":true,"tomiya.miyagi.jp":true,"wakuya.miyagi.jp":true,"watari.miyagi.jp":true,"yamamoto.miyagi.jp":true,"zao.miyagi.jp":true,"aya.miyazaki.jp":true,"ebino.miyazaki.jp":true,"gokase.miyazaki.jp":true,"hyuga.miyazaki.jp":true,"kadogawa.miyazaki.jp":true,"kawaminami.miyazaki.jp":true,"kijo.miyazaki.jp":true,"kitagawa.miyazaki.jp":true,"kitakata.miyazaki.jp":true,"kitaura.miyazaki.jp":true,"kobayashi.miyazaki.jp":true,"kunitomi.miyazaki.jp":true,"kushima.miyazaki.jp":true,"mimata.miyazaki.jp":true,"miyakonojo.miyazaki.jp":true,"miyazaki.miyazaki.jp":true,"morotsuka.miyazaki.jp":true,"nichinan.miyazaki.jp":true,"nishimera.miyazaki.jp":true,"nobeoka.miyazaki.jp":true,"saito.miyazaki.jp":true,"shiiba.miyazaki.jp":true,"shintomi.miyazaki.jp":true,"takaharu.miyazaki.jp":true,"takanabe.miyazaki.jp":true,"takazaki.miyazaki.jp":true,"tsuno.miyazaki.jp":true,"achi.nagano.jp":true,"agematsu.nagano.jp":true,"anan.nagano.jp":true,"aoki.nagano.jp":true,"asahi.nagano.jp":true,"azumino.nagano.jp":true,"chikuhoku.nagano.jp":true,"chikuma.nagano.jp":true,"chino.nagano.jp":true,"fujimi.nagano.jp":true,"hakuba.nagano.jp":true,"hara.nagano.jp":true,"hiraya.nagano.jp":true,"iida.nagano.jp":true,"iijima.nagano.jp":true,"iiyama.nagano.jp":true,"iizuna.nagano.jp":true,"ikeda.nagano.jp":true,"ikusaka.nagano.jp":true,"ina.nagano.jp":true,"karuizawa.nagano.jp":true,"kawakami.nagano.jp":true,"kiso.nagano.jp":true,"kisofukushima.nagano.jp":true,"kitaaiki.nagano.jp":true,"komagane.nagano.jp":true,"komoro.nagano.jp":true,"matsukawa.nagano.jp":true,"matsumoto.nagano.jp":true,"miasa.nagano.jp":true,"minamiaiki.nagano.jp":true,"minamimaki.nagano.jp":true,"minamiminowa.nagano.jp":true,"minowa.nagano.jp":true,"miyada.nagano.jp":true,"miyota.nagano.jp":true,"mochizuki.nagano.jp":true,"nagano.nagano.jp":true,"nagawa.nagano.jp":true,"nagiso.nagano.jp":true,"nakagawa.nagano.jp":true,"nakano.nagano.jp":true,"nozawaonsen.nagano.jp":true,"obuse.nagano.jp":true,"ogawa.nagano.jp":true,"okaya.nagano.jp":true,"omachi.nagano.jp":true,"omi.nagano.jp":true,"ookuwa.nagano.jp":true,"ooshika.nagano.jp":true,"otaki.nagano.jp":true,"otari.nagano.jp":true,"sakae.nagano.jp":true,"sakaki.nagano.jp":true,"saku.nagano.jp":true,"sakuho.nagano.jp":true,"shimosuwa.nagano.jp":true,"shinanomachi.nagano.jp":true,"shiojiri.nagano.jp":true,"suwa.nagano.jp":true,"suzaka.nagano.jp":true,"takagi.nagano.jp":true,"takamori.nagano.jp":true,"takayama.nagano.jp":true,"tateshina.nagano.jp":true,"tatsuno.nagano.jp":true,"togakushi.nagano.jp":true,"togura.nagano.jp":true,"tomi.nagano.jp":true,"ueda.nagano.jp":true,"wada.nagano.jp":true,"yamagata.nagano.jp":true,"yamanouchi.nagano.jp":true,"yasaka.nagano.jp":true,"yasuoka.nagano.jp":true,"chijiwa.nagasaki.jp":true,"futsu.nagasaki.jp":true,"goto.nagasaki.jp":true,"hasami.nagasaki.jp":true,"hirado.nagasaki.jp":true,"iki.nagasaki.jp":true,"isahaya.nagasaki.jp":true,"kawatana.nagasaki.jp":true,"kuchinotsu.nagasaki.jp":true,"matsuura.nagasaki.jp":true,"nagasaki.nagasaki.jp":true,"obama.nagasaki.jp":true,"omura.nagasaki.jp":true,"oseto.nagasaki.jp":true,"saikai.nagasaki.jp":true,"sasebo.nagasaki.jp":true,"seihi.nagasaki.jp":true,"shimabara.nagasaki.jp":true,"shinkamigoto.nagasaki.jp":true,"togitsu.nagasaki.jp":true,"tsushima.nagasaki.jp":true,"unzen.nagasaki.jp":true,"ando.nara.jp":true,"gose.nara.jp":true,"heguri.nara.jp":true,"higashiyoshino.nara.jp":true,"ikaruga.nara.jp":true,"ikoma.nara.jp":true,"kamikitayama.nara.jp":true,"kanmaki.nara.jp":true,"kashiba.nara.jp":true,"kashihara.nara.jp":true,"katsuragi.nara.jp":true,"kawai.nara.jp":true,"kawakami.nara.jp":true,"kawanishi.nara.jp":true,"koryo.nara.jp":true,"kurotaki.nara.jp":true,"mitsue.nara.jp":true,"miyake.nara.jp":true,"nara.nara.jp":true,"nosegawa.nara.jp":true,"oji.nara.jp":true,"ouda.nara.jp":true,"oyodo.nara.jp":true,"sakurai.nara.jp":true,"sango.nara.jp":true,"shimoichi.nara.jp":true,"shimokitayama.nara.jp":true,"shinjo.nara.jp":true,"soni.nara.jp":true,"takatori.nara.jp":true,"tawaramoto.nara.jp":true,"tenkawa.nara.jp":true,"tenri.nara.jp":true,"uda.nara.jp":true,"yamatokoriyama.nara.jp":true,"yamatotakada.nara.jp":true,"yamazoe.nara.jp":true,"yoshino.nara.jp":true,"aga.niigata.jp":true,"agano.niigata.jp":true,"gosen.niigata.jp":true,"itoigawa.niigata.jp":true,"izumozaki.niigata.jp":true,"joetsu.niigata.jp":true,"kamo.niigata.jp":true,"kariwa.niigata.jp":true,"kashiwazaki.niigata.jp":true,"minamiuonuma.niigata.jp":true,"mitsuke.niigata.jp":true,"muika.niigata.jp":true,"murakami.niigata.jp":true,"myoko.niigata.jp":true,"nagaoka.niigata.jp":true,"niigata.niigata.jp":true,"ojiya.niigata.jp":true,"omi.niigata.jp":true,"sado.niigata.jp":true,"sanjo.niigata.jp":true,"seiro.niigata.jp":true,"seirou.niigata.jp":true,"sekikawa.niigata.jp":true,"shibata.niigata.jp":true,"tagami.niigata.jp":true,"tainai.niigata.jp":true,"tochio.niigata.jp":true,"tokamachi.niigata.jp":true,"tsubame.niigata.jp":true,"tsunan.niigata.jp":true,"uonuma.niigata.jp":true,"yahiko.niigata.jp":true,"yoita.niigata.jp":true,"yuzawa.niigata.jp":true,"beppu.oita.jp":true,"bungoono.oita.jp":true,"bungotakada.oita.jp":true,"hasama.oita.jp":true,"hiji.oita.jp":true,"himeshima.oita.jp":true,"hita.oita.jp":true,"kamitsue.oita.jp":true,"kokonoe.oita.jp":true,"kuju.oita.jp":true,"kunisaki.oita.jp":true,"kusu.oita.jp":true,"oita.oita.jp":true,"saiki.oita.jp":true,"taketa.oita.jp":true,"tsukumi.oita.jp":true,"usa.oita.jp":true,"usuki.oita.jp":true,"yufu.oita.jp":true,"akaiwa.okayama.jp":true,"asakuchi.okayama.jp":true,"bizen.okayama.jp":true,"hayashima.okayama.jp":true,"ibara.okayama.jp":true,"kagamino.okayama.jp":true,"kasaoka.okayama.jp":true,"kibichuo.okayama.jp":true,"kumenan.okayama.jp":true,"kurashiki.okayama.jp":true,"maniwa.okayama.jp":true,"misaki.okayama.jp":true,"nagi.okayama.jp":true,"niimi.okayama.jp":true,"nishiawakura.okayama.jp":true,"okayama.okayama.jp":true,"satosho.okayama.jp":true,"setouchi.okayama.jp":true,"shinjo.okayama.jp":true,"shoo.okayama.jp":true,"soja.okayama.jp":true,"takahashi.okayama.jp":true,"tamano.okayama.jp":true,"tsuyama.okayama.jp":true,"wake.okayama.jp":true,"yakage.okayama.jp":true,"aguni.okinawa.jp":true,"ginowan.okinawa.jp":true,"ginoza.okinawa.jp":true,"gushikami.okinawa.jp":true,"haebaru.okinawa.jp":true,"higashi.okinawa.jp":true,"hirara.okinawa.jp":true,"iheya.okinawa.jp":true,"ishigaki.okinawa.jp":true,"ishikawa.okinawa.jp":true,"itoman.okinawa.jp":true,"izena.okinawa.jp":true,"kadena.okinawa.jp":true,"kin.okinawa.jp":true,"kitadaito.okinawa.jp":true,"kitanakagusuku.okinawa.jp":true,"kumejima.okinawa.jp":true,"kunigami.okinawa.jp":true,"minamidaito.okinawa.jp":true,"motobu.okinawa.jp":true,"nago.okinawa.jp":true,"naha.okinawa.jp":true,"nakagusuku.okinawa.jp":true,"nakijin.okinawa.jp":true,"nanjo.okinawa.jp":true,"nishihara.okinawa.jp":true,"ogimi.okinawa.jp":true,"okinawa.okinawa.jp":true,"onna.okinawa.jp":true,"shimoji.okinawa.jp":true,"taketomi.okinawa.jp":true,"tarama.okinawa.jp":true,"tokashiki.okinawa.jp":true,"tomigusuku.okinawa.jp":true,"tonaki.okinawa.jp":true,"urasoe.okinawa.jp":true,"uruma.okinawa.jp":true,"yaese.okinawa.jp":true,"yomitan.okinawa.jp":true,"yonabaru.okinawa.jp":true,"yonaguni.okinawa.jp":true,"zamami.okinawa.jp":true,"abeno.osaka.jp":true,"chihayaakasaka.osaka.jp":true,"chuo.osaka.jp":true,"daito.osaka.jp":true,"fujiidera.osaka.jp":true,"habikino.osaka.jp":true,"hannan.osaka.jp":true,"higashiosaka.osaka.jp":true,"higashisumiyoshi.osaka.jp":true,"higashiyodogawa.osaka.jp":true,"hirakata.osaka.jp":true,"ibaraki.osaka.jp":true,"ikeda.osaka.jp":true,"izumi.osaka.jp":true,"izumiotsu.osaka.jp":true,"izumisano.osaka.jp":true,"kadoma.osaka.jp":true,"kaizuka.osaka.jp":true,"kanan.osaka.jp":true,"kashiwara.osaka.jp":true,"katano.osaka.jp":true,"kawachinagano.osaka.jp":true,"kishiwada.osaka.jp":true,"kita.osaka.jp":true,"kumatori.osaka.jp":true,"matsubara.osaka.jp":true,"minato.osaka.jp":true,"minoh.osaka.jp":true,"misaki.osaka.jp":true,"moriguchi.osaka.jp":true,"neyagawa.osaka.jp":true,"nishi.osaka.jp":true,"nose.osaka.jp":true,"osakasayama.osaka.jp":true,"sakai.osaka.jp":true,"sayama.osaka.jp":true,"sennan.osaka.jp":true,"settsu.osaka.jp":true,"shijonawate.osaka.jp":true,"shimamoto.osaka.jp":true,"suita.osaka.jp":true,"tadaoka.osaka.jp":true,"taishi.osaka.jp":true,"tajiri.osaka.jp":true,"takaishi.osaka.jp":true,"takatsuki.osaka.jp":true,"tondabayashi.osaka.jp":true,"toyonaka.osaka.jp":true,"toyono.osaka.jp":true,"yao.osaka.jp":true,"ariake.saga.jp":true,"arita.saga.jp":true,"fukudomi.saga.jp":true,"genkai.saga.jp":true,"hamatama.saga.jp":true,"hizen.saga.jp":true,"imari.saga.jp":true,"kamimine.saga.jp":true,"kanzaki.saga.jp":true,"karatsu.saga.jp":true,"kashima.saga.jp":true,"kitagata.saga.jp":true,"kitahata.saga.jp":true,"kiyama.saga.jp":true,"kouhoku.saga.jp":true,"kyuragi.saga.jp":true,"nishiarita.saga.jp":true,"ogi.saga.jp":true,"omachi.saga.jp":true,"ouchi.saga.jp":true,"saga.saga.jp":true,"shiroishi.saga.jp":true,"taku.saga.jp":true,"tara.saga.jp":true,"tosu.saga.jp":true,"yoshinogari.saga.jp":true,"arakawa.saitama.jp":true,"asaka.saitama.jp":true,"chichibu.saitama.jp":true,"fujimi.saitama.jp":true,"fujimino.saitama.jp":true,"fukaya.saitama.jp":true,"hanno.saitama.jp":true,"hanyu.saitama.jp":true,"hasuda.saitama.jp":true,"hatogaya.saitama.jp":true,"hatoyama.saitama.jp":true,"hidaka.saitama.jp":true,"higashichichibu.saitama.jp":true,"higashimatsuyama.saitama.jp":true,"honjo.saitama.jp":true,"ina.saitama.jp":true,"iruma.saitama.jp":true,"iwatsuki.saitama.jp":true,"kamiizumi.saitama.jp":true,"kamikawa.saitama.jp":true,"kamisato.saitama.jp":true,"kasukabe.saitama.jp":true,"kawagoe.saitama.jp":true,"kawaguchi.saitama.jp":true,"kawajima.saitama.jp":true,"kazo.saitama.jp":true,"kitamoto.saitama.jp":true,"koshigaya.saitama.jp":true,"kounosu.saitama.jp":true,"kuki.saitama.jp":true,"kumagaya.saitama.jp":true,"matsubushi.saitama.jp":true,"minano.saitama.jp":true,"misato.saitama.jp":true,"miyashiro.saitama.jp":true,"miyoshi.saitama.jp":true,"moroyama.saitama.jp":true,"nagatoro.saitama.jp":true,"namegawa.saitama.jp":true,"niiza.saitama.jp":true,"ogano.saitama.jp":true,"ogawa.saitama.jp":true,"ogose.saitama.jp":true,"okegawa.saitama.jp":true,"omiya.saitama.jp":true,"otaki.saitama.jp":true,"ranzan.saitama.jp":true,"ryokami.saitama.jp":true,"saitama.saitama.jp":true,"sakado.saitama.jp":true,"satte.saitama.jp":true,"sayama.saitama.jp":true,"shiki.saitama.jp":true,"shiraoka.saitama.jp":true,"soka.saitama.jp":true,"sugito.saitama.jp":true,"toda.saitama.jp":true,"tokigawa.saitama.jp":true,"tokorozawa.saitama.jp":true,"tsurugashima.saitama.jp":true,"urawa.saitama.jp":true,"warabi.saitama.jp":true,"yashio.saitama.jp":true,"yokoze.saitama.jp":true,"yono.saitama.jp":true,"yorii.saitama.jp":true,"yoshida.saitama.jp":true,"yoshikawa.saitama.jp":true,"yoshimi.saitama.jp":true,"aisho.shiga.jp":true,"gamo.shiga.jp":true,"higashiomi.shiga.jp":true,"hikone.shiga.jp":true,"koka.shiga.jp":true,"konan.shiga.jp":true,"kosei.shiga.jp":true,"koto.shiga.jp":true,"kusatsu.shiga.jp":true,"maibara.shiga.jp":true,"moriyama.shiga.jp":true,"nagahama.shiga.jp":true,"nishiazai.shiga.jp":true,"notogawa.shiga.jp":true,"omihachiman.shiga.jp":true,"otsu.shiga.jp":true,"ritto.shiga.jp":true,"ryuoh.shiga.jp":true,"takashima.shiga.jp":true,"takatsuki.shiga.jp":true,"torahime.shiga.jp":true,"toyosato.shiga.jp":true,"yasu.shiga.jp":true,"akagi.shimane.jp":true,"ama.shimane.jp":true,"gotsu.shimane.jp":true,"hamada.shimane.jp":true,"higashiizumo.shimane.jp":true,"hikawa.shimane.jp":true,"hikimi.shimane.jp":true,"izumo.shimane.jp":true,"kakinoki.shimane.jp":true,"masuda.shimane.jp":true,"matsue.shimane.jp":true,"misato.shimane.jp":true,"nishinoshima.shimane.jp":true,"ohda.shimane.jp":true,"okinoshima.shimane.jp":true,"okuizumo.shimane.jp":true,"shimane.shimane.jp":true,"tamayu.shimane.jp":true,"tsuwano.shimane.jp":true,"unnan.shimane.jp":true,"yakumo.shimane.jp":true,"yasugi.shimane.jp":true,"yatsuka.shimane.jp":true,"arai.shizuoka.jp":true,"atami.shizuoka.jp":true,"fuji.shizuoka.jp":true,"fujieda.shizuoka.jp":true,"fujikawa.shizuoka.jp":true,"fujinomiya.shizuoka.jp":true,"fukuroi.shizuoka.jp":true,"gotemba.shizuoka.jp":true,"haibara.shizuoka.jp":true,"hamamatsu.shizuoka.jp":true,"higashiizu.shizuoka.jp":true,"ito.shizuoka.jp":true,"iwata.shizuoka.jp":true,"izu.shizuoka.jp":true,"izunokuni.shizuoka.jp":true,"kakegawa.shizuoka.jp":true,"kannami.shizuoka.jp":true,"kawanehon.shizuoka.jp":true,"kawazu.shizuoka.jp":true,"kikugawa.shizuoka.jp":true,"kosai.shizuoka.jp":true,"makinohara.shizuoka.jp":true,"matsuzaki.shizuoka.jp":true,"minamiizu.shizuoka.jp":true,"mishima.shizuoka.jp":true,"morimachi.shizuoka.jp":true,"nishiizu.shizuoka.jp":true,"numazu.shizuoka.jp":true,"omaezaki.shizuoka.jp":true,"shimada.shizuoka.jp":true,"shimizu.shizuoka.jp":true,"shimoda.shizuoka.jp":true,"shizuoka.shizuoka.jp":true,"susono.shizuoka.jp":true,"yaizu.shizuoka.jp":true,"yoshida.shizuoka.jp":true,"ashikaga.tochigi.jp":true,"bato.tochigi.jp":true,"haga.tochigi.jp":true,"ichikai.tochigi.jp":true,"iwafune.tochigi.jp":true,"kaminokawa.tochigi.jp":true,"kanuma.tochigi.jp":true,"karasuyama.tochigi.jp":true,"kuroiso.tochigi.jp":true,"mashiko.tochigi.jp":true,"mibu.tochigi.jp":true,"moka.tochigi.jp":true,"motegi.tochigi.jp":true,"nasu.tochigi.jp":true,"nasushiobara.tochigi.jp":true,"nikko.tochigi.jp":true,"nishikata.tochigi.jp":true,"nogi.tochigi.jp":true,"ohira.tochigi.jp":true,"ohtawara.tochigi.jp":true,"oyama.tochigi.jp":true,"sakura.tochigi.jp":true,"sano.tochigi.jp":true,"shimotsuke.tochigi.jp":true,"shioya.tochigi.jp":true,"takanezawa.tochigi.jp":true,"tochigi.tochigi.jp":true,"tsuga.tochigi.jp":true,"ujiie.tochigi.jp":true,"utsunomiya.tochigi.jp":true,"yaita.tochigi.jp":true,"aizumi.tokushima.jp":true,"anan.tokushima.jp":true,"ichiba.tokushima.jp":true,"itano.tokushima.jp":true,"kainan.tokushima.jp":true,"komatsushima.tokushima.jp":true,"matsushige.tokushima.jp":true,"mima.tokushima.jp":true,"minami.tokushima.jp":true,"miyoshi.tokushima.jp":true,"mugi.tokushima.jp":true,"nakagawa.tokushima.jp":true,"naruto.tokushima.jp":true,"sanagochi.tokushima.jp":true,"shishikui.tokushima.jp":true,"tokushima.tokushima.jp":true,"wajiki.tokushima.jp":true,"adachi.tokyo.jp":true,"akiruno.tokyo.jp":true,"akishima.tokyo.jp":true,"aogashima.tokyo.jp":true,"arakawa.tokyo.jp":true,"bunkyo.tokyo.jp":true,"chiyoda.tokyo.jp":true,"chofu.tokyo.jp":true,"chuo.tokyo.jp":true,"edogawa.tokyo.jp":true,"fuchu.tokyo.jp":true,"fussa.tokyo.jp":true,"hachijo.tokyo.jp":true,"hachioji.tokyo.jp":true,"hamura.tokyo.jp":true,"higashikurume.tokyo.jp":true,"higashimurayama.tokyo.jp":true,"higashiyamato.tokyo.jp":true,"hino.tokyo.jp":true,"hinode.tokyo.jp":true,"hinohara.tokyo.jp":true,"inagi.tokyo.jp":true,"itabashi.tokyo.jp":true,"katsushika.tokyo.jp":true,"kita.tokyo.jp":true,"kiyose.tokyo.jp":true,"kodaira.tokyo.jp":true,"koganei.tokyo.jp":true,"kokubunji.tokyo.jp":true,"komae.tokyo.jp":true,"koto.tokyo.jp":true,"kouzushima.tokyo.jp":true,"kunitachi.tokyo.jp":true,"machida.tokyo.jp":true,"meguro.tokyo.jp":true,"minato.tokyo.jp":true,"mitaka.tokyo.jp":true,"mizuho.tokyo.jp":true,"musashimurayama.tokyo.jp":true,"musashino.tokyo.jp":true,"nakano.tokyo.jp":true,"nerima.tokyo.jp":true,"ogasawara.tokyo.jp":true,"okutama.tokyo.jp":true,"ome.tokyo.jp":true,"oshima.tokyo.jp":true,"ota.tokyo.jp":true,"setagaya.tokyo.jp":true,"shibuya.tokyo.jp":true,"shinagawa.tokyo.jp":true,"shinjuku.tokyo.jp":true,"suginami.tokyo.jp":true,"sumida.tokyo.jp":true,"tachikawa.tokyo.jp":true,"taito.tokyo.jp":true,"tama.tokyo.jp":true,"toshima.tokyo.jp":true,"chizu.tottori.jp":true,"hino.tottori.jp":true,"kawahara.tottori.jp":true,"koge.tottori.jp":true,"kotoura.tottori.jp":true,"misasa.tottori.jp":true,"nanbu.tottori.jp":true,"nichinan.tottori.jp":true,"sakaiminato.tottori.jp":true,"tottori.tottori.jp":true,"wakasa.tottori.jp":true,"yazu.tottori.jp":true,"yonago.tottori.jp":true,"asahi.toyama.jp":true,"fuchu.toyama.jp":true,"fukumitsu.toyama.jp":true,"funahashi.toyama.jp":true,"himi.toyama.jp":true,"imizu.toyama.jp":true,"inami.toyama.jp":true,"johana.toyama.jp":true,"kamiichi.toyama.jp":true,"kurobe.toyama.jp":true,"nakaniikawa.toyama.jp":true,"namerikawa.toyama.jp":true,"nanto.toyama.jp":true,"nyuzen.toyama.jp":true,"oyabe.toyama.jp":true,"taira.toyama.jp":true,"takaoka.toyama.jp":true,"tateyama.toyama.jp":true,"toga.toyama.jp":true,"tonami.toyama.jp":true,"toyama.toyama.jp":true,"unazuki.toyama.jp":true,"uozu.toyama.jp":true,"yamada.toyama.jp":true,"arida.wakayama.jp":true,"aridagawa.wakayama.jp":true,"gobo.wakayama.jp":true,"hashimoto.wakayama.jp":true,"hidaka.wakayama.jp":true,"hirogawa.wakayama.jp":true,"inami.wakayama.jp":true,"iwade.wakayama.jp":true,"kainan.wakayama.jp":true,"kamitonda.wakayama.jp":true,"katsuragi.wakayama.jp":true,"kimino.wakayama.jp":true,"kinokawa.wakayama.jp":true,"kitayama.wakayama.jp":true,"koya.wakayama.jp":true,"koza.wakayama.jp":true,"kozagawa.wakayama.jp":true,"kudoyama.wakayama.jp":true,"kushimoto.wakayama.jp":true,"mihama.wakayama.jp":true,"misato.wakayama.jp":true,"nachikatsuura.wakayama.jp":true,"shingu.wakayama.jp":true,"shirahama.wakayama.jp":true,"taiji.wakayama.jp":true,"tanabe.wakayama.jp":true,"wakayama.wakayama.jp":true,"yuasa.wakayama.jp":true,"yura.wakayama.jp":true,"asahi.yamagata.jp":true,"funagata.yamagata.jp":true,"higashine.yamagata.jp":true,"iide.yamagata.jp":true,"kahoku.yamagata.jp":true,"kaminoyama.yamagata.jp":true,"kaneyama.yamagata.jp":true,"kawanishi.yamagata.jp":true,"mamurogawa.yamagata.jp":true,"mikawa.yamagata.jp":true,"murayama.yamagata.jp":true,"nagai.yamagata.jp":true,"nakayama.yamagata.jp":true,"nanyo.yamagata.jp":true,"nishikawa.yamagata.jp":true,"obanazawa.yamagata.jp":true,"oe.yamagata.jp":true,"oguni.yamagata.jp":true,"ohkura.yamagata.jp":true,"oishida.yamagata.jp":true,"sagae.yamagata.jp":true,"sakata.yamagata.jp":true,"sakegawa.yamagata.jp":true,"shinjo.yamagata.jp":true,"shirataka.yamagata.jp":true,"shonai.yamagata.jp":true,"takahata.yamagata.jp":true,"tendo.yamagata.jp":true,"tozawa.yamagata.jp":true,"tsuruoka.yamagata.jp":true,"yamagata.yamagata.jp":true,"yamanobe.yamagata.jp":true,"yonezawa.yamagata.jp":true,"yuza.yamagata.jp":true,"abu.yamaguchi.jp":true,"hagi.yamaguchi.jp":true,"hikari.yamaguchi.jp":true,"hofu.yamaguchi.jp":true,"iwakuni.yamaguchi.jp":true,"kudamatsu.yamaguchi.jp":true,"mitou.yamaguchi.jp":true,"nagato.yamaguchi.jp":true,"oshima.yamaguchi.jp":true,"shimonoseki.yamaguchi.jp":true,"shunan.yamaguchi.jp":true,"tabuse.yamaguchi.jp":true,"tokuyama.yamaguchi.jp":true,"toyota.yamaguchi.jp":true,"ube.yamaguchi.jp":true,"yuu.yamaguchi.jp":true,"chuo.yamanashi.jp":true,"doshi.yamanashi.jp":true,"fuefuki.yamanashi.jp":true,"fujikawa.yamanashi.jp":true,"fujikawaguchiko.yamanashi.jp":true,"fujiyoshida.yamanashi.jp":true,"hayakawa.yamanashi.jp":true,"hokuto.yamanashi.jp":true,"ichikawamisato.yamanashi.jp":true,"kai.yamanashi.jp":true,"kofu.yamanashi.jp":true,"koshu.yamanashi.jp":true,"kosuge.yamanashi.jp":true,"minami-alps.yamanashi.jp":true,"minobu.yamanashi.jp":true,"nakamichi.yamanashi.jp":true,"nanbu.yamanashi.jp":true,"narusawa.yamanashi.jp":true,"nirasaki.yamanashi.jp":true,"nishikatsura.yamanashi.jp":true,"oshino.yamanashi.jp":true,"otsuki.yamanashi.jp":true,"showa.yamanashi.jp":true,"tabayama.yamanashi.jp":true,"tsuru.yamanashi.jp":true,"uenohara.yamanashi.jp":true,"yamanakako.yamanashi.jp":true,"yamanashi.yamanashi.jp":true,"ke":true,"ac.ke":true,"co.ke":true,"go.ke":true,"info.ke":true,"me.ke":true,"mobi.ke":true,"ne.ke":true,"or.ke":true,"sc.ke":true,"kg":true,"org.kg":true,"net.kg":true,"com.kg":true,"edu.kg":true,"gov.kg":true,"mil.kg":true,"*.kh":true,"ki":true,"edu.ki":true,"biz.ki":true,"net.ki":true,"org.ki":true,"gov.ki":true,"info.ki":true,"com.ki":true,"km":true,"org.km":true,"nom.km":true,"gov.km":true,"prd.km":true,"tm.km":true,"edu.km":true,"mil.km":true,"ass.km":true,"com.km":true,"coop.km":true,"asso.km":true,"presse.km":true,"medecin.km":true,"notaires.km":true,"pharmaciens.km":true,"veterinaire.km":true,"gouv.km":true,"kn":true,"net.kn":true,"org.kn":true,"edu.kn":true,"gov.kn":true,"kp":true,"com.kp":true,"edu.kp":true,"gov.kp":true,"org.kp":true,"rep.kp":true,"tra.kp":true,"kr":true,"ac.kr":true,"co.kr":true,"es.kr":true,"go.kr":true,"hs.kr":true,"kg.kr":true,"mil.kr":true,"ms.kr":true,"ne.kr":true,"or.kr":true,"pe.kr":true,"re.kr":true,"sc.kr":true,"busan.kr":true,"chungbuk.kr":true,"chungnam.kr":true,"daegu.kr":true,"daejeon.kr":true,"gangwon.kr":true,"gwangju.kr":true,"gyeongbuk.kr":true,"gyeonggi.kr":true,"gyeongnam.kr":true,"incheon.kr":true,"jeju.kr":true,"jeonbuk.kr":true,"jeonnam.kr":true,"seoul.kr":true,"ulsan.kr":true,"*.kw":true,"ky":true,"edu.ky":true,"gov.ky":true,"com.ky":true,"org.ky":true,"net.ky":true,"kz":true,"org.kz":true,"edu.kz":true,"net.kz":true,"gov.kz":true,"mil.kz":true,"com.kz":true,"la":true,"int.la":true,"net.la":true,"info.la":true,"edu.la":true,"gov.la":true,"per.la":true,"com.la":true,"org.la":true,"lb":true,"com.lb":true,"edu.lb":true,"gov.lb":true,"net.lb":true,"org.lb":true,"lc":true,"com.lc":true,"net.lc":true,"co.lc":true,"org.lc":true,"edu.lc":true,"gov.lc":true,"li":true,"lk":true,"gov.lk":true,"sch.lk":true,"net.lk":true,"int.lk":true,"com.lk":true,"org.lk":true,"edu.lk":true,"ngo.lk":true,"soc.lk":true,"web.lk":true,"ltd.lk":true,"assn.lk":true,"grp.lk":true,"hotel.lk":true,"ac.lk":true,"lr":true,"com.lr":true,"edu.lr":true,"gov.lr":true,"org.lr":true,"net.lr":true,"ls":true,"co.ls":true,"org.ls":true,"lt":true,"gov.lt":true,"lu":true,"lv":true,"com.lv":true,"edu.lv":true,"gov.lv":true,"org.lv":true,"mil.lv":true,"id.lv":true,"net.lv":true,"asn.lv":true,"conf.lv":true,"ly":true,"com.ly":true,"net.ly":true,"gov.ly":true,"plc.ly":true,"edu.ly":true,"sch.ly":true,"med.ly":true,"org.ly":true,"id.ly":true,"ma":true,"co.ma":true,"net.ma":true,"gov.ma":true,"org.ma":true,"ac.ma":true,"press.ma":true,"mc":true,"tm.mc":true,"asso.mc":true,"md":true,"me":true,"co.me":true,"net.me":true,"org.me":true,"edu.me":true,"ac.me":true,"gov.me":true,"its.me":true,"priv.me":true,"mg":true,"org.mg":true,"nom.mg":true,"gov.mg":true,"prd.mg":true,"tm.mg":true,"edu.mg":true,"mil.mg":true,"com.mg":true,"co.mg":true,"mh":true,"mil":true,"mk":true,"com.mk":true,"org.mk":true,"net.mk":true,"edu.mk":true,"gov.mk":true,"inf.mk":true,"name.mk":true,"ml":true,"com.ml":true,"edu.ml":true,"gouv.ml":true,"gov.ml":true,"net.ml":true,"org.ml":true,"presse.ml":true,"*.mm":true,"mn":true,"gov.mn":true,"edu.mn":true,"org.mn":true,"mo":true,"com.mo":true,"net.mo":true,"org.mo":true,"edu.mo":true,"gov.mo":true,"mobi":true,"mp":true,"mq":true,"mr":true,"gov.mr":true,"ms":true,"com.ms":true,"edu.ms":true,"gov.ms":true,"net.ms":true,"org.ms":true,"mt":true,"com.mt":true,"edu.mt":true,"net.mt":true,"org.mt":true,"mu":true,"com.mu":true,"net.mu":true,"org.mu":true,"gov.mu":true,"ac.mu":true,"co.mu":true,"or.mu":true,"museum":true,"academy.museum":true,"agriculture.museum":true,"air.museum":true,"airguard.museum":true,"alabama.museum":true,"alaska.museum":true,"amber.museum":true,"ambulance.museum":true,"american.museum":true,"americana.museum":true,"americanantiques.museum":true,"americanart.museum":true,"amsterdam.museum":true,"and.museum":true,"annefrank.museum":true,"anthro.museum":true,"anthropology.museum":true,"antiques.museum":true,"aquarium.museum":true,"arboretum.museum":true,"archaeological.museum":true,"archaeology.museum":true,"architecture.museum":true,"art.museum":true,"artanddesign.museum":true,"artcenter.museum":true,"artdeco.museum":true,"arteducation.museum":true,"artgallery.museum":true,"arts.museum":true,"artsandcrafts.museum":true,"asmatart.museum":true,"assassination.museum":true,"assisi.museum":true,"association.museum":true,"astronomy.museum":true,"atlanta.museum":true,"austin.museum":true,"australia.museum":true,"automotive.museum":true,"aviation.museum":true,"axis.museum":true,"badajoz.museum":true,"baghdad.museum":true,"bahn.museum":true,"bale.museum":true,"baltimore.museum":true,"barcelona.museum":true,"baseball.museum":true,"basel.museum":true,"baths.museum":true,"bauern.museum":true,"beauxarts.museum":true,"beeldengeluid.museum":true,"bellevue.museum":true,"bergbau.museum":true,"berkeley.museum":true,"berlin.museum":true,"bern.museum":true,"bible.museum":true,"bilbao.museum":true,"bill.museum":true,"birdart.museum":true,"birthplace.museum":true,"bonn.museum":true,"boston.museum":true,"botanical.museum":true,"botanicalgarden.museum":true,"botanicgarden.museum":true,"botany.museum":true,"brandywinevalley.museum":true,"brasil.museum":true,"bristol.museum":true,"british.museum":true,"britishcolumbia.museum":true,"broadcast.museum":true,"brunel.museum":true,"brussel.museum":true,"brussels.museum":true,"bruxelles.museum":true,"building.museum":true,"burghof.museum":true,"bus.museum":true,"bushey.museum":true,"cadaques.museum":true,"california.museum":true,"cambridge.museum":true,"can.museum":true,"canada.museum":true,"capebreton.museum":true,"carrier.museum":true,"cartoonart.museum":true,"casadelamoneda.museum":true,"castle.museum":true,"castres.museum":true,"celtic.museum":true,"center.museum":true,"chattanooga.museum":true,"cheltenham.museum":true,"chesapeakebay.museum":true,"chicago.museum":true,"children.museum":true,"childrens.museum":true,"childrensgarden.museum":true,"chiropractic.museum":true,"chocolate.museum":true,"christiansburg.museum":true,"cincinnati.museum":true,"cinema.museum":true,"circus.museum":true,"civilisation.museum":true,"civilization.museum":true,"civilwar.museum":true,"clinton.museum":true,"clock.museum":true,"coal.museum":true,"coastaldefence.museum":true,"cody.museum":true,"coldwar.museum":true,"collection.museum":true,"colonialwilliamsburg.museum":true,"coloradoplateau.museum":true,"columbia.museum":true,"columbus.museum":true,"communication.museum":true,"communications.museum":true,"community.museum":true,"computer.museum":true,"computerhistory.museum":true,"xn--comunicaes-v6a2o.museum":true,"contemporary.museum":true,"contemporaryart.museum":true,"convent.museum":true,"copenhagen.museum":true,"corporation.museum":true,"xn--correios-e-telecomunicaes-ghc29a.museum":true,"corvette.museum":true,"costume.museum":true,"countryestate.museum":true,"county.museum":true,"crafts.museum":true,"cranbrook.museum":true,"creation.museum":true,"cultural.museum":true,"culturalcenter.museum":true,"culture.museum":true,"cyber.museum":true,"cymru.museum":true,"dali.museum":true,"dallas.museum":true,"database.museum":true,"ddr.museum":true,"decorativearts.museum":true,"delaware.museum":true,"delmenhorst.museum":true,"denmark.museum":true,"depot.museum":true,"design.museum":true,"detroit.museum":true,"dinosaur.museum":true,"discovery.museum":true,"dolls.museum":true,"donostia.museum":true,"durham.museum":true,"eastafrica.museum":true,"eastcoast.museum":true,"education.museum":true,"educational.museum":true,"egyptian.museum":true,"eisenbahn.museum":true,"elburg.museum":true,"elvendrell.museum":true,"embroidery.museum":true,"encyclopedic.museum":true,"england.museum":true,"entomology.museum":true,"environment.museum":true,"environmentalconservation.museum":true,"epilepsy.museum":true,"essex.museum":true,"estate.museum":true,"ethnology.museum":true,"exeter.museum":true,"exhibition.museum":true,"family.museum":true,"farm.museum":true,"farmequipment.museum":true,"farmers.museum":true,"farmstead.museum":true,"field.museum":true,"figueres.museum":true,"filatelia.museum":true,"film.museum":true,"fineart.museum":true,"finearts.museum":true,"finland.museum":true,"flanders.museum":true,"florida.museum":true,"force.museum":true,"fortmissoula.museum":true,"fortworth.museum":true,"foundation.museum":true,"francaise.museum":true,"frankfurt.museum":true,"franziskaner.museum":true,"freemasonry.museum":true,"freiburg.museum":true,"fribourg.museum":true,"frog.museum":true,"fundacio.museum":true,"furniture.museum":true,"gallery.museum":true,"garden.museum":true,"gateway.museum":true,"geelvinck.museum":true,"gemological.museum":true,"geology.museum":true,"georgia.museum":true,"giessen.museum":true,"glas.museum":true,"glass.museum":true,"gorge.museum":true,"grandrapids.museum":true,"graz.museum":true,"guernsey.museum":true,"halloffame.museum":true,"hamburg.museum":true,"handson.museum":true,"harvestcelebration.museum":true,"hawaii.museum":true,"health.museum":true,"heimatunduhren.museum":true,"hellas.museum":true,"helsinki.museum":true,"hembygdsforbund.museum":true,"heritage.museum":true,"histoire.museum":true,"historical.museum":true,"historicalsociety.museum":true,"historichouses.museum":true,"historisch.museum":true,"historisches.museum":true,"history.museum":true,"historyofscience.museum":true,"horology.museum":true,"house.museum":true,"humanities.museum":true,"illustration.museum":true,"imageandsound.museum":true,"indian.museum":true,"indiana.museum":true,"indianapolis.museum":true,"indianmarket.museum":true,"intelligence.museum":true,"interactive.museum":true,"iraq.museum":true,"iron.museum":true,"isleofman.museum":true,"jamison.museum":true,"jefferson.museum":true,"jerusalem.museum":true,"jewelry.museum":true,"jewish.museum":true,"jewishart.museum":true,"jfk.museum":true,"journalism.museum":true,"judaica.museum":true,"judygarland.museum":true,"juedisches.museum":true,"juif.museum":true,"karate.museum":true,"karikatur.museum":true,"kids.museum":true,"koebenhavn.museum":true,"koeln.museum":true,"kunst.museum":true,"kunstsammlung.museum":true,"kunstunddesign.museum":true,"labor.museum":true,"labour.museum":true,"lajolla.museum":true,"lancashire.museum":true,"landes.museum":true,"lans.museum":true,"xn--lns-qla.museum":true,"larsson.museum":true,"lewismiller.museum":true,"lincoln.museum":true,"linz.museum":true,"living.museum":true,"livinghistory.museum":true,"localhistory.museum":true,"london.museum":true,"losangeles.museum":true,"louvre.museum":true,"loyalist.museum":true,"lucerne.museum":true,"luxembourg.museum":true,"luzern.museum":true,"mad.museum":true,"madrid.museum":true,"mallorca.museum":true,"manchester.museum":true,"mansion.museum":true,"mansions.museum":true,"manx.museum":true,"marburg.museum":true,"maritime.museum":true,"maritimo.museum":true,"maryland.museum":true,"marylhurst.museum":true,"media.museum":true,"medical.museum":true,"medizinhistorisches.museum":true,"meeres.museum":true,"memorial.museum":true,"mesaverde.museum":true,"michigan.museum":true,"midatlantic.museum":true,"military.museum":true,"mill.museum":true,"miners.museum":true,"mining.museum":true,"minnesota.museum":true,"missile.museum":true,"missoula.museum":true,"modern.museum":true,"moma.museum":true,"money.museum":true,"monmouth.museum":true,"monticello.museum":true,"montreal.museum":true,"moscow.museum":true,"motorcycle.museum":true,"muenchen.museum":true,"muenster.museum":true,"mulhouse.museum":true,"muncie.museum":true,"museet.museum":true,"museumcenter.museum":true,"museumvereniging.museum":true,"music.museum":true,"national.museum":true,"nationalfirearms.museum":true,"nationalheritage.museum":true,"nativeamerican.museum":true,"naturalhistory.museum":true,"naturalhistorymuseum.museum":true,"naturalsciences.museum":true,"nature.museum":true,"naturhistorisches.museum":true,"natuurwetenschappen.museum":true,"naumburg.museum":true,"naval.museum":true,"nebraska.museum":true,"neues.museum":true,"newhampshire.museum":true,"newjersey.museum":true,"newmexico.museum":true,"newport.museum":true,"newspaper.museum":true,"newyork.museum":true,"niepce.museum":true,"norfolk.museum":true,"north.museum":true,"nrw.museum":true,"nuernberg.museum":true,"nuremberg.museum":true,"nyc.museum":true,"nyny.museum":true,"oceanographic.museum":true,"oceanographique.museum":true,"omaha.museum":true,"online.museum":true,"ontario.museum":true,"openair.museum":true,"oregon.museum":true,"oregontrail.museum":true,"otago.museum":true,"oxford.museum":true,"pacific.museum":true,"paderborn.museum":true,"palace.museum":true,"paleo.museum":true,"palmsprings.museum":true,"panama.museum":true,"paris.museum":true,"pasadena.museum":true,"pharmacy.museum":true,"philadelphia.museum":true,"philadelphiaarea.museum":true,"philately.museum":true,"phoenix.museum":true,"photography.museum":true,"pilots.museum":true,"pittsburgh.museum":true,"planetarium.museum":true,"plantation.museum":true,"plants.museum":true,"plaza.museum":true,"portal.museum":true,"portland.museum":true,"portlligat.museum":true,"posts-and-telecommunications.museum":true,"preservation.museum":true,"presidio.museum":true,"press.museum":true,"project.museum":true,"public.museum":true,"pubol.museum":true,"quebec.museum":true,"railroad.museum":true,"railway.museum":true,"research.museum":true,"resistance.museum":true,"riodejaneiro.museum":true,"rochester.museum":true,"rockart.museum":true,"roma.museum":true,"russia.museum":true,"saintlouis.museum":true,"salem.museum":true,"salvadordali.museum":true,"salzburg.museum":true,"sandiego.museum":true,"sanfrancisco.museum":true,"santabarbara.museum":true,"santacruz.museum":true,"santafe.museum":true,"saskatchewan.museum":true,"satx.museum":true,"savannahga.museum":true,"schlesisches.museum":true,"schoenbrunn.museum":true,"schokoladen.museum":true,"school.museum":true,"schweiz.museum":true,"science.museum":true,"scienceandhistory.museum":true,"scienceandindustry.museum":true,"sciencecenter.museum":true,"sciencecenters.museum":true,"science-fiction.museum":true,"sciencehistory.museum":true,"sciences.museum":true,"sciencesnaturelles.museum":true,"scotland.museum":true,"seaport.museum":true,"settlement.museum":true,"settlers.museum":true,"shell.museum":true,"sherbrooke.museum":true,"sibenik.museum":true,"silk.museum":true,"ski.museum":true,"skole.museum":true,"society.museum":true,"sologne.museum":true,"soundandvision.museum":true,"southcarolina.museum":true,"southwest.museum":true,"space.museum":true,"spy.museum":true,"square.museum":true,"stadt.museum":true,"stalbans.museum":true,"starnberg.museum":true,"state.museum":true,"stateofdelaware.museum":true,"station.museum":true,"steam.museum":true,"steiermark.museum":true,"stjohn.museum":true,"stockholm.museum":true,"stpetersburg.museum":true,"stuttgart.museum":true,"suisse.museum":true,"surgeonshall.museum":true,"surrey.museum":true,"svizzera.museum":true,"sweden.museum":true,"sydney.museum":true,"tank.museum":true,"tcm.museum":true,"technology.museum":true,"telekommunikation.museum":true,"television.museum":true,"texas.museum":true,"textile.museum":true,"theater.museum":true,"time.museum":true,"timekeeping.museum":true,"topology.museum":true,"torino.museum":true,"touch.museum":true,"town.museum":true,"transport.museum":true,"tree.museum":true,"trolley.museum":true,"trust.museum":true,"trustee.museum":true,"uhren.museum":true,"ulm.museum":true,"undersea.museum":true,"university.museum":true,"usa.museum":true,"usantiques.museum":true,"usarts.museum":true,"uscountryestate.museum":true,"usculture.museum":true,"usdecorativearts.museum":true,"usgarden.museum":true,"ushistory.museum":true,"ushuaia.museum":true,"uslivinghistory.museum":true,"utah.museum":true,"uvic.museum":true,"valley.museum":true,"vantaa.museum":true,"versailles.museum":true,"viking.museum":true,"village.museum":true,"virginia.museum":true,"virtual.museum":true,"virtuel.museum":true,"vlaanderen.museum":true,"volkenkunde.museum":true,"wales.museum":true,"wallonie.museum":true,"war.museum":true,"washingtondc.museum":true,"watchandclock.museum":true,"watch-and-clock.museum":true,"western.museum":true,"westfalen.museum":true,"whaling.museum":true,"wildlife.museum":true,"williamsburg.museum":true,"windmill.museum":true,"workshop.museum":true,"york.museum":true,"yorkshire.museum":true,"yosemite.museum":true,"youth.museum":true,"zoological.museum":true,"zoology.museum":true,"xn--9dbhblg6di.museum":true,"xn--h1aegh.museum":true,"mv":true,"aero.mv":true,"biz.mv":true,"com.mv":true,"coop.mv":true,"edu.mv":true,"gov.mv":true,"info.mv":true,"int.mv":true,"mil.mv":true,"museum.mv":true,"name.mv":true,"net.mv":true,"org.mv":true,"pro.mv":true,"mw":true,"ac.mw":true,"biz.mw":true,"co.mw":true,"com.mw":true,"coop.mw":true,"edu.mw":true,"gov.mw":true,"int.mw":true,"museum.mw":true,"net.mw":true,"org.mw":true,"mx":true,"com.mx":true,"org.mx":true,"gob.mx":true,"edu.mx":true,"net.mx":true,"my":true,"com.my":true,"net.my":true,"org.my":true,"gov.my":true,"edu.my":true,"mil.my":true,"name.my":true,"mz":true,"ac.mz":true,"adv.mz":true,"co.mz":true,"edu.mz":true,"gov.mz":true,"mil.mz":true,"net.mz":true,"org.mz":true,"na":true,"info.na":true,"pro.na":true,"name.na":true,"school.na":true,"or.na":true,"dr.na":true,"us.na":true,"mx.na":true,"ca.na":true,"in.na":true,"cc.na":true,"tv.na":true,"ws.na":true,"mobi.na":true,"co.na":true,"com.na":true,"org.na":true,"name":true,"nc":true,"asso.nc":true,"nom.nc":true,"ne":true,"net":true,"nf":true,"com.nf":true,"net.nf":true,"per.nf":true,"rec.nf":true,"web.nf":true,"arts.nf":true,"firm.nf":true,"info.nf":true,"other.nf":true,"store.nf":true,"ng":true,"com.ng":true,"edu.ng":true,"gov.ng":true,"i.ng":true,"mil.ng":true,"mobi.ng":true,"name.ng":true,"net.ng":true,"org.ng":true,"sch.ng":true,"ni":true,"ac.ni":true,"biz.ni":true,"co.ni":true,"com.ni":true,"edu.ni":true,"gob.ni":true,"in.ni":true,"info.ni":true,"int.ni":true,"mil.ni":true,"net.ni":true,"nom.ni":true,"org.ni":true,"web.ni":true,"nl":true,"bv.nl":true,"no":true,"fhs.no":true,"vgs.no":true,"fylkesbibl.no":true,"folkebibl.no":true,"museum.no":true,"idrett.no":true,"priv.no":true,"mil.no":true,"stat.no":true,"dep.no":true,"kommune.no":true,"herad.no":true,"aa.no":true,"ah.no":true,"bu.no":true,"fm.no":true,"hl.no":true,"hm.no":true,"jan-mayen.no":true,"mr.no":true,"nl.no":true,"nt.no":true,"of.no":true,"ol.no":true,"oslo.no":true,"rl.no":true,"sf.no":true,"st.no":true,"svalbard.no":true,"tm.no":true,"tr.no":true,"va.no":true,"vf.no":true,"gs.aa.no":true,"gs.ah.no":true,"gs.bu.no":true,"gs.fm.no":true,"gs.hl.no":true,"gs.hm.no":true,"gs.jan-mayen.no":true,"gs.mr.no":true,"gs.nl.no":true,"gs.nt.no":true,"gs.of.no":true,"gs.ol.no":true,"gs.oslo.no":true,"gs.rl.no":true,"gs.sf.no":true,"gs.st.no":true,"gs.svalbard.no":true,"gs.tm.no":true,"gs.tr.no":true,"gs.va.no":true,"gs.vf.no":true,"akrehamn.no":true,"xn--krehamn-dxa.no":true,"algard.no":true,"xn--lgrd-poac.no":true,"arna.no":true,"brumunddal.no":true,"bryne.no":true,"bronnoysund.no":true,"xn--brnnysund-m8ac.no":true,"drobak.no":true,"xn--drbak-wua.no":true,"egersund.no":true,"fetsund.no":true,"floro.no":true,"xn--flor-jra.no":true,"fredrikstad.no":true,"hokksund.no":true,"honefoss.no":true,"xn--hnefoss-q1a.no":true,"jessheim.no":true,"jorpeland.no":true,"xn--jrpeland-54a.no":true,"kirkenes.no":true,"kopervik.no":true,"krokstadelva.no":true,"langevag.no":true,"xn--langevg-jxa.no":true,"leirvik.no":true,"mjondalen.no":true,"xn--mjndalen-64a.no":true,"mo-i-rana.no":true,"mosjoen.no":true,"xn--mosjen-eya.no":true,"nesoddtangen.no":true,"orkanger.no":true,"osoyro.no":true,"xn--osyro-wua.no":true,"raholt.no":true,"xn--rholt-mra.no":true,"sandnessjoen.no":true,"xn--sandnessjen-ogb.no":true,"skedsmokorset.no":true,"slattum.no":true,"spjelkavik.no":true,"stathelle.no":true,"stavern.no":true,"stjordalshalsen.no":true,"xn--stjrdalshalsen-sqb.no":true,"tananger.no":true,"tranby.no":true,"vossevangen.no":true,"afjord.no":true,"xn--fjord-lra.no":true,"agdenes.no":true,"al.no":true,"xn--l-1fa.no":true,"alesund.no":true,"xn--lesund-hua.no":true,"alstahaug.no":true,"alta.no":true,"xn--lt-liac.no":true,"alaheadju.no":true,"xn--laheadju-7ya.no":true,"alvdal.no":true,"amli.no":true,"xn--mli-tla.no":true,"amot.no":true,"xn--mot-tla.no":true,"andebu.no":true,"andoy.no":true,"xn--andy-ira.no":true,"andasuolo.no":true,"ardal.no":true,"xn--rdal-poa.no":true,"aremark.no":true,"arendal.no":true,"xn--s-1fa.no":true,"aseral.no":true,"xn--seral-lra.no":true,"asker.no":true,"askim.no":true,"askvoll.no":true,"askoy.no":true,"xn--asky-ira.no":true,"asnes.no":true,"xn--snes-poa.no":true,"audnedaln.no":true,"aukra.no":true,"aure.no":true,"aurland.no":true,"aurskog-holand.no":true,"xn--aurskog-hland-jnb.no":true,"austevoll.no":true,"austrheim.no":true,"averoy.no":true,"xn--avery-yua.no":true,"balestrand.no":true,"ballangen.no":true,"balat.no":true,"xn--blt-elab.no":true,"balsfjord.no":true,"bahccavuotna.no":true,"xn--bhccavuotna-k7a.no":true,"bamble.no":true,"bardu.no":true,"beardu.no":true,"beiarn.no":true,"bajddar.no":true,"xn--bjddar-pta.no":true,"baidar.no":true,"xn--bidr-5nac.no":true,"berg.no":true,"bergen.no":true,"berlevag.no":true,"xn--berlevg-jxa.no":true,"bearalvahki.no":true,"xn--bearalvhki-y4a.no":true,"bindal.no":true,"birkenes.no":true,"bjarkoy.no":true,"xn--bjarky-fya.no":true,"bjerkreim.no":true,"bjugn.no":true,"bodo.no":true,"xn--bod-2na.no":true,"badaddja.no":true,"xn--bdddj-mrabd.no":true,"budejju.no":true,"bokn.no":true,"bremanger.no":true,"bronnoy.no":true,"xn--brnny-wuac.no":true,"bygland.no":true,"bykle.no":true,"barum.no":true,"xn--brum-voa.no":true,"bo.telemark.no":true,"xn--b-5ga.telemark.no":true,"bo.nordland.no":true,"xn--b-5ga.nordland.no":true,"bievat.no":true,"xn--bievt-0qa.no":true,"bomlo.no":true,"xn--bmlo-gra.no":true,"batsfjord.no":true,"xn--btsfjord-9za.no":true,"bahcavuotna.no":true,"xn--bhcavuotna-s4a.no":true,"dovre.no":true,"drammen.no":true,"drangedal.no":true,"dyroy.no":true,"xn--dyry-ira.no":true,"donna.no":true,"xn--dnna-gra.no":true,"eid.no":true,"eidfjord.no":true,"eidsberg.no":true,"eidskog.no":true,"eidsvoll.no":true,"eigersund.no":true,"elverum.no":true,"enebakk.no":true,"engerdal.no":true,"etne.no":true,"etnedal.no":true,"evenes.no":true,"evenassi.no":true,"xn--eveni-0qa01ga.no":true,"evje-og-hornnes.no":true,"farsund.no":true,"fauske.no":true,"fuossko.no":true,"fuoisku.no":true,"fedje.no":true,"fet.no":true,"finnoy.no":true,"xn--finny-yua.no":true,"fitjar.no":true,"fjaler.no":true,"fjell.no":true,"flakstad.no":true,"flatanger.no":true,"flekkefjord.no":true,"flesberg.no":true,"flora.no":true,"fla.no":true,"xn--fl-zia.no":true,"folldal.no":true,"forsand.no":true,"fosnes.no":true,"frei.no":true,"frogn.no":true,"froland.no":true,"frosta.no":true,"frana.no":true,"xn--frna-woa.no":true,"froya.no":true,"xn--frya-hra.no":true,"fusa.no":true,"fyresdal.no":true,"forde.no":true,"xn--frde-gra.no":true,"gamvik.no":true,"gangaviika.no":true,"xn--ggaviika-8ya47h.no":true,"gaular.no":true,"gausdal.no":true,"gildeskal.no":true,"xn--gildeskl-g0a.no":true,"giske.no":true,"gjemnes.no":true,"gjerdrum.no":true,"gjerstad.no":true,"gjesdal.no":true,"gjovik.no":true,"xn--gjvik-wua.no":true,"gloppen.no":true,"gol.no":true,"gran.no":true,"grane.no":true,"granvin.no":true,"gratangen.no":true,"grimstad.no":true,"grong.no":true,"kraanghke.no":true,"xn--kranghke-b0a.no":true,"grue.no":true,"gulen.no":true,"hadsel.no":true,"halden.no":true,"halsa.no":true,"hamar.no":true,"hamaroy.no":true,"habmer.no":true,"xn--hbmer-xqa.no":true,"hapmir.no":true,"xn--hpmir-xqa.no":true,"hammerfest.no":true,"hammarfeasta.no":true,"xn--hmmrfeasta-s4ac.no":true,"haram.no":true,"hareid.no":true,"harstad.no":true,"hasvik.no":true,"aknoluokta.no":true,"xn--koluokta-7ya57h.no":true,"hattfjelldal.no":true,"aarborte.no":true,"haugesund.no":true,"hemne.no":true,"hemnes.no":true,"hemsedal.no":true,"heroy.more-og-romsdal.no":true,"xn--hery-ira.xn--mre-og-romsdal-qqb.no":true,"heroy.nordland.no":true,"xn--hery-ira.nordland.no":true,"hitra.no":true,"hjartdal.no":true,"hjelmeland.no":true,"hobol.no":true,"xn--hobl-ira.no":true,"hof.no":true,"hol.no":true,"hole.no":true,"holmestrand.no":true,"holtalen.no":true,"xn--holtlen-hxa.no":true,"hornindal.no":true,"horten.no":true,"hurdal.no":true,"hurum.no":true,"hvaler.no":true,"hyllestad.no":true,"hagebostad.no":true,"xn--hgebostad-g3a.no":true,"hoyanger.no":true,"xn--hyanger-q1a.no":true,"hoylandet.no":true,"xn--hylandet-54a.no":true,"ha.no":true,"xn--h-2fa.no":true,"ibestad.no":true,"inderoy.no":true,"xn--indery-fya.no":true,"iveland.no":true,"jevnaker.no":true,"jondal.no":true,"jolster.no":true,"xn--jlster-bya.no":true,"karasjok.no":true,"karasjohka.no":true,"xn--krjohka-hwab49j.no":true,"karlsoy.no":true,"galsa.no":true,"xn--gls-elac.no":true,"karmoy.no":true,"xn--karmy-yua.no":true,"kautokeino.no":true,"guovdageaidnu.no":true,"klepp.no":true,"klabu.no":true,"xn--klbu-woa.no":true,"kongsberg.no":true,"kongsvinger.no":true,"kragero.no":true,"xn--krager-gya.no":true,"kristiansand.no":true,"kristiansund.no":true,"krodsherad.no":true,"xn--krdsherad-m8a.no":true,"kvalsund.no":true,"rahkkeravju.no":true,"xn--rhkkervju-01af.no":true,"kvam.no":true,"kvinesdal.no":true,"kvinnherad.no":true,"kviteseid.no":true,"kvitsoy.no":true,"xn--kvitsy-fya.no":true,"kvafjord.no":true,"xn--kvfjord-nxa.no":true,"giehtavuoatna.no":true,"kvanangen.no":true,"xn--kvnangen-k0a.no":true,"navuotna.no":true,"xn--nvuotna-hwa.no":true,"kafjord.no":true,"xn--kfjord-iua.no":true,"gaivuotna.no":true,"xn--givuotna-8ya.no":true,"larvik.no":true,"lavangen.no":true,"lavagis.no":true,"loabat.no":true,"xn--loabt-0qa.no":true,"lebesby.no":true,"davvesiida.no":true,"leikanger.no":true,"leirfjord.no":true,"leka.no":true,"leksvik.no":true,"lenvik.no":true,"leangaviika.no":true,"xn--leagaviika-52b.no":true,"lesja.no":true,"levanger.no":true,"lier.no":true,"lierne.no":true,"lillehammer.no":true,"lillesand.no":true,"lindesnes.no":true,"lindas.no":true,"xn--linds-pra.no":true,"lom.no":true,"loppa.no":true,"lahppi.no":true,"xn--lhppi-xqa.no":true,"lund.no":true,"lunner.no":true,"luroy.no":true,"xn--lury-ira.no":true,"luster.no":true,"lyngdal.no":true,"lyngen.no":true,"ivgu.no":true,"lardal.no":true,"lerdal.no":true,"xn--lrdal-sra.no":true,"lodingen.no":true,"xn--ldingen-q1a.no":true,"lorenskog.no":true,"xn--lrenskog-54a.no":true,"loten.no":true,"xn--lten-gra.no":true,"malvik.no":true,"masoy.no":true,"xn--msy-ula0h.no":true,"muosat.no":true,"xn--muost-0qa.no":true,"mandal.no":true,"marker.no":true,"marnardal.no":true,"masfjorden.no":true,"meland.no":true,"meldal.no":true,"melhus.no":true,"meloy.no":true,"xn--mely-ira.no":true,"meraker.no":true,"xn--merker-kua.no":true,"moareke.no":true,"xn--moreke-jua.no":true,"midsund.no":true,"midtre-gauldal.no":true,"modalen.no":true,"modum.no":true,"molde.no":true,"moskenes.no":true,"moss.no":true,"mosvik.no":true,"malselv.no":true,"xn--mlselv-iua.no":true,"malatvuopmi.no":true,"xn--mlatvuopmi-s4a.no":true,"namdalseid.no":true,"aejrie.no":true,"namsos.no":true,"namsskogan.no":true,"naamesjevuemie.no":true,"xn--nmesjevuemie-tcba.no":true,"laakesvuemie.no":true,"nannestad.no":true,"narvik.no":true,"narviika.no":true,"naustdal.no":true,"nedre-eiker.no":true,"nes.akershus.no":true,"nes.buskerud.no":true,"nesna.no":true,"nesodden.no":true,"nesseby.no":true,"unjarga.no":true,"xn--unjrga-rta.no":true,"nesset.no":true,"nissedal.no":true,"nittedal.no":true,"nord-aurdal.no":true,"nord-fron.no":true,"nord-odal.no":true,"norddal.no":true,"nordkapp.no":true,"davvenjarga.no":true,"xn--davvenjrga-y4a.no":true,"nordre-land.no":true,"nordreisa.no":true,"raisa.no":true,"xn--risa-5na.no":true,"nore-og-uvdal.no":true,"notodden.no":true,"naroy.no":true,"xn--nry-yla5g.no":true,"notteroy.no":true,"xn--nttery-byae.no":true,"odda.no":true,"oksnes.no":true,"xn--ksnes-uua.no":true,"oppdal.no":true,"oppegard.no":true,"xn--oppegrd-ixa.no":true,"orkdal.no":true,"orland.no":true,"xn--rland-uua.no":true,"orskog.no":true,"xn--rskog-uua.no":true,"orsta.no":true,"xn--rsta-fra.no":true,"os.hedmark.no":true,"os.hordaland.no":true,"osen.no":true,"osteroy.no":true,"xn--ostery-fya.no":true,"ostre-toten.no":true,"xn--stre-toten-zcb.no":true,"overhalla.no":true,"ovre-eiker.no":true,"xn--vre-eiker-k8a.no":true,"oyer.no":true,"xn--yer-zna.no":true,"oygarden.no":true,"xn--ygarden-p1a.no":true,"oystre-slidre.no":true,"xn--ystre-slidre-ujb.no":true,"porsanger.no":true,"porsangu.no":true,"xn--porsgu-sta26f.no":true,"porsgrunn.no":true,"radoy.no":true,"xn--rady-ira.no":true,"rakkestad.no":true,"rana.no":true,"ruovat.no":true,"randaberg.no":true,"rauma.no":true,"rendalen.no":true,"rennebu.no":true,"rennesoy.no":true,"xn--rennesy-v1a.no":true,"rindal.no":true,"ringebu.no":true,"ringerike.no":true,"ringsaker.no":true,"rissa.no":true,"risor.no":true,"xn--risr-ira.no":true,"roan.no":true,"rollag.no":true,"rygge.no":true,"ralingen.no":true,"xn--rlingen-mxa.no":true,"rodoy.no":true,"xn--rdy-0nab.no":true,"romskog.no":true,"xn--rmskog-bya.no":true,"roros.no":true,"xn--rros-gra.no":true,"rost.no":true,"xn--rst-0na.no":true,"royken.no":true,"xn--ryken-vua.no":true,"royrvik.no":true,"xn--ryrvik-bya.no":true,"rade.no":true,"xn--rde-ula.no":true,"salangen.no":true,"siellak.no":true,"saltdal.no":true,"salat.no":true,"xn--slt-elab.no":true,"xn--slat-5na.no":true,"samnanger.no":true,"sande.more-og-romsdal.no":true,"sande.xn--mre-og-romsdal-qqb.no":true,"sande.vestfold.no":true,"sandefjord.no":true,"sandnes.no":true,"sandoy.no":true,"xn--sandy-yua.no":true,"sarpsborg.no":true,"sauda.no":true,"sauherad.no":true,"sel.no":true,"selbu.no":true,"selje.no":true,"seljord.no":true,"sigdal.no":true,"siljan.no":true,"sirdal.no":true,"skaun.no":true,"skedsmo.no":true,"ski.no":true,"skien.no":true,"skiptvet.no":true,"skjervoy.no":true,"xn--skjervy-v1a.no":true,"skierva.no":true,"xn--skierv-uta.no":true,"skjak.no":true,"xn--skjk-soa.no":true,"skodje.no":true,"skanland.no":true,"xn--sknland-fxa.no":true,"skanit.no":true,"xn--sknit-yqa.no":true,"smola.no":true,"xn--smla-hra.no":true,"snillfjord.no":true,"snasa.no":true,"xn--snsa-roa.no":true,"snoasa.no":true,"snaase.no":true,"xn--snase-nra.no":true,"sogndal.no":true,"sokndal.no":true,"sola.no":true,"solund.no":true,"songdalen.no":true,"sortland.no":true,"spydeberg.no":true,"stange.no":true,"stavanger.no":true,"steigen.no":true,"steinkjer.no":true,"stjordal.no":true,"xn--stjrdal-s1a.no":true,"stokke.no":true,"stor-elvdal.no":true,"stord.no":true,"stordal.no":true,"storfjord.no":true,"omasvuotna.no":true,"strand.no":true,"stranda.no":true,"stryn.no":true,"sula.no":true,"suldal.no":true,"sund.no":true,"sunndal.no":true,"surnadal.no":true,"sveio.no":true,"svelvik.no":true,"sykkylven.no":true,"sogne.no":true,"xn--sgne-gra.no":true,"somna.no":true,"xn--smna-gra.no":true,"sondre-land.no":true,"xn--sndre-land-0cb.no":true,"sor-aurdal.no":true,"xn--sr-aurdal-l8a.no":true,"sor-fron.no":true,"xn--sr-fron-q1a.no":true,"sor-odal.no":true,"xn--sr-odal-q1a.no":true,"sor-varanger.no":true,"xn--sr-varanger-ggb.no":true,"matta-varjjat.no":true,"xn--mtta-vrjjat-k7af.no":true,"sorfold.no":true,"xn--srfold-bya.no":true,"sorreisa.no":true,"xn--srreisa-q1a.no":true,"sorum.no":true,"xn--srum-gra.no":true,"tana.no":true,"deatnu.no":true,"time.no":true,"tingvoll.no":true,"tinn.no":true,"tjeldsund.no":true,"dielddanuorri.no":true,"tjome.no":true,"xn--tjme-hra.no":true,"tokke.no":true,"tolga.no":true,"torsken.no":true,"tranoy.no":true,"xn--trany-yua.no":true,"tromso.no":true,"xn--troms-zua.no":true,"tromsa.no":true,"romsa.no":true,"trondheim.no":true,"troandin.no":true,"trysil.no":true,"trana.no":true,"xn--trna-woa.no":true,"trogstad.no":true,"xn--trgstad-r1a.no":true,"tvedestrand.no":true,"tydal.no":true,"tynset.no":true,"tysfjord.no":true,"divtasvuodna.no":true,"divttasvuotna.no":true,"tysnes.no":true,"tysvar.no":true,"xn--tysvr-vra.no":true,"tonsberg.no":true,"xn--tnsberg-q1a.no":true,"ullensaker.no":true,"ullensvang.no":true,"ulvik.no":true,"utsira.no":true,"vadso.no":true,"xn--vads-jra.no":true,"cahcesuolo.no":true,"xn--hcesuolo-7ya35b.no":true,"vaksdal.no":true,"valle.no":true,"vang.no":true,"vanylven.no":true,"vardo.no":true,"xn--vard-jra.no":true,"varggat.no":true,"xn--vrggt-xqad.no":true,"vefsn.no":true,"vaapste.no":true,"vega.no":true,"vegarshei.no":true,"xn--vegrshei-c0a.no":true,"vennesla.no":true,"verdal.no":true,"verran.no":true,"vestby.no":true,"vestnes.no":true,"vestre-slidre.no":true,"vestre-toten.no":true,"vestvagoy.no":true,"xn--vestvgy-ixa6o.no":true,"vevelstad.no":true,"vik.no":true,"vikna.no":true,"vindafjord.no":true,"volda.no":true,"voss.no":true,"varoy.no":true,"xn--vry-yla5g.no":true,"vagan.no":true,"xn--vgan-qoa.no":true,"voagat.no":true,"vagsoy.no":true,"xn--vgsy-qoa0j.no":true,"vaga.no":true,"xn--vg-yiab.no":true,"valer.ostfold.no":true,"xn--vler-qoa.xn--stfold-9xa.no":true,"valer.hedmark.no":true,"xn--vler-qoa.hedmark.no":true,"*.np":true,"nr":true,"biz.nr":true,"info.nr":true,"gov.nr":true,"edu.nr":true,"org.nr":true,"net.nr":true,"com.nr":true,"nu":true,"nz":true,"ac.nz":true,"co.nz":true,"cri.nz":true,"geek.nz":true,"gen.nz":true,"govt.nz":true,"health.nz":true,"iwi.nz":true,"kiwi.nz":true,"maori.nz":true,"mil.nz":true,"xn--mori-qsa.nz":true,"net.nz":true,"org.nz":true,"parliament.nz":true,"school.nz":true,"om":true,"co.om":true,"com.om":true,"edu.om":true,"gov.om":true,"med.om":true,"museum.om":true,"net.om":true,"org.om":true,"pro.om":true,"onion":true,"org":true,"pa":true,"ac.pa":true,"gob.pa":true,"com.pa":true,"org.pa":true,"sld.pa":true,"edu.pa":true,"net.pa":true,"ing.pa":true,"abo.pa":true,"med.pa":true,"nom.pa":true,"pe":true,"edu.pe":true,"gob.pe":true,"nom.pe":true,"mil.pe":true,"org.pe":true,"com.pe":true,"net.pe":true,"pf":true,"com.pf":true,"org.pf":true,"edu.pf":true,"*.pg":true,"ph":true,"com.ph":true,"net.ph":true,"org.ph":true,"gov.ph":true,"edu.ph":true,"ngo.ph":true,"mil.ph":true,"i.ph":true,"pk":true,"com.pk":true,"net.pk":true,"edu.pk":true,"org.pk":true,"fam.pk":true,"biz.pk":true,"web.pk":true,"gov.pk":true,"gob.pk":true,"gok.pk":true,"gon.pk":true,"gop.pk":true,"gos.pk":true,"info.pk":true,"pl":true,"com.pl":true,"net.pl":true,"org.pl":true,"aid.pl":true,"agro.pl":true,"atm.pl":true,"auto.pl":true,"biz.pl":true,"edu.pl":true,"gmina.pl":true,"gsm.pl":true,"info.pl":true,"mail.pl":true,"miasta.pl":true,"media.pl":true,"mil.pl":true,"nieruchomosci.pl":true,"nom.pl":true,"pc.pl":true,"powiat.pl":true,"priv.pl":true,"realestate.pl":true,"rel.pl":true,"sex.pl":true,"shop.pl":true,"sklep.pl":true,"sos.pl":true,"szkola.pl":true,"targi.pl":true,"tm.pl":true,"tourism.pl":true,"travel.pl":true,"turystyka.pl":true,"gov.pl":true,"ap.gov.pl":true,"ic.gov.pl":true,"is.gov.pl":true,"us.gov.pl":true,"kmpsp.gov.pl":true,"kppsp.gov.pl":true,"kwpsp.gov.pl":true,"psp.gov.pl":true,"wskr.gov.pl":true,"kwp.gov.pl":true,"mw.gov.pl":true,"ug.gov.pl":true,"um.gov.pl":true,"umig.gov.pl":true,"ugim.gov.pl":true,"upow.gov.pl":true,"uw.gov.pl":true,"starostwo.gov.pl":true,"pa.gov.pl":true,"po.gov.pl":true,"psse.gov.pl":true,"pup.gov.pl":true,"rzgw.gov.pl":true,"sa.gov.pl":true,"so.gov.pl":true,"sr.gov.pl":true,"wsa.gov.pl":true,"sko.gov.pl":true,"uzs.gov.pl":true,"wiih.gov.pl":true,"winb.gov.pl":true,"pinb.gov.pl":true,"wios.gov.pl":true,"witd.gov.pl":true,"wzmiuw.gov.pl":true,"piw.gov.pl":true,"wiw.gov.pl":true,"griw.gov.pl":true,"wif.gov.pl":true,"oum.gov.pl":true,"sdn.gov.pl":true,"zp.gov.pl":true,"uppo.gov.pl":true,"mup.gov.pl":true,"wuoz.gov.pl":true,"konsulat.gov.pl":true,"oirm.gov.pl":true,"augustow.pl":true,"babia-gora.pl":true,"bedzin.pl":true,"beskidy.pl":true,"bialowieza.pl":true,"bialystok.pl":true,"bielawa.pl":true,"bieszczady.pl":true,"boleslawiec.pl":true,"bydgoszcz.pl":true,"bytom.pl":true,"cieszyn.pl":true,"czeladz.pl":true,"czest.pl":true,"dlugoleka.pl":true,"elblag.pl":true,"elk.pl":true,"glogow.pl":true,"gniezno.pl":true,"gorlice.pl":true,"grajewo.pl":true,"ilawa.pl":true,"jaworzno.pl":true,"jelenia-gora.pl":true,"jgora.pl":true,"kalisz.pl":true,"kazimierz-dolny.pl":true,"karpacz.pl":true,"kartuzy.pl":true,"kaszuby.pl":true,"katowice.pl":true,"kepno.pl":true,"ketrzyn.pl":true,"klodzko.pl":true,"kobierzyce.pl":true,"kolobrzeg.pl":true,"konin.pl":true,"konskowola.pl":true,"kutno.pl":true,"lapy.pl":true,"lebork.pl":true,"legnica.pl":true,"lezajsk.pl":true,"limanowa.pl":true,"lomza.pl":true,"lowicz.pl":true,"lubin.pl":true,"lukow.pl":true,"malbork.pl":true,"malopolska.pl":true,"mazowsze.pl":true,"mazury.pl":true,"mielec.pl":true,"mielno.pl":true,"mragowo.pl":true,"naklo.pl":true,"nowaruda.pl":true,"nysa.pl":true,"olawa.pl":true,"olecko.pl":true,"olkusz.pl":true,"olsztyn.pl":true,"opoczno.pl":true,"opole.pl":true,"ostroda.pl":true,"ostroleka.pl":true,"ostrowiec.pl":true,"ostrowwlkp.pl":true,"pila.pl":true,"pisz.pl":true,"podhale.pl":true,"podlasie.pl":true,"polkowice.pl":true,"pomorze.pl":true,"pomorskie.pl":true,"prochowice.pl":true,"pruszkow.pl":true,"przeworsk.pl":true,"pulawy.pl":true,"radom.pl":true,"rawa-maz.pl":true,"rybnik.pl":true,"rzeszow.pl":true,"sanok.pl":true,"sejny.pl":true,"slask.pl":true,"slupsk.pl":true,"sosnowiec.pl":true,"stalowa-wola.pl":true,"skoczow.pl":true,"starachowice.pl":true,"stargard.pl":true,"suwalki.pl":true,"swidnica.pl":true,"swiebodzin.pl":true,"swinoujscie.pl":true,"szczecin.pl":true,"szczytno.pl":true,"tarnobrzeg.pl":true,"tgory.pl":true,"turek.pl":true,"tychy.pl":true,"ustka.pl":true,"walbrzych.pl":true,"warmia.pl":true,"warszawa.pl":true,"waw.pl":true,"wegrow.pl":true,"wielun.pl":true,"wlocl.pl":true,"wloclawek.pl":true,"wodzislaw.pl":true,"wolomin.pl":true,"wroclaw.pl":true,"zachpomor.pl":true,"zagan.pl":true,"zarow.pl":true,"zgora.pl":true,"zgorzelec.pl":true,"pm":true,"pn":true,"gov.pn":true,"co.pn":true,"org.pn":true,"edu.pn":true,"net.pn":true,"post":true,"pr":true,"com.pr":true,"net.pr":true,"org.pr":true,"gov.pr":true,"edu.pr":true,"isla.pr":true,"pro.pr":true,"biz.pr":true,"info.pr":true,"name.pr":true,"est.pr":true,"prof.pr":true,"ac.pr":true,"pro":true,"aaa.pro":true,"aca.pro":true,"acct.pro":true,"avocat.pro":true,"bar.pro":true,"cpa.pro":true,"eng.pro":true,"jur.pro":true,"law.pro":true,"med.pro":true,"recht.pro":true,"ps":true,"edu.ps":true,"gov.ps":true,"sec.ps":true,"plo.ps":true,"com.ps":true,"org.ps":true,"net.ps":true,"pt":true,"net.pt":true,"gov.pt":true,"org.pt":true,"edu.pt":true,"int.pt":true,"publ.pt":true,"com.pt":true,"nome.pt":true,"pw":true,"co.pw":true,"ne.pw":true,"or.pw":true,"ed.pw":true,"go.pw":true,"belau.pw":true,"py":true,"com.py":true,"coop.py":true,"edu.py":true,"gov.py":true,"mil.py":true,"net.py":true,"org.py":true,"qa":true,"com.qa":true,"edu.qa":true,"gov.qa":true,"mil.qa":true,"name.qa":true,"net.qa":true,"org.qa":true,"sch.qa":true,"re":true,"asso.re":true,"com.re":true,"nom.re":true,"ro":true,"arts.ro":true,"com.ro":true,"firm.ro":true,"info.ro":true,"nom.ro":true,"nt.ro":true,"org.ro":true,"rec.ro":true,"store.ro":true,"tm.ro":true,"www.ro":true,"rs":true,"ac.rs":true,"co.rs":true,"edu.rs":true,"gov.rs":true,"in.rs":true,"org.rs":true,"ru":true,"ac.ru":true,"edu.ru":true,"gov.ru":true,"int.ru":true,"mil.ru":true,"test.ru":true,"rw":true,"gov.rw":true,"net.rw":true,"edu.rw":true,"ac.rw":true,"com.rw":true,"co.rw":true,"int.rw":true,"mil.rw":true,"gouv.rw":true,"sa":true,"com.sa":true,"net.sa":true,"org.sa":true,"gov.sa":true,"med.sa":true,"pub.sa":true,"edu.sa":true,"sch.sa":true,"sb":true,"com.sb":true,"edu.sb":true,"gov.sb":true,"net.sb":true,"org.sb":true,"sc":true,"com.sc":true,"gov.sc":true,"net.sc":true,"org.sc":true,"edu.sc":true,"sd":true,"com.sd":true,"net.sd":true,"org.sd":true,"edu.sd":true,"med.sd":true,"tv.sd":true,"gov.sd":true,"info.sd":true,"se":true,"a.se":true,"ac.se":true,"b.se":true,"bd.se":true,"brand.se":true,"c.se":true,"d.se":true,"e.se":true,"f.se":true,"fh.se":true,"fhsk.se":true,"fhv.se":true,"g.se":true,"h.se":true,"i.se":true,"k.se":true,"komforb.se":true,"kommunalforbund.se":true,"komvux.se":true,"l.se":true,"lanbib.se":true,"m.se":true,"n.se":true,"naturbruksgymn.se":true,"o.se":true,"org.se":true,"p.se":true,"parti.se":true,"pp.se":true,"press.se":true,"r.se":true,"s.se":true,"t.se":true,"tm.se":true,"u.se":true,"w.se":true,"x.se":true,"y.se":true,"z.se":true,"sg":true,"com.sg":true,"net.sg":true,"org.sg":true,"gov.sg":true,"edu.sg":true,"per.sg":true,"sh":true,"com.sh":true,"net.sh":true,"gov.sh":true,"org.sh":true,"mil.sh":true,"si":true,"sj":true,"sk":true,"sl":true,"com.sl":true,"net.sl":true,"edu.sl":true,"gov.sl":true,"org.sl":true,"sm":true,"sn":true,"art.sn":true,"com.sn":true,"edu.sn":true,"gouv.sn":true,"org.sn":true,"perso.sn":true,"univ.sn":true,"so":true,"com.so":true,"net.so":true,"org.so":true,"sr":true,"st":true,"co.st":true,"com.st":true,"consulado.st":true,"edu.st":true,"embaixada.st":true,"gov.st":true,"mil.st":true,"net.st":true,"org.st":true,"principe.st":true,"saotome.st":true,"store.st":true,"su":true,"sv":true,"com.sv":true,"edu.sv":true,"gob.sv":true,"org.sv":true,"red.sv":true,"sx":true,"gov.sx":true,"sy":true,"edu.sy":true,"gov.sy":true,"net.sy":true,"mil.sy":true,"com.sy":true,"org.sy":true,"sz":true,"co.sz":true,"ac.sz":true,"org.sz":true,"tc":true,"td":true,"tel":true,"tf":true,"tg":true,"th":true,"ac.th":true,"co.th":true,"go.th":true,"in.th":true,"mi.th":true,"net.th":true,"or.th":true,"tj":true,"ac.tj":true,"biz.tj":true,"co.tj":true,"com.tj":true,"edu.tj":true,"go.tj":true,"gov.tj":true,"int.tj":true,"mil.tj":true,"name.tj":true,"net.tj":true,"nic.tj":true,"org.tj":true,"test.tj":true,"web.tj":true,"tk":true,"tl":true,"gov.tl":true,"tm":true,"com.tm":true,"co.tm":true,"org.tm":true,"net.tm":true,"nom.tm":true,"gov.tm":true,"mil.tm":true,"edu.tm":true,"tn":true,"com.tn":true,"ens.tn":true,"fin.tn":true,"gov.tn":true,"ind.tn":true,"intl.tn":true,"nat.tn":true,"net.tn":true,"org.tn":true,"info.tn":true,"perso.tn":true,"tourism.tn":true,"edunet.tn":true,"rnrt.tn":true,"rns.tn":true,"rnu.tn":true,"mincom.tn":true,"agrinet.tn":true,"defense.tn":true,"turen.tn":true,"to":true,"com.to":true,"gov.to":true,"net.to":true,"org.to":true,"edu.to":true,"mil.to":true,"tr":true,"com.tr":true,"info.tr":true,"biz.tr":true,"net.tr":true,"org.tr":true,"web.tr":true,"gen.tr":true,"tv.tr":true,"av.tr":true,"dr.tr":true,"bbs.tr":true,"name.tr":true,"tel.tr":true,"gov.tr":true,"bel.tr":true,"pol.tr":true,"mil.tr":true,"k12.tr":true,"edu.tr":true,"kep.tr":true,"nc.tr":true,"gov.nc.tr":true,"travel":true,"tt":true,"co.tt":true,"com.tt":true,"org.tt":true,"net.tt":true,"biz.tt":true,"info.tt":true,"pro.tt":true,"int.tt":true,"coop.tt":true,"jobs.tt":true,"mobi.tt":true,"travel.tt":true,"museum.tt":true,"aero.tt":true,"name.tt":true,"gov.tt":true,"edu.tt":true,"tv":true,"tw":true,"edu.tw":true,"gov.tw":true,"mil.tw":true,"com.tw":true,"net.tw":true,"org.tw":true,"idv.tw":true,"game.tw":true,"ebiz.tw":true,"club.tw":true,"xn--zf0ao64a.tw":true,"xn--uc0atv.tw":true,"xn--czrw28b.tw":true,"tz":true,"ac.tz":true,"co.tz":true,"go.tz":true,"hotel.tz":true,"info.tz":true,"me.tz":true,"mil.tz":true,"mobi.tz":true,"ne.tz":true,"or.tz":true,"sc.tz":true,"tv.tz":true,"ua":true,"com.ua":true,"edu.ua":true,"gov.ua":true,"in.ua":true,"net.ua":true,"org.ua":true,"cherkassy.ua":true,"cherkasy.ua":true,"chernigov.ua":true,"chernihiv.ua":true,"chernivtsi.ua":true,"chernovtsy.ua":true,"ck.ua":true,"cn.ua":true,"cr.ua":true,"crimea.ua":true,"cv.ua":true,"dn.ua":true,"dnepropetrovsk.ua":true,"dnipropetrovsk.ua":true,"dominic.ua":true,"donetsk.ua":true,"dp.ua":true,"if.ua":true,"ivano-frankivsk.ua":true,"kh.ua":true,"kharkiv.ua":true,"kharkov.ua":true,"kherson.ua":true,"khmelnitskiy.ua":true,"khmelnytskyi.ua":true,"kiev.ua":true,"kirovograd.ua":true,"km.ua":true,"kr.ua":true,"krym.ua":true,"ks.ua":true,"kv.ua":true,"kyiv.ua":true,"lg.ua":true,"lt.ua":true,"lugansk.ua":true,"lutsk.ua":true,"lv.ua":true,"lviv.ua":true,"mk.ua":true,"mykolaiv.ua":true,"nikolaev.ua":true,"od.ua":true,"odesa.ua":true,"odessa.ua":true,"pl.ua":true,"poltava.ua":true,"rivne.ua":true,"rovno.ua":true,"rv.ua":true,"sb.ua":true,"sebastopol.ua":true,"sevastopol.ua":true,"sm.ua":true,"sumy.ua":true,"te.ua":true,"ternopil.ua":true,"uz.ua":true,"uzhgorod.ua":true,"vinnica.ua":true,"vinnytsia.ua":true,"vn.ua":true,"volyn.ua":true,"yalta.ua":true,"zaporizhzhe.ua":true,"zaporizhzhia.ua":true,"zhitomir.ua":true,"zhytomyr.ua":true,"zp.ua":true,"zt.ua":true,"ug":true,"co.ug":true,"or.ug":true,"ac.ug":true,"sc.ug":true,"go.ug":true,"ne.ug":true,"com.ug":true,"org.ug":true,"uk":true,"ac.uk":true,"co.uk":true,"gov.uk":true,"ltd.uk":true,"me.uk":true,"net.uk":true,"nhs.uk":true,"org.uk":true,"plc.uk":true,"police.uk":true,"*.sch.uk":true,"us":true,"dni.us":true,"fed.us":true,"isa.us":true,"kids.us":true,"nsn.us":true,"ak.us":true,"al.us":true,"ar.us":true,"as.us":true,"az.us":true,"ca.us":true,"co.us":true,"ct.us":true,"dc.us":true,"de.us":true,"fl.us":true,"ga.us":true,"gu.us":true,"hi.us":true,"ia.us":true,"id.us":true,"il.us":true,"in.us":true,"ks.us":true,"ky.us":true,"la.us":true,"ma.us":true,"md.us":true,"me.us":true,"mi.us":true,"mn.us":true,"mo.us":true,"ms.us":true,"mt.us":true,"nc.us":true,"nd.us":true,"ne.us":true,"nh.us":true,"nj.us":true,"nm.us":true,"nv.us":true,"ny.us":true,"oh.us":true,"ok.us":true,"or.us":true,"pa.us":true,"pr.us":true,"ri.us":true,"sc.us":true,"sd.us":true,"tn.us":true,"tx.us":true,"ut.us":true,"vi.us":true,"vt.us":true,"va.us":true,"wa.us":true,"wi.us":true,"wv.us":true,"wy.us":true,"k12.ak.us":true,"k12.al.us":true,"k12.ar.us":true,"k12.as.us":true,"k12.az.us":true,"k12.ca.us":true,"k12.co.us":true,"k12.ct.us":true,"k12.dc.us":true,"k12.de.us":true,"k12.fl.us":true,"k12.ga.us":true,"k12.gu.us":true,"k12.ia.us":true,"k12.id.us":true,"k12.il.us":true,"k12.in.us":true,"k12.ks.us":true,"k12.ky.us":true,"k12.la.us":true,"k12.ma.us":true,"k12.md.us":true,"k12.me.us":true,"k12.mi.us":true,"k12.mn.us":true,"k12.mo.us":true,"k12.ms.us":true,"k12.mt.us":true,"k12.nc.us":true,"k12.ne.us":true,"k12.nh.us":true,"k12.nj.us":true,"k12.nm.us":true,"k12.nv.us":true,"k12.ny.us":true,"k12.oh.us":true,"k12.ok.us":true,"k12.or.us":true,"k12.pa.us":true,"k12.pr.us":true,"k12.ri.us":true,"k12.sc.us":true,"k12.tn.us":true,"k12.tx.us":true,"k12.ut.us":true,"k12.vi.us":true,"k12.vt.us":true,"k12.va.us":true,"k12.wa.us":true,"k12.wi.us":true,"k12.wy.us":true,"cc.ak.us":true,"cc.al.us":true,"cc.ar.us":true,"cc.as.us":true,"cc.az.us":true,"cc.ca.us":true,"cc.co.us":true,"cc.ct.us":true,"cc.dc.us":true,"cc.de.us":true,"cc.fl.us":true,"cc.ga.us":true,"cc.gu.us":true,"cc.hi.us":true,"cc.ia.us":true,"cc.id.us":true,"cc.il.us":true,"cc.in.us":true,"cc.ks.us":true,"cc.ky.us":true,"cc.la.us":true,"cc.ma.us":true,"cc.md.us":true,"cc.me.us":true,"cc.mi.us":true,"cc.mn.us":true,"cc.mo.us":true,"cc.ms.us":true,"cc.mt.us":true,"cc.nc.us":true,"cc.nd.us":true,"cc.ne.us":true,"cc.nh.us":true,"cc.nj.us":true,"cc.nm.us":true,"cc.nv.us":true,"cc.ny.us":true,"cc.oh.us":true,"cc.ok.us":true,"cc.or.us":true,"cc.pa.us":true,"cc.pr.us":true,"cc.ri.us":true,"cc.sc.us":true,"cc.sd.us":true,"cc.tn.us":true,"cc.tx.us":true,"cc.ut.us":true,"cc.vi.us":true,"cc.vt.us":true,"cc.va.us":true,"cc.wa.us":true,"cc.wi.us":true,"cc.wv.us":true,"cc.wy.us":true,"lib.ak.us":true,"lib.al.us":true,"lib.ar.us":true,"lib.as.us":true,"lib.az.us":true,"lib.ca.us":true,"lib.co.us":true,"lib.ct.us":true,"lib.dc.us":true,"lib.fl.us":true,"lib.ga.us":true,"lib.gu.us":true,"lib.hi.us":true,"lib.ia.us":true,"lib.id.us":true,"lib.il.us":true,"lib.in.us":true,"lib.ks.us":true,"lib.ky.us":true,"lib.la.us":true,"lib.ma.us":true,"lib.md.us":true,"lib.me.us":true,"lib.mi.us":true,"lib.mn.us":true,"lib.mo.us":true,"lib.ms.us":true,"lib.mt.us":true,"lib.nc.us":true,"lib.nd.us":true,"lib.ne.us":true,"lib.nh.us":true,"lib.nj.us":true,"lib.nm.us":true,"lib.nv.us":true,"lib.ny.us":true,"lib.oh.us":true,"lib.ok.us":true,"lib.or.us":true,"lib.pa.us":true,"lib.pr.us":true,"lib.ri.us":true,"lib.sc.us":true,"lib.sd.us":true,"lib.tn.us":true,"lib.tx.us":true,"lib.ut.us":true,"lib.vi.us":true,"lib.vt.us":true,"lib.va.us":true,"lib.wa.us":true,"lib.wi.us":true,"lib.wy.us":true,"pvt.k12.ma.us":true,"chtr.k12.ma.us":true,"paroch.k12.ma.us":true,"ann-arbor.mi.us":true,"cog.mi.us":true,"dst.mi.us":true,"eaton.mi.us":true,"gen.mi.us":true,"mus.mi.us":true,"tec.mi.us":true,"washtenaw.mi.us":true,"uy":true,"com.uy":true,"edu.uy":true,"gub.uy":true,"mil.uy":true,"net.uy":true,"org.uy":true,"uz":true,"co.uz":true,"com.uz":true,"net.uz":true,"org.uz":true,"va":true,"vc":true,"com.vc":true,"net.vc":true,"org.vc":true,"gov.vc":true,"mil.vc":true,"edu.vc":true,"ve":true,"arts.ve":true,"co.ve":true,"com.ve":true,"e12.ve":true,"edu.ve":true,"firm.ve":true,"gob.ve":true,"gov.ve":true,"info.ve":true,"int.ve":true,"mil.ve":true,"net.ve":true,"org.ve":true,"rec.ve":true,"store.ve":true,"tec.ve":true,"web.ve":true,"vg":true,"vi":true,"co.vi":true,"com.vi":true,"k12.vi":true,"net.vi":true,"org.vi":true,"vn":true,"com.vn":true,"net.vn":true,"org.vn":true,"edu.vn":true,"gov.vn":true,"int.vn":true,"ac.vn":true,"biz.vn":true,"info.vn":true,"name.vn":true,"pro.vn":true,"health.vn":true,"vu":true,"com.vu":true,"edu.vu":true,"net.vu":true,"org.vu":true,"wf":true,"ws":true,"com.ws":true,"net.ws":true,"org.ws":true,"gov.ws":true,"edu.ws":true,"yt":true,"xn--mgbaam7a8h":true,"xn--y9a3aq":true,"xn--54b7fta0cc":true,"xn--90ae":true,"xn--90ais":true,"xn--fiqs8s":true,"xn--fiqz9s":true,"xn--lgbbat1ad8j":true,"xn--wgbh1c":true,"xn--e1a4c":true,"xn--node":true,"xn--qxam":true,"xn--j6w193g":true,"xn--2scrj9c":true,"xn--3hcrj9c":true,"xn--45br5cyl":true,"xn--h2breg3eve":true,"xn--h2brj9c8c":true,"xn--mgbgu82a":true,"xn--rvc1e0am3e":true,"xn--h2brj9c":true,"xn--mgbbh1a71e":true,"xn--fpcrj9c3d":true,"xn--gecrj9c":true,"xn--s9brj9c":true,"xn--45brj9c":true,"xn--xkc2dl3a5ee0h":true,"xn--mgba3a4f16a":true,"xn--mgba3a4fra":true,"xn--mgbtx2b":true,"xn--mgbayh7gpa":true,"xn--3e0b707e":true,"xn--80ao21a":true,"xn--fzc2c9e2c":true,"xn--xkc2al3hye2a":true,"xn--mgbc0a9azcg":true,"xn--d1alf":true,"xn--l1acc":true,"xn--mix891f":true,"xn--mix082f":true,"xn--mgbx4cd0ab":true,"xn--mgb9awbf":true,"xn--mgbai9azgqp6j":true,"xn--mgbai9a5eva00b":true,"xn--ygbi2ammx":true,"xn--90a3ac":true,"xn--o1ac.xn--90a3ac":true,"xn--c1avg.xn--90a3ac":true,"xn--90azh.xn--90a3ac":true,"xn--d1at.xn--90a3ac":true,"xn--o1ach.xn--90a3ac":true,"xn--80au.xn--90a3ac":true,"xn--p1ai":true,"xn--wgbl6a":true,"xn--mgberp4a5d4ar":true,"xn--mgberp4a5d4a87g":true,"xn--mgbqly7c0a67fbc":true,"xn--mgbqly7cvafr":true,"xn--mgbpl2fh":true,"xn--yfro4i67o":true,"xn--clchc0ea0b2g2a9gcd":true,"xn--ogbpf8fl":true,"xn--mgbtf8fl":true,"xn--o3cw4h":true,"xn--12c1fe0br.xn--o3cw4h":true,"xn--12co0c3b4eva.xn--o3cw4h":true,"xn--h3cuzk1di.xn--o3cw4h":true,"xn--o3cyx2a.xn--o3cw4h":true,"xn--m3ch0j3a.xn--o3cw4h":true,"xn--12cfi8ixb8l.xn--o3cw4h":true,"xn--pgbs0dh":true,"xn--kpry57d":true,"xn--kprw13d":true,"xn--nnx388a":true,"xn--j1amh":true,"xn--mgb2ddes":true,"xxx":true,"*.ye":true,"ac.za":true,"agric.za":true,"alt.za":true,"co.za":true,"edu.za":true,"gov.za":true,"grondar.za":true,"law.za":true,"mil.za":true,"net.za":true,"ngo.za":true,"nis.za":true,"nom.za":true,"org.za":true,"school.za":true,"tm.za":true,"web.za":true,"zm":true,"ac.zm":true,"biz.zm":true,"co.zm":true,"com.zm":true,"edu.zm":true,"gov.zm":true,"info.zm":true,"mil.zm":true,"net.zm":true,"org.zm":true,"sch.zm":true,"zw":true,"ac.zw":true,"co.zw":true,"gov.zw":true,"mil.zw":true,"org.zw":true,"aaa":true,"aarp":true,"abarth":true,"abb":true,"abbott":true,"abbvie":true,"abc":true,"able":true,"abogado":true,"abudhabi":true,"academy":true,"accenture":true,"accountant":true,"accountants":true,"aco":true,"active":true,"actor":true,"adac":true,"ads":true,"adult":true,"aeg":true,"aetna":true,"afamilycompany":true,"afl":true,"africa":true,"agakhan":true,"agency":true,"aig":true,"aigo":true,"airbus":true,"airforce":true,"airtel":true,"akdn":true,"alfaromeo":true,"alibaba":true,"alipay":true,"allfinanz":true,"allstate":true,"ally":true,"alsace":true,"alstom":true,"americanexpress":true,"americanfamily":true,"amex":true,"amfam":true,"amica":true,"amsterdam":true,"analytics":true,"android":true,"anquan":true,"anz":true,"aol":true,"apartments":true,"app":true,"apple":true,"aquarelle":true,"arab":true,"aramco":true,"archi":true,"army":true,"art":true,"arte":true,"asda":true,"associates":true,"athleta":true,"attorney":true,"auction":true,"audi":true,"audible":true,"audio":true,"auspost":true,"author":true,"auto":true,"autos":true,"avianca":true,"aws":true,"axa":true,"azure":true,"baby":true,"baidu":true,"banamex":true,"bananarepublic":true,"band":true,"bank":true,"bar":true,"barcelona":true,"barclaycard":true,"barclays":true,"barefoot":true,"bargains":true,"baseball":true,"basketball":true,"bauhaus":true,"bayern":true,"bbc":true,"bbt":true,"bbva":true,"bcg":true,"bcn":true,"beats":true,"beauty":true,"beer":true,"bentley":true,"berlin":true,"best":true,"bestbuy":true,"bet":true,"bharti":true,"bible":true,"bid":true,"bike":true,"bing":true,"bingo":true,"bio":true,"black":true,"blackfriday":true,"blanco":true,"blockbuster":true,"blog":true,"bloomberg":true,"blue":true,"bms":true,"bmw":true,"bnl":true,"bnpparibas":true,"boats":true,"boehringer":true,"bofa":true,"bom":true,"bond":true,"boo":true,"book":true,"booking":true,"boots":true,"bosch":true,"bostik":true,"boston":true,"bot":true,"boutique":true,"box":true,"bradesco":true,"bridgestone":true,"broadway":true,"broker":true,"brother":true,"brussels":true,"budapest":true,"bugatti":true,"build":true,"builders":true,"business":true,"buy":true,"buzz":true,"bzh":true,"cab":true,"cafe":true,"cal":true,"call":true,"calvinklein":true,"cam":true,"camera":true,"camp":true,"cancerresearch":true,"canon":true,"capetown":true,"capital":true,"capitalone":true,"car":true,"caravan":true,"cards":true,"care":true,"career":true,"careers":true,"cars":true,"cartier":true,"casa":true,"case":true,"caseih":true,"cash":true,"casino":true,"catering":true,"catholic":true,"cba":true,"cbn":true,"cbre":true,"cbs":true,"ceb":true,"center":true,"ceo":true,"cern":true,"cfa":true,"cfd":true,"chanel":true,"channel":true,"chase":true,"chat":true,"cheap":true,"chintai":true,"christmas":true,"chrome":true,"chrysler":true,"church":true,"cipriani":true,"circle":true,"cisco":true,"citadel":true,"citi":true,"citic":true,"city":true,"cityeats":true,"claims":true,"cleaning":true,"click":true,"clinic":true,"clinique":true,"clothing":true,"cloud":true,"club":true,"clubmed":true,"coach":true,"codes":true,"coffee":true,"college":true,"cologne":true,"comcast":true,"commbank":true,"community":true,"company":true,"compare":true,"computer":true,"comsec":true,"condos":true,"construction":true,"consulting":true,"contact":true,"contractors":true,"cooking":true,"cookingchannel":true,"cool":true,"corsica":true,"country":true,"coupon":true,"coupons":true,"courses":true,"credit":true,"creditcard":true,"creditunion":true,"cricket":true,"crown":true,"crs":true,"cruise":true,"cruises":true,"csc":true,"cuisinella":true,"cymru":true,"cyou":true,"dabur":true,"dad":true,"dance":true,"data":true,"date":true,"dating":true,"datsun":true,"day":true,"dclk":true,"dds":true,"deal":true,"dealer":true,"deals":true,"degree":true,"delivery":true,"dell":true,"deloitte":true,"delta":true,"democrat":true,"dental":true,"dentist":true,"desi":true,"design":true,"dev":true,"dhl":true,"diamonds":true,"diet":true,"digital":true,"direct":true,"directory":true,"discount":true,"discover":true,"dish":true,"diy":true,"dnp":true,"docs":true,"doctor":true,"dodge":true,"dog":true,"doha":true,"domains":true,"dot":true,"download":true,"drive":true,"dtv":true,"dubai":true,"duck":true,"dunlop":true,"duns":true,"dupont":true,"durban":true,"dvag":true,"dvr":true,"earth":true,"eat":true,"eco":true,"edeka":true,"education":true,"email":true,"emerck":true,"energy":true,"engineer":true,"engineering":true,"enterprises":true,"epost":true,"epson":true,"equipment":true,"ericsson":true,"erni":true,"esq":true,"estate":true,"esurance":true,"etisalat":true,"eurovision":true,"eus":true,"events":true,"everbank":true,"exchange":true,"expert":true,"exposed":true,"express":true,"extraspace":true,"fage":true,"fail":true,"fairwinds":true,"faith":true,"family":true,"fan":true,"fans":true,"farm":true,"farmers":true,"fashion":true,"fast":true,"fedex":true,"feedback":true,"ferrari":true,"ferrero":true,"fiat":true,"fidelity":true,"fido":true,"film":true,"final":true,"finance":true,"financial":true,"fire":true,"firestone":true,"firmdale":true,"fish":true,"fishing":true,"fit":true,"fitness":true,"flickr":true,"flights":true,"flir":true,"florist":true,"flowers":true,"fly":true,"foo":true,"food":true,"foodnetwork":true,"football":true,"ford":true,"forex":true,"forsale":true,"forum":true,"foundation":true,"fox":true,"free":true,"fresenius":true,"frl":true,"frogans":true,"frontdoor":true,"frontier":true,"ftr":true,"fujitsu":true,"fujixerox":true,"fun":true,"fund":true,"furniture":true,"futbol":true,"fyi":true,"gal":true,"gallery":true,"gallo":true,"gallup":true,"game":true,"games":true,"gap":true,"garden":true,"gbiz":true,"gdn":true,"gea":true,"gent":true,"genting":true,"george":true,"ggee":true,"gift":true,"gifts":true,"gives":true,"giving":true,"glade":true,"glass":true,"gle":true,"global":true,"globo":true,"gmail":true,"gmbh":true,"gmo":true,"gmx":true,"godaddy":true,"gold":true,"goldpoint":true,"golf":true,"goo":true,"goodhands":true,"goodyear":true,"goog":true,"google":true,"gop":true,"got":true,"grainger":true,"graphics":true,"gratis":true,"green":true,"gripe":true,"grocery":true,"group":true,"guardian":true,"gucci":true,"guge":true,"guide":true,"guitars":true,"guru":true,"hair":true,"hamburg":true,"hangout":true,"haus":true,"hbo":true,"hdfc":true,"hdfcbank":true,"health":true,"healthcare":true,"help":true,"helsinki":true,"here":true,"hermes":true,"hgtv":true,"hiphop":true,"hisamitsu":true,"hitachi":true,"hiv":true,"hkt":true,"hockey":true,"holdings":true,"holiday":true,"homedepot":true,"homegoods":true,"homes":true,"homesense":true,"honda":true,"honeywell":true,"horse":true,"hospital":true,"host":true,"hosting":true,"hot":true,"hoteles":true,"hotels":true,"hotmail":true,"house":true,"how":true,"hsbc":true,"hughes":true,"hyatt":true,"hyundai":true,"ibm":true,"icbc":true,"ice":true,"icu":true,"ieee":true,"ifm":true,"ikano":true,"imamat":true,"imdb":true,"immo":true,"immobilien":true,"industries":true,"infiniti":true,"ing":true,"ink":true,"institute":true,"insurance":true,"insure":true,"intel":true,"international":true,"intuit":true,"investments":true,"ipiranga":true,"irish":true,"iselect":true,"ismaili":true,"ist":true,"istanbul":true,"itau":true,"itv":true,"iveco":true,"iwc":true,"jaguar":true,"java":true,"jcb":true,"jcp":true,"jeep":true,"jetzt":true,"jewelry":true,"jio":true,"jlc":true,"jll":true,"jmp":true,"jnj":true,"joburg":true,"jot":true,"joy":true,"jpmorgan":true,"jprs":true,"juegos":true,"juniper":true,"kaufen":true,"kddi":true,"kerryhotels":true,"kerrylogistics":true,"kerryproperties":true,"kfh":true,"kia":true,"kim":true,"kinder":true,"kindle":true,"kitchen":true,"kiwi":true,"koeln":true,"komatsu":true,"kosher":true,"kpmg":true,"kpn":true,"krd":true,"kred":true,"kuokgroup":true,"kyoto":true,"lacaixa":true,"ladbrokes":true,"lamborghini":true,"lamer":true,"lancaster":true,"lancia":true,"lancome":true,"land":true,"landrover":true,"lanxess":true,"lasalle":true,"lat":true,"latino":true,"latrobe":true,"law":true,"lawyer":true,"lds":true,"lease":true,"leclerc":true,"lefrak":true,"legal":true,"lego":true,"lexus":true,"lgbt":true,"liaison":true,"lidl":true,"life":true,"lifeinsurance":true,"lifestyle":true,"lighting":true,"like":true,"lilly":true,"limited":true,"limo":true,"lincoln":true,"linde":true,"link":true,"lipsy":true,"live":true,"living":true,"lixil":true,"loan":true,"loans":true,"locker":true,"locus":true,"loft":true,"lol":true,"london":true,"lotte":true,"lotto":true,"love":true,"lpl":true,"lplfinancial":true,"ltd":true,"ltda":true,"lundbeck":true,"lupin":true,"luxe":true,"luxury":true,"macys":true,"madrid":true,"maif":true,"maison":true,"makeup":true,"man":true,"management":true,"mango":true,"map":true,"market":true,"marketing":true,"markets":true,"marriott":true,"marshalls":true,"maserati":true,"mattel":true,"mba":true,"mckinsey":true,"med":true,"media":true,"meet":true,"melbourne":true,"meme":true,"memorial":true,"men":true,"menu":true,"meo":true,"merckmsd":true,"metlife":true,"miami":true,"microsoft":true,"mini":true,"mint":true,"mit":true,"mitsubishi":true,"mlb":true,"mls":true,"mma":true,"mobile":true,"mobily":true,"moda":true,"moe":true,"moi":true,"mom":true,"monash":true,"money":true,"monster":true,"mopar":true,"mormon":true,"mortgage":true,"moscow":true,"moto":true,"motorcycles":true,"mov":true,"movie":true,"movistar":true,"msd":true,"mtn":true,"mtpc":true,"mtr":true,"mutual":true,"nab":true,"nadex":true,"nagoya":true,"nationwide":true,"natura":true,"navy":true,"nba":true,"nec":true,"netbank":true,"netflix":true,"network":true,"neustar":true,"new":true,"newholland":true,"news":true,"next":true,"nextdirect":true,"nexus":true,"nfl":true,"ngo":true,"nhk":true,"nico":true,"nike":true,"nikon":true,"ninja":true,"nissan":true,"nissay":true,"nokia":true,"northwesternmutual":true,"norton":true,"now":true,"nowruz":true,"nowtv":true,"nra":true,"nrw":true,"ntt":true,"nyc":true,"obi":true,"observer":true,"off":true,"office":true,"okinawa":true,"olayan":true,"olayangroup":true,"oldnavy":true,"ollo":true,"omega":true,"one":true,"ong":true,"onl":true,"online":true,"onyourside":true,"ooo":true,"open":true,"oracle":true,"orange":true,"organic":true,"origins":true,"osaka":true,"otsuka":true,"ott":true,"ovh":true,"page":true,"panasonic":true,"panerai":true,"paris":true,"pars":true,"partners":true,"parts":true,"party":true,"passagens":true,"pay":true,"pccw":true,"pet":true,"pfizer":true,"pharmacy":true,"phd":true,"philips":true,"phone":true,"photo":true,"photography":true,"photos":true,"physio":true,"piaget":true,"pics":true,"pictet":true,"pictures":true,"pid":true,"pin":true,"ping":true,"pink":true,"pioneer":true,"pizza":true,"place":true,"play":true,"playstation":true,"plumbing":true,"plus":true,"pnc":true,"pohl":true,"poker":true,"politie":true,"porn":true,"pramerica":true,"praxi":true,"press":true,"prime":true,"prod":true,"productions":true,"prof":true,"progressive":true,"promo":true,"properties":true,"property":true,"protection":true,"pru":true,"prudential":true,"pub":true,"pwc":true,"qpon":true,"quebec":true,"quest":true,"qvc":true,"racing":true,"radio":true,"raid":true,"read":true,"realestate":true,"realtor":true,"realty":true,"recipes":true,"red":true,"redstone":true,"redumbrella":true,"rehab":true,"reise":true,"reisen":true,"reit":true,"reliance":true,"ren":true,"rent":true,"rentals":true,"repair":true,"report":true,"republican":true,"rest":true,"restaurant":true,"review":true,"reviews":true,"rexroth":true,"rich":true,"richardli":true,"ricoh":true,"rightathome":true,"ril":true,"rio":true,"rip":true,"rmit":true,"rocher":true,"rocks":true,"rodeo":true,"rogers":true,"room":true,"rsvp":true,"rugby":true,"ruhr":true,"run":true,"rwe":true,"ryukyu":true,"saarland":true,"safe":true,"safety":true,"sakura":true,"sale":true,"salon":true,"samsclub":true,"samsung":true,"sandvik":true,"sandvikcoromant":true,"sanofi":true,"sap":true,"sapo":true,"sarl":true,"sas":true,"save":true,"saxo":true,"sbi":true,"sbs":true,"sca":true,"scb":true,"schaeffler":true,"schmidt":true,"scholarships":true,"school":true,"schule":true,"schwarz":true,"science":true,"scjohnson":true,"scor":true,"scot":true,"search":true,"seat":true,"secure":true,"security":true,"seek":true,"select":true,"sener":true,"services":true,"ses":true,"seven":true,"sew":true,"sex":true,"sexy":true,"sfr":true,"shangrila":true,"sharp":true,"shaw":true,"shell":true,"shia":true,"shiksha":true,"shoes":true,"shop":true,"shopping":true,"shouji":true,"show":true,"showtime":true,"shriram":true,"silk":true,"sina":true,"singles":true,"site":true,"ski":true,"skin":true,"sky":true,"skype":true,"sling":true,"smart":true,"smile":true,"sncf":true,"soccer":true,"social":true,"softbank":true,"software":true,"sohu":true,"solar":true,"solutions":true,"song":true,"sony":true,"soy":true,"space":true,"spiegel":true,"spot":true,"spreadbetting":true,"srl":true,"srt":true,"stada":true,"staples":true,"star":true,"starhub":true,"statebank":true,"statefarm":true,"statoil":true,"stc":true,"stcgroup":true,"stockholm":true,"storage":true,"store":true,"stream":true,"studio":true,"study":true,"style":true,"sucks":true,"supplies":true,"supply":true,"support":true,"surf":true,"surgery":true,"suzuki":true,"swatch":true,"swiftcover":true,"swiss":true,"sydney":true,"symantec":true,"systems":true,"tab":true,"taipei":true,"talk":true,"taobao":true,"target":true,"tatamotors":true,"tatar":true,"tattoo":true,"tax":true,"taxi":true,"tci":true,"tdk":true,"team":true,"tech":true,"technology":true,"telecity":true,"telefonica":true,"temasek":true,"tennis":true,"teva":true,"thd":true,"theater":true,"theatre":true,"tiaa":true,"tickets":true,"tienda":true,"tiffany":true,"tips":true,"tires":true,"tirol":true,"tjmaxx":true,"tjx":true,"tkmaxx":true,"tmall":true,"today":true,"tokyo":true,"tools":true,"top":true,"toray":true,"toshiba":true,"total":true,"tours":true,"town":true,"toyota":true,"toys":true,"trade":true,"trading":true,"training":true,"travelchannel":true,"travelers":true,"travelersinsurance":true,"trust":true,"trv":true,"tube":true,"tui":true,"tunes":true,"tushu":true,"tvs":true,"ubank":true,"ubs":true,"uconnect":true,"unicom":true,"university":true,"uno":true,"uol":true,"ups":true,"vacations":true,"vana":true,"vanguard":true,"vegas":true,"ventures":true,"verisign":true,"versicherung":true,"vet":true,"viajes":true,"video":true,"vig":true,"viking":true,"villas":true,"vin":true,"vip":true,"virgin":true,"visa":true,"vision":true,"vista":true,"vistaprint":true,"viva":true,"vivo":true,"vlaanderen":true,"vodka":true,"volkswagen":true,"volvo":true,"vote":true,"voting":true,"voto":true,"voyage":true,"vuelos":true,"wales":true,"walmart":true,"walter":true,"wang":true,"wanggou":true,"warman":true,"watch":true,"watches":true,"weather":true,"weatherchannel":true,"webcam":true,"weber":true,"website":true,"wed":true,"wedding":true,"weibo":true,"weir":true,"whoswho":true,"wien":true,"wiki":true,"williamhill":true,"win":true,"windows":true,"wine":true,"winners":true,"wme":true,"wolterskluwer":true,"woodside":true,"work":true,"works":true,"world":true,"wow":true,"wtc":true,"wtf":true,"xbox":true,"xerox":true,"xfinity":true,"xihuan":true,"xin":true,"xn--11b4c3d":true,"xn--1ck2e1b":true,"xn--1qqw23a":true,"xn--30rr7y":true,"xn--3bst00m":true,"xn--3ds443g":true,"xn--3oq18vl8pn36a":true,"xn--3pxu8k":true,"xn--42c2d9a":true,"xn--45q11c":true,"xn--4gbrim":true,"xn--55qw42g":true,"xn--55qx5d":true,"xn--5su34j936bgsg":true,"xn--5tzm5g":true,"xn--6frz82g":true,"xn--6qq986b3xl":true,"xn--80adxhks":true,"xn--80aqecdr1a":true,"xn--80asehdb":true,"xn--80aswg":true,"xn--8y0a063a":true,"xn--9dbq2a":true,"xn--9et52u":true,"xn--9krt00a":true,"xn--b4w605ferd":true,"xn--bck1b9a5dre4c":true,"xn--c1avg":true,"xn--c2br7g":true,"xn--cck2b3b":true,"xn--cg4bki":true,"xn--czr694b":true,"xn--czrs0t":true,"xn--czru2d":true,"xn--d1acj3b":true,"xn--eckvdtc9d":true,"xn--efvy88h":true,"xn--estv75g":true,"xn--fct429k":true,"xn--fhbei":true,"xn--fiq228c5hs":true,"xn--fiq64b":true,"xn--fjq720a":true,"xn--flw351e":true,"xn--fzys8d69uvgm":true,"xn--g2xx48c":true,"xn--gckr3f0f":true,"xn--gk3at1e":true,"xn--hxt814e":true,"xn--i1b6b1a6a2e":true,"xn--imr513n":true,"xn--io0a7i":true,"xn--j1aef":true,"xn--jlq61u9w7b":true,"xn--jvr189m":true,"xn--kcrx77d1x4a":true,"xn--kpu716f":true,"xn--kput3i":true,"xn--mgba3a3ejt":true,"xn--mgba7c0bbn0a":true,"xn--mgbaakc7dvf":true,"xn--mgbab2bd":true,"xn--mgbb9fbpob":true,"xn--mgbca7dzdo":true,"xn--mgbi4ecexp":true,"xn--mgbt3dhd":true,"xn--mk1bu44c":true,"xn--mxtq1m":true,"xn--ngbc5azd":true,"xn--ngbe9e0a":true,"xn--ngbrx":true,"xn--nqv7f":true,"xn--nqv7fs00ema":true,"xn--nyqy26a":true,"xn--p1acf":true,"xn--pbt977c":true,"xn--pssy2u":true,"xn--q9jyb4c":true,"xn--qcka1pmc":true,"xn--rhqv96g":true,"xn--rovu88b":true,"xn--ses554g":true,"xn--t60b56a":true,"xn--tckwe":true,"xn--tiq49xqyj":true,"xn--unup4y":true,"xn--vermgensberater-ctb":true,"xn--vermgensberatung-pwb":true,"xn--vhquv":true,"xn--vuq861b":true,"xn--w4r85el8fhu5dnra":true,"xn--w4rs40l":true,"xn--xhq521b":true,"xn--zfr164b":true,"xperia":true,"xyz":true,"yachts":true,"yahoo":true,"yamaxun":true,"yandex":true,"yodobashi":true,"yoga":true,"yokohama":true,"you":true,"youtube":true,"yun":true,"zappos":true,"zara":true,"zero":true,"zip":true,"zippo":true,"zone":true,"zuerich":true,"cc.ua":true,"inf.ua":true,"ltd.ua":true,"1password.ca":true,"1password.com":true,"1password.eu":true,"beep.pl":true,"*.compute.estate":true,"*.alces.network":true,"alwaysdata.net":true,"cloudfront.net":true,"*.compute.amazonaws.com":true,"*.compute-1.amazonaws.com":true,"*.compute.amazonaws.com.cn":true,"us-east-1.amazonaws.com":true,"cn-north-1.eb.amazonaws.com.cn":true,"elasticbeanstalk.com":true,"ap-northeast-1.elasticbeanstalk.com":true,"ap-northeast-2.elasticbeanstalk.com":true,"ap-south-1.elasticbeanstalk.com":true,"ap-southeast-1.elasticbeanstalk.com":true,"ap-southeast-2.elasticbeanstalk.com":true,"ca-central-1.elasticbeanstalk.com":true,"eu-central-1.elasticbeanstalk.com":true,"eu-west-1.elasticbeanstalk.com":true,"eu-west-2.elasticbeanstalk.com":true,"eu-west-3.elasticbeanstalk.com":true,"sa-east-1.elasticbeanstalk.com":true,"us-east-1.elasticbeanstalk.com":true,"us-east-2.elasticbeanstalk.com":true,"us-gov-west-1.elasticbeanstalk.com":true,"us-west-1.elasticbeanstalk.com":true,"us-west-2.elasticbeanstalk.com":true,"*.elb.amazonaws.com":true,"*.elb.amazonaws.com.cn":true,"s3.amazonaws.com":true,"s3-ap-northeast-1.amazonaws.com":true,"s3-ap-northeast-2.amazonaws.com":true,"s3-ap-south-1.amazonaws.com":true,"s3-ap-southeast-1.amazonaws.com":true,"s3-ap-southeast-2.amazonaws.com":true,"s3-ca-central-1.amazonaws.com":true,"s3-eu-central-1.amazonaws.com":true,"s3-eu-west-1.amazonaws.com":true,"s3-eu-west-2.amazonaws.com":true,"s3-eu-west-3.amazonaws.com":true,"s3-external-1.amazonaws.com":true,"s3-fips-us-gov-west-1.amazonaws.com":true,"s3-sa-east-1.amazonaws.com":true,"s3-us-gov-west-1.amazonaws.com":true,"s3-us-east-2.amazonaws.com":true,"s3-us-west-1.amazonaws.com":true,"s3-us-west-2.amazonaws.com":true,"s3.ap-northeast-2.amazonaws.com":true,"s3.ap-south-1.amazonaws.com":true,"s3.cn-north-1.amazonaws.com.cn":true,"s3.ca-central-1.amazonaws.com":true,"s3.eu-central-1.amazonaws.com":true,"s3.eu-west-2.amazonaws.com":true,"s3.eu-west-3.amazonaws.com":true,"s3.us-east-2.amazonaws.com":true,"s3.dualstack.ap-northeast-1.amazonaws.com":true,"s3.dualstack.ap-northeast-2.amazonaws.com":true,"s3.dualstack.ap-south-1.amazonaws.com":true,"s3.dualstack.ap-southeast-1.amazonaws.com":true,"s3.dualstack.ap-southeast-2.amazonaws.com":true,"s3.dualstack.ca-central-1.amazonaws.com":true,"s3.dualstack.eu-central-1.amazonaws.com":true,"s3.dualstack.eu-west-1.amazonaws.com":true,"s3.dualstack.eu-west-2.amazonaws.com":true,"s3.dualstack.eu-west-3.amazonaws.com":true,"s3.dualstack.sa-east-1.amazonaws.com":true,"s3.dualstack.us-east-1.amazonaws.com":true,"s3.dualstack.us-east-2.amazonaws.com":true,"s3-website-us-east-1.amazonaws.com":true,"s3-website-us-west-1.amazonaws.com":true,"s3-website-us-west-2.amazonaws.com":true,"s3-website-ap-northeast-1.amazonaws.com":true,"s3-website-ap-southeast-1.amazonaws.com":true,"s3-website-ap-southeast-2.amazonaws.com":true,"s3-website-eu-west-1.amazonaws.com":true,"s3-website-sa-east-1.amazonaws.com":true,"s3-website.ap-northeast-2.amazonaws.com":true,"s3-website.ap-south-1.amazonaws.com":true,"s3-website.ca-central-1.amazonaws.com":true,"s3-website.eu-central-1.amazonaws.com":true,"s3-website.eu-west-2.amazonaws.com":true,"s3-website.eu-west-3.amazonaws.com":true,"s3-website.us-east-2.amazonaws.com":true,"t3l3p0rt.net":true,"tele.amune.org":true,"on-aptible.com":true,"user.party.eus":true,"pimienta.org":true,"poivron.org":true,"potager.org":true,"sweetpepper.org":true,"myasustor.com":true,"myfritz.net":true,"*.awdev.ca":true,"*.advisor.ws":true,"backplaneapp.io":true,"betainabox.com":true,"bnr.la":true,"boomla.net":true,"boxfuse.io":true,"square7.ch":true,"bplaced.com":true,"bplaced.de":true,"square7.de":true,"bplaced.net":true,"square7.net":true,"browsersafetymark.io":true,"mycd.eu":true,"ae.org":true,"ar.com":true,"br.com":true,"cn.com":true,"com.de":true,"com.se":true,"de.com":true,"eu.com":true,"gb.com":true,"gb.net":true,"hu.com":true,"hu.net":true,"jp.net":true,"jpn.com":true,"kr.com":true,"mex.com":true,"no.com":true,"qc.com":true,"ru.com":true,"sa.com":true,"se.com":true,"se.net":true,"uk.com":true,"uk.net":true,"us.com":true,"uy.com":true,"za.bz":true,"za.com":true,"africa.com":true,"gr.com":true,"in.net":true,"us.org":true,"co.com":true,"c.la":true,"certmgr.org":true,"xenapponazure.com":true,"virtueeldomein.nl":true,"c66.me":true,"cloud66.ws":true,"jdevcloud.com":true,"wpdevcloud.com":true,"cloudaccess.host":true,"freesite.host":true,"cloudaccess.net":true,"cloudcontrolled.com":true,"cloudcontrolapp.com":true,"co.ca":true,"co.cz":true,"c.cdn77.org":true,"cdn77-ssl.net":true,"r.cdn77.net":true,"rsc.cdn77.org":true,"ssl.origin.cdn77-secure.org":true,"cloudns.asia":true,"cloudns.biz":true,"cloudns.club":true,"cloudns.cc":true,"cloudns.eu":true,"cloudns.in":true,"cloudns.info":true,"cloudns.org":true,"cloudns.pro":true,"cloudns.pw":true,"cloudns.us":true,"co.nl":true,"co.no":true,"webhosting.be":true,"hosting-cluster.nl":true,"dyn.cosidns.de":true,"dynamisches-dns.de":true,"dnsupdater.de":true,"internet-dns.de":true,"l-o-g-i-n.de":true,"dynamic-dns.info":true,"feste-ip.net":true,"knx-server.net":true,"static-access.net":true,"realm.cz":true,"*.cryptonomic.net":true,"cupcake.is":true,"cyon.link":true,"cyon.site":true,"daplie.me":true,"localhost.daplie.me":true,"biz.dk":true,"co.dk":true,"firm.dk":true,"reg.dk":true,"store.dk":true,"debian.net":true,"dedyn.io":true,"dnshome.de":true,"drayddns.com":true,"dreamhosters.com":true,"mydrobo.com":true,"drud.io":true,"drud.us":true,"duckdns.org":true,"dy.fi":true,"tunk.org":true,"dyndns-at-home.com":true,"dyndns-at-work.com":true,"dyndns-blog.com":true,"dyndns-free.com":true,"dyndns-home.com":true,"dyndns-ip.com":true,"dyndns-mail.com":true,"dyndns-office.com":true,"dyndns-pics.com":true,"dyndns-remote.com":true,"dyndns-server.com":true,"dyndns-web.com":true,"dyndns-wiki.com":true,"dyndns-work.com":true,"dyndns.biz":true,"dyndns.info":true,"dyndns.org":true,"dyndns.tv":true,"at-band-camp.net":true,"ath.cx":true,"barrel-of-knowledge.info":true,"barrell-of-knowledge.info":true,"better-than.tv":true,"blogdns.com":true,"blogdns.net":true,"blogdns.org":true,"blogsite.org":true,"boldlygoingnowhere.org":true,"broke-it.net":true,"buyshouses.net":true,"cechire.com":true,"dnsalias.com":true,"dnsalias.net":true,"dnsalias.org":true,"dnsdojo.com":true,"dnsdojo.net":true,"dnsdojo.org":true,"does-it.net":true,"doesntexist.com":true,"doesntexist.org":true,"dontexist.com":true,"dontexist.net":true,"dontexist.org":true,"doomdns.com":true,"doomdns.org":true,"dvrdns.org":true,"dyn-o-saur.com":true,"dynalias.com":true,"dynalias.net":true,"dynalias.org":true,"dynathome.net":true,"dyndns.ws":true,"endofinternet.net":true,"endofinternet.org":true,"endoftheinternet.org":true,"est-a-la-maison.com":true,"est-a-la-masion.com":true,"est-le-patron.com":true,"est-mon-blogueur.com":true,"for-better.biz":true,"for-more.biz":true,"for-our.info":true,"for-some.biz":true,"for-the.biz":true,"forgot.her.name":true,"forgot.his.name":true,"from-ak.com":true,"from-al.com":true,"from-ar.com":true,"from-az.net":true,"from-ca.com":true,"from-co.net":true,"from-ct.com":true,"from-dc.com":true,"from-de.com":true,"from-fl.com":true,"from-ga.com":true,"from-hi.com":true,"from-ia.com":true,"from-id.com":true,"from-il.com":true,"from-in.com":true,"from-ks.com":true,"from-ky.com":true,"from-la.net":true,"from-ma.com":true,"from-md.com":true,"from-me.org":true,"from-mi.com":true,"from-mn.com":true,"from-mo.com":true,"from-ms.com":true,"from-mt.com":true,"from-nc.com":true,"from-nd.com":true,"from-ne.com":true,"from-nh.com":true,"from-nj.com":true,"from-nm.com":true,"from-nv.com":true,"from-ny.net":true,"from-oh.com":true,"from-ok.com":true,"from-or.com":true,"from-pa.com":true,"from-pr.com":true,"from-ri.com":true,"from-sc.com":true,"from-sd.com":true,"from-tn.com":true,"from-tx.com":true,"from-ut.com":true,"from-va.com":true,"from-vt.com":true,"from-wa.com":true,"from-wi.com":true,"from-wv.com":true,"from-wy.com":true,"ftpaccess.cc":true,"fuettertdasnetz.de":true,"game-host.org":true,"game-server.cc":true,"getmyip.com":true,"gets-it.net":true,"go.dyndns.org":true,"gotdns.com":true,"gotdns.org":true,"groks-the.info":true,"groks-this.info":true,"ham-radio-op.net":true,"here-for-more.info":true,"hobby-site.com":true,"hobby-site.org":true,"home.dyndns.org":true,"homedns.org":true,"homeftp.net":true,"homeftp.org":true,"homeip.net":true,"homelinux.com":true,"homelinux.net":true,"homelinux.org":true,"homeunix.com":true,"homeunix.net":true,"homeunix.org":true,"iamallama.com":true,"in-the-band.net":true,"is-a-anarchist.com":true,"is-a-blogger.com":true,"is-a-bookkeeper.com":true,"is-a-bruinsfan.org":true,"is-a-bulls-fan.com":true,"is-a-candidate.org":true,"is-a-caterer.com":true,"is-a-celticsfan.org":true,"is-a-chef.com":true,"is-a-chef.net":true,"is-a-chef.org":true,"is-a-conservative.com":true,"is-a-cpa.com":true,"is-a-cubicle-slave.com":true,"is-a-democrat.com":true,"is-a-designer.com":true,"is-a-doctor.com":true,"is-a-financialadvisor.com":true,"is-a-geek.com":true,"is-a-geek.net":true,"is-a-geek.org":true,"is-a-green.com":true,"is-a-guru.com":true,"is-a-hard-worker.com":true,"is-a-hunter.com":true,"is-a-knight.org":true,"is-a-landscaper.com":true,"is-a-lawyer.com":true,"is-a-liberal.com":true,"is-a-libertarian.com":true,"is-a-linux-user.org":true,"is-a-llama.com":true,"is-a-musician.com":true,"is-a-nascarfan.com":true,"is-a-nurse.com":true,"is-a-painter.com":true,"is-a-patsfan.org":true,"is-a-personaltrainer.com":true,"is-a-photographer.com":true,"is-a-player.com":true,"is-a-republican.com":true,"is-a-rockstar.com":true,"is-a-socialist.com":true,"is-a-soxfan.org":true,"is-a-student.com":true,"is-a-teacher.com":true,"is-a-techie.com":true,"is-a-therapist.com":true,"is-an-accountant.com":true,"is-an-actor.com":true,"is-an-actress.com":true,"is-an-anarchist.com":true,"is-an-artist.com":true,"is-an-engineer.com":true,"is-an-entertainer.com":true,"is-by.us":true,"is-certified.com":true,"is-found.org":true,"is-gone.com":true,"is-into-anime.com":true,"is-into-cars.com":true,"is-into-cartoons.com":true,"is-into-games.com":true,"is-leet.com":true,"is-lost.org":true,"is-not-certified.com":true,"is-saved.org":true,"is-slick.com":true,"is-uberleet.com":true,"is-very-bad.org":true,"is-very-evil.org":true,"is-very-good.org":true,"is-very-nice.org":true,"is-very-sweet.org":true,"is-with-theband.com":true,"isa-geek.com":true,"isa-geek.net":true,"isa-geek.org":true,"isa-hockeynut.com":true,"issmarterthanyou.com":true,"isteingeek.de":true,"istmein.de":true,"kicks-ass.net":true,"kicks-ass.org":true,"knowsitall.info":true,"land-4-sale.us":true,"lebtimnetz.de":true,"leitungsen.de":true,"likes-pie.com":true,"likescandy.com":true,"merseine.nu":true,"mine.nu":true,"misconfused.org":true,"mypets.ws":true,"myphotos.cc":true,"neat-url.com":true,"office-on-the.net":true,"on-the-web.tv":true,"podzone.net":true,"podzone.org":true,"readmyblog.org":true,"saves-the-whales.com":true,"scrapper-site.net":true,"scrapping.cc":true,"selfip.biz":true,"selfip.com":true,"selfip.info":true,"selfip.net":true,"selfip.org":true,"sells-for-less.com":true,"sells-for-u.com":true,"sells-it.net":true,"sellsyourhome.org":true,"servebbs.com":true,"servebbs.net":true,"servebbs.org":true,"serveftp.net":true,"serveftp.org":true,"servegame.org":true,"shacknet.nu":true,"simple-url.com":true,"space-to-rent.com":true,"stuff-4-sale.org":true,"stuff-4-sale.us":true,"teaches-yoga.com":true,"thruhere.net":true,"traeumtgerade.de":true,"webhop.biz":true,"webhop.info":true,"webhop.net":true,"webhop.org":true,"worse-than.tv":true,"writesthisblog.com":true,"ddnss.de":true,"dyn.ddnss.de":true,"dyndns.ddnss.de":true,"dyndns1.de":true,"dyn-ip24.de":true,"home-webserver.de":true,"dyn.home-webserver.de":true,"myhome-server.de":true,"ddnss.org":true,"definima.net":true,"definima.io":true,"ddnsfree.com":true,"ddnsgeek.com":true,"giize.com":true,"gleeze.com":true,"kozow.com":true,"loseyourip.com":true,"ooguy.com":true,"theworkpc.com":true,"casacam.net":true,"dynu.net":true,"accesscam.org":true,"camdvr.org":true,"freeddns.org":true,"mywire.org":true,"webredirect.org":true,"myddns.rocks":true,"blogsite.xyz":true,"dynv6.net":true,"e4.cz":true,"mytuleap.com":true,"enonic.io":true,"customer.enonic.io":true,"eu.org":true,"al.eu.org":true,"asso.eu.org":true,"at.eu.org":true,"au.eu.org":true,"be.eu.org":true,"bg.eu.org":true,"ca.eu.org":true,"cd.eu.org":true,"ch.eu.org":true,"cn.eu.org":true,"cy.eu.org":true,"cz.eu.org":true,"de.eu.org":true,"dk.eu.org":true,"edu.eu.org":true,"ee.eu.org":true,"es.eu.org":true,"fi.eu.org":true,"fr.eu.org":true,"gr.eu.org":true,"hr.eu.org":true,"hu.eu.org":true,"ie.eu.org":true,"il.eu.org":true,"in.eu.org":true,"int.eu.org":true,"is.eu.org":true,"it.eu.org":true,"jp.eu.org":true,"kr.eu.org":true,"lt.eu.org":true,"lu.eu.org":true,"lv.eu.org":true,"mc.eu.org":true,"me.eu.org":true,"mk.eu.org":true,"mt.eu.org":true,"my.eu.org":true,"net.eu.org":true,"ng.eu.org":true,"nl.eu.org":true,"no.eu.org":true,"nz.eu.org":true,"paris.eu.org":true,"pl.eu.org":true,"pt.eu.org":true,"q-a.eu.org":true,"ro.eu.org":true,"ru.eu.org":true,"se.eu.org":true,"si.eu.org":true,"sk.eu.org":true,"tr.eu.org":true,"uk.eu.org":true,"us.eu.org":true,"eu-1.evennode.com":true,"eu-2.evennode.com":true,"eu-3.evennode.com":true,"eu-4.evennode.com":true,"us-1.evennode.com":true,"us-2.evennode.com":true,"us-3.evennode.com":true,"us-4.evennode.com":true,"twmail.cc":true,"twmail.net":true,"twmail.org":true,"mymailer.com.tw":true,"url.tw":true,"apps.fbsbx.com":true,"ru.net":true,"adygeya.ru":true,"bashkiria.ru":true,"bir.ru":true,"cbg.ru":true,"com.ru":true,"dagestan.ru":true,"grozny.ru":true,"kalmykia.ru":true,"kustanai.ru":true,"marine.ru":true,"mordovia.ru":true,"msk.ru":true,"mytis.ru":true,"nalchik.ru":true,"nov.ru":true,"pyatigorsk.ru":true,"spb.ru":true,"vladikavkaz.ru":true,"vladimir.ru":true,"abkhazia.su":true,"adygeya.su":true,"aktyubinsk.su":true,"arkhangelsk.su":true,"armenia.su":true,"ashgabad.su":true,"azerbaijan.su":true,"balashov.su":true,"bashkiria.su":true,"bryansk.su":true,"bukhara.su":true,"chimkent.su":true,"dagestan.su":true,"east-kazakhstan.su":true,"exnet.su":true,"georgia.su":true,"grozny.su":true,"ivanovo.su":true,"jambyl.su":true,"kalmykia.su":true,"kaluga.su":true,"karacol.su":true,"karaganda.su":true,"karelia.su":true,"khakassia.su":true,"krasnodar.su":true,"kurgan.su":true,"kustanai.su":true,"lenug.su":true,"mangyshlak.su":true,"mordovia.su":true,"msk.su":true,"murmansk.su":true,"nalchik.su":true,"navoi.su":true,"north-kazakhstan.su":true,"nov.su":true,"obninsk.su":true,"penza.su":true,"pokrovsk.su":true,"sochi.su":true,"spb.su":true,"tashkent.su":true,"termez.su":true,"togliatti.su":true,"troitsk.su":true,"tselinograd.su":true,"tula.su":true,"tuva.su":true,"vladikavkaz.su":true,"vladimir.su":true,"vologda.su":true,"channelsdvr.net":true,"fastlylb.net":true,"map.fastlylb.net":true,"freetls.fastly.net":true,"map.fastly.net":true,"a.prod.fastly.net":true,"global.prod.fastly.net":true,"a.ssl.fastly.net":true,"b.ssl.fastly.net":true,"global.ssl.fastly.net":true,"fhapp.xyz":true,"fedorainfracloud.org":true,"fedorapeople.org":true,"cloud.fedoraproject.org":true,"app.os.fedoraproject.org":true,"app.os.stg.fedoraproject.org":true,"filegear.me":true,"firebaseapp.com":true,"flynnhub.com":true,"flynnhosting.net":true,"freebox-os.com":true,"freeboxos.com":true,"fbx-os.fr":true,"fbxos.fr":true,"freebox-os.fr":true,"freeboxos.fr":true,"*.futurecms.at":true,"futurehosting.at":true,"futuremailing.at":true,"*.ex.ortsinfo.at":true,"*.kunden.ortsinfo.at":true,"*.statics.cloud":true,"service.gov.uk":true,"github.io":true,"githubusercontent.com":true,"gitlab.io":true,"homeoffice.gov.uk":true,"ro.im":true,"shop.ro":true,"goip.de":true,"*.0emm.com":true,"appspot.com":true,"blogspot.ae":true,"blogspot.al":true,"blogspot.am":true,"blogspot.ba":true,"blogspot.be":true,"blogspot.bg":true,"blogspot.bj":true,"blogspot.ca":true,"blogspot.cf":true,"blogspot.ch":true,"blogspot.cl":true,"blogspot.co.at":true,"blogspot.co.id":true,"blogspot.co.il":true,"blogspot.co.ke":true,"blogspot.co.nz":true,"blogspot.co.uk":true,"blogspot.co.za":true,"blogspot.com":true,"blogspot.com.ar":true,"blogspot.com.au":true,"blogspot.com.br":true,"blogspot.com.by":true,"blogspot.com.co":true,"blogspot.com.cy":true,"blogspot.com.ee":true,"blogspot.com.eg":true,"blogspot.com.es":true,"blogspot.com.mt":true,"blogspot.com.ng":true,"blogspot.com.tr":true,"blogspot.com.uy":true,"blogspot.cv":true,"blogspot.cz":true,"blogspot.de":true,"blogspot.dk":true,"blogspot.fi":true,"blogspot.fr":true,"blogspot.gr":true,"blogspot.hk":true,"blogspot.hr":true,"blogspot.hu":true,"blogspot.ie":true,"blogspot.in":true,"blogspot.is":true,"blogspot.it":true,"blogspot.jp":true,"blogspot.kr":true,"blogspot.li":true,"blogspot.lt":true,"blogspot.lu":true,"blogspot.md":true,"blogspot.mk":true,"blogspot.mr":true,"blogspot.mx":true,"blogspot.my":true,"blogspot.nl":true,"blogspot.no":true,"blogspot.pe":true,"blogspot.pt":true,"blogspot.qa":true,"blogspot.re":true,"blogspot.ro":true,"blogspot.rs":true,"blogspot.ru":true,"blogspot.se":true,"blogspot.sg":true,"blogspot.si":true,"blogspot.sk":true,"blogspot.sn":true,"blogspot.td":true,"blogspot.tw":true,"blogspot.ug":true,"blogspot.vn":true,"cloudfunctions.net":true,"cloud.goog":true,"codespot.com":true,"googleapis.com":true,"googlecode.com":true,"pagespeedmobilizer.com":true,"publishproxy.com":true,"withgoogle.com":true,"withyoutube.com":true,"hashbang.sh":true,"hasura-app.io":true,"hepforge.org":true,"herokuapp.com":true,"herokussl.com":true,"moonscale.net":true,"iki.fi":true,"biz.at":true,"info.at":true,"info.cx":true,"ac.leg.br":true,"al.leg.br":true,"am.leg.br":true,"ap.leg.br":true,"ba.leg.br":true,"ce.leg.br":true,"df.leg.br":true,"es.leg.br":true,"go.leg.br":true,"ma.leg.br":true,"mg.leg.br":true,"ms.leg.br":true,"mt.leg.br":true,"pa.leg.br":true,"pb.leg.br":true,"pe.leg.br":true,"pi.leg.br":true,"pr.leg.br":true,"rj.leg.br":true,"rn.leg.br":true,"ro.leg.br":true,"rr.leg.br":true,"rs.leg.br":true,"sc.leg.br":true,"se.leg.br":true,"sp.leg.br":true,"to.leg.br":true,"pixolino.com":true,"ipifony.net":true,"*.triton.zone":true,"*.cns.joyent.com":true,"js.org":true,"keymachine.de":true,"knightpoint.systems":true,"co.krd":true,"edu.krd":true,"git-repos.de":true,"lcube-server.de":true,"svn-repos.de":true,"linkyard.cloud":true,"linkyard-cloud.ch":true,"we.bs":true,"barsy.bg":true,"barsyonline.com":true,"barsy.de":true,"barsy.eu":true,"barsy.in":true,"barsy.net":true,"barsy.online":true,"barsy.support":true,"*.magentosite.cloud":true,"hb.cldmail.ru":true,"cloud.metacentrum.cz":true,"custom.metacentrum.cz":true,"meteorapp.com":true,"eu.meteorapp.com":true,"co.pl":true,"azurewebsites.net":true,"azure-mobile.net":true,"cloudapp.net":true,"mozilla-iot.org":true,"bmoattachments.org":true,"net.ru":true,"org.ru":true,"pp.ru":true,"bitballoon.com":true,"netlify.com":true,"4u.com":true,"ngrok.io":true,"nh-serv.co.uk":true,"nfshost.com":true,"nsupdate.info":true,"nerdpol.ovh":true,"blogsyte.com":true,"brasilia.me":true,"cable-modem.org":true,"ciscofreak.com":true,"collegefan.org":true,"couchpotatofries.org":true,"damnserver.com":true,"ddns.me":true,"ditchyourip.com":true,"dnsfor.me":true,"dnsiskinky.com":true,"dvrcam.info":true,"dynns.com":true,"eating-organic.net":true,"fantasyleague.cc":true,"geekgalaxy.com":true,"golffan.us":true,"health-carereform.com":true,"homesecuritymac.com":true,"homesecuritypc.com":true,"hopto.me":true,"ilovecollege.info":true,"loginto.me":true,"mlbfan.org":true,"mmafan.biz":true,"myactivedirectory.com":true,"mydissent.net":true,"myeffect.net":true,"mymediapc.net":true,"mypsx.net":true,"mysecuritycamera.com":true,"mysecuritycamera.net":true,"mysecuritycamera.org":true,"net-freaks.com":true,"nflfan.org":true,"nhlfan.net":true,"no-ip.ca":true,"no-ip.co.uk":true,"no-ip.net":true,"noip.us":true,"onthewifi.com":true,"pgafan.net":true,"point2this.com":true,"pointto.us":true,"privatizehealthinsurance.net":true,"quicksytes.com":true,"read-books.org":true,"securitytactics.com":true,"serveexchange.com":true,"servehumour.com":true,"servep2p.com":true,"servesarcasm.com":true,"stufftoread.com":true,"ufcfan.org":true,"unusualperson.com":true,"workisboring.com":true,"3utilities.com":true,"bounceme.net":true,"ddns.net":true,"ddnsking.com":true,"gotdns.ch":true,"hopto.org":true,"myftp.biz":true,"myftp.org":true,"myvnc.com":true,"no-ip.biz":true,"no-ip.info":true,"no-ip.org":true,"noip.me":true,"redirectme.net":true,"servebeer.com":true,"serveblog.net":true,"servecounterstrike.com":true,"serveftp.com":true,"servegame.com":true,"servehalflife.com":true,"servehttp.com":true,"serveirc.com":true,"serveminecraft.net":true,"servemp3.com":true,"servepics.com":true,"servequake.com":true,"sytes.net":true,"webhop.me":true,"zapto.org":true,"stage.nodeart.io":true,"nodum.co":true,"nodum.io":true,"nyc.mn":true,"nom.ae":true,"nom.ai":true,"nom.al":true,"nym.by":true,"nym.bz":true,"nom.cl":true,"nom.gd":true,"nom.gl":true,"nym.gr":true,"nom.gt":true,"nom.hn":true,"nom.im":true,"nym.kz":true,"nym.la":true,"nom.li":true,"nym.li":true,"nym.lt":true,"nym.lu":true,"nym.me":true,"nom.mk":true,"nym.mx":true,"nom.nu":true,"nym.nz":true,"nym.pe":true,"nym.pt":true,"nom.pw":true,"nom.qa":true,"nom.rs":true,"nom.si":true,"nym.sk":true,"nym.su":true,"nym.sx":true,"nym.tw":true,"nom.ug":true,"nom.uy":true,"nom.vc":true,"nom.vg":true,"cya.gg":true,"nid.io":true,"opencraft.hosting":true,"operaunite.com":true,"outsystemscloud.com":true,"ownprovider.com":true,"oy.lc":true,"pgfog.com":true,"pagefrontapp.com":true,"art.pl":true,"gliwice.pl":true,"krakow.pl":true,"poznan.pl":true,"wroc.pl":true,"zakopane.pl":true,"pantheonsite.io":true,"gotpantheon.com":true,"mypep.link":true,"on-web.fr":true,"*.platform.sh":true,"*.platformsh.site":true,"xen.prgmr.com":true,"priv.at":true,"protonet.io":true,"chirurgiens-dentistes-en-france.fr":true,"byen.site":true,"qa2.com":true,"dev-myqnapcloud.com":true,"alpha-myqnapcloud.com":true,"myqnapcloud.com":true,"*.quipelements.com":true,"vapor.cloud":true,"vaporcloud.io":true,"rackmaze.com":true,"rackmaze.net":true,"rhcloud.com":true,"resindevice.io":true,"devices.resinstaging.io":true,"hzc.io":true,"wellbeingzone.eu":true,"ptplus.fit":true,"wellbeingzone.co.uk":true,"sandcats.io":true,"logoip.de":true,"logoip.com":true,"schokokeks.net":true,"scrysec.com":true,"firewall-gateway.com":true,"firewall-gateway.de":true,"my-gateway.de":true,"my-router.de":true,"spdns.de":true,"spdns.eu":true,"firewall-gateway.net":true,"my-firewall.org":true,"myfirewall.org":true,"spdns.org":true,"*.s5y.io":true,"*.sensiosite.cloud":true,"biz.ua":true,"co.ua":true,"pp.ua":true,"shiftedit.io":true,"myshopblocks.com":true,"1kapp.com":true,"appchizi.com":true,"applinzi.com":true,"sinaapp.com":true,"vipsinaapp.com":true,"bounty-full.com":true,"alpha.bounty-full.com":true,"beta.bounty-full.com":true,"static.land":true,"dev.static.land":true,"sites.static.land":true,"apps.lair.io":true,"*.stolos.io":true,"spacekit.io":true,"stackspace.space":true,"storj.farm":true,"temp-dns.com":true,"diskstation.me":true,"dscloud.biz":true,"dscloud.me":true,"dscloud.mobi":true,"dsmynas.com":true,"dsmynas.net":true,"dsmynas.org":true,"familyds.com":true,"familyds.net":true,"familyds.org":true,"i234.me":true,"myds.me":true,"synology.me":true,"vpnplus.to":true,"taifun-dns.de":true,"gda.pl":true,"gdansk.pl":true,"gdynia.pl":true,"med.pl":true,"sopot.pl":true,"cust.dev.thingdust.io":true,"cust.disrec.thingdust.io":true,"cust.prod.thingdust.io":true,"cust.testing.thingdust.io":true,"bloxcms.com":true,"townnews-staging.com":true,"12hp.at":true,"2ix.at":true,"4lima.at":true,"lima-city.at":true,"12hp.ch":true,"2ix.ch":true,"4lima.ch":true,"lima-city.ch":true,"trafficplex.cloud":true,"de.cool":true,"12hp.de":true,"2ix.de":true,"4lima.de":true,"lima-city.de":true,"1337.pictures":true,"clan.rip":true,"lima-city.rocks":true,"webspace.rocks":true,"lima.zone":true,"*.transurl.be":true,"*.transurl.eu":true,"*.transurl.nl":true,"tuxfamily.org":true,"dd-dns.de":true,"diskstation.eu":true,"diskstation.org":true,"dray-dns.de":true,"draydns.de":true,"dyn-vpn.de":true,"dynvpn.de":true,"mein-vigor.de":true,"my-vigor.de":true,"my-wan.de":true,"syno-ds.de":true,"synology-diskstation.de":true,"synology-ds.de":true,"uber.space":true,"hk.com":true,"hk.org":true,"ltd.hk":true,"inc.hk":true,"lib.de.us":true,"2038.io":true,"router.management":true,"v-info.info":true,"wedeploy.io":true,"wedeploy.me":true,"wedeploy.sh":true,"remotewd.com":true,"wmflabs.org":true,"cistron.nl":true,"demon.nl":true,"xs4all.space":true,"official.academy":true,"yolasite.com":true,"ybo.faith":true,"yombo.me":true,"homelink.one":true,"ybo.party":true,"ybo.review":true,"ybo.science":true,"ybo.trade":true,"za.net":true,"za.org":true,"now.sh":true});
+
+// END of automatically generated file
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*jshint unused:false */
+
+function Store() {
+}
+exports.Store = Store;
+
+// Stores may be synchronous, but are still required to use a
+// Continuation-Passing Style API.  The CookieJar itself will expose a "*Sync"
+// API that converts from synchronous-callbacks to imperative style.
+Store.prototype.synchronous = false;
+
+Store.prototype.findCookie = function(domain, path, key, cb) {
+  throw new Error('findCookie is not implemented');
+};
+
+Store.prototype.findCookies = function(domain, path, cb) {
+  throw new Error('findCookies is not implemented');
+};
+
+Store.prototype.putCookie = function(cookie, cb) {
+  throw new Error('putCookie is not implemented');
+};
+
+Store.prototype.updateCookie = function(oldCookie, newCookie, cb) {
+  // recommended default implementation:
+  // return this.putCookie(newCookie, cb);
+  throw new Error('updateCookie is not implemented');
+};
+
+Store.prototype.removeCookie = function(domain, path, key, cb) {
+  throw new Error('removeCookie is not implemented');
+};
+
+Store.prototype.removeCookies = function(domain, path, cb) {
+  throw new Error('removeCookies is not implemented');
+};
+
+Store.prototype.getAllCookies = function(cb) {
+  throw new Error('getAllCookies is not implemented (therefore jar cannot be serialized)');
+};
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports) {
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+for (var i = 0; i < 256; ++i) {
+  byteToHex[i] = (i + 0x100).toString(16).substr(1);
+}
+
+function bytesToUuid(buf, offset) {
+  var i = offset || 0;
+  var bth = byteToHex;
+  return bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]];
+}
+
+module.exports = bytesToUuid;
+
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Unique ID creation requires a high quality random # generator.  In node.js
+// this is pretty straight-forward - we use the crypto API.
+
+var crypto = __webpack_require__(1);
+
+module.exports = function nodeRNG() {
+  return crypto.randomBytes(16);
+};
+
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports) {
+
+module.exports = require("punycode");
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports) {
+
+module.exports = require("tls");
 
 /***/ }),
 /* 112 */
@@ -20146,11 +20146,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _dec, _desc, _value, _obj, _init, _init2, _init3, _init4;
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _superagent = __webpack_require__(227);
+var _superagent = __webpack_require__(226);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -20158,11 +20158,11 @@ var _shortid = __webpack_require__(53);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _reactRnd = __webpack_require__(224);
+var _reactRnd = __webpack_require__(223);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _rescopeSpells = __webpack_require__(116);
+var _rescopeSpells = __webpack_require__(252);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20197,7 +20197,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
     return desc;
 }
 
-exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someData", "!PostIt"]), (_obj = {
+exports.default = (_dec = (0, _rescopeSpells.asRootRenderer)(["!appState", "!someData", "!PostIt"]), (_obj = {
     Home: function Home(_ref, _ref2) {
         var someData = _ref.someData,
             appState = _ref.appState,
@@ -20206,48 +20206,34 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someDat
             $stores = _ref2.$stores,
             $store = _ref2.$store;
         return _react2.default.createElement(
-            "html",
-            { lang: "en" },
+            "div",
+            null,
             _react2.default.createElement(
-                "head",
+                "h1",
                 null,
-                _react2.default.createElement("meta", { charSet: "UTF-8" }),
-                _react2.default.createElement(
-                    "title",
-                    null,
-                    "Really basic drafty rescope + react component example"
-                )
+                "Really basic drafty rescope SSR example"
+            ),
+            ",",
+            someData.items.map(function (note) {
+                return _react2.default.createElement(PostIt, { key: note._id, record: note,
+                    onSelect: function onSelect(e) {
+                        return $actions.selectPostIt(note._id);
+                    },
+                    selected: note._id == appState.selectedPostItId });
+            }),
+            _react2.default.createElement(
+                "div",
+                {
+                    className: "newBtn button",
+                    onClick: $actions.newPostIt },
+                "Add Post It"
             ),
             _react2.default.createElement(
-                "body",
-                null,
-                _react2.default.createElement(
-                    "h1",
-                    null,
-                    "Really basic drafty rescope SSR example"
-                ),
-                ",",
-                someData.items.map(function (note) {
-                    return _react2.default.createElement(PostIt, { key: note._id, record: note,
-                        onSelect: function onSelect(e) {
-                            return $actions.selectPostIt(note._id);
-                        },
-                        selected: note._id == appState.selectedPostItId });
-                }),
-                _react2.default.createElement(
-                    "div",
-                    {
-                        className: "newBtn button",
-                        onClick: $actions.newPostIt },
-                    "Add Post It"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    {
-                        className: "saveBtn button",
-                        onClick: $actions.saveState },
-                    "Save state"
-                )
+                "div",
+                {
+                    className: "saveBtn button",
+                    onClick: $actions.saveState },
+                "Save state"
             )
         );
     },
@@ -20261,16 +20247,11 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someDat
             text = _ref3.text,
             size = _ref3.size,
             editing = _ref3.editing,
-            _ref3$doSave = _ref3.doSave,
-            doSave = _ref3$doSave === undefined ? function () {
-            return $actions.updatePostIt(_extends({}, record, {
-                size: size || record.size,
-                position: position
-            }));
-        } : _ref3$doSave;
+            doSave = _ref3.doSave;
         var $actions = _ref4.$actions,
             $stores = _ref4.$stores,
             $store = _ref4.$store;
+
         return _react2.default.createElement(
             _reactRnd2.default,
             {
@@ -20278,7 +20259,12 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!appState", "!someDat
                 z: selected ? 2000 : 1,
                 size: size || record.size,
                 position: position || record.position,
-                onDragStop: doSave,
+                onDragStop: doSave = function doSave() {
+                    return $actions.updatePostIt(_extends({}, record, {
+                        size: size || record.size,
+                        position: position
+                    }));
+                },
                 onResizeStop: doSave,
                 onDrag: function onDrag(e, d) {
                     !selected && onSelect(record);
@@ -20463,432 +20449,37 @@ var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT Lice
 "use strict";
 
 
-module.exports = __webpack_require__(222);
+module.exports = __webpack_require__(221);
 
 
 /***/ }),
 /* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	__webpack_require__(2);
-	
-	__webpack_require__(4);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _rescope2.default.spells; /*
-	                                             * Copyright (c)  2018 Wise Wild Web .
-	                                             *
-	                                             *  MIT License
-	                                             *
-	                                             *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                             *  of this software and associated documentation files (the "Software"), to deal
-	                                             *  in the Software without restriction, including without limitation the rights
-	                                             *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                             *  copies of the Software, and to permit persons to whom the Software is
-	                                             *  furnished to do so, subject to the following conditions:
-	                                             *
-	                                             *  The above copyright notice and this permission notice shall be included in all
-	                                             *  copies or substantial portions of the Software.
-	                                             *
-	                                             *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                             *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                             *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                             *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                             *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                             *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                             *  SOFTWARE.
-	                                             *
-	                                             * @author : Nathanael Braun
-	                                             * @contact : caipilabs@gmail.com
-	                                             */
-
-	module.exports = exports["default"];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(43);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// will use as external the index in dist
-	
-	/*
-	 * Copyright (c)  2018 Wise Wild Web .
-	 *
-	 *  MIT License
-	 *
-	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	 *  of this software and associated documentation files (the "Software"), to deal
-	 *  in the Software without restriction, including without limitation the rights
-	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 *  copies of the Software, and to permit persons to whom the Software is
-	 *  furnished to do so, subject to the following conditions:
-	 *
-	 *  The above copyright notice and this permission notice shall be included in all
-	 *  copies or substantial portions of the Software.
-	 *
-	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	 *  SOFTWARE.
-	 *
-	 * @author : Nathanael Braun
-	 * @contact : caipilabs@gmail.com
-	 */
-	var SimpleObjectProto = {}.constructor;
-	_rescope2.default.spells = {};
-	
-	var castTypesToAppliable = {};
-	var castTypes = {};
-	
-	_rescope2.default.isSpell = function caster() {
-	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-	        argz[_key] = arguments[_key];
-	    }
-	
-	    // are we decorating a member / without argz
-	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	        argz[2].value = addCaster(argz[0][argz[1]], argz);
-	        return argz[0];
-	    } else if (!_is2.default.fn(argz[0])) {
-	        return function () {
-	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                argz2[_key2] = arguments[_key2];
-	            }
-	
-	            // are we decorating a member / with argz
-	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-	                return argz2[0];
-	            } else return caster.apply(undefined, [argz2[0]].concat(argz));
-	        };
-	    }
-	    return addCaster.apply(undefined, argz);
-	};
-	
-	function addCaster() {
-	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	        argz[_key3] = arguments[_key3];
-	    }
-	
-	    var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-	    if (!cast) throw "ReScope cast : bad decorator function";
-	    var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-	        test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-	        prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-	        memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-	        casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
-	
-	    if (!castTypesToAppliable[typeName]) {
-	        castTypesToAppliable[typeName] = [];
-	
-	        _rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-	            for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                argz[_key4] = arguments[_key4];
-	            }
-	
-	            // are we decorating a member / without argz
-	            if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	                argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-	                return argz[0];
-	            } else if (!isCastableType(typeName, argz[0])) {
-	                return function () {
-	                    for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	                        argz2[_key5] = arguments[_key5];
-	                    }
-	
-	                    // are we decorating a member / with argz
-	                    if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                        argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-	                        return argz2[0];
-	                    } else return doCast.apply(undefined, [argz2[0]].concat(argz));
-	                };
-	            }
-	            return applyCastableType(typeName, argz[0], argz.slice(1));
-	        };
-	    }
-	    castTypesToAppliable[typeName].unshift({
-	        typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-	    });
-	    return cast;
-	}
-	
-	function isCastableType(typeName, Comp, member, stateScope) {
-	    var castable = castTypesToAppliable[typeName];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-	    }return false;
-	}
-	
-	function applyCastableType(typeName, Comp, argz, member, stateScope) {
-	
-	    var castable = castTypesToAppliable[typeName] || [];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-	    }console.warn("reScope cast : Unknown type", typeName, Comp);
-	    return false;
-	}
-	
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(36);
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _dec, _dec2, _desc, _value, _obj; /*
-	                                       * Copyright (c)  2018 Wise Wild Web .
-	                                       *
-	                                       *  MIT License
-	                                       *
-	                                       *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                       *  of this software and associated documentation files (the "Software"), to deal
-	                                       *  in the Software without restriction, including without limitation the rights
-	                                       *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                       *  copies of the Software, and to permit persons to whom the Software is
-	                                       *  furnished to do so, subject to the following conditions:
-	                                       *
-	                                       *  The above copyright notice and this permission notice shall be included in all
-	                                       *  copies or substantial portions of the Software.
-	                                       *
-	                                       *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                       *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                       *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                       *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                       *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                       *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                       *  SOFTWARE.
-	                                       *
-	                                       * @author : Nathanael Braun
-	                                       * @contact : caipilabs@gmail.com
-	                                       */
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	var _rescope = __webpack_require__(1);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-	    var desc = {};
-	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
-	        desc[key] = descriptor[key];
-	    });
-	    desc.enumerable = !!desc.enumerable;
-	    desc.configurable = !!desc.configurable;
-	
-	    if ('value' in desc || desc.initializer) {
-	        desc.writable = true;
-	    }
-	
-	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-	        return decorator(target, property, desc) || desc;
-	    }, desc);
-	
-	    if (context && desc.initializer !== void 0) {
-	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-	        desc.initializer = undefined;
-	    }
-	
-	    if (desc.initializer === void 0) {
-	        Object['define' + 'Property'](target, property, desc);
-	        desc = null;
-	    }
-	
-	    return desc;
-	}
-	
-	exports.default = (_dec = (0, _rescope.isSpell)("stateMap", function (v) {
-	    return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec2 = (0, _rescope.isSpell)("scope", function (v) {
-	    return _is2.default.object(v);
-	}), (_obj = {
-	    stateMap: function stateMap(obj, _ref, ref) {
-	        var _class, _temp;
-	
-	        var cfg = _ref[0];
-	
-	        var use = [],
-	            state = {},
-	            actions = {};
-	        _rescope.Scope.stateMapToRefList(obj, state, use, actions);
-	        return _temp = _class = function (_Store) {
-	            _inherits(StateMap, _Store);
-	
-	            function StateMap() {
-	                _classCallCheck(this, StateMap);
-	
-	                return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-	            }
-	
-	            return StateMap;
-	        }(_rescope.Store), _class.displayName = ref[1], _class.use = use, _class.state = state, _class.actions = actions, _temp;
-	    },
-	    scope: function scope(obj, _ref2, ref) {
-	        var cfg = _ref2[0];
-	
-	
-	        return _rescope.Scope.bind(null, obj, cfg);
-	    }
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec2], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj)), _obj));
-	module.exports = exports["default"];
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=rescopeSpells.js.map
-
-/***/ }),
-/* 117 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
-var compileSchema = __webpack_require__(122)
-  , resolve = __webpack_require__(64)
-  , Cache = __webpack_require__(118)
-  , SchemaObject = __webpack_require__(65)
+var compileSchema = __webpack_require__(121)
+  , resolve = __webpack_require__(65)
+  , Cache = __webpack_require__(117)
+  , SchemaObject = __webpack_require__(66)
   , stableStringify = __webpack_require__(50)
-  , formats = __webpack_require__(121)
-  , rules = __webpack_require__(123)
-  , v5 = __webpack_require__(145)
+  , formats = __webpack_require__(120)
+  , rules = __webpack_require__(122)
+  , v5 = __webpack_require__(144)
   , util = __webpack_require__(18)
-  , async = __webpack_require__(62)
-  , co = __webpack_require__(79);
+  , async = __webpack_require__(63)
+  , co = __webpack_require__(80);
 
 module.exports = Ajv;
 
 Ajv.prototype.compileAsync = async.compile;
 
-var customKeyword = __webpack_require__(144);
+var customKeyword = __webpack_require__(143);
 Ajv.prototype.addKeyword = customKeyword.add;
 Ajv.prototype.getKeyword = customKeyword.get;
 Ajv.prototype.removeKeyword = customKeyword.remove;
-Ajv.ValidationError = __webpack_require__(66);
+Ajv.ValidationError = __webpack_require__(67);
 
 var META_SCHEMA_ID = 'http://json-schema.org/draft-04/schema';
 var SCHEMA_URI_FORMAT = /^(?:(?:[a-z][a-z0-9+-.]*:)?\/\/)?[^\s]*$/i;
@@ -21250,7 +20841,7 @@ function Ajv(opts) {
 
   function addDraft4MetaSchema() {
     if (self._opts.meta !== false) {
-      var metaSchema = __webpack_require__(180);
+      var metaSchema = __webpack_require__(179);
       addMetaSchema(metaSchema, META_SCHEMA_ID, true);
       self._refs['http://json-schema.org/schema'] = META_SCHEMA_ID;
     }
@@ -21289,7 +20880,7 @@ function Ajv(opts) {
 
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21322,7 +20913,7 @@ Cache.prototype.clear = function Cache_clear() {
 
 
 /***/ }),
-/* 119 */
+/* 118 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -21331,10 +20922,10 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 119;
+webpackEmptyContext.id = 118;
 
 /***/ }),
-/* 120 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21342,34 +20933,34 @@ webpackEmptyContext.id = 119;
 
 //all requires must be explicit because browserify won't work with dynamic requires
 module.exports = {
-  '$ref': __webpack_require__(140),
-  allOf: __webpack_require__(126),
-  anyOf: __webpack_require__(127),
-  dependencies: __webpack_require__(130),
-  'enum': __webpack_require__(131),
-  format: __webpack_require__(132),
-  items: __webpack_require__(133),
-  maximum: __webpack_require__(67),
-  minimum: __webpack_require__(67),
-  maxItems: __webpack_require__(68),
-  minItems: __webpack_require__(68),
-  maxLength: __webpack_require__(69),
-  minLength: __webpack_require__(69),
-  maxProperties: __webpack_require__(70),
-  minProperties: __webpack_require__(70),
-  multipleOf: __webpack_require__(134),
-  not: __webpack_require__(135),
-  oneOf: __webpack_require__(136),
-  pattern: __webpack_require__(137),
-  properties: __webpack_require__(139),
-  required: __webpack_require__(141),
-  uniqueItems: __webpack_require__(143),
-  validate: __webpack_require__(71)
+  '$ref': __webpack_require__(139),
+  allOf: __webpack_require__(125),
+  anyOf: __webpack_require__(126),
+  dependencies: __webpack_require__(129),
+  'enum': __webpack_require__(130),
+  format: __webpack_require__(131),
+  items: __webpack_require__(132),
+  maximum: __webpack_require__(68),
+  minimum: __webpack_require__(68),
+  maxItems: __webpack_require__(69),
+  minItems: __webpack_require__(69),
+  maxLength: __webpack_require__(70),
+  minLength: __webpack_require__(70),
+  maxProperties: __webpack_require__(71),
+  minProperties: __webpack_require__(71),
+  multipleOf: __webpack_require__(133),
+  not: __webpack_require__(134),
+  oneOf: __webpack_require__(135),
+  pattern: __webpack_require__(136),
+  properties: __webpack_require__(138),
+  required: __webpack_require__(140),
+  uniqueItems: __webpack_require__(142),
+  validate: __webpack_require__(72)
 };
 
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21540,16 +21131,16 @@ function compareDateTime(dt1, dt2) {
 
 
 /***/ }),
-/* 122 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(64)
+var resolve = __webpack_require__(65)
   , util = __webpack_require__(18)
   , stableStringify = __webpack_require__(50)
-  , async = __webpack_require__(62);
+  , async = __webpack_require__(63);
 
 var beautify;
 
@@ -21561,18 +21152,18 @@ function loadBeautify(){
   }
 }
 
-var validateGenerator = __webpack_require__(71);
+var validateGenerator = __webpack_require__(72);
 
 /**
  * Functions below are used inside compiled validations function
  */
 
-var co = __webpack_require__(79);
+var co = __webpack_require__(80);
 var ucs2length = util.ucs2length;
-var equal = __webpack_require__(63);
+var equal = __webpack_require__(64);
 
 // this error is thrown by async schemas to return validation errors via exception
-var ValidationError = __webpack_require__(66);
+var ValidationError = __webpack_require__(67);
 
 module.exports = compile;
 
@@ -21937,13 +21528,13 @@ function vars(arr, statement) {
 
 
 /***/ }),
-/* 123 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ruleModules = __webpack_require__(120)
+var ruleModules = __webpack_require__(119)
   , toHash = __webpack_require__(18).toHash;
 
 module.exports = function rules() {
@@ -21984,7 +21575,7 @@ module.exports = function rules() {
 
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22011,7 +21602,7 @@ module.exports = function ucs2length(str) {
 
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22194,7 +21785,7 @@ module.exports = function generate__formatLimit(it, $keyword) {
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22244,7 +21835,7 @@ module.exports = function generate_allOf(it, $keyword) {
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22316,7 +21907,7 @@ module.exports = function generate_anyOf(it, $keyword) {
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22375,7 +21966,7 @@ module.exports = function generate_constant(it, $keyword) {
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22602,7 +22193,7 @@ module.exports = function generate_custom(it, $keyword) {
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22756,7 +22347,7 @@ module.exports = function generate_dependencies(it, $keyword) {
 
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22828,7 +22419,7 @@ module.exports = function generate_enum(it, $keyword) {
 
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22973,7 +22564,7 @@ module.exports = function generate_format(it, $keyword) {
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23124,7 +22715,7 @@ module.exports = function generate_items(it, $keyword) {
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23207,7 +22798,7 @@ module.exports = function generate_multipleOf(it, $keyword) {
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23297,7 +22888,7 @@ module.exports = function generate_not(it, $keyword) {
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23380,7 +22971,7 @@ module.exports = function generate_oneOf(it, $keyword) {
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23461,7 +23052,7 @@ module.exports = function generate_pattern(it, $keyword) {
 
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23519,7 +23110,7 @@ module.exports = function generate_patternRequired(it, $keyword) {
 
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23971,7 +23562,7 @@ module.exports = function generate_properties(it, $keyword) {
 
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24097,7 +23688,7 @@ module.exports = function generate_ref(it, $keyword) {
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24353,7 +23944,7 @@ module.exports = function generate_required(it, $keyword) {
 
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24488,7 +24079,7 @@ module.exports = function generate_switch(it, $keyword) {
 
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24566,14 +24157,14 @@ module.exports = function generate_uniqueItems(it, $keyword) {
 
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var IDENTIFIER = /^[a-z_$][a-z0-9_$\-]*$/i;
-var customRuleCode = __webpack_require__(129);
+var customRuleCode = __webpack_require__(128);
 
 module.exports = {
   add: addKeyword,
@@ -24702,7 +24293,7 @@ function removeKeyword(keyword) {
 
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24718,14 +24309,14 @@ module.exports = {
 
 function enableV5(ajv) {
   var inlineFunctions = {
-    'switch': __webpack_require__(142),
-    'constant': __webpack_require__(128),
-    '_formatLimit': __webpack_require__(125),
-    'patternRequired': __webpack_require__(138)
+    'switch': __webpack_require__(141),
+    'constant': __webpack_require__(127),
+    '_formatLimit': __webpack_require__(124),
+    'patternRequired': __webpack_require__(137)
   };
 
   if (ajv._opts.meta !== false) {
-    var metaSchema = __webpack_require__(181);
+    var metaSchema = __webpack_require__(180);
     ajv.addMetaSchema(metaSchema, META_SCHEMA_ID);
   }
   _addKeyword('constant');
@@ -24761,7 +24352,7 @@ function containsMacro(schema) {
 
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -24769,8 +24360,8 @@ function containsMacro(schema) {
 var errors = __webpack_require__(44);
 var types = __webpack_require__(45);
 
-var Reader = __webpack_require__(147);
-var Writer = __webpack_require__(148);
+var Reader = __webpack_require__(146);
+var Writer = __webpack_require__(147);
 
 
 ///--- Exports
@@ -24794,7 +24385,7 @@ for (var e in errors) {
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -25061,7 +24652,7 @@ module.exports = Reader;
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2011 Mark Cavage <mcavage@gmail.com> All rights reserved.
@@ -25383,19 +24974,19 @@ module.exports = Writer;
 
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
 {
-  parallel      : __webpack_require__(151),
-  serial        : __webpack_require__(152),
-  serialOrdered : __webpack_require__(77)
+  parallel      : __webpack_require__(150),
+  serial        : __webpack_require__(151),
+  serialOrdered : __webpack_require__(78)
 };
 
 
 /***/ }),
-/* 150 */
+/* 149 */
 /***/ (function(module, exports) {
 
 module.exports = defer;
@@ -25427,12 +25018,12 @@ function defer(fn)
 
 
 /***/ }),
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var iterate    = __webpack_require__(74)
-  , initState  = __webpack_require__(75)
-  , terminator = __webpack_require__(76)
+var iterate    = __webpack_require__(75)
+  , initState  = __webpack_require__(76)
+  , terminator = __webpack_require__(77)
   ;
 
 // Public API
@@ -25476,10 +25067,10 @@ function parallel(list, iterator, callback)
 
 
 /***/ }),
-/* 152 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var serialOrdered = __webpack_require__(77);
+var serialOrdered = __webpack_require__(78);
 
 // Public API
 module.exports = serial;
@@ -25499,7 +25090,7 @@ function serial(list, iterator, callback)
 
 
 /***/ }),
-/* 153 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -25717,14 +25308,14 @@ module.exports.canonicalizeResource = canonicalizeResource
 
 
 /***/ }),
-/* 154 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var aws4 = exports,
     url = __webpack_require__(7),
     querystring = __webpack_require__(41),
     crypto = __webpack_require__(1),
-    lru = __webpack_require__(155),
+    lru = __webpack_require__(154),
     credentialsCache = lru(1000)
 
 // http://docs.amazonwebservices.com/general/latest/gr/signature-version-4.html
@@ -26055,7 +25646,7 @@ aws4.sign = function(request, credentials) {
 
 
 /***/ }),
-/* 155 */
+/* 154 */
 /***/ (function(module, exports) {
 
 module.exports = function(size) {
@@ -26157,7 +25748,7 @@ function DoublyLinkedNode(key, val) {
 
 
 /***/ }),
-/* 156 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26194,13 +25785,15 @@ var _class, _temp; /*
                     * @contact : caipilabs@gmail.com
                     */
 
-__webpack_require__(111);
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
 
 var _AppScope = __webpack_require__(112);
 
 var _AppScope2 = _interopRequireDefault(_AppScope);
 
-var _rescope = __webpack_require__(43);
+var _reactRescope = __webpack_require__(61);
 
 var _server = __webpack_require__(115);
 
@@ -26216,12 +25809,12 @@ var ReactDom = __webpack_require__(42);
 var App = (_temp = _class = function App() {
     _classCallCheck(this, App);
 }, _class.renderTo = function (node) {
-    var cScope = new _rescope.Scope(_AppScope2.default, { id: "App" });
+    var cScope = new _reactRescope.Scope(_AppScope2.default, { id: "App" });
     window.__scopesState && cScope.restore(window.__scopesState);
     cScope.mount(["Home"]).then(function (_ref) {
         var Home = _ref.Home;
 
-        ReactDom.render(React.createElement(Home, null), node);
+        ReactDom.render(Home, node);
     });
 }, _class.renderSSR = function (cfg, cb) {
     //let cScope = new Scope(AppScope, { id: "App" });
@@ -26251,7 +25844,7 @@ if (typeof window != 'undefined') {
 exports.default = App;
 
 /***/ }),
-/* 157 */
+/* 156 */
 /***/ (function(module, exports) {
 
 module.exports = defer;
@@ -26283,7 +25876,7 @@ function defer(fn)
 
 
 /***/ }),
-/* 158 */
+/* 157 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -26396,7 +25989,7 @@ function objectToString(o) {
 
 
 /***/ }),
-/* 159 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Stream = __webpack_require__(14).Stream;
@@ -26509,7 +26102,7 @@ DelayedStream.prototype._checkIfMaxDataSizeExceeded = function() {
 
 
 /***/ }),
-/* 160 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Named EC curves
@@ -26685,7 +26278,7 @@ module.exports = {
 
 
 /***/ }),
-/* 161 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26720,7 +26313,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26756,7 +26349,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 163 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26784,7 +26377,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 164 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26799,7 +26392,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(163);
+var isNode = __webpack_require__(162);
 
 /**
  * @param {*} object The object to check.
@@ -26812,7 +26405,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 165 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = ForeverAgent
@@ -26821,7 +26414,7 @@ ForeverAgent.SSL = ForeverAgentSSL
 var util = __webpack_require__(2)
   , Agent = __webpack_require__(31).Agent
   , net = __webpack_require__(59)
-  , tls = __webpack_require__(110)
+  , tls = __webpack_require__(111)
   , AgentSSL = __webpack_require__(40).Agent
   
 function getConnectionName(host, port) {  
@@ -26956,19 +26549,19 @@ function createConnectionSSL (port, host, options) {
 
 
 /***/ }),
-/* 166 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var CombinedStream = __webpack_require__(80);
+var CombinedStream = __webpack_require__(81);
 var util = __webpack_require__(2);
 var path = __webpack_require__(60);
 var http = __webpack_require__(31);
 var https = __webpack_require__(40);
 var parseUrl = __webpack_require__(7).parse;
-var fs = __webpack_require__(108);
-var mime = __webpack_require__(91);
-var asynckit = __webpack_require__(149);
-var populate = __webpack_require__(167);
+var fs = __webpack_require__(109);
+var mime = __webpack_require__(92);
+var asynckit = __webpack_require__(148);
+var populate = __webpack_require__(166);
 
 // Public API
 module.exports = FormData;
@@ -27419,7 +27012,7 @@ FormData.prototype.toString = function () {
 
 
 /***/ }),
-/* 167 */
+/* 166 */
 /***/ (function(module, exports) {
 
 // populates missing values
@@ -27435,36 +27028,36 @@ module.exports = function(dst, src) {
 
 
 /***/ }),
-/* 168 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {
-  afterRequest: __webpack_require__(182),
-  beforeRequest: __webpack_require__(183),
-  browser: __webpack_require__(184),
-  cache: __webpack_require__(185),
-  content: __webpack_require__(186),
-  cookie: __webpack_require__(187),
-  creator: __webpack_require__(188),
-  entry: __webpack_require__(189),
-  har: __webpack_require__(190),
-  header: __webpack_require__(191),
-  log: __webpack_require__(192),
-  page: __webpack_require__(193),
-  pageTimings: __webpack_require__(194),
-  postData: __webpack_require__(195),
-  query: __webpack_require__(196),
-  request: __webpack_require__(197),
-  response: __webpack_require__(198),
-  timings: __webpack_require__(199)
+  afterRequest: __webpack_require__(181),
+  beforeRequest: __webpack_require__(182),
+  browser: __webpack_require__(183),
+  cache: __webpack_require__(184),
+  content: __webpack_require__(185),
+  cookie: __webpack_require__(186),
+  creator: __webpack_require__(187),
+  entry: __webpack_require__(188),
+  har: __webpack_require__(189),
+  header: __webpack_require__(190),
+  log: __webpack_require__(191),
+  page: __webpack_require__(192),
+  pageTimings: __webpack_require__(193),
+  postData: __webpack_require__(194),
+  query: __webpack_require__(195),
+  request: __webpack_require__(196),
+  response: __webpack_require__(197),
+  timings: __webpack_require__(198)
 }
 
 
 /***/ }),
-/* 169 */
+/* 168 */
 /***/ (function(module, exports) {
 
 function HARError (errors) {
@@ -27487,12 +27080,12 @@ module.exports = HARError
 
 
 /***/ }),
-/* 170 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Ajv = __webpack_require__(117)
-var HARError = __webpack_require__(169)
-var schemas = __webpack_require__(168)
+var Ajv = __webpack_require__(116)
+var HARError = __webpack_require__(168)
+var schemas = __webpack_require__(167)
 
 var ajv
 
@@ -27588,7 +27181,7 @@ exports.timings = function (data) {
 
 
 /***/ }),
-/* 171 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27598,7 +27191,7 @@ exports.timings = function (data) {
 
 const Url = __webpack_require__(7);
 const Hoek = __webpack_require__(34);
-const Cryptiles = __webpack_require__(81);
+const Cryptiles = __webpack_require__(82);
 const Crypto = __webpack_require__(49);
 const Utils = __webpack_require__(33);
 
@@ -27989,7 +27582,7 @@ exports.message = function (host, port, message, options) {
 
 
 /***/ }),
-/* 172 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27998,10 +27591,10 @@ exports.message = function (host, port, message, options) {
 // Export sub-modules
 
 exports.error = exports.Error = __webpack_require__(32);
-exports.sntp = __webpack_require__(97);
+exports.sntp = __webpack_require__(98);
 
-exports.server = __webpack_require__(173);
-exports.client = __webpack_require__(171);
+exports.server = __webpack_require__(172);
+exports.client = __webpack_require__(170);
 exports.crypto = __webpack_require__(49);
 exports.utils = __webpack_require__(33);
 
@@ -28013,7 +27606,7 @@ exports.uri = {
 
 
 /***/ }),
-/* 173 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28023,7 +27616,7 @@ exports.uri = {
 
 const Boom = __webpack_require__(32);
 const Hoek = __webpack_require__(34);
-const Cryptiles = __webpack_require__(81);
+const Cryptiles = __webpack_require__(82);
 const Crypto = __webpack_require__(49);
 const Utils = __webpack_require__(33);
 
@@ -28570,7 +28163,7 @@ internals.nonceFunc = function (key, nonce, ts, nonceCallback) {
 
 
 /***/ }),
-/* 174 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28745,14 +28338,14 @@ internals.safeCharCodes = (function () {
 
 
 /***/ }),
-/* 175 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
 
-var parser = __webpack_require__(176);
-var signer = __webpack_require__(177);
-var verify = __webpack_require__(178);
+var parser = __webpack_require__(175);
+var signer = __webpack_require__(176);
+var verify = __webpack_require__(177);
 var utils = __webpack_require__(35);
 
 
@@ -28780,7 +28373,7 @@ module.exports = {
 
 
 /***/ }),
-/* 176 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
@@ -29101,7 +28694,7 @@ module.exports = {
 
 
 /***/ }),
-/* 177 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2012 Joyent, Inc.  All rights reserved.
@@ -29111,7 +28704,7 @@ var crypto = __webpack_require__(1);
 var http = __webpack_require__(31);
 var util = __webpack_require__(2);
 var sshpk = __webpack_require__(57);
-var jsprim = __webpack_require__(208);
+var jsprim = __webpack_require__(207);
 var utils = __webpack_require__(35);
 
 var sprintf = __webpack_require__(2).format;
@@ -29508,7 +29101,7 @@ module.exports = {
 
 
 /***/ }),
-/* 178 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2015 Joyent, Inc.
@@ -29602,7 +29195,7 @@ module.exports = {
 
 
 /***/ }),
-/* 179 */
+/* 178 */
 /***/ (function(module, exports) {
 
 module.exports      = isTypedArray
@@ -29649,145 +29242,145 @@ function isLooseTypedArray(arr) {
 
 
 /***/ }),
-/* 180 */
+/* 179 */
 /***/ (function(module, exports) {
 
 module.exports = {"id":"http://json-schema.org/draft-04/schema#","$schema":"http://json-schema.org/draft-04/schema#","description":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"positiveInteger":{"type":"integer","minimum":0},"positiveIntegerDefault0":{"allOf":[{"$ref":"#/definitions/positiveInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true}},"type":"object","properties":{"id":{"type":"string","format":"uri"},"$schema":{"type":"string","format":"uri"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"multipleOf":{"type":"number","minimum":0,"exclusiveMinimum":true},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"boolean","default":false},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"boolean","default":false},"maxLength":{"$ref":"#/definitions/positiveInteger"},"minLength":{"$ref":"#/definitions/positiveIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"$ref":"#/definitions/positiveInteger"},"minItems":{"$ref":"#/definitions/positiveIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"maxProperties":{"$ref":"#/definitions/positiveInteger"},"minProperties":{"$ref":"#/definitions/positiveIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"enum":{"type":"array","minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"dependencies":{"exclusiveMaximum":["maximum"],"exclusiveMinimum":["minimum"]},"default":{}}
 
 /***/ }),
-/* 181 */
+/* 180 */
 /***/ (function(module, exports) {
 
 module.exports = {"id":"https://raw.githubusercontent.com/epoberezkin/ajv/master/lib/refs/json-schema-v5.json#","$schema":"http://json-schema.org/draft-04/schema#","description":"Core schema meta-schema (v5 proposals)","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"positiveInteger":{"type":"integer","minimum":0},"positiveIntegerDefault0":{"allOf":[{"$ref":"#/definitions/positiveInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true},"$data":{"type":"object","required":["$data"],"properties":{"$data":{"type":"string","anyOf":[{"format":"relative-json-pointer"},{"format":"json-pointer"}]}},"additionalProperties":false}},"type":"object","properties":{"id":{"type":"string","format":"uri"},"$schema":{"type":"string","format":"uri"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"multipleOf":{"anyOf":[{"type":"number","minimum":0,"exclusiveMinimum":true},{"$ref":"#/definitions/$data"}]},"maximum":{"anyOf":[{"type":"number"},{"$ref":"#/definitions/$data"}]},"exclusiveMaximum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"minimum":{"anyOf":[{"type":"number"},{"$ref":"#/definitions/$data"}]},"exclusiveMinimum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"maxLength":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minLength":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"pattern":{"anyOf":[{"type":"string","format":"regex"},{"$ref":"#/definitions/$data"}]},"additionalItems":{"anyOf":[{"type":"boolean"},{"$ref":"#"},{"$ref":"#/definitions/$data"}],"default":{}},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minItems":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"uniqueItems":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"maxProperties":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minProperties":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"required":{"anyOf":[{"$ref":"#/definitions/stringArray"},{"$ref":"#/definitions/$data"}]},"additionalProperties":{"anyOf":[{"type":"boolean"},{"$ref":"#"},{"$ref":"#/definitions/$data"}],"default":{}},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"enum":{"anyOf":[{"type":"array","minItems":1,"uniqueItems":true},{"$ref":"#/definitions/$data"}]},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"},"format":{"anyOf":[{"type":"string"},{"$ref":"#/definitions/$data"}]},"formatMaximum":{"anyOf":[{"type":"string"},{"$ref":"#/definitions/$data"}]},"formatMinimum":{"anyOf":[{"type":"string"},{"$ref":"#/definitions/$data"}]},"formatExclusiveMaximum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"formatExclusiveMinimum":{"anyOf":[{"type":"boolean","default":false},{"$ref":"#/definitions/$data"}]},"constant":{"anyOf":[{},{"$ref":"#/definitions/$data"}]},"contains":{"$ref":"#"},"patternGroups":{"type":"object","additionalProperties":{"type":"object","required":["schema"],"properties":{"maximum":{"anyOf":[{"$ref":"#/definitions/positiveInteger"},{"$ref":"#/definitions/$data"}]},"minimum":{"anyOf":[{"$ref":"#/definitions/positiveIntegerDefault0"},{"$ref":"#/definitions/$data"}]},"schema":{"$ref":"#"}},"additionalProperties":false},"default":{}},"switch":{"type":"array","items":{"required":["then"],"properties":{"if":{"$ref":"#"},"then":{"anyOf":[{"type":"boolean"},{"$ref":"#"}]},"continue":{"type":"boolean"}},"additionalProperties":false,"dependencies":{"continue":["if"]}}}},"dependencies":{"exclusiveMaximum":["maximum"],"exclusiveMinimum":["minimum"],"formatMaximum":["format"],"formatMinimum":["format"],"formatExclusiveMaximum":["formatMaximum"],"formatExclusiveMinimum":["formatMinimum"]},"default":{}}
 
 /***/ }),
-/* 182 */
+/* 181 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"afterRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 183 */
+/* 182 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"beforeRequest.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["lastAccess","eTag","hitCount"],"properties":{"expires":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"lastAccess":{"type":"string","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))?"},"eTag":{"type":"string"},"hitCount":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 184 */
+/* 183 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"browser.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 185 */
+/* 184 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cache.json#","$schema":"http://json-schema.org/draft-06/schema#","properties":{"beforeRequest":{"oneOf":[{"type":"null"},{"$ref":"beforeRequest.json#"}]},"afterRequest":{"oneOf":[{"type":"null"},{"$ref":"afterRequest.json#"}]},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 186 */
+/* 185 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"content.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["size","mimeType"],"properties":{"size":{"type":"integer"},"compression":{"type":"integer"},"mimeType":{"type":"string"},"text":{"type":"string"},"encoding":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 187 */
+/* 186 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"cookie.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"path":{"type":"string"},"domain":{"type":"string"},"expires":{"type":["string","null"],"format":"date-time"},"httpOnly":{"type":"boolean"},"secure":{"type":"boolean"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 188 */
+/* 187 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"creator.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","version"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 189 */
+/* 188 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"entry.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","time","request","response","cache","timings"],"properties":{"pageref":{"type":"string"},"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"time":{"type":"number","min":0},"request":{"$ref":"request.json#"},"response":{"$ref":"response.json#"},"cache":{"$ref":"cache.json#"},"timings":{"$ref":"timings.json#"},"serverIPAddress":{"type":"string","oneOf":[{"format":"ipv4"},{"format":"ipv6"}]},"connection":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 190 */
+/* 189 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"har.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["log"],"properties":{"log":{"$ref":"log.json#"}}}
 
 /***/ }),
-/* 191 */
+/* 190 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"header.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 192 */
+/* 191 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"log.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["version","creator","entries"],"properties":{"version":{"type":"string"},"creator":{"$ref":"creator.json#"},"browser":{"$ref":"browser.json#"},"pages":{"type":"array","items":{"$ref":"page.json#"}},"entries":{"type":"array","items":{"$ref":"entry.json#"}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 193 */
+/* 192 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"page.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["startedDateTime","id","title","pageTimings"],"properties":{"startedDateTime":{"type":"string","format":"date-time","pattern":"^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},"id":{"type":"string","unique":true},"title":{"type":"string"},"pageTimings":{"$ref":"pageTimings.json#"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 194 */
+/* 193 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"pageTimings.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","properties":{"onContentLoad":{"type":"number","min":-1},"onLoad":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 195 */
+/* 194 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"postData.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","optional":true,"required":["mimeType"],"properties":{"mimeType":{"type":"string"},"text":{"type":"string"},"params":{"type":"array","required":["name"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"fileName":{"type":"string"},"contentType":{"type":"string"},"comment":{"type":"string"}}},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 196 */
+/* 195 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"query.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["name","value"],"properties":{"name":{"type":"string"},"value":{"type":"string"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 197 */
+/* 196 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"request.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["method","url","httpVersion","cookies","headers","queryString","headersSize","bodySize"],"properties":{"method":{"type":"string"},"url":{"type":"string","format":"uri"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"queryString":{"type":"array","items":{"$ref":"query.json#"}},"postData":{"$ref":"postData.json#"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 198 */
+/* 197 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"response.json#","$schema":"http://json-schema.org/draft-06/schema#","type":"object","required":["status","statusText","httpVersion","cookies","headers","content","redirectURL","headersSize","bodySize"],"properties":{"status":{"type":"integer"},"statusText":{"type":"string"},"httpVersion":{"type":"string"},"cookies":{"type":"array","items":{"$ref":"cookie.json#"}},"headers":{"type":"array","items":{"$ref":"header.json#"}},"content":{"$ref":"content.json#"},"redirectURL":{"type":"string"},"headersSize":{"type":"integer"},"bodySize":{"type":"integer"},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 199 */
+/* 198 */
 /***/ (function(module, exports) {
 
 module.exports = {"$id":"timings.json#","$schema":"http://json-schema.org/draft-06/schema#","required":["send","wait","receive"],"properties":{"dns":{"type":"number","min":-1},"connect":{"type":"number","min":-1},"blocked":{"type":"number","min":-1},"send":{"type":"number","min":-1},"wait":{"type":"number","min":-1},"receive":{"type":"number","min":-1},"ssl":{"type":"number","min":-1},"comment":{"type":"string"}}}
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, exports) {
 
 module.exports = {"_args":[["hawk@~6.0.2","G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-ssr\\node_modules\\request"]],"_from":"hawk@>=6.0.2 <6.1.0","_id":"hawk@6.0.2","_inCache":true,"_installable":true,"_location":"/hawk","_nodeVersion":"8.1.4","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/hawk-6.0.2.tgz_1500338423954_0.2481594004202634"},"_npmUser":{"email":"eran@hammer.io","name":"hueniverse"},"_npmVersion":"5.3.0","_phantomChildren":{},"_requested":{"name":"hawk","raw":"hawk@~6.0.2","rawSpec":"~6.0.2","scope":null,"spec":">=6.0.2 <6.1.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/hawk/-/hawk-6.0.2.tgz","_shasum":"af4d914eb065f9b5ce4d9d11c1cb2126eecc3038","_shrinkwrap":null,"_spec":"hawk@~6.0.2","_where":"G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-ssr\\node_modules\\request","author":{"email":"eran@hammer.io","name":"Eran Hammer","url":"http://hueniverse.com"},"babel":{"presets":["es2015"]},"browser":"dist/browser.js","bugs":{"url":"https://github.com/hueniverse/hawk/issues"},"dependencies":{"boom":"4.x.x","cryptiles":"3.x.x","hoek":"4.x.x","sntp":"2.x.x"},"description":"HTTP Hawk Authentication Scheme","devDependencies":{"babel-cli":"^6.1.2","babel-preset-es2015":"^6.1.2","code":"4.x.x","lab":"14.x.x"},"directories":{},"dist":{"integrity":"sha512-miowhl2+U7Qle4vdLqDdPt9m09K6yZhkLDTWGoUiUzrQCn+mHHSmfJgAyGaLRZbPmTqfFFjRV1QWCW0VWUJBbQ==","shasum":"af4d914eb065f9b5ce4d9d11c1cb2126eecc3038","tarball":"https://registry.npmjs.org/hawk/-/hawk-6.0.2.tgz"},"engines":{"node":">=4.5.0"},"gitHead":"d251edf711826e961ee6267d29a7fa50ff8cf9d0","homepage":"https://github.com/hueniverse/hawk#readme","keywords":["http","authentication","scheme","hawk"],"license":"BSD-3-Clause","main":"lib/index.js","maintainers":[{"email":"eran@hueniverse.com","name":"hueniverse"}],"name":"hawk","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/hueniverse/hawk.git"},"scripts":{"build-client":"mkdir -p dist; babel lib/browser.js --out-file dist/browser.js","prepublish":"npm run-script build-client","test":"lab -a code -t 100 -L","test-cov-html":"lab -a code -r html -o coverage.html"},"version":"6.0.2"}
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, exports) {
 
 module.exports = {"application/1d-interleaved-parityfec":{"source":"iana"},"application/3gpdash-qoe-report+xml":{"source":"iana"},"application/3gpp-ims+xml":{"source":"iana"},"application/a2l":{"source":"iana"},"application/activemessage":{"source":"iana"},"application/alto-costmap+json":{"source":"iana","compressible":true},"application/alto-costmapfilter+json":{"source":"iana","compressible":true},"application/alto-directory+json":{"source":"iana","compressible":true},"application/alto-endpointcost+json":{"source":"iana","compressible":true},"application/alto-endpointcostparams+json":{"source":"iana","compressible":true},"application/alto-endpointprop+json":{"source":"iana","compressible":true},"application/alto-endpointpropparams+json":{"source":"iana","compressible":true},"application/alto-error+json":{"source":"iana","compressible":true},"application/alto-networkmap+json":{"source":"iana","compressible":true},"application/alto-networkmapfilter+json":{"source":"iana","compressible":true},"application/aml":{"source":"iana"},"application/andrew-inset":{"source":"iana","extensions":["ez"]},"application/applefile":{"source":"iana"},"application/applixware":{"source":"apache","extensions":["aw"]},"application/atf":{"source":"iana"},"application/atfx":{"source":"iana"},"application/atom+xml":{"source":"iana","compressible":true,"extensions":["atom"]},"application/atomcat+xml":{"source":"iana","extensions":["atomcat"]},"application/atomdeleted+xml":{"source":"iana"},"application/atomicmail":{"source":"iana"},"application/atomsvc+xml":{"source":"iana","extensions":["atomsvc"]},"application/atxml":{"source":"iana"},"application/auth-policy+xml":{"source":"iana"},"application/bacnet-xdd+zip":{"source":"iana"},"application/batch-smtp":{"source":"iana"},"application/bdoc":{"compressible":false,"extensions":["bdoc"]},"application/beep+xml":{"source":"iana"},"application/calendar+json":{"source":"iana","compressible":true},"application/calendar+xml":{"source":"iana"},"application/call-completion":{"source":"iana"},"application/cals-1840":{"source":"iana"},"application/cbor":{"source":"iana"},"application/cccex":{"source":"iana"},"application/ccmp+xml":{"source":"iana"},"application/ccxml+xml":{"source":"iana","extensions":["ccxml"]},"application/cdfx+xml":{"source":"iana"},"application/cdmi-capability":{"source":"iana","extensions":["cdmia"]},"application/cdmi-container":{"source":"iana","extensions":["cdmic"]},"application/cdmi-domain":{"source":"iana","extensions":["cdmid"]},"application/cdmi-object":{"source":"iana","extensions":["cdmio"]},"application/cdmi-queue":{"source":"iana","extensions":["cdmiq"]},"application/cdni":{"source":"iana"},"application/cea":{"source":"iana"},"application/cea-2018+xml":{"source":"iana"},"application/cellml+xml":{"source":"iana"},"application/cfw":{"source":"iana"},"application/clue_info+xml":{"source":"iana"},"application/cms":{"source":"iana"},"application/cnrp+xml":{"source":"iana"},"application/coap-group+json":{"source":"iana","compressible":true},"application/coap-payload":{"source":"iana"},"application/commonground":{"source":"iana"},"application/conference-info+xml":{"source":"iana"},"application/cose":{"source":"iana"},"application/cose-key":{"source":"iana"},"application/cose-key-set":{"source":"iana"},"application/cpl+xml":{"source":"iana"},"application/csrattrs":{"source":"iana"},"application/csta+xml":{"source":"iana"},"application/cstadata+xml":{"source":"iana"},"application/csvm+json":{"source":"iana","compressible":true},"application/cu-seeme":{"source":"apache","extensions":["cu"]},"application/cybercash":{"source":"iana"},"application/dart":{"compressible":true},"application/dash+xml":{"source":"iana","extensions":["mpd"]},"application/dashdelta":{"source":"iana"},"application/davmount+xml":{"source":"iana","extensions":["davmount"]},"application/dca-rft":{"source":"iana"},"application/dcd":{"source":"iana"},"application/dec-dx":{"source":"iana"},"application/dialog-info+xml":{"source":"iana"},"application/dicom":{"source":"iana"},"application/dicom+json":{"source":"iana","compressible":true},"application/dicom+xml":{"source":"iana"},"application/dii":{"source":"iana"},"application/dit":{"source":"iana"},"application/dns":{"source":"iana"},"application/docbook+xml":{"source":"apache","extensions":["dbk"]},"application/dskpp+xml":{"source":"iana"},"application/dssc+der":{"source":"iana","extensions":["dssc"]},"application/dssc+xml":{"source":"iana","extensions":["xdssc"]},"application/dvcs":{"source":"iana"},"application/ecmascript":{"source":"iana","compressible":true,"extensions":["ecma"]},"application/edi-consent":{"source":"iana"},"application/edi-x12":{"source":"iana","compressible":false},"application/edifact":{"source":"iana","compressible":false},"application/efi":{"source":"iana"},"application/emergencycalldata.comment+xml":{"source":"iana"},"application/emergencycalldata.control+xml":{"source":"iana"},"application/emergencycalldata.deviceinfo+xml":{"source":"iana"},"application/emergencycalldata.ecall.msd":{"source":"iana"},"application/emergencycalldata.providerinfo+xml":{"source":"iana"},"application/emergencycalldata.serviceinfo+xml":{"source":"iana"},"application/emergencycalldata.subscriberinfo+xml":{"source":"iana"},"application/emergencycalldata.veds+xml":{"source":"iana"},"application/emma+xml":{"source":"iana","extensions":["emma"]},"application/emotionml+xml":{"source":"iana"},"application/encaprtp":{"source":"iana"},"application/epp+xml":{"source":"iana"},"application/epub+zip":{"source":"iana","extensions":["epub"]},"application/eshop":{"source":"iana"},"application/exi":{"source":"iana","extensions":["exi"]},"application/fastinfoset":{"source":"iana"},"application/fastsoap":{"source":"iana"},"application/fdt+xml":{"source":"iana"},"application/fhir+xml":{"source":"iana"},"application/fido.trusted-apps+json":{"compressible":true},"application/fits":{"source":"iana"},"application/font-sfnt":{"source":"iana"},"application/font-tdpfr":{"source":"iana","extensions":["pfr"]},"application/font-woff":{"source":"iana","compressible":false,"extensions":["woff"]},"application/framework-attributes+xml":{"source":"iana"},"application/geo+json":{"source":"iana","compressible":true,"extensions":["geojson"]},"application/geo+json-seq":{"source":"iana"},"application/geoxacml+xml":{"source":"iana"},"application/gml+xml":{"source":"iana","extensions":["gml"]},"application/gpx+xml":{"source":"apache","extensions":["gpx"]},"application/gxf":{"source":"apache","extensions":["gxf"]},"application/gzip":{"source":"iana","compressible":false,"extensions":["gz"]},"application/h224":{"source":"iana"},"application/held+xml":{"source":"iana"},"application/hjson":{"extensions":["hjson"]},"application/http":{"source":"iana"},"application/hyperstudio":{"source":"iana","extensions":["stk"]},"application/ibe-key-request+xml":{"source":"iana"},"application/ibe-pkg-reply+xml":{"source":"iana"},"application/ibe-pp-data":{"source":"iana"},"application/iges":{"source":"iana"},"application/im-iscomposing+xml":{"source":"iana"},"application/index":{"source":"iana"},"application/index.cmd":{"source":"iana"},"application/index.obj":{"source":"iana"},"application/index.response":{"source":"iana"},"application/index.vnd":{"source":"iana"},"application/inkml+xml":{"source":"iana","extensions":["ink","inkml"]},"application/iotp":{"source":"iana"},"application/ipfix":{"source":"iana","extensions":["ipfix"]},"application/ipp":{"source":"iana"},"application/isup":{"source":"iana"},"application/its+xml":{"source":"iana"},"application/java-archive":{"source":"apache","compressible":false,"extensions":["jar","war","ear"]},"application/java-serialized-object":{"source":"apache","compressible":false,"extensions":["ser"]},"application/java-vm":{"source":"apache","compressible":false,"extensions":["class"]},"application/javascript":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["js","mjs"]},"application/jf2feed+json":{"source":"iana","compressible":true},"application/jose":{"source":"iana"},"application/jose+json":{"source":"iana","compressible":true},"application/jrd+json":{"source":"iana","compressible":true},"application/json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["json","map"]},"application/json-patch+json":{"source":"iana","compressible":true},"application/json-seq":{"source":"iana"},"application/json5":{"extensions":["json5"]},"application/jsonml+json":{"source":"apache","compressible":true,"extensions":["jsonml"]},"application/jwk+json":{"source":"iana","compressible":true},"application/jwk-set+json":{"source":"iana","compressible":true},"application/jwt":{"source":"iana"},"application/kpml-request+xml":{"source":"iana"},"application/kpml-response+xml":{"source":"iana"},"application/ld+json":{"source":"iana","compressible":true,"extensions":["jsonld"]},"application/lgr+xml":{"source":"iana"},"application/link-format":{"source":"iana"},"application/load-control+xml":{"source":"iana"},"application/lost+xml":{"source":"iana","extensions":["lostxml"]},"application/lostsync+xml":{"source":"iana"},"application/lxf":{"source":"iana"},"application/mac-binhex40":{"source":"iana","extensions":["hqx"]},"application/mac-compactpro":{"source":"apache","extensions":["cpt"]},"application/macwriteii":{"source":"iana"},"application/mads+xml":{"source":"iana","extensions":["mads"]},"application/manifest+json":{"charset":"UTF-8","compressible":true,"extensions":["webmanifest"]},"application/marc":{"source":"iana","extensions":["mrc"]},"application/marcxml+xml":{"source":"iana","extensions":["mrcx"]},"application/mathematica":{"source":"iana","extensions":["ma","nb","mb"]},"application/mathml+xml":{"source":"iana","extensions":["mathml"]},"application/mathml-content+xml":{"source":"iana"},"application/mathml-presentation+xml":{"source":"iana"},"application/mbms-associated-procedure-description+xml":{"source":"iana"},"application/mbms-deregister+xml":{"source":"iana"},"application/mbms-envelope+xml":{"source":"iana"},"application/mbms-msk+xml":{"source":"iana"},"application/mbms-msk-response+xml":{"source":"iana"},"application/mbms-protection-description+xml":{"source":"iana"},"application/mbms-reception-report+xml":{"source":"iana"},"application/mbms-register+xml":{"source":"iana"},"application/mbms-register-response+xml":{"source":"iana"},"application/mbms-schedule+xml":{"source":"iana"},"application/mbms-user-service-description+xml":{"source":"iana"},"application/mbox":{"source":"iana","extensions":["mbox"]},"application/media-policy-dataset+xml":{"source":"iana"},"application/media_control+xml":{"source":"iana"},"application/mediaservercontrol+xml":{"source":"iana","extensions":["mscml"]},"application/merge-patch+json":{"source":"iana","compressible":true},"application/metalink+xml":{"source":"apache","extensions":["metalink"]},"application/metalink4+xml":{"source":"iana","extensions":["meta4"]},"application/mets+xml":{"source":"iana","extensions":["mets"]},"application/mf4":{"source":"iana"},"application/mikey":{"source":"iana"},"application/mmt-usd+xml":{"source":"iana"},"application/mods+xml":{"source":"iana","extensions":["mods"]},"application/moss-keys":{"source":"iana"},"application/moss-signature":{"source":"iana"},"application/mosskey-data":{"source":"iana"},"application/mosskey-request":{"source":"iana"},"application/mp21":{"source":"iana","extensions":["m21","mp21"]},"application/mp4":{"source":"iana","extensions":["mp4s","m4p"]},"application/mpeg4-generic":{"source":"iana"},"application/mpeg4-iod":{"source":"iana"},"application/mpeg4-iod-xmt":{"source":"iana"},"application/mrb-consumer+xml":{"source":"iana"},"application/mrb-publish+xml":{"source":"iana"},"application/msc-ivr+xml":{"source":"iana"},"application/msc-mixer+xml":{"source":"iana"},"application/msword":{"source":"iana","compressible":false,"extensions":["doc","dot"]},"application/mud+json":{"source":"iana","compressible":true},"application/mxf":{"source":"iana","extensions":["mxf"]},"application/n-quads":{"source":"iana"},"application/n-triples":{"source":"iana"},"application/nasdata":{"source":"iana"},"application/news-checkgroups":{"source":"iana"},"application/news-groupinfo":{"source":"iana"},"application/news-transmission":{"source":"iana"},"application/nlsml+xml":{"source":"iana"},"application/node":{"source":"iana"},"application/nss":{"source":"iana"},"application/ocsp-request":{"source":"iana"},"application/ocsp-response":{"source":"iana"},"application/octet-stream":{"source":"iana","compressible":false,"extensions":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"]},"application/oda":{"source":"iana","extensions":["oda"]},"application/odx":{"source":"iana"},"application/oebps-package+xml":{"source":"iana","extensions":["opf"]},"application/ogg":{"source":"iana","compressible":false,"extensions":["ogx"]},"application/omdoc+xml":{"source":"apache","extensions":["omdoc"]},"application/onenote":{"source":"apache","extensions":["onetoc","onetoc2","onetmp","onepkg"]},"application/oxps":{"source":"iana","extensions":["oxps"]},"application/p2p-overlay+xml":{"source":"iana"},"application/parityfec":{"source":"iana"},"application/passport":{"source":"iana"},"application/patch-ops-error+xml":{"source":"iana","extensions":["xer"]},"application/pdf":{"source":"iana","compressible":false,"extensions":["pdf"]},"application/pdx":{"source":"iana"},"application/pgp-encrypted":{"source":"iana","compressible":false,"extensions":["pgp"]},"application/pgp-keys":{"source":"iana"},"application/pgp-signature":{"source":"iana","extensions":["asc","sig"]},"application/pics-rules":{"source":"apache","extensions":["prf"]},"application/pidf+xml":{"source":"iana"},"application/pidf-diff+xml":{"source":"iana"},"application/pkcs10":{"source":"iana","extensions":["p10"]},"application/pkcs12":{"source":"iana"},"application/pkcs7-mime":{"source":"iana","extensions":["p7m","p7c"]},"application/pkcs7-signature":{"source":"iana","extensions":["p7s"]},"application/pkcs8":{"source":"iana","extensions":["p8"]},"application/pkcs8-encrypted":{"source":"iana"},"application/pkix-attr-cert":{"source":"iana","extensions":["ac"]},"application/pkix-cert":{"source":"iana","extensions":["cer"]},"application/pkix-crl":{"source":"iana","extensions":["crl"]},"application/pkix-pkipath":{"source":"iana","extensions":["pkipath"]},"application/pkixcmp":{"source":"iana","extensions":["pki"]},"application/pls+xml":{"source":"iana","extensions":["pls"]},"application/poc-settings+xml":{"source":"iana"},"application/postscript":{"source":"iana","compressible":true,"extensions":["ai","eps","ps"]},"application/ppsp-tracker+json":{"source":"iana","compressible":true},"application/problem+json":{"source":"iana","compressible":true},"application/problem+xml":{"source":"iana"},"application/provenance+xml":{"source":"iana"},"application/prs.alvestrand.titrax-sheet":{"source":"iana"},"application/prs.cww":{"source":"iana","extensions":["cww"]},"application/prs.hpub+zip":{"source":"iana"},"application/prs.nprend":{"source":"iana"},"application/prs.plucker":{"source":"iana"},"application/prs.rdf-xml-crypt":{"source":"iana"},"application/prs.xsf+xml":{"source":"iana"},"application/pskc+xml":{"source":"iana","extensions":["pskcxml"]},"application/qsig":{"source":"iana"},"application/raml+yaml":{"compressible":true,"extensions":["raml"]},"application/raptorfec":{"source":"iana"},"application/rdap+json":{"source":"iana","compressible":true},"application/rdf+xml":{"source":"iana","compressible":true,"extensions":["rdf"]},"application/reginfo+xml":{"source":"iana","extensions":["rif"]},"application/relax-ng-compact-syntax":{"source":"iana","extensions":["rnc"]},"application/remote-printing":{"source":"iana"},"application/reputon+json":{"source":"iana","compressible":true},"application/resource-lists+xml":{"source":"iana","extensions":["rl"]},"application/resource-lists-diff+xml":{"source":"iana","extensions":["rld"]},"application/rfc+xml":{"source":"iana"},"application/riscos":{"source":"iana"},"application/rlmi+xml":{"source":"iana"},"application/rls-services+xml":{"source":"iana","extensions":["rs"]},"application/route-apd+xml":{"source":"iana"},"application/route-s-tsid+xml":{"source":"iana"},"application/route-usd+xml":{"source":"iana"},"application/rpki-ghostbusters":{"source":"iana","extensions":["gbr"]},"application/rpki-manifest":{"source":"iana","extensions":["mft"]},"application/rpki-publication":{"source":"iana"},"application/rpki-roa":{"source":"iana","extensions":["roa"]},"application/rpki-updown":{"source":"iana"},"application/rsd+xml":{"source":"apache","extensions":["rsd"]},"application/rss+xml":{"source":"apache","compressible":true,"extensions":["rss"]},"application/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"application/rtploopback":{"source":"iana"},"application/rtx":{"source":"iana"},"application/samlassertion+xml":{"source":"iana"},"application/samlmetadata+xml":{"source":"iana"},"application/sbml+xml":{"source":"iana","extensions":["sbml"]},"application/scaip+xml":{"source":"iana"},"application/scim+json":{"source":"iana","compressible":true},"application/scvp-cv-request":{"source":"iana","extensions":["scq"]},"application/scvp-cv-response":{"source":"iana","extensions":["scs"]},"application/scvp-vp-request":{"source":"iana","extensions":["spq"]},"application/scvp-vp-response":{"source":"iana","extensions":["spp"]},"application/sdp":{"source":"iana","extensions":["sdp"]},"application/sep+xml":{"source":"iana"},"application/sep-exi":{"source":"iana"},"application/session-info":{"source":"iana"},"application/set-payment":{"source":"iana"},"application/set-payment-initiation":{"source":"iana","extensions":["setpay"]},"application/set-registration":{"source":"iana"},"application/set-registration-initiation":{"source":"iana","extensions":["setreg"]},"application/sgml":{"source":"iana"},"application/sgml-open-catalog":{"source":"iana"},"application/shf+xml":{"source":"iana","extensions":["shf"]},"application/sieve":{"source":"iana"},"application/simple-filter+xml":{"source":"iana"},"application/simple-message-summary":{"source":"iana"},"application/simplesymbolcontainer":{"source":"iana"},"application/slate":{"source":"iana"},"application/smil":{"source":"iana"},"application/smil+xml":{"source":"iana","extensions":["smi","smil"]},"application/smpte336m":{"source":"iana"},"application/soap+fastinfoset":{"source":"iana"},"application/soap+xml":{"source":"iana","compressible":true},"application/sparql-query":{"source":"iana","extensions":["rq"]},"application/sparql-results+xml":{"source":"iana","extensions":["srx"]},"application/spirits-event+xml":{"source":"iana"},"application/sql":{"source":"iana"},"application/srgs":{"source":"iana","extensions":["gram"]},"application/srgs+xml":{"source":"iana","extensions":["grxml"]},"application/sru+xml":{"source":"iana","extensions":["sru"]},"application/ssdl+xml":{"source":"apache","extensions":["ssdl"]},"application/ssml+xml":{"source":"iana","extensions":["ssml"]},"application/tamp-apex-update":{"source":"iana"},"application/tamp-apex-update-confirm":{"source":"iana"},"application/tamp-community-update":{"source":"iana"},"application/tamp-community-update-confirm":{"source":"iana"},"application/tamp-error":{"source":"iana"},"application/tamp-sequence-adjust":{"source":"iana"},"application/tamp-sequence-adjust-confirm":{"source":"iana"},"application/tamp-status-query":{"source":"iana"},"application/tamp-status-response":{"source":"iana"},"application/tamp-update":{"source":"iana"},"application/tamp-update-confirm":{"source":"iana"},"application/tar":{"compressible":true},"application/tei+xml":{"source":"iana","extensions":["tei","teicorpus"]},"application/thraud+xml":{"source":"iana","extensions":["tfi"]},"application/timestamp-query":{"source":"iana"},"application/timestamp-reply":{"source":"iana"},"application/timestamped-data":{"source":"iana","extensions":["tsd"]},"application/tnauthlist":{"source":"iana"},"application/trig":{"source":"iana"},"application/ttml+xml":{"source":"iana"},"application/tve-trigger":{"source":"iana"},"application/ulpfec":{"source":"iana"},"application/urc-grpsheet+xml":{"source":"iana"},"application/urc-ressheet+xml":{"source":"iana"},"application/urc-targetdesc+xml":{"source":"iana"},"application/urc-uisocketdesc+xml":{"source":"iana"},"application/vcard+json":{"source":"iana","compressible":true},"application/vcard+xml":{"source":"iana"},"application/vemmi":{"source":"iana"},"application/vividence.scriptfile":{"source":"apache"},"application/vnd.1000minds.decision-model+xml":{"source":"iana"},"application/vnd.3gpp-prose+xml":{"source":"iana"},"application/vnd.3gpp-prose-pc3ch+xml":{"source":"iana"},"application/vnd.3gpp-v2x-local-service-information":{"source":"iana"},"application/vnd.3gpp.access-transfer-events+xml":{"source":"iana"},"application/vnd.3gpp.bsf+xml":{"source":"iana"},"application/vnd.3gpp.gmop+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-affiliation-command+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-floor-request+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-location-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-mbms-usage-info+xml":{"source":"iana"},"application/vnd.3gpp.mcptt-signed+xml":{"source":"iana"},"application/vnd.3gpp.mid-call+xml":{"source":"iana"},"application/vnd.3gpp.pic-bw-large":{"source":"iana","extensions":["plb"]},"application/vnd.3gpp.pic-bw-small":{"source":"iana","extensions":["psb"]},"application/vnd.3gpp.pic-bw-var":{"source":"iana","extensions":["pvb"]},"application/vnd.3gpp.sms":{"source":"iana"},"application/vnd.3gpp.sms+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-ext+xml":{"source":"iana"},"application/vnd.3gpp.srvcc-info+xml":{"source":"iana"},"application/vnd.3gpp.state-and-event-info+xml":{"source":"iana"},"application/vnd.3gpp.ussd+xml":{"source":"iana"},"application/vnd.3gpp2.bcmcsinfo+xml":{"source":"iana"},"application/vnd.3gpp2.sms":{"source":"iana"},"application/vnd.3gpp2.tcap":{"source":"iana","extensions":["tcap"]},"application/vnd.3lightssoftware.imagescal":{"source":"iana"},"application/vnd.3m.post-it-notes":{"source":"iana","extensions":["pwn"]},"application/vnd.accpac.simply.aso":{"source":"iana","extensions":["aso"]},"application/vnd.accpac.simply.imp":{"source":"iana","extensions":["imp"]},"application/vnd.acucobol":{"source":"iana","extensions":["acu"]},"application/vnd.acucorp":{"source":"iana","extensions":["atc","acutc"]},"application/vnd.adobe.air-application-installer-package+zip":{"source":"apache","extensions":["air"]},"application/vnd.adobe.flash.movie":{"source":"iana"},"application/vnd.adobe.formscentral.fcdt":{"source":"iana","extensions":["fcdt"]},"application/vnd.adobe.fxp":{"source":"iana","extensions":["fxp","fxpl"]},"application/vnd.adobe.partial-upload":{"source":"iana"},"application/vnd.adobe.xdp+xml":{"source":"iana","extensions":["xdp"]},"application/vnd.adobe.xfdf":{"source":"iana","extensions":["xfdf"]},"application/vnd.aether.imp":{"source":"iana"},"application/vnd.ah-barcode":{"source":"iana"},"application/vnd.ahead.space":{"source":"iana","extensions":["ahead"]},"application/vnd.airzip.filesecure.azf":{"source":"iana","extensions":["azf"]},"application/vnd.airzip.filesecure.azs":{"source":"iana","extensions":["azs"]},"application/vnd.amadeus+json":{"source":"iana","compressible":true},"application/vnd.amazon.ebook":{"source":"apache","extensions":["azw"]},"application/vnd.amazon.mobi8-ebook":{"source":"iana"},"application/vnd.americandynamics.acc":{"source":"iana","extensions":["acc"]},"application/vnd.amiga.ami":{"source":"iana","extensions":["ami"]},"application/vnd.amundsen.maze+xml":{"source":"iana"},"application/vnd.android.package-archive":{"source":"apache","compressible":false,"extensions":["apk"]},"application/vnd.anki":{"source":"iana"},"application/vnd.anser-web-certificate-issue-initiation":{"source":"iana","extensions":["cii"]},"application/vnd.anser-web-funds-transfer-initiation":{"source":"apache","extensions":["fti"]},"application/vnd.antix.game-component":{"source":"iana","extensions":["atx"]},"application/vnd.apache.thrift.binary":{"source":"iana"},"application/vnd.apache.thrift.compact":{"source":"iana"},"application/vnd.apache.thrift.json":{"source":"iana"},"application/vnd.api+json":{"source":"iana","compressible":true},"application/vnd.apothekende.reservation+json":{"source":"iana","compressible":true},"application/vnd.apple.installer+xml":{"source":"iana","extensions":["mpkg"]},"application/vnd.apple.mpegurl":{"source":"iana","extensions":["m3u8"]},"application/vnd.apple.pkpass":{"compressible":false,"extensions":["pkpass"]},"application/vnd.arastra.swi":{"source":"iana"},"application/vnd.aristanetworks.swi":{"source":"iana","extensions":["swi"]},"application/vnd.artsquare":{"source":"iana"},"application/vnd.astraea-software.iota":{"source":"iana","extensions":["iota"]},"application/vnd.audiograph":{"source":"iana","extensions":["aep"]},"application/vnd.autopackage":{"source":"iana"},"application/vnd.avalon+json":{"source":"iana","compressible":true},"application/vnd.avistar+xml":{"source":"iana"},"application/vnd.balsamiq.bmml+xml":{"source":"iana"},"application/vnd.balsamiq.bmpr":{"source":"iana"},"application/vnd.bbf.usp.msg":{"source":"iana"},"application/vnd.bbf.usp.msg+json":{"source":"iana","compressible":true},"application/vnd.bekitzur-stech+json":{"source":"iana","compressible":true},"application/vnd.bint.med-content":{"source":"iana"},"application/vnd.biopax.rdf+xml":{"source":"iana"},"application/vnd.blink-idb-value-wrapper":{"source":"iana"},"application/vnd.blueice.multipass":{"source":"iana","extensions":["mpm"]},"application/vnd.bluetooth.ep.oob":{"source":"iana"},"application/vnd.bluetooth.le.oob":{"source":"iana"},"application/vnd.bmi":{"source":"iana","extensions":["bmi"]},"application/vnd.businessobjects":{"source":"iana","extensions":["rep"]},"application/vnd.cab-jscript":{"source":"iana"},"application/vnd.canon-cpdl":{"source":"iana"},"application/vnd.canon-lips":{"source":"iana"},"application/vnd.capasystems-pg+json":{"source":"iana","compressible":true},"application/vnd.cendio.thinlinc.clientconf":{"source":"iana"},"application/vnd.century-systems.tcp_stream":{"source":"iana"},"application/vnd.chemdraw+xml":{"source":"iana","extensions":["cdxml"]},"application/vnd.chess-pgn":{"source":"iana"},"application/vnd.chipnuts.karaoke-mmd":{"source":"iana","extensions":["mmd"]},"application/vnd.cinderella":{"source":"iana","extensions":["cdy"]},"application/vnd.cirpack.isdn-ext":{"source":"iana"},"application/vnd.citationstyles.style+xml":{"source":"iana"},"application/vnd.claymore":{"source":"iana","extensions":["cla"]},"application/vnd.cloanto.rp9":{"source":"iana","extensions":["rp9"]},"application/vnd.clonk.c4group":{"source":"iana","extensions":["c4g","c4d","c4f","c4p","c4u"]},"application/vnd.cluetrust.cartomobile-config":{"source":"iana","extensions":["c11amc"]},"application/vnd.cluetrust.cartomobile-config-pkg":{"source":"iana","extensions":["c11amz"]},"application/vnd.coffeescript":{"source":"iana"},"application/vnd.collabio.xodocuments.document":{"source":"iana"},"application/vnd.collabio.xodocuments.document-template":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation-template":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet-template":{"source":"iana"},"application/vnd.collection+json":{"source":"iana","compressible":true},"application/vnd.collection.doc+json":{"source":"iana","compressible":true},"application/vnd.collection.next+json":{"source":"iana","compressible":true},"application/vnd.comicbook+zip":{"source":"iana"},"application/vnd.comicbook-rar":{"source":"iana"},"application/vnd.commerce-battelle":{"source":"iana"},"application/vnd.commonspace":{"source":"iana","extensions":["csp"]},"application/vnd.contact.cmsg":{"source":"iana","extensions":["cdbcmsg"]},"application/vnd.coreos.ignition+json":{"source":"iana","compressible":true},"application/vnd.cosmocaller":{"source":"iana","extensions":["cmc"]},"application/vnd.crick.clicker":{"source":"iana","extensions":["clkx"]},"application/vnd.crick.clicker.keyboard":{"source":"iana","extensions":["clkk"]},"application/vnd.crick.clicker.palette":{"source":"iana","extensions":["clkp"]},"application/vnd.crick.clicker.template":{"source":"iana","extensions":["clkt"]},"application/vnd.crick.clicker.wordbank":{"source":"iana","extensions":["clkw"]},"application/vnd.criticaltools.wbs+xml":{"source":"iana","extensions":["wbs"]},"application/vnd.ctc-posml":{"source":"iana","extensions":["pml"]},"application/vnd.ctct.ws+xml":{"source":"iana"},"application/vnd.cups-pdf":{"source":"iana"},"application/vnd.cups-postscript":{"source":"iana"},"application/vnd.cups-ppd":{"source":"iana","extensions":["ppd"]},"application/vnd.cups-raster":{"source":"iana"},"application/vnd.cups-raw":{"source":"iana"},"application/vnd.curl":{"source":"iana"},"application/vnd.curl.car":{"source":"apache","extensions":["car"]},"application/vnd.curl.pcurl":{"source":"apache","extensions":["pcurl"]},"application/vnd.cyan.dean.root+xml":{"source":"iana"},"application/vnd.cybank":{"source":"iana"},"application/vnd.d2l.coursepackage1p0+zip":{"source":"iana"},"application/vnd.dart":{"source":"iana","compressible":true,"extensions":["dart"]},"application/vnd.data-vision.rdz":{"source":"iana","extensions":["rdz"]},"application/vnd.datapackage+json":{"source":"iana","compressible":true},"application/vnd.dataresource+json":{"source":"iana","compressible":true},"application/vnd.debian.binary-package":{"source":"iana"},"application/vnd.dece.data":{"source":"iana","extensions":["uvf","uvvf","uvd","uvvd"]},"application/vnd.dece.ttml+xml":{"source":"iana","extensions":["uvt","uvvt"]},"application/vnd.dece.unspecified":{"source":"iana","extensions":["uvx","uvvx"]},"application/vnd.dece.zip":{"source":"iana","extensions":["uvz","uvvz"]},"application/vnd.denovo.fcselayout-link":{"source":"iana","extensions":["fe_launch"]},"application/vnd.desmume-movie":{"source":"iana"},"application/vnd.desmume.movie":{"source":"apache"},"application/vnd.dir-bi.plate-dl-nosuffix":{"source":"iana"},"application/vnd.dm.delegation+xml":{"source":"iana"},"application/vnd.dna":{"source":"iana","extensions":["dna"]},"application/vnd.document+json":{"source":"iana","compressible":true},"application/vnd.dolby.mlp":{"source":"apache","extensions":["mlp"]},"application/vnd.dolby.mobile.1":{"source":"iana"},"application/vnd.dolby.mobile.2":{"source":"iana"},"application/vnd.doremir.scorecloud-binary-document":{"source":"iana"},"application/vnd.dpgraph":{"source":"iana","extensions":["dpg"]},"application/vnd.dreamfactory":{"source":"iana","extensions":["dfac"]},"application/vnd.drive+json":{"source":"iana","compressible":true},"application/vnd.ds-keypoint":{"source":"apache","extensions":["kpxx"]},"application/vnd.dtg.local":{"source":"iana"},"application/vnd.dtg.local.flash":{"source":"iana"},"application/vnd.dtg.local.html":{"source":"iana"},"application/vnd.dvb.ait":{"source":"iana","extensions":["ait"]},"application/vnd.dvb.dvbj":{"source":"iana"},"application/vnd.dvb.esgcontainer":{"source":"iana"},"application/vnd.dvb.ipdcdftnotifaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess2":{"source":"iana"},"application/vnd.dvb.ipdcesgpdd":{"source":"iana"},"application/vnd.dvb.ipdcroaming":{"source":"iana"},"application/vnd.dvb.iptv.alfec-base":{"source":"iana"},"application/vnd.dvb.iptv.alfec-enhancement":{"source":"iana"},"application/vnd.dvb.notif-aggregate-root+xml":{"source":"iana"},"application/vnd.dvb.notif-container+xml":{"source":"iana"},"application/vnd.dvb.notif-generic+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-msglist+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-request+xml":{"source":"iana"},"application/vnd.dvb.notif-ia-registration-response+xml":{"source":"iana"},"application/vnd.dvb.notif-init+xml":{"source":"iana"},"application/vnd.dvb.pfr":{"source":"iana"},"application/vnd.dvb.service":{"source":"iana","extensions":["svc"]},"application/vnd.dxr":{"source":"iana"},"application/vnd.dynageo":{"source":"iana","extensions":["geo"]},"application/vnd.dzr":{"source":"iana"},"application/vnd.easykaraoke.cdgdownload":{"source":"iana"},"application/vnd.ecdis-update":{"source":"iana"},"application/vnd.ecip.rlp":{"source":"iana"},"application/vnd.ecowin.chart":{"source":"iana","extensions":["mag"]},"application/vnd.ecowin.filerequest":{"source":"iana"},"application/vnd.ecowin.fileupdate":{"source":"iana"},"application/vnd.ecowin.series":{"source":"iana"},"application/vnd.ecowin.seriesrequest":{"source":"iana"},"application/vnd.ecowin.seriesupdate":{"source":"iana"},"application/vnd.efi.img":{"source":"iana"},"application/vnd.efi.iso":{"source":"iana"},"application/vnd.emclient.accessrequest+xml":{"source":"iana"},"application/vnd.enliven":{"source":"iana","extensions":["nml"]},"application/vnd.enphase.envoy":{"source":"iana"},"application/vnd.eprints.data+xml":{"source":"iana"},"application/vnd.epson.esf":{"source":"iana","extensions":["esf"]},"application/vnd.epson.msf":{"source":"iana","extensions":["msf"]},"application/vnd.epson.quickanime":{"source":"iana","extensions":["qam"]},"application/vnd.epson.salt":{"source":"iana","extensions":["slt"]},"application/vnd.epson.ssf":{"source":"iana","extensions":["ssf"]},"application/vnd.ericsson.quickcall":{"source":"iana"},"application/vnd.espass-espass+zip":{"source":"iana"},"application/vnd.eszigno3+xml":{"source":"iana","extensions":["es3","et3"]},"application/vnd.etsi.aoc+xml":{"source":"iana"},"application/vnd.etsi.asic-e+zip":{"source":"iana"},"application/vnd.etsi.asic-s+zip":{"source":"iana"},"application/vnd.etsi.cug+xml":{"source":"iana"},"application/vnd.etsi.iptvcommand+xml":{"source":"iana"},"application/vnd.etsi.iptvdiscovery+xml":{"source":"iana"},"application/vnd.etsi.iptvprofile+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-bc+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-cod+xml":{"source":"iana"},"application/vnd.etsi.iptvsad-npvr+xml":{"source":"iana"},"application/vnd.etsi.iptvservice+xml":{"source":"iana"},"application/vnd.etsi.iptvsync+xml":{"source":"iana"},"application/vnd.etsi.iptvueprofile+xml":{"source":"iana"},"application/vnd.etsi.mcid+xml":{"source":"iana"},"application/vnd.etsi.mheg5":{"source":"iana"},"application/vnd.etsi.overload-control-policy-dataset+xml":{"source":"iana"},"application/vnd.etsi.pstn+xml":{"source":"iana"},"application/vnd.etsi.sci+xml":{"source":"iana"},"application/vnd.etsi.simservs+xml":{"source":"iana"},"application/vnd.etsi.timestamp-token":{"source":"iana"},"application/vnd.etsi.tsl+xml":{"source":"iana"},"application/vnd.etsi.tsl.der":{"source":"iana"},"application/vnd.eudora.data":{"source":"iana"},"application/vnd.evolv.ecig.profile":{"source":"iana"},"application/vnd.evolv.ecig.settings":{"source":"iana"},"application/vnd.evolv.ecig.theme":{"source":"iana"},"application/vnd.ezpix-album":{"source":"iana","extensions":["ez2"]},"application/vnd.ezpix-package":{"source":"iana","extensions":["ez3"]},"application/vnd.f-secure.mobile":{"source":"iana"},"application/vnd.fastcopy-disk-image":{"source":"iana"},"application/vnd.fdf":{"source":"iana","extensions":["fdf"]},"application/vnd.fdsn.mseed":{"source":"iana","extensions":["mseed"]},"application/vnd.fdsn.seed":{"source":"iana","extensions":["seed","dataless"]},"application/vnd.ffsns":{"source":"iana"},"application/vnd.filmit.zfc":{"source":"iana"},"application/vnd.fints":{"source":"iana"},"application/vnd.firemonkeys.cloudcell":{"source":"iana"},"application/vnd.flographit":{"source":"iana","extensions":["gph"]},"application/vnd.fluxtime.clip":{"source":"iana","extensions":["ftc"]},"application/vnd.font-fontforge-sfd":{"source":"iana"},"application/vnd.framemaker":{"source":"iana","extensions":["fm","frame","maker","book"]},"application/vnd.frogans.fnc":{"source":"iana","extensions":["fnc"]},"application/vnd.frogans.ltf":{"source":"iana","extensions":["ltf"]},"application/vnd.fsc.weblaunch":{"source":"iana","extensions":["fsc"]},"application/vnd.fujitsu.oasys":{"source":"iana","extensions":["oas"]},"application/vnd.fujitsu.oasys2":{"source":"iana","extensions":["oa2"]},"application/vnd.fujitsu.oasys3":{"source":"iana","extensions":["oa3"]},"application/vnd.fujitsu.oasysgp":{"source":"iana","extensions":["fg5"]},"application/vnd.fujitsu.oasysprs":{"source":"iana","extensions":["bh2"]},"application/vnd.fujixerox.art-ex":{"source":"iana"},"application/vnd.fujixerox.art4":{"source":"iana"},"application/vnd.fujixerox.ddd":{"source":"iana","extensions":["ddd"]},"application/vnd.fujixerox.docuworks":{"source":"iana","extensions":["xdw"]},"application/vnd.fujixerox.docuworks.binder":{"source":"iana","extensions":["xbd"]},"application/vnd.fujixerox.docuworks.container":{"source":"iana"},"application/vnd.fujixerox.hbpl":{"source":"iana"},"application/vnd.fut-misnet":{"source":"iana"},"application/vnd.fuzzysheet":{"source":"iana","extensions":["fzs"]},"application/vnd.genomatix.tuxedo":{"source":"iana","extensions":["txd"]},"application/vnd.geo+json":{"source":"iana","compressible":true},"application/vnd.geocube+xml":{"source":"iana"},"application/vnd.geogebra.file":{"source":"iana","extensions":["ggb"]},"application/vnd.geogebra.tool":{"source":"iana","extensions":["ggt"]},"application/vnd.geometry-explorer":{"source":"iana","extensions":["gex","gre"]},"application/vnd.geonext":{"source":"iana","extensions":["gxt"]},"application/vnd.geoplan":{"source":"iana","extensions":["g2w"]},"application/vnd.geospace":{"source":"iana","extensions":["g3w"]},"application/vnd.gerber":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt-response":{"source":"iana"},"application/vnd.gmx":{"source":"iana","extensions":["gmx"]},"application/vnd.google-apps.document":{"compressible":false,"extensions":["gdoc"]},"application/vnd.google-apps.presentation":{"compressible":false,"extensions":["gslides"]},"application/vnd.google-apps.spreadsheet":{"compressible":false,"extensions":["gsheet"]},"application/vnd.google-earth.kml+xml":{"source":"iana","compressible":true,"extensions":["kml"]},"application/vnd.google-earth.kmz":{"source":"iana","compressible":false,"extensions":["kmz"]},"application/vnd.gov.sk.e-form+xml":{"source":"iana"},"application/vnd.gov.sk.e-form+zip":{"source":"iana"},"application/vnd.gov.sk.xmldatacontainer+xml":{"source":"iana"},"application/vnd.grafeq":{"source":"iana","extensions":["gqf","gqs"]},"application/vnd.gridmp":{"source":"iana"},"application/vnd.groove-account":{"source":"iana","extensions":["gac"]},"application/vnd.groove-help":{"source":"iana","extensions":["ghf"]},"application/vnd.groove-identity-message":{"source":"iana","extensions":["gim"]},"application/vnd.groove-injector":{"source":"iana","extensions":["grv"]},"application/vnd.groove-tool-message":{"source":"iana","extensions":["gtm"]},"application/vnd.groove-tool-template":{"source":"iana","extensions":["tpl"]},"application/vnd.groove-vcard":{"source":"iana","extensions":["vcg"]},"application/vnd.hal+json":{"source":"iana","compressible":true},"application/vnd.hal+xml":{"source":"iana","extensions":["hal"]},"application/vnd.handheld-entertainment+xml":{"source":"iana","extensions":["zmm"]},"application/vnd.hbci":{"source":"iana","extensions":["hbci"]},"application/vnd.hc+json":{"source":"iana","compressible":true},"application/vnd.hcl-bireports":{"source":"iana"},"application/vnd.hdt":{"source":"iana"},"application/vnd.heroku+json":{"source":"iana","compressible":true},"application/vnd.hhe.lesson-player":{"source":"iana","extensions":["les"]},"application/vnd.hp-hpgl":{"source":"iana","extensions":["hpgl"]},"application/vnd.hp-hpid":{"source":"iana","extensions":["hpid"]},"application/vnd.hp-hps":{"source":"iana","extensions":["hps"]},"application/vnd.hp-jlyt":{"source":"iana","extensions":["jlt"]},"application/vnd.hp-pcl":{"source":"iana","extensions":["pcl"]},"application/vnd.hp-pclxl":{"source":"iana","extensions":["pclxl"]},"application/vnd.httphone":{"source":"iana"},"application/vnd.hydrostatix.sof-data":{"source":"iana","extensions":["sfd-hdstx"]},"application/vnd.hyper-item+json":{"source":"iana","compressible":true},"application/vnd.hyperdrive+json":{"source":"iana","compressible":true},"application/vnd.hzn-3d-crossword":{"source":"iana"},"application/vnd.ibm.afplinedata":{"source":"iana"},"application/vnd.ibm.electronic-media":{"source":"iana"},"application/vnd.ibm.minipay":{"source":"iana","extensions":["mpy"]},"application/vnd.ibm.modcap":{"source":"iana","extensions":["afp","listafp","list3820"]},"application/vnd.ibm.rights-management":{"source":"iana","extensions":["irm"]},"application/vnd.ibm.secure-container":{"source":"iana","extensions":["sc"]},"application/vnd.iccprofile":{"source":"iana","extensions":["icc","icm"]},"application/vnd.ieee.1905":{"source":"iana"},"application/vnd.igloader":{"source":"iana","extensions":["igl"]},"application/vnd.imagemeter.folder+zip":{"source":"iana"},"application/vnd.imagemeter.image+zip":{"source":"iana"},"application/vnd.immervision-ivp":{"source":"iana","extensions":["ivp"]},"application/vnd.immervision-ivu":{"source":"iana","extensions":["ivu"]},"application/vnd.ims.imsccv1p1":{"source":"iana"},"application/vnd.ims.imsccv1p2":{"source":"iana"},"application/vnd.ims.imsccv1p3":{"source":"iana"},"application/vnd.ims.lis.v2.result+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolconsumerprofile+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy.id+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings.simple+json":{"source":"iana","compressible":true},"application/vnd.informedcontrol.rms+xml":{"source":"iana"},"application/vnd.informix-visionary":{"source":"iana"},"application/vnd.infotech.project":{"source":"iana"},"application/vnd.infotech.project+xml":{"source":"iana"},"application/vnd.innopath.wamp.notification":{"source":"iana"},"application/vnd.insors.igm":{"source":"iana","extensions":["igm"]},"application/vnd.intercon.formnet":{"source":"iana","extensions":["xpw","xpx"]},"application/vnd.intergeo":{"source":"iana","extensions":["i2g"]},"application/vnd.intertrust.digibox":{"source":"iana"},"application/vnd.intertrust.nncp":{"source":"iana"},"application/vnd.intu.qbo":{"source":"iana","extensions":["qbo"]},"application/vnd.intu.qfx":{"source":"iana","extensions":["qfx"]},"application/vnd.iptc.g2.catalogitem+xml":{"source":"iana"},"application/vnd.iptc.g2.conceptitem+xml":{"source":"iana"},"application/vnd.iptc.g2.knowledgeitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsitem+xml":{"source":"iana"},"application/vnd.iptc.g2.newsmessage+xml":{"source":"iana"},"application/vnd.iptc.g2.packageitem+xml":{"source":"iana"},"application/vnd.iptc.g2.planningitem+xml":{"source":"iana"},"application/vnd.ipunplugged.rcprofile":{"source":"iana","extensions":["rcprofile"]},"application/vnd.irepository.package+xml":{"source":"iana","extensions":["irp"]},"application/vnd.is-xpr":{"source":"iana","extensions":["xpr"]},"application/vnd.isac.fcs":{"source":"iana","extensions":["fcs"]},"application/vnd.jam":{"source":"iana","extensions":["jam"]},"application/vnd.japannet-directory-service":{"source":"iana"},"application/vnd.japannet-jpnstore-wakeup":{"source":"iana"},"application/vnd.japannet-payment-wakeup":{"source":"iana"},"application/vnd.japannet-registration":{"source":"iana"},"application/vnd.japannet-registration-wakeup":{"source":"iana"},"application/vnd.japannet-setstore-wakeup":{"source":"iana"},"application/vnd.japannet-verification":{"source":"iana"},"application/vnd.japannet-verification-wakeup":{"source":"iana"},"application/vnd.jcp.javame.midlet-rms":{"source":"iana","extensions":["rms"]},"application/vnd.jisp":{"source":"iana","extensions":["jisp"]},"application/vnd.joost.joda-archive":{"source":"iana","extensions":["joda"]},"application/vnd.jsk.isdn-ngn":{"source":"iana"},"application/vnd.kahootz":{"source":"iana","extensions":["ktz","ktr"]},"application/vnd.kde.karbon":{"source":"iana","extensions":["karbon"]},"application/vnd.kde.kchart":{"source":"iana","extensions":["chrt"]},"application/vnd.kde.kformula":{"source":"iana","extensions":["kfo"]},"application/vnd.kde.kivio":{"source":"iana","extensions":["flw"]},"application/vnd.kde.kontour":{"source":"iana","extensions":["kon"]},"application/vnd.kde.kpresenter":{"source":"iana","extensions":["kpr","kpt"]},"application/vnd.kde.kspread":{"source":"iana","extensions":["ksp"]},"application/vnd.kde.kword":{"source":"iana","extensions":["kwd","kwt"]},"application/vnd.kenameaapp":{"source":"iana","extensions":["htke"]},"application/vnd.kidspiration":{"source":"iana","extensions":["kia"]},"application/vnd.kinar":{"source":"iana","extensions":["kne","knp"]},"application/vnd.koan":{"source":"iana","extensions":["skp","skd","skt","skm"]},"application/vnd.kodak-descriptor":{"source":"iana","extensions":["sse"]},"application/vnd.las.las+json":{"source":"iana","compressible":true},"application/vnd.las.las+xml":{"source":"iana","extensions":["lasxml"]},"application/vnd.liberty-request+xml":{"source":"iana"},"application/vnd.llamagraphics.life-balance.desktop":{"source":"iana","extensions":["lbd"]},"application/vnd.llamagraphics.life-balance.exchange+xml":{"source":"iana","extensions":["lbe"]},"application/vnd.lotus-1-2-3":{"source":"iana","extensions":["123"]},"application/vnd.lotus-approach":{"source":"iana","extensions":["apr"]},"application/vnd.lotus-freelance":{"source":"iana","extensions":["pre"]},"application/vnd.lotus-notes":{"source":"iana","extensions":["nsf"]},"application/vnd.lotus-organizer":{"source":"iana","extensions":["org"]},"application/vnd.lotus-screencam":{"source":"iana","extensions":["scm"]},"application/vnd.lotus-wordpro":{"source":"iana","extensions":["lwp"]},"application/vnd.macports.portpkg":{"source":"iana","extensions":["portpkg"]},"application/vnd.mapbox-vector-tile":{"source":"iana"},"application/vnd.marlin.drm.actiontoken+xml":{"source":"iana"},"application/vnd.marlin.drm.conftoken+xml":{"source":"iana"},"application/vnd.marlin.drm.license+xml":{"source":"iana"},"application/vnd.marlin.drm.mdcf":{"source":"iana"},"application/vnd.mason+json":{"source":"iana","compressible":true},"application/vnd.maxmind.maxmind-db":{"source":"iana"},"application/vnd.mcd":{"source":"iana","extensions":["mcd"]},"application/vnd.medcalcdata":{"source":"iana","extensions":["mc1"]},"application/vnd.mediastation.cdkey":{"source":"iana","extensions":["cdkey"]},"application/vnd.meridian-slingshot":{"source":"iana"},"application/vnd.mfer":{"source":"iana","extensions":["mwf"]},"application/vnd.mfmp":{"source":"iana","extensions":["mfm"]},"application/vnd.micro+json":{"source":"iana","compressible":true},"application/vnd.micrografx.flo":{"source":"iana","extensions":["flo"]},"application/vnd.micrografx.igx":{"source":"iana","extensions":["igx"]},"application/vnd.microsoft.portable-executable":{"source":"iana"},"application/vnd.microsoft.windows.thumbnail-cache":{"source":"iana"},"application/vnd.miele+json":{"source":"iana","compressible":true},"application/vnd.mif":{"source":"iana","extensions":["mif"]},"application/vnd.minisoft-hp3000-save":{"source":"iana"},"application/vnd.mitsubishi.misty-guard.trustweb":{"source":"iana"},"application/vnd.mobius.daf":{"source":"iana","extensions":["daf"]},"application/vnd.mobius.dis":{"source":"iana","extensions":["dis"]},"application/vnd.mobius.mbk":{"source":"iana","extensions":["mbk"]},"application/vnd.mobius.mqy":{"source":"iana","extensions":["mqy"]},"application/vnd.mobius.msl":{"source":"iana","extensions":["msl"]},"application/vnd.mobius.plc":{"source":"iana","extensions":["plc"]},"application/vnd.mobius.txf":{"source":"iana","extensions":["txf"]},"application/vnd.mophun.application":{"source":"iana","extensions":["mpn"]},"application/vnd.mophun.certificate":{"source":"iana","extensions":["mpc"]},"application/vnd.motorola.flexsuite":{"source":"iana"},"application/vnd.motorola.flexsuite.adsi":{"source":"iana"},"application/vnd.motorola.flexsuite.fis":{"source":"iana"},"application/vnd.motorola.flexsuite.gotap":{"source":"iana"},"application/vnd.motorola.flexsuite.kmr":{"source":"iana"},"application/vnd.motorola.flexsuite.ttc":{"source":"iana"},"application/vnd.motorola.flexsuite.wem":{"source":"iana"},"application/vnd.motorola.iprm":{"source":"iana"},"application/vnd.mozilla.xul+xml":{"source":"iana","compressible":true,"extensions":["xul"]},"application/vnd.ms-3mfdocument":{"source":"iana"},"application/vnd.ms-artgalry":{"source":"iana","extensions":["cil"]},"application/vnd.ms-asf":{"source":"iana"},"application/vnd.ms-cab-compressed":{"source":"iana","extensions":["cab"]},"application/vnd.ms-color.iccprofile":{"source":"apache"},"application/vnd.ms-excel":{"source":"iana","compressible":false,"extensions":["xls","xlm","xla","xlc","xlt","xlw"]},"application/vnd.ms-excel.addin.macroenabled.12":{"source":"iana","extensions":["xlam"]},"application/vnd.ms-excel.sheet.binary.macroenabled.12":{"source":"iana","extensions":["xlsb"]},"application/vnd.ms-excel.sheet.macroenabled.12":{"source":"iana","extensions":["xlsm"]},"application/vnd.ms-excel.template.macroenabled.12":{"source":"iana","extensions":["xltm"]},"application/vnd.ms-fontobject":{"source":"iana","compressible":true,"extensions":["eot"]},"application/vnd.ms-htmlhelp":{"source":"iana","extensions":["chm"]},"application/vnd.ms-ims":{"source":"iana","extensions":["ims"]},"application/vnd.ms-lrm":{"source":"iana","extensions":["lrm"]},"application/vnd.ms-office.activex+xml":{"source":"iana"},"application/vnd.ms-officetheme":{"source":"iana","extensions":["thmx"]},"application/vnd.ms-opentype":{"source":"apache","compressible":true},"application/vnd.ms-outlook":{"compressible":false,"extensions":["msg"]},"application/vnd.ms-package.obfuscated-opentype":{"source":"apache"},"application/vnd.ms-pki.seccat":{"source":"apache","extensions":["cat"]},"application/vnd.ms-pki.stl":{"source":"apache","extensions":["stl"]},"application/vnd.ms-playready.initiator+xml":{"source":"iana"},"application/vnd.ms-powerpoint":{"source":"iana","compressible":false,"extensions":["ppt","pps","pot"]},"application/vnd.ms-powerpoint.addin.macroenabled.12":{"source":"iana","extensions":["ppam"]},"application/vnd.ms-powerpoint.presentation.macroenabled.12":{"source":"iana","extensions":["pptm"]},"application/vnd.ms-powerpoint.slide.macroenabled.12":{"source":"iana","extensions":["sldm"]},"application/vnd.ms-powerpoint.slideshow.macroenabled.12":{"source":"iana","extensions":["ppsm"]},"application/vnd.ms-powerpoint.template.macroenabled.12":{"source":"iana","extensions":["potm"]},"application/vnd.ms-printdevicecapabilities+xml":{"source":"iana"},"application/vnd.ms-printing.printticket+xml":{"source":"apache"},"application/vnd.ms-printschematicket+xml":{"source":"iana"},"application/vnd.ms-project":{"source":"iana","extensions":["mpp","mpt"]},"application/vnd.ms-tnef":{"source":"iana"},"application/vnd.ms-windows.devicepairing":{"source":"iana"},"application/vnd.ms-windows.nwprinting.oob":{"source":"iana"},"application/vnd.ms-windows.printerpairing":{"source":"iana"},"application/vnd.ms-windows.wsd.oob":{"source":"iana"},"application/vnd.ms-wmdrm.lic-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.lic-resp":{"source":"iana"},"application/vnd.ms-wmdrm.meter-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.meter-resp":{"source":"iana"},"application/vnd.ms-word.document.macroenabled.12":{"source":"iana","extensions":["docm"]},"application/vnd.ms-word.template.macroenabled.12":{"source":"iana","extensions":["dotm"]},"application/vnd.ms-works":{"source":"iana","extensions":["wps","wks","wcm","wdb"]},"application/vnd.ms-wpl":{"source":"iana","extensions":["wpl"]},"application/vnd.ms-xpsdocument":{"source":"iana","compressible":false,"extensions":["xps"]},"application/vnd.msa-disk-image":{"source":"iana"},"application/vnd.mseq":{"source":"iana","extensions":["mseq"]},"application/vnd.msign":{"source":"iana"},"application/vnd.multiad.creator":{"source":"iana"},"application/vnd.multiad.creator.cif":{"source":"iana"},"application/vnd.music-niff":{"source":"iana"},"application/vnd.musician":{"source":"iana","extensions":["mus"]},"application/vnd.muvee.style":{"source":"iana","extensions":["msty"]},"application/vnd.mynfc":{"source":"iana","extensions":["taglet"]},"application/vnd.ncd.control":{"source":"iana"},"application/vnd.ncd.reference":{"source":"iana"},"application/vnd.nearst.inv+json":{"source":"iana","compressible":true},"application/vnd.nervana":{"source":"iana"},"application/vnd.netfpx":{"source":"iana"},"application/vnd.neurolanguage.nlu":{"source":"iana","extensions":["nlu"]},"application/vnd.nintendo.nitro.rom":{"source":"iana"},"application/vnd.nintendo.snes.rom":{"source":"iana"},"application/vnd.nitf":{"source":"iana","extensions":["ntf","nitf"]},"application/vnd.noblenet-directory":{"source":"iana","extensions":["nnd"]},"application/vnd.noblenet-sealer":{"source":"iana","extensions":["nns"]},"application/vnd.noblenet-web":{"source":"iana","extensions":["nnw"]},"application/vnd.nokia.catalogs":{"source":"iana"},"application/vnd.nokia.conml+wbxml":{"source":"iana"},"application/vnd.nokia.conml+xml":{"source":"iana"},"application/vnd.nokia.iptv.config+xml":{"source":"iana"},"application/vnd.nokia.isds-radio-presets":{"source":"iana"},"application/vnd.nokia.landmark+wbxml":{"source":"iana"},"application/vnd.nokia.landmark+xml":{"source":"iana"},"application/vnd.nokia.landmarkcollection+xml":{"source":"iana"},"application/vnd.nokia.n-gage.ac+xml":{"source":"iana"},"application/vnd.nokia.n-gage.data":{"source":"iana","extensions":["ngdat"]},"application/vnd.nokia.n-gage.symbian.install":{"source":"iana","extensions":["n-gage"]},"application/vnd.nokia.ncd":{"source":"iana"},"application/vnd.nokia.pcd+wbxml":{"source":"iana"},"application/vnd.nokia.pcd+xml":{"source":"iana"},"application/vnd.nokia.radio-preset":{"source":"iana","extensions":["rpst"]},"application/vnd.nokia.radio-presets":{"source":"iana","extensions":["rpss"]},"application/vnd.novadigm.edm":{"source":"iana","extensions":["edm"]},"application/vnd.novadigm.edx":{"source":"iana","extensions":["edx"]},"application/vnd.novadigm.ext":{"source":"iana","extensions":["ext"]},"application/vnd.ntt-local.content-share":{"source":"iana"},"application/vnd.ntt-local.file-transfer":{"source":"iana"},"application/vnd.ntt-local.ogw_remote-access":{"source":"iana"},"application/vnd.ntt-local.sip-ta_remote":{"source":"iana"},"application/vnd.ntt-local.sip-ta_tcp_stream":{"source":"iana"},"application/vnd.oasis.opendocument.chart":{"source":"iana","extensions":["odc"]},"application/vnd.oasis.opendocument.chart-template":{"source":"iana","extensions":["otc"]},"application/vnd.oasis.opendocument.database":{"source":"iana","extensions":["odb"]},"application/vnd.oasis.opendocument.formula":{"source":"iana","extensions":["odf"]},"application/vnd.oasis.opendocument.formula-template":{"source":"iana","extensions":["odft"]},"application/vnd.oasis.opendocument.graphics":{"source":"iana","compressible":false,"extensions":["odg"]},"application/vnd.oasis.opendocument.graphics-template":{"source":"iana","extensions":["otg"]},"application/vnd.oasis.opendocument.image":{"source":"iana","extensions":["odi"]},"application/vnd.oasis.opendocument.image-template":{"source":"iana","extensions":["oti"]},"application/vnd.oasis.opendocument.presentation":{"source":"iana","compressible":false,"extensions":["odp"]},"application/vnd.oasis.opendocument.presentation-template":{"source":"iana","extensions":["otp"]},"application/vnd.oasis.opendocument.spreadsheet":{"source":"iana","compressible":false,"extensions":["ods"]},"application/vnd.oasis.opendocument.spreadsheet-template":{"source":"iana","extensions":["ots"]},"application/vnd.oasis.opendocument.text":{"source":"iana","compressible":false,"extensions":["odt"]},"application/vnd.oasis.opendocument.text-master":{"source":"iana","extensions":["odm"]},"application/vnd.oasis.opendocument.text-template":{"source":"iana","extensions":["ott"]},"application/vnd.oasis.opendocument.text-web":{"source":"iana","extensions":["oth"]},"application/vnd.obn":{"source":"iana"},"application/vnd.ocf+cbor":{"source":"iana"},"application/vnd.oftn.l10n+json":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessdownload+xml":{"source":"iana"},"application/vnd.oipf.contentaccessstreaming+xml":{"source":"iana"},"application/vnd.oipf.cspg-hexbinary":{"source":"iana"},"application/vnd.oipf.dae.svg+xml":{"source":"iana"},"application/vnd.oipf.dae.xhtml+xml":{"source":"iana"},"application/vnd.oipf.mippvcontrolmessage+xml":{"source":"iana"},"application/vnd.oipf.pae.gem":{"source":"iana"},"application/vnd.oipf.spdiscovery+xml":{"source":"iana"},"application/vnd.oipf.spdlist+xml":{"source":"iana"},"application/vnd.oipf.ueprofile+xml":{"source":"iana"},"application/vnd.oipf.userprofile+xml":{"source":"iana"},"application/vnd.olpc-sugar":{"source":"iana","extensions":["xo"]},"application/vnd.oma-scws-config":{"source":"iana"},"application/vnd.oma-scws-http-request":{"source":"iana"},"application/vnd.oma-scws-http-response":{"source":"iana"},"application/vnd.oma.bcast.associated-procedure-parameter+xml":{"source":"iana"},"application/vnd.oma.bcast.drm-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.imd+xml":{"source":"iana"},"application/vnd.oma.bcast.ltkm":{"source":"iana"},"application/vnd.oma.bcast.notification+xml":{"source":"iana"},"application/vnd.oma.bcast.provisioningtrigger":{"source":"iana"},"application/vnd.oma.bcast.sgboot":{"source":"iana"},"application/vnd.oma.bcast.sgdd+xml":{"source":"iana"},"application/vnd.oma.bcast.sgdu":{"source":"iana"},"application/vnd.oma.bcast.simple-symbol-container":{"source":"iana"},"application/vnd.oma.bcast.smartcard-trigger+xml":{"source":"iana"},"application/vnd.oma.bcast.sprov+xml":{"source":"iana"},"application/vnd.oma.bcast.stkm":{"source":"iana"},"application/vnd.oma.cab-address-book+xml":{"source":"iana"},"application/vnd.oma.cab-feature-handler+xml":{"source":"iana"},"application/vnd.oma.cab-pcc+xml":{"source":"iana"},"application/vnd.oma.cab-subs-invite+xml":{"source":"iana"},"application/vnd.oma.cab-user-prefs+xml":{"source":"iana"},"application/vnd.oma.dcd":{"source":"iana"},"application/vnd.oma.dcdc":{"source":"iana"},"application/vnd.oma.dd2+xml":{"source":"iana","extensions":["dd2"]},"application/vnd.oma.drm.risd+xml":{"source":"iana"},"application/vnd.oma.group-usage-list+xml":{"source":"iana"},"application/vnd.oma.lwm2m+json":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+tlv":{"source":"iana"},"application/vnd.oma.pal+xml":{"source":"iana"},"application/vnd.oma.poc.detailed-progress-report+xml":{"source":"iana"},"application/vnd.oma.poc.final-report+xml":{"source":"iana"},"application/vnd.oma.poc.groups+xml":{"source":"iana"},"application/vnd.oma.poc.invocation-descriptor+xml":{"source":"iana"},"application/vnd.oma.poc.optimized-progress-report+xml":{"source":"iana"},"application/vnd.oma.push":{"source":"iana"},"application/vnd.oma.scidm.messages+xml":{"source":"iana"},"application/vnd.oma.xcap-directory+xml":{"source":"iana"},"application/vnd.omads-email+xml":{"source":"iana"},"application/vnd.omads-file+xml":{"source":"iana"},"application/vnd.omads-folder+xml":{"source":"iana"},"application/vnd.omaloc-supl-init":{"source":"iana"},"application/vnd.onepager":{"source":"iana"},"application/vnd.onepagertamp":{"source":"iana"},"application/vnd.onepagertamx":{"source":"iana"},"application/vnd.onepagertat":{"source":"iana"},"application/vnd.onepagertatp":{"source":"iana"},"application/vnd.onepagertatx":{"source":"iana"},"application/vnd.openblox.game+xml":{"source":"iana"},"application/vnd.openblox.game-binary":{"source":"iana"},"application/vnd.openeye.oeb":{"source":"iana"},"application/vnd.openofficeorg.extension":{"source":"apache","extensions":["oxt"]},"application/vnd.openstreetmap.data+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.custom-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.customxmlproperties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawing+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chart+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramcolors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramdata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramlayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.drawingml.diagramstyle+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.extended-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.commentauthors+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.handoutmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesmaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.notesslide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presentation":{"source":"iana","compressible":false,"extensions":["pptx"]},"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.presprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slide":{"source":"iana","extensions":["sldx"]},"application/vnd.openxmlformats-officedocument.presentationml.slide+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidelayout+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slidemaster+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideshow":{"source":"iana","extensions":["ppsx"]},"application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.slideupdateinfo+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tablestyles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.tags+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.template":{"source":"iana","extensions":["potx"]},"application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.presentationml.viewprops+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.calcchain+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.externallink+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcachedefinition+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcacherecords+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivottable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.querytable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionheaders+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionlog+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedstrings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":{"source":"iana","compressible":false,"extensions":["xlsx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheetmetadata+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.tablesinglecells+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.template":{"source":"iana","extensions":["xltx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.usernames+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.volatiledependencies+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.theme+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.themeoverride+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.vmldrawing":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document":{"source":"iana","compressible":false,"extensions":["docx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.fonttable+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.template":{"source":"iana","extensions":["dotx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.websettings+xml":{"source":"iana"},"application/vnd.openxmlformats-package.core-properties+xml":{"source":"iana"},"application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml":{"source":"iana"},"application/vnd.openxmlformats-package.relationships+xml":{"source":"iana"},"application/vnd.oracle.resource+json":{"source":"iana","compressible":true},"application/vnd.orange.indata":{"source":"iana"},"application/vnd.osa.netdeploy":{"source":"iana"},"application/vnd.osgeo.mapguide.package":{"source":"iana","extensions":["mgp"]},"application/vnd.osgi.bundle":{"source":"iana"},"application/vnd.osgi.dp":{"source":"iana","extensions":["dp"]},"application/vnd.osgi.subsystem":{"source":"iana","extensions":["esa"]},"application/vnd.otps.ct-kip+xml":{"source":"iana"},"application/vnd.oxli.countgraph":{"source":"iana"},"application/vnd.pagerduty+json":{"source":"iana","compressible":true},"application/vnd.palm":{"source":"iana","extensions":["pdb","pqa","oprc"]},"application/vnd.panoply":{"source":"iana"},"application/vnd.paos+xml":{"source":"iana"},"application/vnd.paos.xml":{"source":"apache"},"application/vnd.patentdive":{"source":"iana"},"application/vnd.pawaafile":{"source":"iana","extensions":["paw"]},"application/vnd.pcos":{"source":"iana"},"application/vnd.pg.format":{"source":"iana","extensions":["str"]},"application/vnd.pg.osasli":{"source":"iana","extensions":["ei6"]},"application/vnd.piaccess.application-licence":{"source":"iana"},"application/vnd.picsel":{"source":"iana","extensions":["efif"]},"application/vnd.pmi.widget":{"source":"iana","extensions":["wg"]},"application/vnd.poc.group-advertisement+xml":{"source":"iana"},"application/vnd.pocketlearn":{"source":"iana","extensions":["plf"]},"application/vnd.powerbuilder6":{"source":"iana","extensions":["pbd"]},"application/vnd.powerbuilder6-s":{"source":"iana"},"application/vnd.powerbuilder7":{"source":"iana"},"application/vnd.powerbuilder7-s":{"source":"iana"},"application/vnd.powerbuilder75":{"source":"iana"},"application/vnd.powerbuilder75-s":{"source":"iana"},"application/vnd.preminet":{"source":"iana"},"application/vnd.previewsystems.box":{"source":"iana","extensions":["box"]},"application/vnd.proteus.magazine":{"source":"iana","extensions":["mgz"]},"application/vnd.publishare-delta-tree":{"source":"iana","extensions":["qps"]},"application/vnd.pvi.ptid1":{"source":"iana","extensions":["ptid"]},"application/vnd.pwg-multiplexed":{"source":"iana"},"application/vnd.pwg-xhtml-print+xml":{"source":"iana"},"application/vnd.qualcomm.brew-app-res":{"source":"iana"},"application/vnd.quarantainenet":{"source":"iana"},"application/vnd.quark.quarkxpress":{"source":"iana","extensions":["qxd","qxt","qwd","qwt","qxl","qxb"]},"application/vnd.quobject-quoxdocument":{"source":"iana"},"application/vnd.radisys.moml+xml":{"source":"iana"},"application/vnd.radisys.msml+xml":{"source":"iana"},"application/vnd.radisys.msml-audit+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-conn+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-audit-stream+xml":{"source":"iana"},"application/vnd.radisys.msml-conf+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-base+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-detect+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-fax-sendrecv+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-group+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-speech+xml":{"source":"iana"},"application/vnd.radisys.msml-dialog-transform+xml":{"source":"iana"},"application/vnd.rainstor.data":{"source":"iana"},"application/vnd.rapid":{"source":"iana"},"application/vnd.rar":{"source":"iana"},"application/vnd.realvnc.bed":{"source":"iana","extensions":["bed"]},"application/vnd.recordare.musicxml":{"source":"iana","extensions":["mxl"]},"application/vnd.recordare.musicxml+xml":{"source":"iana","extensions":["musicxml"]},"application/vnd.renlearn.rlprint":{"source":"iana"},"application/vnd.restful+json":{"source":"iana","compressible":true},"application/vnd.rig.cryptonote":{"source":"iana","extensions":["cryptonote"]},"application/vnd.rim.cod":{"source":"apache","extensions":["cod"]},"application/vnd.rn-realmedia":{"source":"apache","extensions":["rm"]},"application/vnd.rn-realmedia-vbr":{"source":"apache","extensions":["rmvb"]},"application/vnd.route66.link66+xml":{"source":"iana","extensions":["link66"]},"application/vnd.rs-274x":{"source":"iana"},"application/vnd.ruckus.download":{"source":"iana"},"application/vnd.s3sms":{"source":"iana"},"application/vnd.sailingtracker.track":{"source":"iana","extensions":["st"]},"application/vnd.sbm.cid":{"source":"iana"},"application/vnd.sbm.mid2":{"source":"iana"},"application/vnd.scribus":{"source":"iana"},"application/vnd.sealed.3df":{"source":"iana"},"application/vnd.sealed.csf":{"source":"iana"},"application/vnd.sealed.doc":{"source":"iana"},"application/vnd.sealed.eml":{"source":"iana"},"application/vnd.sealed.mht":{"source":"iana"},"application/vnd.sealed.net":{"source":"iana"},"application/vnd.sealed.ppt":{"source":"iana"},"application/vnd.sealed.tiff":{"source":"iana"},"application/vnd.sealed.xls":{"source":"iana"},"application/vnd.sealedmedia.softseal.html":{"source":"iana"},"application/vnd.sealedmedia.softseal.pdf":{"source":"iana"},"application/vnd.seemail":{"source":"iana","extensions":["see"]},"application/vnd.sema":{"source":"iana","extensions":["sema"]},"application/vnd.semd":{"source":"iana","extensions":["semd"]},"application/vnd.semf":{"source":"iana","extensions":["semf"]},"application/vnd.shana.informed.formdata":{"source":"iana","extensions":["ifm"]},"application/vnd.shana.informed.formtemplate":{"source":"iana","extensions":["itp"]},"application/vnd.shana.informed.interchange":{"source":"iana","extensions":["iif"]},"application/vnd.shana.informed.package":{"source":"iana","extensions":["ipk"]},"application/vnd.sigrok.session":{"source":"iana"},"application/vnd.simtech-mindmapper":{"source":"iana","extensions":["twd","twds"]},"application/vnd.siren+json":{"source":"iana","compressible":true},"application/vnd.smaf":{"source":"iana","extensions":["mmf"]},"application/vnd.smart.notebook":{"source":"iana"},"application/vnd.smart.teacher":{"source":"iana","extensions":["teacher"]},"application/vnd.software602.filler.form+xml":{"source":"iana"},"application/vnd.software602.filler.form-xml-zip":{"source":"iana"},"application/vnd.solent.sdkm+xml":{"source":"iana","extensions":["sdkm","sdkd"]},"application/vnd.spotfire.dxp":{"source":"iana","extensions":["dxp"]},"application/vnd.spotfire.sfs":{"source":"iana","extensions":["sfs"]},"application/vnd.sqlite3":{"source":"iana"},"application/vnd.sss-cod":{"source":"iana"},"application/vnd.sss-dtf":{"source":"iana"},"application/vnd.sss-ntf":{"source":"iana"},"application/vnd.stardivision.calc":{"source":"apache","extensions":["sdc"]},"application/vnd.stardivision.draw":{"source":"apache","extensions":["sda"]},"application/vnd.stardivision.impress":{"source":"apache","extensions":["sdd"]},"application/vnd.stardivision.math":{"source":"apache","extensions":["smf"]},"application/vnd.stardivision.writer":{"source":"apache","extensions":["sdw","vor"]},"application/vnd.stardivision.writer-global":{"source":"apache","extensions":["sgl"]},"application/vnd.stepmania.package":{"source":"iana","extensions":["smzip"]},"application/vnd.stepmania.stepchart":{"source":"iana","extensions":["sm"]},"application/vnd.street-stream":{"source":"iana"},"application/vnd.sun.wadl+xml":{"source":"iana","compressible":true,"extensions":["wadl"]},"application/vnd.sun.xml.calc":{"source":"apache","extensions":["sxc"]},"application/vnd.sun.xml.calc.template":{"source":"apache","extensions":["stc"]},"application/vnd.sun.xml.draw":{"source":"apache","extensions":["sxd"]},"application/vnd.sun.xml.draw.template":{"source":"apache","extensions":["std"]},"application/vnd.sun.xml.impress":{"source":"apache","extensions":["sxi"]},"application/vnd.sun.xml.impress.template":{"source":"apache","extensions":["sti"]},"application/vnd.sun.xml.math":{"source":"apache","extensions":["sxm"]},"application/vnd.sun.xml.writer":{"source":"apache","extensions":["sxw"]},"application/vnd.sun.xml.writer.global":{"source":"apache","extensions":["sxg"]},"application/vnd.sun.xml.writer.template":{"source":"apache","extensions":["stw"]},"application/vnd.sus-calendar":{"source":"iana","extensions":["sus","susp"]},"application/vnd.svd":{"source":"iana","extensions":["svd"]},"application/vnd.swiftview-ics":{"source":"iana"},"application/vnd.symbian.install":{"source":"apache","extensions":["sis","sisx"]},"application/vnd.syncml+xml":{"source":"iana","extensions":["xsm"]},"application/vnd.syncml.dm+wbxml":{"source":"iana","extensions":["bdm"]},"application/vnd.syncml.dm+xml":{"source":"iana","extensions":["xdm"]},"application/vnd.syncml.dm.notification":{"source":"iana"},"application/vnd.syncml.dmddf+wbxml":{"source":"iana"},"application/vnd.syncml.dmddf+xml":{"source":"iana"},"application/vnd.syncml.dmtnds+wbxml":{"source":"iana"},"application/vnd.syncml.dmtnds+xml":{"source":"iana"},"application/vnd.syncml.ds.notification":{"source":"iana"},"application/vnd.tableschema+json":{"source":"iana","compressible":true},"application/vnd.tao.intent-module-archive":{"source":"iana","extensions":["tao"]},"application/vnd.tcpdump.pcap":{"source":"iana","extensions":["pcap","cap","dmp"]},"application/vnd.tmd.mediaflex.api+xml":{"source":"iana"},"application/vnd.tml":{"source":"iana"},"application/vnd.tmobile-livetv":{"source":"iana","extensions":["tmo"]},"application/vnd.tri.onesource":{"source":"iana"},"application/vnd.trid.tpt":{"source":"iana","extensions":["tpt"]},"application/vnd.triscape.mxs":{"source":"iana","extensions":["mxs"]},"application/vnd.trueapp":{"source":"iana","extensions":["tra"]},"application/vnd.truedoc":{"source":"iana"},"application/vnd.ubisoft.webplayer":{"source":"iana"},"application/vnd.ufdl":{"source":"iana","extensions":["ufd","ufdl"]},"application/vnd.uiq.theme":{"source":"iana","extensions":["utz"]},"application/vnd.umajin":{"source":"iana","extensions":["umj"]},"application/vnd.unity":{"source":"iana","extensions":["unityweb"]},"application/vnd.uoml+xml":{"source":"iana","extensions":["uoml"]},"application/vnd.uplanet.alert":{"source":"iana"},"application/vnd.uplanet.alert-wbxml":{"source":"iana"},"application/vnd.uplanet.bearer-choice":{"source":"iana"},"application/vnd.uplanet.bearer-choice-wbxml":{"source":"iana"},"application/vnd.uplanet.cacheop":{"source":"iana"},"application/vnd.uplanet.cacheop-wbxml":{"source":"iana"},"application/vnd.uplanet.channel":{"source":"iana"},"application/vnd.uplanet.channel-wbxml":{"source":"iana"},"application/vnd.uplanet.list":{"source":"iana"},"application/vnd.uplanet.list-wbxml":{"source":"iana"},"application/vnd.uplanet.listcmd":{"source":"iana"},"application/vnd.uplanet.listcmd-wbxml":{"source":"iana"},"application/vnd.uplanet.signal":{"source":"iana"},"application/vnd.uri-map":{"source":"iana"},"application/vnd.valve.source.material":{"source":"iana"},"application/vnd.vcx":{"source":"iana","extensions":["vcx"]},"application/vnd.vd-study":{"source":"iana"},"application/vnd.vectorworks":{"source":"iana"},"application/vnd.vel+json":{"source":"iana","compressible":true},"application/vnd.verimatrix.vcas":{"source":"iana"},"application/vnd.vidsoft.vidconference":{"source":"iana"},"application/vnd.visio":{"source":"iana","extensions":["vsd","vst","vss","vsw"]},"application/vnd.visionary":{"source":"iana","extensions":["vis"]},"application/vnd.vividence.scriptfile":{"source":"iana"},"application/vnd.vsf":{"source":"iana","extensions":["vsf"]},"application/vnd.wap.sic":{"source":"iana"},"application/vnd.wap.slc":{"source":"iana"},"application/vnd.wap.wbxml":{"source":"iana","extensions":["wbxml"]},"application/vnd.wap.wmlc":{"source":"iana","extensions":["wmlc"]},"application/vnd.wap.wmlscriptc":{"source":"iana","extensions":["wmlsc"]},"application/vnd.webturbo":{"source":"iana","extensions":["wtb"]},"application/vnd.wfa.p2p":{"source":"iana"},"application/vnd.wfa.wsc":{"source":"iana"},"application/vnd.windows.devicepairing":{"source":"iana"},"application/vnd.wmc":{"source":"iana"},"application/vnd.wmf.bootstrap":{"source":"iana"},"application/vnd.wolfram.mathematica":{"source":"iana"},"application/vnd.wolfram.mathematica.package":{"source":"iana"},"application/vnd.wolfram.player":{"source":"iana","extensions":["nbp"]},"application/vnd.wordperfect":{"source":"iana","extensions":["wpd"]},"application/vnd.wqd":{"source":"iana","extensions":["wqd"]},"application/vnd.wrq-hp3000-labelled":{"source":"iana"},"application/vnd.wt.stf":{"source":"iana","extensions":["stf"]},"application/vnd.wv.csp+wbxml":{"source":"iana"},"application/vnd.wv.csp+xml":{"source":"iana"},"application/vnd.wv.ssp+xml":{"source":"iana"},"application/vnd.xacml+json":{"source":"iana","compressible":true},"application/vnd.xara":{"source":"iana","extensions":["xar"]},"application/vnd.xfdl":{"source":"iana","extensions":["xfdl"]},"application/vnd.xfdl.webform":{"source":"iana"},"application/vnd.xmi+xml":{"source":"iana"},"application/vnd.xmpie.cpkg":{"source":"iana"},"application/vnd.xmpie.dpkg":{"source":"iana"},"application/vnd.xmpie.plan":{"source":"iana"},"application/vnd.xmpie.ppkg":{"source":"iana"},"application/vnd.xmpie.xlim":{"source":"iana"},"application/vnd.yamaha.hv-dic":{"source":"iana","extensions":["hvd"]},"application/vnd.yamaha.hv-script":{"source":"iana","extensions":["hvs"]},"application/vnd.yamaha.hv-voice":{"source":"iana","extensions":["hvp"]},"application/vnd.yamaha.openscoreformat":{"source":"iana","extensions":["osf"]},"application/vnd.yamaha.openscoreformat.osfpvg+xml":{"source":"iana","extensions":["osfpvg"]},"application/vnd.yamaha.remote-setup":{"source":"iana"},"application/vnd.yamaha.smaf-audio":{"source":"iana","extensions":["saf"]},"application/vnd.yamaha.smaf-phrase":{"source":"iana","extensions":["spf"]},"application/vnd.yamaha.through-ngn":{"source":"iana"},"application/vnd.yamaha.tunnel-udpencap":{"source":"iana"},"application/vnd.yaoweme":{"source":"iana"},"application/vnd.yellowriver-custom-menu":{"source":"iana","extensions":["cmp"]},"application/vnd.youtube.yt":{"source":"iana"},"application/vnd.zul":{"source":"iana","extensions":["zir","zirz"]},"application/vnd.zzazz.deck+xml":{"source":"iana","extensions":["zaz"]},"application/voicexml+xml":{"source":"iana","extensions":["vxml"]},"application/voucher-cms+json":{"source":"iana","compressible":true},"application/vq-rtcpxr":{"source":"iana"},"application/wasm":{"compressible":true,"extensions":["wasm"]},"application/watcherinfo+xml":{"source":"iana"},"application/webpush-options+json":{"source":"iana","compressible":true},"application/whoispp-query":{"source":"iana"},"application/whoispp-response":{"source":"iana"},"application/widget":{"source":"iana","extensions":["wgt"]},"application/winhlp":{"source":"apache","extensions":["hlp"]},"application/wita":{"source":"iana"},"application/wordperfect5.1":{"source":"iana"},"application/wsdl+xml":{"source":"iana","extensions":["wsdl"]},"application/wspolicy+xml":{"source":"iana","extensions":["wspolicy"]},"application/x-7z-compressed":{"source":"apache","compressible":false,"extensions":["7z"]},"application/x-abiword":{"source":"apache","extensions":["abw"]},"application/x-ace-compressed":{"source":"apache","extensions":["ace"]},"application/x-amf":{"source":"apache"},"application/x-apple-diskimage":{"source":"apache","extensions":["dmg"]},"application/x-arj":{"compressible":false,"extensions":["arj"]},"application/x-authorware-bin":{"source":"apache","extensions":["aab","x32","u32","vox"]},"application/x-authorware-map":{"source":"apache","extensions":["aam"]},"application/x-authorware-seg":{"source":"apache","extensions":["aas"]},"application/x-bcpio":{"source":"apache","extensions":["bcpio"]},"application/x-bdoc":{"compressible":false,"extensions":["bdoc"]},"application/x-bittorrent":{"source":"apache","extensions":["torrent"]},"application/x-blorb":{"source":"apache","extensions":["blb","blorb"]},"application/x-bzip":{"source":"apache","compressible":false,"extensions":["bz"]},"application/x-bzip2":{"source":"apache","compressible":false,"extensions":["bz2","boz"]},"application/x-cbr":{"source":"apache","extensions":["cbr","cba","cbt","cbz","cb7"]},"application/x-cdlink":{"source":"apache","extensions":["vcd"]},"application/x-cfs-compressed":{"source":"apache","extensions":["cfs"]},"application/x-chat":{"source":"apache","extensions":["chat"]},"application/x-chess-pgn":{"source":"apache","extensions":["pgn"]},"application/x-chrome-extension":{"extensions":["crx"]},"application/x-cocoa":{"source":"nginx","extensions":["cco"]},"application/x-compress":{"source":"apache"},"application/x-conference":{"source":"apache","extensions":["nsc"]},"application/x-cpio":{"source":"apache","extensions":["cpio"]},"application/x-csh":{"source":"apache","extensions":["csh"]},"application/x-deb":{"compressible":false},"application/x-debian-package":{"source":"apache","extensions":["deb","udeb"]},"application/x-dgc-compressed":{"source":"apache","extensions":["dgc"]},"application/x-director":{"source":"apache","extensions":["dir","dcr","dxr","cst","cct","cxt","w3d","fgd","swa"]},"application/x-doom":{"source":"apache","extensions":["wad"]},"application/x-dtbncx+xml":{"source":"apache","extensions":["ncx"]},"application/x-dtbook+xml":{"source":"apache","extensions":["dtb"]},"application/x-dtbresource+xml":{"source":"apache","extensions":["res"]},"application/x-dvi":{"source":"apache","compressible":false,"extensions":["dvi"]},"application/x-envoy":{"source":"apache","extensions":["evy"]},"application/x-eva":{"source":"apache","extensions":["eva"]},"application/x-font-bdf":{"source":"apache","extensions":["bdf"]},"application/x-font-dos":{"source":"apache"},"application/x-font-framemaker":{"source":"apache"},"application/x-font-ghostscript":{"source":"apache","extensions":["gsf"]},"application/x-font-libgrx":{"source":"apache"},"application/x-font-linux-psf":{"source":"apache","extensions":["psf"]},"application/x-font-pcf":{"source":"apache","extensions":["pcf"]},"application/x-font-snf":{"source":"apache","extensions":["snf"]},"application/x-font-speedo":{"source":"apache"},"application/x-font-sunos-news":{"source":"apache"},"application/x-font-type1":{"source":"apache","extensions":["pfa","pfb","pfm","afm"]},"application/x-font-vfont":{"source":"apache"},"application/x-freearc":{"source":"apache","extensions":["arc"]},"application/x-futuresplash":{"source":"apache","extensions":["spl"]},"application/x-gca-compressed":{"source":"apache","extensions":["gca"]},"application/x-glulx":{"source":"apache","extensions":["ulx"]},"application/x-gnumeric":{"source":"apache","extensions":["gnumeric"]},"application/x-gramps-xml":{"source":"apache","extensions":["gramps"]},"application/x-gtar":{"source":"apache","extensions":["gtar"]},"application/x-gzip":{"source":"apache"},"application/x-hdf":{"source":"apache","extensions":["hdf"]},"application/x-httpd-php":{"compressible":true,"extensions":["php"]},"application/x-install-instructions":{"source":"apache","extensions":["install"]},"application/x-iso9660-image":{"source":"apache","extensions":["iso"]},"application/x-java-archive-diff":{"source":"nginx","extensions":["jardiff"]},"application/x-java-jnlp-file":{"source":"apache","compressible":false,"extensions":["jnlp"]},"application/x-javascript":{"compressible":true},"application/x-latex":{"source":"apache","compressible":false,"extensions":["latex"]},"application/x-lua-bytecode":{"extensions":["luac"]},"application/x-lzh-compressed":{"source":"apache","extensions":["lzh","lha"]},"application/x-makeself":{"source":"nginx","extensions":["run"]},"application/x-mie":{"source":"apache","extensions":["mie"]},"application/x-mobipocket-ebook":{"source":"apache","extensions":["prc","mobi"]},"application/x-mpegurl":{"compressible":false},"application/x-ms-application":{"source":"apache","extensions":["application"]},"application/x-ms-shortcut":{"source":"apache","extensions":["lnk"]},"application/x-ms-wmd":{"source":"apache","extensions":["wmd"]},"application/x-ms-wmz":{"source":"apache","extensions":["wmz"]},"application/x-ms-xbap":{"source":"apache","extensions":["xbap"]},"application/x-msaccess":{"source":"apache","extensions":["mdb"]},"application/x-msbinder":{"source":"apache","extensions":["obd"]},"application/x-mscardfile":{"source":"apache","extensions":["crd"]},"application/x-msclip":{"source":"apache","extensions":["clp"]},"application/x-msdos-program":{"extensions":["exe"]},"application/x-msdownload":{"source":"apache","extensions":["exe","dll","com","bat","msi"]},"application/x-msmediaview":{"source":"apache","extensions":["mvb","m13","m14"]},"application/x-msmetafile":{"source":"apache","extensions":["wmf","wmz","emf","emz"]},"application/x-msmoney":{"source":"apache","extensions":["mny"]},"application/x-mspublisher":{"source":"apache","extensions":["pub"]},"application/x-msschedule":{"source":"apache","extensions":["scd"]},"application/x-msterminal":{"source":"apache","extensions":["trm"]},"application/x-mswrite":{"source":"apache","extensions":["wri"]},"application/x-netcdf":{"source":"apache","extensions":["nc","cdf"]},"application/x-ns-proxy-autoconfig":{"compressible":true,"extensions":["pac"]},"application/x-nzb":{"source":"apache","extensions":["nzb"]},"application/x-perl":{"source":"nginx","extensions":["pl","pm"]},"application/x-pilot":{"source":"nginx","extensions":["prc","pdb"]},"application/x-pkcs12":{"source":"apache","compressible":false,"extensions":["p12","pfx"]},"application/x-pkcs7-certificates":{"source":"apache","extensions":["p7b","spc"]},"application/x-pkcs7-certreqresp":{"source":"apache","extensions":["p7r"]},"application/x-rar-compressed":{"source":"apache","compressible":false,"extensions":["rar"]},"application/x-redhat-package-manager":{"source":"nginx","extensions":["rpm"]},"application/x-research-info-systems":{"source":"apache","extensions":["ris"]},"application/x-sea":{"source":"nginx","extensions":["sea"]},"application/x-sh":{"source":"apache","compressible":true,"extensions":["sh"]},"application/x-shar":{"source":"apache","extensions":["shar"]},"application/x-shockwave-flash":{"source":"apache","compressible":false,"extensions":["swf"]},"application/x-silverlight-app":{"source":"apache","extensions":["xap"]},"application/x-sql":{"source":"apache","extensions":["sql"]},"application/x-stuffit":{"source":"apache","compressible":false,"extensions":["sit"]},"application/x-stuffitx":{"source":"apache","extensions":["sitx"]},"application/x-subrip":{"source":"apache","extensions":["srt"]},"application/x-sv4cpio":{"source":"apache","extensions":["sv4cpio"]},"application/x-sv4crc":{"source":"apache","extensions":["sv4crc"]},"application/x-t3vm-image":{"source":"apache","extensions":["t3"]},"application/x-tads":{"source":"apache","extensions":["gam"]},"application/x-tar":{"source":"apache","compressible":true,"extensions":["tar"]},"application/x-tcl":{"source":"apache","extensions":["tcl","tk"]},"application/x-tex":{"source":"apache","extensions":["tex"]},"application/x-tex-tfm":{"source":"apache","extensions":["tfm"]},"application/x-texinfo":{"source":"apache","extensions":["texinfo","texi"]},"application/x-tgif":{"source":"apache","extensions":["obj"]},"application/x-ustar":{"source":"apache","extensions":["ustar"]},"application/x-virtualbox-hdd":{"compressible":true,"extensions":["hdd"]},"application/x-virtualbox-ova":{"compressible":true,"extensions":["ova"]},"application/x-virtualbox-ovf":{"compressible":true,"extensions":["ovf"]},"application/x-virtualbox-vbox":{"compressible":true,"extensions":["vbox"]},"application/x-virtualbox-vbox-extpack":{"compressible":false,"extensions":["vbox-extpack"]},"application/x-virtualbox-vdi":{"compressible":true,"extensions":["vdi"]},"application/x-virtualbox-vhd":{"compressible":true,"extensions":["vhd"]},"application/x-virtualbox-vmdk":{"compressible":true,"extensions":["vmdk"]},"application/x-wais-source":{"source":"apache","extensions":["src"]},"application/x-web-app-manifest+json":{"compressible":true,"extensions":["webapp"]},"application/x-www-form-urlencoded":{"source":"iana","compressible":true},"application/x-x509-ca-cert":{"source":"apache","extensions":["der","crt","pem"]},"application/x-xfig":{"source":"apache","extensions":["fig"]},"application/x-xliff+xml":{"source":"apache","extensions":["xlf"]},"application/x-xpinstall":{"source":"apache","compressible":false,"extensions":["xpi"]},"application/x-xz":{"source":"apache","extensions":["xz"]},"application/x-zmachine":{"source":"apache","extensions":["z1","z2","z3","z4","z5","z6","z7","z8"]},"application/x400-bp":{"source":"iana"},"application/xacml+xml":{"source":"iana"},"application/xaml+xml":{"source":"apache","extensions":["xaml"]},"application/xcap-att+xml":{"source":"iana"},"application/xcap-caps+xml":{"source":"iana"},"application/xcap-diff+xml":{"source":"iana","extensions":["xdf"]},"application/xcap-el+xml":{"source":"iana"},"application/xcap-error+xml":{"source":"iana"},"application/xcap-ns+xml":{"source":"iana"},"application/xcon-conference-info+xml":{"source":"iana"},"application/xcon-conference-info-diff+xml":{"source":"iana"},"application/xenc+xml":{"source":"iana","extensions":["xenc"]},"application/xhtml+xml":{"source":"iana","compressible":true,"extensions":["xhtml","xht"]},"application/xhtml-voice+xml":{"source":"apache"},"application/xml":{"source":"iana","compressible":true,"extensions":["xml","xsl","xsd","rng"]},"application/xml-dtd":{"source":"iana","compressible":true,"extensions":["dtd"]},"application/xml-external-parsed-entity":{"source":"iana"},"application/xml-patch+xml":{"source":"iana"},"application/xmpp+xml":{"source":"iana"},"application/xop+xml":{"source":"iana","compressible":true,"extensions":["xop"]},"application/xproc+xml":{"source":"apache","extensions":["xpl"]},"application/xslt+xml":{"source":"iana","extensions":["xslt"]},"application/xspf+xml":{"source":"apache","extensions":["xspf"]},"application/xv+xml":{"source":"iana","extensions":["mxml","xhvml","xvml","xvm"]},"application/yang":{"source":"iana","extensions":["yang"]},"application/yang-data+json":{"source":"iana","compressible":true},"application/yang-data+xml":{"source":"iana"},"application/yang-patch+json":{"source":"iana","compressible":true},"application/yang-patch+xml":{"source":"iana"},"application/yin+xml":{"source":"iana","extensions":["yin"]},"application/zip":{"source":"iana","compressible":false,"extensions":["zip"]},"application/zlib":{"source":"iana"},"audio/1d-interleaved-parityfec":{"source":"iana"},"audio/32kadpcm":{"source":"iana"},"audio/3gpp":{"source":"iana","compressible":false,"extensions":["3gpp"]},"audio/3gpp2":{"source":"iana"},"audio/ac3":{"source":"iana"},"audio/adpcm":{"source":"apache","extensions":["adp"]},"audio/amr":{"source":"iana"},"audio/amr-wb":{"source":"iana"},"audio/amr-wb+":{"source":"iana"},"audio/aptx":{"source":"iana"},"audio/asc":{"source":"iana"},"audio/atrac-advanced-lossless":{"source":"iana"},"audio/atrac-x":{"source":"iana"},"audio/atrac3":{"source":"iana"},"audio/basic":{"source":"iana","compressible":false,"extensions":["au","snd"]},"audio/bv16":{"source":"iana"},"audio/bv32":{"source":"iana"},"audio/clearmode":{"source":"iana"},"audio/cn":{"source":"iana"},"audio/dat12":{"source":"iana"},"audio/dls":{"source":"iana"},"audio/dsr-es201108":{"source":"iana"},"audio/dsr-es202050":{"source":"iana"},"audio/dsr-es202211":{"source":"iana"},"audio/dsr-es202212":{"source":"iana"},"audio/dv":{"source":"iana"},"audio/dvi4":{"source":"iana"},"audio/eac3":{"source":"iana"},"audio/encaprtp":{"source":"iana"},"audio/evrc":{"source":"iana"},"audio/evrc-qcp":{"source":"iana"},"audio/evrc0":{"source":"iana"},"audio/evrc1":{"source":"iana"},"audio/evrcb":{"source":"iana"},"audio/evrcb0":{"source":"iana"},"audio/evrcb1":{"source":"iana"},"audio/evrcnw":{"source":"iana"},"audio/evrcnw0":{"source":"iana"},"audio/evrcnw1":{"source":"iana"},"audio/evrcwb":{"source":"iana"},"audio/evrcwb0":{"source":"iana"},"audio/evrcwb1":{"source":"iana"},"audio/evs":{"source":"iana"},"audio/fwdred":{"source":"iana"},"audio/g711-0":{"source":"iana"},"audio/g719":{"source":"iana"},"audio/g722":{"source":"iana"},"audio/g7221":{"source":"iana"},"audio/g723":{"source":"iana"},"audio/g726-16":{"source":"iana"},"audio/g726-24":{"source":"iana"},"audio/g726-32":{"source":"iana"},"audio/g726-40":{"source":"iana"},"audio/g728":{"source":"iana"},"audio/g729":{"source":"iana"},"audio/g7291":{"source":"iana"},"audio/g729d":{"source":"iana"},"audio/g729e":{"source":"iana"},"audio/gsm":{"source":"iana"},"audio/gsm-efr":{"source":"iana"},"audio/gsm-hr-08":{"source":"iana"},"audio/ilbc":{"source":"iana"},"audio/ip-mr_v2.5":{"source":"iana"},"audio/isac":{"source":"apache"},"audio/l16":{"source":"iana"},"audio/l20":{"source":"iana"},"audio/l24":{"source":"iana","compressible":false},"audio/l8":{"source":"iana"},"audio/lpc":{"source":"iana"},"audio/melp":{"source":"iana"},"audio/melp1200":{"source":"iana"},"audio/melp2400":{"source":"iana"},"audio/melp600":{"source":"iana"},"audio/midi":{"source":"apache","extensions":["mid","midi","kar","rmi"]},"audio/mobile-xmf":{"source":"iana"},"audio/mp3":{"compressible":false,"extensions":["mp3"]},"audio/mp4":{"source":"iana","compressible":false,"extensions":["m4a","mp4a"]},"audio/mp4a-latm":{"source":"iana"},"audio/mpa":{"source":"iana"},"audio/mpa-robust":{"source":"iana"},"audio/mpeg":{"source":"iana","compressible":false,"extensions":["mpga","mp2","mp2a","mp3","m2a","m3a"]},"audio/mpeg4-generic":{"source":"iana"},"audio/musepack":{"source":"apache"},"audio/ogg":{"source":"iana","compressible":false,"extensions":["oga","ogg","spx"]},"audio/opus":{"source":"iana"},"audio/parityfec":{"source":"iana"},"audio/pcma":{"source":"iana"},"audio/pcma-wb":{"source":"iana"},"audio/pcmu":{"source":"iana"},"audio/pcmu-wb":{"source":"iana"},"audio/prs.sid":{"source":"iana"},"audio/qcelp":{"source":"iana"},"audio/raptorfec":{"source":"iana"},"audio/red":{"source":"iana"},"audio/rtp-enc-aescm128":{"source":"iana"},"audio/rtp-midi":{"source":"iana"},"audio/rtploopback":{"source":"iana"},"audio/rtx":{"source":"iana"},"audio/s3m":{"source":"apache","extensions":["s3m"]},"audio/silk":{"source":"apache","extensions":["sil"]},"audio/smv":{"source":"iana"},"audio/smv-qcp":{"source":"iana"},"audio/smv0":{"source":"iana"},"audio/sp-midi":{"source":"iana"},"audio/speex":{"source":"iana"},"audio/t140c":{"source":"iana"},"audio/t38":{"source":"iana"},"audio/telephone-event":{"source":"iana"},"audio/tone":{"source":"iana"},"audio/uemclip":{"source":"iana"},"audio/ulpfec":{"source":"iana"},"audio/vdvi":{"source":"iana"},"audio/vmr-wb":{"source":"iana"},"audio/vnd.3gpp.iufp":{"source":"iana"},"audio/vnd.4sb":{"source":"iana"},"audio/vnd.audiokoz":{"source":"iana"},"audio/vnd.celp":{"source":"iana"},"audio/vnd.cisco.nse":{"source":"iana"},"audio/vnd.cmles.radio-events":{"source":"iana"},"audio/vnd.cns.anp1":{"source":"iana"},"audio/vnd.cns.inf1":{"source":"iana"},"audio/vnd.dece.audio":{"source":"iana","extensions":["uva","uvva"]},"audio/vnd.digital-winds":{"source":"iana","extensions":["eol"]},"audio/vnd.dlna.adts":{"source":"iana"},"audio/vnd.dolby.heaac.1":{"source":"iana"},"audio/vnd.dolby.heaac.2":{"source":"iana"},"audio/vnd.dolby.mlp":{"source":"iana"},"audio/vnd.dolby.mps":{"source":"iana"},"audio/vnd.dolby.pl2":{"source":"iana"},"audio/vnd.dolby.pl2x":{"source":"iana"},"audio/vnd.dolby.pl2z":{"source":"iana"},"audio/vnd.dolby.pulse.1":{"source":"iana"},"audio/vnd.dra":{"source":"iana","extensions":["dra"]},"audio/vnd.dts":{"source":"iana","extensions":["dts"]},"audio/vnd.dts.hd":{"source":"iana","extensions":["dtshd"]},"audio/vnd.dvb.file":{"source":"iana"},"audio/vnd.everad.plj":{"source":"iana"},"audio/vnd.hns.audio":{"source":"iana"},"audio/vnd.lucent.voice":{"source":"iana","extensions":["lvp"]},"audio/vnd.ms-playready.media.pya":{"source":"iana","extensions":["pya"]},"audio/vnd.nokia.mobile-xmf":{"source":"iana"},"audio/vnd.nortel.vbk":{"source":"iana"},"audio/vnd.nuera.ecelp4800":{"source":"iana","extensions":["ecelp4800"]},"audio/vnd.nuera.ecelp7470":{"source":"iana","extensions":["ecelp7470"]},"audio/vnd.nuera.ecelp9600":{"source":"iana","extensions":["ecelp9600"]},"audio/vnd.octel.sbc":{"source":"iana"},"audio/vnd.presonus.multitrack":{"source":"iana"},"audio/vnd.qcelp":{"source":"iana"},"audio/vnd.rhetorex.32kadpcm":{"source":"iana"},"audio/vnd.rip":{"source":"iana","extensions":["rip"]},"audio/vnd.rn-realaudio":{"compressible":false},"audio/vnd.sealedmedia.softseal.mpeg":{"source":"iana"},"audio/vnd.vmx.cvsd":{"source":"iana"},"audio/vnd.wave":{"compressible":false},"audio/vorbis":{"source":"iana","compressible":false},"audio/vorbis-config":{"source":"iana"},"audio/wav":{"compressible":false,"extensions":["wav"]},"audio/wave":{"compressible":false,"extensions":["wav"]},"audio/webm":{"source":"apache","compressible":false,"extensions":["weba"]},"audio/x-aac":{"source":"apache","compressible":false,"extensions":["aac"]},"audio/x-aiff":{"source":"apache","extensions":["aif","aiff","aifc"]},"audio/x-caf":{"source":"apache","compressible":false,"extensions":["caf"]},"audio/x-flac":{"source":"apache","extensions":["flac"]},"audio/x-m4a":{"source":"nginx","extensions":["m4a"]},"audio/x-matroska":{"source":"apache","extensions":["mka"]},"audio/x-mpegurl":{"source":"apache","extensions":["m3u"]},"audio/x-ms-wax":{"source":"apache","extensions":["wax"]},"audio/x-ms-wma":{"source":"apache","extensions":["wma"]},"audio/x-pn-realaudio":{"source":"apache","extensions":["ram","ra"]},"audio/x-pn-realaudio-plugin":{"source":"apache","extensions":["rmp"]},"audio/x-realaudio":{"source":"nginx","extensions":["ra"]},"audio/x-tta":{"source":"apache"},"audio/x-wav":{"source":"apache","extensions":["wav"]},"audio/xm":{"source":"apache","extensions":["xm"]},"chemical/x-cdx":{"source":"apache","extensions":["cdx"]},"chemical/x-cif":{"source":"apache","extensions":["cif"]},"chemical/x-cmdf":{"source":"apache","extensions":["cmdf"]},"chemical/x-cml":{"source":"apache","extensions":["cml"]},"chemical/x-csml":{"source":"apache","extensions":["csml"]},"chemical/x-pdb":{"source":"apache"},"chemical/x-xyz":{"source":"apache","extensions":["xyz"]},"font/collection":{"source":"iana","extensions":["ttc"]},"font/otf":{"source":"iana","compressible":true,"extensions":["otf"]},"font/sfnt":{"source":"iana"},"font/ttf":{"source":"iana","extensions":["ttf"]},"font/woff":{"source":"iana","extensions":["woff"]},"font/woff2":{"source":"iana","extensions":["woff2"]},"image/aces":{"source":"iana"},"image/apng":{"compressible":false,"extensions":["apng"]},"image/bmp":{"source":"iana","compressible":true,"extensions":["bmp"]},"image/cgm":{"source":"iana","extensions":["cgm"]},"image/dicom-rle":{"source":"iana"},"image/emf":{"source":"iana"},"image/fits":{"source":"iana"},"image/g3fax":{"source":"iana","extensions":["g3"]},"image/gif":{"source":"iana","compressible":false,"extensions":["gif"]},"image/ief":{"source":"iana","extensions":["ief"]},"image/jls":{"source":"iana"},"image/jp2":{"source":"iana","compressible":false,"extensions":["jp2","jpg2"]},"image/jpeg":{"source":"iana","compressible":false,"extensions":["jpeg","jpg","jpe"]},"image/jpm":{"source":"iana","compressible":false,"extensions":["jpm"]},"image/jpx":{"source":"iana","compressible":false,"extensions":["jpx","jpf"]},"image/ktx":{"source":"iana","extensions":["ktx"]},"image/naplps":{"source":"iana"},"image/pjpeg":{"compressible":false},"image/png":{"source":"iana","compressible":false,"extensions":["png"]},"image/prs.btif":{"source":"iana","extensions":["btif"]},"image/prs.pti":{"source":"iana"},"image/pwg-raster":{"source":"iana"},"image/sgi":{"source":"apache","extensions":["sgi"]},"image/svg+xml":{"source":"iana","compressible":true,"extensions":["svg","svgz"]},"image/t38":{"source":"iana"},"image/tiff":{"source":"iana","compressible":false,"extensions":["tiff","tif"]},"image/tiff-fx":{"source":"iana"},"image/vnd.adobe.photoshop":{"source":"iana","compressible":true,"extensions":["psd"]},"image/vnd.airzip.accelerator.azv":{"source":"iana"},"image/vnd.cns.inf2":{"source":"iana"},"image/vnd.dece.graphic":{"source":"iana","extensions":["uvi","uvvi","uvg","uvvg"]},"image/vnd.djvu":{"source":"iana","extensions":["djvu","djv"]},"image/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"image/vnd.dwg":{"source":"iana","extensions":["dwg"]},"image/vnd.dxf":{"source":"iana","extensions":["dxf"]},"image/vnd.fastbidsheet":{"source":"iana","extensions":["fbs"]},"image/vnd.fpx":{"source":"iana","extensions":["fpx"]},"image/vnd.fst":{"source":"iana","extensions":["fst"]},"image/vnd.fujixerox.edmics-mmr":{"source":"iana","extensions":["mmr"]},"image/vnd.fujixerox.edmics-rlc":{"source":"iana","extensions":["rlc"]},"image/vnd.globalgraphics.pgb":{"source":"iana"},"image/vnd.microsoft.icon":{"source":"iana"},"image/vnd.mix":{"source":"iana"},"image/vnd.mozilla.apng":{"source":"iana"},"image/vnd.ms-modi":{"source":"iana","extensions":["mdi"]},"image/vnd.ms-photo":{"source":"apache","extensions":["wdp"]},"image/vnd.net-fpx":{"source":"iana","extensions":["npx"]},"image/vnd.radiance":{"source":"iana"},"image/vnd.sealed.png":{"source":"iana"},"image/vnd.sealedmedia.softseal.gif":{"source":"iana"},"image/vnd.sealedmedia.softseal.jpg":{"source":"iana"},"image/vnd.svf":{"source":"iana"},"image/vnd.tencent.tap":{"source":"iana"},"image/vnd.valve.source.texture":{"source":"iana"},"image/vnd.wap.wbmp":{"source":"iana","extensions":["wbmp"]},"image/vnd.xiff":{"source":"iana","extensions":["xif"]},"image/vnd.zbrush.pcx":{"source":"iana"},"image/webp":{"source":"apache","extensions":["webp"]},"image/wmf":{"source":"iana"},"image/x-3ds":{"source":"apache","extensions":["3ds"]},"image/x-cmu-raster":{"source":"apache","extensions":["ras"]},"image/x-cmx":{"source":"apache","extensions":["cmx"]},"image/x-freehand":{"source":"apache","extensions":["fh","fhc","fh4","fh5","fh7"]},"image/x-icon":{"source":"apache","compressible":true,"extensions":["ico"]},"image/x-jng":{"source":"nginx","extensions":["jng"]},"image/x-mrsid-image":{"source":"apache","extensions":["sid"]},"image/x-ms-bmp":{"source":"nginx","compressible":true,"extensions":["bmp"]},"image/x-pcx":{"source":"apache","extensions":["pcx"]},"image/x-pict":{"source":"apache","extensions":["pic","pct"]},"image/x-portable-anymap":{"source":"apache","extensions":["pnm"]},"image/x-portable-bitmap":{"source":"apache","extensions":["pbm"]},"image/x-portable-graymap":{"source":"apache","extensions":["pgm"]},"image/x-portable-pixmap":{"source":"apache","extensions":["ppm"]},"image/x-rgb":{"source":"apache","extensions":["rgb"]},"image/x-tga":{"source":"apache","extensions":["tga"]},"image/x-xbitmap":{"source":"apache","extensions":["xbm"]},"image/x-xcf":{"compressible":false},"image/x-xpixmap":{"source":"apache","extensions":["xpm"]},"image/x-xwindowdump":{"source":"apache","extensions":["xwd"]},"message/cpim":{"source":"iana"},"message/delivery-status":{"source":"iana"},"message/disposition-notification":{"source":"iana","extensions":["disposition-notification"]},"message/external-body":{"source":"iana"},"message/feedback-report":{"source":"iana"},"message/global":{"source":"iana","extensions":["u8msg"]},"message/global-delivery-status":{"source":"iana","extensions":["u8dsn"]},"message/global-disposition-notification":{"source":"iana","extensions":["u8mdn"]},"message/global-headers":{"source":"iana","extensions":["u8hdr"]},"message/http":{"source":"iana","compressible":false},"message/imdn+xml":{"source":"iana","compressible":true},"message/news":{"source":"iana"},"message/partial":{"source":"iana","compressible":false},"message/rfc822":{"source":"iana","compressible":true,"extensions":["eml","mime"]},"message/s-http":{"source":"iana"},"message/sip":{"source":"iana"},"message/sipfrag":{"source":"iana"},"message/tracking-status":{"source":"iana"},"message/vnd.si.simp":{"source":"iana"},"message/vnd.wfa.wsc":{"source":"iana","extensions":["wsc"]},"model/3mf":{"source":"iana"},"model/gltf+json":{"source":"iana","compressible":true,"extensions":["gltf"]},"model/gltf-binary":{"source":"iana","compressible":true,"extensions":["glb"]},"model/iges":{"source":"iana","compressible":false,"extensions":["igs","iges"]},"model/mesh":{"source":"iana","compressible":false,"extensions":["msh","mesh","silo"]},"model/vnd.collada+xml":{"source":"iana","extensions":["dae"]},"model/vnd.dwf":{"source":"iana","extensions":["dwf"]},"model/vnd.flatland.3dml":{"source":"iana"},"model/vnd.gdl":{"source":"iana","extensions":["gdl"]},"model/vnd.gs-gdl":{"source":"apache"},"model/vnd.gs.gdl":{"source":"iana"},"model/vnd.gtw":{"source":"iana","extensions":["gtw"]},"model/vnd.moml+xml":{"source":"iana"},"model/vnd.mts":{"source":"iana","extensions":["mts"]},"model/vnd.opengex":{"source":"iana"},"model/vnd.parasolid.transmit.binary":{"source":"iana"},"model/vnd.parasolid.transmit.text":{"source":"iana"},"model/vnd.rosette.annotated-data-model":{"source":"iana"},"model/vnd.valve.source.compiled-map":{"source":"iana"},"model/vnd.vtu":{"source":"iana","extensions":["vtu"]},"model/vrml":{"source":"iana","compressible":false,"extensions":["wrl","vrml"]},"model/x3d+binary":{"source":"apache","compressible":false,"extensions":["x3db","x3dbz"]},"model/x3d+fastinfoset":{"source":"iana"},"model/x3d+vrml":{"source":"apache","compressible":false,"extensions":["x3dv","x3dvz"]},"model/x3d+xml":{"source":"iana","compressible":true,"extensions":["x3d","x3dz"]},"model/x3d-vrml":{"source":"iana"},"multipart/alternative":{"source":"iana","compressible":false},"multipart/appledouble":{"source":"iana"},"multipart/byteranges":{"source":"iana"},"multipart/digest":{"source":"iana"},"multipart/encrypted":{"source":"iana","compressible":false},"multipart/form-data":{"source":"iana","compressible":false},"multipart/header-set":{"source":"iana"},"multipart/mixed":{"source":"iana","compressible":false},"multipart/multilingual":{"source":"iana"},"multipart/parallel":{"source":"iana"},"multipart/related":{"source":"iana","compressible":false},"multipart/report":{"source":"iana"},"multipart/signed":{"source":"iana","compressible":false},"multipart/vnd.bint.med-plus":{"source":"iana"},"multipart/voice-message":{"source":"iana"},"multipart/x-mixed-replace":{"source":"iana"},"text/1d-interleaved-parityfec":{"source":"iana"},"text/cache-manifest":{"source":"iana","compressible":true,"extensions":["appcache","manifest"]},"text/calendar":{"source":"iana","extensions":["ics","ifb"]},"text/calender":{"compressible":true},"text/cmd":{"compressible":true},"text/coffeescript":{"extensions":["coffee","litcoffee"]},"text/css":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["css"]},"text/csv":{"source":"iana","compressible":true,"extensions":["csv"]},"text/csv-schema":{"source":"iana"},"text/directory":{"source":"iana"},"text/dns":{"source":"iana"},"text/ecmascript":{"source":"iana"},"text/encaprtp":{"source":"iana"},"text/enriched":{"source":"iana"},"text/fwdred":{"source":"iana"},"text/grammar-ref-list":{"source":"iana"},"text/html":{"source":"iana","compressible":true,"extensions":["html","htm","shtml"]},"text/jade":{"extensions":["jade"]},"text/javascript":{"source":"iana","compressible":true},"text/jcr-cnd":{"source":"iana"},"text/jsx":{"compressible":true,"extensions":["jsx"]},"text/less":{"extensions":["less"]},"text/markdown":{"source":"iana","compressible":true,"extensions":["markdown","md"]},"text/mathml":{"source":"nginx","extensions":["mml"]},"text/mizar":{"source":"iana"},"text/n3":{"source":"iana","compressible":true,"extensions":["n3"]},"text/parameters":{"source":"iana"},"text/parityfec":{"source":"iana"},"text/plain":{"source":"iana","compressible":true,"extensions":["txt","text","conf","def","list","log","in","ini"]},"text/provenance-notation":{"source":"iana"},"text/prs.fallenstein.rst":{"source":"iana"},"text/prs.lines.tag":{"source":"iana","extensions":["dsc"]},"text/prs.prop.logic":{"source":"iana"},"text/raptorfec":{"source":"iana"},"text/red":{"source":"iana"},"text/rfc822-headers":{"source":"iana"},"text/richtext":{"source":"iana","compressible":true,"extensions":["rtx"]},"text/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"text/rtp-enc-aescm128":{"source":"iana"},"text/rtploopback":{"source":"iana"},"text/rtx":{"source":"iana"},"text/sgml":{"source":"iana","extensions":["sgml","sgm"]},"text/shex":{"extensions":["shex"]},"text/slim":{"extensions":["slim","slm"]},"text/strings":{"source":"iana"},"text/stylus":{"extensions":["stylus","styl"]},"text/t140":{"source":"iana"},"text/tab-separated-values":{"source":"iana","compressible":true,"extensions":["tsv"]},"text/troff":{"source":"iana","extensions":["t","tr","roff","man","me","ms"]},"text/turtle":{"source":"iana","extensions":["ttl"]},"text/ulpfec":{"source":"iana"},"text/uri-list":{"source":"iana","compressible":true,"extensions":["uri","uris","urls"]},"text/vcard":{"source":"iana","compressible":true,"extensions":["vcard"]},"text/vnd.a":{"source":"iana"},"text/vnd.abc":{"source":"iana"},"text/vnd.ascii-art":{"source":"iana"},"text/vnd.curl":{"source":"iana","extensions":["curl"]},"text/vnd.curl.dcurl":{"source":"apache","extensions":["dcurl"]},"text/vnd.curl.mcurl":{"source":"apache","extensions":["mcurl"]},"text/vnd.curl.scurl":{"source":"apache","extensions":["scurl"]},"text/vnd.debian.copyright":{"source":"iana"},"text/vnd.dmclientscript":{"source":"iana"},"text/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"text/vnd.esmertec.theme-descriptor":{"source":"iana"},"text/vnd.fly":{"source":"iana","extensions":["fly"]},"text/vnd.fmi.flexstor":{"source":"iana","extensions":["flx"]},"text/vnd.graphviz":{"source":"iana","extensions":["gv"]},"text/vnd.in3d.3dml":{"source":"iana","extensions":["3dml"]},"text/vnd.in3d.spot":{"source":"iana","extensions":["spot"]},"text/vnd.iptc.newsml":{"source":"iana"},"text/vnd.iptc.nitf":{"source":"iana"},"text/vnd.latex-z":{"source":"iana"},"text/vnd.motorola.reflex":{"source":"iana"},"text/vnd.ms-mediapackage":{"source":"iana"},"text/vnd.net2phone.commcenter.command":{"source":"iana"},"text/vnd.radisys.msml-basic-layout":{"source":"iana"},"text/vnd.si.uricatalogue":{"source":"iana"},"text/vnd.sun.j2me.app-descriptor":{"source":"iana","extensions":["jad"]},"text/vnd.trolltech.linguist":{"source":"iana"},"text/vnd.wap.si":{"source":"iana"},"text/vnd.wap.sl":{"source":"iana"},"text/vnd.wap.wml":{"source":"iana","extensions":["wml"]},"text/vnd.wap.wmlscript":{"source":"iana","extensions":["wmls"]},"text/vtt":{"charset":"UTF-8","compressible":true,"extensions":["vtt"]},"text/x-asm":{"source":"apache","extensions":["s","asm"]},"text/x-c":{"source":"apache","extensions":["c","cc","cxx","cpp","h","hh","dic"]},"text/x-component":{"source":"nginx","extensions":["htc"]},"text/x-fortran":{"source":"apache","extensions":["f","for","f77","f90"]},"text/x-gwt-rpc":{"compressible":true},"text/x-handlebars-template":{"extensions":["hbs"]},"text/x-java-source":{"source":"apache","extensions":["java"]},"text/x-jquery-tmpl":{"compressible":true},"text/x-lua":{"extensions":["lua"]},"text/x-markdown":{"compressible":true,"extensions":["mkd"]},"text/x-nfo":{"source":"apache","extensions":["nfo"]},"text/x-opml":{"source":"apache","extensions":["opml"]},"text/x-org":{"compressible":true,"extensions":["org"]},"text/x-pascal":{"source":"apache","extensions":["p","pas"]},"text/x-processing":{"compressible":true,"extensions":["pde"]},"text/x-sass":{"extensions":["sass"]},"text/x-scss":{"extensions":["scss"]},"text/x-setext":{"source":"apache","extensions":["etx"]},"text/x-sfv":{"source":"apache","extensions":["sfv"]},"text/x-suse-ymp":{"compressible":true,"extensions":["ymp"]},"text/x-uuencode":{"source":"apache","extensions":["uu"]},"text/x-vcalendar":{"source":"apache","extensions":["vcs"]},"text/x-vcard":{"source":"apache","extensions":["vcf"]},"text/xml":{"source":"iana","compressible":true,"extensions":["xml"]},"text/xml-external-parsed-entity":{"source":"iana"},"text/yaml":{"extensions":["yaml","yml"]},"video/1d-interleaved-parityfec":{"source":"iana"},"video/3gpp":{"source":"iana","extensions":["3gp","3gpp"]},"video/3gpp-tt":{"source":"iana"},"video/3gpp2":{"source":"iana","extensions":["3g2"]},"video/bmpeg":{"source":"iana"},"video/bt656":{"source":"iana"},"video/celb":{"source":"iana"},"video/dv":{"source":"iana"},"video/encaprtp":{"source":"iana"},"video/h261":{"source":"iana","extensions":["h261"]},"video/h263":{"source":"iana","extensions":["h263"]},"video/h263-1998":{"source":"iana"},"video/h263-2000":{"source":"iana"},"video/h264":{"source":"iana","extensions":["h264"]},"video/h264-rcdo":{"source":"iana"},"video/h264-svc":{"source":"iana"},"video/h265":{"source":"iana"},"video/iso.segment":{"source":"iana"},"video/jpeg":{"source":"iana","extensions":["jpgv"]},"video/jpeg2000":{"source":"iana"},"video/jpm":{"source":"apache","extensions":["jpm","jpgm"]},"video/mj2":{"source":"iana","extensions":["mj2","mjp2"]},"video/mp1s":{"source":"iana"},"video/mp2p":{"source":"iana"},"video/mp2t":{"source":"iana","extensions":["ts"]},"video/mp4":{"source":"iana","compressible":false,"extensions":["mp4","mp4v","mpg4"]},"video/mp4v-es":{"source":"iana"},"video/mpeg":{"source":"iana","compressible":false,"extensions":["mpeg","mpg","mpe","m1v","m2v"]},"video/mpeg4-generic":{"source":"iana"},"video/mpv":{"source":"iana"},"video/nv":{"source":"iana"},"video/ogg":{"source":"iana","compressible":false,"extensions":["ogv"]},"video/parityfec":{"source":"iana"},"video/pointer":{"source":"iana"},"video/quicktime":{"source":"iana","compressible":false,"extensions":["qt","mov"]},"video/raptorfec":{"source":"iana"},"video/raw":{"source":"iana"},"video/rtp-enc-aescm128":{"source":"iana"},"video/rtploopback":{"source":"iana"},"video/rtx":{"source":"iana"},"video/smpte291":{"source":"iana"},"video/smpte292m":{"source":"iana"},"video/ulpfec":{"source":"iana"},"video/vc1":{"source":"iana"},"video/vnd.cctv":{"source":"iana"},"video/vnd.dece.hd":{"source":"iana","extensions":["uvh","uvvh"]},"video/vnd.dece.mobile":{"source":"iana","extensions":["uvm","uvvm"]},"video/vnd.dece.mp4":{"source":"iana"},"video/vnd.dece.pd":{"source":"iana","extensions":["uvp","uvvp"]},"video/vnd.dece.sd":{"source":"iana","extensions":["uvs","uvvs"]},"video/vnd.dece.video":{"source":"iana","extensions":["uvv","uvvv"]},"video/vnd.directv.mpeg":{"source":"iana"},"video/vnd.directv.mpeg-tts":{"source":"iana"},"video/vnd.dlna.mpeg-tts":{"source":"iana"},"video/vnd.dvb.file":{"source":"iana","extensions":["dvb"]},"video/vnd.fvt":{"source":"iana","extensions":["fvt"]},"video/vnd.hns.video":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.ttsavc":{"source":"iana"},"video/vnd.iptvforum.ttsmpeg2":{"source":"iana"},"video/vnd.motorola.video":{"source":"iana"},"video/vnd.motorola.videop":{"source":"iana"},"video/vnd.mpegurl":{"source":"iana","extensions":["mxu","m4u"]},"video/vnd.ms-playready.media.pyv":{"source":"iana","extensions":["pyv"]},"video/vnd.nokia.interleaved-multimedia":{"source":"iana"},"video/vnd.nokia.mp4vr":{"source":"iana"},"video/vnd.nokia.videovoip":{"source":"iana"},"video/vnd.objectvideo":{"source":"iana"},"video/vnd.radgamettools.bink":{"source":"iana"},"video/vnd.radgamettools.smacker":{"source":"iana"},"video/vnd.sealed.mpeg1":{"source":"iana"},"video/vnd.sealed.mpeg4":{"source":"iana"},"video/vnd.sealed.swf":{"source":"iana"},"video/vnd.sealedmedia.softseal.mov":{"source":"iana"},"video/vnd.uvvu.mp4":{"source":"iana","extensions":["uvu","uvvu"]},"video/vnd.vivo":{"source":"iana","extensions":["viv"]},"video/vp8":{"source":"iana"},"video/webm":{"source":"apache","compressible":false,"extensions":["webm"]},"video/x-f4v":{"source":"apache","extensions":["f4v"]},"video/x-fli":{"source":"apache","extensions":["fli"]},"video/x-flv":{"source":"apache","compressible":false,"extensions":["flv"]},"video/x-m4v":{"source":"apache","extensions":["m4v"]},"video/x-matroska":{"source":"apache","compressible":false,"extensions":["mkv","mk3d","mks"]},"video/x-mng":{"source":"apache","extensions":["mng"]},"video/x-ms-asf":{"source":"apache","extensions":["asf","asx"]},"video/x-ms-vob":{"source":"apache","extensions":["vob"]},"video/x-ms-wm":{"source":"apache","extensions":["wm"]},"video/x-ms-wmv":{"source":"apache","compressible":false,"extensions":["wmv"]},"video/x-ms-wmx":{"source":"apache","extensions":["wmx"]},"video/x-ms-wvx":{"source":"apache","extensions":["wvx"]},"video/x-msvideo":{"source":"apache","extensions":["avi"]},"video/x-sgi-movie":{"source":"apache","extensions":["movie"]},"video/x-smv":{"source":"apache","extensions":["smv"]},"x-conference/x-cooltalk":{"source":"apache","extensions":["ice"]},"x-shader/x-fragment":{"compressible":true},"x-shader/x-vertex":{"compressible":true}}
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, exports) {
 
 module.exports = {"_args":[[{"raw":"tough-cookie@~2.3.3","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.3","spec":">=2.3.3 <2.4.0","type":"range"},"G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-async-ssr\\node_modules\\request"]],"_from":"tough-cookie@>=2.3.3 <2.4.0","_id":"tough-cookie@2.3.4","_inCache":true,"_location":"/tough-cookie","_nodeVersion":"8.9.4","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/tough-cookie_2.3.4_1519684165015_0.21877903579709823"},"_npmUser":{"name":"jstash","email":"jstash@gmail.com"},"_npmVersion":"5.6.0","_phantomChildren":{},"_requested":{"raw":"tough-cookie@~2.3.3","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.3","spec":">=2.3.3 <2.4.0","type":"range"},"_requiredBy":["/node-sass/request","/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_shasum":"ec60cee38ac675063ffc97a5c18970578ee83655","_shrinkwrap":null,"_spec":"tough-cookie@~2.3.3","_where":"G:\\n8tz\\rescope\\rescope-samples\\src\\minimal-async-ssr\\node_modules\\request","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"directories":{},"dist":{"integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","shasum":"ec60cee38ac675063ffc97a5c18970578ee83655","tarball":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","fileCount":9,"unpackedSize":245484},"engines":{"node":">=0.8"},"files":["lib"],"gitHead":"e4dfb0aec5d25e9e982805417a5d936071badc17","homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","maintainers":[{"name":"awaterma","email":"awaterma@awaterma.net"},{"name":"jstash","email":"jstash@gmail.com"},{"name":"maratto","email":"marat+npm@salesforce.com"},{"name":"ruoho","email":"clint@ruoho.org"}],"name":"tough-cookie","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"}
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -30067,7 +29660,7 @@ return exports;
 
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, exports) {
 
 exports = module.exports = stringify
@@ -30100,15 +29693,15 @@ function serializer(replacer, cycleReplacer) {
 
 
 /***/ }),
-/* 205 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.parse = __webpack_require__(206);
-exports.stringify = __webpack_require__(207);
+exports.parse = __webpack_require__(205);
+exports.stringify = __webpack_require__(206);
 
 
 /***/ }),
-/* 206 */
+/* 205 */
 /***/ (function(module, exports) {
 
 var at, // The index of the current character
@@ -30387,7 +29980,7 @@ module.exports = function (source, reviver) {
 
 
 /***/ }),
-/* 207 */
+/* 206 */
 /***/ (function(module, exports) {
 
 var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
@@ -30547,7 +30140,7 @@ module.exports = function (value, replacer, space) {
 
 
 /***/ }),
-/* 208 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -30557,9 +30150,9 @@ module.exports = function (value, replacer, space) {
 var mod_assert = __webpack_require__(0);
 var mod_util = __webpack_require__(2);
 
-var mod_extsprintf = __webpack_require__(83);
-var mod_verror = __webpack_require__(252);
-var mod_jsonschema = __webpack_require__(203);
+var mod_extsprintf = __webpack_require__(84);
+var mod_verror = __webpack_require__(251);
+var mod_jsonschema = __webpack_require__(202);
 
 /*
  * Public interface
@@ -31288,7 +30881,7 @@ function mergeObjects(provided, overrides, defaults)
 
 
 /***/ }),
-/* 209 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -31301,11 +30894,11 @@ function mergeObjects(provided, overrides, defaults)
  * Module exports.
  */
 
-module.exports = __webpack_require__(201)
+module.exports = __webpack_require__(200)
 
 
 /***/ }),
-/* 210 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var crypto = __webpack_require__(1)
@@ -31447,7 +31040,7 @@ exports.generateBase = generateBase
 
 
 /***/ }),
-/* 211 */
+/* 210 */
 /***/ (function(module, exports) {
 
 // Generated by CoffeeScript 1.12.2
@@ -31489,7 +31082,7 @@ exports.generateBase = generateBase
 
 
 /***/ }),
-/* 212 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31502,7 +31095,7 @@ exports.generateBase = generateBase
 
 
 
-var emptyFunction = __webpack_require__(9);
+var emptyFunction = __webpack_require__(10);
 var invariant = __webpack_require__(15);
 var ReactPropTypesSecret = __webpack_require__(51);
 
@@ -31554,7 +31147,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 213 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31567,7 +31160,7 @@ module.exports = function() {
 
 
 
-var emptyFunction = __webpack_require__(9);
+var emptyFunction = __webpack_require__(10);
 var invariant = __webpack_require__(15);
 var warning = __webpack_require__(23);
 var assign = __webpack_require__(19);
@@ -32103,7 +31696,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 /***/ }),
-/* 214 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -32128,22 +31721,22 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(213)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(212)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(212)();
+  module.exports = __webpack_require__(211)();
 }
 
 
 /***/ }),
-/* 215 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(94);
+var utils = __webpack_require__(95);
 
 var has = Object.prototype.hasOwnProperty;
 
@@ -32318,14 +31911,14 @@ module.exports = function (str, opts) {
 
 
 /***/ }),
-/* 216 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(94);
-var formats = __webpack_require__(92);
+var utils = __webpack_require__(95);
+var formats = __webpack_require__(93);
 
 var arrayPrefixGenerators = {
     brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
@@ -32535,11 +32128,11 @@ module.exports = function (object, opts) {
 
 
 /***/ }),
-/* 217 */
+/* 216 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
@@ -33257,7 +32850,7 @@ Resizable.defaultProps = {
 
 
 /***/ }),
-/* 218 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33280,14 +32873,14 @@ if (process.env.NODE_ENV !== "production") {
 
 var _assign = __webpack_require__(19);
 var invariant = __webpack_require__(15);
-var React = __webpack_require__(10);
-var emptyFunction = __webpack_require__(9);
+var React = __webpack_require__(8);
+var emptyFunction = __webpack_require__(10);
 var emptyObject = __webpack_require__(21);
 var hyphenateStyleName = __webpack_require__(48);
-var memoizeStringOnly = __webpack_require__(88);
+var memoizeStringOnly = __webpack_require__(89);
 var warning = __webpack_require__(23);
 var checkPropTypes = __webpack_require__(37);
-var camelizeStyleName = __webpack_require__(85);
+var camelizeStyleName = __webpack_require__(86);
 var stream = __webpack_require__(14);
 
 // TODO: this is special because it gets imported during build.
@@ -36032,7 +35625,7 @@ module.exports = server_node;
 
 
 /***/ }),
-/* 219 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36045,7 +35638,7 @@ module.exports = server_node;
  * LICENSE file in the root directory of this source tree.
  */
 
-var p=__webpack_require__(19),r=__webpack_require__(15),t=__webpack_require__(10),w=__webpack_require__(9),x=__webpack_require__(21),y=__webpack_require__(48),aa=__webpack_require__(88),ba=__webpack_require__(14);
+var p=__webpack_require__(19),r=__webpack_require__(15),t=__webpack_require__(8),w=__webpack_require__(10),x=__webpack_require__(21),y=__webpack_require__(48),aa=__webpack_require__(89),ba=__webpack_require__(14);
 function z(a){for(var b=arguments.length-1,d="http://reactjs.org/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);r(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",d)}
 var A="function"===typeof Symbol&&Symbol["for"],ca=A?Symbol["for"]("react.call"):60104,da=A?Symbol["for"]("react.return"):60105,ea=A?Symbol["for"]("react.portal"):60106,C=A?Symbol["for"]("react.fragment"):60107,fa=A?Symbol["for"]("react.strict_mode"):60108,E=A?Symbol["for"]("react.provider"):60109,ha=A?Symbol["for"]("react.context"):60110,ia=A?Symbol["for"]("react.async_mode"):60111,ja=A?Symbol["for"]("react.forward_ref"):60112,ka=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,
 F={},G={};function la(a){if(G.hasOwnProperty(a))return!0;if(F.hasOwnProperty(a))return!1;if(ka.test(a))return G[a]=!0;F[a]=!0;return!1}function ma(a,b,d,c){if(null!==d&&0===d.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(c)return!1;if(null!==d)return!d.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -36082,7 +35675,7 @@ var W=function(a){function b(d,c){if(!(this instanceof b))throw new TypeError("C
 
 
 /***/ }),
-/* 220 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36104,18 +35697,18 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var invariant = __webpack_require__(15);
-var React = __webpack_require__(10);
+var React = __webpack_require__(8);
 var warning = __webpack_require__(23);
-var ExecutionEnvironment = __webpack_require__(84);
+var ExecutionEnvironment = __webpack_require__(85);
 var _assign = __webpack_require__(19);
-var emptyFunction = __webpack_require__(9);
+var emptyFunction = __webpack_require__(10);
 var checkPropTypes = __webpack_require__(37);
-var getActiveElement = __webpack_require__(87);
-var shallowEqual = __webpack_require__(89);
-var containsNode = __webpack_require__(86);
+var getActiveElement = __webpack_require__(88);
+var shallowEqual = __webpack_require__(90);
+var containsNode = __webpack_require__(87);
 var emptyObject = __webpack_require__(21);
 var hyphenateStyleName = __webpack_require__(48);
-var camelizeStyleName = __webpack_require__(85);
+var camelizeStyleName = __webpack_require__(86);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -52743,7 +52336,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 221 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52759,7 +52352,7 @@ module.exports = reactDom;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var ba=__webpack_require__(15),ea=__webpack_require__(10),m=__webpack_require__(84),A=__webpack_require__(19),C=__webpack_require__(9),fa=__webpack_require__(87),ha=__webpack_require__(89),ja=__webpack_require__(86),ka=__webpack_require__(21);
+var ba=__webpack_require__(15),ea=__webpack_require__(8),m=__webpack_require__(85),A=__webpack_require__(19),C=__webpack_require__(10),fa=__webpack_require__(88),ha=__webpack_require__(90),ja=__webpack_require__(87),ka=__webpack_require__(21);
 function D(a){for(var b=arguments.length-1,c="http://reactjs.org/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);ba(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",c)}ea?void 0:D("227");
 function ma(a,b,c,d,e,f,h,g,k){this._hasCaughtError=!1;this._caughtError=null;var v=Array.prototype.slice.call(arguments,3);try{b.apply(c,v)}catch(l){this._caughtError=l,this._hasCaughtError=!0}}
 var E={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,h,g,k){ma.apply(E,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,h,g,k){E.invokeGuardedCallback.apply(this,arguments);if(E.hasCaughtError()){var v=E.clearCaughtError();E._hasRethrowError||(E._hasRethrowError=!0,E._rethrowError=v)}},rethrowCaughtError:function(){return na.apply(E,arguments)},hasCaughtError:function(){return E._hasCaughtError},clearCaughtError:function(){if(E._hasCaughtError){var a=
@@ -52996,26 +52589,26 @@ X.injectIntoDevTools({findFiberByHostInstance:Ua,bundleType:0,version:"16.3.2",r
 
 
 /***/ }),
-/* 222 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(219);
-} else {
   module.exports = __webpack_require__(218);
+} else {
+  module.exports = __webpack_require__(217);
 }
 
 
 /***/ }),
-/* 223 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(42), __webpack_require__(10));
+		module.exports = factory(__webpack_require__(42), __webpack_require__(8));
 	else if(typeof define === 'function' && define.amd)
 		define(["react-dom", "react"], factory);
 	else if(typeof exports === 'object')
@@ -55761,18 +55354,18 @@ process.umask = function() { return 0; };
 //# sourceMappingURL=react-draggable.js.map
 
 /***/ }),
-/* 224 */
+/* 223 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(216);
 
 
 
@@ -56178,7 +55771,7 @@ Rnd.defaultProps = {
 
 
 /***/ }),
-/* 225 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56203,7 +55796,7 @@ var _assign = __webpack_require__(19);
 var emptyObject = __webpack_require__(21);
 var invariant = __webpack_require__(15);
 var warning = __webpack_require__(23);
-var emptyFunction = __webpack_require__(9);
+var emptyFunction = __webpack_require__(10);
 var checkPropTypes = __webpack_require__(37);
 
 // TODO: this is special because it gets imported during build.
@@ -57542,7 +57135,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 226 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57555,7 +57148,7 @@ module.exports = react;
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(19),n=__webpack_require__(21),p=__webpack_require__(9),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(19),n=__webpack_require__(21),p=__webpack_require__(10),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -57570,7 +57163,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 227 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57591,7 +57184,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 var extend = __webpack_require__(47)
-var cookies = __webpack_require__(95)
+var cookies = __webpack_require__(96)
 var helpers = __webpack_require__(52)
 
 var paramsHaveRequestBody = helpers.paramsHaveRequestBody
@@ -57716,7 +57309,7 @@ request.forever = function (agentOptions, optionsArg) {
 // Exports
 
 module.exports = request
-request.Request = __webpack_require__(236)
+request.Request = __webpack_require__(235)
 request.initParams = initParams
 
 // Backwards compatibility for request.debug
@@ -57732,7 +57325,7 @@ Object.defineProperty(request, 'debug', {
 
 
 /***/ }),
-/* 228 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57906,7 +57499,7 @@ exports.Auth = Auth
 
 
 /***/ }),
-/* 229 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57992,15 +57585,15 @@ module.exports = getProxyFromURI
 
 
 /***/ }),
-/* 230 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var fs = __webpack_require__(108)
+var fs = __webpack_require__(109)
 var qs = __webpack_require__(41)
-var validate = __webpack_require__(170)
+var validate = __webpack_require__(169)
 var extend = __webpack_require__(47)
 
 function Har (request) {
@@ -58204,15 +57797,15 @@ exports.Har = Har
 
 
 /***/ }),
-/* 231 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var uuid = __webpack_require__(58)
-var CombinedStream = __webpack_require__(80)
-var isstream = __webpack_require__(90)
+var CombinedStream = __webpack_require__(81)
+var isstream = __webpack_require__(91)
 var Buffer = __webpack_require__(24).Buffer
 
 function Multipart (request) {
@@ -58323,17 +57916,17 @@ exports.Multipart = Multipart
 
 
 /***/ }),
-/* 232 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(7)
-var qs = __webpack_require__(93)
+var qs = __webpack_require__(94)
 var caseless = __webpack_require__(46)
 var uuid = __webpack_require__(58)
-var oauth = __webpack_require__(210)
+var oauth = __webpack_require__(209)
 var crypto = __webpack_require__(1)
 var Buffer = __webpack_require__(24).Buffer
 
@@ -58478,13 +58071,13 @@ exports.OAuth = OAuth
 
 
 /***/ }),
-/* 233 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var qs = __webpack_require__(93)
+var qs = __webpack_require__(94)
 var querystring = __webpack_require__(41)
 
 function Querystring (request) {
@@ -58535,7 +58128,7 @@ exports.Querystring = Querystring
 
 
 /***/ }),
-/* 234 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58696,14 +58289,14 @@ exports.Redirect = Redirect
 
 
 /***/ }),
-/* 235 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var url = __webpack_require__(7)
-var tunnel = __webpack_require__(249)
+var tunnel = __webpack_require__(248)
 
 var defaultProxyHeaderWhiteList = [
   'accept',
@@ -58878,7 +58471,7 @@ exports.Tunnel = Tunnel
 
 
 /***/ }),
-/* 236 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58890,29 +58483,29 @@ var url = __webpack_require__(7)
 var util = __webpack_require__(2)
 var stream = __webpack_require__(14)
 var zlib = __webpack_require__(260)
-var hawk = __webpack_require__(172)
-var aws2 = __webpack_require__(153)
-var aws4 = __webpack_require__(154)
-var httpSignature = __webpack_require__(175)
-var mime = __webpack_require__(91)
-var stringstream = __webpack_require__(246)
+var hawk = __webpack_require__(171)
+var aws2 = __webpack_require__(152)
+var aws4 = __webpack_require__(153)
+var httpSignature = __webpack_require__(174)
+var mime = __webpack_require__(92)
+var stringstream = __webpack_require__(245)
 var caseless = __webpack_require__(46)
-var ForeverAgent = __webpack_require__(165)
-var FormData = __webpack_require__(166)
+var ForeverAgent = __webpack_require__(164)
+var FormData = __webpack_require__(165)
 var extend = __webpack_require__(47)
-var isstream = __webpack_require__(90)
-var isTypedArray = __webpack_require__(179).strict
+var isstream = __webpack_require__(91)
+var isTypedArray = __webpack_require__(178).strict
 var helpers = __webpack_require__(52)
-var cookies = __webpack_require__(95)
-var getProxyFromURI = __webpack_require__(229)
-var Querystring = __webpack_require__(233).Querystring
-var Har = __webpack_require__(230).Har
-var Auth = __webpack_require__(228).Auth
-var OAuth = __webpack_require__(232).OAuth
-var Multipart = __webpack_require__(231).Multipart
-var Redirect = __webpack_require__(234).Redirect
-var Tunnel = __webpack_require__(235).Tunnel
-var now = __webpack_require__(211)
+var cookies = __webpack_require__(96)
+var getProxyFromURI = __webpack_require__(228)
+var Querystring = __webpack_require__(232).Querystring
+var Har = __webpack_require__(229).Har
+var Auth = __webpack_require__(227).Auth
+var OAuth = __webpack_require__(231).OAuth
+var Multipart = __webpack_require__(230).Multipart
+var Redirect = __webpack_require__(233).Redirect
+var Tunnel = __webpack_require__(234).Tunnel
+var now = __webpack_require__(210)
 var Buffer = __webpack_require__(24).Buffer
 
 var safeStringify = helpers.safeStringify
@@ -60437,13 +60030,13 @@ module.exports = Request
 
 
 /***/ }),
-/* 237 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var encode = __webpack_require__(96);
+var encode = __webpack_require__(97);
 var alphabet = __webpack_require__(38);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
@@ -60492,7 +60085,7 @@ module.exports = build;
 
 
 /***/ }),
-/* 238 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60516,23 +60109,23 @@ module.exports = decode;
 
 
 /***/ }),
-/* 239 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var alphabet = __webpack_require__(38);
-var encode = __webpack_require__(96);
-var decode = __webpack_require__(238);
-var build = __webpack_require__(237);
-var isValid = __webpack_require__(240);
+var encode = __webpack_require__(97);
+var decode = __webpack_require__(237);
+var build = __webpack_require__(236);
+var isValid = __webpack_require__(239);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(243) || 0;
+var clusterWorkerId = __webpack_require__(242) || 0;
 
 /**
  * Set the seed.
@@ -60588,7 +60181,7 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 240 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60614,7 +60207,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 241 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60631,7 +60224,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 242 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60663,7 +60256,7 @@ module.exports = {
 
 
 /***/ }),
-/* 243 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60673,7 +60266,7 @@ module.exports = parseInt(process.env.NODE_UNIQUE_ID || 0, 10);
 
 
 /***/ }),
-/* 244 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2017 Joyent, Inc.
@@ -61001,12 +60594,12 @@ function getCertType(key) {
 
 
 /***/ }),
-/* 245 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright 2016 Joyent, Inc.
 
-var x509 = __webpack_require__(101);
+var x509 = __webpack_require__(102);
 
 module.exports = {
 	read: read,
@@ -61016,7 +60609,7 @@ module.exports = {
 };
 
 var assert = __webpack_require__(0);
-var asn1 = __webpack_require__(8);
+var asn1 = __webpack_require__(9);
 var algs = __webpack_require__(5);
 var utils = __webpack_require__(3);
 var Key = __webpack_require__(4);
@@ -61084,7 +60677,7 @@ function write(cert, options) {
 
 
 /***/ }),
-/* 246 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var util = __webpack_require__(2)
@@ -61192,7 +60785,7 @@ function alignedWrite(buffer) {
 
 
 /***/ }),
-/* 247 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61229,15 +60822,15 @@ function alignedWrite(buffer) {
 
 var net = __webpack_require__(59);
 var urlParse = __webpack_require__(7).parse;
-var pubsuffix = __webpack_require__(104);
-var Store = __webpack_require__(105).Store;
-var MemoryCookieStore = __webpack_require__(248).MemoryCookieStore;
-var pathMatch = __webpack_require__(102).pathMatch;
-var VERSION = __webpack_require__(202).version;
+var pubsuffix = __webpack_require__(105);
+var Store = __webpack_require__(106).Store;
+var MemoryCookieStore = __webpack_require__(247).MemoryCookieStore;
+var pathMatch = __webpack_require__(103).pathMatch;
+var VERSION = __webpack_require__(201).version;
 
 var punycode;
 try {
-  punycode = __webpack_require__(109);
+  punycode = __webpack_require__(110);
 } catch(e) {
   console.warn("cookie: can't load punycode; won't use punycode for domain normalization");
 }
@@ -62618,14 +62211,14 @@ module.exports = {
   pathMatch: pathMatch,
   getPublicSuffix: pubsuffix.getPublicSuffix,
   cookieCompare: cookieCompare,
-  permuteDomain: __webpack_require__(103).permuteDomain,
+  permuteDomain: __webpack_require__(104).permuteDomain,
   permutePath: permutePath,
   canonicalDomain: canonicalDomain
 };
 
 
 /***/ }),
-/* 248 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62660,9 +62253,9 @@ module.exports = {
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-var Store = __webpack_require__(105).Store;
-var permuteDomain = __webpack_require__(103).permuteDomain;
-var pathMatch = __webpack_require__(102).pathMatch;
+var Store = __webpack_require__(106).Store;
+var permuteDomain = __webpack_require__(104).permuteDomain;
+var pathMatch = __webpack_require__(103).pathMatch;
 var util = __webpack_require__(2);
 
 function MemoryCookieStore() {
@@ -62802,14 +62395,14 @@ MemoryCookieStore.prototype.getAllCookies = function(cb) {
 
 
 /***/ }),
-/* 249 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var net = __webpack_require__(59)
-  , tls = __webpack_require__(110)
+  , tls = __webpack_require__(111)
   , http = __webpack_require__(31)
   , https = __webpack_require__(40)
   , events = __webpack_require__(258)
@@ -63053,11 +62646,11 @@ exports.debug = debug // for test
 
 
 /***/ }),
-/* 250 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rng = __webpack_require__(107);
-var bytesToUuid = __webpack_require__(106);
+var rng = __webpack_require__(108);
+var bytesToUuid = __webpack_require__(107);
 
 // **`v1()` - Generate time-based UUID**
 //
@@ -63168,11 +62761,11 @@ module.exports = v1;
 
 
 /***/ }),
-/* 251 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rng = __webpack_require__(107);
-var bytesToUuid = __webpack_require__(106);
+var rng = __webpack_require__(108);
+var bytesToUuid = __webpack_require__(107);
 
 function v4(options, buf, offset) {
   var i = buf && offset || 0;
@@ -63203,7 +62796,7 @@ module.exports = v4;
 
 
 /***/ }),
-/* 252 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -63213,8 +62806,8 @@ module.exports = v4;
 var mod_assertplus = __webpack_require__(0);
 var mod_util = __webpack_require__(2);
 
-var mod_extsprintf = __webpack_require__(83);
-var mod_isError = __webpack_require__(158).isError;
+var mod_extsprintf = __webpack_require__(84);
+var mod_isError = __webpack_require__(157).isError;
 var sprintf = mod_extsprintf.sprintf;
 
 /*
@@ -63658,6 +63251,540 @@ WError.prototype.cause = function we_cause(c)
 	return (this.jse_cause);
 };
 
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _rescope = __webpack_require__(1);
+	
+	var _rescope2 = _interopRequireDefault(_rescope);
+	
+	__webpack_require__(2);
+	
+	__webpack_require__(4);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _rescope2.default.spells; /*
+	                                             * Copyright (c)  2018 Wise Wild Web .
+	                                             *
+	                                             *  MIT License
+	                                             *
+	                                             *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                             *  of this software and associated documentation files (the "Software"), to deal
+	                                             *  in the Software without restriction, including without limitation the rights
+	                                             *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                             *  copies of the Software, and to permit persons to whom the Software is
+	                                             *  furnished to do so, subject to the following conditions:
+	                                             *
+	                                             *  The above copyright notice and this permission notice shall be included in all
+	                                             *  copies or substantial portions of the Software.
+	                                             *
+	                                             *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                             *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                             *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                             *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                             *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                             *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                             *  SOFTWARE.
+	                                             *
+	                                             * @author : Nathanael Braun
+	                                             * @contact : caipilabs@gmail.com
+	                                             */
+
+	module.exports = exports["default"];
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(43);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _rescope = __webpack_require__(1);
+	
+	var _rescope2 = _interopRequireDefault(_rescope);
+	
+	var _is = __webpack_require__(3);
+	
+	var _is2 = _interopRequireDefault(_is);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// will use as external the index in dist
+	
+	/*
+	 * Copyright (c)  2018 Wise Wild Web .
+	 *
+	 *  MIT License
+	 *
+	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	 *  of this software and associated documentation files (the "Software"), to deal
+	 *  in the Software without restriction, including without limitation the rights
+	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 *  copies of the Software, and to permit persons to whom the Software is
+	 *  furnished to do so, subject to the following conditions:
+	 *
+	 *  The above copyright notice and this permission notice shall be included in all
+	 *  copies or substantial portions of the Software.
+	 *
+	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 *  SOFTWARE.
+	 *
+	 * @author : Nathanael Braun
+	 * @contact : caipilabs@gmail.com
+	 */
+	var SimpleObjectProto = {}.constructor;
+	_rescope2.default.spells = {};
+	
+	var castTypesToAppliable = {};
+	var castTypes = {};
+	
+	_rescope2.default.isSpell = function caster() {
+	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+	        argz[_key] = arguments[_key];
+	    }
+	
+	    // are we decorating a member / without argz
+	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	        argz[2].value = addCaster(argz[0][argz[1]], argz);
+	        return argz[0];
+	    } else if (!_is2.default.fn(argz[0])) {
+	        return function () {
+	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                argz2[_key2] = arguments[_key2];
+	            }
+	
+	            // are we decorating a member / with argz
+	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+	                return argz2[0];
+	            } else return caster.apply(undefined, [argz2[0]].concat(argz));
+	        };
+	    }
+	    return addCaster.apply(undefined, argz);
+	};
+	
+	function addCaster() {
+	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	        argz[_key3] = arguments[_key3];
+	    }
+	
+	    var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+	    if (!cast) throw "ReScope cast : bad decorator function";
+	    var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+	        test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+	        prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+	        memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+	        casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+	
+	    if (!castTypesToAppliable[typeName]) {
+	        castTypesToAppliable[typeName] = [];
+	
+	        _rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+	            for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                argz[_key4] = arguments[_key4];
+	            }
+	
+	            // are we decorating a member / without argz
+	            if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+	                argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+	                return argz[0];
+	            } else if (!isCastableType(typeName, argz[0])) {
+	                return function () {
+	                    for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                        argz2[_key5] = arguments[_key5];
+	                    }
+	
+	                    // are we decorating a member / with argz
+	                    if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+	                        argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+	                        return argz2[0];
+	                    } else return doCast.apply(undefined, [argz2[0]].concat(argz));
+	                };
+	            }
+	            return applyCastableType(typeName, argz[0], argz.slice(1));
+	        };
+	    }
+	    castTypesToAppliable[typeName].unshift({
+	        typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+	    });
+	    return cast;
+	}
+	
+	function isCastableType(typeName, Comp, member, stateScope) {
+	    var castable = castTypesToAppliable[typeName];
+	    for (var i = 0; i < castable.length; i++) {
+	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+	    }return false;
+	}
+	
+	function applyCastableType(typeName, Comp, argz, member, stateScope) {
+	
+	    var castable = castTypesToAppliable[typeName] || [];
+	    for (var i = 0; i < castable.length; i++) {
+	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+	    }console.warn("reScope cast : Unknown type", typeName, Comp);
+	    return false;
+	}
+	
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(36);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _dec7, _desc, _value, _obj; /*
+	                                                                                  * Copyright (c)  2018 Wise Wild Web .
+	                                                                                  *
+	                                                                                  *  MIT License
+	                                                                                  *
+	                                                                                  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                  *  of this software and associated documentation files (the "Software"), to deal
+	                                                                                  *  in the Software without restriction, including without limitation the rights
+	                                                                                  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                  *  copies of the Software, and to permit persons to whom the Software is
+	                                                                                  *  furnished to do so, subject to the following conditions:
+	                                                                                  *
+	                                                                                  *  The above copyright notice and this permission notice shall be included in all
+	                                                                                  *  copies or substantial portions of the Software.
+	                                                                                  *
+	                                                                                  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                                                                  *  SOFTWARE.
+	                                                                                  *
+	                                                                                  * @author : Nathanael Braun
+	                                                                                  * @contact : caipilabs@gmail.com
+	                                                                                  */
+	
+	
+	var _react = __webpack_require__(5);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _is = __webpack_require__(3);
+	
+	var _is2 = _interopRequireDefault(_is);
+	
+	var _reactRescope = __webpack_require__(6);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+	    var desc = {};
+	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+	        desc[key] = descriptor[key];
+	    });
+	    desc.enumerable = !!desc.enumerable;
+	    desc.configurable = !!desc.configurable;
+	
+	    if ('value' in desc || desc.initializer) {
+	        desc.writable = true;
+	    }
+	
+	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+	        return decorator(target, property, desc) || desc;
+	    }, desc);
+	
+	    if (context && desc.initializer !== void 0) {
+	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+	        desc.initializer = undefined;
+	    }
+	
+	    if (desc.initializer === void 0) {
+	        Object['define' + 'Property'](target, property, desc);
+	        desc = null;
+	    }
+	
+	    return desc;
+	}
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var RSComp = (_dec = (0, _reactRescope.propsToScope)(['props']), _dec2 = (0, _reactRescope.scopeToProps)(['props']), _dec(_class = _dec2(_class = function (_Component) {
+	    _inherits(RSComp, _Component);
+	
+	    function RSComp() {
+	        _classCallCheck(this, RSComp);
+	
+	        return _possibleConstructorReturn(this, (RSComp.__proto__ || Object.getPrototypeOf(RSComp)).apply(this, arguments));
+	    }
+	
+	    _createClass(RSComp, [{
+	        key: "render",
+	        value: function render() {
+	            return this.props.children || [];
+	        }
+	    }]);
+	
+	    return RSComp;
+	}(_reactRescope.Component)) || _class) || _class);
+	exports.default = (_dec3 = (0, _reactRescope.isSpell)("stateMap", function (v) {
+	    return _is2.default.object(v) || _is2.default.string(v);
+	}), _dec4 = (0, _reactRescope.isSpell)("scope", function (v) {
+	    return _is2.default.object(v);
+	}), _dec5 = (0, _reactRescope.isSpell)("renderer", function (v) {
+	    return _is2.default.fn(v);
+	}), _dec6 = (0, _reactRescope.isSpell)("rootRenderer", function (v) {
+	    return _is2.default.fn(v);
+	}), _dec7 = (0, _reactRescope.isSpell)("store", function (v) {
+	    return _is2.default.fn(v);
+	}), (_obj = {
+	    stateMap: function stateMap(obj, _ref, ref) {
+	        var _class2, _temp;
+	
+	        var cfg = _ref[0];
+	
+	        var use = [],
+	            state = {},
+	            actions = {};
+	        _reactRescope.Scope.stateMapToRefList(obj, state, use, actions);
+	        return _temp = _class2 = function (_Store) {
+	            _inherits(StateMap, _Store);
+	
+	            function StateMap() {
+	                _classCallCheck(this, StateMap);
+	
+	                return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
+	            }
+	
+	            return StateMap;
+	        }(_reactRescope.Store), _class2.displayName = ref[1], _class2.use = use, _class2.state = state, _class2.actions = actions, _temp;
+	    },
+	    scope: function scope(obj, _ref2, ref) {
+	        var cfg = _ref2[0];
+	
+	        return _reactRescope.Scope.bind(null, obj, cfg);
+	    },
+	    renderer: function renderer(obj, argz, ref) {
+	        var _class3, _temp2;
+	
+	        var use = void 0,
+	            state = void 0,
+	            actions = void 0;
+	        if (!argz[0]) {
+	            state = {};
+	            //argz[ 0 ] = []
+	        } else if (_is2.default.array(argz[0])) {
+	            use = argz[0];
+	            state = !use.length && {};
+	        } else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
+	
+	        //!use.includes('props') && use.push('props');
+	        return _temp2 = _class3 = function (_Store2) {
+	            _inherits(RSRenderer, _Store2);
+	
+	            function RSRenderer() {
+	                _classCallCheck(this, RSRenderer);
+	
+	                return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+	            }
+	
+	            _createClass(RSRenderer, [{
+	                key: "apply",
+	                value: function apply(d, s, c) {
+	                    var _this4 = this;
+	
+	                    return function (props) {
+	                        return _react2.default.createElement(
+	                            RSComp,
+	                            { __scope: _this4.$scope, props: props },
+	                            obj(_extends({}, s, { props: props }), {
+	                                $actions: _this4.$actions,
+	                                $stores: _this4.$stores,
+	                                $store: _this4
+	                            })
+	                        );
+	                    };
+	                }
+	            }]);
+	
+	            return RSRenderer;
+	        }(_reactRescope.Store), _class3.displayName = ref[1], _class3.use = use, _class3.state = state, _class3.actions = actions, _temp2;
+	    },
+	    rootRenderer: function rootRenderer(obj, argz, ref) {
+	        var _class4, _temp3;
+	
+	        var use = void 0,
+	            state = void 0,
+	            actions = void 0;
+	        if (!argz[0]) {
+	            state = {};
+	            //argz[ 0 ] = []
+	        } else if (_is2.default.array(argz[0])) {
+	            use = argz[0];
+	            state = !use.length && {};
+	        } else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
+	
+	        //!use.includes('props') && use.push('props');
+	        return _temp3 = _class4 = function (_Store3) {
+	            _inherits(RSRenderer, _Store3);
+	
+	            function RSRenderer() {
+	                _classCallCheck(this, RSRenderer);
+	
+	                return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+	            }
+	
+	            _createClass(RSRenderer, [{
+	                key: "apply",
+	                value: function apply(d, s, c) {
+	                    return _react2.default.createElement(
+	                        RSComp,
+	                        { __scope: this.$scope },
+	                        obj(s, {
+	                            $actions: this.$actions,
+	                            $stores: this.$stores,
+	                            $store: this
+	                        })
+	                    );
+	                }
+	            }]);
+	
+	            return RSRenderer;
+	        }(_reactRescope.Store), _class4.displayName = ref[1], _class4.use = use, _class4.state = state, _class4.actions = actions, _temp3;
+	    },
+	    store: function store(obj, _ref3, ref) {
+	        var cfg = _ref3[0];
+	
+	        return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
+	                return obj(d, s, c);
+	            } }));
+	    }
+	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec3], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _applyDecoratedDescriptor(_obj, "renderer", [_dec5], Object.getOwnPropertyDescriptor(_obj, "renderer"), _obj), _applyDecoratedDescriptor(_obj, "rootRenderer", [_dec6], Object.getOwnPropertyDescriptor(_obj, "rootRenderer"), _obj), _applyDecoratedDescriptor(_obj, "store", [_dec7], Object.getOwnPropertyDescriptor(_obj, "store"), _obj)), _obj));
+	module.exports = exports["default"];
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(8);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+	module.exports = __webpack_require__(61);
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
 /* 253 */
