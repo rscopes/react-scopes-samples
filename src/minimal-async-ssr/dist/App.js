@@ -1410,7 +1410,7 @@ module.exports = is;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(3);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(13);
+  var ReactPropTypesSecret = __webpack_require__(12);
   var loggedTypeFailures = {};
 }
 
@@ -1572,20 +1572,6 @@ module.exports = {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-if (process.env.NODE_ENV === 'production') {
-    module.exports = __webpack_require__(32);
-} else {
-    module.exports = __webpack_require__(31);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
 function checkDCE() {
   /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
   if (
@@ -1626,7 +1612,7 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1668,7 +1654,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1687,7 +1673,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1696,7 +1682,7 @@ module.exports = __webpack_require__(54);
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1847,7 +1833,7 @@ module.exports =
 /* 1 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(10);
+	module.exports = __webpack_require__(15);
 
 	/***/
 },
@@ -2543,6 +2529,20 @@ module.exports =
 /******/);
 
 /***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports = __webpack_require__(32);
+} else {
+    module.exports = __webpack_require__(31);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2911,7 +2911,7 @@ var _superagent = __webpack_require__(62);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _shortid = __webpack_require__(14);
+var _shortid = __webpack_require__(13);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
@@ -3305,7 +3305,7 @@ var _AppScope = __webpack_require__(25);
 
 var _AppScope2 = _interopRequireDefault(_AppScope);
 
-var _reactRescope = __webpack_require__(15);
+var _reactRescope = __webpack_require__(14);
 
 var _server = __webpack_require__(27);
 
@@ -3316,7 +3316,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var indexTpl = __webpack_require__(26);
-var ReactDom = __webpack_require__(11);
+var ReactDom = __webpack_require__(10);
 
 var App = (_temp = _class = function App() {
     _classCallCheck(this, App);
@@ -3362,8 +3362,6 @@ module.exports = exports["default"];
 
 "use strict";
 
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*!
  * MIT License
@@ -3450,7 +3448,9 @@ module.exports =
 
 	__webpack_require__(2);
 
-	__webpack_require__(4);
+	__webpack_require__(!function webpackMissingModule() {
+		var e = new Error("Cannot find module \"./spellsLib\"");e.code = 'MODULE_NOT_FOUND';throw e;
+	}());
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -3490,7 +3490,7 @@ module.exports =
 /* 1 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(10);
+	module.exports = __webpack_require__(15);
 
 	/***/
 },
@@ -3646,292 +3646,6 @@ module.exports =
 /***/function (module, exports) {
 
 	module.exports = __webpack_require__(7);
-
-	/***/
-},
-/* 4 */
-/***/function (module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _extends = Object.assign || function (target) {
-		for (var i = 1; i < arguments.length; i++) {
-			var source = arguments[i];for (var key in source) {
-				if (Object.prototype.hasOwnProperty.call(source, key)) {
-					target[key] = source[key];
-				}
-			}
-		}return target;
-	};
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _dec7, _desc, _value, _obj; /*
-                                                                                   * Copyright (c)  2018 Wise Wild Web .
-                                                                                   *
-                                                                                   *  MIT License
-                                                                                   *
-                                                                                   *  Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                   *  of this software and associated documentation files (the "Software"), to deal
-                                                                                   *  in the Software without restriction, including without limitation the rights
-                                                                                   *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                   *  copies of the Software, and to permit persons to whom the Software is
-                                                                                   *  furnished to do so, subject to the following conditions:
-                                                                                   *
-                                                                                   *  The above copyright notice and this permission notice shall be included in all
-                                                                                   *  copies or substantial portions of the Software.
-                                                                                   *
-                                                                                   *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                   *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                   *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                   *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                   *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                   *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                                                                                   *  SOFTWARE.
-                                                                                   *
-                                                                                   * @author : Nathanael Braun
-                                                                                   * @contact : caipilabs@gmail.com
-                                                                                   */
-
-	var _react = __webpack_require__(5);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _is = __webpack_require__(3);
-
-	var _is2 = _interopRequireDefault(_is);
-
-	var _reactRescope = __webpack_require__(6);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-		var desc = {};
-		Object['ke' + 'ys'](descriptor).forEach(function (key) {
-			desc[key] = descriptor[key];
-		});
-		desc.enumerable = !!desc.enumerable;
-		desc.configurable = !!desc.configurable;
-
-		if ('value' in desc || desc.initializer) {
-			desc.writable = true;
-		}
-
-		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-			return decorator(target, property, desc) || desc;
-		}, desc);
-
-		if (context && desc.initializer !== void 0) {
-			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-			desc.initializer = undefined;
-		}
-
-		if (desc.initializer === void 0) {
-			Object['define' + 'Property'](target, property, desc);
-			desc = null;
-		}
-
-		return desc;
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var RSComp = (_dec = (0, _reactRescope.propsToScope)(['props']), _dec2 = (0, _reactRescope.scopeToProps)(['props']), _dec(_class = _dec2(_class = function (_Component) {
-		_inherits(RSComp, _Component);
-
-		function RSComp() {
-			_classCallCheck(this, RSComp);
-
-			return _possibleConstructorReturn(this, (RSComp.__proto__ || Object.getPrototypeOf(RSComp)).apply(this, arguments));
-		}
-
-		_createClass(RSComp, [{
-			key: "render",
-			value: function render() {
-				return this.props.children || [];
-			}
-		}]);
-
-		return RSComp;
-	}(_reactRescope.Component)) || _class) || _class);
-	exports.default = (_dec3 = (0, _reactRescope.isSpell)("stateMap", function (v) {
-		return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec4 = (0, _reactRescope.isSpell)("scope", function (v) {
-		return _is2.default.object(v);
-	}), _dec5 = (0, _reactRescope.isSpell)("renderer", function (v) {
-		return _is2.default.fn(v);
-	}), _dec6 = (0, _reactRescope.isSpell)("rootRenderer", function (v) {
-		return _is2.default.fn(v);
-	}), _dec7 = (0, _reactRescope.isSpell)("store", function (v) {
-		return _is2.default.fn(v);
-	}), (_obj = {
-		stateMap: function stateMap(obj, _ref, ref) {
-			var _class2, _temp;
-
-			var cfg = _ref[0];
-
-			var use = [],
-			    state = {},
-			    actions = {};
-			_reactRescope.Scope.stateMapToRefList(obj, state, use, actions);
-			return _temp = _class2 = function (_Store) {
-				_inherits(StateMap, _Store);
-
-				function StateMap() {
-					_classCallCheck(this, StateMap);
-
-					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-				}
-
-				return StateMap;
-			}(_reactRescope.Store), _class2.displayName = ref[1], _class2.use = use, _class2.state = state, _class2.actions = actions, _temp;
-		},
-		scope: function scope(obj, _ref2, ref) {
-			var cfg = _ref2[0];
-
-			return _reactRescope.Scope.bind(null, obj, cfg);
-		},
-		renderer: function renderer(obj, argz, ref) {
-			var _class3, _temp2;
-
-			var use = void 0,
-			    state = void 0,
-			    actions = void 0;
-			if (!argz[0]) {
-				state = {};
-				//argz[ 0 ] = []
-			} else if (_is2.default.array(argz[0])) {
-				use = argz[0];
-				state = !use.length && {};
-			} else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
-
-			//!use.includes('props') && use.push('props');
-			return _temp2 = _class3 = function (_Store2) {
-				_inherits(RSRenderer, _Store2);
-
-				function RSRenderer() {
-					_classCallCheck(this, RSRenderer);
-
-					return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
-				}
-
-				_createClass(RSRenderer, [{
-					key: "apply",
-					value: function apply(d, s, c) {
-						var _this4 = this;
-
-						return function (props) {
-							return _react2.default.createElement(RSComp, { __scope: _this4.$scope, props: props }, obj(_extends({}, _this4.state, { props: props }), {
-								$actions: _this4.$actions,
-								$stores: _this4.$stores,
-								$store: _this4
-							}));
-						};
-					}
-				}]);
-
-				return RSRenderer;
-			}(_reactRescope.Store), _class3.displayName = ref[1], _class3.use = use, _class3.state = state, _class3.actions = actions, _temp2;
-		},
-		rootRenderer: function rootRenderer(obj, argz, ref) {
-			var _class4, _temp3;
-
-			var use = void 0,
-			    state = void 0,
-			    actions = void 0;
-			if (!argz[0]) {
-				state = {};
-				//argz[ 0 ] = []
-			} else if (_is2.default.array(argz[0])) {
-				use = argz[0];
-				state = !use.length && {};
-			} else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
-
-			//!use.includes('props') && use.push('props');
-			return _temp3 = _class4 = function (_Store3) {
-				_inherits(RSRenderer, _Store3);
-
-				function RSRenderer() {
-					_classCallCheck(this, RSRenderer);
-
-					return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
-				}
-
-				_createClass(RSRenderer, [{
-					key: "apply",
-					value: function apply(d, s, c) {
-						var _this6 = this;
-
-						if (d) {
-							this._comp.setState(c);
-							return d;
-						}
-						return _react2.default.createElement(RSComp, { __scope: this.$scope, ref: function ref(comp) {
-								return _this6._comp = comp;
-							} }, obj(s, {
-							$actions: this.$actions,
-							$stores: this.$stores,
-							$store: this
-						}));
-					}
-				}]);
-
-				return RSRenderer;
-			}(_reactRescope.Store), _class4.displayName = ref[1], _class4.use = use, _class4.state = state, _class4.actions = actions, _temp3;
-		},
-		store: function store(obj, _ref3, ref) {
-			var cfg = _ref3[0];
-
-			return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
-					return obj(d, s, c);
-				} }));
-		}
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec3], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _applyDecoratedDescriptor(_obj, "renderer", [_dec5], Object.getOwnPropertyDescriptor(_obj, "renderer"), _obj), _applyDecoratedDescriptor(_obj, "rootRenderer", [_dec6], Object.getOwnPropertyDescriptor(_obj, "rootRenderer"), _obj), _applyDecoratedDescriptor(_obj, "store", [_dec7], Object.getOwnPropertyDescriptor(_obj, "store"), _obj)), _obj));
-	module.exports = exports["default"];
-
-	/***/
-},
-/* 5 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(1);
-
-	/***/
-},
-/* 6 */
-/***/function (module, exports) {
-
-	module.exports = __webpack_require__(15);
 
 	/***/
 }]
@@ -5473,7 +5187,7 @@ module.exports =
 /* 4 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(14);
+	module.exports = __webpack_require__(13);
 
 	/***/
 },
@@ -7256,7 +6970,7 @@ module.exports = function (t) {
       } }]), t;
   }();e.default = a, t.exports = e.default;
 }, function (t, e) {
-  t.exports = __webpack_require__(14);
+  t.exports = __webpack_require__(13);
 }, function (t, e, s) {
   "use strict";
   function i(t, e, s) {
@@ -7975,7 +7689,7 @@ module.exports = isTextNode;
 
 var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(3);
-var ReactPropTypesSecret = __webpack_require__(13);
+var ReactPropTypesSecret = __webpack_require__(12);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -8043,7 +7757,7 @@ var invariant = __webpack_require__(3);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(13);
+var ReactPropTypesSecret = __webpack_require__(12);
 var checkPropTypes = __webpack_require__(8);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
@@ -9358,7 +9072,7 @@ var _assign = __webpack_require__(4);
 var React = __webpack_require__(1);
 var emptyFunction = __webpack_require__(2);
 var emptyObject = __webpack_require__(5);
-var hyphenateStyleName = __webpack_require__(12);
+var hyphenateStyleName = __webpack_require__(11);
 var memoizeStringOnly = __webpack_require__(20);
 var warning = __webpack_require__(6);
 var checkPropTypes = __webpack_require__(8);
@@ -12075,7 +11789,7 @@ module.exports = server_browser;
  * LICENSE file in the root directory of this source tree.
  */
 
-var p=__webpack_require__(3),q=__webpack_require__(4),t=__webpack_require__(1),w=__webpack_require__(2),x=__webpack_require__(5),y=__webpack_require__(12),z=__webpack_require__(20);
+var p=__webpack_require__(3),q=__webpack_require__(4),t=__webpack_require__(1),w=__webpack_require__(2),x=__webpack_require__(5),y=__webpack_require__(11),z=__webpack_require__(20);
 function A(a){for(var b=arguments.length-1,d="http://reactjs.org/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);p(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",d)}
 var C="function"===typeof Symbol&&Symbol["for"],aa=C?Symbol["for"]("react.call"):60104,ba=C?Symbol["for"]("react.return"):60105,ca=C?Symbol["for"]("react.portal"):60106,E=C?Symbol["for"]("react.fragment"):60107,da=C?Symbol["for"]("react.strict_mode"):60108,F=C?Symbol["for"]("react.provider"):60109,ea=C?Symbol["for"]("react.context"):60110,fa=C?Symbol["for"]("react.async_mode"):60111,ha=C?Symbol["for"]("react.forward_ref"):60112,ia=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,
 G={},H={};function ja(a){if(H.hasOwnProperty(a))return!0;if(G.hasOwnProperty(a))return!1;if(ia.test(a))return H[a]=!0;G[a]=!0;return!1}function ka(a,b,d,c){if(null!==d&&0===d.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(c)return!1;if(null!==d)return!d.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
@@ -12142,7 +11856,7 @@ var getActiveElement = __webpack_require__(19);
 var shallowEqual = __webpack_require__(21);
 var containsNode = __webpack_require__(18);
 var emptyObject = __webpack_require__(5);
-var hyphenateStyleName = __webpack_require__(12);
+var hyphenateStyleName = __webpack_require__(11);
 var camelizeStyleName = __webpack_require__(17);
 
 // Relying on the `invariant()` implementation lets us
@@ -29030,7 +28744,7 @@ X.injectIntoDevTools({findFiberByHostInstance:Ua,bundleType:0,version:"16.3.2",r
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(11), __webpack_require__(1));
+		module.exports = factory(__webpack_require__(10), __webpack_require__(1));
 	else if(typeof define === 'function' && define.amd)
 		define(["react-dom", "react"], factory);
 	else if(typeof exports === 'object')
@@ -31783,7 +31497,7 @@ process.umask = function() { return 0; };
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
