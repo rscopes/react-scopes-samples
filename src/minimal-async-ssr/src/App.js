@@ -39,38 +39,26 @@ let ReactDom = require('react-dom');
 
 
 class App {
-    static renderTo  = ( node ) => {
+    static renderTo  = ( node, state ) => {
         let cScope    = new Scope(AppScope, { id: "App" });
         window.scopes = Scope.scopes;
-        window.__scopesState && cScope.restore(window.__scopesState)
+        state && cScope.restore(state)
         cScope.mount([ "Home" ])
               .then(
                   ( { Home } ) => {
-                      ReactDom.render(<Home/>, node);
+                      ReactDom.hydrate(<Home/>, node);
                   }
               )
     }
     static renderSSR = ( cfg, cb ) => {
-        //let cScope = new Scope(AppScope, { id: "App" });
-        //cfg.state && cScope.restore(cfg.state)
-        //cScope.mount([ "Home" ])
-        //      .then(
-        //          ( state ) => {
-        let html;
-        try {
-            html = indexTpl.render(
-                {
-                    //app  : renderToString(<Home/>),
-                    //state: JSON.stringify(cfg.state || cScope.serialize({ alias: "App"
-                    // }))
-                }
-            );
-        } catch ( e ) {
-            return cb(e)
-        }
-        cb(null, html)
-        //}
-        //)
+        let cScope = new Scope(AppScope, { id: "App" });
+        cfg.state && cScope.restore(cfg.state)
+        cScope.mount([ "SSRIndex" ])
+              .then(
+                  ( { SSRIndex } ) => {
+                      cb(null, renderToString(<SSRIndex state={cfg.state}/>))
+                  }
+              )
     }
 }
 

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
-import superagent from "superagent";
-import shortid    from "shortid";
-import Rnd        from 'react-rnd';
+import superagent         from "superagent";
+import shortid            from "shortid";
+import Rnd                from 'react-rnd';
 import {
     asStateMap, asScope, asRenderer, asRootRenderer
-}                 from "rescope-spells";
+}                         from "rescope-spells";
+import { renderToString } from "react-dom/server"
 
 export default {
     @asScope
@@ -76,6 +77,24 @@ export default {
             }
         }
     },
+    @asRenderer([ "!Home" ])
+    SSRIndex: ( { Home, props:{state} }, { $stores } ) =>
+        <html lang="en">
+        <head>
+            <meta charSet="UTF-8"/>
+            <title>Really basic drafty rescope + react component example</title>
+        </head>
+        <body>
+        <div id="app"
+             dangerouslySetInnerHTML={ { __html: renderToString(<Home/>) } }/>
+        
+        { /*<script>window.__scopesState ={ JSON.stringify($stores.AppState.serialize()) };*/ }
+        { /*</script>*/ }
+        <script src="./App.js"></script>
+        <script
+            dangerouslySetInnerHTML={ { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify(state) + ");" } }/>
+        </body>
+        </html>,
     
     @asRenderer([ "!AppState.appState", "!AppState.someData", "!PostIt" ])
     Home: ( {
