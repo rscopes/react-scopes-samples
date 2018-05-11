@@ -8,7 +8,76 @@ import {
 }                 from "rescope-spells";
 
 export default {
-    @asRootRenderer([ "!appState", "!someData", "!PostIt" ])
+    @asScope
+    AppState: {
+        @asStateMap
+        appState: {
+            selectedPostItId: null,
+            selectPostIt( selectedPostItId ) {
+                //debugger
+                return { selectedPostItId };
+            }
+        },
+        @asStateMap
+        someData: {
+            // initial state
+            src  : "/api/hello",
+            items: [ {
+                "_id"     : "rkUQHZrqM",
+                "size"    : { "width": 200, "height": 200 },
+                "text"    : "New Post It #0 somewhere we wait some new shit out there !",
+                "position": { "x": 321, "y": 167 }
+            }, {
+                "_id"     : "r1bcuMrcM",
+                "size"    : { "width": 200, "height": 200 },
+                "text"    : "do somethink",
+                "position": { "x": 260, "y": 576 }
+            } ],
+            // actions
+            newPostIt() {
+                return {
+                    items: [ ...this.nextState.items, {
+                        _id     : shortid.generate(),
+                        size    : {
+                            width : 200,
+                            height: 200
+                        },
+                        position: {
+                            x: 100 + ~~( Math.random() * 600 ),
+                            y: 100 + ~~( Math.random() * 600 )
+                        },
+                        text    : "New Post It #" + this.nextState.items.length
+                    } ]
+                }
+            },
+            updatePostIt( postIt ) {
+                return {
+                    items: this.nextState.items
+                               .map(
+                                   it => ( it._id === postIt._id )
+                                         ? postIt
+                                         : it
+                               )
+                }
+            },
+            rmPostIt( postIt ) {
+                return {
+                    items: this.nextState.items
+                               .filter(
+                                   it => ( it._id !== postIt._id )
+                               )
+                }
+            },
+            saveState() {
+                superagent.post('/', this.scopeObj.serialize())
+                          .then(( e, r ) => {
+                              console.log(e, r)
+                          })
+            }
+        }
+    },
+    
+    @asRenderer([ "!AppState.appState", "!AppState.someData", "!PostIt" ])
     Home: ( {
                 someData, appState, PostIt
             }, { $actions, $stores, $store } ) =>
@@ -17,36 +86,36 @@ export default {
             {
                 someData.items.map(
                     note => <PostIt key={ note._id } record={ note }
-                                    onSelect={ e => $actions.selectPostIt(note._id) }
+                                    onSelect={ e => $actions.AppState.selectPostIt(note._id) }
                                     selected={ note._id == appState.selectedPostItId }/>
                 )
             }
             <div
                 className={ "newBtn button" }
-                onClick={ $actions.newPostIt }>
+                onClick={ $actions.AppState.newPostIt }>
                 Add Post It
             </div>
             <div
                 className={ "saveBtn button" }
-                onClick={ $actions.saveState }>
+                onClick={ $actions.AppState.saveState }>
                 Save state
             </div>
         </div>,
     
     @asRenderer
-    PostIt  : ( {
-                    props: { record, onSelect, selected },
-                    position, text, size,
-                    editing,
-                    doSave
-                }, { $actions, $stores, $store } ) => {
+    PostIt: ( {
+                  props: { record, onSelect, selected },
+                  position, text, size,
+                  editing,
+                  doSave
+              }, { $actions, $stores, $store } ) => {
         return (
             <Rnd
                 absolutePos
                 z={ selected ? 2000 : 1 }
                 size={ size || record.size }
                 position={ position || record.position }
-                onDragStop={ doSave = () => $actions.updatePostIt(
+                onDragStop={ doSave = () => $actions.AppState.updatePostIt(
                     {
                         ...record,
                         size    : size || record.size,
@@ -78,7 +147,7 @@ export default {
                             <button onClick={ e => this.setState({ editing: true }) }
                                     className={ "edit" }>🖋
                             </button>
-                            <button onClick={ e => $actions.rmPostIt(record) }
+                            <button onClick={ e => $actions.AppState.rmPostIt(record) }
                                     className={ "delete" }>🖾
                             </button>
                         </div>
@@ -103,69 +172,4 @@ export default {
             </Rnd>
         )
     },
-    @asStateMap
-    appState: {
-        selectedPostItId: null,
-        selectPostIt( selectedPostItId ) {
-            //debugger
-            return { selectedPostItId };
-        }
-    },
-    @asStateMap
-    someData: {
-        // initial state
-        src  : "/api/hello",
-        items: [ {
-            "_id"     : "rkUQHZrqM",
-            "size"    : { "width": 200, "height": 200 },
-            "text"    : "New Post It #0 somewhere we wait some new shit out there !",
-            "position": { "x": 321, "y": 167 }
-        }, {
-            "_id"     : "r1bcuMrcM",
-            "size"    : { "width": 200, "height": 200 },
-            "text"    : "do somethink",
-            "position": { "x": 260, "y": 576 }
-        } ],
-        // actions
-        newPostIt() {
-            return {
-                items: [ ...this.nextState.items, {
-                    _id     : shortid.generate(),
-                    size    : {
-                        width : 200,
-                        height: 200
-                    },
-                    position: {
-                        x: 100 + ~~( Math.random() * 600 ),
-                        y: 100 + ~~( Math.random() * 600 )
-                    },
-                    text    : "New Post It #" + this.nextState.items.length
-                } ]
-            }
-        },
-        updatePostIt( postIt ) {
-            return {
-                items: this.nextState.items
-                           .map(
-                               it => ( it._id === postIt._id )
-                                     ? postIt
-                                     : it
-                           )
-            }
-        },
-        rmPostIt( postIt ) {
-            return {
-                items: this.nextState.items
-                           .filter(
-                               it => ( it._id !== postIt._id )
-                           )
-            }
-        },
-        saveState() {
-            superagent.post('/', this.scopeObj.serialize())
-                      .then(( e, r ) => {
-                          console.log(e, r)
-                      })
-        }
-    }
 }

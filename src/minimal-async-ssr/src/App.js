@@ -40,12 +40,13 @@ let ReactDom = require('react-dom');
 
 class App {
     static renderTo  = ( node ) => {
-        let cScope = new Scope(AppScope, { id: "App" });
+        let cScope    = new Scope(AppScope, { id: "App" });
+        window.scopes = Scope.scopes;
         window.__scopesState && cScope.restore(window.__scopesState)
         cScope.mount([ "Home" ])
               .then(
                   ( { Home } ) => {
-                      ReactDom.render(Home, node);
+                      ReactDom.render(<Home/>, node);
                   }
               )
     }
