@@ -4501,11 +4501,12 @@ module.exports =
 							//parent: this
 						});
 						this._._scope[ref.storeId].retain("scopedChildScope");
-						this._watchStore(ref.storeId);
-						if (ref.path.length > 1) return this._._scope[ref.storeId].mount(ref.path.slice(1).join('.'), snapshot, state, data);else return this._._scope[ref.storeId];
+						//this._watchStore(ref.storeId);
+						if (ref.path.length > 1) return this._._scope[ref.storeId].mount(ref.path.slice(1).join('.'), snapshot, state, data);
+						//else return this._._scope[ ref.storeId ];
 					} else if (is.rsScope(store) && ref.path.length > 1) {
 						return this._._scope[ref.storeId].mount(ref.path.slice(1).join('.'), snapshot, state, data);
-					} else if (snapshot) store.restore(snapshot);else if (is.rsStore(this._._scope[ref.storeId])) {
+					} else if (snapshot && (is.rsScope(store) || is.rsScope(store))) store.restore(snapshot);else if (is.rsStore(this._._scope[ref.storeId])) {
 						if (state !== undefined && data === undefined) store.setState(state);else if (state !== undefined) store.state = state;
 
 						if (data !== undefined) store.push(data);
@@ -4545,23 +4546,18 @@ module.exports =
 					});
 					//}
 					//else if ( is.rsScope(this._._scope[ id ]) ) {
-					!this._._scope[id]._autoDestroy && this._._scope[id].retain("scoped");
-					!this._._scope[id].isStable() && this.wait(id);
-					this._._scope[id].on(this._._listening[id] = {
-						'destroy': function destroy(s) {
-							delete _this3._._listening[id];
-							_this3._._scope[id] = _this3._._scope[id].constructor;
-						},
-						'update': function update(s) {
-							return _this3.propag();
-						},
-						'stable': function stable(s) {
-							return _this3.release(id);
-						},
-						'unstable': function unstable(s) {
-							return _this3.wait(id);
-						}
-					});
+					//!this._._scope[ id ]._autoDestroy && this._._scope[ id ].retain("scoped");
+					//!this._._scope[ id ].isStable() && this.wait(id);
+					//this._._scope[ id ].on(
+					//    this._._listening[ id ] = {
+					//        'destroy' : s => {
+					//            delete this._._listening[ id ];
+					//            this._._scope[ id ] = this._._scope[ id ].constructor;
+					//        },
+					//        'update'  : s => this.propag(),
+					//        'stable'  : s => this.release(id),
+					//        'unstable': s => this.wait(id)
+					//    });
 					//}
 				}
 				return true;
@@ -4844,7 +4840,8 @@ module.exports =
 				}
 				return refList.reduce(function (data, ref) {
 					walknSet(data, ref.alias || ref.path, _this8.retrieve(ref.path));
-					//] = this.stores[ id[ 0 ][ 0 ] ] && this.stores[ id[ 0 ][ 0 ] ].retrieve && this.stores[ id[ 0 ][ 0 ] ].retrieve(id[ 0 ].splice(1));
+					//] = this.stores[ id[ 0 ][ 0 ] ] && this.stores[ id[ 0 ][ 0 ] ].retrieve &&
+					// this.stores[ id[ 0 ][ 0 ] ].retrieve(id[ 0 ].splice(1));
 					return data;
 				}, {});
 			}
@@ -5436,6 +5433,7 @@ module.exports =
 		if (is.string(path)) path = path.split('.');
 		if (!path.length) return false;else if (path.length == 1) return obj[path[0]] = stack ? [].concat(_toConsumableArray(obj[path[0]] || []), [value]) : value;else return walknSet(obj[path[0]] = obj[path[0]] || {}, path.slice(1), value, stack);
 	}
+
 	is.rsScope = function (obj) {
 		return obj instanceof Scope;
 	};
@@ -7144,19 +7142,13 @@ module.exports = function (t) {
         }var o = this._._scope[r.storeId],
             a = [];if (_.rsStore(o.prototype)) for (this._._scope[r.storeId] = new o(this, { snapshot: e, name: r.storeId, state: s, data: i }, a); a.length;) {
           a.shift()();
+        } else if (_.rsScope(o.prototype)) {
+          if (this._._scope[r.storeId] = new o({}, { snapshot: e, key: r.storeId, autoDestroy: !0 }), this._._scope[r.storeId].retain("scopedChildScope"), r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);
         } else {
-          if (_.rsScope(o.prototype)) return this._._scope[r.storeId] = new o({}, { snapshot: e, key: r.storeId, autoDestroy: !0 }), this._._scope[r.storeId].retain("scopedChildScope"), this._watchStore(r.storeId), r.path.length > 1 ? this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i) : this._._scope[r.storeId];if (_.rsScope(o) && r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);e ? o.restore(e) : _.rsStore(this._._scope[r.storeId]) && (void 0 !== s && void 0 === i ? o.setState(s) : void 0 !== s && (o.state = s), void 0 !== i && o.push(i));
+          if (_.rsScope(o) && r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);e && (_.rsScope(o) || _.rsScope(o)) ? o.restore(e) : _.rsStore(this._._scope[r.storeId]) && (void 0 !== s && void 0 === i ? o.setState(s) : void 0 !== s && (o.state = s), void 0 !== i && o.push(i));
         }return this._watchStore(r.storeId), this._._scope[r.storeId];
       } }, { key: "_watchStore", value: function value(t, e, s) {
         var i = this;return this._._listening[t] || _.fn(this._._scope[t]) || (!this._._scope[t]._autoDestroy && this._._scope[t].retain("scoped"), !this._._scope[t].isStable() && this.wait(t), this._._scope[t].on(this._._listening[t] = { destroy: function destroy(e) {
-            delete i._._listening[t], i._._scope[t] = i._._scope[t].constructor;
-          }, update: function update(t) {
-            return i.propag();
-          }, stable: function stable(e) {
-            return i.release(t);
-          }, unstable: function unstable(e) {
-            return i.wait(t);
-          } }), !this._._scope[t]._autoDestroy && this._._scope[t].retain("scoped"), !this._._scope[t].isStable() && this.wait(t), this._._scope[t].on(this._._listening[t] = { destroy: function destroy(e) {
             delete i._._listening[t], i._._scope[t] = i._._scope[t].constructor;
           }, update: function update(t) {
             return i.propag();
@@ -7655,8 +7647,7 @@ module.exports = function (t) {
         return this.scope;
       } }, { key: "datas", get: function get() {
         return this.data;
-      },
-      set: function set(t) {
+      }, set: function set(t) {
         this.data = t;
       } }]), e;
   }(d), h.use = [], h.staticScope = new f({}, { id: "static" }), h.state = void 0, h.persistenceTm = !1, u);g.as = function (t) {
