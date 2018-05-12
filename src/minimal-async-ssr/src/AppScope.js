@@ -78,7 +78,7 @@ export default {
         }
     },
     @asRenderer([ "!Home" ])
-    SSRIndex: ( { Home, props:{state} }, { $stores } ) =>
+    SSRIndex: ( { Home, props: { state } }, { $stores } ) =>
         <html lang="en">
         <head>
             <meta charSet="UTF-8"/>
@@ -87,9 +87,6 @@ export default {
         <body>
         <div id="app"
              dangerouslySetInnerHTML={ { __html: renderToString(<Home/>) } }/>
-        
-        { /*<script>window.__scopesState ={ JSON.stringify($stores.AppState.serialize()) };*/ }
-        { /*</script>*/ }
         <script src="./App.js"></script>
         <script
             dangerouslySetInnerHTML={ { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify(state) + ");" } }/>
