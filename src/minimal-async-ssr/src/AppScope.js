@@ -122,7 +122,12 @@ export default {
                   props: { record, onSelect, selected },
                   position, text, size,
                   editing,
-                  doSave
+                  doSave = () => $actions.AppState.updatePostIt(
+                      {
+                          ...record,
+                          size    : size || record.size,
+                          position: position
+                      })
               }, { $actions, $stores, $store } ) => {
         return (
             <Rnd
@@ -130,12 +135,7 @@ export default {
                 z={ selected ? 2000 : 1 }
                 size={ size || record.size }
                 position={ position || record.position }
-                onDragStop={ doSave = () => $actions.AppState.updatePostIt(
-                    {
-                        ...record,
-                        size    : size || record.size,
-                        position: position
-                    }) }
+                onDragStop={ doSave }
                 onResizeStop={ doSave }
                 onDrag={ ( e, d ) => {
                     !selected && onSelect(record)

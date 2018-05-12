@@ -20366,7 +20366,13 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
             text = _ref5.text,
             size = _ref5.size,
             editing = _ref5.editing,
-            doSave = _ref5.doSave;
+            _ref5$doSave = _ref5.doSave,
+            doSave = _ref5$doSave === undefined ? function () {
+            return $actions.AppState.updatePostIt(_extends({}, record, {
+                size: size || record.size,
+                position: position
+            }));
+        } : _ref5$doSave;
         var $actions = _ref6.$actions,
             $stores = _ref6.$stores,
             $store = _ref6.$store;
@@ -20378,12 +20384,7 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
                 z: selected ? 2000 : 1,
                 size: size || record.size,
                 position: position || record.position,
-                onDragStop: doSave = function doSave() {
-                    return $actions.AppState.updatePostIt(_extends({}, record, {
-                        size: size || record.size,
-                        position: position
-                    }));
-                },
+                onDragStop: doSave,
                 onResizeStop: doSave,
                 onDrag: function onDrag(e, d) {
                     !selected && onSelect(record);
