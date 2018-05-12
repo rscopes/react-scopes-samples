@@ -10,13 +10,15 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
-    "run": "node ./Server.js -p 9001",
+    "run": "node ./Server.js -p 80",
     "runBrowser": "start http://localhost:9001&node ./Server.js -p 9001"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cookie": "^0.3.1",
     "dot-tpl-loader": "^1.2.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "minimist": "^1.2.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

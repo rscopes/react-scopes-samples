@@ -86,7 +86,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 31);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -287,9 +287,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(51);
+  module.exports = __webpack_require__(52);
 } else {
-  module.exports = __webpack_require__(50);
+  module.exports = __webpack_require__(51);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -1467,7 +1467,7 @@ module.exports = checkPropTypes;
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(57);
+var randomFromSeed = __webpack_require__(58);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -1604,9 +1604,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(48);
+  module.exports = __webpack_require__(49);
 } else {
-  module.exports = __webpack_require__(47);
+  module.exports = __webpack_require__(48);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -1627,7 +1627,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-var hyphenate = __webpack_require__(38);
+var hyphenate = __webpack_require__(39);
 
 var msPattern = /^ms-/;
 
@@ -1678,7 +1678,7 @@ module.exports = ReactPropTypesSecret;
 
 "use strict";
 
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(55);
 
 
 /***/ }),
@@ -2522,7 +2522,7 @@ module.exports =
 /* 5 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(43);
+	module.exports = __webpack_require__(44);
 
 	/***/
 }]
@@ -2536,9 +2536,9 @@ module.exports =
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(46);
+  module.exports = __webpack_require__(47);
 } else {
-  module.exports = __webpack_require__(45);
+  module.exports = __webpack_require__(46);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -2551,9 +2551,9 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports = __webpack_require__(33);
+    module.exports = __webpack_require__(34);
 } else {
-    module.exports = __webpack_require__(32);
+    module.exports = __webpack_require__(33);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
@@ -2612,7 +2612,7 @@ module.exports = ExecutionEnvironment;
 
 
 
-var camelize = __webpack_require__(37);
+var camelize = __webpack_require__(38);
 
 var msPattern = /^-ms-/;
 
@@ -2655,7 +2655,7 @@ module.exports = camelizeStyleName;
  * 
  */
 
-var isTextNode = __webpack_require__(40);
+var isTextNode = __webpack_require__(41);
 
 /*eslint-disable no-bitwise */
 
@@ -2835,7 +2835,7 @@ module.exports = shallowEqual;
 "use strict";
 
 
-var randomByte = __webpack_require__(56);
+var randomByte = __webpack_require__(57);
 
 function encode(lookup, number) {
     var loopCounter = 0;
@@ -2922,7 +2922,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _superagent = __webpack_require__(62);
+var _superagent = __webpack_require__(63);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -2930,11 +2930,11 @@ var _shortid = __webpack_require__(13);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _reactRnd = __webpack_require__(29);
+var _reactRnd = __webpack_require__(30);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _rescopeSpells = __webpack_require__(31);
+var _rescopeSpells = __webpack_require__(32);
 
 var _server = __webpack_require__(15);
 
@@ -3050,7 +3050,7 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
 
     SSRIndex: function SSRIndex(_ref, _ref2) {
         var Home = _ref.Home,
-            state = _ref.props.state;
+            sessionId = _ref.props.sessionId;
         var $stores = _ref2.$stores;
         return _react2.default.createElement(
             "html",
@@ -3068,11 +3068,14 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
             _react2.default.createElement(
                 "body",
                 null,
-                _react2.default.createElement("div", { id: "app",
-                    dangerouslySetInnerHTML: { __html: (0, _server.renderToString)(_react2.default.createElement(Home, null)) } }),
+                _react2.default.createElement(
+                    "div",
+                    { id: "app" },
+                    _react2.default.createElement(Home, null)
+                ),
                 _react2.default.createElement("script", { src: "./App.js" }),
                 _react2.default.createElement("script", {
-                    dangerouslySetInnerHTML: { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify(state) + ");" } })
+                    dangerouslySetInnerHTML: { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($stores.AppState.serialize()[sessionId]) + ", document.cookie);" } })
             )
         );
     },
@@ -3165,11 +3168,11 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
                 !editing && _react2.default.createElement(
                     "div",
                     { className: "text" },
-                    text,
+                    record.text,
                     _react2.default.createElement(
                         "button",
                         { onClick: function onClick(e) {
-                                return undefined.setState({ editing: true });
+                                return $store.setState({ editing: true });
                             },
                             className: "edit" },
                         "\uD83D\uDD8B"
@@ -3189,7 +3192,7 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
                         "textarea",
                         {
                             onChange: function onChange(e) {
-                                $actions.updatePostIt(_extends({}, record, {
+                                $actions.AppState.updatePostIt(_extends({}, record, {
                                     text: e.target.value
                                 }));
                             },
@@ -3244,6 +3247,208 @@ module.exports = exports["default"];
 
 /***/ }),
 /* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * cookie
+ * Copyright(c) 2012-2014 Roman Shtylman
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+
+
+/**
+ * Module exports.
+ * @public
+ */
+
+exports.parse = parse;
+exports.serialize = serialize;
+
+/**
+ * Module variables.
+ * @private
+ */
+
+var decode = decodeURIComponent;
+var encode = encodeURIComponent;
+var pairSplitRegExp = /; */;
+
+/**
+ * RegExp to match field-content in RFC 7230 sec 3.2
+ *
+ * field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+ * field-vchar   = VCHAR / obs-text
+ * obs-text      = %x80-FF
+ */
+
+var fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
+
+/**
+ * Parse a cookie header.
+ *
+ * Parse the given cookie header string into an object
+ * The object has the various cookies as keys(names) => values
+ *
+ * @param {string} str
+ * @param {object} [options]
+ * @return {object}
+ * @public
+ */
+
+function parse(str, options) {
+  if (typeof str !== 'string') {
+    throw new TypeError('argument str must be a string');
+  }
+
+  var obj = {}
+  var opt = options || {};
+  var pairs = str.split(pairSplitRegExp);
+  var dec = opt.decode || decode;
+
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i];
+    var eq_idx = pair.indexOf('=');
+
+    // skip things that don't look like key=value
+    if (eq_idx < 0) {
+      continue;
+    }
+
+    var key = pair.substr(0, eq_idx).trim()
+    var val = pair.substr(++eq_idx, pair.length).trim();
+
+    // quoted values
+    if ('"' == val[0]) {
+      val = val.slice(1, -1);
+    }
+
+    // only assign once
+    if (undefined == obj[key]) {
+      obj[key] = tryDecode(val, dec);
+    }
+  }
+
+  return obj;
+}
+
+/**
+ * Serialize data into a cookie header.
+ *
+ * Serialize the a name value pair into a cookie string suitable for
+ * http headers. An optional options object specified cookie parameters.
+ *
+ * serialize('foo', 'bar', { httpOnly: true })
+ *   => "foo=bar; httpOnly"
+ *
+ * @param {string} name
+ * @param {string} val
+ * @param {object} [options]
+ * @return {string}
+ * @public
+ */
+
+function serialize(name, val, options) {
+  var opt = options || {};
+  var enc = opt.encode || encode;
+
+  if (typeof enc !== 'function') {
+    throw new TypeError('option encode is invalid');
+  }
+
+  if (!fieldContentRegExp.test(name)) {
+    throw new TypeError('argument name is invalid');
+  }
+
+  var value = enc(val);
+
+  if (value && !fieldContentRegExp.test(value)) {
+    throw new TypeError('argument val is invalid');
+  }
+
+  var str = name + '=' + value;
+
+  if (null != opt.maxAge) {
+    var maxAge = opt.maxAge - 0;
+    if (isNaN(maxAge)) throw new Error('maxAge should be a Number');
+    str += '; Max-Age=' + Math.floor(maxAge);
+  }
+
+  if (opt.domain) {
+    if (!fieldContentRegExp.test(opt.domain)) {
+      throw new TypeError('option domain is invalid');
+    }
+
+    str += '; Domain=' + opt.domain;
+  }
+
+  if (opt.path) {
+    if (!fieldContentRegExp.test(opt.path)) {
+      throw new TypeError('option path is invalid');
+    }
+
+    str += '; Path=' + opt.path;
+  }
+
+  if (opt.expires) {
+    if (typeof opt.expires.toUTCString !== 'function') {
+      throw new TypeError('option expires is invalid');
+    }
+
+    str += '; Expires=' + opt.expires.toUTCString();
+  }
+
+  if (opt.httpOnly) {
+    str += '; HttpOnly';
+  }
+
+  if (opt.secure) {
+    str += '; Secure';
+  }
+
+  if (opt.sameSite) {
+    var sameSite = typeof opt.sameSite === 'string'
+      ? opt.sameSite.toLowerCase() : opt.sameSite;
+
+    switch (sameSite) {
+      case true:
+        str += '; SameSite=Strict';
+        break;
+      case 'lax':
+        str += '; SameSite=Lax';
+        break;
+      case 'strict':
+        str += '; SameSite=Strict';
+        break;
+      default:
+        throw new TypeError('option sameSite is invalid');
+    }
+  }
+
+  return str;
+}
+
+/**
+ * Try decoding a string using a decoding function.
+ *
+ * @param {string} str
+ * @param {function} decode
+ * @private
+ */
+
+function tryDecode(str, decode) {
+  try {
+    return decode(str);
+  } catch (e) {
+    return str;
+  }
+}
+
+
+/***/ }),
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = (function () {
@@ -3256,11 +3461,11 @@ var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT Lice
 })();
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(35);
+var content = __webpack_require__(36);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -3274,7 +3479,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(59)(content, options);
+var update = __webpack_require__(60)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -3306,7 +3511,7 @@ if(false) {
 }
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3315,9 +3520,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(45);
 
 
 
@@ -3723,7 +3928,7 @@ Rnd.defaultProps = {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3772,33 +3977,52 @@ var _reactRescope = __webpack_require__(14);
 
 var _server = __webpack_require__(15);
 
-__webpack_require__(28);
+__webpack_require__(29);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var indexTpl = __webpack_require__(27);
+var cookie = __webpack_require__(27);
+
+var indexTpl = __webpack_require__(28);
 var ReactDom = __webpack_require__(10);
 
 var App = (_temp = _class = function App() {
     _classCallCheck(this, App);
 }, _class.renderTo = function (node, state) {
-    var cScope = new _reactRescope.Scope(_AppScope2.default, { id: "App" });
+    var cScope = new _reactRescope.Scope(_AppScope2.default, { id: "App" }),
+        sid = (cookie.parse(document.cookie) || {})["connect.sid"];
+    sid = sid && sid.replace(/^s\:([^\.]+)(?:$|\..*$)/ig, "$1");
     window.scopes = _reactRescope.Scope.scopes;
+    console.log(sid);
+    window.test = function () {
+        App.renderSSR({
+            state: cScope.stores.AppState.serialize(),
+            sessionId: sid
+        }, function (e, r) {
+            return console.log(r);
+        });
+    };
     state && cScope.restore(state);
     cScope.mount(["Home"]).then(function (_ref) {
         var Home = _ref.Home;
 
-        ReactDom.hydrate(_react2.default.createElement(Home, null), node);
+        ReactDom.hydrate(_react2.default.createElement(Home, { sessionId: sid }), node);
     });
 }, _class.renderSSR = function (cfg, cb) {
-    var cScope = new _reactRescope.Scope(_AppScope2.default, { id: "App" });
-    cfg.state && cScope.restore(cfg.state);
+    var cScope = new _reactRescope.Scope(_AppScope2.default, { id: cfg.sessionId + '/App' });
+
+    cfg.state && cScope.restore(_defineProperty({}, cfg.sessionId, cfg.state));
+    console.log(cfg.sessionId, _defineProperty({}, cfg.sessionId, cfg.state));
     cScope.mount(["SSRIndex"]).then(function (_ref2) {
         var SSRIndex = _ref2.SSRIndex;
 
-        cb(null, (0, _server.renderToString)(_react2.default.createElement(SSRIndex, { state: cfg.state })));
+        cb(null, (0, _server.renderToString)(_react2.default.createElement(SSRIndex, { sessionId: cfg.sessionId })));
+        console.log(cfg.sessionId, cScope.stores.AppState.serialize());
+        cScope.destroy();
     });
 }, _temp);
 
@@ -3810,7 +4034,7 @@ exports.default = App;
 module.exports = exports["default"];
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4453,7 +4677,7 @@ module.exports =
 //# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4544,11 +4768,11 @@ module.exports =
 
 	var _Scope2 = _interopRequireDefault(_Scope);
 
-	var _Store = __webpack_require__(6);
+	var _Store = __webpack_require__(7);
 
 	var _Store2 = _interopRequireDefault(_Store);
 
-	var _scopable = __webpack_require__(8);
+	var _scopable = __webpack_require__(9);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -4692,8 +4916,11 @@ module.exports =
   */
 
 	var is = __webpack_require__(2),
-	    EventEmitter = __webpack_require__(4),
-	    shortid = __webpack_require__(5),
+	    _require = __webpack_require__(4),
+	    walknSet = _require.walknSet,
+	    walknGet = _require.walknGet,
+	    EventEmitter = __webpack_require__(5),
+	    shortid = __webpack_require__(6),
 	    __proto__push = function __proto__push(target, id, parent) {
 		var fn = function fn() {};
 		fn.prototype = parent ? new parent._[id]() : target[id] || {};
@@ -4716,7 +4943,7 @@ module.exports =
 					if (a.firstname < b.firstname) return -1;
 					if (a.firstname > b.firstname) return 1;
 					return 0;
-				}).join('::') : scopes;
+				}).join('+') : scopes;
 				return openScopes[skey] = openScopes[skey] || new Scope({}, { id: skey });
 			}
 		}, {
@@ -4758,7 +4985,7 @@ module.exports =
    *
    *  id {string} @optional id ( if this id exist storesMap will be merge on the 'id'
    *     scope) key {string} @optional key of the scope ( if no id is set, the scope id
-   *     will be (parent.id+'::'+key) incrementId {bool} @optional true to add a suffix
+   *     will be (parent.id+':>'+key) incrementId {bool} @optional true to add a suffix
    *     id, if the provided key or id globally exist
    *
    *  state {Object} @optional initial state by store alias
@@ -4793,7 +5020,7 @@ module.exports =
 
 			var _ = {};
 
-			id = id || key && (parent && parent._id || '') + '::' + key;
+			id = id || key && (parent && parent._id || '') + ':>' + key;
 
 			_.isLocalId = !id;
 
@@ -5289,6 +5516,21 @@ module.exports =
 			}
 
 			/**
+    * Get current store from json path
+    * @param path
+    * @returns {string|*}
+    */
+
+		}, {
+			key: 'retrieveStore',
+			value: function retrieveStore() {
+				var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+
+				path = is.string(path) ? path.split('.') : path;
+				return path && path.length && (path.length != 1 && this.stores[path[0]].retrieveStore ? this.stores[path[0]].retrieveStore(path.slice(1)) : path.length == 1 && this.stores[path[0]]);
+			}
+
+			/**
     * Get or update storesRevMap's revisions
     * @param storesRevMap
     * @param local
@@ -5392,8 +5634,6 @@ module.exports =
 		}, {
 			key: 'serialize',
 			value: function serialize() {
-				var _this10 = this;
-
 				var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
 				    alias = _ref3.alias,
 				    _ref3$withChilds = _ref3.withChilds,
@@ -5405,11 +5645,12 @@ module.exports =
 
 				var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-				var ctx = this._._scope;
-				if (output[this._id]) return;
+				var ctx = this._._scope,
+				    idPath = this._id.split(/[\:|\/]/);
+				if (walknGet(output, idPath)) return;
 
 				//@todo : better serialize method
-				output[this._id] = {};
+				walknSet(output, idPath, {});
 
 				Object.keys(ctx).forEach(function (id) {
 					if (id == "$parent" || is.fn(ctx[id])) return;
@@ -5444,7 +5685,7 @@ module.exports =
 
 				if (alias) {
 					output = Object.keys(output).reduce(function (h, k) {
-						return h[k.replace(_this10._id, alias)] = output[k], h;
+						return h[k.startsWith(alias) ? alias + k.substr(alias.length) : k] = output[k], h;
 					}, {});
 				}
 				return output;
@@ -5458,19 +5699,22 @@ module.exports =
 
 		}, {
 			key: 'restore',
-			value: function restore(snapshot, force) {
-				var _this11 = this;
+			value: function restore(snapshot) {
+				var _this10 = this;
+
+				var cfg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+				var force = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : is.bool(cfg) && cfg;
 
 				var ctx = this._._scope;
-
 				Object.keys(ctx).forEach(function (name) {
-					var snap = snapshot[_this11._id + '/' + name];
+					var idPath = (_this10._id + '/' + name).split(/[\:|\/]/),
+					    snap = walknGet(snapshot, idPath);
 
 					if (snap) {
 
 						if (force && !is.fn(ctx[name])) ctx[name].destroy();
 
-						_this11.mount(name, snapshot); // quiet
+						_this10.mount(name, snapshot); // quiet
 					}
 				});
 
@@ -5485,10 +5729,10 @@ module.exports =
 		}, {
 			key: 'setState',
 			value: function setState(pState) {
-				var _this12 = this;
+				var _this11 = this;
 
 				Object.keys(pState).forEach(function (k) {
-					return _this12.state[k] = pState[k];
+					return _this11.state[k] = pState[k];
 				});
 			}
 
@@ -5526,7 +5770,7 @@ module.exports =
 		}, {
 			key: 'dispatch',
 			value: function dispatch(action) {
-				var _this13 = this,
+				var _this12 = this,
 				    _parent2;
 
 				for (var _len = arguments.length, argz = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -5541,7 +5785,7 @@ module.exports =
 				Object.keys(this._._scope).forEach(function (id) {
 					var _$_scope$id;
 
-					if (!is.fn(_this13._._scope[id])) (_$_scope$id = _this13._._scope[id]).trigger.apply(_$_scope$id, [action].concat(argz));
+					if (!is.fn(_this12._._scope[id])) (_$_scope$id = _this12._._scope[id]).trigger.apply(_$_scope$id, [action].concat(argz));
 				});
 
 				if (bActs && bActs.test(action)) return;
@@ -5562,11 +5806,11 @@ module.exports =
 		}, {
 			key: 'then',
 			value: function then(cb) {
-				var _this14 = this;
+				var _this13 = this;
 
 				if (this._stable) return cb(this.data);
 				this.once('stable', function (e) {
-					return cb(_this14.data);
+					return cb(_this13.data);
 				});
 			}
 
@@ -5580,13 +5824,13 @@ module.exports =
 		}, {
 			key: 'retainStores',
 			value: function retainStores() {
-				var _this15 = this;
+				var _this14 = this;
 
 				var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 				var reason = arguments[1];
 
 				stores.forEach(function (id) {
-					return _this15.stores[id] && _this15.stores[id].retain && _this15.stores[id].retain(reason);
+					return _this14.stores[id] && _this14.stores[id].retain && _this14.stores[id].retain(reason);
 				});
 			}
 
@@ -5600,13 +5844,13 @@ module.exports =
 		}, {
 			key: 'disposeStores',
 			value: function disposeStores() {
-				var _this16 = this;
+				var _this15 = this;
 
 				var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 				var reason = arguments[1];
 
 				stores.forEach(function (id) {
-					return _this16.stores[id] && _this16.stores[id].dispose && _this16.stores[id].dispose(reason);
+					return _this15.stores[id] && _this15.stores[id].dispose && _this15.stores[id].dispose(reason);
 				});
 			}
 
@@ -5636,7 +5880,7 @@ module.exports =
 		}, {
 			key: 'release',
 			value: function release(reason) {
-				var _this17 = this;
+				var _this16 = this;
 
 				if (reason) {
 					if (this.__locks[reason] == 0) console.error("Release more than locking !", reason);
@@ -5650,15 +5894,15 @@ module.exports =
 					this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
 
 					this._.stabilizerTM = setTimeout(function (e) {
-						_this17._.stabilizerTM = null;
-						if (_this17.__locks.all) return;
+						_this16._.stabilizerTM = null;
+						if (_this16.__locks.all) return;
 
-						_this17._.propagTM && clearTimeout(_this17._.propagTM);
-						_this17._rev++;
-						_this17._stable = true;
-						_this17.emit("stable", _this17);
+						_this16._.propagTM && clearTimeout(_this16._.propagTM);
+						_this16._rev++;
+						_this16._stable = true;
+						_this16.emit("stable", _this16);
 
-						!_this17.dead && _this17._propag(); // stability can induce destroy
+						!_this16.dead && _this16._propag(); // stability can induce destroy
 					});
 				}
 			}
@@ -5670,18 +5914,18 @@ module.exports =
 		}, {
 			key: 'propag',
 			value: function propag() {
-				var _this18 = this;
+				var _this17 = this;
 
 				this._.propagTM && clearTimeout(this._.propagTM);
 				this._.propagTM = setTimeout(function (e) {
-					_this18._.propagTM = null;
-					_this18._propag();
+					_this17._.propagTM = null;
+					_this17._propag();
 				}, 2);
 			}
 		}, {
 			key: '_propag',
 			value: function _propag() {
-				var _this19 = this;
+				var _this18 = this;
 
 				if (this._.followers.length) this._.followers.forEach(function (_ref4) {
 					var obj = _ref4[0],
@@ -5690,7 +5934,7 @@ module.exports =
 					    lastRevs = _ref4[3],
 					    remaps = _ref4[3];
 
-					var data = _this19.getUpdates(lastRevs);
+					var data = _this18.getUpdates(lastRevs);
 					if (!data) return;
 					if (typeof obj != "function") {
 						//console.log("setState ",obj, Object.keys(data))
@@ -5718,31 +5962,31 @@ module.exports =
 		}, {
 			key: '_addChild',
 			value: function _addChild(ctx) {
-				var _this20 = this;
+				var _this19 = this;
 
 				this._.childScopes.push(ctx);
 				var lists = {
 					'stable': function stable(s) {
-						_this20._.unStableChilds--;
-						if (!_this20._.unStableChilds) _this20.emit("stableTree", _this20);
+						_this19._.unStableChilds--;
+						if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
 					},
 					'unstable': function unstable(s) {
-						_this20._.unStableChilds++;
-						if (1 == _this20._.unStableChilds) _this20.emit("unstableTree", _this20);
+						_this19._.unStableChilds++;
+						if (1 == _this19._.unStableChilds) _this19.emit("unstableTree", _this19);
 					},
 					'stableTree': function stableTree(s) {
-						_this20._.unStableChilds--;
-						if (!_this20._.unStableChilds) _this20.emit("stableTree", _this20);
+						_this19._.unStableChilds--;
+						if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
 					},
 					'unstableTree': function unstableTree(s) {
-						_this20._.unStableChilds++;
-						if (1 == _this20._.unStableChilds) _this20.emit("unstableTree", _this20);
+						_this19._.unStableChilds++;
+						if (1 == _this19._.unStableChilds) _this19.emit("unstableTree", _this19);
 					},
 					'destroy': function destroy(ctx) {
-						if (ctx._.unStableChilds) _this20._.unStableChilds--;
-						if (!ctx.isStable()) _this20._.unStableChilds--;
+						if (ctx._.unStableChilds) _this19._.unStableChilds--;
+						if (!ctx.isStable()) _this19._.unStableChilds--;
 
-						if (!_this20._.unStableChilds) _this20.emit("stableTree", _this20);
+						if (!_this19._.unStableChilds) _this19.emit("stableTree", _this19);
 					}
 				},
 				    wasStable = this._.unStableChilds;
@@ -5779,7 +6023,7 @@ module.exports =
 		}, {
 			key: 'dispose',
 			value: function dispose(reason) {
-				var _this21 = this;
+				var _this20 = this;
 
 				//console.log("dispose", this._id, reason);
 				if (reason) {
@@ -5797,7 +6041,7 @@ module.exports =
 						this._.destroyTM && clearTimeout(this._.destroyTM);
 						this._.destroyTM = setTimeout(function (e) {
 							//this.then(s => {
-							!_this21.__retains.all && !_this21.dead && _this21.destroy();
+							!_this20.__retains.all && !_this20.dead && _this20.destroy();
 							//});
 						}, this._.persistenceTm);
 					} else {
@@ -5815,7 +6059,7 @@ module.exports =
 		}, {
 			key: 'destroy',
 			value: function destroy() {
-				var _this22 = this;
+				var _this21 = this;
 
 				var ctx = this._._scope;
 				//console.warn("destroy", this._id);
@@ -5826,10 +6070,10 @@ module.exports =
 					}
 				}this.dead = true;
 				[].concat(_toConsumableArray(this._.followers)).map(function (follower) {
-					return _this22.unBind.apply(_this22, _toConsumableArray(follower));
+					return _this21.unBind.apply(_this21, _toConsumableArray(follower));
 				});
 				Object.keys(this._._listening).forEach(function (id) {
-					return _this22._._scope[id].removeListener(_this22._._listening[id]);
+					return _this21._._scope[id].removeListener(_this21._._listening[id]);
 				});
 
 				this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
@@ -5855,11 +6099,6 @@ module.exports =
 	}(EventEmitter), _class.persistenceTm = 1, _class.Store = null, _class.scopeRef = function scopeRef(path) {
 		this.path = path;
 	}, _class.scopes = openScopes, _temp);
-
-	function walknSet(obj, path, value, stack) {
-		if (is.string(path)) path = path.split('.');
-		if (!path.length) return false;else if (path.length == 1) return obj[path[0]] = stack ? [].concat(_toConsumableArray(obj[path[0]] || []), [value]) : value;else return walknSet(obj[path[0]] = obj[path[0]] || {}, path.slice(1), value, stack);
-	}
 
 	is.rsScope = function (obj) {
 		return obj instanceof Scope;
@@ -5904,6 +6143,41 @@ module.exports =
 	/***/
 },
 /* 4 */
+/***/function (module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.walknSet = walknSet;
+	exports.walknGet = walknGet;
+
+	function _toConsumableArray(arr) {
+		if (Array.isArray(arr)) {
+			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+				arr2[i] = arr[i];
+			}return arr2;
+		} else {
+			return Array.from(arr);
+		}
+	}
+
+	var is = __webpack_require__(2);
+
+	function walknSet(obj, path, value, stack) {
+		if (is.string(path)) path = path.split(/[\:|\/]/);
+		if (!path.length) return false;else if (path.length == 1) return obj[path[0]] = stack ? [].concat(_toConsumableArray(obj[path[0]] || []), [value]) : value;else return walknSet(obj[path[0]] = obj[path[0]] || {}, path.slice(1), value, stack);
+	}
+
+	function walknGet(obj, path) {
+		if (is.string(path)) path = path.split(/[\:|\/]/);
+		return path.length ? obj[path[0]] && walknGet(obj[path[0]], path.slice(1)) : obj;
+	}
+
+	/***/
+},
+/* 5 */
 /***/function (module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6048,14 +6322,14 @@ module.exports =
 
 	/***/
 },
-/* 5 */
+/* 6 */
 /***/function (module, exports) {
 
 	module.exports = __webpack_require__(13);
 
 	/***/
 },
-/* 6 */
+/* 7 */
 /***/function (module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6167,9 +6441,12 @@ module.exports =
 
 	var is = __webpack_require__(2),
 	    Scope = __webpack_require__(1),
-	    EventEmitter = __webpack_require__(4),
-	    TaskSequencer = __webpack_require__(7),
-	    shortid = __webpack_require__(5),
+	    _require = __webpack_require__(4),
+	    walknSet = _require.walknSet,
+	    walknGet = _require.walknGet,
+	    EventEmitter = __webpack_require__(5),
+	    TaskSequencer = __webpack_require__(8),
+	    shortid = __webpack_require__(6),
 	    objProto = Object.getPrototypeOf({});
 
 	/**
@@ -6303,7 +6580,7 @@ module.exports =
 				    initialState = this.state,
 				    initialData = this.data,
 				    applied = void 0;
-				if (cfg.snapshot && cfg.snapshot[this.scopeObj._id + '/' + this.name]) {
+				if (cfg.snapshot && walknGet(cfg.snapshot, this.scopeObj._id + '/' + this.name)) {
 					this.restore(cfg.snapshot, true);
 					this._stable = true;
 					this.$scope.bind(this, this._use, false);
@@ -6700,27 +6977,29 @@ module.exports =
 					    store = void 0;
 					if (key.store && key.name) {
 						alias = name = key.name;
+						store = _this6.scopeObj.stores[name];
 					} else if (is.fn(key)) {
 						name = alias = key.name || key.defaultName;
+						store = _this6.scopeObj.stores[name];
 					} else {
 						key = key.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/);
 						name = key[1];
 						path = key[2] && key[2].substr(1);
 						alias = key[3] || path && path.match(/([^\.]*)$/)[0] || key[1];
+						store = _this6.scopeObj.retrieveStore(path);
 					}
-
-					if (!_this6.scopeObj.stores[name].scopeObj._.isLocalId) map[alias] = _this6.scopeObj.stores[name].scopeObj._id + '/' + name;
+					if (store && !store.scopeObj._.isLocalId) map[alias] = store.scopeObj._id + '/' + name;
 
 					return map;
 				}, {}) || {};
 
-				output[this.scopeObj._id + '/' + this.name] = {
+				walknSet(output, (this.scopeObj._id + '/' + this.name).split(/[\:|\/]/), {
 					state: this.state && (!withRefs ? _extends({}, this.state) : Object.keys(this.state).reduce(function (h, k) {
 						return !refs[k] && (h[k] = _this6.state[k]), h;
 					}, {})),
 					data: this.data,
 					refs: refs
-				};
+				});
 				return output;
 			}
 
@@ -6742,7 +7021,7 @@ module.exports =
 
 				return restore;
 			}(function (snapshot, immediate) {
-				var snap = snapshot[this.scopeObj._id + '/' + this.name];
+				var snap = walknGet(snapshot, this.scopeObj._id + '/' + this.name);
 				if (snap) {
 					if (!this.isStable() && !immediate) this.then(function () {
 						return restore(snapshot);
@@ -7153,7 +7432,7 @@ module.exports =
 
 	/***/
 },
-/* 7 */
+/* 8 */
 /***/function (module, exports, __webpack_require__) {
 
 	"use strict";
@@ -7304,7 +7583,7 @@ module.exports =
 
 	/***/
 },
-/* 8 */
+/* 9 */
 /***/function (module, exports, __webpack_require__) {
 
 	"use strict";
@@ -7469,7 +7748,7 @@ module.exports =
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(25), __webpack_require__(0)))
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7485,17 +7764,27 @@ module.exports = function (t) {
   "use strict";
   function i(t) {
     return t && t.__esModule ? t : { default: t };
-  }Object.defineProperty(e, "__esModule", { value: !0 });var r = s(2),
+  }Object.defineProperty(e, "__esModule", { value: !0 });var r = s(3),
       n = i(r),
-      o = s(6),
+      o = s(7),
       a = i(o),
-      u = s(8),
+      u = s(9),
       h = "undefined" != typeof window ? window : global,
       c = h.___rescope || {};h.___rescope || (h.___rescope = c, n.default.Store = a.default, c.Scope = n.default, c.Context = n.default, c.Store = a.default, c.reScope = u.reScope, c.scopeToState = u.scopeToState, c.reScopeState = u.scopeToState, c.addScopableType = u.addScopableType, c.scopeRef = function (t, e) {
     return t[e] = new n.default.scopeRef(t[e]), t;
   }), e.default = c, t.exports = e.default;
 }, function (t, e) {
   t.exports = __webpack_require__(7);
+}, function (t, e, s) {
+  "use strict";
+  Object.defineProperty(e, "__esModule", { value: !0 });var i = Object.assign || function (t) {
+    for (var e = 1; e < arguments.length; e++) {
+      var s = arguments[e];for (var i in s) {
+        Object.prototype.hasOwnProperty.call(s, i) && (t[i] = s[i]);
+      }
+    }return t;
+  },
+      r = s(1);e.default = i({}, r), t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
   function i(t) {
@@ -7512,11 +7801,9 @@ module.exports = function (t) {
     if (!t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !e || "object" != (typeof e === "undefined" ? "undefined" : _typeof(e)) && "function" != typeof e ? t : e;
   }function a(t, e) {
     if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + (typeof e === "undefined" ? "undefined" : _typeof(e)));t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e);
-  }function u(t, e, s, r) {
-    return _.string(e) && (e = e.split(".")), !!e.length && (1 == e.length ? t[e[0]] = r ? [].concat(i(t[e[0]] || []), [s]) : s : u(t[e[0]] = t[e[0]] || {}, e.slice(1), s, r));
-  }Object.defineProperty(e, "__esModule", { value: !0 });var h,
-      c,
-      l = function () {
+  }Object.defineProperty(e, "__esModule", { value: !0 });var u,
+      h,
+      c = function () {
     function t(t, e) {
       for (var s = 0; s < e.length; s++) {
         var i = e[s];i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(t, i.key, i);
@@ -7525,14 +7812,17 @@ module.exports = function (t) {
       return s && t(e.prototype, s), i && t(e, i), e;
     };
   }(),
-      _ = s(4),
-      p = s(3),
-      f = s(5),
-      d = function d(t, e, s) {
+      l = s(2),
+      _ = s(5),
+      p = _.walknSet,
+      f = _.walknGet,
+      d = s(4),
+      v = s(6),
+      y = function y(t, e, s) {
     var i = function i() {};i.prototype = s ? new s._[e]() : t[e] || {}, t[e] = new i(), t._[e] = i;
   },
-      v = {},
-      y = ({}.constructor, c = h = function (t) {
+      b = {},
+      g = ({}.constructor, h = u = function (t) {
     function e(t) {
       var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
           i = s.parent,
@@ -7541,16 +7831,16 @@ module.exports = function (t) {
           u = s.state,
           h = s.data,
           c = s.incrementId,
-          l = void 0 === c ? !!r : c,
+          _ = void 0 === c ? !!r : c,
           p = s.persistenceTm,
-          y = s.autoDestroy,
-          b = s.rootEmitter,
+          f = s.autoDestroy,
+          d = s.rootEmitter,
           g = s.boundedActions;n(this, e);var m = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
-          S = {};if (a = a || r && (i && i._id || "") + "::" + r, S.isLocalId = !a, a = a || "_____" + f.generate(), v[a] && !l) {
-        var k;return m._id = a, v[a].register(t), k = v[a], o(m, k);
-      }if (v[a] && l) {
-        for (var w = -1; v[a + "[" + ++w + "]"];) {}a = a + "[" + w + "]";
-      }if (m._id = a, m._rev = 0, v[a] = m, S.persistenceTm = p || m.constructor.persistenceTm, m.actions = {}, m.stores = {}, m.state = {}, m.data = {}, m.parent = i, m._ = S, i && i.dead) throw new Error("Can't use a dead scope as parent !");return d(m, "actions", i), d(m, "stores", i), d(m, "state", i), d(m, "data", i), m.sources = [], S.childScopes = [], S.childScopesList = [], S.unStableChilds = 0, m.__retains = { all: 0 }, m.__locks = { all: 1 }, S._boundedActions = _.array(g) ? { test: g.includes.bind(g) } : g, S._listening = {}, S._scope = {}, S._mixed = [], S._mixedList = [], S.followers = [], i && (i.retain("isMyParent"), b ? i.on(S._parentList = { update: function update(t) {
+          S = {};if (a = a || r && (i && i._id || "") + ":>" + r, S.isLocalId = !a, a = a || "_____" + v.generate(), b[a] && !_) {
+        var k;return m._id = a, b[a].register(t), k = b[a], o(m, k);
+      }if (b[a] && _) {
+        for (var w = -1; b[a + "[" + ++w + "]"];) {}a = a + "[" + w + "]";
+      }if (m._id = a, m._rev = 0, b[a] = m, S.persistenceTm = p || m.constructor.persistenceTm, m.actions = {}, m.stores = {}, m.state = {}, m.data = {}, m.parent = i, m._ = S, i && i.dead) throw new Error("Can't use a dead scope as parent !");return y(m, "actions", i), y(m, "stores", i), y(m, "state", i), y(m, "data", i), m.sources = [], S.childScopes = [], S.childScopesList = [], S.unStableChilds = 0, m.__retains = { all: 0 }, m.__locks = { all: 1 }, S._boundedActions = l.array(g) ? { test: g.includes.bind(g) } : g, S._listening = {}, S._scope = {}, S._mixed = [], S._mixedList = [], S.followers = [], i && (i.retain("isMyParent"), d ? i.on(S._parentList = { update: function update(t) {
           return m._propag();
         } }) : (!i._stable && m.wait("waitingParent"), i.on(S._parentList = { stable: function stable(t) {
           return m.release("waitingParent");
@@ -7558,13 +7848,13 @@ module.exports = function (t) {
           return m.wait("waitingParent");
         }, update: function update(t) {
           return m._propag();
-        } }))), m.register(t, u, h), m.__locks.all--, m._stable = !m.__locks.all, i && i._addChild(m), y && setTimeout(function (t) {
+        } }))), m.register(t, u, h), m.__locks.all--, m._stable = !m.__locks.all, i && i._addChild(m), f && setTimeout(function (t) {
         m.retain("autoDestroy"), m.dispose("autoDestroy");
       }), m;
-    }return a(e, t), l(e, null, [{ key: "getScope", value: function value(t) {
-        var s = _.array(t) ? t.sort(function (t, e) {
+    }return a(e, t), c(e, null, [{ key: "getScope", value: function value(t) {
+        var s = l.array(t) ? t.sort(function (t, e) {
           return t.firstname < e.firstname ? -1 : t.firstname > e.firstname ? 1 : 0;
-        }).join("::") : t;return v[s] = v[s] || new e({}, { id: s });
+        }).join("+") : t;return b[s] = b[s] || new e({}, { id: s });
       } }, { key: "stateMapToRefList", value: function value(t) {
         var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
             i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : [],
@@ -7572,8 +7862,8 @@ module.exports = function (t) {
             n = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : "";return Object.keys(t).forEach(function (o) {
           var a = n ? n + "." + o : o;t[o] instanceof e.scopeRef ? i.push(t[o].path + ":" + a) : t[o] && t[o] instanceof Function ? r[o] = t[o] : t[o] && t[o].prototype instanceof e.Store ? i.push(t[o].as(a)) : s[a] = t[o];
         }), i;
-      } }]), l(e, [{ key: "mount", value: function value(t, e, s, i) {
-        var r = this;return _.array(t) ? t.forEach(function (t) {
+      } }]), c(e, [{ key: "mount", value: function value(t, e, s, i) {
+        var r = this;return l.array(t) ? t.forEach(function (t) {
           return r._mount(t, e, s, i);
         }) : this._mount.apply(this, arguments), this;
       } }, { key: "_mount", value: function value(t, e, s, i) {
@@ -7582,15 +7872,15 @@ module.exports = function (t) {
             return r || n._mount(t, e, s, i);
           }, !1) || !this.parent) return;return (n = this.parent)._mount.apply(n, arguments);
         }var o = this._._scope[r.storeId],
-            a = [];if (_.rsStore(o.prototype)) for (this._._scope[r.storeId] = new o(this, { snapshot: e, name: r.storeId, state: s, data: i }, a); a.length;) {
+            a = [];if (l.rsStore(o.prototype)) for (this._._scope[r.storeId] = new o(this, { snapshot: e, name: r.storeId, state: s, data: i }, a); a.length;) {
           a.shift()();
-        } else if (_.rsScope(o.prototype)) {
+        } else if (l.rsScope(o.prototype)) {
           if (this._._scope[r.storeId] = new o({ $parent: this }, { snapshot: e, id: this._id + "/" + r.storeId, autoDestroy: !0 }), r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);
         } else {
-          if (_.rsScope(o) && r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);e && (_.rsScope(o) || _.rsScope(o)) ? o.restore(e) : _.rsStore(this._._scope[r.storeId]) && (void 0 !== s && void 0 === i ? o.setState(s) : void 0 !== s && (o.state = s), void 0 !== i && o.push(i));
+          if (l.rsScope(o) && r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);e && (l.rsScope(o) || l.rsScope(o)) ? o.restore(e) : l.rsStore(this._._scope[r.storeId]) && (void 0 !== s && void 0 === i ? o.setState(s) : void 0 !== s && (o.state = s), void 0 !== i && o.push(i));
         }return this._watchStore(r.storeId), this._._scope[r.storeId];
       } }, { key: "_watchStore", value: function value(t, e, s) {
-        var i = this;return this._._listening[t] || _.fn(this._._scope[t]) || (!this._._scope[t]._autoDestroy && this._._scope[t].retain("scoped"), !this._._scope[t].isStable() && this.wait(t), this._._scope[t].on(this._._listening[t] = { destroy: function destroy(e) {
+        var i = this;return this._._listening[t] || l.fn(this._._scope[t]) || (!this._._scope[t]._autoDestroy && this._._scope[t].retain("scoped"), !this._._scope[t].isStable() && this.wait(t), this._._scope[t].on(this._._listening[t] = { destroy: function destroy(e) {
             delete i._._listening[t], i._._scope[t] = i._._scope[t].constructor;
           }, update: function update(t) {
             return i.propag();
@@ -7608,14 +7898,14 @@ module.exports = function (t) {
             return e.wait(t._id);
           }, update: function update(t) {
             return e._propag();
-          } }), this.actions = {}, this.stores = {}, this.state = {}, this.data = {}, t.on(i), d(this, "actions", s), d(this, "stores", s), d(this, "state", s), d(this, "data", s), this.relink(this._._scope, this, !1, !0), this._._mixed.forEach(function (t) {
-          d(e, "actions"), d(e, "stores"), d(e, "state"), d(e, "data"), t.relink(t._._scope, e, !0, !0);
+          } }), this.actions = {}, this.stores = {}, this.state = {}, this.data = {}, t.on(i), y(this, "actions", s), y(this, "stores", s), y(this, "state", s), y(this, "data", s), this.relink(this._._scope, this, !1, !0), this._._mixed.forEach(function (t) {
+          y(e, "actions"), y(e, "stores"), y(e, "state"), y(e, "data"), t.relink(t._._scope, e, !0, !0);
         });
       } }, { key: "register", value: function value(t) {
         var e = this,
             s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
             i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};this.relink(t, this, !1, !1), Object.keys(t).forEach(function (r) {
-          "$parent" != r && (t[r].singleton || _.fn(t[r]) && (s[r] || i[r]) ? e._mount(r, void 0, s[r], i[r]) : s[r] || i[r] ? i[r] ? (s[r] && (e.stores[r].state = s[r]), e.stores[r].push(i[r])) : s[r] && e.stores[r].setState(s[r]) : e._watchStore(r));
+          "$parent" != r && (t[r].singleton || l.fn(t[r]) && (s[r] || i[r]) ? e._mount(r, void 0, s[r], i[r]) : s[r] || i[r] ? i[r] ? (s[r] && (e.stores[r].state = s[r]), e.stores[r].push(i[r])) : s[r] && e.stores[r].setState(s[r]) : e._watchStore(r));
         });
       } }, { key: "relink", value: function value(t) {
         var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this,
@@ -7624,7 +7914,7 @@ module.exports = function (t) {
             n = arguments[3],
             o = s._.stores.prototype;Object.keys(t).forEach(function (a) {
           if ("$parent" != a && !(!n && s._._scope[a] === t[a] || s._._scope[a] && s._._scope[a].constructor === t[a])) {
-            if (!n && s._._scope[a]) return r || _.fn(s._._scope[a]) || (s._._scope[a].__proto__ = t[a].prototype), void (!r && _.fn(s._._scope[a]) && (s._._scope[a] = t[a]));n || r || (i._._scope[a] = t[a]), Object.defineProperty(o, a, { enumerable: !0, configurable: !0, get: function get() {
+            if (!n && s._._scope[a]) return r || l.fn(s._._scope[a]) || (s._._scope[a].__proto__ = t[a].prototype), void (!r && l.fn(s._._scope[a]) && (s._._scope[a] = t[a]));n || r || (i._._scope[a] = t[a]), Object.defineProperty(o, a, { enumerable: !0, configurable: !0, get: function get() {
                 return i._._scope[a];
               } }), Object.defineProperty(s._.state.prototype, a, { enumerable: !0, configurable: !0, get: function get() {
                 return i._._scope[a] && i._._scope[a].state;
@@ -7635,7 +7925,7 @@ module.exports = function (t) {
               }, set: function set(t) {
                 return i._mount(a, void 0, void 0, t);
               } });var u = t[a] instanceof e.Store ? t[a].constructor.actions : t[a].actions,
-                h = s._.actions.prototype;_.rsScope(i._._scope[a].prototype) && i._mount(a), _.rsScope(i._._scope[a]) && (h[a] = i._._scope[a].actions), (_.rsStore(i._._scope[a]) || _.rsStore(i._._scope[a].prototype)) && u && Object.keys(u).forEach(function (t) {
+                h = s._.actions.prototype;l.rsScope(i._._scope[a].prototype) && i._mount(a), l.rsScope(i._._scope[a]) && (h[a] = i._._scope[a].actions), (l.rsStore(i._._scope[a]) || l.rsStore(i._._scope[a].prototype)) && u && Object.keys(u).forEach(function (t) {
               h.hasOwnProperty(t) ? h[t].__targetStores++ : (h[t] = i.dispatch.bind(i, t), h[t].__targetStores = 1);
             });
           }
@@ -7645,8 +7935,8 @@ module.exports = function (t) {
             n = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3],
             o = void 0,
             a = void 0,
-            u = void 0;if (e && !_.array(e) && (e = [e]), s !== !1 && s !== !0 || (n = s, s = null), u = e.map(function (t) {
-          return _.string(t) ? t : t.name;
+            u = void 0;if (e && !l.array(e) && (e = [e]), s !== !1 && s !== !0 || (n = s, s = null), u = e.map(function (t) {
+          return l.string(t) ? t : t.name;
         }).map(function (t) {
           return i.parseRef(t);
         }), this._.followers.push([t, e, s || void 0, o = u.reduce(function (t, e) {
@@ -7661,28 +7951,30 @@ module.exports = function (t) {
       } }, { key: "map", value: function value(t, e) {
         var s = this,
             i = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2],
-            r = this.constructor.Store;e = _.array(e) ? e : [e];var n = e.map(this.parseRef);if (this.mount(e), i && t instanceof r) r.map(t, e, this, this, !1);else if (i) {
+            r = this.constructor.Store;e = l.array(e) ? e : [e];var n = e.map(this.parseRef);if (this.mount(e), i && t instanceof r) r.map(t, e, this, this, !1);else if (i) {
           this.bind(t, e, void 0, !1);var o = void 0,
               a = t.isReactComponent ? "componentWillUnmount" : "destroy";t.hasOwnProperty(a) && (o = t[a]), t[a] = function () {
             return delete t[a], o && (t[a] = o), s.unBind(t, e), t[a] && t[a].apply(t, arguments);
           };
         }return n.reduce(function (t, e) {
-          return u(t, e.alias || e.path, s.retrieve(e.path)), t;
+          return p(t, e.alias || e.path, s.retrieve(e.path)), t;
         }, {});
       } }, { key: "retrieve", value: function value() {
-        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";return t = _.string(t) ? t.split(".") : t, t && this.stores[t[0]] && this.stores[t[0]].retrieve(t.slice(1));
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";return t = l.string(t) ? t.split(".") : t, t && this.stores[t[0]] && this.stores[t[0]].retrieve(t.slice(1));
+      } }, { key: "retrieveStore", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";return t = l.string(t) ? t.split(".") : t, t && t.length && (1 != t.length && this.stores[t[0]].retrieveStore ? this.stores[t[0]].retrieveStore(t.slice(1)) : 1 == t.length && this.stores[t[0]]);
       } }, { key: "getStoresRevs", value: function value() {
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
             e = arguments[1],
             s = this._._scope;return t || (t = {}), Object.keys(s).forEach(function (e) {
-          _.fn(s[e]) ? t.hasOwnProperty(e) || (t[e] = !1) : t[e] = s[e]._rev;
+          l.fn(s[e]) ? t.hasOwnProperty(e) || (t[e] = !1) : t[e] = s[e]._rev;
         }), e || (this._._mixed.reduce(function (e, s) {
           return s.getStoresRevs(t), t;
         }, t), this.parent && this.parent.getStoresRevs(t)), t;
       } }, { key: "getUpdates", value: function value(t, e, s) {
         var i = this,
             r = this._._scope;return e = e || {}, Object.keys(r).forEach(function (n) {
-          e.hasOwnProperty(n) || _.fn(r[n]) || t && (!t.hasOwnProperty(n) || void 0 !== t[n]) && (!t.hasOwnProperty(n) || r[n]._rev <= t[n].rev) || (s = !0, e[n] = i.data[n], t && t.hasOwnProperty(n) ? (t[n].rev = r[n]._rev, t[n].refs.forEach(function (t) {
+          e.hasOwnProperty(n) || l.fn(r[n]) || t && (!t.hasOwnProperty(n) || void 0 !== t[n]) && (!t.hasOwnProperty(n) || r[n]._rev <= t[n].rev) || (s = !0, e[n] = i.data[n], t && t.hasOwnProperty(n) ? (t[n].rev = r[n]._rev, t[n].refs.forEach(function (t) {
             e[t.alias] = i.retrieve(t.path);
           })) : e[n] = i.data[n]);
         }), s = this._._mixed.reduce(function (s, i) {
@@ -7693,33 +7985,36 @@ module.exports = function (t) {
           e._getAllChilds(t);
         }), t;
       } }, { key: "serialize", value: function value() {
-        var t = this,
-            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
-            s = e.alias,
-            i = e.withChilds,
-            r = void 0 === i || i,
-            n = e.withParents,
-            o = e.withMixed,
-            a = void 0 === o || o,
-            u = e.norefs,
-            h = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-            c = this._._scope;if (!h[this._id]) return h[this._id] = {}, Object.keys(c).forEach(function (t) {
-          "$parent" == t || _.fn(c[t]) || c[t].serialize(!u, h);
-        }), n && this.parent && this.parent.serialize({ withChild: !1, withParents: !0, withMixed: a, norefs: u }, h), r && this._.childScopes.forEach(function (t) {
-          !t._.isLocalId && t.serialize({ withChild: !0, withParents: !1, withMixed: a, norefs: u }, h);
-        }), a && this._._mixed.forEach(function (t) {
-          !t._.isLocalId && t.serialize({ withChild: !1, withParents: !1, withMixed: a, norefs: u }, h);
-        }), s && (h = Object.keys(h).reduce(function (e, i) {
-          return e[i.replace(t._id, s)] = h[i], e;
-        }, {})), h;
-      } }, { key: "restore", value: function value(t, e) {
-        var s = this,
-            i = this._._scope;Object.keys(i).forEach(function (r) {
-          var n = t[s._id + "/" + r];n && (e && !_.fn(i[r]) && i[r].destroy(), s.mount(r, t));
-        }), this._._mixed.forEach(function (s) {
-          !s._.isLocalId && s.restore(t, e);
-        }), this._.childScopes.forEach(function (s) {
-          !s._.isLocalId && s.restore(t, e);
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            e = t.alias,
+            s = t.withChilds,
+            i = void 0 === s || s,
+            r = t.withParents,
+            n = t.withMixed,
+            o = void 0 === n || n,
+            a = t.norefs,
+            u = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            h = this._._scope,
+            c = this._id.split(/[\:|\/]/);if (!f(u, c)) return p(u, c, {}), Object.keys(h).forEach(function (t) {
+          "$parent" == t || l.fn(h[t]) || h[t].serialize(!a, u);
+        }), r && this.parent && this.parent.serialize({ withChild: !1, withParents: !0, withMixed: o, norefs: a }, u), i && this._.childScopes.forEach(function (t) {
+          !t._.isLocalId && t.serialize({ withChild: !0, withParents: !1, withMixed: o, norefs: a }, u);
+        }), o && this._._mixed.forEach(function (t) {
+          !t._.isLocalId && t.serialize({ withChild: !1, withParents: !1, withMixed: o, norefs: a }, u);
+        }), e && (u = Object.keys(u).reduce(function (t, s) {
+          return t[s.startsWith(e) ? e + s.substr(e.length) : s] = u[s], t;
+        }, {})), u;
+      } }, { key: "restore", value: function value(t) {
+        var e = this,
+            s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : l.bool(s) && s,
+            r = this._._scope;Object.keys(r).forEach(function (s) {
+          var n = (e._id + "/" + s).split(/[\:|\/]/),
+              o = f(t, n);o && (i && !l.fn(r[s]) && r[s].destroy(), e.mount(s, t));
+        }), this._._mixed.forEach(function (e) {
+          !e._.isLocalId && e.restore(t, i);
+        }), this._.childScopes.forEach(function (e) {
+          !e._.isLocalId && e.restore(t, i);
         });
       } }, { key: "setState", value: function value(t) {
         var e = this;Object.keys(t).forEach(function (s) {
@@ -7732,7 +8027,7 @@ module.exports = function (t) {
           r[n - 1] = arguments[n];
         }if (!this.dead) {
           var o = this._._boundedActions;if (Object.keys(this._._scope).forEach(function (e) {
-            var i;_.fn(s._._scope[e]) || (i = s._._scope[e]).trigger.apply(i, [t].concat(r));
+            var i;l.fn(s._._scope[e]) || (i = s._._scope[e]).trigger.apply(i, [t].concat(r));
           }), !o || !o.test(t)) return this._._mixed.forEach(function (e) {
             return e.dispatch.apply(e, [t].concat(r));
           }), this.parent && (e = this.parent).dispatch.apply(e, [t].concat(r)), this;
@@ -7799,20 +8094,20 @@ module.exports = function (t) {
       } }, { key: "destroy", value: function value() {
         var t = this,
             e = this._._scope;this.emit("destroy", this);for (var s in e) {
-          _.fn(e[s]) || !e[s]._autoDestroy && e[s].dispose("scoped");
+          l.fn(e[s]) || !e[s]._autoDestroy && e[s].dispose("scoped");
         }for (this.dead = !0, [].concat(i(this._.followers)).map(function (e) {
           return t.unBind.apply(t, i(e));
         }), Object.keys(this._._listening).forEach(function (e) {
           return t._._scope[e].removeListener(t._._listening[e]);
-        }), this._.stabilizerTM && clearTimeout(this._.stabilizerTM), this._.propagTM && clearTimeout(this._.propagTM), this._.isLocalId || delete v[this._id]; this._._mixedList.length;) {
+        }), this._.stabilizerTM && clearTimeout(this._.stabilizerTM), this._.propagTM && clearTimeout(this._.propagTM), this._.isLocalId || delete b[this._id]; this._._mixedList.length;) {
           this._._mixed[0].removeListener(this._._mixedList.shift()), this._._mixed.shift().dispose("mixedTo");
         }this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this._ = null;
       } }]), e;
-  }(p), h.persistenceTm = 1, h.Store = null, h.scopeRef = function (t) {
+  }(d), u.persistenceTm = 1, u.Store = null, u.scopeRef = function (t) {
     this.path = t;
-  }, h.scopes = v, c);_.rsScope = function (t) {
-    return t instanceof y;
-  }, e.default = y, t.exports = e.default;
+  }, u.scopes = b, h);l.rsScope = function (t) {
+    return t instanceof g;
+  }, e.default = g, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
   function i(t) {
@@ -7869,14 +8164,17 @@ module.exports = function (t) {
   }();e.default = a, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
-  Object.defineProperty(e, "__esModule", { value: !0 });var i = Object.assign || function (t) {
-    for (var e = 1; e < arguments.length; e++) {
-      var s = arguments[e];for (var i in s) {
-        Object.prototype.hasOwnProperty.call(s, i) && (t[i] = s[i]);
-      }
-    }return t;
-  },
-      r = s(1);e.default = i({}, r), t.exports = e.default;
+  function i(t) {
+    if (Array.isArray(t)) {
+      for (var e = 0, s = Array(t.length); e < t.length; e++) {
+        s[e] = t[e];
+      }return s;
+    }return Array.from(t);
+  }function r(t, e, s, n) {
+    return o.string(e) && (e = e.split(/[\:|\/]/)), !!e.length && (1 == e.length ? t[e[0]] = n ? [].concat(i(t[e[0]] || []), [s]) : s : r(t[e[0]] = t[e[0]] || {}, e.slice(1), s, n));
+  }function n(t, e) {
+    return o.string(e) && (e = e.split(/[\:|\/]/)), e.length ? t[e[0]] && n(t[e[0]], e.slice(1)) : t;
+  }Object.defineProperty(e, "__esModule", { value: !0 }), e.walknSet = r, e.walknGet = n;var o = s(2);
 }, function (t, e) {
   t.exports = __webpack_require__(13);
 }, function (t, e, s) {
@@ -7918,13 +8216,16 @@ module.exports = function (t) {
       var n = Object.getPrototypeOf(e);return null === n ? void 0 : t(n, s, i);
     }if ("value" in r) return r.value;var o = r.get;return void 0 !== o ? o.call(i) : void 0;
   },
-      p = s(4),
-      f = s(2),
-      d = s(3),
-      v = s(7),
-      y = s(5),
-      b = Object.getPrototypeOf({}),
-      g = (h = u = function (t) {
+      p = s(2),
+      f = s(3),
+      d = s(5),
+      v = d.walknSet,
+      y = d.walknGet,
+      b = s(4),
+      g = s(8),
+      m = s(6),
+      S = Object.getPrototypeOf({}),
+      k = (h = u = function (t) {
     function e() {
       var t, s;n(this, e);var i = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
           a = [].concat(Array.prototype.slice.call(arguments)),
@@ -7935,19 +8236,19 @@ module.exports = function (t) {
           _ = c.name || u.name,
           d = c.use || [],
           v = c.apply || null,
-          b = u.state || u.initialState || u.defaultState;return i._uid = c._uid || y.generate(), i.__retains = { all: 0 }, i.__locks = { all: 0 }, i._onStabilize = [], i._autoDestroy = !!i._persistenceTm, i._persistenceTm = c.persistenceTm || u.persistenceTm || (c.autoDestroy || u.autoDestroy) && 5, i._cfg = c, c && c.on && i.on(c.on), i.name = _, h.stores ? (i.scopeObj = h, i.scope = h.stores) : (i.scopeObj = new f(h), i.scope = h.stores), i.$scope = i.scopeObj, i.$stores = i.scopeObj.stores, i.$actions = i.scopeObj.actions, i.$dispatch = i.scopeObj.dispatch.bind(i.scopeObj), i._rev = i.constructor._rev || 0, i._revs = {}, i.stores = {}, i._require = [], i._sources = [_], p.array(u.use) ? i._use = [].concat(r(d), r((u.use || []).map(function (t) {
+          y = u.state || u.initialState || u.defaultState;return i._uid = c._uid || m.generate(), i.__retains = { all: 0 }, i.__locks = { all: 0 }, i._onStabilize = [], i._autoDestroy = !!i._persistenceTm, i._persistenceTm = c.persistenceTm || u.persistenceTm || (c.autoDestroy || u.autoDestroy) && 5, i._cfg = c, c && c.on && i.on(c.on), i.name = _, h.stores ? (i.scopeObj = h, i.scope = h.stores) : (i.scopeObj = new f(h), i.scope = h.stores), i.$scope = i.scopeObj, i.$stores = i.scopeObj.stores, i.$actions = i.scopeObj.actions, i.$dispatch = i.scopeObj.dispatch.bind(i.scopeObj), i._rev = i.constructor._rev || 0, i._revs = {}, i.stores = {}, i._require = [], i._sources = [_], p.array(u.use) ? i._use = [].concat(r(d), r((u.use || []).map(function (t) {
         var e = t.match(/^(\!?)([^\:]*)(?:\:(.*))?$/);if (e[1]) {
           var s = e[2].split(".");i._require.push(e[3] || s[s.length - 1]);
         }return e[2];
       }))) : i._use = [].concat(r(d), r(u.use ? Object.keys(u.use).map(function (t) {
         var e = t.match(/^(\!?)(.*)$/);return e[1] && i._require.push(u.use[t]), e[2] + (u.use[t] === !0 ? "" : ":" + u.use[t]);
-      }) : [])), u.require && (t = i._require).push.apply(t, r(u.require)), c.require && (s = i._require).push.apply(s, r(c.require)), i._followers = [], i._changesSW = b || {}, i.state = b && {}, v && (i.apply = v), l ? l.push(i._afterConstructor.bind(i)) : setTimeout(i._afterConstructor.bind(i)), i;
+      }) : [])), u.require && (t = i._require).push.apply(t, r(u.require)), c.require && (s = i._require).push.apply(s, r(c.require)), i._followers = [], i._changesSW = y || {}, i.state = y && {}, v && (i.apply = v), l ? l.push(i._afterConstructor.bind(i)) : setTimeout(i._afterConstructor.bind(i)), i;
     }return a(e, t), l(e, [{ key: "_afterConstructor", value: function value() {
         var t = this._cfg,
             e = this.constructor,
             s = this.state,
             i = this.data,
-            r = void 0;t.snapshot && t.snapshot[this.scopeObj._id + "/" + this.name] ? (this.restore(t.snapshot, !0), this._stable = !0, this.$scope.bind(this, this._use, !1)) : (i ? this.data = i : void 0 !== e.data ? this.data = c({}, e.data) : t.hasOwnProperty("data") && (this.data = t.data), t.hasOwnProperty("state") && void 0 !== t.state && (s = c({}, s, t.state)), void 0 === this.data ? (s || this._use.length) && (this._changesSW = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this.state = {}, this.shouldApply(this._changesSW) && void 0 === this.data && (this.data = this.apply(this.data, this._changesSW, this._changesSW), r = !0, this.state = this._changesSW, this._changesSW = {})) : (r = !0, this.state = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this._changesSW = {})), void 0 === this.data && !r || this.__locks.all ? (this._stable = !1, !(e.managed || this.state || this._use && this._use.length)) : (this._stable = !0, this._rev++), !this._stable && this.emit("unstable", this.state);
+            r = void 0;t.snapshot && y(t.snapshot, this.scopeObj._id + "/" + this.name) ? (this.restore(t.snapshot, !0), this._stable = !0, this.$scope.bind(this, this._use, !1)) : (i ? this.data = i : void 0 !== e.data ? this.data = c({}, e.data) : t.hasOwnProperty("data") && (this.data = t.data), t.hasOwnProperty("state") && void 0 !== t.state && (s = c({}, s, t.state)), void 0 === this.data ? (s || this._use.length) && (this._changesSW = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this.state = {}, this.shouldApply(this._changesSW) && void 0 === this.data && (this.data = this.apply(this.data, this._changesSW, this._changesSW), r = !0, this.state = this._changesSW, this._changesSW = {})) : (r = !0, this.state = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this._changesSW = {})), void 0 === this.data && !r || this.__locks.all ? (this._stable = !1, !(e.managed || this.state || this._use && this._use.length)) : (this._stable = !0, this._rev++), !this._stable && this.emit("unstable", this.state);
       } }, { key: "shouldPropag", value: function value(t) {
         return !0;
       } }, { key: "hasDataChange", value: function value(t) {
@@ -7966,11 +8267,11 @@ module.exports = function (t) {
           return i || e && p.fn(s.follow[r]) && s.follow[r].call(t, e[r]) || s.follow[r] && e[r] !== t.state[r];
         }, !1));
       } }, { key: "apply", value: function value(t, e, s) {
-        return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === b && e.__proto__ === b ? c({}, t, e) : e;
+        return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === S && e.__proto__ === S ? c({}, t, e) : e;
       } }, { key: "refine", value: function value(t, e, s) {
-        return e = e || this.state, t && t.__proto__ === b && e.__proto__ === b ? c({}, t, e) : e;
+        return e = e || this.state, t && t.__proto__ === S && e.__proto__ === S ? c({}, t, e) : e;
       } }, { key: "stabilize", value: function value(t) {
-        t && this.once("stable", t), this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this._stabilizer || (this._stabilizer = v.pushTask(this, "pushState"));
+        t && this.once("stable", t), this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this._stabilizer || (this._stabilizer = g.pushTask(this, "pushState"));
       } }, { key: "retrieve", value: function value(t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
             s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : this.data;return t = p.string(t) ? t.split(".") : t, s && t && t.length ? t.length == e + 1 ? s[t[e]] : this.retrieve(t, e + 1, s[t[e]]) : s;
@@ -8037,10 +8338,11 @@ module.exports = function (t) {
             i = e && p.array(this._use) && this._use.reduce(function (e, s) {
           var i = void 0,
               r = void 0,
-              n = void 0;return s.store && s.name ? r = i = s.name : p.fn(s) ? i = r = s.name || s.defaultName : (s = s.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = s[1], n = s[2] && s[2].substr(1), r = s[3] || n && n.match(/([^\.]*)$/)[0] || s[1]), t.scopeObj.stores[i].scopeObj._.isLocalId || (e[r] = t.scopeObj.stores[i].scopeObj._id + "/" + i), e;
-        }, {}) || {};return s[this.scopeObj._id + "/" + this.name] = { state: this.state && (e ? Object.keys(this.state).reduce(function (e, s) {
+              n = void 0,
+              o = void 0;return s.store && s.name ? (r = i = s.name, o = t.scopeObj.stores[i]) : p.fn(s) ? (i = r = s.name || s.defaultName, o = t.scopeObj.stores[i]) : (s = s.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = s[1], n = s[2] && s[2].substr(1), r = s[3] || n && n.match(/([^\.]*)$/)[0] || s[1], o = t.scopeObj.retrieveStore(n)), o && !o.scopeObj._.isLocalId && (e[r] = o.scopeObj._id + "/" + i), e;
+        }, {}) || {};return v(s, (this.scopeObj._id + "/" + this.name).split(/[\:|\/]/), { state: this.state && (e ? Object.keys(this.state).reduce(function (e, s) {
             return !i[s] && (e[s] = t.state[s]), e;
-          }, {}) : c({}, this.state)), data: this.data, refs: i }, s;
+          }, {}) : c({}, this.state)), data: this.data, refs: i }), s;
       } }, { key: "restore", value: function (t) {
         function e(e, s) {
           return t.apply(this, arguments);
@@ -8048,7 +8350,7 @@ module.exports = function (t) {
           return t.toString();
         }, e;
       }(function (t, e) {
-        var s = t[this.scopeObj._id + "/" + this.name];s && (this.isStable() || e || this.then(function () {
+        var s = y(t, this.scopeObj._id + "/" + this.name);s && (this.isStable() || e || this.then(function () {
           return restore(t);
         }), this.state = s.state, Object.keys(s.refs).forEach(function (e) {
           t[s.refs[e]] && (s.state[e] = t[s.refs[e]].data);
@@ -8100,13 +8402,13 @@ module.exports = function (t) {
       }, set: function set(t) {
         this.data = t;
       } }]), e;
-  }(d), u.use = [], u.staticScope = new f({}, { id: "static" }), u.state = void 0, u.persistenceTm = !1, h);g.as = function (t) {
+  }(b), u.use = [], u.staticScope = new f({}, { id: "static" }), u.state = void 0, u.persistenceTm = !1, h);k.as = function (t) {
     return { store: this, name: t };
-  }, g.map = function (t, e, s, i) {
+  }, k.map = function (t, e, s, i) {
     var n = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
         o = t._revs || {},
         a = t.stores || (t.stores = {}),
-        u = {};e = p.array(e) ? [].concat(r(e)) : [e], s = s || g.staticScope, e = e.filter(function (e) {
+        u = {};e = p.array(e) ? [].concat(r(e)) : [e], s = s || k.staticScope, e = e.filter(function (e) {
       var i;if (!e) return !1;var h = void 0,
           c = void 0,
           l = void 0,
@@ -8122,8 +8424,8 @@ module.exports = function (t) {
       }), t[c] && t[c].apply(t, arguments);
     }, u;
   }, p.rsStore = function (t) {
-    return t instanceof g;
-  }, e.default = g, t.exports = e.default;
+    return t instanceof k;
+  }, e.default = k, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
   function i(t) {
@@ -8201,7 +8503,7 @@ module.exports = function (t) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(25), __webpack_require__(0)))
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -8370,10 +8672,10 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(36)(false);
+exports = module.exports = __webpack_require__(37)(false);
 // imports
 
 
@@ -8384,7 +8686,7 @@ exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  le
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /*
@@ -8466,7 +8768,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8501,7 +8803,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8537,7 +8839,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8565,7 +8867,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8580,7 +8882,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(39);
+var isNode = __webpack_require__(40);
 
 /**
  * @param {*} object The object to check.
@@ -8593,7 +8895,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8658,7 +8960,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9208,7 +9510,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -9233,17 +9535,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(42)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(43)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(41)();
+  module.exports = __webpack_require__(42)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9965,7 +10267,7 @@ Resizable.defaultProps = {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12695,7 +12997,7 @@ module.exports = server_browser;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12743,7 +13045,7 @@ l.__html){l=l.__html;break a}}else if(l=f.children,"string"===typeof l||"number"
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29405,7 +29707,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29658,7 +29960,7 @@ X.injectIntoDevTools({findFiberByHostInstance:Ua,bundleType:0,version:"16.3.2",r
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -32409,7 +32711,7 @@ process.umask = function() { return 0; };
 //# sourceMappingURL=react-draggable.js.map
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33774,7 +34076,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33802,7 +34104,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33857,7 +34159,7 @@ module.exports = build;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33881,7 +34183,7 @@ module.exports = decode;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33889,15 +34191,15 @@ module.exports = decode;
 
 var alphabet = __webpack_require__(9);
 var encode = __webpack_require__(23);
-var decode = __webpack_require__(53);
-var build = __webpack_require__(52);
-var isValid = __webpack_require__(55);
+var decode = __webpack_require__(54);
+var build = __webpack_require__(53);
+var isValid = __webpack_require__(56);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(58) || 0;
+var clusterWorkerId = __webpack_require__(59) || 0;
 
 /**
  * Set the seed.
@@ -33953,7 +34255,7 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33979,7 +34281,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34000,7 +34302,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34032,7 +34334,7 @@ module.exports = {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34042,7 +34344,7 @@ module.exports = 0;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -34108,7 +34410,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(60);
+var	fixUrls = __webpack_require__(61);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -34424,7 +34726,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 
@@ -34519,7 +34821,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 function Agent() {
@@ -34545,7 +34847,7 @@ module.exports = Agent;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -34562,11 +34864,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(34);
-var RequestBase = __webpack_require__(63);
+var Emitter = __webpack_require__(35);
+var RequestBase = __webpack_require__(64);
 var isObject = __webpack_require__(24);
-var ResponseBase = __webpack_require__(64);
-var Agent = __webpack_require__(61);
+var ResponseBase = __webpack_require__(65);
+var Agent = __webpack_require__(62);
 
 /**
  * Noop.
@@ -35471,7 +35773,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36172,7 +36474,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36182,7 +36484,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(65);
+var utils = __webpack_require__(66);
 
 /**
  * Expose `ResponseBase`.
@@ -36315,7 +36617,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

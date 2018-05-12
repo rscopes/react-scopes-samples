@@ -32,6 +32,8 @@ import {
 }                         from "react-rescope";
 import { renderToString } from "react-dom/server"
 
+var cookie = require('cookie');
+
 import "./App.scss"
 
 var indexTpl = require('./index.html.tpl');
@@ -40,23 +42,36 @@ let ReactDom = require('react-dom');
 
 class App {
     static renderTo  = ( node, state ) => {
-        let cScope    = new Scope(AppScope, { id: "App" });
+        let cScope    = new Scope(AppScope, { id: "App" }),
+            sid       = ( cookie.parse(document.cookie) || {} )[ "connect.sid" ];
+        sid           = sid && sid.replace(/^s\:([^\.]+)(?:$|\..*$)/ig, "$1")
         window.scopes = Scope.scopes;
+        console.log(sid)
+        window.test = () => {
+            App.renderSSR({
+                              state    : cScope.stores.AppState.serialize(),
+                              sessionId: sid
+                          }, ( e, r ) => console.log(r))
+        }
         state && cScope.restore(state)
         cScope.mount([ "Home" ])
               .then(
                   ( { Home } ) => {
-                      ReactDom.hydrate(<Home/>, node);
+                      ReactDom.hydrate(<Home sessionId={ sid }/>, node);
                   }
               )
     }
     static renderSSR = ( cfg, cb ) => {
-        let cScope = new Scope(AppScope, { id: "App" });
-        cfg.state && cScope.restore(cfg.state)
+        let cScope = new Scope(AppScope, { id: cfg.sessionId + '/App' });
+        
+        cfg.state && cScope.restore({ [ cfg.sessionId ]: cfg.state })
+        console.log(cfg.sessionId, { [ cfg.sessionId ]: cfg.state })
         cScope.mount([ "SSRIndex" ])
               .then(
                   ( { SSRIndex } ) => {
-                      cb(null, renderToString(<SSRIndex state={cfg.state}/>))
+                      cb(null, renderToString(<SSRIndex sessionId={ cfg.sessionId }/>));
+                      console.log(cfg.sessionId, cScope.stores.AppState.serialize())
+                      cScope.destroy()
                   }
               )
     }

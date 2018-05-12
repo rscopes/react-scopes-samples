@@ -78,18 +78,17 @@ export default {
         }
     },
     @asRenderer([ "!Home" ])
-    SSRIndex: ( { Home, props: { state } }, { $stores } ) =>
+    SSRIndex: ( { Home, props: { sessionId } }, { $stores } ) =>
         <html lang="en">
         <head>
             <meta charSet="UTF-8"/>
             <title>Really basic drafty rescope + react component example</title>
         </head>
         <body>
-        <div id="app"
-             dangerouslySetInnerHTML={ { __html: renderToString(<Home/>) } }/>
+        <div id="app"><Home/></div>
         <script src="./App.js"></script>
         <script
-            dangerouslySetInnerHTML={ { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify(state) + ");" } }/>
+            dangerouslySetInnerHTML={ { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($stores.AppState.serialize()[ sessionId ]) + ", document.cookie);" } }/>
         </body>
         </html>,
     
@@ -159,8 +158,8 @@ export default {
                     {
                         !editing &&
                         <div className={ "text" }>
-                            { text }
-                            <button onClick={ e => this.setState({ editing: true }) }
+                            { record.text }
+                            <button onClick={ e => $store.setState({ editing: true }) }
                                     className={ "edit" }>
                                 🖋
                             </button>
@@ -173,7 +172,7 @@ export default {
                         <div className={ "editor" }>
                             <textarea
                                 onChange={ e => {
-                                    $actions.updatePostIt(
+                                    $actions.AppState.updatePostIt(
                                         {
                                             ...record,
                                             text: e.target.value
