@@ -98,14 +98,7 @@ export default {
                 someData, appState, PostIt
             }, { $actions, $stores, $store } ) =>
         <div>
-            <h1>Really basic drafty rescope SSR example</h1>,
-            {
-                someData.items.map(
-                    note => <PostIt key={ note._id } record={ note }
-                                    onSelect={ e => $actions.AppState.selectPostIt(note._id) }
-                                    selected={ note._id == appState.selectedPostItId }/>
-                )
-            }
+            <h1>Really basic drafty rescope SSR example</h1>
             <div
                 className={ "newBtn button" }
                 onClick={ $actions.AppState.newPostIt }>
@@ -116,6 +109,13 @@ export default {
                 onClick={ $actions.AppState.saveState }>
                 Save state
             </div>
+            {
+                someData.items.map(
+                    note => <PostIt key={ note._id } record={ note }
+                                    onSelect={ e => $actions.AppState.selectPostIt(note._id) }
+                                    selected={ note._id == appState.selectedPostItId }/>
+                )
+            }
         </div>,
     
     @asRenderer
@@ -127,7 +127,7 @@ export default {
               }, { $actions, $stores, $store } ) => {
         return (
             <Rnd
-                absolutePos
+                absolutePos={ true }
                 z={ selected ? 2000 : 1 }
                 size={ size || record.size }
                 position={ position || record.position }
@@ -161,10 +161,12 @@ export default {
                         <div className={ "text" }>
                             { text }
                             <button onClick={ e => this.setState({ editing: true }) }
-                                    className={ "edit" }>🖋
+                                    className={ "edit" }>
+                                🖋
                             </button>
                             <button onClick={ e => $actions.AppState.rmPostIt(record) }
-                                    className={ "delete" }>🖾
+                                    className={ "delete" }>
+                                🖾
                             </button>
                         </div>
                         ||

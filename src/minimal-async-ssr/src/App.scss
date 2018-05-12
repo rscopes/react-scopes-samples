@@ -18,7 +18,14 @@
   height: 100%;
   top: 0px;
   left: 0;
-  user-select:none;
+  user-select: none;
+  > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0;
+  }
 }
 
 .button {
@@ -76,15 +83,15 @@
     }
     .delete {
 
-       position: absolute;
-       bottom: 5px;
-       //left: 5px;
-       right: 5px;
-       //display: none;
-       //&:hover {
-       //  display: block;
-       //}
-     }
+      position: absolute;
+      bottom: 5px;
+      //left: 5px;
+      right: 5px;
+      //display: none;
+      //&:hover {
+      //  display: block;
+      //}
+    }
   }
   .editor {
     position: absolute;

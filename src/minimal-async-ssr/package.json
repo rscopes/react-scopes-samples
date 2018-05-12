@@ -22,7 +22,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rescope": "^1.1.2",
-    "react-rnd": "git+https://github.com/CaipiLabs/react-rnd.git#master",
+    "react-rnd": "git+https://github.com/CaipiLabs/react-rnd.git",
     "request": "^2.85.0",
     "rescope": "^3.6.6",
     "rescope-spells": "^0.1.2",
