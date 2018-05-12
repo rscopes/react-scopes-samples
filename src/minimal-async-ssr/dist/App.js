@@ -2093,8 +2093,6 @@ module.exports =
 					_this2.$scope = null;
 				}
 
-				_this2.$scope && _is2.default.fn(scope) && _this2.$scope.retain("hoc");
-
 				_this2.$stores = _this2.$scope && _this2.$scope.stores;
 				_this2.$actions = _this2.$scope && _this2.$scope.actions;
 				if (_this2.$scope && use.length) {
@@ -2113,6 +2111,11 @@ module.exports =
 					var _$scope;
 
 					this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
+				}
+			}, {
+				key: 'componentDidMount',
+				value: function componentDidMount() {
+					this.$scope && _is2.default.fn(scope) && this.$scope.retain("hoc");
 				}
 			}, {
 				key: 'componentWillMount',
@@ -4023,7 +4026,7 @@ var App = (_temp = _class = function App() {
 
         cb(null, (0, _server.renderToString)(_react2.default.createElement(SSRIndex, { sessionId: cfg.sessionId })));
         console.log(cfg.sessionId, cScope.stores.AppState.serialize());
-        cScope.destroy();
+        //cScope.destroy()
     });
 }, _temp);
 

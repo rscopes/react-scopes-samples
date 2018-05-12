@@ -71,7 +71,7 @@ class App {
                   ( { SSRIndex } ) => {
                       cb(null, renderToString(<SSRIndex sessionId={ cfg.sessionId }/>));
                       console.log(cfg.sessionId, cScope.stores.AppState.serialize())
-                      cScope.destroy()
+                      //cScope.destroy()
                   }
               )
     }
