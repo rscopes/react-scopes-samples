@@ -86,7 +86,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 30);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -287,9 +287,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(52);
-} else {
   module.exports = __webpack_require__(51);
+} else {
+  module.exports = __webpack_require__(50);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -1467,7 +1467,7 @@ module.exports = checkPropTypes;
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(58);
+var randomFromSeed = __webpack_require__(57);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -1604,9 +1604,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(49);
-} else {
   module.exports = __webpack_require__(48);
+} else {
+  module.exports = __webpack_require__(47);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -1627,7 +1627,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-var hyphenate = __webpack_require__(39);
+var hyphenate = __webpack_require__(38);
 
 var msPattern = /^ms-/;
 
@@ -1678,7 +1678,7 @@ module.exports = ReactPropTypesSecret;
 
 "use strict";
 
-module.exports = __webpack_require__(55);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
@@ -2525,7 +2525,7 @@ module.exports =
 /* 5 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(44);
+	module.exports = __webpack_require__(43);
 
 	/***/
 }]
@@ -2539,9 +2539,9 @@ module.exports =
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(47);
-} else {
   module.exports = __webpack_require__(46);
+} else {
+  module.exports = __webpack_require__(45);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -2554,9 +2554,9 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports = __webpack_require__(34);
-} else {
     module.exports = __webpack_require__(33);
+} else {
+    module.exports = __webpack_require__(32);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
@@ -2615,7 +2615,7 @@ module.exports = ExecutionEnvironment;
 
 
 
-var camelize = __webpack_require__(38);
+var camelize = __webpack_require__(37);
 
 var msPattern = /^-ms-/;
 
@@ -2658,7 +2658,7 @@ module.exports = camelizeStyleName;
  * 
  */
 
-var isTextNode = __webpack_require__(41);
+var isTextNode = __webpack_require__(40);
 
 /*eslint-disable no-bitwise */
 
@@ -2838,7 +2838,7 @@ module.exports = shallowEqual;
 "use strict";
 
 
-var randomByte = __webpack_require__(57);
+var randomByte = __webpack_require__(56);
 
 function encode(lookup, number) {
     var loopCounter = 0;
@@ -2919,13 +2919,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _dec, _dec2, _desc, _value, _obj, _init, _init2, _init3, _init4, _desc2, _value2, _obj2, _init5, _init6;
+var _dec, _dec2, _dec3, _desc, _value, _obj, _init, _desc2, _value2, _obj2, _init2, _init3, _init4, _init5, _desc3, _value3, _obj3, _init6, _init7;
 
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _superagent = __webpack_require__(63);
+var _superagent = __webpack_require__(62);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -2933,11 +2933,11 @@ var _shortid = __webpack_require__(13);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _reactRnd = __webpack_require__(30);
+var _reactRnd = __webpack_require__(29);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _rescopeSpells = __webpack_require__(32);
+var _rescopeSpells = __webpack_require__(31);
 
 var _server = __webpack_require__(15);
 
@@ -2974,8 +2974,48 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
     return desc;
 }
 
-exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0, _rescopeSpells.asRenderer)(["!AppState.appState", "!AppState.someData", "!PostIt"]), (_obj = {
-    AppState: (_obj2 = {
+exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0, _rescopeSpells.asRenderer)(["!AppState.appState", "!AppState.someData", "!PostIt"]), _dec3 = (0, _rescopeSpells.asRenderer)((_obj = {
+    DaSearch: {
+        src: "https://query.yahooapis.com/v1/public/yql?format=json&env=sto&q=",
+
+        updateSearch: function updateSearch(searching) {
+            var _this = this;
+
+            var state = this.nextState;
+
+            if (searching == state.searching) return;
+            if (searching.length < 4) return { searching: searching };
+
+            _superagent2.default.get(state.src + 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + searching + '")').then(function (res) {
+                if (searching != _this.nextState.searching) return;
+                try {
+                    _this.data.results = {
+                        place: res.body.query.results.channel.location,
+                        img: res.body.query.results.channel.image.url,
+                        descr: res.body.query.results.channel.item.description.replace('<![CDATA[', '').replace(']]>', '')
+                    };
+                } catch (e) {
+                    _this.data.results = {
+                        place: { city: "no results" }
+                    };
+                }
+                _this.push(_this.data);
+                _this.release();
+            });
+            this.wait();
+            return { searching: searching };
+        }
+    }
+
+}, (_applyDecoratedDescriptor(_obj, "DaSearch", [_rescopeSpells.asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init;
+    }
+}), _obj)), _obj), ["DaSearch"]), (_obj2 = {
+    AppState: (_obj3 = {
         appState: {
             selectedPostItId: null,
             selectPostIt: function selectPostIt(selectedPostItId) {
@@ -2989,12 +3029,12 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
             src: "/api/hello",
             items: [{
                 "_id": "rkUQHZrqM",
-                "size": { "width": 200, "height": 200 },
+                "size": { "width": 300, "height": 400 },
                 "text": "New Post It #0 somewhere we wait some new shit out there !",
                 "position": { "x": 321, "y": 167 }
             }, {
                 "_id": "r1bcuMrcM",
-                "size": { "width": 200, "height": 200 },
+                "size": { "width": 300, "height": 400 },
                 "text": "do somethink",
                 "position": { "x": 260, "y": 576 }
             }],
@@ -3030,31 +3070,31 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
                 };
             },
             saveState: function saveState() {
-                _superagent2.default.post('/', this.scopeObj.serialize()).then(function (e, r) {
+                _superagent2.default.post('/', this.$stores.$parent.serialize()).then(function (e, r) {
                     console.log(e, r);
                 });
             }
         }
-    }, (_applyDecoratedDescriptor(_obj2, "appState", [_rescopeSpells.asStateMap], (_init5 = Object.getOwnPropertyDescriptor(_obj2, "appState"), _init5 = _init5 ? _init5.value : undefined, {
-        enumerable: true,
-        configurable: true,
-        writable: true,
-        initializer: function initializer() {
-            return _init5;
-        }
-    }), _obj2), _applyDecoratedDescriptor(_obj2, "someData", [_rescopeSpells.asStateMap], (_init6 = Object.getOwnPropertyDescriptor(_obj2, "someData"), _init6 = _init6 ? _init6.value : undefined, {
+    }, (_applyDecoratedDescriptor(_obj3, "appState", [_rescopeSpells.asStateMap], (_init6 = Object.getOwnPropertyDescriptor(_obj3, "appState"), _init6 = _init6 ? _init6.value : undefined, {
         enumerable: true,
         configurable: true,
         writable: true,
         initializer: function initializer() {
             return _init6;
         }
-    }), _obj2)), _obj2),
+    }), _obj3), _applyDecoratedDescriptor(_obj3, "someData", [_rescopeSpells.asStateMap], (_init7 = Object.getOwnPropertyDescriptor(_obj3, "someData"), _init7 = _init7 ? _init7.value : undefined, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        initializer: function initializer() {
+            return _init7;
+        }
+    }), _obj3)), _obj3),
 
     SSRIndex: function SSRIndex(_ref, _ref2) {
         var Home = _ref.Home,
             sessionId = _ref.props.sessionId;
-        var $stores = _ref2.$stores;
+        var $scope = _ref2.$scope;
         return _react2.default.createElement(
             "html",
             { lang: "en" },
@@ -3065,7 +3105,7 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
                 _react2.default.createElement(
                     "title",
                     null,
-                    "Really basic drafty rescope + react component example"
+                    "Really basic drafty rescope + react SSR example"
                 )
             ),
             _react2.default.createElement(
@@ -3078,7 +3118,7 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
                 ),
                 _react2.default.createElement("script", { src: "./App.js" }),
                 _react2.default.createElement("script", {
-                    dangerouslySetInnerHTML: { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($stores.AppState.serialize()[sessionId]) + ", document.cookie);" } })
+                    dangerouslySetInnerHTML: { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($scope.parent.parent.serialize()[sessionId]) + ", document.cookie);" } })
             )
         );
     },
@@ -3131,6 +3171,7 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
             text = _ref5.text,
             size = _ref5.size,
             editing = _ref5.editing,
+            DaSearch = _ref5.DaSearch,
             _ref5$doSave = _ref5.doSave,
             doSave = _ref5$doSave === undefined ? function () {
             return $actions.AppState.updatePostIt(_extends({}, record, {
@@ -3169,84 +3210,61 @@ exports.default = (_dec = (0, _rescopeSpells.asRenderer)(["!Home"]), _dec2 = (0,
             _react2.default.createElement(
                 "div",
                 { className: "postit handle" },
-                !editing && _react2.default.createElement(
+                _react2.default.createElement(
                     "div",
-                    { className: "text" },
-                    record.text,
-                    _react2.default.createElement(
-                        "button",
-                        { onClick: function onClick(e) {
-                                return $store.setState({ editing: true });
-                            },
-                            className: "edit" },
-                        "\uD83D\uDD8B"
-                    ),
-                    _react2.default.createElement(
-                        "button",
-                        { onClick: function onClick(e) {
-                                return $actions.AppState.rmPostIt(record);
-                            },
-                            className: "delete" },
-                        "\uD83D\uDDBE"
-                    )
-                ) || _react2.default.createElement(
+                    { className: "search" },
+                    _react2.default.createElement("input", {
+                        onChange: function onChange(e) {
+                            $actions.updateSearch(e.target.value);
+                        }
+                        //defaultValue={ DaSearch.searching }
+                        , onMouseDown: function onMouseDown(e) {
+                            return e.stopPropagation();
+                        } })
+                ),
+                DaSearch && DaSearch.results && DaSearch.results.place && _react2.default.createElement(
                     "div",
-                    { className: "editor" },
-                    _react2.default.createElement(
-                        "textarea",
-                        {
-                            onChange: function onChange(e) {
-                                $actions.AppState.updatePostIt(_extends({}, record, {
-                                    text: e.target.value
-                                }));
-                            },
-                            onMouseDown: function onMouseDown(e) {
-                                return e.stopPropagation();
-                            }
-                        },
-                        text
-                    ),
-                    _react2.default.createElement(
-                        "button",
-                        {
-                            onClick: function onClick(e) {
-                                return $store.setState({ editing: false });
-                            } },
-                        "\uD83D\uDCBE"
-                    )
-                )
+                    null,
+                    DaSearch.results.place.city,
+                    " - ",
+                    DaSearch.results.place.country
+                ),
+                _react2.default.createElement("div", { className: "text",
+                    dangerouslySetInnerHTML: {
+                        __html: DaSearch && DaSearch.results && DaSearch.results.descr
+                    } })
             )
         );
     }
-}, (_applyDecoratedDescriptor(_obj, "AppState", [_rescopeSpells.asScope], (_init = Object.getOwnPropertyDescriptor(_obj, "AppState"), _init = _init ? _init.value : undefined, {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    initializer: function initializer() {
-        return _init;
-    }
-}), _obj), _applyDecoratedDescriptor(_obj, "SSRIndex", [_dec], (_init2 = Object.getOwnPropertyDescriptor(_obj, "SSRIndex"), _init2 = _init2 ? _init2.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj2, "AppState", [_rescopeSpells.asScope], (_init2 = Object.getOwnPropertyDescriptor(_obj2, "AppState"), _init2 = _init2 ? _init2.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init2;
     }
-}), _obj), _applyDecoratedDescriptor(_obj, "Home", [_dec2], (_init3 = Object.getOwnPropertyDescriptor(_obj, "Home"), _init3 = _init3 ? _init3.value : undefined, {
+}), _obj2), _applyDecoratedDescriptor(_obj2, "SSRIndex", [_dec], (_init3 = Object.getOwnPropertyDescriptor(_obj2, "SSRIndex"), _init3 = _init3 ? _init3.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init3;
     }
-}), _obj), _applyDecoratedDescriptor(_obj, "PostIt", [_rescopeSpells.asRenderer], (_init4 = Object.getOwnPropertyDescriptor(_obj, "PostIt"), _init4 = _init4 ? _init4.value : undefined, {
+}), _obj2), _applyDecoratedDescriptor(_obj2, "Home", [_dec2], (_init4 = Object.getOwnPropertyDescriptor(_obj2, "Home"), _init4 = _init4 ? _init4.value : undefined, {
     enumerable: true,
     configurable: true,
     writable: true,
     initializer: function initializer() {
         return _init4;
     }
-}), _obj)), _obj));
+}), _obj2), _applyDecoratedDescriptor(_obj2, "PostIt", [_dec3], (_init5 = Object.getOwnPropertyDescriptor(_obj2, "PostIt"), _init5 = _init5 ? _init5.value : undefined, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    initializer: function initializer() {
+        return _init5;
+    }
+}), _obj2)), _obj2));
 module.exports = exports["default"];
 
 /***/ }),
@@ -3453,23 +3471,10 @@ function tryDecode(str, decode) {
 
 /***/ }),
 /* 28 */
-/***/ (function(module, exports) {
-
-module.exports = (function () {
-  var fn = function anonymous(it
-/**/) {
-var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT License ~ ~  Permission is hereby granted, free of charge, to any person obtaining a copy ~  of this software and associated documentation files (the "Software"), to deal ~  in the Software without restriction, including without limitation the rights ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell ~  copies of the Software, and to permit persons to whom the Software is ~  furnished to do so, subject to the following conditions: ~ ~  The above copyright notice and this permission notice shall be included in all ~  copies or substantial portions of the Software. ~ ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE ~  SOFTWARE. ~ ~ @author : Nathanael Braun ~ @contact : caipilabs@gmail.com --><html lang="en"><head> <meta charset="UTF-8"> <title>Really basic drafty rescope + react component example</title> <script>window.__scopesState ='+(it.state || "{}")+';</script></head><body><div id="app">'+(it.app || '')+'</div><script src="./App.js"></script><script> App.renderTo(document.getElementById(\'app\'));</script></body></html>';return out;
-};
-  fn.render = fn;
-  return fn;
-})();
-
-/***/ }),
-/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(36);
+var content = __webpack_require__(35);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -3483,7 +3488,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(60)(content, options);
+var update = __webpack_require__(59)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -3515,7 +3520,7 @@ if(false) {
 }
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3524,9 +3529,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(44);
 
 
 
@@ -3932,7 +3937,7 @@ Rnd.defaultProps = {
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3981,7 +3986,7 @@ var _reactRescope = __webpack_require__(14);
 
 var _server = __webpack_require__(15);
 
-__webpack_require__(29);
+__webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3991,7 +3996,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var cookie = __webpack_require__(27);
 
-var indexTpl = __webpack_require__(28);
 var ReactDom = __webpack_require__(10);
 
 var App = (_temp = _class = function App() {
@@ -4001,10 +4005,9 @@ var App = (_temp = _class = function App() {
         sid = (cookie.parse(document.cookie) || {})["connect.sid"];
     sid = sid && sid.replace(/^s\:([^\.]+)(?:$|\..*$)/ig, "$1");
     window.scopes = _reactRescope.Scope.scopes;
-    console.log(sid);
     window.test = function () {
         App.renderSSR({
-            state: cScope.stores.AppState.serialize(),
+            state: cScope.serialize(),
             sessionId: sid
         }, function (e, r) {
             return console.log(r);
@@ -4017,16 +4020,23 @@ var App = (_temp = _class = function App() {
         ReactDom.hydrate(_react2.default.createElement(Home, { sessionId: sid }), node);
     });
 }, _class.renderSSR = function (cfg, cb) {
-    var cScope = new _reactRescope.Scope(_AppScope2.default, { id: cfg.sessionId + '/App' });
-
-    cfg.state && cScope.restore(_defineProperty({}, cfg.sessionId, cfg.state));
-    console.log(cfg.sessionId, _defineProperty({}, cfg.sessionId, cfg.state));
-    cScope.mount(["SSRIndex"]).then(function (_ref2) {
-        var SSRIndex = _ref2.SSRIndex;
-
-        cb(null, (0, _server.renderToString)(_react2.default.createElement(SSRIndex, { sessionId: cfg.sessionId })));
-        console.log(cfg.sessionId, cScope.stores.AppState.serialize());
-        //cScope.destroy()
+    var env = new _reactRescope.Scope({}, {}),
+        cScope = new _reactRescope.Scope(_AppScope2.default, {
+        key: "App",
+        parent: env
+        //snapshot: { [ env._id ]: cfg.state }
+    }),
+        state = _defineProperty({}, env._id, cfg.state);
+    //cfg.state && cScope.restore(state);
+    console.log(cfg.sessionId, state);
+    cScope.mount(["SSRIndex"]).then(function (State) {
+        ///mount deps
+        (0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { sessionId: env._id }));
+        cScope.then(function (State) {
+            cb(null, (0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { sessionId: env._id })));
+            console.log(cfg.sessionId, cScope.serialize());
+            cScope.destroy();
+        });
     });
 }, _temp);
 
@@ -4038,7 +4048,7 @@ exports.default = App;
 module.exports = exports["default"];
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4339,6 +4349,22 @@ module.exports =
 		value: true
 	});
 
+	var _get = function get(object, property, receiver) {
+		if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				return get(parent, property, receiver);
+			}
+		} else if ("value" in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	};
+
 	var _extends = Object.assign || function (target) {
 		for (var i = 1; i < arguments.length; i++) {
 			var source = arguments[i];for (var key in source) {
@@ -4526,7 +4552,8 @@ module.exports =
 
 			var use = void 0,
 			    state = void 0,
-			    actions = void 0;
+			    scope = argz[1] && argz[0],
+			    sm = argz[1] || argz[0];
 			//if ( !argz[ 0 ] ) {
 			state = {};
 			//argz[ 0 ] = []
@@ -4543,17 +4570,59 @@ module.exports =
 			return _temp2 = _class3 = function (_Store2) {
 				_inherits(RSRenderer, _Store2);
 
-				function RSRenderer() {
+				function RSRenderer(scope, cfg) {
 					_classCallCheck(this, RSRenderer);
 
-					return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+					var _this4 = _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+
+					_this4._compScope = new _reactRescope.Scope({}, {
+						key: RSRenderer.displayName,
+						parent: _this4.$scope,
+						autoDestroy: true
+
+					});
+
+					_this4._compScope.retain("RSRenderer");
+					_this4.__snapshot = cfg.snapshot;
+					return _this4;
 				}
 
+				//static actions     = actions;
+
+				//static use         = use;
+
+
 				_createClass(RSRenderer, [{
-					key: "apply",
+					key: "serialize",
+					value: function serialize(cfg, output) {
+						var _compScope;
+
+						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "serialize", this).apply(this, arguments);
+						(_compScope = this._compScope).serialize.apply(_compScope, arguments);
+						return output;
+					}
 
 					//static actions     = actions;
 
+				}, {
+					key: "restore",
+					value: function restore() {
+						var _compScope2;
+
+						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "restore", this).apply(this, arguments);
+						(_compScope2 = this._compScope).restore.apply(_compScope2, arguments);
+					}
+
+					//static actions     = actions;
+
+				}, {
+					key: "destroy",
+					value: function destroy() {
+						this._compScope.dispose("RSRenderer");
+						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "destroy", this).call(this);
+					}
+				}, {
+					key: "apply",
 					value: function apply(d, s, c) {
 						var _dec8,
 						    _this5 = this,
@@ -4563,16 +4632,17 @@ module.exports =
 							//this._comp.setState(c);
 							return d;
 						}
-						var scope,
-						    asRootRenderer = _reactRescope.spells.asRootRenderer;
 
 						var RSCompRenderer = (_dec8 = (0, _reactRescope.scopeToState)(function (comp, props, ctx) {
-							return new _reactRescope.Scope(_defineProperty({}, RSRenderer.displayName, Lib.rootRenderer(obj, argz, [, RSRenderer.displayName])), {
-								key: RSRenderer.displayName,
-								parent: _this5.$scope,
+							var viewScope = new _reactRescope.Scope(_extends(_defineProperty({}, RSRenderer.displayName, Lib.rootRenderer(obj, [sm], [, RSRenderer.displayName])), scope || {}), {
+								key: "comp",
+								parent: _this5._compScope,
 								autoDestroy: true,
+
 								state: _defineProperty({}, RSRenderer.displayName, { props: props })
 							});
+							if (_this5.__snapshot) viewScope.restore(_this5.__snapshot);
+							return viewScope;
 						}, [RSRenderer.displayName]), _dec8(_class4 = function (_React$Component) {
 							_inherits(RSCompRenderer, _React$Component);
 
@@ -4587,7 +4657,7 @@ module.exports =
 								value: function componentWillReceiveProps(props) {
 									var Comp = this.$stores[RSRenderer.displayName];
 
-									Comp && Comp.setState({ props: props });
+									//Comp && Comp.setState({ props });
 								}
 							}, {
 								key: "render",
@@ -4605,7 +4675,7 @@ module.exports =
 				}]);
 
 				return RSRenderer;
-			}(_reactRescope.Store), _class3.displayName = ref[1], _class3.use = use, _class3.state = state, _temp2;
+			}(_reactRescope.Store), _class3.displayName = ref[1], _class3.state = state, _temp2;
 		},
 		rootRenderer: function rootRenderer(obj, argz, ref) {
 			var _class5, _temp3;
@@ -4632,25 +4702,37 @@ module.exports =
 				}
 
 				_createClass(RSRenderer, [{
+					key: "serialize",
+
+					//static actions     = actions;
+					value: function serialize(cfg, output) {
+						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "serialize", this).apply(this, arguments);
+						var snap = this.scopeObj.getSnapshotByKeyExt(output, this.$scope._id + '/' + this.name);
+						if (snap.state && snap.state.props) delete snap.state.props;
+						delete snap.data;
+						return output;
+					}
+				}, {
 					key: "apply",
 					value: function apply(d, s, c) {
 						//if ( d ) {
-						//    this._comp.setState(c);
+						//    //this._comp.setState(c);
 						//    return d;
 						//}
 						return obj(s, {
 							$actions: this.$actions,
 							$stores: this.$stores,
+							$scope: this.$scope,
 							$store: this
 						});
 					}
 				}]);
 
 				return RSRenderer;
-			}(_reactRescope.Store), _class5.displayName = ref[1], _class5.use = use, _class5.state = state, _class5.actions = actions, _temp3;
+			}(_reactRescope.Store), _class5.displayName = ref[1], _class5.use = use, _class5.state = state || {}, _class5.actions = actions, _temp3;
 		},
-		store: function store(obj, _ref4, ref) {
-			var cfg = _ref4[0];
+		store: function store(obj, _ref3, ref) {
+			var cfg = _ref3[0];
 
 			return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
 					return obj(d, s, c);
@@ -4681,7 +4763,7 @@ module.exports =
 //# sourceMappingURL=rescopeSpells.js.map
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4923,6 +5005,8 @@ module.exports =
 	    _require = __webpack_require__(4),
 	    walknSet = _require.walknSet,
 	    walknGet = _require.walknGet,
+	    keyWalknSet = _require.keyWalknSet,
+	    keyWalknGet = _require.keyWalknGet,
 	    EventEmitter = __webpack_require__(5),
 	    shortid = __webpack_require__(6),
 	    __proto__push = function __proto__push(target, id, parent) {
@@ -4979,6 +5063,7 @@ module.exports =
 
 		// all active scopes
 
+
 		/**
    * Init a ReScope scope
    *
@@ -4989,7 +5074,7 @@ module.exports =
    *
    *  id {string} @optional id ( if this id exist storesMap will be merge on the 'id'
    *     scope) key {string} @optional key of the scope ( if no id is set, the scope id
-   *     will be (parent.id+':>'+key) incrementId {bool} @optional true to add a suffix
+   *     will be (parent.id+'>'+key) incrementId {bool} @optional true to add a suffix
    *     id, if the provided key or id globally exist
    *
    *  state {Object} @optional initial state by store alias
@@ -5009,6 +5094,7 @@ module.exports =
 			    parent = _ref2.parent,
 			    key = _ref2.key,
 			    id = _ref2.id,
+			    snapshot = _ref2.snapshot,
 			    state = _ref2.state,
 			    data = _ref2.data,
 			    _ref2$incrementId = _ref2.incrementId,
@@ -5024,7 +5110,7 @@ module.exports =
 
 			var _ = {};
 
-			id = id || key && (parent && parent._id || '') + ':>' + key;
+			id = id || key && (parent && parent._id || '') + '>' + key;
 
 			_.isLocalId = !id;
 
@@ -5054,6 +5140,7 @@ module.exports =
 
 			_this.parent = parent;
 			_this._ = _;
+			_this._autoDestroy = autoDestroy;
 
 			if (parent && parent.dead) throw new Error("Can't use a dead scope as parent !");
 
@@ -5069,6 +5156,9 @@ module.exports =
 
 			_this.__retains = { all: 0 };
 			_this.__locks = { all: 1 };
+
+			//_.snapshot        = snapshot;
+			//_.snapshot        = snapshot;
 			_._boundedActions = is.array(boundedActions) ? { test: boundedActions.includes.bind(boundedActions) } : boundedActions;
 			_._listening = {};
 			_._scope = {};
@@ -5107,6 +5197,9 @@ module.exports =
 			if (parent) {
 				parent._addChild(_this);
 			}
+
+			_this.restore(snapshot);
+
 			if (autoDestroy) setTimeout(function (tm) {
 				_this.retain("autoDestroy");
 				_this.dispose("autoDestroy");
@@ -5143,10 +5236,12 @@ module.exports =
 		}, {
 			key: '_mount',
 			value: function _mount(id, snapshot, state, data) {
-				var ref = void 0;
+				var ref = void 0,
+				    snap = void 0;
 
 				ref = this.parseRef(id);
 
+				if (id == "$parent") return;
 				if (!this._._scope[ref.storeId]) {
 					var _parent;
 
@@ -5160,7 +5255,7 @@ module.exports =
 					    taskQueue = [];
 					if (is.rsStore(store.prototype)) {
 						this._._scope[ref.storeId] = new store(this, {
-							snapshot: snapshot,
+							//snapshot,
 							name: ref.storeId,
 							state: state,
 							data: data
@@ -5169,19 +5264,20 @@ module.exports =
 							taskQueue.shift()();
 						}
 					} else if (is.rsScope(store.prototype)) {
-						this._._scope[ref.storeId] = new store({ $parent: this }, {
-							snapshot: snapshot,
-							id: this._id + '/' + ref.storeId,
-							autoDestroy: true
+						store = this._._scope[ref.storeId] = new store({ $parent: this }, {
+							id: this._id + '/' + ref.storeId
+							//autoDestroy: true
 							//parent: this
 						});
 						//this._._scope[ ref.storeId ].retain("scopedChildScope");
 						//this._watchStore(ref.storeId);
-						if (ref.path.length > 1) return this._._scope[ref.storeId].mount(ref.path.slice(1).join('.'), snapshot, state, data);
+						if (ref.path.length > 1) this._._scope[ref.storeId].mount(ref.path.slice(1).join('.'), snapshot, state, data);
 						//else return this._._scope[ ref.storeId ];
-					} else if (is.rsScope(store) && ref.path.length > 1) {
-						return this._._scope[ref.storeId].mount(ref.path.slice(1).join('.'), snapshot, state, data);
-					} else if (snapshot && (is.rsScope(store) || is.rsScope(store))) store.restore(snapshot);else if (is.rsStore(this._._scope[ref.storeId])) {
+					}
+					//if ( snapshot && is.rsScope(store) && ( snap = keyWalknGet(snapshot,
+					// store._id) ) && snap[ '/' ] ) { return store.mount(Object.keys(snap[ '/'
+					// ])) } else if ( snapshot && is.rsStore(store) ) store.restore();
+					if (is.rsStore(store)) {
 						if (state !== undefined && data === undefined) store.setState(state);else if (state !== undefined) store.state = state;
 
 						if (data !== undefined) store.push(data);
@@ -5321,7 +5417,6 @@ module.exports =
 
 				var lctx = targetCtx._.stores.prototype;
 				Object.keys(srcCtx).forEach(function (id) {
-					if (id == "$parent") return;
 					if (!force && targetCtx._._scope[id] === srcCtx[id] || targetCtx._._scope[id] && targetCtx._._scope[id].constructor === srcCtx[id]) return;
 
 					if (!force && targetCtx._._scope[id]) {
@@ -5341,6 +5436,7 @@ module.exports =
 							return _this6._._scope[id];
 						}
 					});
+					if (id == "$parent") return;
 					Object.defineProperty(targetCtx._.state.prototype, id, {
 						enumerable: true,
 						configurable: true,
@@ -5498,8 +5594,6 @@ module.exports =
 				}
 				return refList.reduce(function (data, ref) {
 					walknSet(data, ref.alias || ref.path, _this8.retrieve(ref.path));
-					//] = this.stores[ id[ 0 ][ 0 ] ] && this.stores[ id[ 0 ][ 0 ] ].retrieve &&
-					// this.stores[ id[ 0 ][ 0 ] ].retrieve(id[ 0 ].splice(1));
 					return data;
 				}, {});
 			}
@@ -5552,6 +5646,7 @@ module.exports =
 					storesRevMap = {};
 				}
 				Object.keys(ctx).forEach(function (id) {
+					if (id == "$parent") return;
 					if (!is.fn(ctx[id])) {
 						storesRevMap[id] = ctx[id]._rev;
 					} else if (!storesRevMap.hasOwnProperty(id)) storesRevMap[id] = false;
@@ -5583,6 +5678,7 @@ module.exports =
 
 				output = output || {};
 				Object.keys(ctx).forEach(function (id) {
+					if (id == "$parent") return;
 					if (!output.hasOwnProperty(id) && !is.fn(ctx[id]) && (!storesRevMap || storesRevMap.hasOwnProperty(id) && storesRevMap[id] === undefined || !(!storesRevMap.hasOwnProperty(id) || ctx[id]._rev <= storesRevMap[id].rev))) {
 
 						updated = true;
@@ -5638,28 +5734,26 @@ module.exports =
 		}, {
 			key: 'serialize',
 			value: function serialize() {
-				var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-				    alias = _ref3.alias,
-				    _ref3$withChilds = _ref3.withChilds,
-				    withChilds = _ref3$withChilds === undefined ? true : _ref3$withChilds,
-				    withParents = _ref3.withParents,
-				    _ref3$withMixed = _ref3.withMixed,
-				    withMixed = _ref3$withMixed === undefined ? true : _ref3$withMixed,
-				    norefs = _ref3.norefs;
-
+				var cfg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 				var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
 				var ctx = this._._scope,
-				    idPath = this._id.split(/[\:|\/]/);
-				if (walknGet(output, idPath)) return;
+				    alias = cfg.alias,
+				    _cfg$withChilds = cfg.withChilds,
+				    withChilds = _cfg$withChilds === undefined ? true : _cfg$withChilds,
+				    withParents = cfg.withParents,
+				    _cfg$withMixed = cfg.withMixed,
+				    withMixed = _cfg$withMixed === undefined ? true : _cfg$withMixed,
+				    norefs = cfg.norefs;
+
+				if (keyWalknGet(output, this._id)) return output;
 
 				//@todo : better serialize method
-				walknSet(output, idPath, {});
+				keyWalknSet(output, this._id, {});
 
 				Object.keys(ctx).forEach(function (id) {
 					if (id == "$parent" || is.fn(ctx[id])) return;
 
-					ctx[id].serialize(!norefs, output);
+					ctx[id].serialize(cfg, output);
 				});
 
 				withParents && this.parent && this.parent.serialize({
@@ -5709,26 +5803,75 @@ module.exports =
 				var cfg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 				var force = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : is.bool(cfg) && cfg;
 
-				var ctx = this._._scope;
-				Object.keys(ctx).forEach(function (name) {
-					var idPath = (_this10._id + '/' + name).split(/[\:|\/]/),
-					    snap = walknGet(snapshot, idPath);
+				var ctx = this._._scope,
+				    snap = void 0;
+				snapshot = snapshot && keyWalknGet(snapshot, this._id) || this.takeSnapshotByKey(this._id);
 
-					if (snap) {
+				if (!snapshot) return;
+
+				this._.snapshot = snapshot;
+
+				snap = snapshot['/'];
+
+				snap && Object.keys(snap).forEach(function (name) {
+					if (name == "$parent") return;
+
+					if (ctx[name]) {
 
 						if (force && !is.fn(ctx[name])) ctx[name].destroy();
 
-						_this10.mount(name, snapshot); // quiet
+						_this10._mount(name); // quiet
 					}
 				});
 
 				this._._mixed.forEach(function (ctx) {
-					!ctx._.isLocalId && ctx.restore(snapshot, force);
+					!ctx._.isLocalId && ctx.restore(undefined, force);
 				});
 
 				this._.childScopes.forEach(function (ctx) {
-					!ctx._.isLocalId && ctx.restore(snapshot, force);
+					!ctx._.isLocalId && ctx.restore(undefined, force);
 				});
+			}
+		}, {
+			key: 'getSnapshotByKey',
+			value: function getSnapshotByKey(key, local) {
+				// only have the local snap
+				if (this._.snapshot && key.startsWith(this._id)) {
+					var obj = keyWalknGet(this._.snapshot, key.substr(this._id.length));
+					//if ( obj ) {
+					//    this.deleteSnapshotByKey(key);
+					//}
+					return obj;
+				} else return !local && this.parent && this.parent.getSnapshotByKey(key) || this.stores.$parent && this.stores.$parent.getSnapshotByKey(key);
+			}
+		}, {
+			key: 'getSnapshotByKeyExt',
+			value: function getSnapshotByKeyExt(snapshot, key, local) {
+				// only have the local snap
+				if (snapshot) {
+					var obj = keyWalknGet(snapshot, key);
+					return obj;
+				}
+			}
+		}, {
+			key: 'takeSnapshotByKey',
+			value: function takeSnapshotByKey(key, local) {
+				if (this._.snapshot && key.startsWith(this._id)) {
+					var obj = keyWalknGet(this._.snapshot, key.substr(this._id.length));
+					if (obj) {
+						//this.deleteSnapshotByKey(key, true);
+					}
+					return obj;
+				} else return !local && this.parent && this.parent.takeSnapshotByKey(key) || this.stores.$parent && this.stores.$parent.takeSnapshotByKey(key);
+			}
+		}, {
+			key: 'deleteSnapshotByKey',
+			value: function deleteSnapshotByKey(key, local) {
+				if (this._.snapshot && key.startsWith(this._id)) {
+					var obj = keyWalknGet(this._.snapshot, key.substr(this._id.length).replace(/^(.*[\>|\/])[^\>|\/]+$/ig, '$1'));
+					if (obj) delete obj[key.replace(/^.*[\>|\/]([^\>|\/]+)$/ig, '$1')];
+				}
+				return !local && this.parent && this.parent.deleteSnapshotByKey(key) || this.stores.$parent && this.stores.$parent.deleteSnapshotByKey(key);
 			}
 		}, {
 			key: 'setState',
@@ -5789,6 +5932,7 @@ module.exports =
 				Object.keys(this._._scope).forEach(function (id) {
 					var _$_scope$id;
 
+					if (id == "$parent") return;
 					if (!is.fn(_this12._._scope[id])) (_$_scope$id = _this12._._scope[id]).trigger.apply(_$_scope$id, [action].concat(argz));
 				});
 
@@ -5799,6 +5943,14 @@ module.exports =
 				});
 				this.parent && (_parent2 = this.parent).dispatch.apply(_parent2, [action].concat(argz));
 				return this;
+			}
+
+			//
+
+		}, {
+			key: 'trigger',
+			value: function trigger() {
+				this.dispatch.apply(this, arguments);
 			}
 
 			/**
@@ -5931,12 +6083,12 @@ module.exports =
 			value: function _propag() {
 				var _this18 = this;
 
-				if (this._.followers.length) this._.followers.forEach(function (_ref4) {
-					var obj = _ref4[0],
-					    key = _ref4[1],
-					    as = _ref4[2],
-					    lastRevs = _ref4[3],
-					    remaps = _ref4[3];
+				if (this._.followers.length) this._.followers.forEach(function (_ref3) {
+					var obj = _ref3[0],
+					    key = _ref3[1],
+					    as = _ref3[2],
+					    lastRevs = _ref3[3],
+					    remaps = _ref3[3];
 
 					var data = _this18.getUpdates(lastRevs);
 					if (!data) return;
@@ -6067,35 +6219,36 @@ module.exports =
 
 				var ctx = this._._scope;
 				//console.warn("destroy", this._id);
-				this.emit("destroy", this);
-				for (var key in ctx) {
-					if (!is.fn(ctx[key])) {
-						!ctx[key]._autoDestroy && ctx[key].dispose("scoped");
-					}
-				}this.dead = true;
-				[].concat(_toConsumableArray(this._.followers)).map(function (follower) {
-					return _this21.unBind.apply(_this21, _toConsumableArray(follower));
-				});
-				Object.keys(this._._listening).forEach(function (id) {
-					return _this21._._scope[id].removeListener(_this21._._listening[id]);
-				});
-
 				this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
 				this._.propagTM && clearTimeout(this._.propagTM);
-
-				if (!this._.isLocalId) delete openScopes[this._id];
-
+				Object.keys(this._._listening).forEach(function (id) {
+					return id !== "$parent" && _this21._._scope[id].removeListener(_this21._._listening[id]);
+				});
 				while (this._._mixedList.length) {
 					this._._mixed[0].removeListener(this._._mixedList.shift());
 					this._._mixed.shift().dispose("mixedTo");
 				}
-				if (this._._parentList) {
+				[].concat(_toConsumableArray(this._.followers)).map(function (follower) {
+					return _this21.unBind.apply(_this21, _toConsumableArray(follower));
+				});
+				for (var key in ctx) {
+					if (!is.fn(ctx[key])) {
+						if (key == "$parent") continue;
+						!ctx[key]._autoDestroy && ctx[key].dispose("scoped");
+					}
+				}if (this._._parentList) {
 					this.parent._rmChild(this);
 					this.parent.removeListener(this._._parentList);
 					this.parent.dispose("isMyParent");
 					this._._parentList = null;
 				}
-				this._ = null;
+				this.dead = true;
+				this.emit("destroy", this);
+
+				//if ( !this._.isLocalId )
+				delete openScopes[this._id];
+
+				//this._ = null;
 			}
 		}]);
 
@@ -6156,6 +6309,8 @@ module.exports =
 	});
 	exports.walknSet = walknSet;
 	exports.walknGet = walknGet;
+	exports.keyWalknSet = keyWalknSet;
+	exports.keyWalknGet = keyWalknGet;
 
 	function _toConsumableArray(arr) {
 		if (Array.isArray(arr)) {
@@ -6170,12 +6325,27 @@ module.exports =
 	var is = __webpack_require__(2);
 
 	function walknSet(obj, path, value, stack) {
-		if (is.string(path)) path = path.split(/[\:|\/]/);
+		if (is.string(path)) path = path.split('.');
 		if (!path.length) return false;else if (path.length == 1) return obj[path[0]] = stack ? [].concat(_toConsumableArray(obj[path[0]] || []), [value]) : value;else return walknSet(obj[path[0]] = obj[path[0]] || {}, path.slice(1), value, stack);
 	}
 
-	function walknGet(obj, path) {
-		if (is.string(path)) path = path.split(/[\:|\/]/);
+	function walknGet(obj, path, isKey) {
+		if (is.string(path)) path = path.split('.');
+		return path.length ? obj[path[0]] && walknGet(obj[path[0]], path.slice(1)) : obj;
+	}
+
+	//@todo
+	function keyWalknSet(obj, path, value, stack) {
+		if (is.string(path)) path = path.split(/(\>|\/)/ig).filter(function (v) {
+			return v !== '>' && v;
+		});
+		return walknSet(obj, path, value);
+	}
+
+	function keyWalknGet(obj, path, isKey) {
+		if (is.string(path)) path = path.split(/(\>|\/)/ig).filter(function (v) {
+			return v !== '>' && v;
+		});
 		return path.length ? obj[path[0]] && walknGet(obj[path[0]], path.slice(1)) : obj;
 	}
 
@@ -6446,16 +6616,12 @@ module.exports =
 	var is = __webpack_require__(2),
 	    Scope = __webpack_require__(1),
 	    _require = __webpack_require__(4),
-	    walknSet = _require.walknSet,
-	    walknGet = _require.walknGet,
+	    keyWalknSet = _require.keyWalknSet,
+	    keyWalknGet = _require.keyWalknGet,
 	    EventEmitter = __webpack_require__(5),
 	    TaskSequencer = __webpack_require__(8),
 	    shortid = __webpack_require__(6),
 	    objProto = Object.getPrototypeOf({});
-
-	/**
-  * @class Store
-  */
 	var Store = (_temp = _class = function (_EventEmitter) {
 		_inherits(Store, _EventEmitter);
 
@@ -6573,7 +6739,8 @@ module.exports =
    * Ms to autodestroy after tm ms if no retain has been called
    * @type {boolean|Int}
    */
-		// overridable list of source stores
+
+		//static use                  = [];// overridable list of source stores
 
 
 		_createClass(Store, [{
@@ -6581,14 +6748,11 @@ module.exports =
 			value: function _afterConstructor() {
 				var cfg = this._cfg,
 				    _static = this.constructor,
+				    snapshot = this.restore(undefined, true),
 				    initialState = this.state,
 				    initialData = this.data,
 				    applied = void 0;
-				if (cfg.snapshot && walknGet(cfg.snapshot, this.scopeObj._id + '/' + this.name)) {
-					this.restore(cfg.snapshot, true);
-					this._stable = true;
-					this.$scope.bind(this, this._use, false);
-				} else {
+				{
 
 					if (initialData) this.data = initialData;else if (_static.data !== undefined) this.data = _extends({}, _static.data);else if (cfg.hasOwnProperty("data")) this.data = cfg.data;
 
@@ -6970,10 +7134,10 @@ module.exports =
 			value: function serialize() {
 				var _this6 = this;
 
-				var withRefs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+				var cfg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 				var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-				var refs = withRefs && is.array(this._use) && this._use.reduce(function (map, key) {
+				var refs = !cfg.norefs && is.array(this._use) && this._use.reduce(function (map, key) {
 					//todo
 					var name = void 0,
 					    alias = void 0,
@@ -6997,11 +7161,12 @@ module.exports =
 					return map;
 				}, {}) || {};
 
-				walknSet(output, (this.scopeObj._id + '/' + this.name).split(/[\:|\/]/), {
-					state: this.state && (!withRefs ? _extends({}, this.state) : Object.keys(this.state).reduce(function (h, k) {
+				keyWalknSet(output, this.scopeObj._id + '/' + this.name, {
+					state: this.state && (cfg.norefs ? _extends({}, this.state) : Object.keys(this.state).reduce(function (h, k) {
 						return !refs[k] && (h[k] = _this6.state[k]), h;
 					}, {})),
-					data: this.data,
+					data: (this.data && this.data.__proto__ === objProto ? this.data : (is.bool(this.data) || is.number(this.data) || is.string(this.data)) && this.data) || undefined,
+
 					refs: refs
 				});
 				return output;
@@ -7025,20 +7190,24 @@ module.exports =
 
 				return restore;
 			}(function (snapshot, immediate) {
-				var snap = walknGet(snapshot, this.scopeObj._id + '/' + this.name);
-				if (snap) {
+				var _this7 = this;
+
+				snapshot = snapshot && keyWalknGet(snapshot, this.scopeObj._id + '/' + this.name) || this.$scope.takeSnapshotByKey(this.scopeObj._id + '/' + this.name);
+
+				if (!snapshot) return;
+
+				if (snapshot) {
 					if (!this.isStable() && !immediate) this.then(function () {
 						return restore(snapshot);
 					});
-
-					this.state = snap.state;
-					Object.keys(snap.refs).forEach(function (key) {
+					var snap = void 0;
+					this.state = _extends({}, snapshot.state);
+					Object.keys(snapshot.refs).forEach(function (key) {
 						//todo
-						if (snapshot[snap.refs[key]]) snap.state[key] = snapshot[snap.refs[key]].data;else console.warn('not found : ', key, snap.refs[key]);
+						if (snap = _this7.$scope.getSnapshotByKey(snapshot.refs[key])) _this7.state[key] = snap.data;else console.warn('not found : ', key, snap.refs[key]);
 					});
 
-					this.data = snap.data;
-					this._changesSW = {};
+					this.data = snapshot.data;
 				}
 			})
 
@@ -7091,11 +7260,11 @@ module.exports =
 		}, {
 			key: 'then',
 			value: function then(cb) {
-				var _this7 = this;
+				var _this8 = this;
 
 				if (this._stable) return cb(this.data);
 				this.once('stable', function (e) {
-					return cb(_this7.data);
+					return cb(_this8.data);
 				});
 			}
 
@@ -7200,7 +7369,7 @@ module.exports =
 		}, {
 			key: 'dispose',
 			value: function dispose(reason) {
-				var _this8 = this;
+				var _this9 = this;
 
 				//console.warn("dispose", reason, this.__retains);
 				if (reason) {
@@ -7216,9 +7385,9 @@ module.exports =
 					if (this._persistenceTm) {
 						this._destroyTM && clearTimeout(this._destroyTM);
 						this._destroyTM = setTimeout(function (e) {
-							_this8._destroyTM = null;
+							_this9._destroyTM = null;
 							//this.then(s => {
-							!_this8.__retains.all && !_this8.dead && _this8.destroy();
+							!_this9.__retains.all && !_this9.dead && _this9.destroy();
 							//});
 						}, this._persistenceTm);
 					} else {
@@ -7305,7 +7474,7 @@ module.exports =
 		}]);
 
 		return Store;
-	}(EventEmitter), _class.use = [], _class.staticScope = new Scope({}, { id: "static" }), _class.state = undefined, _class.persistenceTm = false, _temp);
+	}(EventEmitter), _class.staticScope = new Scope({}, { id: "static" }), _class.state = undefined, _class.persistenceTm = false, _temp);
 
 	/**
   * get a static aliased reference of a store
@@ -7752,7 +7921,7 @@ module.exports =
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(25), __webpack_require__(0)))
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7772,9 +7941,9 @@ module.exports = function (t) {
       n = i(r),
       o = s(7),
       a = i(o),
-      u = s(9),
-      h = "undefined" != typeof window ? window : global,
-      c = h.___rescope || {};h.___rescope || (h.___rescope = c, n.default.Store = a.default, c.Scope = n.default, c.Context = n.default, c.Store = a.default, c.reScope = u.reScope, c.scopeToState = u.scopeToState, c.reScopeState = u.scopeToState, c.addScopableType = u.addScopableType, c.scopeRef = function (t, e) {
+      h = s(9),
+      u = "undefined" != typeof window ? window : global,
+      c = u.___rescope || {};u.___rescope || (u.___rescope = c, n.default.Store = a.default, c.Scope = n.default, c.Context = n.default, c.Store = a.default, c.reScope = h.reScope, c.scopeToState = h.scopeToState, c.reScopeState = h.scopeToState, c.addScopableType = h.addScopableType, c.scopeRef = function (t, e) {
     return t[e] = new n.default.scopeRef(t[e]), t;
   }), e.default = c, t.exports = e.default;
 }, function (t, e) {
@@ -7805,8 +7974,8 @@ module.exports = function (t) {
     if (!t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !e || "object" != (typeof e === "undefined" ? "undefined" : _typeof(e)) && "function" != typeof e ? t : e;
   }function a(t, e) {
     if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + (typeof e === "undefined" ? "undefined" : _typeof(e)));t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e);
-  }Object.defineProperty(e, "__esModule", { value: !0 });var u,
-      h,
+  }Object.defineProperty(e, "__esModule", { value: !0 });var h,
+      u,
       c = function () {
     function t(t, e) {
       for (var s = 0; s < e.length; s++) {
@@ -7817,48 +7986,50 @@ module.exports = function (t) {
     };
   }(),
       l = s(2),
-      _ = s(5),
-      p = _.walknSet,
-      f = _.walknGet,
-      d = s(4),
-      v = s(6),
-      y = function y(t, e, s) {
+      p = s(5),
+      _ = p.walknSet,
+      f = (p.walknGet, p.keyWalknSet),
+      d = p.keyWalknGet,
+      v = s(4),
+      y = s(6),
+      b = function b(t, e, s) {
     var i = function i() {};i.prototype = s ? new s._[e]() : t[e] || {}, t[e] = new i(), t._[e] = i;
   },
-      b = {},
-      g = ({}.constructor, h = u = function (t) {
+      g = {},
+      m = ({}.constructor, u = h = function (t) {
     function e(t) {
       var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
           i = s.parent,
           r = s.key,
           a = s.id,
+          h = s.snapshot,
           u = s.state,
-          h = s.data,
-          c = s.incrementId,
-          _ = void 0 === c ? !!r : c,
-          p = s.persistenceTm,
-          f = s.autoDestroy,
-          d = s.rootEmitter,
-          g = s.boundedActions;n(this, e);var m = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
-          S = {};if (a = a || r && (i && i._id || "") + ":>" + r, S.isLocalId = !a, a = a || "_____" + v.generate(), b[a] && !_) {
-        var k;return m._id = a, b[a].register(t), k = b[a], o(m, k);
-      }if (b[a] && _) {
-        for (var w = -1; b[a + "[" + ++w + "]"];) {}a = a + "[" + w + "]";
-      }if (m._id = a, m._rev = 0, b[a] = m, S.persistenceTm = p || m.constructor.persistenceTm, m.actions = {}, m.stores = {}, m.state = {}, m.data = {}, m.parent = i, m._ = S, i && i.dead) throw new Error("Can't use a dead scope as parent !");return y(m, "actions", i), y(m, "stores", i), y(m, "state", i), y(m, "data", i), m.sources = [], S.childScopes = [], S.childScopesList = [], S.unStableChilds = 0, m.__retains = { all: 0 }, m.__locks = { all: 1 }, S._boundedActions = l.array(g) ? { test: g.includes.bind(g) } : g, S._listening = {}, S._scope = {}, S._mixed = [], S._mixedList = [], S.followers = [], i && (i.retain("isMyParent"), d ? i.on(S._parentList = { update: function update(t) {
-          return m._propag();
-        } }) : (!i._stable && m.wait("waitingParent"), i.on(S._parentList = { stable: function stable(t) {
-          return m.release("waitingParent");
+          c = s.data,
+          p = s.incrementId,
+          _ = void 0 === p ? !!r : p,
+          f = s.persistenceTm,
+          d = s.autoDestroy,
+          v = s.rootEmitter,
+          m = s.boundedActions;n(this, e);var k = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
+          S = {};if (a = a || r && (i && i._id || "") + ">" + r, S.isLocalId = !a, a = a || "_____" + y.generate(), g[a] && !_) {
+        var w;return k._id = a, g[a].register(t), w = g[a], o(k, w);
+      }if (g[a] && _) {
+        for (var O = -1; g[a + "[" + ++O + "]"];) {}a = a + "[" + O + "]";
+      }if (k._id = a, k._rev = 0, g[a] = k, S.persistenceTm = f || k.constructor.persistenceTm, k.actions = {}, k.stores = {}, k.state = {}, k.data = {}, k.parent = i, k._ = S, k._autoDestroy = d, i && i.dead) throw new Error("Can't use a dead scope as parent !");return b(k, "actions", i), b(k, "stores", i), b(k, "state", i), b(k, "data", i), k.sources = [], S.childScopes = [], S.childScopesList = [], S.unStableChilds = 0, k.__retains = { all: 0 }, k.__locks = { all: 1 }, S._boundedActions = l.array(m) ? { test: m.includes.bind(m) } : m, S._listening = {}, S._scope = {}, S._mixed = [], S._mixedList = [], S.followers = [], i && (i.retain("isMyParent"), v ? i.on(S._parentList = { update: function update(t) {
+          return k._propag();
+        } }) : (!i._stable && k.wait("waitingParent"), i.on(S._parentList = { stable: function stable(t) {
+          return k.release("waitingParent");
         }, unstable: function unstable(t) {
-          return m.wait("waitingParent");
+          return k.wait("waitingParent");
         }, update: function update(t) {
-          return m._propag();
-        } }))), m.register(t, u, h), m.__locks.all--, m._stable = !m.__locks.all, i && i._addChild(m), f && setTimeout(function (t) {
-        m.retain("autoDestroy"), m.dispose("autoDestroy");
-      }), m;
+          return k._propag();
+        } }))), k.register(t, u, c), k.__locks.all--, k._stable = !k.__locks.all, i && i._addChild(k), k.restore(h), d && setTimeout(function (t) {
+        k.retain("autoDestroy"), k.dispose("autoDestroy");
+      }), k;
     }return a(e, t), c(e, null, [{ key: "getScope", value: function value(t) {
         var s = l.array(t) ? t.sort(function (t, e) {
           return t.firstname < e.firstname ? -1 : t.firstname > e.firstname ? 1 : 0;
-        }).join("+") : t;return b[s] = b[s] || new e({}, { id: s });
+        }).join("+") : t;return g[s] = g[s] || new e({}, { id: s });
       } }, { key: "stateMapToRefList", value: function value(t) {
         var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
             i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : [],
@@ -7871,18 +8042,16 @@ module.exports = function (t) {
           return r._mount(t, e, s, i);
         }) : this._mount.apply(this, arguments), this;
       } }, { key: "_mount", value: function value(t, e, s, i) {
-        var r = void 0;if (r = this.parseRef(t), !this._._scope[r.storeId]) {
-          var n;if (this._._mixed.reduce(function (r, n) {
-            return r || n._mount(t, e, s, i);
-          }, !1) || !this.parent) return;return (n = this.parent)._mount.apply(n, arguments);
-        }var o = this._._scope[r.storeId],
-            a = [];if (l.rsStore(o.prototype)) for (this._._scope[r.storeId] = new o(this, { snapshot: e, name: r.storeId, state: s, data: i }, a); a.length;) {
-          a.shift()();
-        } else if (l.rsScope(o.prototype)) {
-          if (this._._scope[r.storeId] = new o({ $parent: this }, { snapshot: e, id: this._id + "/" + r.storeId, autoDestroy: !0 }), r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);
-        } else {
-          if (l.rsScope(o) && r.path.length > 1) return this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i);e && (l.rsScope(o) || l.rsScope(o)) ? o.restore(e) : l.rsStore(this._._scope[r.storeId]) && (void 0 !== s && void 0 === i ? o.setState(s) : void 0 !== s && (o.state = s), void 0 !== i && o.push(i));
-        }return this._watchStore(r.storeId), this._._scope[r.storeId];
+        var r = void 0;if (r = this.parseRef(t), "$parent" != t) {
+          if (!this._._scope[r.storeId]) {
+            var n;if (this._._mixed.reduce(function (r, n) {
+              return r || n._mount(t, e, s, i);
+            }, !1) || !this.parent) return;return (n = this.parent)._mount.apply(n, arguments);
+          }var o = this._._scope[r.storeId],
+              a = [];if (l.rsStore(o.prototype)) for (this._._scope[r.storeId] = new o(this, { name: r.storeId, state: s, data: i }, a); a.length;) {
+            a.shift()();
+          } else l.rsScope(o.prototype) && (o = this._._scope[r.storeId] = new o({ $parent: this }, { id: this._id + "/" + r.storeId }), r.path.length > 1 && this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i));return l.rsStore(o) && (void 0 !== s && void 0 === i ? o.setState(s) : void 0 !== s && (o.state = s), void 0 !== i && o.push(i)), this._watchStore(r.storeId), this._._scope[r.storeId];
+        }
       } }, { key: "_watchStore", value: function value(t, e, s) {
         var i = this;return this._._listening[t] || l.fn(this._._scope[t]) || (!this._._scope[t]._autoDestroy && this._._scope[t].retain("scoped"), !this._._scope[t].isStable() && this.wait(t), this._._scope[t].on(this._._listening[t] = { destroy: function destroy(e) {
             delete i._._listening[t], i._._scope[t] = i._._scope[t].constructor;
@@ -7902,8 +8071,8 @@ module.exports = function (t) {
             return e.wait(t._id);
           }, update: function update(t) {
             return e._propag();
-          } }), this.actions = {}, this.stores = {}, this.state = {}, this.data = {}, t.on(i), y(this, "actions", s), y(this, "stores", s), y(this, "state", s), y(this, "data", s), this.relink(this._._scope, this, !1, !0), this._._mixed.forEach(function (t) {
-          y(e, "actions"), y(e, "stores"), y(e, "state"), y(e, "data"), t.relink(t._._scope, e, !0, !0);
+          } }), this.actions = {}, this.stores = {}, this.state = {}, this.data = {}, t.on(i), b(this, "actions", s), b(this, "stores", s), b(this, "state", s), b(this, "data", s), this.relink(this._._scope, this, !1, !0), this._._mixed.forEach(function (t) {
+          b(e, "actions"), b(e, "stores"), b(e, "state"), b(e, "data"), t.relink(t._._scope, e, !0, !0);
         });
       } }, { key: "register", value: function value(t) {
         var e = this,
@@ -7917,21 +8086,23 @@ module.exports = function (t) {
             r = arguments[2],
             n = arguments[3],
             o = s._.stores.prototype;Object.keys(t).forEach(function (a) {
-          if ("$parent" != a && !(!n && s._._scope[a] === t[a] || s._._scope[a] && s._._scope[a].constructor === t[a])) {
-            if (!n && s._._scope[a]) return r || l.fn(s._._scope[a]) || (s._._scope[a].__proto__ = t[a].prototype), void (!r && l.fn(s._._scope[a]) && (s._._scope[a] = t[a]));n || r || (i._._scope[a] = t[a]), Object.defineProperty(o, a, { enumerable: !0, configurable: !0, get: function get() {
+          if (!(!n && s._._scope[a] === t[a] || s._._scope[a] && s._._scope[a].constructor === t[a])) {
+            if (!n && s._._scope[a]) return r || l.fn(s._._scope[a]) || (s._._scope[a].__proto__ = t[a].prototype), void (!r && l.fn(s._._scope[a]) && (s._._scope[a] = t[a]));if (n || r || (i._._scope[a] = t[a]), Object.defineProperty(o, a, { enumerable: !0, configurable: !0, get: function get() {
                 return i._._scope[a];
-              } }), Object.defineProperty(s._.state.prototype, a, { enumerable: !0, configurable: !0, get: function get() {
-                return i._._scope[a] && i._._scope[a].state;
-              }, set: function set(t) {
-                return i._mount(a, void 0, t);
-              } }), Object.defineProperty(s._.data.prototype, a, { enumerable: !0, configurable: !0, get: function get() {
-                return i._._scope[a] && i._._scope[a].data;
-              }, set: function set(t) {
-                return i._mount(a, void 0, void 0, t);
-              } });var u = t[a] instanceof e.Store ? t[a].constructor.actions : t[a].actions,
-                h = s._.actions.prototype;l.rsScope(i._._scope[a].prototype) && i._mount(a), l.rsScope(i._._scope[a]) && (h[a] = i._._scope[a].actions), (l.rsStore(i._._scope[a]) || l.rsStore(i._._scope[a].prototype)) && u && Object.keys(u).forEach(function (t) {
-              h.hasOwnProperty(t) ? h[t].__targetStores++ : (h[t] = i.dispatch.bind(i, t), h[t].__targetStores = 1);
-            });
+              } }), "$parent" != a) {
+              Object.defineProperty(s._.state.prototype, a, { enumerable: !0, configurable: !0, get: function get() {
+                  return i._._scope[a] && i._._scope[a].state;
+                }, set: function set(t) {
+                  return i._mount(a, void 0, t);
+                } }), Object.defineProperty(s._.data.prototype, a, { enumerable: !0, configurable: !0, get: function get() {
+                  return i._._scope[a] && i._._scope[a].data;
+                }, set: function set(t) {
+                  return i._mount(a, void 0, void 0, t);
+                } });var h = t[a] instanceof e.Store ? t[a].constructor.actions : t[a].actions,
+                  u = s._.actions.prototype;l.rsScope(i._._scope[a].prototype) && i._mount(a), l.rsScope(i._._scope[a]) && (u[a] = i._._scope[a].actions), (l.rsStore(i._._scope[a]) || l.rsStore(i._._scope[a].prototype)) && h && Object.keys(h).forEach(function (t) {
+                u.hasOwnProperty(t) ? u[t].__targetStores++ : (u[t] = i.dispatch.bind(i, t), u[t].__targetStores = 1);
+              });
+            }
           }
         });
       } }, { key: "bind", value: function value(t, e, s) {
@@ -7939,11 +8110,11 @@ module.exports = function (t) {
             n = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3],
             o = void 0,
             a = void 0,
-            u = void 0;if (e && !l.array(e) && (e = [e]), s !== !1 && s !== !0 || (n = s, s = null), u = e.map(function (t) {
+            h = void 0;if (e && !l.array(e) && (e = [e]), s !== !1 && s !== !0 || (n = s, s = null), h = e.map(function (t) {
           return l.string(t) ? t : t.name;
         }).map(function (t) {
           return i.parseRef(t);
-        }), this._.followers.push([t, e, s || void 0, o = u.reduce(function (t, e) {
+        }), this._.followers.push([t, e, s || void 0, o = h.reduce(function (t, e) {
           return t[e.storeId] = t[e.storeId] || { rev: 0, refs: [] }, t[e.storeId].refs.push(e), t;
         }, {})]), this.mount(e), this.retainStores(Object.keys(o), "listeners"), n && this._stable) {
           if (a = this.getUpdates(o), !a) return;"function" != typeof t ? s ? t.setState(r({}, s, a)) : t.setState(a) : t(a);
@@ -7961,7 +8132,7 @@ module.exports = function (t) {
             return delete t[a], o && (t[a] = o), s.unBind(t, e), t[a] && t[a].apply(t, arguments);
           };
         }return n.reduce(function (t, e) {
-          return p(t, e.alias || e.path, s.retrieve(e.path)), t;
+          return _(t, e.alias || e.path, s.retrieve(e.path)), t;
         }, {});
       } }, { key: "retrieve", value: function value() {
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";return t = l.string(t) ? t.split(".") : t, t && this.stores[t[0]] && this.stores[t[0]].retrieve(t.slice(1));
@@ -7971,16 +8142,16 @@ module.exports = function (t) {
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
             e = arguments[1],
             s = this._._scope;return t || (t = {}), Object.keys(s).forEach(function (e) {
-          l.fn(s[e]) ? t.hasOwnProperty(e) || (t[e] = !1) : t[e] = s[e]._rev;
+          "$parent" != e && (l.fn(s[e]) ? t.hasOwnProperty(e) || (t[e] = !1) : t[e] = s[e]._rev);
         }), e || (this._._mixed.reduce(function (e, s) {
           return s.getStoresRevs(t), t;
         }, t), this.parent && this.parent.getStoresRevs(t)), t;
       } }, { key: "getUpdates", value: function value(t, e, s) {
         var i = this,
             r = this._._scope;return e = e || {}, Object.keys(r).forEach(function (n) {
-          e.hasOwnProperty(n) || l.fn(r[n]) || t && (!t.hasOwnProperty(n) || void 0 !== t[n]) && (!t.hasOwnProperty(n) || r[n]._rev <= t[n].rev) || (s = !0, e[n] = i.data[n], t && t.hasOwnProperty(n) ? (t[n].rev = r[n]._rev, t[n].refs.forEach(function (t) {
+          "$parent" != n && (e.hasOwnProperty(n) || l.fn(r[n]) || t && (!t.hasOwnProperty(n) || void 0 !== t[n]) && (!t.hasOwnProperty(n) || r[n]._rev <= t[n].rev) || (s = !0, e[n] = i.data[n], t && t.hasOwnProperty(n) ? (t[n].rev = r[n]._rev, t[n].refs.forEach(function (t) {
             e[t.alias] = i.retrieve(t.path);
-          })) : e[n] = i.data[n]);
+          })) : e[n] = i.data[n]));
         }), s = this._._mixed.reduce(function (s, i) {
           return i.getUpdates(t, e, s) || s;
         }, s), s = this.parent && this.parent.getUpdates(t, e, s) || s, s && e;
@@ -7990,36 +8161,51 @@ module.exports = function (t) {
         }), t;
       } }, { key: "serialize", value: function value() {
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
-            e = t.alias,
-            s = t.withChilds,
-            i = void 0 === s || s,
-            r = t.withParents,
-            n = t.withMixed,
-            o = void 0 === n || n,
-            a = t.norefs,
-            u = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-            h = this._._scope,
-            c = this._id.split(/[\:|\/]/);if (!f(u, c)) return p(u, c, {}), Object.keys(h).forEach(function (t) {
-          "$parent" == t || l.fn(h[t]) || h[t].serialize(!a, u);
-        }), r && this.parent && this.parent.serialize({ withChild: !1, withParents: !0, withMixed: o, norefs: a }, u), i && this._.childScopes.forEach(function (t) {
-          !t._.isLocalId && t.serialize({ withChild: !0, withParents: !1, withMixed: o, norefs: a }, u);
-        }), o && this._._mixed.forEach(function (t) {
-          !t._.isLocalId && t.serialize({ withChild: !1, withParents: !1, withMixed: o, norefs: a }, u);
-        }), e && (u = Object.keys(u).reduce(function (t, s) {
-          return t[s.startsWith(e) ? e + s.substr(e.length) : s] = u[s], t;
-        }, {})), u;
+            e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            s = this._._scope,
+            i = t.alias,
+            r = t.withChilds,
+            n = void 0 === r || r,
+            o = t.withParents,
+            a = t.withMixed,
+            h = void 0 === a || a,
+            u = t.norefs;return d(e, this._id) ? e : (f(e, this._id, {}), Object.keys(s).forEach(function (i) {
+          "$parent" == i || l.fn(s[i]) || s[i].serialize(t, e);
+        }), o && this.parent && this.parent.serialize({ withChild: !1, withParents: !0, withMixed: h, norefs: u }, e), n && this._.childScopes.forEach(function (t) {
+          !t._.isLocalId && t.serialize({ withChild: !0, withParents: !1, withMixed: h, norefs: u }, e);
+        }), h && this._._mixed.forEach(function (t) {
+          !t._.isLocalId && t.serialize({ withChild: !1, withParents: !1, withMixed: h, norefs: u }, e);
+        }), i && (e = Object.keys(e).reduce(function (t, s) {
+          return t[s.startsWith(i) ? i + s.substr(i.length) : s] = e[s], t;
+        }, {})), e);
       } }, { key: "restore", value: function value(t) {
         var e = this,
             s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
             i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : l.bool(s) && s,
-            r = this._._scope;Object.keys(r).forEach(function (s) {
-          var n = (e._id + "/" + s).split(/[\:|\/]/),
-              o = f(t, n);o && (i && !l.fn(r[s]) && r[s].destroy(), e.mount(s, t));
-        }), this._._mixed.forEach(function (e) {
-          !e._.isLocalId && e.restore(t, i);
-        }), this._.childScopes.forEach(function (e) {
-          !e._.isLocalId && e.restore(t, i);
-        });
+            r = this._._scope,
+            n = void 0;t = t && d(t, this._id) || this.takeSnapshotByKey(this._id), t && (this._.snapshot = t, n = t["/"], n && Object.keys(n).forEach(function (t) {
+          "$parent" != t && r[t] && (i && !l.fn(r[t]) && r[t].destroy(), e._mount(t));
+        }), this._._mixed.forEach(function (t) {
+          !t._.isLocalId && t.restore(void 0, i);
+        }), this._.childScopes.forEach(function (t) {
+          !t._.isLocalId && t.restore(void 0, i);
+        }));
+      } }, { key: "getSnapshotByKey", value: function value(t, e) {
+        if (this._.snapshot && t.startsWith(this._id)) {
+          var s = d(this._.snapshot, t.substr(this._id.length));return s;
+        }return !e && this.parent && this.parent.getSnapshotByKey(t) || this.stores.$parent && this.stores.$parent.getSnapshotByKey(t);
+      } }, { key: "getSnapshotByKeyExt", value: function value(t, e, s) {
+        if (t) {
+          var i = d(t, e);return i;
+        }
+      } }, { key: "takeSnapshotByKey", value: function value(t, e) {
+        if (this._.snapshot && t.startsWith(this._id)) {
+          var s = d(this._.snapshot, t.substr(this._id.length));return s;
+        }return !e && this.parent && this.parent.takeSnapshotByKey(t) || this.stores.$parent && this.stores.$parent.takeSnapshotByKey(t);
+      } }, { key: "deleteSnapshotByKey", value: function value(t, e) {
+        if (this._.snapshot && t.startsWith(this._id)) {
+          var s = d(this._.snapshot, t.substr(this._id.length).replace(/^(.*[\>|\/])[^\>|\/]+$/gi, "$1"));s && delete s[t.replace(/^.*[\>|\/]([^\>|\/]+)$/gi, "$1")];
+        }return !e && this.parent && this.parent.deleteSnapshotByKey(t) || this.stores.$parent && this.stores.$parent.deleteSnapshotByKey(t);
       } }, { key: "setState", value: function value(t) {
         var e = this;Object.keys(t).forEach(function (s) {
           return e.state[s] = t[s];
@@ -8031,11 +8217,13 @@ module.exports = function (t) {
           r[n - 1] = arguments[n];
         }if (!this.dead) {
           var o = this._._boundedActions;if (Object.keys(this._._scope).forEach(function (e) {
-            var i;l.fn(s._._scope[e]) || (i = s._._scope[e]).trigger.apply(i, [t].concat(r));
+            var i;"$parent" != e && (l.fn(s._._scope[e]) || (i = s._._scope[e]).trigger.apply(i, [t].concat(r)));
           }), !o || !o.test(t)) return this._._mixed.forEach(function (e) {
             return e.dispatch.apply(e, [t].concat(r));
           }), this.parent && (e = this.parent).dispatch.apply(e, [t].concat(r)), this;
         }
+      } }, { key: "trigger", value: function value() {
+        this.dispatch.apply(this, arguments);
       } }, { key: "then", value: function value(t) {
         var e = this;return this._stable ? t(this.data) : void this.once("stable", function (s) {
           return t(e.data);
@@ -8097,21 +8285,23 @@ module.exports = function (t) {
         }, this._.persistenceTm)) : !this.__retains.all && !this.dead && this.destroy());
       } }, { key: "destroy", value: function value() {
         var t = this,
-            e = this._._scope;this.emit("destroy", this);for (var s in e) {
-          l.fn(e[s]) || !e[s]._autoDestroy && e[s].dispose("scoped");
-        }for (this.dead = !0, [].concat(i(this._.followers)).map(function (e) {
-          return t.unBind.apply(t, i(e));
-        }), Object.keys(this._._listening).forEach(function (e) {
-          return t._._scope[e].removeListener(t._._listening[e]);
-        }), this._.stabilizerTM && clearTimeout(this._.stabilizerTM), this._.propagTM && clearTimeout(this._.propagTM), this._.isLocalId || delete b[this._id]; this._._mixedList.length;) {
+            e = this._._scope;for (this._.stabilizerTM && clearTimeout(this._.stabilizerTM), this._.propagTM && clearTimeout(this._.propagTM), Object.keys(this._._listening).forEach(function (e) {
+          return "$parent" !== e && t._._scope[e].removeListener(t._._listening[e]);
+        }); this._._mixedList.length;) {
           this._._mixed[0].removeListener(this._._mixedList.shift()), this._._mixed.shift().dispose("mixedTo");
-        }this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this._ = null;
+        }[].concat(i(this._.followers)).map(function (e) {
+          return t.unBind.apply(t, i(e));
+        });for (var s in e) {
+          if (!l.fn(e[s])) {
+            if ("$parent" == s) continue;!e[s]._autoDestroy && e[s].dispose("scoped");
+          }
+        }this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this.dead = !0, this.emit("destroy", this), delete g[this._id];
       } }]), e;
-  }(d), u.persistenceTm = 1, u.Store = null, u.scopeRef = function (t) {
+  }(v), h.persistenceTm = 1, h.Store = null, h.scopeRef = function (t) {
     this.path = t;
-  }, u.scopes = b, h);l.rsScope = function (t) {
-    return t instanceof g;
-  }, e.default = g, t.exports = e.default;
+  }, h.scopes = g, u);l.rsScope = function (t) {
+    return t instanceof m;
+  }, e.default = m, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
   function i(t) {
@@ -8175,10 +8365,18 @@ module.exports = function (t) {
       }return s;
     }return Array.from(t);
   }function r(t, e, s, n) {
-    return o.string(e) && (e = e.split(/[\:|\/]/)), !!e.length && (1 == e.length ? t[e[0]] = n ? [].concat(i(t[e[0]] || []), [s]) : s : r(t[e[0]] = t[e[0]] || {}, e.slice(1), s, n));
-  }function n(t, e) {
-    return o.string(e) && (e = e.split(/[\:|\/]/)), e.length ? t[e[0]] && n(t[e[0]], e.slice(1)) : t;
-  }Object.defineProperty(e, "__esModule", { value: !0 }), e.walknSet = r, e.walknGet = n;var o = s(2);
+    return h.string(e) && (e = e.split(".")), !!e.length && (1 == e.length ? t[e[0]] = n ? [].concat(i(t[e[0]] || []), [s]) : s : r(t[e[0]] = t[e[0]] || {}, e.slice(1), s, n));
+  }function n(t, e, s) {
+    return h.string(e) && (e = e.split(".")), e.length ? t[e[0]] && n(t[e[0]], e.slice(1)) : t;
+  }function o(t, e, s, i) {
+    return h.string(e) && (e = e.split(/(\>|\/)/gi).filter(function (t) {
+      return ">" !== t && t;
+    })), r(t, e, s);
+  }function a(t, e, s) {
+    return h.string(e) && (e = e.split(/(\>|\/)/gi).filter(function (t) {
+      return ">" !== t && t;
+    })), e.length ? t[e[0]] && n(t[e[0]], e.slice(1)) : t;
+  }Object.defineProperty(e, "__esModule", { value: !0 }), e.walknSet = r, e.walknGet = n, e.keyWalknSet = o, e.keyWalknGet = a;var h = s(2);
 }, function (t, e) {
   t.exports = __webpack_require__(13);
 }, function (t, e, s) {
@@ -8197,8 +8395,8 @@ module.exports = function (t) {
     if (!t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !e || "object" != (typeof e === "undefined" ? "undefined" : _typeof(e)) && "function" != typeof e ? t : e;
   }function a(t, e) {
     if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + (typeof e === "undefined" ? "undefined" : _typeof(e)));t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e);
-  }Object.defineProperty(e, "__esModule", { value: !0 });var u,
-      h,
+  }Object.defineProperty(e, "__esModule", { value: !0 });var h,
+      u,
       c = Object.assign || function (t) {
     for (var e = 1; e < arguments.length; e++) {
       var s = arguments[e];for (var i in s) {
@@ -8215,44 +8413,44 @@ module.exports = function (t) {
       return s && t(e.prototype, s), i && t(e, i), e;
     };
   }(),
-      _ = function t(e, s, i) {
+      p = function t(e, s, i) {
     null === e && (e = Function.prototype);var r = Object.getOwnPropertyDescriptor(e, s);if (void 0 === r) {
       var n = Object.getPrototypeOf(e);return null === n ? void 0 : t(n, s, i);
     }if ("value" in r) return r.value;var o = r.get;return void 0 !== o ? o.call(i) : void 0;
   },
-      p = s(2),
+      _ = s(2),
       f = s(3),
       d = s(5),
-      v = d.walknSet,
-      y = d.walknGet,
+      v = d.keyWalknSet,
+      y = d.keyWalknGet,
       b = s(4),
       g = s(8),
       m = s(6),
-      S = Object.getPrototypeOf({}),
-      k = (h = u = function (t) {
+      k = Object.getPrototypeOf({}),
+      S = (u = h = function (t) {
     function e() {
       var t, s;n(this, e);var i = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
           a = [].concat(Array.prototype.slice.call(arguments)),
-          u = i.constructor,
-          h = a[0] instanceof f ? a.shift() : u.scope ? f.getScope(u.scope) : p.string(a[0]) ? f.getScope(a.shift()) : u.staticScope,
-          c = !a[0] || p.array(a[0]) || p.string(a[0]) ? {} : a.shift(),
-          l = p.array(a[0]) ? a.shift() : null,
-          _ = c.name || u.name,
+          h = i.constructor,
+          u = a[0] instanceof f ? a.shift() : h.scope ? f.getScope(h.scope) : _.string(a[0]) ? f.getScope(a.shift()) : h.staticScope,
+          c = !a[0] || _.array(a[0]) || _.string(a[0]) ? {} : a.shift(),
+          l = _.array(a[0]) ? a.shift() : null,
+          p = c.name || h.name,
           d = c.use || [],
           v = c.apply || null,
-          y = u.state || u.initialState || u.defaultState;return i._uid = c._uid || m.generate(), i.__retains = { all: 0 }, i.__locks = { all: 0 }, i._onStabilize = [], i._autoDestroy = !!i._persistenceTm, i._persistenceTm = c.persistenceTm || u.persistenceTm || (c.autoDestroy || u.autoDestroy) && 5, i._cfg = c, c && c.on && i.on(c.on), i.name = _, h.stores ? (i.scopeObj = h, i.scope = h.stores) : (i.scopeObj = new f(h), i.scope = h.stores), i.$scope = i.scopeObj, i.$stores = i.scopeObj.stores, i.$actions = i.scopeObj.actions, i.$dispatch = i.scopeObj.dispatch.bind(i.scopeObj), i._rev = i.constructor._rev || 0, i._revs = {}, i.stores = {}, i._require = [], i._sources = [_], p.array(u.use) ? i._use = [].concat(r(d), r((u.use || []).map(function (t) {
+          y = h.state || h.initialState || h.defaultState;return i._uid = c._uid || m.generate(), i.__retains = { all: 0 }, i.__locks = { all: 0 }, i._onStabilize = [], i._autoDestroy = !!i._persistenceTm, i._persistenceTm = c.persistenceTm || h.persistenceTm || (c.autoDestroy || h.autoDestroy) && 5, i._cfg = c, c && c.on && i.on(c.on), i.name = p, u.stores ? (i.scopeObj = u, i.scope = u.stores) : (i.scopeObj = new f(u), i.scope = u.stores), i.$scope = i.scopeObj, i.$stores = i.scopeObj.stores, i.$actions = i.scopeObj.actions, i.$dispatch = i.scopeObj.dispatch.bind(i.scopeObj), i._rev = i.constructor._rev || 0, i._revs = {}, i.stores = {}, i._require = [], i._sources = [p], _.array(h.use) ? i._use = [].concat(r(d), r((h.use || []).map(function (t) {
         var e = t.match(/^(\!?)([^\:]*)(?:\:(.*))?$/);if (e[1]) {
           var s = e[2].split(".");i._require.push(e[3] || s[s.length - 1]);
         }return e[2];
-      }))) : i._use = [].concat(r(d), r(u.use ? Object.keys(u.use).map(function (t) {
-        var e = t.match(/^(\!?)(.*)$/);return e[1] && i._require.push(u.use[t]), e[2] + (u.use[t] === !0 ? "" : ":" + u.use[t]);
-      }) : [])), u.require && (t = i._require).push.apply(t, r(u.require)), c.require && (s = i._require).push.apply(s, r(c.require)), i._followers = [], i._changesSW = y || {}, i.state = y && {}, v && (i.apply = v), l ? l.push(i._afterConstructor.bind(i)) : setTimeout(i._afterConstructor.bind(i)), i;
+      }))) : i._use = [].concat(r(d), r(h.use ? Object.keys(h.use).map(function (t) {
+        var e = t.match(/^(\!?)(.*)$/);return e[1] && i._require.push(h.use[t]), e[2] + (h.use[t] === !0 ? "" : ":" + h.use[t]);
+      }) : [])), h.require && (t = i._require).push.apply(t, r(h.require)), c.require && (s = i._require).push.apply(s, r(c.require)), i._followers = [], i._changesSW = y || {}, i.state = y && {}, v && (i.apply = v), l ? l.push(i._afterConstructor.bind(i)) : setTimeout(i._afterConstructor.bind(i)), i;
     }return a(e, t), l(e, [{ key: "_afterConstructor", value: function value() {
         var t = this._cfg,
             e = this.constructor,
-            s = this.state,
+            s = (this.restore(void 0, !0), this.state),
             i = this.data,
-            r = void 0;t.snapshot && y(t.snapshot, this.scopeObj._id + "/" + this.name) ? (this.restore(t.snapshot, !0), this._stable = !0, this.$scope.bind(this, this._use, !1)) : (i ? this.data = i : void 0 !== e.data ? this.data = c({}, e.data) : t.hasOwnProperty("data") && (this.data = t.data), t.hasOwnProperty("state") && void 0 !== t.state && (s = c({}, s, t.state)), void 0 === this.data ? (s || this._use.length) && (this._changesSW = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this.state = {}, this.shouldApply(this._changesSW) && void 0 === this.data && (this.data = this.apply(this.data, this._changesSW, this._changesSW), r = !0, this.state = this._changesSW, this._changesSW = {})) : (r = !0, this.state = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this._changesSW = {})), void 0 === this.data && !r || this.__locks.all ? (this._stable = !1, !(e.managed || this.state || this._use && this._use.length)) : (this._stable = !0, this._rev++), !this._stable && this.emit("unstable", this.state);
+            r = void 0;i ? this.data = i : void 0 !== e.data ? this.data = c({}, e.data) : t.hasOwnProperty("data") && (this.data = t.data), t.hasOwnProperty("state") && void 0 !== t.state && (s = c({}, s, t.state)), void 0 === this.data ? (s || this._use.length) && (this._changesSW = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this.state = {}, this.shouldApply(this._changesSW) && void 0 === this.data && (this.data = this.apply(this.data, this._changesSW, this._changesSW), r = !0, this.state = this._changesSW, this._changesSW = {})) : (r = !0, this.state = c({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this._changesSW = {}), void 0 === this.data && !r || this.__locks.all ? (this._stable = !1, !(e.managed || this.state || this._use && this._use.length)) : (this._stable = !0, this._rev++), !this._stable && this.emit("unstable", this.state);
       } }, { key: "shouldPropag", value: function value(t) {
         return !0;
       } }, { key: "hasDataChange", value: function value(t) {
@@ -8265,20 +8463,20 @@ module.exports = function (t) {
       } }, { key: "shouldApply", value: function value() {
         var t = this,
             e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.state,
-            s = this.constructor;return !!this.isComplete(e) && (p.array(s.follow) ? s.follow.reduce(function (t, s) {
+            s = this.constructor;return !!this.isComplete(e) && (_.array(s.follow) ? s.follow.reduce(function (t, s) {
           return t || e && e[s];
         }, !1) : !s.follow || Object.keys(s.follow).reduce(function (i, r) {
-          return i || e && p.fn(s.follow[r]) && s.follow[r].call(t, e[r]) || s.follow[r] && e[r] !== t.state[r];
+          return i || e && _.fn(s.follow[r]) && s.follow[r].call(t, e[r]) || s.follow[r] && e[r] !== t.state[r];
         }, !1));
       } }, { key: "apply", value: function value(t, e, s) {
-        return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === S && e.__proto__ === S ? c({}, t, e) : e;
+        return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === k && e.__proto__ === k ? c({}, t, e) : e;
       } }, { key: "refine", value: function value(t, e, s) {
-        return e = e || this.state, t && t.__proto__ === S && e.__proto__ === S ? c({}, t, e) : e;
+        return e = e || this.state, t && t.__proto__ === k && e.__proto__ === k ? c({}, t, e) : e;
       } }, { key: "stabilize", value: function value(t) {
         t && this.once("stable", t), this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this._stabilizer || (this._stabilizer = g.pushTask(this, "pushState"));
       } }, { key: "retrieve", value: function value(t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
-            s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : this.data;return t = p.string(t) ? t.split(".") : t, s && t && t.length ? t.length == e + 1 ? s[t[e]] : this.retrieve(t, e + 1, s[t[e]]) : s;
+            s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : this.data;return t = _.string(t) ? t.split(".") : t, s && t && t.length ? t.length == e + 1 ? s[t[e]] : this.retrieve(t, e + 1, s[t[e]]) : s;
       } }, { key: "dispatch", value: function value(t) {
         for (var e, s = arguments.length, i = Array(s > 1 ? s - 1 : 0), r = 1; r < s; r++) {
           i[r - 1] = arguments[r];
@@ -8322,13 +8520,13 @@ module.exports = function (t) {
       } }, { key: "as", value: function value(t) {
         return { store: this, name: t };
       } }, { key: "on", value: function value(t) {
-        var s = this;!p.string(t) && t ? Object.keys(t).forEach(function (i) {
-          return _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", s).call(s, i, t[i]);
-        }) : _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", this).apply(this, arguments);
+        var s = this;!_.string(t) && t ? Object.keys(t).forEach(function (i) {
+          return p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", s).call(s, i, t[i]);
+        }) : p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", this).apply(this, arguments);
       } }, { key: "removeListener", value: function value(t) {
-        var s = this;!p.string(t) && t ? Object.keys(t).forEach(function (i) {
-          return _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", s).call(s, i, t[i]);
-        }) : _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", this).apply(this, arguments);
+        var s = this;!_.string(t) && t ? Object.keys(t).forEach(function (i) {
+          return p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", s).call(s, i, t[i]);
+        }) : p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", this).apply(this, arguments);
       } }, { key: "isComplete", value: function value() {
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.state;return this.constructor, !this._require || !this._require.length || t && this._require.reduce(function (e, s) {
           return e && t[s];
@@ -8337,16 +8535,16 @@ module.exports = function (t) {
         return this._stable;
       } }, { key: "serialize", value: function value() {
         var t = this,
-            e = !(arguments.length > 0 && void 0 !== arguments[0]) || arguments[0],
+            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
             s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-            i = e && p.array(this._use) && this._use.reduce(function (e, s) {
+            i = !e.norefs && _.array(this._use) && this._use.reduce(function (e, s) {
           var i = void 0,
               r = void 0,
               n = void 0,
-              o = void 0;return s.store && s.name ? (r = i = s.name, o = t.scopeObj.stores[i]) : p.fn(s) ? (i = r = s.name || s.defaultName, o = t.scopeObj.stores[i]) : (s = s.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = s[1], n = s[2] && s[2].substr(1), r = s[3] || n && n.match(/([^\.]*)$/)[0] || s[1], o = t.scopeObj.retrieveStore(n)), o && !o.scopeObj._.isLocalId && (e[r] = o.scopeObj._id + "/" + i), e;
-        }, {}) || {};return v(s, (this.scopeObj._id + "/" + this.name).split(/[\:|\/]/), { state: this.state && (e ? Object.keys(this.state).reduce(function (e, s) {
+              o = void 0;return s.store && s.name ? (r = i = s.name, o = t.scopeObj.stores[i]) : _.fn(s) ? (i = r = s.name || s.defaultName, o = t.scopeObj.stores[i]) : (s = s.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = s[1], n = s[2] && s[2].substr(1), r = s[3] || n && n.match(/([^\.]*)$/)[0] || s[1], o = t.scopeObj.retrieveStore(n)), o && !o.scopeObj._.isLocalId && (e[r] = o.scopeObj._id + "/" + i), e;
+        }, {}) || {};return v(s, this.scopeObj._id + "/" + this.name, { state: this.state && (e.norefs ? c({}, this.state) : Object.keys(this.state).reduce(function (e, s) {
             return !i[s] && (e[s] = t.state[s]), e;
-          }, {}) : c({}, this.state)), data: this.data, refs: i }), s;
+          }, {})), data: (this.data && this.data.__proto__ === k ? this.data : (_.bool(this.data) || _.number(this.data) || _.string(this.data)) && this.data) || void 0, refs: i }), s;
       } }, { key: "restore", value: function (t) {
         function e(e, s) {
           return t.apply(this, arguments);
@@ -8354,11 +8552,13 @@ module.exports = function (t) {
           return t.toString();
         }, e;
       }(function (t, e) {
-        var s = y(t, this.scopeObj._id + "/" + this.name);s && (this.isStable() || e || this.then(function () {
-          return restore(t);
-        }), this.state = s.state, Object.keys(s.refs).forEach(function (e) {
-          t[s.refs[e]] && (s.state[e] = t[s.refs[e]].data);
-        }), this.data = s.data, this._changesSW = {});
+        var s = this;if (t = t && y(t, this.scopeObj._id + "/" + this.name) || this.$scope.takeSnapshotByKey(this.scopeObj._id + "/" + this.name), t && t) {
+          this.isStable() || e || this.then(function () {
+            return restore(t);
+          });var i = void 0;this.state = c({}, t.state), Object.keys(t.refs).forEach(function (e) {
+            (i = s.$scope.getSnapshotByKey(t.refs[e])) && (s.state[e] = i.data);
+          }), this.data = t.data;
+        }
       }) }, { key: "unBind", value: function value(t, e, s) {
         for (var i = this._followers, r = i && i.length; i && r--;) {
           if (i[r][0] === t && i[r][1] === e && i[r][2] === s) return i.splice(r, 1);
@@ -8373,10 +8573,11 @@ module.exports = function (t) {
           return t(e.data);
         });
       } }, { key: "wait", value: function value(t) {
-        if ("number" == typeof t) return this.__locks.all += t;if (p.array(t)) return t.map(this.wait.bind(this));this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this.__locks.all++;var e = p.string(t) ? t : null;return e && (this.__locks[e] = this.__locks[e] || 0, this.__locks[e]++), t && p.fn(t.then) && t.then(this.release.bind(this, null)), this;
+        if ("number" == typeof t) return this.__locks.all += t;
+        if (_.array(t)) return t.map(this.wait.bind(this));this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this.__locks.all++;var e = _.string(t) ? t : null;return e && (this.__locks[e] = this.__locks[e] || 0, this.__locks[e]++), t && _.fn(t.then) && t.then(this.release.bind(this, null)), this;
       } }, { key: "release", value: function value(t, e) {
         var s = (this.constructor, this),
-            r = this._stable;if (p.fn(t) && (e = t, t = null), t && (0 == this.__locks[t], this.__locks[t] = this.__locks[t] || 0, this.__locks[t]--), !t && 0 == this.__locks.all, ! --this.__locks.all && this.isComplete()) {
+            r = this._stable;if (_.fn(t) && (e = t, t = null), t && (0 == this.__locks[t], this.__locks[t] = this.__locks[t] || 0, this.__locks[t]--), !t && 0 == this.__locks.all, ! --this.__locks.all && this.isComplete()) {
           var n = this.shouldPropag(this.data);this._stable = !0, n && this._rev++, n && this._followers.length && this._followers.forEach(function (t) {
             var e = t[2] ? s.retrieve(t[2]) : s.data;"function" == typeof t[0] ? t[0](e) : t[0].setState(t[1] ? i({}, t[1], e) : e);
           }), !r && this.emit("stable", this.data), n && this.emit("update", this.data), e && e();
@@ -8406,62 +8607,62 @@ module.exports = function (t) {
       }, set: function set(t) {
         this.data = t;
       } }]), e;
-  }(b), u.use = [], u.staticScope = new f({}, { id: "static" }), u.state = void 0, u.persistenceTm = !1, h);k.as = function (t) {
+  }(b), h.staticScope = new f({}, { id: "static" }), h.state = void 0, h.persistenceTm = !1, u);S.as = function (t) {
     return { store: this, name: t };
-  }, k.map = function (t, e, s, i) {
+  }, S.map = function (t, e, s, i) {
     var n = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
         o = t._revs || {},
         a = t.stores || (t.stores = {}),
-        u = {};e = p.array(e) ? [].concat(r(e)) : [e], s = s || k.staticScope, e = e.filter(function (e) {
-      var i;if (!e) return !1;var h = void 0,
+        h = {};e = _.array(e) ? [].concat(r(e)) : [e], s = s || S.staticScope, e = e.filter(function (e) {
+      var i;if (!e) return !1;var u = void 0,
           c = void 0,
           l = void 0,
-          _ = void 0,
-          f = void 0;if (e.store && e.name ? (c = h = e.name, _ = e.store) : p.fn(e) ? (h = c = e.name || e.defaultName, _ = e) : (f = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), h = f[1], l = f[2] && f[2].substr(1), _ = s.stores[f[1]], c = f[3] || l && l.match(/([^\.]*)$/)[0] || f[1]), p.rsScope(_.prototype) && s._mount(h), p.rsScope(_)) _ = s._mount(e);else if (o[h]) return !1;return !!_ && (p.fn(_) ? (s._mount(h), s.stores[h].bind(t, c, n, l)) : _.bind(t, c, n, l), s.stores[h]._sources && (i = t._sources).push.apply(i, r(s.stores[h]._sources)), o[c] = o[c] || !0, !a[h] && (a[h] = s.stores[h]), s.stores[h].hasOwnProperty("data") && (u[h] = s.data[h]), !0);
-    });var h,
-        c = t.isReactComponent ? "componentWillUnmount" : "destroy";return t.hasOwnProperty(c) && (h = t[c]), t[c] = function () {
-      return delete t[c], h && (t[c] = h), e.map(function (e) {
+          p = void 0,
+          f = void 0;if (e.store && e.name ? (c = u = e.name, p = e.store) : _.fn(e) ? (u = c = e.name || e.defaultName, p = e) : (f = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), u = f[1], l = f[2] && f[2].substr(1), p = s.stores[f[1]], c = f[3] || l && l.match(/([^\.]*)$/)[0] || f[1]), _.rsScope(p.prototype) && s._mount(u), _.rsScope(p)) p = s._mount(e);else if (o[u]) return !1;return !!p && (_.fn(p) ? (s._mount(u), s.stores[u].bind(t, c, n, l)) : p.bind(t, c, n, l), s.stores[u]._sources && (i = t._sources).push.apply(i, r(s.stores[u]._sources)), o[c] = o[c] || !0, !a[u] && (a[u] = s.stores[u]), s.stores[u].hasOwnProperty("data") && (h[u] = s.data[u]), !0);
+    });var u,
+        c = t.isReactComponent ? "componentWillUnmount" : "destroy";return t.hasOwnProperty(c) && (u = t[c]), t[c] = function () {
+      return delete t[c], u && (t[c] = u), e.map(function (e) {
         var i = void 0,
             r = void 0,
             n = void 0,
-            o = void 0;e.store && e.name ? (r = i = e.name, o = e.store) : p.fn(e) ? (i = r = e.name || e.defaultName, o = s.stores[i]) : (e = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = e[1], n = e[2] && e[2].substr(1), o = s.stores[e[1]], r = e[3] || n && n.match(/([^\.]*)$/)[0] || e[1]), o && !p.fn(o) && o.unBind(t, r, n);
+            o = void 0;e.store && e.name ? (r = i = e.name, o = e.store) : _.fn(e) ? (i = r = e.name || e.defaultName, o = s.stores[i]) : (e = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = e[1], n = e[2] && e[2].substr(1), o = s.stores[e[1]], r = e[3] || n && n.match(/([^\.]*)$/)[0] || e[1]), o && !_.fn(o) && o.unBind(t, r, n);
       }), t[c] && t[c].apply(t, arguments);
-    }, u;
-  }, p.rsStore = function (t) {
-    return t instanceof k;
-  }, e.default = k, t.exports = e.default;
+    }, h;
+  }, _.rsStore = function (t) {
+    return t instanceof S;
+  }, e.default = S, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
   function i(t) {
     return t && t.__esModule ? t : { default: t };
   }function r() {
-    _ || n();
+    p || n();
   }function n() {
-    for (Date.now(), _ = !0, p.enable(); c;) {
-      for (; !a[u] || !a[u].length;) {
-        u++;
-      }c--, l = a[u].shift(), l[0][l[1]].apply(l[0], l[2]);
-    }l = void 0, p.disable(), _ = !1, c && setTimeout(r);
+    for (Date.now(), p = !0, _.enable(); c;) {
+      for (; !a[h] || !a[h].length;) {
+        h++;
+      }c--, l = a[h].shift(), l[0][l[1]].apply(l[0], l[2]);
+    }l = void 0, _.disable(), p = !1, c && setTimeout(r);
   }Object.defineProperty(e, "__esModule", { value: !0 });var o = s(1),
       a = (i(o), []),
-      u = 0,
       h = 0,
+      u = 0,
       c = 0,
       l = void 0,
-      _ = void 0,
-      p = { lastError: null, dispatch: function dispatch(t) {
-      p.disable(), l && l[0].handleError && l[0].handleError(t, l), _ = !1, l = null, r();
+      p = void 0,
+      _ = { lastError: null, dispatch: function dispatch(t) {
+      _.disable(), l && l[0].handleError && l[0].handleError(t, l), p = !1, l = null, r();
     }, enable: "undefined" != typeof window ? function () {
-      window.addEventListener("error", p.dispatch);
+      window.addEventListener("error", _.dispatch);
     } : function () {
-      process.on("uncaughtException", p.dispatch);
+      process.on("uncaughtException", _.dispatch);
     }, disable: "undefined" != typeof window ? function () {
-      window.removeEventListener("error", p.dispatch);
+      window.removeEventListener("error", _.dispatch);
     } : function () {
-      process.removeListener("uncaughtException", p.dispatch);
+      process.removeListener("uncaughtException", _.dispatch);
     } };e.default = { pushTask: function pushTask(t, e, s) {
       var i = t._sources && t._sources.length || 1,
-          n = a[i] = a[i] || [];return h = Math.max(h, i), u = Math.min(u, i), c++, n.push([t, e, s]), setTimeout(r, 0), n.length;
+          n = a[i] = a[i] || [];return u = Math.max(u, i), h = Math.min(h, i), c++, n.push([t, e, s]), setTimeout(r, 0), n.length;
     } }, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
@@ -8475,39 +8676,39 @@ module.exports = function (t) {
     }return Array.from(t);
   }function n(t, e) {
     var s = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-        i = arguments.length > 3 && void 0 !== arguments[3] && arguments[3];_.push({ test: t, member: s, stateScope: i, handle: e });
+        i = arguments.length > 3 && void 0 !== arguments[3] && arguments[3];p.push({ test: t, member: s, stateScope: i, handle: e });
   }function o(t, e, s) {
-    for (var i = 0; i < _.length; i++) {
-      if ((void 0 === e || e == _[i].member) && s == _[i].stateScope && _[i].test(t)) return !0;
+    for (var i = 0; i < p.length; i++) {
+      if ((void 0 === e || e == p[i].member) && s == p[i].stateScope && p[i].test(t)) return !0;
     }return !1;
   }function a(t, e, s, i) {
-    for (var n = 0; n < _.length; n++) {
-      var o;if (s == _[n].member && i == _[n].stateScope && _[n].test(t)) return (o = _[n]).handle.apply(o, [t].concat(r(e)));
+    for (var n = 0; n < p.length; n++) {
+      var o;if (s == p[n].member && i == p[n].stateScope && p[n].test(t)) return (o = p[n]).handle.apply(o, [t].concat(r(e)));
     }return !1;
-  }function u() {
+  }function h() {
     for (var t = arguments.length, e = Array(t), s = 0; s < t; s++) {
       e[s] = arguments[s];
     }return e[0] instanceof l && e[2] instanceof l && e[0].hasOwnProperty(e[1]) ? (e[2].value = a(e[0], [], !0, !1), e[0]) : o(e[0], void 0, !1) ? a(e[0], e.slice(1), !1, !1) : function () {
       for (var t = arguments.length, s = Array(t), i = 0; i < t; i++) {
         s[i] = arguments[i];
-      }return s[0] instanceof l && s[2] instanceof l && s[0].hasOwnProperty(s[1]) ? (s[2].value = a(s[0], e, !0, !1), s[0]) : u.apply(void 0, [s[0]].concat(e));
+      }return s[0] instanceof l && s[2] instanceof l && s[0].hasOwnProperty(s[1]) ? (s[2].value = a(s[0], e, !0, !1), s[0]) : h.apply(void 0, [s[0]].concat(e));
     };
-  }function h() {
+  }function u() {
     for (var t = arguments.length, e = Array(t), s = 0; s < t; s++) {
       e[s] = arguments[s];
     }return e[0] instanceof l && e[2] instanceof l && e[0].hasOwnProperty(e[1]) ? (e[2].value = a(e[0], [], !0, !0), e[0]) : o(e[0], void 0, !0) ? a(e[0], e.slice(1), !1, !0) : function () {
       for (var t = arguments.length, s = Array(t), i = 0; i < t; i++) {
         s[i] = arguments[i];
-      }return s[0] instanceof l && s[2] instanceof l && s[0].hasOwnProperty(s[1]) ? (s[2].value = a(s[0], e, !0, !0), s[0]) : h.apply(void 0, [s[0]].concat(e));
+      }return s[0] instanceof l && s[2] instanceof l && s[0].hasOwnProperty(s[1]) ? (s[2].value = a(s[0], e, !0, !0), s[0]) : u.apply(void 0, [s[0]].concat(e));
     };
   }Object.defineProperty(e, "__esModule", { value: !0 }), e.scopeToState = e.reScope = e.addScopableType = void 0;var c = s(1),
       l = (i(c), {}.constructor),
-      _ = [];e.addScopableType = n, e.reScope = u, e.scopeToState = h;
+      p = [];e.addScopableType = n, e.reScope = h, e.scopeToState = u;
 }]);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(25), __webpack_require__(0)))
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -8676,21 +8877,21 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)(false);
+exports = module.exports = __webpack_require__(36)(false);
 // imports
 
 
 // module
-exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  #app > div {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0px;\n    left: 0; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n  .postit .text {\n    margin-top: 40px; }\n    .postit .text .edit {\n      position: absolute;\n      bottom: 5px;\n      left: 5px; }\n    .postit .text .delete {\n      position: absolute;\n      bottom: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
+exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  #app > div {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0px;\n    left: 0; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n  .postit .text {\n    padding-top: 40px;\n    overflow: auto;\n    position: absolute;\n    width: 100%;\n    top: 40px;\n    bottom: 0; }\n    .postit .text .edit {\n      position: absolute;\n      bottom: 5px;\n      left: 5px; }\n    .postit .text .delete {\n      position: absolute;\n      bottom: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports) {
 
 /*
@@ -8772,7 +8973,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8807,7 +9008,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8843,7 +9044,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8871,7 +9072,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8886,7 +9087,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(40);
+var isNode = __webpack_require__(39);
 
 /**
  * @param {*} object The object to check.
@@ -8899,7 +9100,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8964,7 +9165,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9514,7 +9715,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -9539,17 +9740,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(43)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(42)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(42)();
+  module.exports = __webpack_require__(41)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10271,7 +10472,7 @@ Resizable.defaultProps = {
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13001,7 +13202,7 @@ module.exports = server_browser;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13049,7 +13250,7 @@ l.__html){l=l.__html;break a}}else if(l=f.children,"string"===typeof l||"number"
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29711,7 +29912,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29964,7 +30165,7 @@ X.injectIntoDevTools({findFiberByHostInstance:Ua,bundleType:0,version:"16.3.2",r
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -32715,7 +32916,7 @@ process.umask = function() { return 0; };
 //# sourceMappingURL=react-draggable.js.map
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34080,7 +34281,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34108,7 +34309,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34163,7 +34364,7 @@ module.exports = build;
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34187,7 +34388,7 @@ module.exports = decode;
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34195,15 +34396,15 @@ module.exports = decode;
 
 var alphabet = __webpack_require__(9);
 var encode = __webpack_require__(23);
-var decode = __webpack_require__(54);
-var build = __webpack_require__(53);
-var isValid = __webpack_require__(56);
+var decode = __webpack_require__(53);
+var build = __webpack_require__(52);
+var isValid = __webpack_require__(55);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(59) || 0;
+var clusterWorkerId = __webpack_require__(58) || 0;
 
 /**
  * Set the seed.
@@ -34259,7 +34460,7 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34285,7 +34486,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34306,7 +34507,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34338,7 +34539,7 @@ module.exports = {
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34348,7 +34549,7 @@ module.exports = 0;
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -34414,7 +34615,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(61);
+var	fixUrls = __webpack_require__(60);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -34730,7 +34931,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports) {
 
 
@@ -34825,7 +35026,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports) {
 
 function Agent() {
@@ -34851,7 +35052,7 @@ module.exports = Agent;
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -34868,11 +35069,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(35);
-var RequestBase = __webpack_require__(64);
+var Emitter = __webpack_require__(34);
+var RequestBase = __webpack_require__(63);
 var isObject = __webpack_require__(24);
-var ResponseBase = __webpack_require__(65);
-var Agent = __webpack_require__(62);
+var ResponseBase = __webpack_require__(64);
+var Agent = __webpack_require__(61);
 
 /**
  * Noop.
@@ -35777,7 +35978,7 @@ request.put = function(url, data, fn) {
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36478,7 +36679,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36488,7 +36689,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(66);
+var utils = __webpack_require__(65);
 
 /**
  * Expose `ResponseBase`.
@@ -36621,7 +36822,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

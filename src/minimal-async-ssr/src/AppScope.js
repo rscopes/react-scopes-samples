@@ -25,12 +25,12 @@ export default {
             src  : "/api/hello",
             items: [ {
                 "_id"     : "rkUQHZrqM",
-                "size"    : { "width": 200, "height": 200 },
+                "size"    : { "width": 300, "height": 400 },
                 "text"    : "New Post It #0 somewhere we wait some new shit out there !",
                 "position": { "x": 321, "y": 167 }
             }, {
                 "_id"     : "r1bcuMrcM",
-                "size"    : { "width": 200, "height": 200 },
+                "size"    : { "width": 300, "height": 400 },
                 "text"    : "do somethink",
                 "position": { "x": 260, "y": 576 }
             } ],
@@ -70,25 +70,26 @@ export default {
                 }
             },
             saveState() {
-                superagent.post('/', this.scopeObj.serialize())
+                superagent.post('/', this.$stores.$parent.serialize())
                           .then(( e, r ) => {
                               console.log(e, r)
                           })
             }
         }
     },
+    
     @asRenderer([ "!Home" ])
-    SSRIndex: ( { Home, props: { sessionId } }, { $stores } ) =>
+    SSRIndex: ( { Home, props: { sessionId } }, { $scope } ) =>
         <html lang="en">
         <head>
             <meta charSet="UTF-8"/>
-            <title>Really basic drafty rescope + react component example</title>
+            <title>Really basic drafty rescope + react SSR example</title>
         </head>
         <body>
         <div id="app"><Home/></div>
         <script src="./App.js"></script>
         <script
-            dangerouslySetInnerHTML={ { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($stores.AppState.serialize()[ sessionId ]) + ", document.cookie);" } }/>
+            dangerouslySetInnerHTML={ { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($scope.parent.parent.serialize()[ sessionId ]) + ", document.cookie);" } }/>
         </body>
         </html>,
     
@@ -117,11 +118,51 @@ export default {
             }
         </div>,
     
-    @asRenderer
+    @asRenderer(
+        {
+            @asStateMap
+            DaSearch: {
+                src: "https://query.yahooapis.com/v1/public/yql?format=json&env=sto&q=",
+                
+                updateSearch( searching ) {
+                    let state = this.nextState;
+                    
+                    if ( searching == state.searching ) return;
+                    if ( searching.length < 4 )
+                        return { searching };
+                    
+                    superagent.get(state.src +
+                                   'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + searching + '")')
+                              .then(( res ) => {
+                                  if ( searching != this.nextState.searching ) return;
+                                  try {
+                                      this.data.results = {
+                                          place: res.body.query.results.channel.location,
+                                          img  : res.body.query.results.channel.image.url,
+                                          descr: res.body.query.results.channel.item.description.replace('<![CDATA[', '').replace(']]>', '')
+                                      };
+                                  } catch ( e ) {
+                                      this.data.results = {
+                                          place: { city: "no results" }
+                                      };
+                                  }
+                                  this.push(this.data)
+                                  this.release();
+                              })
+                    this.wait();
+                    return { searching };
+                }
+            }
+            
+            
+        }, [ "DaSearch" ]
+    )
     PostIt: ( {
                   props: { record, onSelect, selected },
-                  position, text, size,
-                  editing,
+                  position, text, size, editing,
+        
+                  DaSearch,
+        
                   doSave = () => $actions.AppState.updatePostIt(
                       {
                           ...record,
@@ -156,35 +197,29 @@ export default {
                 } }>
                 <div className={ "postit handle" }>
                     {
-                        !editing &&
-                        <div className={ "text" }>
-                            { record.text }
-                            <button onClick={ e => $store.setState({ editing: true }) }
-                                    className={ "edit" }>
-                                🖋
-                            </button>
-                            <button onClick={ e => $actions.AppState.rmPostIt(record) }
-                                    className={ "delete" }>
-                                🖾
-                            </button>
-                        </div>
-                        ||
-                        <div className={ "editor" }>
-                            <textarea
+                        <div className={ "search" }>
+                            <input
                                 onChange={ e => {
-                                    $actions.AppState.updatePostIt(
-                                        {
-                                            ...record,
-                                            text: e.target.value
-                                        });
+                                    $actions.updateSearch(e.target.value);
                                 } }
-                                onMouseDown={ e => e.stopPropagation() }
-                            >{ text }</textarea>
-                            <button
-                                onClick={ e => $store.setState({ editing: false }) }>💾
-                            </button>
+                                //defaultValue={ DaSearch.searching }
+                                onMouseDown={ e => e.stopPropagation() }/>
                         </div>
                     }
+                    {
+                        DaSearch
+                        && DaSearch.results
+                        && DaSearch.results.place
+                        && <div>
+                            { DaSearch.results.place.city } - { DaSearch.results.place.country }
+                        </div>
+                    }
+                    <div className={ "text" }
+                         dangerouslySetInnerHTML={ {
+                             __html: DaSearch
+                                     && DaSearch.results
+                                     && DaSearch.results.descr
+                         } }/>
                 </div>
             </Rnd>
         )

@@ -36,7 +36,6 @@ var cookie = require('cookie');
 
 import "./App.scss"
 
-var indexTpl = require('./index.html.tpl');
 let ReactDom = require('react-dom');
 
 
@@ -46,10 +45,9 @@ class App {
             sid       = ( cookie.parse(document.cookie) || {} )[ "connect.sid" ];
         sid           = sid && sid.replace(/^s\:([^\.]+)(?:$|\..*$)/ig, "$1")
         window.scopes = Scope.scopes;
-        console.log(sid)
-        window.test = () => {
+        window.test   = () => {
             App.renderSSR({
-                              state    : cScope.stores.AppState.serialize(),
+                              state    : cScope.serialize(),
                               sessionId: sid
                           }, ( e, r ) => console.log(r))
         }
@@ -62,16 +60,28 @@ class App {
               )
     }
     static renderSSR = ( cfg, cb ) => {
-        let cScope = new Scope(AppScope, { id: cfg.sessionId + '/App' });
-        
-        cfg.state && cScope.restore({ [ cfg.sessionId ]: cfg.state })
-        console.log(cfg.sessionId, { [ cfg.sessionId ]: cfg.state })
+        let env    = new Scope({}, {}),
+            cScope = new Scope(AppScope, {
+                key     : "App",
+                parent  : env,
+                //snapshot: { [ env._id ]: cfg.state }
+            }),
+            state  = { [ env._id ]: cfg.state }
+        ;
+        //cfg.state && cScope.restore(state);
+        console.log(cfg.sessionId, state)
         cScope.mount([ "SSRIndex" ])
               .then(
-                  ( { SSRIndex } ) => {
-                      cb(null, renderToString(<SSRIndex sessionId={ cfg.sessionId }/>));
-                      console.log(cfg.sessionId, cScope.stores.AppState.serialize())
-                      //cScope.destroy()
+                  ( State ) => {
+                      ///mount deps
+                      renderToString(
+                          <State.SSRIndex sessionId={ env._id }/>);
+                      cScope.then(State => {
+                          cb(null, renderToString(
+                              <State.SSRIndex sessionId={ env._id }/>));
+                          console.log(cfg.sessionId, cScope.serialize())
+                          cScope.destroy()
+                      })
                   }
               )
     }
