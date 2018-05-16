@@ -64,7 +64,7 @@ class App {
             cScope = new Scope(AppScope, {
                 key     : "App",
                 parent  : env,
-                //snapshot: { [ env._id ]: cfg.state }
+                snapshot: { [ env._id ]: cfg.state }
             }),
             state  = { [ env._id ]: cfg.state }
         ;

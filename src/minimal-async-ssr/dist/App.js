@@ -4023,8 +4023,8 @@ var App = (_temp = _class = function App() {
     var env = new _reactRescope.Scope({}, {}),
         cScope = new _reactRescope.Scope(_AppScope2.default, {
         key: "App",
-        parent: env
-        //snapshot: { [ env._id ]: cfg.state }
+        parent: env,
+        snapshot: _defineProperty({}, env._id, cfg.state)
     }),
         state = _defineProperty({}, env._id, cfg.state);
     //cfg.state && cScope.restore(state);
@@ -6253,7 +6253,7 @@ module.exports =
 		}]);
 
 		return Scope;
-	}(EventEmitter), _class.persistenceTm = 1, _class.Store = null, _class.scopeRef = function scopeRef(path) {
+	}(EventEmitter), _class.persistenceTm = 10000, _class.Store = null, _class.scopeRef = function scopeRef(path) {
 		this.path = path;
 	}, _class.scopes = openScopes, _temp);
 
@@ -8297,7 +8297,7 @@ module.exports = function (t) {
           }
         }this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this.dead = !0, this.emit("destroy", this), delete g[this._id];
       } }]), e;
-  }(v), h.persistenceTm = 1, h.Store = null, h.scopeRef = function (t) {
+  }(v), h.persistenceTm = 1e4, h.Store = null, h.scopeRef = function (t) {
     this.path = t;
   }, h.scopes = g, u);l.rsScope = function (t) {
     return t instanceof m;
