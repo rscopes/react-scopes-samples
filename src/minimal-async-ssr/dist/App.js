@@ -4416,11 +4416,13 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _server = __webpack_require__(6);
+
 	var _is = __webpack_require__(3);
 
 	var _is2 = _interopRequireDefault(_is);
 
-	var _reactRescope = __webpack_require__(6);
+	var _reactRescope = __webpack_require__(7);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -4641,7 +4643,6 @@ module.exports =
 
 								state: _defineProperty({}, RSRenderer.displayName, { props: props })
 							});
-							if (_this5.__snapshot) viewScope.restore(_this5.__snapshot);
 							return viewScope;
 						}, [RSRenderer.displayName]), _dec8(_class4 = function (_React$Component) {
 							_inherits(RSCompRenderer, _React$Component);
@@ -4653,6 +4654,26 @@ module.exports =
 							}
 
 							_createClass(RSCompRenderer, [{
+								key: "componentWillMount",
+								value: function componentWillMount() {
+									var _this7 = this;
+
+									_get(RSCompRenderer.prototype.__proto__ || Object.getPrototypeOf(RSCompRenderer.prototype), "componentWillMount", this).apply(this, arguments);
+									var props = this.props;
+									this._ssrTest = setTimeout(function (tm) {
+										return _this7.$scope.then(function (_ref3) {
+											var CMP = _ref3[RSRenderer.displayName];
+											return (0, _server.renderToString)(_react2.default.createElement(RSCompRenderer, props));
+										});
+									});
+								}
+							}, {
+								key: "componentDidMount",
+								value: function componentDidMount() {
+									clearTimeout(this._ssrTest);
+									_get(RSCompRenderer.prototype.__proto__ || Object.getPrototypeOf(RSCompRenderer.prototype), "componentDidMount", this).apply(this, arguments);
+								}
+							}, {
 								key: "componentWillReceiveProps",
 								value: function componentWillReceiveProps(props) {
 									var Comp = this.$stores[RSRenderer.displayName];
@@ -4731,8 +4752,8 @@ module.exports =
 				return RSRenderer;
 			}(_reactRescope.Store), _class5.displayName = ref[1], _class5.use = use, _class5.state = state || {}, _class5.actions = actions, _temp3;
 		},
-		store: function store(obj, _ref3, ref) {
-			var cfg = _ref3[0];
+		store: function store(obj, _ref4, ref) {
+			var cfg = _ref4[0];
 
 			return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
 					return obj(d, s, c);
@@ -4753,6 +4774,13 @@ module.exports =
 	/***/
 },
 /* 6 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(15);
+
+	/***/
+},
+/* 7 */
 /***/function (module, exports) {
 
 	module.exports = __webpack_require__(14);
@@ -5056,7 +5084,8 @@ module.exports =
 					//: this.stateMapToRefList(sm[key], _refs, path + '.' + key)
 				});
 				return _refs;
-			} // if > 0, will wait 'persistenceTm' ms before destroy when
+			} // if > 0, will wait 'persistenceTm' ms before destroy
+			// when
 			// dispose reach 0
 
 		}]);
@@ -5108,19 +5137,28 @@ module.exports =
 
 			var _this = _possibleConstructorReturn(this, (Scope.__proto__ || Object.getPrototypeOf(Scope)).call(this));
 
-			var _ = {};
+			var _ = {},
+			    keyIndex;
 
 			id = id || key && (parent && parent._id || '') + '>' + key;
 
 			_.isLocalId = !id;
 
+			//if ( parent && key ) {
+			//    keyIndex = parent._.childScopes.find(ctx=>(ctx._id==id));
+			//    if ( keyIndex == -1 ) keyIndex = parent._.seenChilds;
+			//    keyIndex++;
+			//    if ( keyIndex )
+			//        id = id + '[' + keyIndex + ']';
+			//}
+
 			id = id || "_____" + shortid.generate();
 
-			if (openScopes[id] && !incrementId) {
+			if (openScopes[id]) {
 				var _ret;
 
 				_this._id = id;
-				openScopes[id].register(storesMap);
+				//openScopes[ id ].register(storesMap);
 				return _ret = openScopes[id], _possibleConstructorReturn(_this, _ret);
 			} else if (openScopes[id] && incrementId) {
 				var i = -1;
@@ -5153,6 +5191,7 @@ module.exports =
 			_.childScopes = [];
 			_.childScopesList = [];
 			_.unStableChilds = 0;
+			_.seenChilds = 0;
 
 			_this.__retains = { all: 0 };
 			_this.__locks = { all: 1 };
@@ -6121,6 +6160,7 @@ module.exports =
 				var _this19 = this;
 
 				this._.childScopes.push(ctx);
+				this._.seenChilds++;
 				var lists = {
 					'stable': function stable(s) {
 						_this19._.unStableChilds--;
@@ -6253,7 +6293,7 @@ module.exports =
 		}]);
 
 		return Scope;
-	}(EventEmitter), _class.persistenceTm = 10000, _class.Store = null, _class.scopeRef = function scopeRef(path) {
+	}(EventEmitter), _class.persistenceTm = 1, _class.Store = null, _class.scopeRef = function scopeRef(path) {
 		this.path = path;
 	}, _class.scopes = openScopes, _temp);
 
@@ -7986,10 +8026,10 @@ module.exports = function (t) {
     };
   }(),
       l = s(2),
-      p = s(5),
-      _ = p.walknSet,
-      f = (p.walknGet, p.keyWalknSet),
-      d = p.keyWalknGet,
+      _ = s(5),
+      p = _.walknSet,
+      f = (_.walknGet, _.keyWalknSet),
+      d = _.keyWalknGet,
       v = s(4),
       y = s(6),
       b = function b(t, e, s) {
@@ -8005,17 +8045,17 @@ module.exports = function (t) {
           h = s.snapshot,
           u = s.state,
           c = s.data,
-          p = s.incrementId,
-          _ = void 0 === p ? !!r : p,
+          _ = s.incrementId,
+          p = void 0 === _ ? !!r : _,
           f = s.persistenceTm,
           d = s.autoDestroy,
           v = s.rootEmitter,
           m = s.boundedActions;n(this, e);var k = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
-          S = {};if (a = a || r && (i && i._id || "") + ">" + r, S.isLocalId = !a, a = a || "_____" + y.generate(), g[a] && !_) {
-        var w;return k._id = a, g[a].register(t), w = g[a], o(k, w);
-      }if (g[a] && _) {
+          S = {};if (a = a || r && (i && i._id || "") + ">" + r, S.isLocalId = !a, a = a || "_____" + y.generate(), g[a]) {
+        var w;return k._id = a, w = g[a], o(k, w);
+      }if (g[a] && p) {
         for (var O = -1; g[a + "[" + ++O + "]"];) {}a = a + "[" + O + "]";
-      }if (k._id = a, k._rev = 0, g[a] = k, S.persistenceTm = f || k.constructor.persistenceTm, k.actions = {}, k.stores = {}, k.state = {}, k.data = {}, k.parent = i, k._ = S, k._autoDestroy = d, i && i.dead) throw new Error("Can't use a dead scope as parent !");return b(k, "actions", i), b(k, "stores", i), b(k, "state", i), b(k, "data", i), k.sources = [], S.childScopes = [], S.childScopesList = [], S.unStableChilds = 0, k.__retains = { all: 0 }, k.__locks = { all: 1 }, S._boundedActions = l.array(m) ? { test: m.includes.bind(m) } : m, S._listening = {}, S._scope = {}, S._mixed = [], S._mixedList = [], S.followers = [], i && (i.retain("isMyParent"), v ? i.on(S._parentList = { update: function update(t) {
+      }if (k._id = a, k._rev = 0, g[a] = k, S.persistenceTm = f || k.constructor.persistenceTm, k.actions = {}, k.stores = {}, k.state = {}, k.data = {}, k.parent = i, k._ = S, k._autoDestroy = d, i && i.dead) throw new Error("Can't use a dead scope as parent !");return b(k, "actions", i), b(k, "stores", i), b(k, "state", i), b(k, "data", i), k.sources = [], S.childScopes = [], S.childScopesList = [], S.unStableChilds = 0, S.seenChilds = 0, k.__retains = { all: 0 }, k.__locks = { all: 1 }, S._boundedActions = l.array(m) ? { test: m.includes.bind(m) } : m, S._listening = {}, S._scope = {}, S._mixed = [], S._mixedList = [], S.followers = [], i && (i.retain("isMyParent"), v ? i.on(S._parentList = { update: function update(t) {
           return k._propag();
         } }) : (!i._stable && k.wait("waitingParent"), i.on(S._parentList = { stable: function stable(t) {
           return k.release("waitingParent");
@@ -8132,7 +8172,7 @@ module.exports = function (t) {
             return delete t[a], o && (t[a] = o), s.unBind(t, e), t[a] && t[a].apply(t, arguments);
           };
         }return n.reduce(function (t, e) {
-          return _(t, e.alias || e.path, s.retrieve(e.path)), t;
+          return p(t, e.alias || e.path, s.retrieve(e.path)), t;
         }, {});
       } }, { key: "retrieve", value: function value() {
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";return t = l.string(t) ? t.split(".") : t, t && this.stores[t[0]] && this.stores[t[0]].retrieve(t.slice(1));
@@ -8260,7 +8300,7 @@ module.exports = function (t) {
       } }, { key: "isStable", value: function value() {
         return this._stable;
       } }, { key: "_addChild", value: function value(t) {
-        var e = this;this._.childScopes.push(t);var s = { stable: function stable(t) {
+        var e = this;this._.childScopes.push(t), this._.seenChilds++;var s = { stable: function stable(t) {
             e._.unStableChilds--, e._.unStableChilds || e.emit("stableTree", e);
           }, unstable: function unstable(t) {
             e._.unStableChilds++, 1 == e._.unStableChilds && e.emit("unstableTree", e);
@@ -8297,7 +8337,7 @@ module.exports = function (t) {
           }
         }this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this.dead = !0, this.emit("destroy", this), delete g[this._id];
       } }]), e;
-  }(v), h.persistenceTm = 1e4, h.Store = null, h.scopeRef = function (t) {
+  }(v), h.persistenceTm = 1, h.Store = null, h.scopeRef = function (t) {
     this.path = t;
   }, h.scopes = g, u);l.rsScope = function (t) {
     return t instanceof m;
@@ -8413,12 +8453,12 @@ module.exports = function (t) {
       return s && t(e.prototype, s), i && t(e, i), e;
     };
   }(),
-      p = function t(e, s, i) {
+      _ = function t(e, s, i) {
     null === e && (e = Function.prototype);var r = Object.getOwnPropertyDescriptor(e, s);if (void 0 === r) {
       var n = Object.getPrototypeOf(e);return null === n ? void 0 : t(n, s, i);
     }if ("value" in r) return r.value;var o = r.get;return void 0 !== o ? o.call(i) : void 0;
   },
-      _ = s(2),
+      p = s(2),
       f = s(3),
       d = s(5),
       v = d.keyWalknSet,
@@ -8432,13 +8472,13 @@ module.exports = function (t) {
       var t, s;n(this, e);var i = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
           a = [].concat(Array.prototype.slice.call(arguments)),
           h = i.constructor,
-          u = a[0] instanceof f ? a.shift() : h.scope ? f.getScope(h.scope) : _.string(a[0]) ? f.getScope(a.shift()) : h.staticScope,
-          c = !a[0] || _.array(a[0]) || _.string(a[0]) ? {} : a.shift(),
-          l = _.array(a[0]) ? a.shift() : null,
-          p = c.name || h.name,
+          u = a[0] instanceof f ? a.shift() : h.scope ? f.getScope(h.scope) : p.string(a[0]) ? f.getScope(a.shift()) : h.staticScope,
+          c = !a[0] || p.array(a[0]) || p.string(a[0]) ? {} : a.shift(),
+          l = p.array(a[0]) ? a.shift() : null,
+          _ = c.name || h.name,
           d = c.use || [],
           v = c.apply || null,
-          y = h.state || h.initialState || h.defaultState;return i._uid = c._uid || m.generate(), i.__retains = { all: 0 }, i.__locks = { all: 0 }, i._onStabilize = [], i._autoDestroy = !!i._persistenceTm, i._persistenceTm = c.persistenceTm || h.persistenceTm || (c.autoDestroy || h.autoDestroy) && 5, i._cfg = c, c && c.on && i.on(c.on), i.name = p, u.stores ? (i.scopeObj = u, i.scope = u.stores) : (i.scopeObj = new f(u), i.scope = u.stores), i.$scope = i.scopeObj, i.$stores = i.scopeObj.stores, i.$actions = i.scopeObj.actions, i.$dispatch = i.scopeObj.dispatch.bind(i.scopeObj), i._rev = i.constructor._rev || 0, i._revs = {}, i.stores = {}, i._require = [], i._sources = [p], _.array(h.use) ? i._use = [].concat(r(d), r((h.use || []).map(function (t) {
+          y = h.state || h.initialState || h.defaultState;return i._uid = c._uid || m.generate(), i.__retains = { all: 0 }, i.__locks = { all: 0 }, i._onStabilize = [], i._autoDestroy = !!i._persistenceTm, i._persistenceTm = c.persistenceTm || h.persistenceTm || (c.autoDestroy || h.autoDestroy) && 5, i._cfg = c, c && c.on && i.on(c.on), i.name = _, u.stores ? (i.scopeObj = u, i.scope = u.stores) : (i.scopeObj = new f(u), i.scope = u.stores), i.$scope = i.scopeObj, i.$stores = i.scopeObj.stores, i.$actions = i.scopeObj.actions, i.$dispatch = i.scopeObj.dispatch.bind(i.scopeObj), i._rev = i.constructor._rev || 0, i._revs = {}, i.stores = {}, i._require = [], i._sources = [_], p.array(h.use) ? i._use = [].concat(r(d), r((h.use || []).map(function (t) {
         var e = t.match(/^(\!?)([^\:]*)(?:\:(.*))?$/);if (e[1]) {
           var s = e[2].split(".");i._require.push(e[3] || s[s.length - 1]);
         }return e[2];
@@ -8463,10 +8503,10 @@ module.exports = function (t) {
       } }, { key: "shouldApply", value: function value() {
         var t = this,
             e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.state,
-            s = this.constructor;return !!this.isComplete(e) && (_.array(s.follow) ? s.follow.reduce(function (t, s) {
+            s = this.constructor;return !!this.isComplete(e) && (p.array(s.follow) ? s.follow.reduce(function (t, s) {
           return t || e && e[s];
         }, !1) : !s.follow || Object.keys(s.follow).reduce(function (i, r) {
-          return i || e && _.fn(s.follow[r]) && s.follow[r].call(t, e[r]) || s.follow[r] && e[r] !== t.state[r];
+          return i || e && p.fn(s.follow[r]) && s.follow[r].call(t, e[r]) || s.follow[r] && e[r] !== t.state[r];
         }, !1));
       } }, { key: "apply", value: function value(t, e, s) {
         return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === k && e.__proto__ === k ? c({}, t, e) : e;
@@ -8476,7 +8516,7 @@ module.exports = function (t) {
         t && this.once("stable", t), this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this._stabilizer || (this._stabilizer = g.pushTask(this, "pushState"));
       } }, { key: "retrieve", value: function value(t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
-            s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : this.data;return t = _.string(t) ? t.split(".") : t, s && t && t.length ? t.length == e + 1 ? s[t[e]] : this.retrieve(t, e + 1, s[t[e]]) : s;
+            s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : this.data;return t = p.string(t) ? t.split(".") : t, s && t && t.length ? t.length == e + 1 ? s[t[e]] : this.retrieve(t, e + 1, s[t[e]]) : s;
       } }, { key: "dispatch", value: function value(t) {
         for (var e, s = arguments.length, i = Array(s > 1 ? s - 1 : 0), r = 1; r < s; r++) {
           i[r - 1] = arguments[r];
@@ -8520,13 +8560,13 @@ module.exports = function (t) {
       } }, { key: "as", value: function value(t) {
         return { store: this, name: t };
       } }, { key: "on", value: function value(t) {
-        var s = this;!_.string(t) && t ? Object.keys(t).forEach(function (i) {
-          return p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", s).call(s, i, t[i]);
-        }) : p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", this).apply(this, arguments);
+        var s = this;!p.string(t) && t ? Object.keys(t).forEach(function (i) {
+          return _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", s).call(s, i, t[i]);
+        }) : _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", this).apply(this, arguments);
       } }, { key: "removeListener", value: function value(t) {
-        var s = this;!_.string(t) && t ? Object.keys(t).forEach(function (i) {
-          return p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", s).call(s, i, t[i]);
-        }) : p(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", this).apply(this, arguments);
+        var s = this;!p.string(t) && t ? Object.keys(t).forEach(function (i) {
+          return _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", s).call(s, i, t[i]);
+        }) : _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", this).apply(this, arguments);
       } }, { key: "isComplete", value: function value() {
         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.state;return this.constructor, !this._require || !this._require.length || t && this._require.reduce(function (e, s) {
           return e && t[s];
@@ -8537,14 +8577,14 @@ module.exports = function (t) {
         var t = this,
             e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
             s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-            i = !e.norefs && _.array(this._use) && this._use.reduce(function (e, s) {
+            i = !e.norefs && p.array(this._use) && this._use.reduce(function (e, s) {
           var i = void 0,
               r = void 0,
               n = void 0,
-              o = void 0;return s.store && s.name ? (r = i = s.name, o = t.scopeObj.stores[i]) : _.fn(s) ? (i = r = s.name || s.defaultName, o = t.scopeObj.stores[i]) : (s = s.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = s[1], n = s[2] && s[2].substr(1), r = s[3] || n && n.match(/([^\.]*)$/)[0] || s[1], o = t.scopeObj.retrieveStore(n)), o && !o.scopeObj._.isLocalId && (e[r] = o.scopeObj._id + "/" + i), e;
+              o = void 0;return s.store && s.name ? (r = i = s.name, o = t.scopeObj.stores[i]) : p.fn(s) ? (i = r = s.name || s.defaultName, o = t.scopeObj.stores[i]) : (s = s.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = s[1], n = s[2] && s[2].substr(1), r = s[3] || n && n.match(/([^\.]*)$/)[0] || s[1], o = t.scopeObj.retrieveStore(n)), o && !o.scopeObj._.isLocalId && (e[r] = o.scopeObj._id + "/" + i), e;
         }, {}) || {};return v(s, this.scopeObj._id + "/" + this.name, { state: this.state && (e.norefs ? c({}, this.state) : Object.keys(this.state).reduce(function (e, s) {
             return !i[s] && (e[s] = t.state[s]), e;
-          }, {})), data: (this.data && this.data.__proto__ === k ? this.data : (_.bool(this.data) || _.number(this.data) || _.string(this.data)) && this.data) || void 0, refs: i }), s;
+          }, {})), data: (this.data && this.data.__proto__ === k ? this.data : (p.bool(this.data) || p.number(this.data) || p.string(this.data)) && this.data) || void 0, refs: i }), s;
       } }, { key: "restore", value: function (t) {
         function e(e, s) {
           return t.apply(this, arguments);
@@ -8574,10 +8614,10 @@ module.exports = function (t) {
         });
       } }, { key: "wait", value: function value(t) {
         if ("number" == typeof t) return this.__locks.all += t;
-        if (_.array(t)) return t.map(this.wait.bind(this));this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this.__locks.all++;var e = _.string(t) ? t : null;return e && (this.__locks[e] = this.__locks[e] || 0, this.__locks[e]++), t && _.fn(t.then) && t.then(this.release.bind(this, null)), this;
+        if (p.array(t)) return t.map(this.wait.bind(this));this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this.__locks.all++;var e = p.string(t) ? t : null;return e && (this.__locks[e] = this.__locks[e] || 0, this.__locks[e]++), t && p.fn(t.then) && t.then(this.release.bind(this, null)), this;
       } }, { key: "release", value: function value(t, e) {
         var s = (this.constructor, this),
-            r = this._stable;if (_.fn(t) && (e = t, t = null), t && (0 == this.__locks[t], this.__locks[t] = this.__locks[t] || 0, this.__locks[t]--), !t && 0 == this.__locks.all, ! --this.__locks.all && this.isComplete()) {
+            r = this._stable;if (p.fn(t) && (e = t, t = null), t && (0 == this.__locks[t], this.__locks[t] = this.__locks[t] || 0, this.__locks[t]--), !t && 0 == this.__locks.all, ! --this.__locks.all && this.isComplete()) {
           var n = this.shouldPropag(this.data);this._stable = !0, n && this._rev++, n && this._followers.length && this._followers.forEach(function (t) {
             var e = t[2] ? s.retrieve(t[2]) : s.data;"function" == typeof t[0] ? t[0](e) : t[0].setState(t[1] ? i({}, t[1], e) : e);
           }), !r && this.emit("stable", this.data), n && this.emit("update", this.data), e && e();
@@ -8613,22 +8653,22 @@ module.exports = function (t) {
     var n = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
         o = t._revs || {},
         a = t.stores || (t.stores = {}),
-        h = {};e = _.array(e) ? [].concat(r(e)) : [e], s = s || S.staticScope, e = e.filter(function (e) {
+        h = {};e = p.array(e) ? [].concat(r(e)) : [e], s = s || S.staticScope, e = e.filter(function (e) {
       var i;if (!e) return !1;var u = void 0,
           c = void 0,
           l = void 0,
-          p = void 0,
-          f = void 0;if (e.store && e.name ? (c = u = e.name, p = e.store) : _.fn(e) ? (u = c = e.name || e.defaultName, p = e) : (f = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), u = f[1], l = f[2] && f[2].substr(1), p = s.stores[f[1]], c = f[3] || l && l.match(/([^\.]*)$/)[0] || f[1]), _.rsScope(p.prototype) && s._mount(u), _.rsScope(p)) p = s._mount(e);else if (o[u]) return !1;return !!p && (_.fn(p) ? (s._mount(u), s.stores[u].bind(t, c, n, l)) : p.bind(t, c, n, l), s.stores[u]._sources && (i = t._sources).push.apply(i, r(s.stores[u]._sources)), o[c] = o[c] || !0, !a[u] && (a[u] = s.stores[u]), s.stores[u].hasOwnProperty("data") && (h[u] = s.data[u]), !0);
+          _ = void 0,
+          f = void 0;if (e.store && e.name ? (c = u = e.name, _ = e.store) : p.fn(e) ? (u = c = e.name || e.defaultName, _ = e) : (f = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), u = f[1], l = f[2] && f[2].substr(1), _ = s.stores[f[1]], c = f[3] || l && l.match(/([^\.]*)$/)[0] || f[1]), p.rsScope(_.prototype) && s._mount(u), p.rsScope(_)) _ = s._mount(e);else if (o[u]) return !1;return !!_ && (p.fn(_) ? (s._mount(u), s.stores[u].bind(t, c, n, l)) : _.bind(t, c, n, l), s.stores[u]._sources && (i = t._sources).push.apply(i, r(s.stores[u]._sources)), o[c] = o[c] || !0, !a[u] && (a[u] = s.stores[u]), s.stores[u].hasOwnProperty("data") && (h[u] = s.data[u]), !0);
     });var u,
         c = t.isReactComponent ? "componentWillUnmount" : "destroy";return t.hasOwnProperty(c) && (u = t[c]), t[c] = function () {
       return delete t[c], u && (t[c] = u), e.map(function (e) {
         var i = void 0,
             r = void 0,
             n = void 0,
-            o = void 0;e.store && e.name ? (r = i = e.name, o = e.store) : _.fn(e) ? (i = r = e.name || e.defaultName, o = s.stores[i]) : (e = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = e[1], n = e[2] && e[2].substr(1), o = s.stores[e[1]], r = e[3] || n && n.match(/([^\.]*)$/)[0] || e[1]), o && !_.fn(o) && o.unBind(t, r, n);
+            o = void 0;e.store && e.name ? (r = i = e.name, o = e.store) : p.fn(e) ? (i = r = e.name || e.defaultName, o = s.stores[i]) : (e = e.match(/([\w_]+)((?:\.[\w_]+)*)(?:\:([\w_]+))?/), i = e[1], n = e[2] && e[2].substr(1), o = s.stores[e[1]], r = e[3] || n && n.match(/([^\.]*)$/)[0] || e[1]), o && !p.fn(o) && o.unBind(t, r, n);
       }), t[c] && t[c].apply(t, arguments);
     }, h;
-  }, _.rsStore = function (t) {
+  }, p.rsStore = function (t) {
     return t instanceof S;
   }, e.default = S, t.exports = e.default;
 }, function (t, e, s) {
@@ -8636,30 +8676,30 @@ module.exports = function (t) {
   function i(t) {
     return t && t.__esModule ? t : { default: t };
   }function r() {
-    p || n();
+    _ || n();
   }function n() {
-    for (Date.now(), p = !0, _.enable(); c;) {
+    for (Date.now(), _ = !0, p.enable(); c;) {
       for (; !a[h] || !a[h].length;) {
         h++;
       }c--, l = a[h].shift(), l[0][l[1]].apply(l[0], l[2]);
-    }l = void 0, _.disable(), p = !1, c && setTimeout(r);
+    }l = void 0, p.disable(), _ = !1, c && setTimeout(r);
   }Object.defineProperty(e, "__esModule", { value: !0 });var o = s(1),
       a = (i(o), []),
       h = 0,
       u = 0,
       c = 0,
       l = void 0,
-      p = void 0,
-      _ = { lastError: null, dispatch: function dispatch(t) {
-      _.disable(), l && l[0].handleError && l[0].handleError(t, l), p = !1, l = null, r();
+      _ = void 0,
+      p = { lastError: null, dispatch: function dispatch(t) {
+      p.disable(), l && l[0].handleError && l[0].handleError(t, l), _ = !1, l = null, r();
     }, enable: "undefined" != typeof window ? function () {
-      window.addEventListener("error", _.dispatch);
+      window.addEventListener("error", p.dispatch);
     } : function () {
-      process.on("uncaughtException", _.dispatch);
+      process.on("uncaughtException", p.dispatch);
     }, disable: "undefined" != typeof window ? function () {
-      window.removeEventListener("error", _.dispatch);
+      window.removeEventListener("error", p.dispatch);
     } : function () {
-      process.removeListener("uncaughtException", _.dispatch);
+      process.removeListener("uncaughtException", p.dispatch);
     } };e.default = { pushTask: function pushTask(t, e, s) {
       var i = t._sources && t._sources.length || 1,
           n = a[i] = a[i] || [];return u = Math.max(u, i), h = Math.min(h, i), c++, n.push([t, e, s]), setTimeout(r, 0), n.length;
@@ -8676,14 +8716,14 @@ module.exports = function (t) {
     }return Array.from(t);
   }function n(t, e) {
     var s = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-        i = arguments.length > 3 && void 0 !== arguments[3] && arguments[3];p.push({ test: t, member: s, stateScope: i, handle: e });
+        i = arguments.length > 3 && void 0 !== arguments[3] && arguments[3];_.push({ test: t, member: s, stateScope: i, handle: e });
   }function o(t, e, s) {
-    for (var i = 0; i < p.length; i++) {
-      if ((void 0 === e || e == p[i].member) && s == p[i].stateScope && p[i].test(t)) return !0;
+    for (var i = 0; i < _.length; i++) {
+      if ((void 0 === e || e == _[i].member) && s == _[i].stateScope && _[i].test(t)) return !0;
     }return !1;
   }function a(t, e, s, i) {
-    for (var n = 0; n < p.length; n++) {
-      var o;if (s == p[n].member && i == p[n].stateScope && p[n].test(t)) return (o = p[n]).handle.apply(o, [t].concat(r(e)));
+    for (var n = 0; n < _.length; n++) {
+      var o;if (s == _[n].member && i == _[n].stateScope && _[n].test(t)) return (o = _[n]).handle.apply(o, [t].concat(r(e)));
     }return !1;
   }function h() {
     for (var t = arguments.length, e = Array(t), s = 0; s < t; s++) {
@@ -8703,7 +8743,7 @@ module.exports = function (t) {
     };
   }Object.defineProperty(e, "__esModule", { value: !0 }), e.scopeToState = e.reScope = e.addScopableType = void 0;var c = s(1),
       l = (i(c), {}.constructor),
-      p = [];e.addScopableType = n, e.reScope = h, e.scopeToState = u;
+      _ = [];e.addScopableType = n, e.reScope = h, e.scopeToState = u;
 }]);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(25), __webpack_require__(0)))
 
