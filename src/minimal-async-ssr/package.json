@@ -24,11 +24,9 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-rescope": "^1.1.2",
+    "rscopes": "^1.0.0",
     "react-rnd": "git+https://github.com/CaipiLabs/react-rnd.git",
     "request": "^2.85.0",
-    "rescope": "^3.6.6",
-    "rescope-spells": "^0.1.2",
     "superagent": "^3.8.2"
   },
   "devDependencies": {

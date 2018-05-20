@@ -29,7 +29,7 @@ import React              from "react";
 import AppScope           from './AppScope';
 import {
     Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, Scope
-}                         from "react-rescope";
+}                         from "rscopes";
 import { renderToString } from "react-dom/server"
 
 var cookie = require('cookie');
