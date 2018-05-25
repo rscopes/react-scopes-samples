@@ -51,6 +51,7 @@ module.exports    = [
         //target   : 'node', // in order to ignore built-in modules like path, fs, etc.
         //externals: [nodeExternals()],
         resolve: {
+            symlinks: false,
             extensions: [
                 ".",
                 ".js",
@@ -64,7 +65,7 @@ module.exports    = [
         },
         
         module : {
-            loaders: [
+            rules: [
                 {
                     test   : /\.js$/,
                     exclude: /node_modules/,
@@ -81,12 +82,6 @@ module.exports    = [
                             'babel-plugin-transform-decorators-legacy'
                         ].map(require.resolve)
                     }
-                },
-                {
-                    test   : /\.json$/,
-                    loaders: [
-                        "json-loader",
-                    ],
                 },
                 {
                     test: /\.(scss|css)$/,
@@ -173,8 +168,9 @@ module.exports    = [
         //        return (filep && !/node_modules/.test(str))
         //    }
         //,//
-        //externals: [nodeExternals({ whitelist: ['rescope-spells', 'rescope'] })],
+        externals: [nodeExternals(), 'rscopes'],
         resolve  : {
+            symlinks: false,
             extensions: [
                 ".",
                 ".js",
@@ -189,7 +185,7 @@ module.exports    = [
         },
         
         module : {
-            loaders: [
+            rules: [
                 {
                     test   : /\.js$/,
                     exclude: {
@@ -211,12 +207,6 @@ module.exports    = [
                             'babel-plugin-transform-decorators-legacy'
                         ].map(require.resolve)
                     }
-                },
-                {
-                    test   : /\.json$/,
-                    loaders: [
-                        "json-loader",
-                    ],
                 },
                 { test: /\.tpl$/, loader: "dot-tpl-loader?append=true" },
                 {

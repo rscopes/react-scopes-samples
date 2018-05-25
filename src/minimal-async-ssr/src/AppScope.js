@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 
-import superagent         from "superagent";
-import shortid            from "shortid";
-import Rnd                from 'react-rnd';
-import {
-    asStateMap, asScope, asRenderer, asRootRenderer
-}                         from "rescope-spells";
+import superagent from "superagent";
+import shortid    from "shortid";
+import Rnd        from 'react-rnd';
+import rscopes    from "rscopes";
+
+const {
+          asStateMap, asScope, asRenderer, asRootRenderer
+      } = rscopes.spells;
+
 import { renderToString } from "react-dom/server"
 
 export default {
