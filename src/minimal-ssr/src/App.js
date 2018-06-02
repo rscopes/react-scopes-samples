@@ -26,6 +26,7 @@
  */
 
 import "react-rescope";
+import React                from 'react';
 import Rnd                from 'react-rnd';
 import AppScope           from './AppScope';
 import {
