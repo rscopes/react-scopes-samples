@@ -27,7 +27,7 @@
 
 import React from "react";
 
-import Rescope, { reScopeState, reScopeProps } from "react-rescope";
+import Rescope, { scopeToState, reScopeProps } from "react-rescope";
 
 let ReactDom      = require('react-dom'),
     Scope         = Rescope.Scope,
@@ -45,7 +45,7 @@ new Scope(StoresContext, {
     defaultMaxListeners: 500
 });
 
-@reScopeState(
+@scopeToState(
     Scope.scopes.appContext,
     [ "status", "appState" ]
 )
@@ -55,7 +55,7 @@ class App extends React.Component {
         Scope.scopes.appContext.mount(
             [ "userEvents" ]
         ).then(
-            ( err, state, context ) => {
+            ( state ) => {
                 ReactDom.render(<App/>, node);
             }
         )

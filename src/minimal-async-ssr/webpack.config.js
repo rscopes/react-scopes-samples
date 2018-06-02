@@ -28,10 +28,12 @@
 var fs      = require("fs");
 var webpack = require("webpack");
 var path    = require("path");
+var glob    = require("glob");
+
 
 var autoprefixer  = require('autoprefixer');
 var production    = process.argv.indexOf("--production") > -1
-                    || process.argv.indexOf("-p") > -1;
+    || process.argv.indexOf("-p") > -1;
 var nodeExternals = require('webpack-node-externals');
 //console.warn(entries)
 module.exports    = [
@@ -49,12 +51,13 @@ module.exports    = [
         //target   : 'node', // in order to ignore built-in modules like path, fs, etc.
         //externals: [nodeExternals()],
         resolve: {
+            symlinks: false,
             extensions: [
                 ".",
                 ".js",
                 ".json",
             ],
-            modules   : [ __dirname + '/node_modules', 'node_modules' ],
+            modules   : [__dirname + '/node_modules', 'node_modules'],
             alias     : {
                 // webpack bug : all modules deps can be duplicated if there are required in sub dir modules :(
                 //'rescope': path.join(__dirname, 'node_modules', 'rescope'),
@@ -62,7 +65,7 @@ module.exports    = [
         },
         
         module : {
-            loaders: [
+            rules: [
                 {
                     test   : /\.js$/,
                     exclude: /node_modules/,
@@ -79,12 +82,6 @@ module.exports    = [
                             'babel-plugin-transform-decorators-legacy'
                         ].map(require.resolve)
                     }
-                },
-                {
-                    test   : /\.json$/,
-                    loaders: [
-                        "json-loader",
-                    ],
                 },
                 {
                     test: /\.(scss|css)$/,
@@ -153,47 +150,48 @@ module.exports    = [
         ),
     },
     {
-        entry  : {
+        entry    : {
             App: './src/App.js'
         },
-        target : 'node',
-        output : {
+        target   : 'node',
+        output   : {
             path         : __dirname + "/dist/",
             filename     : "[name].server.js",
             publicPath   : "/",
             libraryTarget: "commonjs2"
         },
-        devtool: 'source-map',
-        //target   : 'async-node', // in order to ignore built-in modules like path, fs, etc.
+        devtool  : 'source-map',
+        target   : 'async-node', // in order to ignore built-in modules like path, fs, etc.
         //externals:  ( str ) =>{
         //        let filep = path.resolve(str).substr(0, __dirname.length) == __dirname;
         //    console.log(str, __dirname, filep && !/node_modules/.test(str))
         //        return (filep && !/node_modules/.test(str))
         //    }
         //,//
-        //externals: [nodeExternals({ whitelist: ['rescope-spells', 'rescope'] })],
-        resolve: {
+        externals: [nodeExternals(), 'rscopes'],
+        resolve  : {
+            symlinks: false,
             extensions: [
                 ".",
                 ".js",
                 ".json",
             ],
-            modules   : [ __dirname + '/node_modules', 'node_modules' ],
-            alias     : {
-                'inherits'  : 'inherits/inherits_browser.js',
+            modules   : [__dirname + '/node_modules', 'node_modules'],
+            alias: {
+                'inherits': 'inherits/inherits_browser.js',
                 'superagent': 'request',
-                'emitter'   : 'component-emitter',
+                'emitter': 'component-emitter',
             },
         },
         
         module : {
-            loaders: [
+            rules: [
                 {
                     test   : /\.js$/,
                     exclude: {
                         test( str ) {
                             let filep = path.resolve(str).substr(0, __dirname.length) == __dirname;
-                            return ( !filep || filep && /node_modules/.test(str) )
+                            return (!filep || filep && /node_modules/.test(str))
                         }
                     },
                     loader : 'babel-loader',
@@ -209,12 +207,6 @@ module.exports    = [
                             'babel-plugin-transform-decorators-legacy'
                         ].map(require.resolve)
                     }
-                },
-                {
-                    test   : /\.json$/,
-                    loaders: [
-                        "json-loader",
-                    ],
                 },
                 { test: /\.tpl$/, loader: "dot-tpl-loader?append=true" },
                 {

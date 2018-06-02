@@ -25,8 +25,8 @@
  * @contact : caipilabs@gmail.com
  */
 
-import React              from "react";
 import "react-rescope";
+import React                from 'react';
 import Rnd                from 'react-rnd';
 import AppScope           from './AppScope';
 import {
@@ -47,7 +47,7 @@ class App extends React.Component {
         window.__scopesState && cScope.restore(window.__scopesState)
         cScope.mount([ "appState", "someData" ])
               .then(
-                  ( err, state, context ) => {
+                  ( state ) => {
                       ReactDom.render(<App __scope={ cScope }/>, node);
                   }
               )
@@ -57,7 +57,7 @@ class App extends React.Component {
         cfg.state && cScope.restore(cfg.state)
         cScope.mount([ "appState", "someData" ])
               .then(
-                  ( err, state, context ) => {
+                  ( state ) => {
                       let html;
                       try {
                           html = indexTpl.render(
