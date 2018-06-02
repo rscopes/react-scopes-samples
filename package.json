@@ -9,8 +9,7 @@
     "test": "mocha --compilers js:babel-core/register ./test/*.test.js -b",
     "install": "npm-recursive-install --skip-root"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "babel-cli": "^6.14.0",
