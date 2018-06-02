@@ -29,25 +29,28 @@ var fs      = require("fs");
 var webpack = require("webpack");
 var path    = require("path");
 
-var autoprefixer  = require('autoprefixer');
-var production    = process.argv.indexOf("--production") > -1
-                    || process.argv.indexOf("-p") > -1;
-var nodeExternals = require('webpack-node-externals');
-//console.warn(entries)
-module.exports    = [
+var autoprefixer = require('autoprefixer');
+var production   = process.argv.indexOf("--production") > -1
+                   || process.argv.indexOf("-p") > -1;
+
+module.exports   = [
     {
+        // The jsx App entry point
         entry  : {
             App: './src/App.js'
         },
+        
+        // The resulting build
         output : {
             path      : __dirname + "/dist/",
             filename  : "[name].js",
             publicPath: "/",
-            //libraryTarget: "commonjs2"
         },
+        
+        // add sourcemap in a dedicated file (.map)
         devtool: 'source-map',
-        //target   : 'node', // in order to ignore built-in modules like path, fs, etc.
-        //externals: [nodeExternals()],
+        
+        // required files resolving options
         resolve: {
             extensions: [
                 ".",
@@ -60,7 +63,35 @@ module.exports    = [
                 //'rescope': path.join(__dirname, 'node_modules', 'rescope'),
             },
         },
+    
+        // Global build plugin & option
+        plugins: (
+            [
+                new webpack.BannerPlugin(fs.readFileSync("./LICENCE.HEAD.MD").toString()),
+            
+                new webpack.DefinePlugin({
+                                             __PROD__: production
+                                         }),
+                production ? new webpack.optimize.UglifyJsPlugin(
+                    {
+                        compress: {
+                            screw_ie8   : true, // React doesn't support IE8
+                            warnings    : false,
+                            drop_console: true
+                        },
+                        mangle  : {
+                            screw_ie8: true
+                        },
+                        output  : {
+                            comments : false,
+                            screw_ie8: true
+                        }
+                    }) : p => false,
         
+            ]
+        ),
+        
+        // the requirable files and what manage theirs parsing
         module : {
             loaders: [
                 {
@@ -126,31 +157,6 @@ module.exports    = [
                 //}
             ],
         },
-        plugins: (
-            [
-                new webpack.BannerPlugin(fs.readFileSync("./LICENCE.HEAD.MD").toString()),
-                
-                new webpack.DefinePlugin({
-                                             __PROD__: production
-                                         }),
-                production ? new webpack.optimize.UglifyJsPlugin(
-                    {
-                        compress: {
-                            screw_ie8   : true, // React doesn't support IE8
-                            warnings    : false,
-                            drop_console: true
-                        },
-                        mangle  : {
-                            screw_ie8: true
-                        },
-                        output  : {
-                            comments : false,
-                            screw_ie8: true
-                        }
-                    }) : p => false,
-            
-            ]
-        ),
     },
     {
         entry  : {
@@ -164,14 +170,6 @@ module.exports    = [
             libraryTarget: "commonjs2"
         },
         devtool: 'source-map',
-        //target   : 'async-node', // in order to ignore built-in modules like path, fs, etc.
-        //externals:  ( str ) =>{
-        //        let filep = path.resolve(str).substr(0, __dirname.length) == __dirname;
-        //    console.log(str, __dirname, filep && !/node_modules/.test(str))
-        //        return (filep && !/node_modules/.test(str))
-        //    }
-        //,//
-        //externals: [nodeExternals({ whitelist: ['rescope-spells', 'rescope'] })],
         resolve: {
             extensions: [
                 ".",
@@ -221,12 +219,6 @@ module.exports    = [
                     test  : /\.(scss|css|less|woff2|ttf|eot)(\?.*$|$)$/,
                     loader: 'null-loader'
                 },
-                //{
-                //    test   : /.*/,
-                //    loaders: [
-                //        "file-loader?name=[name].[ext]&context=./src",
-                //    ],
-                //}
             ],
         },
         plugins: (
