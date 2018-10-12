@@ -84,10 +84,10 @@ class App {
 				      let html = renderToString(
 					      <State.SSRIndex appScope={ cScope }/>);
 				      cb(null, html);
-				      console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
-					                                                                 norefs: true,
-					                                                                 alias : "App"
-				                                                                 }), null, 2), html)
+				      //console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
+					  //                                                               norefs: true,
+					  //                                                               alias : "App"
+				      //                                                           }), null, 2), html)
 				      cScope.destroy()
 				      //})
 			      }

@@ -219,10 +219,10 @@ var App = (_temp = _class = function App() {
 		//cScope.then(State => {
 		var html = (0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { appScope: cScope }));
 		cb(null, html);
-		console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
-			norefs: true,
-			alias: "App"
-		}), null, 2), html);
+		//console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
+		//                                                               norefs: true,
+		//                                                               alias : "App"
+		//                                                           }), null, 2), html)
 		cScope.destroy();
 		//})
 	});
