@@ -27,6 +27,7 @@
 
 import React            from 'react';
 import Rnd              from 'react-rnd';
+import shortid          from 'shortid';
 import AppScope         from './AppScope';
 import {
 	Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, Scope
@@ -38,14 +39,10 @@ import "./App.scss"
 var indexTpl = require('./index.html.tpl');
 let ReactDom = require('react-dom');
 
-console.log({
-	            Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, Scope
-            });
-
 @scopeToState(["appState", "someData"])
 class App extends React.Component {
 	static renderTo  = ( node ) => {
-		let cScope = new Scope(AppScope, { id: "CApp" });
+		let cScope = new Scope(AppScope, { id: "App" });
 		
 		window.__scopesState && cScope.restore(window.__scopesState)
 		cScope.mount(["appState", "someData"])
@@ -56,8 +53,9 @@ class App extends React.Component {
 		      )
 	}
 	static renderSSR = ( cfg, cb ) => {
-		let cScope = new Scope(AppScope, { id: "App" });
-		cfg.state && cScope.restore(cfg.state)
+		let rid    = shortid.generate(),
+		    cScope = new Scope(AppScope, { id: rid });
+		cfg.state && cScope.restore(cfg.state, { alias: "App" })
 		//console.log(cfg)
 		cScope.mount(["appState", "someData"])
 		      .then(
@@ -67,7 +65,7 @@ class App extends React.Component {
 					      html = indexTpl.render(
 						      {
 							      app  : renderToString(<App __scope={ cScope }/>),
-							      state: JSON.stringify(cfg.state || cScope.serialize({ alias: "CApp" }))
+							      state: JSON.stringify(cScope.serialize({ alias: "App" }))
 						      }
 					      );
 				      } catch ( e ) {
@@ -119,12 +117,6 @@ class App extends React.Component {
 class PostIt extends React.Component {
 	
 	state = {};
-	
-	constructor() {
-		debugger
-		super(...arguments);
-		
-	}
 	
 	saveState = ( e, d ) => {
 		let { $actions, record } = this.props;

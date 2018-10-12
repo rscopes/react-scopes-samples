@@ -65,7 +65,7 @@ export default {
 			}
 		},
 		saveState() {
-			superagent.post('/', this.scopeObj.serialize())
+			superagent.post('/', window.state = this.scopeObj.serialize())
 			          .then(( e, r ) => {
 				          console.log(e, r)
 			          })
