@@ -27,6 +27,7 @@
     "react-rnd": "git+https://github.com/CaipiLabs/react-rnd.git",
     "request": "^2.85.0",
     "rscopes": "^1.0.10",
+    "shortid": "^2.2.13",
     "superagent": "^3.8.2",
     "url-js": "^0.2.3-u"
   },

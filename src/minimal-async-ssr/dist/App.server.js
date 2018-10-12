@@ -121,7 +121,7 @@ module.exports =
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _class, _temp; /*
@@ -155,6 +155,10 @@ var _react = __webpack_require__(/*! react */ "react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _shortid = __webpack_require__(/*! shortid */ "shortid");
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
 var _AppScope = __webpack_require__(/*! ./AppScope */ "./src/AppScope.js");
 
 var _AppScope2 = _interopRequireDefault(_AppScope);
@@ -167,8 +171,6 @@ __webpack_require__(/*! ./App.scss */ "./src/App.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var cookie = __webpack_require__(/*! cookie */ "cookie");
@@ -176,52 +178,59 @@ var cookie = __webpack_require__(/*! cookie */ "cookie");
 var ReactDom = __webpack_require__(/*! react-dom */ "react-dom");
 
 var App = (_temp = _class = function App() {
-    _classCallCheck(this, App);
+	_classCallCheck(this, App);
 }, _class.renderTo = function (node, state) {
-    var cScope = new _rscopes.Scope(_AppScope2.default, { id: "App" }),
-        sid = (cookie.parse(document.cookie) || {})["connect.sid"];
-    sid = sid && sid.replace(/^s\:([^\.]+)(?:$|\..*$)/ig, "$1");
-    window.scopes = _rscopes.Scope.scopes;
-    window.test = function () {
-        App.renderSSR({
-            state: cScope.serialize(),
-            sessionId: sid
-        }, function (e, r) {
-            return console.log(r);
-        });
-    };
-    state && cScope.restore(state);
-    cScope.mount(["Home"]).then(function (_ref) {
-        var Home = _ref.Home;
+	var cScope = new _rscopes.Scope(_AppScope2.default, { id: "App" }),
+	    sid = (cookie.parse(document.cookie) || {})["connect.sid"];
+	sid = sid && sid.replace(/^s\:([^\.]+)(?:$|\..*$)/ig, "$1");
+	window.scopes = _rscopes.Scope.scopes;
+	window.test = function () {
+		App.renderSSR({
+			state: cScope.serialize(),
+			sessionId: sid
+		}, function (e, r) {
+			return console.log(r);
+		});
+	};
+	state && cScope.restore(state);
+	cScope.mount(["Home"]).then(function (_ref) {
+		var Home = _ref.Home;
 
-        ReactDom.hydrate(_react2.default.createElement(Home, { sessionId: sid }), node);
-    });
+		ReactDom.hydrate(_react2.default.createElement(Home, { sessionId: sid }), node);
+	});
 }, _class.renderSSR = function (cfg, cb) {
-    var env = new _rscopes.Scope({}, {}),
-        cScope = new _rscopes.Scope(_AppScope2.default, {
-        key: "App",
-        parent: env,
-        snapshot: _defineProperty({}, env._id, cfg.state)
-    }),
-        state = _defineProperty({}, env._id, cfg.state);
-    //cfg.state && cScope.restore(state);
-    console.log(cfg.sessionId, state);
-    cScope.mount(["SSRIndex"]).then(function (State) {
-        ///mount deps
-        //renderToString(
-        //    <State.SSRIndex sessionId={ env._id }/>);
-        //cScope.then(State => {
-        var html = (0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { sessionId: env._id }));
-        cb(null, html);
-        console.log(cfg.sessionId, cScope.serialize(), html);
-        cScope.destroy();
-        //})
-    });
+	var rid = _shortid2.default.generate(),
+	    cScope = new _rscopes.Scope(_AppScope2.default, { id: rid });
+	cfg.state && cScope.restore(cfg.state, { alias: "App" });
+	//let env    = new Scope({}, {}),
+	//    cScope = new Scope(AppScope, {
+	//        key     : "App",
+	//        parent  : env,
+	//        snapshot: { [ env._id ]: cfg.state }
+	//    }),
+	//    state  = { [ env._id ]: cfg.state }
+	//;
+	//cfg.state && cScope.restore(state);
+	//console.log(cfg.sessionId, state)
+	cScope.mount(["SSRIndex"]).then(function (State) {
+		///mount deps
+		//renderToString(
+		//    <State.SSRIndex sessionId={ env._id }/>);
+		//cScope.then(State => {
+		var html = (0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { appScope: cScope }));
+		cb(null, html);
+		console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
+			norefs: true,
+			alias: "App"
+		}), null, 2), html);
+		cScope.destroy();
+		//})
+	});
 }, _temp);
 
 
 if (typeof window != 'undefined') {
-    window.App = App;
+	window.App = App;
 }
 exports.default = App;
 
@@ -412,7 +421,7 @@ exports.default = (_dec = asRenderer(["!Home"]), _dec2 = asRenderer(["!AppState.
 				};
 			},
 			saveState: function saveState() {
-				_superagent2.default.post('/', this.$stores.$parent.serialize({ norefs: true })).then(function (e, r) {
+				_superagent2.default.post('/', window.state = this.$stores.$parent.serialize({ norefs: true })).then(function (e, r) {
 					console.log(e, r);
 				});
 			}
@@ -435,7 +444,9 @@ exports.default = (_dec = asRenderer(["!Home"]), _dec2 = asRenderer(["!AppState.
 
 	SSRIndex: function SSRIndex(_ref, _ref2) {
 		var Home = _ref.Home,
-		    sessionId = _ref.props.sessionId;
+		    _ref$props = _ref.props,
+		    sessionId = _ref$props.sessionId,
+		    appScope = _ref$props.appScope;
 		var $scope = _ref2.$scope;
 		return _react2.default.createElement(
 			"html",
@@ -460,7 +471,12 @@ exports.default = (_dec = asRenderer(["!Home"]), _dec2 = asRenderer(["!AppState.
 				),
 				_react2.default.createElement("script", { src: "./App.js" }),
 				_react2.default.createElement("script", {
-					dangerouslySetInnerHTML: { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($scope.parent.parent.serialize()[sessionId]) + ", document.cookie);" } })
+					dangerouslySetInnerHTML: {
+						__html: "App.renderTo(document.getElementById('app'), " + JSON.stringify(appScope.serialize({
+							norefs: true,
+							alias: 'App'
+						})) + ", document.cookie);"
+					} })
 			)
 		);
 	},

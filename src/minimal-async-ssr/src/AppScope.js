@@ -73,7 +73,7 @@ export default {
 				}
 			},
 			saveState() {
-				superagent.post('/', this.$stores.$parent.serialize({norefs:true}))
+				superagent.post('/', window.state = this.$stores.$parent.serialize({ norefs: true }))
 				          .then(( e, r ) => {
 					          console.log(e, r)
 				          })
@@ -82,7 +82,7 @@ export default {
 	},
 	
 	@asRenderer(["!Home"])
-	SSRIndex: ( { Home, props: { sessionId } }, { $scope } ) =>
+	SSRIndex: ( { Home, props: { sessionId, appScope } }, { $scope } ) =>
 		<html lang="en">
 		<head>
 			<meta charSet="UTF-8"/>
@@ -92,7 +92,12 @@ export default {
 		<div id="app"><Home/></div>
 		<script src="./App.js"></script>
 		<script
-			dangerouslySetInnerHTML={ { __html: "App.renderTo(document.getElementById('app'), " + JSON.stringify($scope.parent.parent.serialize()[sessionId]) + ", document.cookie);" } }/>
+			dangerouslySetInnerHTML={ {
+				__html: "App.renderTo(document.getElementById('app'), " + JSON.stringify(appScope.serialize({
+					                                                                                            norefs: true,
+					                                                                                            alias : 'App'
+				                                                                                            })) + ", document.cookie);"
+			} }/>
 		</body>
 		</html>,
 	
