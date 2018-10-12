@@ -4514,6 +4514,12 @@ module.exports =
 
 				snapshot = snapshot && keyWalknGet(snapshot, cfg.alias || this._id) || this.takeSnapshotByKey(this._id);
 
+				if (snapshot && cfg && cfg.alias && cfg.alias != this._id) {
+					snap = _extends({}, snapshot, _defineProperty({}, this._id, snapshot[cfg.alias]));
+					delete snap[cfg.alias];
+					snapshot = snap;
+				}
+
 				if (!snapshot) return;
 
 				this._.snapshot = _extends({}, snapshot);
