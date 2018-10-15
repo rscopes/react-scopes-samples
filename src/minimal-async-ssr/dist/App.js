@@ -30550,7 +30550,7 @@ module.exports =
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	
 	var _rescope = __webpack_require__(1);
@@ -30598,91 +30598,91 @@ module.exports =
 	var castTypes = {};
 	
 	_rescope2.default.isSpell = function caster() {
-	    for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-	        argz[_key] = arguments[_key];
-	    }
+		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+			argz[_key] = arguments[_key];
+		}
 	
-	    // are we decorating a member / without argz
-	    if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	        argz[2].value = addCaster(argz[0][argz[1]], argz);
-	        return argz[0];
-	    } else if (!_is2.default.fn(argz[0])) {
-	        return function () {
-	            for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                argz2[_key2] = arguments[_key2];
-	            }
+		// are we decorating a member / without argz
+		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+			argz[0][argz[1]] = argz[2].value = addCaster(argz[0][argz[1]], argz);
+			return argz[0];
+		} else if (!_is2.default.fn(argz[0])) {
+			return function () {
+				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+					argz2[_key2] = arguments[_key2];
+				}
 	
-	            // are we decorating a member / with argz
-	            if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-	                return argz2[0];
-	            } else return caster.apply(undefined, [argz2[0]].concat(argz));
-	        };
-	    }
-	    return addCaster.apply(undefined, argz);
+				// are we decorating a member / with argz
+				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+					argz2[0][argz2[1]] = argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+					return argz2[0];
+				} else return caster.apply(undefined, [argz2[0]].concat(argz));
+			};
+		}
+		return addCaster.apply(undefined, argz);
 	};
 	
 	function addCaster() {
-	    for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	        argz[_key3] = arguments[_key3];
-	    }
+		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			argz[_key3] = arguments[_key3];
+		}
 	
-	    var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-	    if (!cast) throw "ReScope cast : bad decorator function";
-	    var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-	        test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-	        prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-	        memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-	        casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+		if (!cast) throw "ReScope cast : bad decorator function";
+		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
 	
-	    if (!castTypesToAppliable[typeName]) {
-	        castTypesToAppliable[typeName] = [];
+		if (!castTypesToAppliable[typeName]) {
+			castTypesToAppliable[typeName] = [];
 	
-	        _rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-	            for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                argz[_key4] = arguments[_key4];
-	            }
+			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+					argz[_key4] = arguments[_key4];
+				}
 	
-	            // are we decorating a member / without argz
-	            if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-	                argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-	                return argz[0];
-	            } else if (!isCastableType(typeName, argz[0])) {
-	                return function () {
-	                    for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	                        argz2[_key5] = arguments[_key5];
-	                    }
+				// are we decorating a member / without argz
+				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+					return argz[0];
+				} else if (!isCastableType(typeName, argz[0])) {
+					return function () {
+						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+							argz2[_key5] = arguments[_key5];
+						}
 	
-	                    // are we decorating a member / with argz
-	                    if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-	                        argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-	                        return argz2[0];
-	                    } else return doCast.apply(undefined, [argz2[0]].concat(argz));
-	                };
-	            }
-	            return applyCastableType(typeName, argz[0], argz.slice(1));
-	        };
-	    }
-	    castTypesToAppliable[typeName].unshift({
-	        typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-	    });
-	    return cast;
+						// are we decorating a member / with argz
+						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+							return argz2[0];
+						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
+					};
+				}
+				return applyCastableType(typeName, argz[0], argz.slice(1));
+			};
+		}
+		castTypesToAppliable[typeName].unshift({
+			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+		});
+		return castTypes[typeName];
 	}
 	
 	function isCastableType(typeName, Comp, member, stateScope) {
-	    var castable = castTypesToAppliable[typeName];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-	    }return false;
+		var castable = castTypesToAppliable[typeName];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+		}return false;
 	}
 	
 	function applyCastableType(typeName, Comp, argz, member, stateScope) {
 	
-	    var castable = castTypesToAppliable[typeName] || [];
-	    for (var i = 0; i < castable.length; i++) {
-	        if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-	    }console.warn("reScope cast : Unknown type", typeName, Comp);
-	    return false;
+		var castable = castTypesToAppliable[typeName] || [];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+		}console.warn("reScope cast : Unknown type", typeName, Comp);
+		return false;
 	}
 	
 	exports.default = _rescope2.default;
