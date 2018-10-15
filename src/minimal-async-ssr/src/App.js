@@ -78,18 +78,19 @@ class App {
 		      .then(
 			      ( State ) => {
 				      ///mount deps
-				      //renderToString(
-				      //    <State.SSRIndex sessionId={ env._id }/>);
-				      //cScope.then(State => {
-				      let html = renderToString(
+				      renderToString(
 					      <State.SSRIndex appScope={ cScope }/>);
-				      cb(null, html);
-				      //console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
-					  //                                                               norefs: true,
-					  //                                                               alias : "App"
-				      //                                                           }), null, 2), html)
-				      cScope.destroy()
-				      //})
+				      cScope.then(State => {
+					      //State.SSRIndex.
+					      let html = renderToString(
+						      <State.SSRIndex appScope={ cScope }/>);
+					      cb(null, html);
+					      //console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
+					      //                                                               norefs: true,
+					      //                                                               alias : "App"
+					      //                                                           }), null, 2), html)
+					      cScope.destroy()
+				      })
 			      }
 		      )
 	}

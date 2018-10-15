@@ -104,7 +104,7 @@ export default {
 	@asRenderer(["!AppState.appState", "!AppState.someData", "!PostIt"])
 	Home: ( {
 		        someData, appState, PostIt
-	        }, { $actions, $stores, $store } ) =>
+	        }, { $actions, $stores, $scope } ) =>
 		<div>
 			<h1>Really basic drafty rescope SSR example</h1>
 			<div
@@ -117,6 +117,14 @@ export default {
 				onClick={ $actions.AppState.saveState }>
 				Save state
 			</div>
+			<pre>
+			{
+				JSON.stringify($scope.parent.parent.serialize({
+					                                  norefs: true,
+					                                  alias : 'App'
+				                                  }), null, 2)
+			}
+			</pre>
 			{
 				someData.items.map(
 					note => <PostIt key={ note._id } record={ note }
@@ -139,6 +147,7 @@ export default {
 					if ( searching.length < 4 )
 						return { searching };
 					
+					this.wait();
 					superagent.get(state.src +
 						               'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + searching + '")')
 					          .then(( res ) => {
@@ -157,7 +166,6 @@ export default {
 						          this.push(this.data)
 						          this.release();
 					          })
-					this.wait();
 					return { searching };
 				}
 			}

@@ -214,17 +214,17 @@ var App = (_temp = _class = function App() {
 	//console.log(cfg.sessionId, state)
 	cScope.mount(["SSRIndex"]).then(function (State) {
 		///mount deps
-		//renderToString(
-		//    <State.SSRIndex sessionId={ env._id }/>);
-		//cScope.then(State => {
-		var html = (0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { appScope: cScope }));
-		cb(null, html);
-		//console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
-		//                                                               norefs: true,
-		//                                                               alias : "App"
-		//                                                           }), null, 2), html)
-		cScope.destroy();
-		//})
+		(0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { appScope: cScope }));
+		cScope.then(function (State) {
+			//State.SSRIndex.
+			var html = (0, _server.renderToString)(_react2.default.createElement(State.SSRIndex, { appScope: cScope }));
+			cb(null, html);
+			//console.log(cfg.sessionId, JSON.stringify(cScope.serialize({
+			//                                                               norefs: true,
+			//                                                               alias : "App"
+			//                                                           }), null, 2), html)
+			cScope.destroy();
+		});
 	});
 }, _temp);
 
@@ -337,6 +337,7 @@ exports.default = (_dec = asRenderer(["!Home"]), _dec2 = asRenderer(["!AppState.
 			if (searching == state.searching) return;
 			if (searching.length < 4) return { searching: searching };
 
+			this.wait();
 			_superagent2.default.get(state.src + 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + searching + '")').then(function (res) {
 				if (searching != _this.nextState.searching) return;
 				try {
@@ -353,7 +354,6 @@ exports.default = (_dec = asRenderer(["!Home"]), _dec2 = asRenderer(["!AppState.
 				_this.push(_this.data);
 				_this.release();
 			});
-			this.wait();
 			return { searching: searching };
 		}
 	}
@@ -487,7 +487,7 @@ exports.default = (_dec = asRenderer(["!Home"]), _dec2 = asRenderer(["!AppState.
 		    PostIt = _ref3.PostIt;
 		var $actions = _ref4.$actions,
 		    $stores = _ref4.$stores,
-		    $store = _ref4.$store;
+		    $scope = _ref4.$scope;
 		return _react2.default.createElement(
 			"div",
 			null,
@@ -509,6 +509,14 @@ exports.default = (_dec = asRenderer(["!Home"]), _dec2 = asRenderer(["!AppState.
 					className: "saveBtn button",
 					onClick: $actions.AppState.saveState },
 				"Save state"
+			),
+			_react2.default.createElement(
+				"pre",
+				null,
+				JSON.stringify($scope.parent.parent.serialize({
+					norefs: true,
+					alias: 'App'
+				}), null, 2)
 			),
 			someData.items.map(function (note) {
 				return _react2.default.createElement(PostIt, { key: note._id, record: note,
