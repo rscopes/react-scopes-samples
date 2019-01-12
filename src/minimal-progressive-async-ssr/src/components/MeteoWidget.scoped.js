@@ -10,7 +10,7 @@ import {renderToString}    from "react-dom/server"
 @propsToScope(["record"])// put the record in the scope
 @reScope(
 	{
-		@asStateMap
+		@asStore
 		DaSearch: {
 			@asRef
 			record   : "record",// get props.record.searching as initial search value
@@ -59,6 +59,6 @@ import {renderToString}    from "react-dom/server"
 		}
 	}, { key: 'postIt' }
 )
-@scopeToProps(["DaSearch","record"])
+@scopeToProps(["DaSearch", "record"])
 export default class sMeteoWidget extends MeteoWidget {
 };

@@ -109,7 +109,7 @@ class App extends React.Component {
 // remap record for fun (not usefull here)
 @reScope(
 	{
-		@asStateMap
+		@asStore
 		DaSearch: {
 			src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
 			

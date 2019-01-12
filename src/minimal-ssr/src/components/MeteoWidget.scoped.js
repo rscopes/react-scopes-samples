@@ -10,7 +10,7 @@ let { asStateMap } = spells;
 @propsToScope(["record"])// put the record in the scope
 @reScope(
 	{
-		@asStateMap
+		@asStore
 		DaSearch: {
 			@scopeRef
 			record   : "record",// get props.record.searching as initial search value

@@ -9,7 +9,7 @@ let { asStateMap, asScope } = spells;
 
 
 export default {
-	@asStateMap
+	@asStore
 	appState: {
 		selectedPostItId: null,
 		selectPostIt( selectedPostItId ) {
@@ -17,7 +17,7 @@ export default {
 			return { selectedPostItId };
 		}
 	},
-	@asStateMap
+	@asStore
 	someData: {
 		// initial state
 		src  : "/api/hello",

@@ -2690,14 +2690,14 @@ exports.default = (_obj = {
 			});
 		}
 	}
-}, (_applyDecoratedDescriptor(_obj, "appState", [asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "appState"), _init = _init ? _init.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj, "appState", [asStore], (_init = Object.getOwnPropertyDescriptor(_obj, "appState"), _init = _init ? _init.value : undefined, {
 	enumerable: true,
 	configurable: true,
 	writable: true,
 	initializer: function initializer() {
 		return _init;
 	}
-}), _obj), _applyDecoratedDescriptor(_obj, "someData", [asStateMap], (_init2 = Object.getOwnPropertyDescriptor(_obj, "someData"), _init2 = _init2 ? _init2.value : undefined, {
+}), _obj), _applyDecoratedDescriptor(_obj, "someData", [asStore], (_init2 = Object.getOwnPropertyDescriptor(_obj, "someData"), _init2 = _init2 ? _init2.value : undefined, {
 	enumerable: true,
 	configurable: true,
 	writable: true,
@@ -2842,7 +2842,7 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 			return _init4;
 		}
 	}), _obj2)), _obj2)
-}, (_applyDecoratedDescriptor(_obj, "DaSearch", [_spells.asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj, "DaSearch", [asStore], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
 	enumerable: true,
 	configurable: true,
 	writable: true,
@@ -33189,32 +33189,32 @@ module.exports =
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _desc, _value, _obj; /*
-	                                                                                         * Copyright (c)  2018 Wise Wild Web .
-	                                                                                         *
-	                                                                                         *  MIT License
-	                                                                                         *
-	                                                                                         *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                                                                         *  of this software and associated documentation files (the "Software"), to deal
-	                                                                                         *  in the Software without restriction, including without limitation the rights
-	                                                                                         *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                                                                         *  copies of the Software, and to permit persons to whom the Software is
-	                                                                                         *  furnished to do so, subject to the following conditions:
-	                                                                                         *
-	                                                                                         *  The above copyright notice and this permission notice shall be included in all
-	                                                                                         *  copies or substantial portions of the Software.
-	                                                                                         *
-	                                                                                         *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                                                                         *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                                                                         *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                                                                         *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                                                                         *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                                                                         *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                                                                         *  SOFTWARE.
-	                                                                                         *
-	                                                                                         * @author : Nathanael Braun
-	                                                                                         * @contact : caipilabs@gmail.com
-	                                                                                         */
+	var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _dec7, _desc, _value, _obj; /*
+	                                                                                  * Copyright (c)  2018 Wise Wild Web .
+	                                                                                  *
+	                                                                                  *  MIT License
+	                                                                                  *
+	                                                                                  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+	                                                                                  *  of this software and associated documentation files (the "Software"), to deal
+	                                                                                  *  in the Software without restriction, including without limitation the rights
+	                                                                                  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	                                                                                  *  copies of the Software, and to permit persons to whom the Software is
+	                                                                                  *  furnished to do so, subject to the following conditions:
+	                                                                                  *
+	                                                                                  *  The above copyright notice and this permission notice shall be included in all
+	                                                                                  *  copies or substantial portions of the Software.
+	                                                                                  *
+	                                                                                  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	                                                                                  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	                                                                                  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	                                                                                  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	                                                                                  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	                                                                                  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	                                                                                  *  SOFTWARE.
+	                                                                                  *
+	                                                                                  * @author : Nathanael Braun
+	                                                                                  * @contact : caipilabs@gmail.com
+	                                                                                  */
 	
 	
 	var _react = __webpack_require__(5);
@@ -33288,7 +33288,7 @@ module.exports =
 	}(_reactRescope.Component)) || _class) || _class);
 	
 	
-	var Lib = (_dec3 = (0, _reactRescope.isSpell)("stateMap", function (v) {
+	var Lib = (_dec3 = (0, _reactRescope.isSpell)("store", function (v) {
 		return _is2.default.object(v) || _is2.default.string(v);
 	}), _dec4 = (0, _reactRescope.isSpell)("scope", function (v) {
 		return _is2.default.object(v);
@@ -33298,10 +33298,8 @@ module.exports =
 		return _is2.default.fn(v);
 	}), _dec7 = (0, _reactRescope.isSpell)("rootRenderer", function (v) {
 		return _is2.default.fn(v);
-	}), _dec8 = (0, _reactRescope.isSpell)("store", function (v) {
-		return _is2.default.fn(v);
 	}), (_obj = {
-		stateMap: function stateMap(obj, _ref, ref) {
+		store: function store(obj, _ref, ref) {
 			var _class2, _temp2, _class3, _temp3;
 	
 			var cfg = _ref[0];
@@ -33431,7 +33429,7 @@ module.exports =
 				}, {
 					key: "apply",
 					value: function apply(d, s, c) {
-						var _dec9,
+						var _dec8,
 						    _this6 = this,
 						    _class5;
 	
@@ -33440,7 +33438,7 @@ module.exports =
 							return d;
 						}
 	
-						var RSCompRenderer = (_dec9 = (0, _reactRescope.scopeToState)(function (comp, props, ctx) {
+						var RSCompRenderer = (_dec8 = (0, _reactRescope.scopeToState)(function (comp, props, ctx) {
 							var viewScope = new _reactRescope.Scope(_extends(_defineProperty({}, RSRenderer.displayName, Lib.rootRenderer(obj, [sm], [, RSRenderer.displayName])), scope || {}), {
 								key: "comp",
 								parent: _this6._compScope,
@@ -33449,7 +33447,7 @@ module.exports =
 								state: _defineProperty({}, RSRenderer.displayName, { props: props })
 							});
 							return viewScope;
-						}, [RSRenderer.displayName]), _dec9(_class5 = function (_React$Component) {
+						}, [RSRenderer.displayName]), _dec8(_class5 = function (_React$Component) {
 							_inherits(RSCompRenderer, _React$Component);
 	
 							function RSCompRenderer() {
@@ -33555,15 +33553,8 @@ module.exports =
 	
 				return RSRenderer;
 			}(_reactRescope.Store), _class6.displayName = ref[1], _class6.use = use, _class6.state = state || {}, _class6.actions = actions, _temp5;
-		},
-		store: function store(obj, _ref5, ref) {
-			var cfg = _ref5[0];
-	
-			return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
-					return obj(d, s, c);
-				} }));
 		}
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec3], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _applyDecoratedDescriptor(_obj, "ref", [_dec5], Object.getOwnPropertyDescriptor(_obj, "ref"), _obj), _applyDecoratedDescriptor(_obj, "renderer", [_dec6], Object.getOwnPropertyDescriptor(_obj, "renderer"), _obj), _applyDecoratedDescriptor(_obj, "rootRenderer", [_dec7], Object.getOwnPropertyDescriptor(_obj, "rootRenderer"), _obj), _applyDecoratedDescriptor(_obj, "store", [_dec8], Object.getOwnPropertyDescriptor(_obj, "store"), _obj)), _obj));
+	}, (_applyDecoratedDescriptor(_obj, "store", [_dec3], Object.getOwnPropertyDescriptor(_obj, "store"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _applyDecoratedDescriptor(_obj, "ref", [_dec5], Object.getOwnPropertyDescriptor(_obj, "ref"), _obj), _applyDecoratedDescriptor(_obj, "renderer", [_dec6], Object.getOwnPropertyDescriptor(_obj, "renderer"), _obj), _applyDecoratedDescriptor(_obj, "rootRenderer", [_dec7], Object.getOwnPropertyDescriptor(_obj, "rootRenderer"), _obj)), _obj));
 	
 	exports.default = Lib;
 	module.exports = exports["default"];
