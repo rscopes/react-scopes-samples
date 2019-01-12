@@ -63,7 +63,7 @@ class App {
 	static renderSSR = ( cfg, cb ) => {
 		let rid    = shortid.generate(),
 		    cScope = new Scope(AppScope, { id: rid });
-		cfg.state && cScope.restore(cfg.state, { alias: "App" })
+		//cfg.state && cScope.restore(cfg.state, { alias: "App" })
 		//let env    = new Scope({}, {}),
 		//    cScope = new Scope(AppScope, {
 		//        key     : "App",

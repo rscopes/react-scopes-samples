@@ -5,6 +5,9 @@ import rscopes, {
 }                 from "rscopes";
 
 let { asStateMap, asScope } = spells;
+
+
+
 export default {
 	@asStateMap
 	appState: {
@@ -19,10 +22,11 @@ export default {
 		// initial state
 		src  : "/api/hello",
 		items: [{
-			"_id"     : "rkUQHZrqM",
-			"size"    : { "width": 200, "height": 200 },
-			"text"    : "New Post It #0 somewhere we wait some new shit out there !",
-			"position": { "x": 321, "y": 167 }
+			"_id"      : "rkUQHZrqM",
+			"searching": "paris",
+			"size"     : { "width": 200, "height": 200 },
+			"text"     : "New Post It #0 somewhere we wait some new shit out there !",
+			"position" : { "x": 321, "y": 167 }
 		}, {
 			"_id"     : "r1bcuMrcM",
 			"size"    : { "width": 200, "height": 200 },

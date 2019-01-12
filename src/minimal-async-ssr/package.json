@@ -11,7 +11,7 @@
     "build": "webpack",
     "dev": "webpack  --mode development -w",
     "run": "node --preserve-symlinks ./Server.js -p 9501",
-    "runDebug": "node --debug-brk=10666 --expose_debug_as=v8debug ./Server.js -p 9501",
+    "runDebug": "node --inspect=[::]:9230 ./Server.js -p 9501",
     "runBrowser": "start http://localhost:9001&node ./Server.js -p 9501"
   },
   "dependencies": {
@@ -26,7 +26,7 @@
     "react-dom": "^16.2.0",
     "react-rnd": "git+https://github.com/CaipiLabs/react-rnd.git",
     "request": "^2.85.0",
-    "rscopes": "^1.0.10",
+    "rscopes": "^1.1.1",
     "shortid": "^2.2.13",
     "superagent": "^3.8.2",
     "url-js": "^0.2.3-u"

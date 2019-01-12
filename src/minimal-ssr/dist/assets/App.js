@@ -29,12 +29,12 @@ import React            from 'react';
 import Rnd              from 'react-rnd';
 import shortid          from 'shortid';
 import AppScope         from './AppScope';
-import MeteoWidget      from './components/MeteoWidget.scoped';
 import {
-	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
+	Store, reScope, scopeRef, scopeToProps, scopeToState, propsToScope, Scope, spells
 }                       from "rscopes";
 import {renderToString} from "react-dom/server"
 
+import superagent from "superagent";
 
 let { asStateMap } = spells;
 
@@ -88,9 +88,9 @@ class App extends React.Component {
 		return [
 			<h1>Really basic drafty rescope SSR example</h1>,
 			someData.items.map(
-				note => <MeteoWidget key={ note._id } record={ note }
-				                     onSelect={ e => this.$actions.selectPostIt(note._id) }
-				                     selected={ note._id == appState.selectedPostItId }/>
+				note => <PostIt key={ note._id } record={ note }
+				                onSelect={ e => this.$actions.selectPostIt(note._id) }
+				                selected={ note._id == appState.selectedPostItId }/>
 			),
 			<div
 				className={ "newBtn button" }
@@ -106,6 +106,123 @@ class App extends React.Component {
 	}
 }
 
+// remap record for fun (not usefull here)
+@reScope(
+	{
+		@asStateMap
+		DaSearch: {
+			src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
+			
+			updateSearch( searching ) {
+				let state = this.nextState, results = {};
+				
+				if ( searching == state.searching ) return;
+				if ( searching.length < 4 )
+					return { searching };
+				
+				this.wait();
+				superagent.get(state.src + searching)
+				          .then(( res ) => {
+					          if ( searching != this.nextState.searching ) return;
+					          try {
+						          this.push({ results: res.body })
+					          } catch ( e ) {
+						          this.push({ results: null });
+					          }
+					          this.release();
+				          })
+				return { searching };
+			}
+		}
+		
+		
+	}, { key: 'postIt' }
+)
+@scopeToProps(
+	{
+		@scopeRef
+		DaSearch: "DaSearch"
+	})
+class PostIt extends React.Component {
+	
+	state = {};
+	
+	saveState = ( e, d ) => {
+		let { $actions, record } = this.props;
+		$actions.updatePostIt(
+			{
+				...record,
+				size    : this.state.size || record.size,
+				position: this.state.position
+			});
+	};
+	
+	render() {
+		let {
+			    record: { position, text, size } = {},
+			    record, DaSearch,
+			    $actions, onSelect, selected
+		    }     = this.props,
+		    state = this.state;
+		return (
+			<Rnd
+				absolutePos
+				z={ selected ? 2000 : 1 }
+				size={ state.size || size }
+				position={ state.position || position }
+				onDragStop={ this.saveState }
+				onResizeStop={ this.saveState }
+				onDrag={ ( e, d ) => {
+					!selected && onSelect(record)
+					this.setState(
+						{
+							position: { x: d.x, y: d.y }
+						});
+				} }
+				onResize={ ( e, direction, ref, delta, position ) => {
+					this.setState(
+						{
+							position,
+							size: {
+								width : ref.offsetWidth,
+								height: ref.offsetHeight
+							}
+						});
+				} }>
+				<div className={ "postit handle" }>
+					{
+						!this.state.editing &&
+						<div className={ "text" }>
+							<pre>{ JSON.stringify(DaSearch.results, null, 2) }</pre>
+							<button onClick={ e => this.setState({ editing: true }) }
+							        className={ "edit" }>🖋
+							</button>
+							<button onClick={ e => $actions.rmPostIt(record) }
+							        className={ "delete" }>🖾
+							</button>
+						</div>
+						||
+						<div className={ "editor" }>
+							{
+								<div className={ "search" }>
+									<input
+										onChange={ e => {
+											$actions.updateSearch(e.target.value);
+										} }
+										defaultValue={ DaSearch.searching }
+										onMouseDown={ e => e.stopPropagation() }/>
+								</div>
+							}
+							<button
+								onClick={ e => this.setState({ editing: false }) }>💾
+							</button>
+						</div>
+					}
+				</div>
+			</Rnd>
+		);
+	}
+}
 
 if ( typeof window != 'undefined' ) {
 	window.App = App;

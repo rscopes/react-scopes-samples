@@ -1,6 +1,6 @@
 var express      = require("express"),
     path         = require("path"),
-    App          = require('./dist/App.server').default,
+    App          = require('./dist/App.server'),
     fs           = require("fs"),
     server       = express(),
     currentState = null,
