@@ -4775,6 +4775,7 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 		var html = void 0,
 		    appHtml = (0, _server.renderToString)(_react2.default.createElement(App, { __scope: cScope })),
 		    nstate = void 0,
+		    stable = cScope.isStableTree(),
 		    complete = function complete(state) {
 			try {
 				html = indexTpl.render({
@@ -4784,9 +4785,10 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 			} catch (e) {
 				return cb(e);
 			}
-			cb(null, html, nstate);
+			console.log('Was ', stable ? 'stable' : 'not stable');
+			cb(null, html, !stable && nstate);
 		};
-		cScope.then(complete);
+		cScope.onceStableTree(complete);
 	});
 }, _temp)) || _class);
 
@@ -6296,11 +6298,22 @@ module.exports =
 			value: function then(cb) {
 				var _this15 = this;
 
-				if (this._.unStableChilds) return this.once('stableTree', function (e) {
-					return _this15.then(cb);
-				});
 				if (!this._stable) return this.once('stable', function (e) {
 					return _this15.then(cb);
+				});
+
+				return cb(this.data);
+			}
+		}, {
+			key: 'onceStableTree',
+			value: function onceStableTree(cb) {
+				var _this16 = this;
+
+				if (this._.unStableChilds) return this.once('stableTree', function (e) {
+					return _this16.then(cb);
+				});
+				if (!this._stable) return this.once('stable', function (e) {
+					return _this16.then(cb);
 				});
 
 				return cb(this.data);
@@ -6316,7 +6329,7 @@ module.exports =
 		}, {
 			key: 'retainStores',
 			value: function retainStores() {
-				var _this16 = this;
+				var _this17 = this;
 
 				var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 				var reason = arguments[1];
@@ -6325,7 +6338,7 @@ module.exports =
 				//    id => ( ( !this.stores[ id ] || !this.stores[ id ].retain ) && console.warn(id, reason) )
 				//)
 				stores.forEach(function (id) {
-					return _this16.stores[id] && _this16.stores[id].retain && _this16.stores[id].retain(reason);
+					return _this17.stores[id] && _this17.stores[id].retain && _this17.stores[id].retain(reason);
 				});
 			}
 
@@ -6339,13 +6352,13 @@ module.exports =
 		}, {
 			key: 'disposeStores',
 			value: function disposeStores() {
-				var _this17 = this;
+				var _this18 = this;
 
 				var stores = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 				var reason = arguments[1];
 
 				stores.forEach(function (id) {
-					return _this17.stores[id] && _this17.stores[id].dispose && _this17.stores[id].dispose(reason);
+					return _this18.stores[id] && _this18.stores[id].dispose && _this18.stores[id].dispose(reason);
 				});
 			}
 
@@ -6375,7 +6388,7 @@ module.exports =
 		}, {
 			key: 'release',
 			value: function release(reason) {
-				var _this18 = this;
+				var _this19 = this;
 
 				if (reason) {
 					if (this.__locks[reason] == 0) console.error("Release more than locking !", reason);
@@ -6389,15 +6402,15 @@ module.exports =
 					this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
 
 					this._.stabilizerTM = setTimeout(function (e) {
-						_this18._.stabilizerTM = null;
-						if (_this18.__locks.all) return;
+						_this19._.stabilizerTM = null;
+						if (_this19.__locks.all) return;
 
-						_this18._.propagTM && clearTimeout(_this18._.propagTM);
-						_this18._rev++;
-						_this18._stable = true;
-						_this18.emit("stable", _this18);
+						_this19._.propagTM && clearTimeout(_this19._.propagTM);
+						_this19._rev++;
+						_this19._stable = true;
+						_this19.emit("stable", _this19);
 
-						!_this18.dead && _this18._propag(); // stability can induce destroy
+						!_this19.dead && _this19._propag(); // stability can induce destroy
 					});
 				}
 			}
@@ -6409,18 +6422,18 @@ module.exports =
 		}, {
 			key: 'propag',
 			value: function propag() {
-				var _this19 = this;
+				var _this20 = this;
 
 				this._.propagTM && clearTimeout(this._.propagTM);
 				this._.propagTM = setTimeout(function (e) {
-					_this19._.propagTM = null;
-					_this19._propag();
+					_this20._.propagTM = null;
+					_this20._propag();
 				}, 2);
 			}
 		}, {
 			key: '_propag',
 			value: function _propag() {
-				var _this20 = this;
+				var _this21 = this;
 
 				if (this._.followers.length) this._.followers.forEach(function (_ref5) {
 					var obj = _ref5[0],
@@ -6429,7 +6442,7 @@ module.exports =
 					    lastRevs = _ref5[3],
 					    remaps = _ref5[3];
 
-					var data = _this20.getUpdates(lastRevs);
+					var data = _this21.getUpdates(lastRevs);
 					if (!data) return;
 					//console.log(data, lastRevs)
 					if (typeof obj != "function") {
@@ -6455,35 +6468,46 @@ module.exports =
 			value: function isStable() {
 				return this._stable;
 			}
+
+			/**
+    * is stable
+    * @returns bool
+    */
+
+		}, {
+			key: 'isStableTree',
+			value: function isStableTree() {
+				return this._stable && !this._.unStableChilds;
+			}
 		}, {
 			key: '_addChild',
 			value: function _addChild(ctx) {
-				var _this21 = this;
+				var _this22 = this;
 
 				this._.childScopes.push(ctx);
 				this._.seenChilds++;
 				var lists = {
 					'stable': function stable(s) {
-						_this21._.unStableChilds--;
-						if (!_this21._.unStableChilds) _this21.emit("stableTree", _this21);
+						_this22._.unStableChilds--;
+						if (!_this22._.unStableChilds) _this22.emit("stableTree", _this22);
 					},
 					'unstable': function unstable(s) {
-						_this21._.unStableChilds++;
-						if (1 == _this21._.unStableChilds) _this21.emit("unstableTree", _this21);
+						_this22._.unStableChilds++;
+						if (1 == _this22._.unStableChilds) _this22.emit("unstableTree", _this22);
 					},
 					'stableTree': function stableTree(s) {
-						_this21._.unStableChilds--;
-						if (!_this21._.unStableChilds) _this21.emit("stableTree", _this21);
+						_this22._.unStableChilds--;
+						if (!_this22._.unStableChilds) _this22.emit("stableTree", _this22);
 					},
 					'unstableTree': function unstableTree(s) {
-						_this21._.unStableChilds++;
-						if (1 == _this21._.unStableChilds) _this21.emit("unstableTree", _this21);
+						_this22._.unStableChilds++;
+						if (1 == _this22._.unStableChilds) _this22.emit("unstableTree", _this22);
 					},
 					'destroy': function destroy(ctx) {
-						if (ctx._.unStableChilds) _this21._.unStableChilds--;
-						if (!ctx.isStable()) _this21._.unStableChilds--;
+						if (ctx._.unStableChilds) _this22._.unStableChilds--;
+						if (!ctx.isStable()) _this22._.unStableChilds--;
 
-						if (!_this21._.unStableChilds) _this21.emit("stableTree", _this21);
+						if (!_this22._.unStableChilds) _this22.emit("stableTree", _this22);
 					}
 				},
 				    wasStable = this._.unStableChilds;
@@ -6520,7 +6544,7 @@ module.exports =
 		}, {
 			key: 'dispose',
 			value: function dispose(reason) {
-				var _this22 = this;
+				var _this23 = this;
 
 				//console.log("dispose", this._id, reason);
 				if (reason) {
@@ -6538,7 +6562,7 @@ module.exports =
 						this._.destroyTM && clearTimeout(this._.destroyTM);
 						this._.destroyTM = setTimeout(function (e) {
 							//this.then(s => {
-							!_this22.__retains.all && !_this22.dead && _this22.destroy();
+							!_this23.__retains.all && !_this23.dead && _this23.destroy();
 							//});
 						}, this._.persistenceTm);
 					} else {
@@ -6556,21 +6580,21 @@ module.exports =
 		}, {
 			key: 'destroy',
 			value: function destroy() {
-				var _this23 = this;
+				var _this24 = this;
 
 				var ctx = this._._scope;
 				//console.warn("destroy", this._id);
 				this._.stabilizerTM && clearTimeout(this._.stabilizerTM);
 				this._.propagTM && clearTimeout(this._.propagTM);
 				Object.keys(this._._listening).forEach(function (id) {
-					return id !== "$parent" && _this23._._scope[id].removeListener(_this23._._listening[id]);
+					return id !== "$parent" && _this24._._scope[id].removeListener(_this24._._listening[id]);
 				});
 				while (this._._mixedList.length) {
 					this._._mixed[0].removeListener(this._._mixedList.shift());
 					this._._mixed.shift().dispose("mixedTo");
 				}
 				[].concat(_toConsumableArray(this._.followers)).map(function (follower) {
-					return _this23.unBind.apply(_this23, _toConsumableArray(follower));
+					return _this24.unBind.apply(_this24, _toConsumableArray(follower));
 				});
 				for (var key in ctx) {
 					if (!is.fn(ctx[key])) {
@@ -8300,7 +8324,7 @@ module.exports = function (t) {
     var i = function i() {};i.prototype = s ? new s._[e]() : t[e] || {}, t[e] = new i(), t._[e] = i;
   },
       m = {},
-      k = ({}.constructor, u = h = function (t) {
+      S = ({}.constructor, u = h = function (t) {
     function e(t) {
       var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
           i = s.parent,
@@ -8315,22 +8339,22 @@ module.exports = function (t) {
           d = s.persistenceTm,
           v = s.autoDestroy,
           y = s.rootEmitter,
-          k = s.boundedActions;n(this, e);var S = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
+          S = s.boundedActions;n(this, e);var k = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
           w = { keyPID: r && r._id || i && i._id || b.generate(), key: a, incrementId: f, baseId: h };if (h = h || a && w.keyPID + ">" + a, w.isLocalId = !h, h = h || "_____" + b.generate(), m[h] && !f) {
-        var O;return S._id = h, m[h].register(t), O = m[h], o(S, O);
+        var O;return k._id = h, m[h].register(t), O = m[h], o(k, O);
       }if (m[h] && f) {
         for (var j = -1; m[h + "[" + ++j + "]"];) {}h = h + "[" + j + "]";
-      }if (S._id = h, S._rev = 0, m[h] = S, w.persistenceTm = d || S.constructor.persistenceTm, S.actions = {}, S.stores = {}, S.state = {}, S.data = {}, S.parent = i, S._ = w, S._autoDestroy = v, i && i.dead) throw new Error("Can't use a dead scope as parent !");return g(S, "actions", i), g(S, "stores", i), g(S, "state", i), g(S, "data", i), S.sources = [], w.childScopes = [], w.childScopesList = [], w.unStableChilds = 0, w.seenChilds = 0, S.__retains = { all: 0 }, S.__locks = { all: 1 }, w._boundedActions = _.array(k) ? { test: k.includes.bind(k) } : k, w._listening = {}, w._scope = {}, w._mixed = [], w._mixedList = [], w.followers = [], i && (i.retain("isMyParent"), y ? i.on(w._parentList = { update: function update(t) {
-          return S._propag();
-        } }) : (!i._stable && S.wait("waitingParent"), i.on(w._parentList = { stable: function stable(t) {
-          return S.release("waitingParent");
+      }if (k._id = h, k._rev = 0, m[h] = k, w.persistenceTm = d || k.constructor.persistenceTm, k.actions = {}, k.stores = {}, k.state = {}, k.data = {}, k.parent = i, k._ = w, k._autoDestroy = v, i && i.dead) throw new Error("Can't use a dead scope as parent !");return g(k, "actions", i), g(k, "stores", i), g(k, "state", i), g(k, "data", i), k.sources = [], w.childScopes = [], w.childScopesList = [], w.unStableChilds = 0, w.seenChilds = 0, k.__retains = { all: 0 }, k.__locks = { all: 1 }, w._boundedActions = _.array(S) ? { test: S.includes.bind(S) } : S, w._listening = {}, w._scope = {}, w._mixed = [], w._mixedList = [], w.followers = [], i && (i.retain("isMyParent"), y ? i.on(w._parentList = { update: function update(t) {
+          return k._propag();
+        } }) : (!i._stable && k.wait("waitingParent"), i.on(w._parentList = { stable: function stable(t) {
+          return k.release("waitingParent");
         }, unstable: function unstable(t) {
-          return S.wait("waitingParent");
+          return k.wait("waitingParent");
         }, update: function update(t) {
-          return S._propag();
-        } }))), S.register(t, l, c), S.__locks.all--, S._stable = !S.__locks.all, i && i._addChild(S), S.restore(u), v && setTimeout(function (t) {
-        S.retain("autoDestroy"), S.dispose("autoDestroy");
-      }), S;
+          return k._propag();
+        } }))), k.register(t, l, c), k.__locks.all--, k._stable = !k.__locks.all, i && i._addChild(k), k.restore(u), v && setTimeout(function (t) {
+        k.retain("autoDestroy"), k.dispose("autoDestroy");
+      }), k;
     }return a(e, t), c(e, null, [{ key: "getScope", value: function value(t) {
         var s = _.array(t) ? t.sort(function (t, e) {
           return t.firstname < e.firstname ? -1 : t.firstname > e.firstname ? 1 : 0;
@@ -8565,6 +8589,10 @@ module.exports = function (t) {
       } }, { key: "trigger", value: function value() {
         this.dispatch.apply(this, arguments);
       } }, { key: "then", value: function value(t) {
+        var e = this;return this._stable ? t(this.data) : this.once("stable", function (s) {
+          return e.then(t);
+        });
+      } }, { key: "onceStableTree", value: function value(t) {
         var e = this;return this._.unStableChilds ? this.once("stableTree", function (s) {
           return e.then(t);
         }) : this._stable ? t(this.data) : this.once("stable", function (s) {
@@ -8601,6 +8629,8 @@ module.exports = function (t) {
         }), this.emit("update", this.getUpdates());
       } }, { key: "isStable", value: function value() {
         return this._stable;
+      } }, { key: "isStableTree", value: function value() {
+        return this._stable && !this._.unStableChilds;
       } }, { key: "_addChild", value: function value(t) {
         var e = this;this._.childScopes.push(t), this._.seenChilds++;var s = { stable: function stable(t) {
             e._.unStableChilds--, e._.unStableChilds || e.emit("stableTree", e);
@@ -8642,10 +8672,10 @@ module.exports = function (t) {
   }(y), h.persistenceTm = 1, h.Store = null, h.scopeRef = function (t) {
     this.path = t;
   }, h.scopes = m, u);_.rsScope = function (t) {
-    return t instanceof k;
+    return t instanceof S;
   }, _.rsScopeClass = function (t) {
-    return k.isPrototypeOf(t) || t === k;
-  }, e.default = k, t.exports = e.default;
+    return S.isPrototypeOf(t) || t === S;
+  }, e.default = S, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
   function i(t) {
@@ -8770,8 +8800,8 @@ module.exports = function (t) {
       b = s(4),
       g = s(8),
       m = s(6),
-      k = Object.getPrototypeOf({}),
-      S = (u = h = function (t) {
+      S = Object.getPrototypeOf({}),
+      k = (u = h = function (t) {
     function e() {
       var t, s;n(this, e);var i = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
           a = [].concat(Array.prototype.slice.call(arguments)),
@@ -8813,9 +8843,9 @@ module.exports = function (t) {
           return i || e && p.fn(s.follow[r]) && s.follow[r].call(t, e[r]) || s.follow[r] && e[r] !== t.state[r];
         }, !1));
       } }, { key: "apply", value: function value(t, e, s) {
-        return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === k && e.__proto__ === k ? l({}, t, e) : e;
+        return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === S && e.__proto__ === S ? l({}, t, e) : e;
       } }, { key: "refine", value: function value(t, e, s) {
-        return e = e || this.state, t && t.__proto__ === k && e.__proto__ === k ? l({}, t, e) : e;
+        return e = e || this.state, t && t.__proto__ === S && e.__proto__ === S ? l({}, t, e) : e;
       } }, { key: "stabilize", value: function value(t) {
         t && this.once("stable", t), this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this._stabilizer || (this._stabilizer = g.pushTask(this, "pushState"));
       } }, { key: "retrieve", value: function value(t) {
@@ -8890,7 +8920,7 @@ module.exports = function (t) {
               a = void 0;return s.store && s.name ? (r = i = s.name, a = s.store) : p.fn(s) ? (i = r = s.name || s.defaultName, a = s) : (o = s.match(/([^\.\:]+)((?:\.[^\.\:]+)*)(?:\:([^\.\:]+))?/), i = o[1], n = o[2] && o[2].substr(1), a = t.scopeObj.stores[o[1]], r = o[3] || n && n.match(/([^\.]*)$/)[0] || o[1]), a && p.rsStore(a) && !a.scopeObj._.isLocalId && (e[r] = a.scopeObj._id + "/" + i), e;
         }, {}) || {};return v(s, i + "/" + this.name, { state: this.state && (e.norefs ? l({}, this.state) : Object.keys(this.state).reduce(function (e, s) {
             return !r[s] && (e[s] = t.state[s]), e;
-          }, {})), data: (this.data && this.data.__proto__ === k ? this.data : (p.bool(this.data) || p.number(this.data) || p.string(this.data)) && this.data) || void 0, refs: r }), s;
+          }, {})), data: (this.data && this.data.__proto__ === S ? this.data : (p.bool(this.data) || p.number(this.data) || p.string(this.data)) && this.data) || void 0, refs: r }), s;
       } }, { key: "restore", value: function (t) {
         function e(e, s) {
           return t.apply(this, arguments);
@@ -8944,13 +8974,13 @@ module.exports = function (t) {
       } }, { key: "nextState", get: function get() {
         return this._changesSW && l({}, this.state, this._changesSW) || this.state;
       } }]), e;
-  }(b), h.staticScope = new f({}, { id: "static" }), h.state = void 0, h.persistenceTm = !1, u);S.as = function (t) {
+  }(b), h.staticScope = new f({}, { id: "static" }), h.state = void 0, h.persistenceTm = !1, u);k.as = function (t) {
     return { store: this, name: t };
-  }, S.map = function (t, e, s, i) {
+  }, k.map = function (t, e, s, i) {
     var n = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
         o = t._revs || {},
         a = t.stores || (t.stores = {}),
-        h = {};return e = p.array(e) ? [].concat(r(e)) : [e], s = s || S.staticScope, e = e.filter(function (e) {
+        h = {};return e = p.array(e) ? [].concat(r(e)) : [e], s = s || k.staticScope, e = e.filter(function (e) {
       var i;if (!e) return !1;var u = void 0,
           l = void 0,
           c = void 0,
@@ -8969,10 +8999,10 @@ module.exports = function (t) {
       });
     }), h;
   }, p.rsStore = function (t) {
-    return t instanceof S;
+    return t instanceof k;
   }, p.rsStoreClass = function (t) {
-    return S.isPrototypeOf(t) || t === S;
-  }, e.default = S, t.exports = e.default;
+    return k.isPrototypeOf(t) || t === k;
+  }, e.default = k, t.exports = e.default;
 }, function (t, e, s) {
   "use strict";
   function i(t) {

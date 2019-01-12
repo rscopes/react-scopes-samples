@@ -66,6 +66,7 @@ class App extends React.Component {
 		      .then(
 			      ( state ) => {
 				      let html, appHtml = renderToString(<App __scope={ cScope }/>), nstate,
+				          stable        = cScope.isStableTree(),
 				          complete      = state => {
 					          try {
 						          html = indexTpl.render(
@@ -77,9 +78,10 @@ class App extends React.Component {
 					          } catch ( e ) {
 						          return cb(e)
 					          }
-					          cb(null, html, nstate)
+					          console.log('Was ', stable ? 'stable' : 'not stable');
+					          cb(null, html, !stable && nstate)
 				          };
-				      cScope.then(complete)
+				      cScope.onceStableTree(complete)
 			      }
 		      )
 	}
