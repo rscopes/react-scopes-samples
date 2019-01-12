@@ -1,13 +1,12 @@
-import superagent  from "superagent";
-import MeteoWidget from './MeteoWidget';
-
+import superagent       from "superagent";
+import MeteoWidget      from './MeteoWidget';
 import {
 	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
 }                       from "rscopes";
 import {renderToString} from "react-dom/server"
 
-
 let { asStateMap } = spells;
+
 @propsToScope(["record"])// put the record in the scope
 @reScope(
 	{
@@ -17,6 +16,8 @@ let { asStateMap } = spells;
 			record   : "record",// get props.record.searching as initial search value
 			@scopeRef
 			searching: "record.searching",// get props.record.searching as initial search value
+			@scopeRef
+			results  : "record.results",// get props.record.searching as initial search value
 			
 			src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
 			
@@ -25,22 +26,23 @@ let { asStateMap } = spells;
 					return data;
 				
 				//this.wait();
-				searching && superagent.get(state.src + searching)
-				          .then(( res ) => {
-					          if ( searching != this.nextState.searching ) return;
-					          try {
-						          this.push({ results: res.body, searching })
-					          } catch ( e ) {
-						          this.push({ results: null, searching });
-					          }
-					          //this.release();
-
-					          this.$actions.updatePostIt(
-						          {
-							          ...state.record,
-							          searching
-						          });
-				          }).catch(e=>false)
+				searching && superagent
+					.get(state.src + searching)
+					.then(( res ) => {
+						if ( searching != this.nextState.searching ) return;
+						try {
+							this.push({ results: res.body, searching })
+							this.$actions.updatePostIt(
+								{
+									...state.record,
+									results: res.body,
+									searching
+								});
+						} catch ( e ) {
+							this.push({ results: null, searching });
+						}
+						
+					}).catch(e => false)
 				return { searching: state.searching };
 			},
 			updateSearch( searching ) {

@@ -4427,7 +4427,7 @@ exports.default = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _dec, _dec2, _dec3, _desc, _value, _obj, _init, _desc2, _value2, _obj2, _init2, _init3, _desc3, _value3, _obj3, _init4, _init5, _class;
+var _dec, _dec2, _dec3, _desc, _value, _obj, _init, _desc2, _value2, _obj2, _init2, _init3, _init4, _desc3, _value3, _obj3, _init5, _init6, _class;
 
 var _superagent = __webpack_require__(18);
 
@@ -4482,7 +4482,8 @@ var asStateMap = _rscopes.spells.asStateMap;
 var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _rscopes.reScope)((_obj = {
 	DaSearch: (_obj2 = {
 		record: "record",
-		searching: "record.searching", // get props.record.searching as initial search value
+		searching: "record.searching",
+		results: "record.results", // get props.record.searching as initial search value
 
 		src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
 
@@ -4503,14 +4504,13 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 				if (searching != _this.nextState.searching) return;
 				try {
 					_this.push({ results: res.body, searching: searching });
+					_this.$actions.updatePostIt(_extends({}, state.record, {
+						results: res.body,
+						searching: searching
+					}));
 				} catch (e) {
 					_this.push({ results: null, searching: searching });
 				}
-				//this.release();
-
-				_this.$actions.updatePostIt(_extends({}, state.record, {
-					searching: searching
-				}));
 			}).catch(function (e) {
 				return false;
 			});
@@ -4539,6 +4539,13 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 		initializer: function initializer() {
 			return _init3;
 		}
+	}), _obj2), _applyDecoratedDescriptor(_obj2, "results", [_rscopes.scopeRef], (_init4 = Object.getOwnPropertyDescriptor(_obj2, "results"), _init4 = _init4 ? _init4.value : undefined, {
+		enumerable: true,
+		configurable: true,
+		writable: true,
+		initializer: function initializer() {
+			return _init4;
+		}
 	}), _obj2)), _obj2)
 }, (_applyDecoratedDescriptor(_obj, "DaSearch", [asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
 	enumerable: true,
@@ -4551,19 +4558,19 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 	DaSearch: "DaSearch",
 
 	record: "record"
-}, (_applyDecoratedDescriptor(_obj3, "DaSearch", [_rscopes.scopeRef], (_init4 = Object.getOwnPropertyDescriptor(_obj3, "DaSearch"), _init4 = _init4 ? _init4.value : undefined, {
-	enumerable: true,
-	configurable: true,
-	writable: true,
-	initializer: function initializer() {
-		return _init4;
-	}
-}), _obj3), _applyDecoratedDescriptor(_obj3, "record", [_rscopes.scopeRef], (_init5 = Object.getOwnPropertyDescriptor(_obj3, "record"), _init5 = _init5 ? _init5.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj3, "DaSearch", [_rscopes.scopeRef], (_init5 = Object.getOwnPropertyDescriptor(_obj3, "DaSearch"), _init5 = _init5 ? _init5.value : undefined, {
 	enumerable: true,
 	configurable: true,
 	writable: true,
 	initializer: function initializer() {
 		return _init5;
+	}
+}), _obj3), _applyDecoratedDescriptor(_obj3, "record", [_rscopes.scopeRef], (_init6 = Object.getOwnPropertyDescriptor(_obj3, "record"), _init6 = _init6 ? _init6.value : undefined, {
+	enumerable: true,
+	configurable: true,
+	writable: true,
+	initializer: function initializer() {
+		return _init6;
 	}
 }), _obj3)), _obj3)), _dec(_class = _dec2(_class = _dec3(_class = function (_MeteoWidget) {
 	_inherits(sMeteoWidget, _MeteoWidget);
@@ -4908,7 +4915,7 @@ var PostIt = function (_React$Component) {
 			$actions.updatePostIt(_extends({}, record, {
 				searching: DaSearch.searching,
 				size: _this.state.size || record.size,
-				position: _this.state.position
+				position: _this.state.position || record.position
 			}));
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}

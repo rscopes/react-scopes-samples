@@ -12,7 +12,7 @@ export default class PostIt extends React.Component {
 				...record,
 				searching: DaSearch.searching,
 				size     : this.state.size || record.size,
-				position : this.state.position
+				position : this.state.position || record.position
 			});
 	};
 	
