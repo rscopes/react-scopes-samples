@@ -4,8 +4,7 @@ import rscopes, {
 	spells
 }                 from "rscopes";
 
-let { asStateMap, asScope } = spells;
-
+let { asStore, asScope } = spells;
 
 
 export default {

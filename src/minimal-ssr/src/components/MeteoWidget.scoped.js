@@ -1,22 +1,22 @@
 import superagent       from "superagent";
 import MeteoWidget      from './MeteoWidget';
 import {
-	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
+	Store, reScope, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
 }                       from "rscopes";
 import {renderToString} from "react-dom/server"
 
-let { asStateMap } = spells;
+let { asStore, asRef } = spells;
 
 @propsToScope(["record"])// put the record in the scope
 @reScope(
 	{
 		@asStore
 		DaSearch: {
-			@scopeRef
+			@asRef
 			record   : "record",// get props.record.searching as initial search value
-			@scopeRef
+			@asRef
 			searching: "record.searching",// get props.record.searching as initial search value
-			@scopeRef
+			@asRef
 			results  : "record.results",// get props.record.searching as initial search value
 			
 			src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
@@ -59,9 +59,9 @@ let { asStateMap } = spells;
 )
 @scopeToProps(
 	{
-		@scopeRef
+		@asRef
 		DaSearch: "DaSearch",
-		@scopeRef
+		@asRef
 		record  : "record"
 	})
 export default class sMeteoWidget extends MeteoWidget {

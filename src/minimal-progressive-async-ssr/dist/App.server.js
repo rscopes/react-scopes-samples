@@ -2627,7 +2627,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 	return desc;
 }
 
-var asStateMap = _rscopes.spells.asStateMap,
+var asStore = _rscopes.spells.asStore,
     asScope = _rscopes.spells.asScope;
 exports.default = (_obj = {
 	appState: {
@@ -2735,8 +2735,6 @@ var _rscopes = __webpack_require__(2);
 
 var _spells = __webpack_require__(39);
 
-var _server = __webpack_require__(6);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2777,11 +2775,15 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _rscopes.reScope)((_obj = {
 	DaSearch: (_obj2 = {
 		record: "record",
-		searching: "record.searching",
-		results: "record.results", // get props.record.searching as initial search value
 
+		searching: "record.searching",
+
+		results: "record.results",
+
+		// initial state value
 		src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
 
+		// the function that apply changes in the state, if needed
 		$apply: function $apply() {
 			var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
@@ -2794,10 +2796,13 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 
 			if (searching == data.searching && data.results) return data;
 
+			// do query meteo if needed
 			searching && (this.wait(), _superagent2.default.get(state.src + searching).then(function (res) {
 				if (searching != _this.nextState.searching) return _this.release();
 				try {
 					_this.push({ results: res.body, searching: searching });
+
+					// update the record
 					_this.$actions.updatePostIt(_extends({}, state.record, {
 						results: res.body,
 						searching: searching
@@ -2811,6 +2816,8 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 			}));
 			return state;
 		},
+
+		// $actions.updateSearch
 		updateSearch: function updateSearch(searching) {
 			var state = this.nextState,
 			    results = {};
@@ -2842,7 +2849,7 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 			return _init4;
 		}
 	}), _obj2)), _obj2)
-}, (_applyDecoratedDescriptor(_obj, "DaSearch", [asStore], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj, "DaSearch", [_spells.asStore], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
 	enumerable: true,
 	configurable: true,
 	writable: true,
