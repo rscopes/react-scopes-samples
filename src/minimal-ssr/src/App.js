@@ -85,24 +85,24 @@ class App extends React.Component {
 		let {
 			    someData, appState
 		    } = this.state;
-		return [
-			<h1>Really basic drafty rescope SSR example</h1>,
-			someData.items.map(
+		return <React.Fragment>
+			<h1>Really basic drafty rescope SSR example</h1>
+			{ someData.items.map(
 				note => <MeteoWidget key={ note._id } record={ note }
 				                     onSelect={ e => this.$actions.selectPostIt(note._id) }
 				                     selected={ note._id == appState.selectedPostItId }/>
-			),
+			) }
 			<div
 				className={ "newBtn button" }
 				onClick={ this.$actions.newPostIt }>
 				Add Post It
-			</div>,
+			</div>
 			<div
 				className={ "saveBtn button" }
 				onClick={ this.$actions.saveState }>
 				Save state
 			</div>
-		];
+		</React.Fragment>
 	}
 }
 

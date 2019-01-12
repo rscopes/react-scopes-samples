@@ -3007,29 +3007,36 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 			    someData = _state.someData,
 			    appState = _state.appState;
 
-			return [_react2.default.createElement(
-				'h1',
+			return _react2.default.createElement(
+				_react2.default.Fragment,
 				null,
-				'Really basic drafty rescope SSR example'
-			), someData.items.map(function (note) {
-				return _react2.default.createElement(_MeteoWidget2.default, { key: note._id, record: note,
-					onSelect: function onSelect(e) {
-						return _this2.$actions.selectPostIt(note._id);
-					},
-					selected: note._id == appState.selectedPostItId });
-			}), _react2.default.createElement(
-				'div',
-				{
-					className: "newBtn button",
-					onClick: this.$actions.newPostIt },
-				'Add Post It'
-			), _react2.default.createElement(
-				'div',
-				{
-					className: "saveBtn button",
-					onClick: this.$actions.saveState },
-				'Save state'
-			)];
+				_react2.default.createElement(
+					'h1',
+					null,
+					'Really basic drafty rescope SSR example'
+				),
+				someData.items.map(function (note) {
+					return _react2.default.createElement(_MeteoWidget2.default, { key: note._id, record: note,
+						onSelect: function onSelect(e) {
+							return _this2.$actions.selectPostIt(note._id);
+						},
+						selected: note._id == appState.selectedPostItId });
+				}),
+				_react2.default.createElement(
+					'div',
+					{
+						className: "newBtn button",
+						onClick: this.$actions.newPostIt },
+					'Add Post It'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: "saveBtn button",
+						onClick: this.$actions.saveState },
+					'Save state'
+				)
+			);
 		}
 	}]);
 
