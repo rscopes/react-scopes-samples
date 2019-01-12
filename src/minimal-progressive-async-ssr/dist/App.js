@@ -287,9 +287,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(46);
+  module.exports = __webpack_require__(47);
 } else {
-  module.exports = __webpack_require__(45);
+  module.exports = __webpack_require__(46);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -395,6 +395,15 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var rsSpells = __webpack_require__(28);
+var rs = __webpack_require__(16);
+rsSpells;
+module.exports = rs;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -491,13 +500,13 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(58);
+var randomFromSeed = __webpack_require__(59);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -601,7 +610,7 @@ module.exports = {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -639,24 +648,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
+  module.exports = __webpack_require__(44);
+} else {
   module.exports = __webpack_require__(43);
-} else {
-  module.exports = __webpack_require__(42);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(41);
-} else {
-  module.exports = __webpack_require__(40);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -665,10 +659,16 @@ if (process.env.NODE_ENV === 'production') {
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rsSpells = __webpack_require__(47);
-var rs = __webpack_require__(16);
-rsSpells;
-module.exports = rs;
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(42);
+} else {
+  module.exports = __webpack_require__(41);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 8 */
@@ -676,7 +676,7 @@ module.exports = rs;
 
 "use strict";
 
-module.exports = __webpack_require__(55);
+module.exports = __webpack_require__(56);
 
 
 /***/ }),
@@ -1558,11 +1558,11 @@ module.exports = g;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_re_resizable__ = __webpack_require__(40);
 
 
 
@@ -1979,7 +1979,7 @@ Rnd.defaultProps = {
 //}
 //else {
 
-module.exports = __webpack_require__(28);
+module.exports = __webpack_require__(29);
 //}
 
 /***/ }),
@@ -2849,7 +2849,7 @@ module.exports =
 /* 5 */
 /***/ (function(module, exports) {
 
-	module.exports = __webpack_require__(38);
+	module.exports = __webpack_require__(39);
 
 /***/ })
 /******/ ]);
@@ -2863,9 +2863,9 @@ module.exports =
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(51);
+  module.exports = __webpack_require__(52);
 } else {
-  module.exports = __webpack_require__(50);
+  module.exports = __webpack_require__(51);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -2937,7 +2937,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(60);
+var	fixUrls = __webpack_require__(61);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -3270,11 +3270,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(29);
-var RequestBase = __webpack_require__(62);
+var Emitter = __webpack_require__(30);
+var RequestBase = __webpack_require__(63);
 var isObject = __webpack_require__(20);
-var ResponseBase = __webpack_require__(63);
-var Agent = __webpack_require__(61);
+var ResponseBase = __webpack_require__(64);
+var Agent = __webpack_require__(62);
 
 /**
  * Noop.
@@ -4221,7 +4221,7 @@ var _shortid = __webpack_require__(8);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _rscopes = __webpack_require__(7);
+var _rscopes = __webpack_require__(3);
 
 var _rscopes2 = _interopRequireDefault(_rscopes);
 
@@ -4352,7 +4352,7 @@ exports.default = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _dec, _dec2, _dec3, _desc, _value, _obj, _init, _desc2, _value2, _obj2, _init2, _init3, _init4, _desc3, _value3, _obj3, _init5, _init6, _class;
+var _dec, _dec2, _dec3, _desc, _value, _obj, _init, _desc2, _value2, _obj2, _init2, _init3, _init4, _class;
 
 var _superagent = __webpack_require__(19);
 
@@ -4362,9 +4362,11 @@ var _MeteoWidget2 = __webpack_require__(27);
 
 var _MeteoWidget3 = _interopRequireDefault(_MeteoWidget2);
 
-var _rscopes = __webpack_require__(7);
+var _rscopes = __webpack_require__(3);
 
-var _server = __webpack_require__(6);
+var _spells = __webpack_require__(48);
+
+var _server = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4403,7 +4405,6 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 	return desc;
 }
 
-var asStateMap = _rscopes.spells.asStateMap;
 var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _rscopes.reScope)((_obj = {
 	DaSearch: (_obj2 = {
 		record: "record",
@@ -4424,10 +4425,8 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 
 			if (searching == data.searching && data.results) return data;
 
-			//
 			searching && (this.wait(), _superagent2.default.get(state.src + searching).then(function (res) {
-				_this.release();
-				if (searching != _this.nextState.searching) return;
+				if (searching != _this.nextState.searching) return _this.release();
 				try {
 					_this.push({ results: res.body, searching: searching });
 					_this.$actions.updatePostIt(_extends({}, state.record, {
@@ -4437,6 +4436,7 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 				} catch (e) {
 					_this.push({ results: null, searching: searching });
 				}
+				_this.release();
 			}).catch(function (e) {
 				return _this.release();
 			}));
@@ -4451,21 +4451,21 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 
 			return { searching: searching };
 		}
-	}, (_applyDecoratedDescriptor(_obj2, "record", [_rscopes.scopeRef], (_init2 = Object.getOwnPropertyDescriptor(_obj2, "record"), _init2 = _init2 ? _init2.value : undefined, {
+	}, (_applyDecoratedDescriptor(_obj2, "record", [_spells.asRef], (_init2 = Object.getOwnPropertyDescriptor(_obj2, "record"), _init2 = _init2 ? _init2.value : undefined, {
 		enumerable: true,
 		configurable: true,
 		writable: true,
 		initializer: function initializer() {
 			return _init2;
 		}
-	}), _obj2), _applyDecoratedDescriptor(_obj2, "searching", [_rscopes.scopeRef], (_init3 = Object.getOwnPropertyDescriptor(_obj2, "searching"), _init3 = _init3 ? _init3.value : undefined, {
+	}), _obj2), _applyDecoratedDescriptor(_obj2, "searching", [_spells.asRef], (_init3 = Object.getOwnPropertyDescriptor(_obj2, "searching"), _init3 = _init3 ? _init3.value : undefined, {
 		enumerable: true,
 		configurable: true,
 		writable: true,
 		initializer: function initializer() {
 			return _init3;
 		}
-	}), _obj2), _applyDecoratedDescriptor(_obj2, "results", [_rscopes.scopeRef], (_init4 = Object.getOwnPropertyDescriptor(_obj2, "results"), _init4 = _init4 ? _init4.value : undefined, {
+	}), _obj2), _applyDecoratedDescriptor(_obj2, "results", [_spells.asRef], (_init4 = Object.getOwnPropertyDescriptor(_obj2, "results"), _init4 = _init4 ? _init4.value : undefined, {
 		enumerable: true,
 		configurable: true,
 		writable: true,
@@ -4473,32 +4473,14 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 			return _init4;
 		}
 	}), _obj2)), _obj2)
-}, (_applyDecoratedDescriptor(_obj, "DaSearch", [asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
+}, (_applyDecoratedDescriptor(_obj, "DaSearch", [_spells.asStateMap], (_init = Object.getOwnPropertyDescriptor(_obj, "DaSearch"), _init = _init ? _init.value : undefined, {
 	enumerable: true,
 	configurable: true,
 	writable: true,
 	initializer: function initializer() {
 		return _init;
 	}
-}), _obj)), _obj), { key: 'postIt' }), _dec3 = (0, _rscopes.scopeToProps)((_obj3 = {
-	DaSearch: "DaSearch",
-
-	record: "record"
-}, (_applyDecoratedDescriptor(_obj3, "DaSearch", [_rscopes.scopeRef], (_init5 = Object.getOwnPropertyDescriptor(_obj3, "DaSearch"), _init5 = _init5 ? _init5.value : undefined, {
-	enumerable: true,
-	configurable: true,
-	writable: true,
-	initializer: function initializer() {
-		return _init5;
-	}
-}), _obj3), _applyDecoratedDescriptor(_obj3, "record", [_rscopes.scopeRef], (_init6 = Object.getOwnPropertyDescriptor(_obj3, "record"), _init6 = _init6 ? _init6.value : undefined, {
-	enumerable: true,
-	configurable: true,
-	writable: true,
-	initializer: function initializer() {
-		return _init6;
-	}
-}), _obj3)), _obj3)), _dec(_class = _dec2(_class = _dec3(_class = function (_MeteoWidget) {
+}), _obj)), _obj), { key: 'postIt' }), _dec3 = (0, _rscopes.scopeToProps)(["DaSearch", "record"]), _dec(_class = _dec2(_class = _dec3(_class = function (_MeteoWidget) {
 	_inherits(sMeteoWidget, _MeteoWidget);
 
 	function sMeteoWidget() {
@@ -4531,7 +4513,7 @@ var out='<!DOCTYPE html><!-- ~ Copyright (c)  2018 Wise Wild Web . ~ ~  MIT Lice
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(30);
+var content = __webpack_require__(31);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -4581,7 +4563,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(31);
+var content = __webpack_require__(32);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -4686,9 +4668,9 @@ var _MeteoWidget = __webpack_require__(22);
 
 var _MeteoWidget2 = _interopRequireDefault(_MeteoWidget);
 
-var _rscopes = __webpack_require__(7);
+var _rscopes = __webpack_require__(3);
 
-var _server = __webpack_require__(6);
+var _server = __webpack_require__(7);
 
 __webpack_require__(24);
 
@@ -4706,7 +4688,7 @@ var asStateMap = _rscopes.spells.asStateMap;
 
 
 var indexTpl = __webpack_require__(23);
-var ReactDom = __webpack_require__(5);
+var ReactDom = __webpack_require__(6);
 
 var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_class = (_temp = _class2 = function (_React$Component) {
 	_inherits(App, _React$Component);
@@ -4967,6 +4949,764 @@ module.exports = exports["default"];
 
 /***/ }),
 /* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/function (modules) {
+	// webpackBootstrap
+	/******/ // The module cache
+	/******/var installedModules = {};
+	/******/
+	/******/ // The require function
+	/******/function __webpack_require__(moduleId) {
+		/******/
+		/******/ // Check if module is in cache
+		/******/if (installedModules[moduleId])
+			/******/return installedModules[moduleId].exports;
+		/******/
+		/******/ // Create a new module (and put it into the cache)
+		/******/var module = installedModules[moduleId] = {
+			/******/exports: {},
+			/******/id: moduleId,
+			/******/loaded: false
+			/******/ };
+		/******/
+		/******/ // Execute the module function
+		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+		/******/
+		/******/ // Flag the module as loaded
+		/******/module.loaded = true;
+		/******/
+		/******/ // Return the exports of the module
+		/******/return module.exports;
+		/******/
+	}
+	/******/
+	/******/
+	/******/ // expose the modules object (__webpack_modules__)
+	/******/__webpack_require__.m = modules;
+	/******/
+	/******/ // expose the module cache
+	/******/__webpack_require__.c = installedModules;
+	/******/
+	/******/ // __webpack_public_path__
+	/******/__webpack_require__.p = "/";
+	/******/
+	/******/ // Load entry module and return exports
+	/******/return __webpack_require__(0);
+	/******/
+}(
+/************************************************************************/
+/******/[
+/* 0 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	__webpack_require__(2);
+
+	__webpack_require__(4);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	exports.default = _rescope2.default.spells; /*
+                                              * Copyright (c)  2018 Wise Wild Web .
+                                              *
+                                              *  MIT License
+                                              *
+                                              *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                              *  of this software and associated documentation files (the "Software"), to deal
+                                              *  in the Software without restriction, including without limitation the rights
+                                              *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                              *  copies of the Software, and to permit persons to whom the Software is
+                                              *  furnished to do so, subject to the following conditions:
+                                              *
+                                              *  The above copyright notice and this permission notice shall be included in all
+                                              *  copies or substantial portions of the Software.
+                                              *
+                                              *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                              *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                              *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                              *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                              *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                              *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                              *  SOFTWARE.
+                                              *
+                                              * @author : Nathanael Braun
+                                              * @contact : caipilabs@gmail.com
+                                              */
+
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 1 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(13);
+
+	/***/
+},
+/* 2 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	// will use as external the index in dist
+
+	/*
+  * Copyright (c)  2018 Wise Wild Web .
+  *
+  *  MIT License
+  *
+  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+  *  of this software and associated documentation files (the "Software"), to deal
+  *  in the Software without restriction, including without limitation the rights
+  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  *  copies of the Software, and to permit persons to whom the Software is
+  *  furnished to do so, subject to the following conditions:
+  *
+  *  The above copyright notice and this permission notice shall be included in all
+  *  copies or substantial portions of the Software.
+  *
+  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  *  SOFTWARE.
+  *
+  * @author : Nathanael Braun
+  * @contact : caipilabs@gmail.com
+  */
+	var SimpleObjectProto = {}.constructor;
+	_rescope2.default.spells = {};
+
+	var castTypesToAppliable = {};
+	var castTypes = {};
+
+	_rescope2.default.isSpell = function caster() {
+		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+			argz[_key] = arguments[_key];
+		}
+
+		// are we decorating a member / without argz
+		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+			argz[0][argz[1]] = argz[2].value = addCaster(argz[0][argz[1]], argz);
+			return argz[0];
+		} else if (!_is2.default.fn(argz[0])) {
+			return function () {
+				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+					argz2[_key2] = arguments[_key2];
+				}
+
+				// are we decorating a member / with argz
+				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
+					return argz2[0];
+				} else return caster.apply(undefined, [argz2[0]].concat(argz));
+			};
+		}
+		return addCaster.apply(undefined, argz);
+	};
+
+	function addCaster() {
+		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			argz[_key3] = arguments[_key3];
+		}
+
+		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
+		if (!cast) throw "ReScope cast : bad decorator function";
+		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
+		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
+		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
+		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
+		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
+
+		if (!castTypesToAppliable[typeName]) {
+			castTypesToAppliable[typeName] = [];
+
+			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
+				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+					argz[_key4] = arguments[_key4];
+				}
+
+				// are we decorating a member / without argz
+				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
+					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
+					return argz[0];
+				} else if (!isCastableType(typeName, argz[0])) {
+					return function () {
+						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+							argz2[_key5] = arguments[_key5];
+						}
+
+						// are we decorating a member / with argz
+						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
+							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
+							return argz2[0];
+						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
+					};
+				}
+				return applyCastableType(typeName, argz[0], argz.slice(1));
+			};
+		}
+		castTypesToAppliable[typeName].unshift({
+			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
+		});
+		return castTypes[typeName];
+	}
+
+	function isCastableType(typeName, Comp, member, stateScope) {
+		var castable = castTypesToAppliable[typeName];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
+		}return false;
+	}
+
+	function applyCastableType(typeName, Comp, argz, member, stateScope) {
+
+		var castable = castTypesToAppliable[typeName] || [];
+		for (var i = 0; i < castable.length; i++) {
+			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
+		}console.warn("reScope cast : Unknown type", typeName, Comp);
+		return false;
+	}
+
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 3 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(9);
+
+	/***/
+},
+/* 4 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _get = function get(object, property, receiver) {
+		if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				return get(parent, property, receiver);
+			}
+		} else if ("value" in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	};
+
+	var _extends = Object.assign || function (target) {
+		for (var i = 1; i < arguments.length; i++) {
+			var source = arguments[i];for (var key in source) {
+				if (Object.prototype.hasOwnProperty.call(source, key)) {
+					target[key] = source[key];
+				}
+			}
+		}return target;
+	};
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
+
+	var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _desc, _value, _obj; /*
+                                                                                          * Copyright (c)  2018 Wise Wild Web .
+                                                                                          *
+                                                                                          *  MIT License
+                                                                                          *
+                                                                                          *  Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                          *  of this software and associated documentation files (the "Software"), to deal
+                                                                                          *  in the Software without restriction, including without limitation the rights
+                                                                                          *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                          *  copies of the Software, and to permit persons to whom the Software is
+                                                                                          *  furnished to do so, subject to the following conditions:
+                                                                                          *
+                                                                                          *  The above copyright notice and this permission notice shall be included in all
+                                                                                          *  copies or substantial portions of the Software.
+                                                                                          *
+                                                                                          *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                          *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                          *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                          *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                          *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                          *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                                                                          *  SOFTWARE.
+                                                                                          *
+                                                                                          * @author : Nathanael Braun
+                                                                                          * @contact : caipilabs@gmail.com
+                                                                                          */
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _server = __webpack_require__(6);
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	var _reactRescope = __webpack_require__(7);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _defineProperty(obj, key, value) {
+		if (key in obj) {
+			Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+		} else {
+			obj[key] = value;
+		}return obj;
+	}
+
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+		var desc = {};
+		Object['ke' + 'ys'](descriptor).forEach(function (key) {
+			desc[key] = descriptor[key];
+		});
+		desc.enumerable = !!desc.enumerable;
+		desc.configurable = !!desc.configurable;
+
+		if ('value' in desc || desc.initializer) {
+			desc.writable = true;
+		}
+
+		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+			return decorator(target, property, desc) || desc;
+		}, desc);
+
+		if (context && desc.initializer !== void 0) {
+			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+			desc.initializer = undefined;
+		}
+
+		if (desc.initializer === void 0) {
+			Object['define' + 'Property'](target, property, desc);
+			desc = null;
+		}
+
+		return desc;
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var RSComp = (_dec = (0, _reactRescope.propsToScope)(['props']), _dec2 = (0, _reactRescope.scopeToProps)(['props']), _dec(_class = _dec2(_class = function (_Component) {
+		_inherits(RSComp, _Component);
+
+		function RSComp() {
+			_classCallCheck(this, RSComp);
+
+			return _possibleConstructorReturn(this, (RSComp.__proto__ || Object.getPrototypeOf(RSComp)).apply(this, arguments));
+		}
+
+		_createClass(RSComp, [{
+			key: "render",
+			value: function render() {
+				return this.props.children || [];
+			}
+		}]);
+
+		return RSComp;
+	}(_reactRescope.Component)) || _class) || _class);
+
+	var Lib = (_dec3 = (0, _reactRescope.isSpell)("stateMap", function (v) {
+		return _is2.default.object(v) || _is2.default.string(v);
+	}), _dec4 = (0, _reactRescope.isSpell)("scope", function (v) {
+		return _is2.default.object(v);
+	}), _dec5 = (0, _reactRescope.isSpell)("ref", function (v) {
+		return _is2.default.string(v);
+	}), _dec6 = (0, _reactRescope.isSpell)("renderer", function (v) {
+		return _is2.default.fn(v);
+	}), _dec7 = (0, _reactRescope.isSpell)("rootRenderer", function (v) {
+		return _is2.default.fn(v);
+	}), _dec8 = (0, _reactRescope.isSpell)("store", function (v) {
+		return _is2.default.fn(v);
+	}), (_obj = {
+		stateMap: function stateMap(obj, _ref, ref) {
+			var _class2, _temp2, _class3, _temp3;
+
+			var cfg = _ref[0];
+
+			var use = [],
+			    state = {},
+			    actions = {},
+			    applier = obj.$apply;
+			if (applier) obj = _extends({}, obj), delete obj.$apply;
+			_reactRescope.Scope.stateMapToRefList(obj, state, use, actions);
+			if (applier) return _temp2 = _class2 = function (_Store) {
+				_inherits(StateMapWA, _Store);
+
+				function StateMapWA() {
+					var _ref2;
+
+					var _temp, _this2, _ret;
+
+					_classCallCheck(this, StateMapWA);
+
+					for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+						args[_key] = arguments[_key];
+					}
+
+					return _ret = (_temp = (_this2 = _possibleConstructorReturn(this, (_ref2 = StateMapWA.__proto__ || Object.getPrototypeOf(StateMapWA)).call.apply(_ref2, [this].concat(args))), _this2), _this2.apply = applier, _temp), _possibleConstructorReturn(_this2, _ret);
+				}
+
+				return StateMapWA;
+			}(_reactRescope.Store), _class2.displayName = ref[1], _class2.use = use, _class2.state = state, _class2.actions = actions, _temp2;else return _temp3 = _class3 = function (_Store2) {
+				_inherits(StateMap, _Store2);
+
+				function StateMap() {
+					_classCallCheck(this, StateMap);
+
+					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
+				}
+
+				return StateMap;
+			}(_reactRescope.Store), _class3.displayName = ref[1], _class3.use = use, _class3.state = state, _class3.actions = actions, _temp3;
+		},
+		scope: function scope(obj, _ref3, ref) {
+			var cfg = _ref3[0];
+
+			return function (_Scope) {
+				_inherits(childScope, _Scope);
+
+				function childScope(map, cfg2) {
+					_classCallCheck(this, childScope);
+
+					return _possibleConstructorReturn(this, (childScope.__proto__ || Object.getPrototypeOf(childScope)).call(this, _extends({}, obj, map), _extends({}, cfg, cfg2)));
+				}
+
+				return childScope;
+			}(_reactRescope.Scope);
+		},
+		ref: function ref(obj, _ref4) {
+			var cfg = _ref4[0];
+
+			return new _reactRescope.Scope.scopeRef(obj);
+		},
+		renderer: function renderer(obj, argz, ref) {
+			var _class4, _temp4;
+
+			var use = void 0,
+			    state = void 0,
+			    scope = argz[1] && argz[0],
+			    sm = argz[1] || argz[0];
+			//if ( !argz[ 0 ] ) {
+			state = {};
+			//argz[ 0 ] = []
+			//}
+			//else if ( is.array(argz[ 0 ]) ) {
+			//    use   = argz[ 0 ];
+			//    state = !use.length && {};
+			//}
+			//else
+			//    argz[ 0 ] && Scope.stateMapToRefList(argz[ 0 ], state = {}, use = [],
+			// actions = {});
+
+			//!use.includes('props') && use.push('props');
+			return _temp4 = _class4 = function (_Store3) {
+				_inherits(RSRenderer, _Store3);
+
+				function RSRenderer(scope, cfg) {
+					_classCallCheck(this, RSRenderer);
+
+					var _this5 = _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+
+					_this5._compScope = new _reactRescope.Scope({}, {
+						key: RSRenderer.displayName,
+						parent: _this5.$scope,
+						autoDestroy: true
+
+					});
+
+					_this5._compScope.retain("RSRenderer");
+					_this5.__snapshot = cfg.snapshot;
+					return _this5;
+				}
+				//static use         = use;
+
+
+				_createClass(RSRenderer, [{
+					key: "serialize",
+					value: function serialize(cfg, output) {
+						var _compScope;
+
+						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "serialize", this).apply(this, arguments);
+						(_compScope = this._compScope).serialize.apply(_compScope, arguments);
+						return output;
+					}
+				}, {
+					key: "restore",
+					value: function restore() {
+						var _compScope2;
+
+						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "restore", this).apply(this, arguments);
+						(_compScope2 = this._compScope).restore.apply(_compScope2, arguments);
+					}
+				}, {
+					key: "destroy",
+					value: function destroy() {
+						this._compScope.dispose("RSRenderer");
+						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "destroy", this).call(this);
+					}
+				}, {
+					key: "apply",
+					value: function apply(d, s, c) {
+						var _dec9,
+						    _this6 = this,
+						    _class5;
+
+						if (d) {
+							//this._comp.setState(c);
+							return d;
+						}
+
+						var RSCompRenderer = (_dec9 = (0, _reactRescope.scopeToState)(function (comp, props, ctx) {
+							var viewScope = new _reactRescope.Scope(_extends(_defineProperty({}, RSRenderer.displayName, Lib.rootRenderer(obj, [sm], [, RSRenderer.displayName])), scope || {}), {
+								key: "comp",
+								parent: _this6._compScope,
+								autoDestroy: true,
+
+								state: _defineProperty({}, RSRenderer.displayName, { props: props })
+							});
+							return viewScope;
+						}, [RSRenderer.displayName]), _dec9(_class5 = function (_React$Component) {
+							_inherits(RSCompRenderer, _React$Component);
+
+							function RSCompRenderer() {
+								_classCallCheck(this, RSCompRenderer);
+
+								return _possibleConstructorReturn(this, (RSCompRenderer.__proto__ || Object.getPrototypeOf(RSCompRenderer)).apply(this, arguments));
+							}
+
+							_createClass(RSCompRenderer, [{
+								key: "componentWillMount",
+								value: function componentWillMount() {
+									var props = this.props;
+									//this._ssrTest = setTimeout(
+									//    tm => this.$scope.then(
+									//        ( { [ RSRenderer.displayName ]: CMP } ) =>
+									//            renderToString(<RSCompRenderer { ...props }/>)
+									//    ))
+								}
+							}, {
+								key: "componentDidMount",
+								value: function componentDidMount() {
+									//clearTimeout(this._ssrTest);
+								}
+							}, {
+								key: "componentWillReceiveProps",
+								value: function componentWillReceiveProps(props) {
+									var Comp = this.$stores[RSRenderer.displayName];
+
+									//Comp && Comp.setState({ props });
+								}
+							}, {
+								key: "render",
+								value: function render() {
+									var Comp = this.state[RSRenderer.displayName];
+									return Comp || _react2.default.createElement("span", { className: "__rsLoad" });
+								}
+							}]);
+
+							return RSCompRenderer;
+						}(_react2.default.Component)) || _class5);
+
+						return RSCompRenderer;
+					}
+				}]);
+
+				return RSRenderer;
+			}(_reactRescope.Store), _class4.displayName = ref[1], _class4.state = state, _temp4;
+		},
+		rootRenderer: function rootRenderer(obj, argz, ref) {
+			var _class6, _temp5;
+
+			var use = void 0,
+			    state = void 0,
+			    actions = void 0;
+			if (!argz[0]) {
+				state = {};
+				//argz[ 0 ] = []
+			} else if (_is2.default.array(argz[0])) {
+				use = argz[0];
+				state = !use.length && {};
+			} else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
+
+			//!use.includes('props') && use.push('props');
+			return _temp5 = _class6 = function (_Store4) {
+				_inherits(RSRenderer, _Store4);
+
+				function RSRenderer() {
+					_classCallCheck(this, RSRenderer);
+
+					return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
+				}
+
+				_createClass(RSRenderer, [{
+					key: "serialize_ex",
+
+					//static actions     = actions;
+					value: function serialize_ex(cfg, output, sid, alias, exclude) {
+						output = _get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "serialize_ex", this).call(this, cfg, output, sid, alias, exclude);
+						var snap = this.scopeObj.getSnapshotByKeyExt(output, sid + '>' + this.name);
+						if (snap) {
+							snap.state && snap.state.props && delete snap.state.props;
+							delete snap.data;
+						}
+						return output;
+					}
+				}, {
+					key: "apply",
+					value: function apply(d, s, c) {
+						//if ( d ) {
+						//    //this._comp.setState(c);
+						//    return d;
+						//}
+						return obj(s, {
+							$actions: this.$actions,
+							$stores: this.$stores,
+							$scope: this.$scope,
+							$store: this
+						});
+					}
+				}]);
+
+				return RSRenderer;
+			}(_reactRescope.Store), _class6.displayName = ref[1], _class6.use = use, _class6.state = state || {}, _class6.actions = actions, _temp5;
+		},
+		store: function store(obj, _ref5, ref) {
+			var cfg = _ref5[0];
+
+			return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
+					return obj(d, s, c);
+				} }));
+		}
+	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec3], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _applyDecoratedDescriptor(_obj, "ref", [_dec5], Object.getOwnPropertyDescriptor(_obj, "ref"), _obj), _applyDecoratedDescriptor(_obj, "renderer", [_dec6], Object.getOwnPropertyDescriptor(_obj, "renderer"), _obj), _applyDecoratedDescriptor(_obj, "rootRenderer", [_dec7], Object.getOwnPropertyDescriptor(_obj, "rootRenderer"), _obj), _applyDecoratedDescriptor(_obj, "store", [_dec8], Object.getOwnPropertyDescriptor(_obj, "store"), _obj)), _obj));
+
+	exports.default = Lib;
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 5 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(1);
+
+	/***/
+},
+/* 6 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(7);
+
+	/***/
+},
+/* 7 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(16);
+
+	/***/
+}]
+/******/);
+//# sourceMappingURL=rescopeSpells.js.map
+
+/***/ }),
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8249,7 +8989,7 @@ module.exports =
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(0)))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -8418,22 +9158,22 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(32);
+var escape = __webpack_require__(33);
 exports = module.exports = __webpack_require__(14)(false);
 // imports
 
 
 // module
-exports.push([module.i, "/*!\n *  Weather Icons 1.3\n *  Updated November 30th, 2014\n *  Weather themed icons for Bootstrap\n *  ------------------------------------------------------------------------------\n* Maintained at http://erikflowers.github.io/weather-icons\n *  http://twitter.com/Erik_UX\n *\n *  License\n *  ------------------------------------------------------------------------------\n *  - Fpmt licensed under SIL OFL 1.1 -\n *    http://scripts.sil.org/OFL\n *  - CSS and LESS are licensed under MIT License -\n *    http://opensource.org/licenses/mit-license.html\n *  - Documentation licensed under CC BY 3.0 -\n *    http://creativecommons.org/licenses/by/3.0/\n *  - Inspired by and works great as a companion with Font Awesome\n *    \"Font Awesome by Dave Gandy - http://fontawesome.io\"\n *\n *  Weather Icons Bootstrap Package Author - Erik Flowers - erik@helloerik.com\n *  ------------------------------------------------------------------------------\n *  Email: erik@helloerik.com\n *  Twitter: http://twitter.com/Erik_UX\n */\n@font-face {\n  font-family: 'weathericons';\n  src: url(" + escape(__webpack_require__(15)) + ");\n  src: url(" + escape(__webpack_require__(15)) + "?#iefix) format(\"embedded-opentype\"), url(" + escape(__webpack_require__(65)) + ") format(\"woff\"), url(" + escape(__webpack_require__(34)) + ") format(\"truetype\"), url(" + escape(__webpack_require__(33)) + "#weathericons-regular-webfontRg) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n.wi {\n  display: inline-block;\n  font-family: 'weathericons';\n  font-style: normal;\n  font-weight: normal;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.wi-day-cloudy-gusts:before {\n  content: \"\\F000\"; }\n\n.wi-day-cloudy-windy:before {\n  content: \"\\F001\"; }\n\n.wi-day-cloudy:before {\n  content: \"\\F002\"; }\n\n.wi-day-fog:before {\n  content: \"\\F003\"; }\n\n.wi-day-hail:before {\n  content: \"\\F004\"; }\n\n.wi-day-lightning:before {\n  content: \"\\F005\"; }\n\n.wi-day-rain-mix:before {\n  content: \"\\F006\"; }\n\n.wi-day-rain-wind:before {\n  content: \"\\F007\"; }\n\n.wi-day-rain:before {\n  content: \"\\F008\"; }\n\n.wi-day-showers:before {\n  content: \"\\F009\"; }\n\n.wi-day-snow:before {\n  content: \"\\F00A\"; }\n\n.wi-day-sprinkle:before {\n  content: \"\\F00B\"; }\n\n.wi-day-sunny-overcast:before {\n  content: \"\\F00C\"; }\n\n.wi-day-sunny:before {\n  content: \"\\F00D\"; }\n\n.wi-day-storm-showers:before {\n  content: \"\\F00E\"; }\n\n.wi-day-thunderstorm:before {\n  content: \"\\F010\"; }\n\n.wi-cloudy-gusts:before {\n  content: \"\\F011\"; }\n\n.wi-cloudy-windy:before {\n  content: \"\\F012\"; }\n\n.wi-cloudy:before {\n  content: \"\\F013\"; }\n\n.wi-fog:before {\n  content: \"\\F014\"; }\n\n.wi-hail:before {\n  content: \"\\F015\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-rain-mix:before {\n  content: \"\\F017\"; }\n\n.wi-rain-wind:before {\n  content: \"\\F018\"; }\n\n.wi-rain:before {\n  content: \"\\F019\"; }\n\n.wi-showers:before {\n  content: \"\\F01A\"; }\n\n.wi-snow:before {\n  content: \"\\F01B\"; }\n\n.wi-sprinkle:before {\n  content: \"\\F01C\"; }\n\n.wi-storm-showers:before {\n  content: \"\\F01D\"; }\n\n.wi-thunderstorm:before {\n  content: \"\\F01E\"; }\n\n.wi-windy:before {\n  content: \"\\F021\"; }\n\n.wi-night-alt-cloudy-gusts:before {\n  content: \"\\F022\"; }\n\n.wi-night-alt-cloudy-windy:before {\n  content: \"\\F023\"; }\n\n.wi-night-alt-hail:before {\n  content: \"\\F024\"; }\n\n.wi-night-alt-lightning:before {\n  content: \"\\F025\"; }\n\n.wi-night-alt-rain-mix:before {\n  content: \"\\F026\"; }\n\n.wi-night-alt-rain-wind:before {\n  content: \"\\F027\"; }\n\n.wi-night-alt-rain:before {\n  content: \"\\F028\"; }\n\n.wi-night-alt-showers:before {\n  content: \"\\F029\"; }\n\n.wi-night-alt-snow:before {\n  content: \"\\F02A\"; }\n\n.wi-night-alt-sprinkle:before {\n  content: \"\\F02B\"; }\n\n.wi-night-alt-storm-showers:before {\n  content: \"\\F02C\"; }\n\n.wi-night-alt-thunderstorm:before {\n  content: \"\\F02D\"; }\n\n.wi-night-clear:before {\n  content: \"\\F02E\"; }\n\n.wi-night-cloudy-gusts:before {\n  content: \"\\F02F\"; }\n\n.wi-night-cloudy-windy:before {\n  content: \"\\F030\"; }\n\n.wi-night-cloudy:before {\n  content: \"\\F031\"; }\n\n.wi-night-hail:before {\n  content: \"\\F032\"; }\n\n.wi-night-lightning:before {\n  content: \"\\F033\"; }\n\n.wi-night-rain-mix:before {\n  content: \"\\F034\"; }\n\n.wi-night-rain-wind:before {\n  content: \"\\F035\"; }\n\n.wi-night-rain:before {\n  content: \"\\F036\"; }\n\n.wi-night-showers:before {\n  content: \"\\F037\"; }\n\n.wi-night-snow:before {\n  content: \"\\F038\"; }\n\n.wi-night-sprinkle:before {\n  content: \"\\F039\"; }\n\n.wi-night-storm-showers:before {\n  content: \"\\F03A\"; }\n\n.wi-night-thunderstorm:before {\n  content: \"\\F03B\"; }\n\n.wi-celsius:before {\n  content: \"\\F03C\"; }\n\n.wi-cloud-down:before {\n  content: \"\\F03D\"; }\n\n.wi-cloud-refresh:before {\n  content: \"\\F03E\"; }\n\n.wi-cloud-up:before {\n  content: \"\\F040\"; }\n\n.wi-cloud:before {\n  content: \"\\F041\"; }\n\n.wi-degrees:before {\n  content: \"\\F042\"; }\n\n.wi-down-left:before {\n  content: \"\\F043\"; }\n\n.wi-down:before {\n  content: \"\\F044\"; }\n\n.wi-fahrenheit:before {\n  content: \"\\F045\"; }\n\n.wi-horizon-alt:before {\n  content: \"\\F046\"; }\n\n.wi-horizon:before {\n  content: \"\\F047\"; }\n\n.wi-left:before {\n  content: \"\\F048\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-night-fog:before {\n  content: \"\\F04A\"; }\n\n.wi-refresh-alt:before {\n  content: \"\\F04B\"; }\n\n.wi-refresh:before {\n  content: \"\\F04C\"; }\n\n.wi-right:before {\n  content: \"\\F04D\"; }\n\n.wi-sprinkles:before {\n  content: \"\\F04E\"; }\n\n.wi-strong-wind:before {\n  content: \"\\F050\"; }\n\n.wi-sunrise:before {\n  content: \"\\F051\"; }\n\n.wi-sunset:before {\n  content: \"\\F052\"; }\n\n.wi-thermometer-exterior:before {\n  content: \"\\F053\"; }\n\n.wi-thermometer-internal:before {\n  content: \"\\F054\"; }\n\n.wi-thermometer:before {\n  content: \"\\F055\"; }\n\n.wi-tornado:before {\n  content: \"\\F056\"; }\n\n.wi-up-right:before {\n  content: \"\\F057\"; }\n\n.wi-up:before {\n  content: \"\\F058\"; }\n\n.wi-wind-west:before {\n  content: \"\\F059\"; }\n\n.wi-wind-south-west:before {\n  content: \"\\F05A\"; }\n\n.wi-wind-south-east:before {\n  content: \"\\F05B\"; }\n\n.wi-wind-south:before {\n  content: \"\\F05C\"; }\n\n.wi-wind-north-west:before {\n  content: \"\\F05D\"; }\n\n.wi-wind-north-east:before {\n  content: \"\\F05E\"; }\n\n.wi-wind-north:before {\n  content: \"\\F060\"; }\n\n.wi-wind-east:before {\n  content: \"\\F061\"; }\n\n.wi-smoke:before {\n  content: \"\\F062\"; }\n\n.wi-dust:before {\n  content: \"\\F063\"; }\n\n.wi-snow-wind:before {\n  content: \"\\F064\"; }\n\n.wi-day-snow-wind:before {\n  content: \"\\F065\"; }\n\n.wi-night-snow-wind:before {\n  content: \"\\F066\"; }\n\n.wi-night-alt-snow-wind:before {\n  content: \"\\F067\"; }\n\n.wi-day-sleet-storm:before {\n  content: \"\\F068\"; }\n\n.wi-night-sleet-storm:before {\n  content: \"\\F069\"; }\n\n.wi-night-alt-sleet-storm:before {\n  content: \"\\F06A\"; }\n\n.wi-day-snow-thunderstorm:before {\n  content: \"\\F06B\"; }\n\n.wi-night-snow-thunderstorm:before {\n  content: \"\\F06C\"; }\n\n.wi-night-alt-snow-thunderstorm:before {\n  content: \"\\F06D\"; }\n\n.wi-solar-eclipse:before {\n  content: \"\\F06E\"; }\n\n.wi-lunar-eclipse:before {\n  content: \"\\F070\"; }\n\n.wi-meteor:before {\n  content: \"\\F071\"; }\n\n.wi-hot:before {\n  content: \"\\F072\"; }\n\n.wi-hurricane:before {\n  content: \"\\F073\"; }\n\n.wi-smog:before {\n  content: \"\\F074\"; }\n\n.wi-alien:before {\n  content: \"\\F075\"; }\n\n.wi-snowflake-cold:before {\n  content: \"\\F076\"; }\n\n.wi-stars:before {\n  content: \"\\F077\"; }\n\n.wi-night-partly-cloudy:before {\n  content: \"\\F083\"; }\n\n.wi-umbrella:before {\n  content: \"\\F084\"; }\n\n.wi-day-windy:before {\n  content: \"\\F085\"; }\n\n.wi-night-alt-cloudy:before {\n  content: \"\\F086\"; }\n\n.wi-up-left:before {\n  content: \"\\F087\"; }\n\n.wi-down-right:before {\n  content: \"\\F088\"; }\n\n.wi-time-12:before {\n  content: \"\\F089\"; }\n\n.wi-time-1:before {\n  content: \"\\F08A\"; }\n\n.wi-time-2:before {\n  content: \"\\F08B\"; }\n\n.wi-time-3:before {\n  content: \"\\F08C\"; }\n\n.wi-time-4:before {\n  content: \"\\F08D\"; }\n\n.wi-time-5:before {\n  content: \"\\F08E\"; }\n\n.wi-time-6:before {\n  content: \"\\F08F\"; }\n\n.wi-time-7:before {\n  content: \"\\F090\"; }\n\n.wi-time-8:before {\n  content: \"\\F091\"; }\n\n.wi-time-9:before {\n  content: \"\\F092\"; }\n\n.wi-time-10:before {\n  content: \"\\F093\"; }\n\n.wi-time-11:before {\n  content: \"\\F094\"; }\n\n.wi-day-sleet:before {\n  content: \"\\F0B2\"; }\n\n.wi-night-sleet:before {\n  content: \"\\F0B3\"; }\n\n.wi-night-alt-sleet:before {\n  content: \"\\F0B4\"; }\n\n.wi-sleet:before {\n  content: \"\\F0B5\"; }\n\n.wi-day-haze:before {\n  content: \"\\F0B6\"; }\n\n.wi-beafort-0:before {\n  content: \"\\F0B7\"; }\n\n.wi-beafort-1:before {\n  content: \"\\F0B8\"; }\n\n.wi-beafort-2:before {\n  content: \"\\F0B9\"; }\n\n.wi-beafort-3:before {\n  content: \"\\F0BA\"; }\n\n.wi-beafort-4:before {\n  content: \"\\F0BB\"; }\n\n.wi-beafort-5:before {\n  content: \"\\F0BC\"; }\n\n.wi-beafort-6:before {\n  content: \"\\F0BD\"; }\n\n.wi-beafort-7:before {\n  content: \"\\F0BE\"; }\n\n.wi-beafort-8:before {\n  content: \"\\F0BF\"; }\n\n.wi-beafort-9:before {\n  content: \"\\F0C0\"; }\n\n.wi-beafort-10:before {\n  content: \"\\F0C1\"; }\n\n.wi-beafort-11:before {\n  content: \"\\F0C2\"; }\n\n.wi-beafort-12:before {\n  content: \"\\F0C3\"; }\n\n.wi-wind-default:before {\n  content: \"\\F0B1\"; }\n\nwi-wind-default._0-deg {\n  -webkit-transform: rotate(0deg);\n  -ms-transform: rotate(0deg);\n  transform: rotate(0deg); }\n\nwi-wind-default._15-deg {\n  -webkit-transform: rotate(15deg);\n  -ms-transform: rotate(15deg);\n  transform: rotate(15deg); }\n\nwi-wind-default._30-deg {\n  -webkit-transform: rotate(30deg);\n  -ms-transform: rotate(30deg);\n  transform: rotate(30deg); }\n\nwi-wind-default._45-deg {\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg); }\n\nwi-wind-default._60-deg {\n  -webkit-transform: rotate(60deg);\n  -ms-transform: rotate(60deg);\n  transform: rotate(60deg); }\n\nwi-wind-default._75-deg {\n  -webkit-transform: rotate(75deg);\n  -ms-transform: rotate(75deg);\n  transform: rotate(75deg); }\n\nwi-wind-default._90-deg {\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg); }\n\nwi-wind-default._105-deg {\n  -webkit-transform: rotate(105deg);\n  -ms-transform: rotate(105deg);\n  transform: rotate(105deg); }\n\nwi-wind-default._120-deg {\n  -webkit-transform: rotate(120deg);\n  -ms-transform: rotate(120deg);\n  transform: rotate(120deg); }\n\nwi-wind-default._135-deg {\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg); }\n\nwi-wind-default._150-deg {\n  -webkit-transform: rotate(150deg);\n  -ms-transform: rotate(150deg);\n  transform: rotate(150deg); }\n\nwi-wind-default._165-deg {\n  -webkit-transform: rotate(165deg);\n  -ms-transform: rotate(165deg);\n  transform: rotate(165deg); }\n\nwi-wind-default._180-deg {\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotate(180deg); }\n\nwi-wind-default._195-deg {\n  -webkit-transform: rotate(195deg);\n  -ms-transform: rotate(195deg);\n  transform: rotate(195deg); }\n\nwi-wind-default._210-deg {\n  -webkit-transform: rotate(210deg);\n  -ms-transform: rotate(210deg);\n  transform: rotate(210deg); }\n\nwi-wind-default._225-deg {\n  -webkit-transform: rotate(225deg);\n  -ms-transform: rotate(225deg);\n  transform: rotate(225deg); }\n\nwi-wind-default._240-deg {\n  -webkit-transform: rotate(240deg);\n  -ms-transform: rotate(240deg);\n  transform: rotate(240deg); }\n\nwi-wind-default._255-deg {\n  -webkit-transform: rotate(255deg);\n  -ms-transform: rotate(255deg);\n  transform: rotate(255deg); }\n\nwi-wind-default._270-deg {\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  transform: rotate(270deg); }\n\nwi-wind-default._285-deg {\n  -webkit-transform: rotate(295deg);\n  -ms-transform: rotate(295deg);\n  transform: rotate(295deg); }\n\nwi-wind-default._300-deg {\n  -webkit-transform: rotate(300deg);\n  -ms-transform: rotate(300deg);\n  transform: rotate(300deg); }\n\nwi-wind-default._315-deg {\n  -webkit-transform: rotate(315deg);\n  -ms-transform: rotate(315deg);\n  transform: rotate(315deg); }\n\nwi-wind-default._330-deg {\n  -webkit-transform: rotate(330deg);\n  -ms-transform: rotate(330deg);\n  transform: rotate(330deg); }\n\nwi-wind-default._345-deg {\n  -webkit-transform: rotate(345deg);\n  -ms-transform: rotate(345deg);\n  transform: rotate(345deg); }\n\n.wi-moon-new:before {\n  content: \"\\F095\"; }\n\n.wi-moon-waxing-cresent-1:before {\n  content: \"\\F096\"; }\n\n.wi-moon-waxing-cresent-2:before {\n  content: \"\\F097\"; }\n\n.wi-moon-waxing-cresent-3:before {\n  content: \"\\F098\"; }\n\n.wi-moon-waxing-cresent-4:before {\n  content: \"\\F099\"; }\n\n.wi-moon-waxing-cresent-5:before {\n  content: \"\\F09A\"; }\n\n.wi-moon-waxing-cresent-6:before {\n  content: \"\\F09B\"; }\n\n.wi-moon-first-quarter:before {\n  content: \"\\F09C\"; }\n\n.wi-moon-waxing-gibbous-1:before {\n  content: \"\\F09D\"; }\n\n.wi-moon-waxing-gibbous-2:before {\n  content: \"\\F09E\"; }\n\n.wi-moon-waxing-gibbous-3:before {\n  content: \"\\F09F\"; }\n\n.wi-moon-waxing-gibbous-4:before {\n  content: \"\\F0A0\"; }\n\n.wi-moon-waxing-gibbous-5:before {\n  content: \"\\F0A1\"; }\n\n.wi-moon-waxing-gibbous-6:before {\n  content: \"\\F0A2\"; }\n\n.wi-moon-full:before {\n  content: \"\\F0A3\"; }\n\n.wi-moon-waning-gibbous-1:before {\n  content: \"\\F0A4\"; }\n\n.wi-moon-waning-gibbous-2:before {\n  content: \"\\F0A5\"; }\n\n.wi-moon-waning-gibbous-3:before {\n  content: \"\\F0A6\"; }\n\n.wi-moon-waning-gibbous-4:before {\n  content: \"\\F0A7\"; }\n\n.wi-moon-waning-gibbous-5:before {\n  content: \"\\F0A8\"; }\n\n.wi-moon-waning-gibbous-6:before {\n  content: \"\\F0A9\"; }\n\n.wi-moon-3rd-quarter:before {\n  content: \"\\F0AA\"; }\n\n.wi-moon-waning-crescent-1:before {\n  content: \"\\F0AB\"; }\n\n.wi-moon-waning-crescent-2:before {\n  content: \"\\F0AC\"; }\n\n.wi-moon-waning-crescent-3:before {\n  content: \"\\F0AD\"; }\n\n.wi-moon-waning-crescent-4:before {\n  content: \"\\F0AE\"; }\n\n.wi-moon-waning-crescent-5:before {\n  content: \"\\F0AF\"; }\n\n.wi-moon-waning-crescent-6:before {\n  content: \"\\F0B0\"; }\n", ""]);
+exports.push([module.i, "/*!\n *  Weather Icons 1.3\n *  Updated November 30th, 2014\n *  Weather themed icons for Bootstrap\n *  ------------------------------------------------------------------------------\n* Maintained at http://erikflowers.github.io/weather-icons\n *  http://twitter.com/Erik_UX\n *\n *  License\n *  ------------------------------------------------------------------------------\n *  - Fpmt licensed under SIL OFL 1.1 -\n *    http://scripts.sil.org/OFL\n *  - CSS and LESS are licensed under MIT License -\n *    http://opensource.org/licenses/mit-license.html\n *  - Documentation licensed under CC BY 3.0 -\n *    http://creativecommons.org/licenses/by/3.0/\n *  - Inspired by and works great as a companion with Font Awesome\n *    \"Font Awesome by Dave Gandy - http://fontawesome.io\"\n *\n *  Weather Icons Bootstrap Package Author - Erik Flowers - erik@helloerik.com\n *  ------------------------------------------------------------------------------\n *  Email: erik@helloerik.com\n *  Twitter: http://twitter.com/Erik_UX\n */\n@font-face {\n  font-family: 'weathericons';\n  src: url(" + escape(__webpack_require__(15)) + ");\n  src: url(" + escape(__webpack_require__(15)) + "?#iefix) format(\"embedded-opentype\"), url(" + escape(__webpack_require__(66)) + ") format(\"woff\"), url(" + escape(__webpack_require__(35)) + ") format(\"truetype\"), url(" + escape(__webpack_require__(34)) + "#weathericons-regular-webfontRg) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n.wi {\n  display: inline-block;\n  font-family: 'weathericons';\n  font-style: normal;\n  font-weight: normal;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.wi-day-cloudy-gusts:before {\n  content: \"\\F000\"; }\n\n.wi-day-cloudy-windy:before {\n  content: \"\\F001\"; }\n\n.wi-day-cloudy:before {\n  content: \"\\F002\"; }\n\n.wi-day-fog:before {\n  content: \"\\F003\"; }\n\n.wi-day-hail:before {\n  content: \"\\F004\"; }\n\n.wi-day-lightning:before {\n  content: \"\\F005\"; }\n\n.wi-day-rain-mix:before {\n  content: \"\\F006\"; }\n\n.wi-day-rain-wind:before {\n  content: \"\\F007\"; }\n\n.wi-day-rain:before {\n  content: \"\\F008\"; }\n\n.wi-day-showers:before {\n  content: \"\\F009\"; }\n\n.wi-day-snow:before {\n  content: \"\\F00A\"; }\n\n.wi-day-sprinkle:before {\n  content: \"\\F00B\"; }\n\n.wi-day-sunny-overcast:before {\n  content: \"\\F00C\"; }\n\n.wi-day-sunny:before {\n  content: \"\\F00D\"; }\n\n.wi-day-storm-showers:before {\n  content: \"\\F00E\"; }\n\n.wi-day-thunderstorm:before {\n  content: \"\\F010\"; }\n\n.wi-cloudy-gusts:before {\n  content: \"\\F011\"; }\n\n.wi-cloudy-windy:before {\n  content: \"\\F012\"; }\n\n.wi-cloudy:before {\n  content: \"\\F013\"; }\n\n.wi-fog:before {\n  content: \"\\F014\"; }\n\n.wi-hail:before {\n  content: \"\\F015\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-rain-mix:before {\n  content: \"\\F017\"; }\n\n.wi-rain-wind:before {\n  content: \"\\F018\"; }\n\n.wi-rain:before {\n  content: \"\\F019\"; }\n\n.wi-showers:before {\n  content: \"\\F01A\"; }\n\n.wi-snow:before {\n  content: \"\\F01B\"; }\n\n.wi-sprinkle:before {\n  content: \"\\F01C\"; }\n\n.wi-storm-showers:before {\n  content: \"\\F01D\"; }\n\n.wi-thunderstorm:before {\n  content: \"\\F01E\"; }\n\n.wi-windy:before {\n  content: \"\\F021\"; }\n\n.wi-night-alt-cloudy-gusts:before {\n  content: \"\\F022\"; }\n\n.wi-night-alt-cloudy-windy:before {\n  content: \"\\F023\"; }\n\n.wi-night-alt-hail:before {\n  content: \"\\F024\"; }\n\n.wi-night-alt-lightning:before {\n  content: \"\\F025\"; }\n\n.wi-night-alt-rain-mix:before {\n  content: \"\\F026\"; }\n\n.wi-night-alt-rain-wind:before {\n  content: \"\\F027\"; }\n\n.wi-night-alt-rain:before {\n  content: \"\\F028\"; }\n\n.wi-night-alt-showers:before {\n  content: \"\\F029\"; }\n\n.wi-night-alt-snow:before {\n  content: \"\\F02A\"; }\n\n.wi-night-alt-sprinkle:before {\n  content: \"\\F02B\"; }\n\n.wi-night-alt-storm-showers:before {\n  content: \"\\F02C\"; }\n\n.wi-night-alt-thunderstorm:before {\n  content: \"\\F02D\"; }\n\n.wi-night-clear:before {\n  content: \"\\F02E\"; }\n\n.wi-night-cloudy-gusts:before {\n  content: \"\\F02F\"; }\n\n.wi-night-cloudy-windy:before {\n  content: \"\\F030\"; }\n\n.wi-night-cloudy:before {\n  content: \"\\F031\"; }\n\n.wi-night-hail:before {\n  content: \"\\F032\"; }\n\n.wi-night-lightning:before {\n  content: \"\\F033\"; }\n\n.wi-night-rain-mix:before {\n  content: \"\\F034\"; }\n\n.wi-night-rain-wind:before {\n  content: \"\\F035\"; }\n\n.wi-night-rain:before {\n  content: \"\\F036\"; }\n\n.wi-night-showers:before {\n  content: \"\\F037\"; }\n\n.wi-night-snow:before {\n  content: \"\\F038\"; }\n\n.wi-night-sprinkle:before {\n  content: \"\\F039\"; }\n\n.wi-night-storm-showers:before {\n  content: \"\\F03A\"; }\n\n.wi-night-thunderstorm:before {\n  content: \"\\F03B\"; }\n\n.wi-celsius:before {\n  content: \"\\F03C\"; }\n\n.wi-cloud-down:before {\n  content: \"\\F03D\"; }\n\n.wi-cloud-refresh:before {\n  content: \"\\F03E\"; }\n\n.wi-cloud-up:before {\n  content: \"\\F040\"; }\n\n.wi-cloud:before {\n  content: \"\\F041\"; }\n\n.wi-degrees:before {\n  content: \"\\F042\"; }\n\n.wi-down-left:before {\n  content: \"\\F043\"; }\n\n.wi-down:before {\n  content: \"\\F044\"; }\n\n.wi-fahrenheit:before {\n  content: \"\\F045\"; }\n\n.wi-horizon-alt:before {\n  content: \"\\F046\"; }\n\n.wi-horizon:before {\n  content: \"\\F047\"; }\n\n.wi-left:before {\n  content: \"\\F048\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-night-fog:before {\n  content: \"\\F04A\"; }\n\n.wi-refresh-alt:before {\n  content: \"\\F04B\"; }\n\n.wi-refresh:before {\n  content: \"\\F04C\"; }\n\n.wi-right:before {\n  content: \"\\F04D\"; }\n\n.wi-sprinkles:before {\n  content: \"\\F04E\"; }\n\n.wi-strong-wind:before {\n  content: \"\\F050\"; }\n\n.wi-sunrise:before {\n  content: \"\\F051\"; }\n\n.wi-sunset:before {\n  content: \"\\F052\"; }\n\n.wi-thermometer-exterior:before {\n  content: \"\\F053\"; }\n\n.wi-thermometer-internal:before {\n  content: \"\\F054\"; }\n\n.wi-thermometer:before {\n  content: \"\\F055\"; }\n\n.wi-tornado:before {\n  content: \"\\F056\"; }\n\n.wi-up-right:before {\n  content: \"\\F057\"; }\n\n.wi-up:before {\n  content: \"\\F058\"; }\n\n.wi-wind-west:before {\n  content: \"\\F059\"; }\n\n.wi-wind-south-west:before {\n  content: \"\\F05A\"; }\n\n.wi-wind-south-east:before {\n  content: \"\\F05B\"; }\n\n.wi-wind-south:before {\n  content: \"\\F05C\"; }\n\n.wi-wind-north-west:before {\n  content: \"\\F05D\"; }\n\n.wi-wind-north-east:before {\n  content: \"\\F05E\"; }\n\n.wi-wind-north:before {\n  content: \"\\F060\"; }\n\n.wi-wind-east:before {\n  content: \"\\F061\"; }\n\n.wi-smoke:before {\n  content: \"\\F062\"; }\n\n.wi-dust:before {\n  content: \"\\F063\"; }\n\n.wi-snow-wind:before {\n  content: \"\\F064\"; }\n\n.wi-day-snow-wind:before {\n  content: \"\\F065\"; }\n\n.wi-night-snow-wind:before {\n  content: \"\\F066\"; }\n\n.wi-night-alt-snow-wind:before {\n  content: \"\\F067\"; }\n\n.wi-day-sleet-storm:before {\n  content: \"\\F068\"; }\n\n.wi-night-sleet-storm:before {\n  content: \"\\F069\"; }\n\n.wi-night-alt-sleet-storm:before {\n  content: \"\\F06A\"; }\n\n.wi-day-snow-thunderstorm:before {\n  content: \"\\F06B\"; }\n\n.wi-night-snow-thunderstorm:before {\n  content: \"\\F06C\"; }\n\n.wi-night-alt-snow-thunderstorm:before {\n  content: \"\\F06D\"; }\n\n.wi-solar-eclipse:before {\n  content: \"\\F06E\"; }\n\n.wi-lunar-eclipse:before {\n  content: \"\\F070\"; }\n\n.wi-meteor:before {\n  content: \"\\F071\"; }\n\n.wi-hot:before {\n  content: \"\\F072\"; }\n\n.wi-hurricane:before {\n  content: \"\\F073\"; }\n\n.wi-smog:before {\n  content: \"\\F074\"; }\n\n.wi-alien:before {\n  content: \"\\F075\"; }\n\n.wi-snowflake-cold:before {\n  content: \"\\F076\"; }\n\n.wi-stars:before {\n  content: \"\\F077\"; }\n\n.wi-night-partly-cloudy:before {\n  content: \"\\F083\"; }\n\n.wi-umbrella:before {\n  content: \"\\F084\"; }\n\n.wi-day-windy:before {\n  content: \"\\F085\"; }\n\n.wi-night-alt-cloudy:before {\n  content: \"\\F086\"; }\n\n.wi-up-left:before {\n  content: \"\\F087\"; }\n\n.wi-down-right:before {\n  content: \"\\F088\"; }\n\n.wi-time-12:before {\n  content: \"\\F089\"; }\n\n.wi-time-1:before {\n  content: \"\\F08A\"; }\n\n.wi-time-2:before {\n  content: \"\\F08B\"; }\n\n.wi-time-3:before {\n  content: \"\\F08C\"; }\n\n.wi-time-4:before {\n  content: \"\\F08D\"; }\n\n.wi-time-5:before {\n  content: \"\\F08E\"; }\n\n.wi-time-6:before {\n  content: \"\\F08F\"; }\n\n.wi-time-7:before {\n  content: \"\\F090\"; }\n\n.wi-time-8:before {\n  content: \"\\F091\"; }\n\n.wi-time-9:before {\n  content: \"\\F092\"; }\n\n.wi-time-10:before {\n  content: \"\\F093\"; }\n\n.wi-time-11:before {\n  content: \"\\F094\"; }\n\n.wi-day-sleet:before {\n  content: \"\\F0B2\"; }\n\n.wi-night-sleet:before {\n  content: \"\\F0B3\"; }\n\n.wi-night-alt-sleet:before {\n  content: \"\\F0B4\"; }\n\n.wi-sleet:before {\n  content: \"\\F0B5\"; }\n\n.wi-day-haze:before {\n  content: \"\\F0B6\"; }\n\n.wi-beafort-0:before {\n  content: \"\\F0B7\"; }\n\n.wi-beafort-1:before {\n  content: \"\\F0B8\"; }\n\n.wi-beafort-2:before {\n  content: \"\\F0B9\"; }\n\n.wi-beafort-3:before {\n  content: \"\\F0BA\"; }\n\n.wi-beafort-4:before {\n  content: \"\\F0BB\"; }\n\n.wi-beafort-5:before {\n  content: \"\\F0BC\"; }\n\n.wi-beafort-6:before {\n  content: \"\\F0BD\"; }\n\n.wi-beafort-7:before {\n  content: \"\\F0BE\"; }\n\n.wi-beafort-8:before {\n  content: \"\\F0BF\"; }\n\n.wi-beafort-9:before {\n  content: \"\\F0C0\"; }\n\n.wi-beafort-10:before {\n  content: \"\\F0C1\"; }\n\n.wi-beafort-11:before {\n  content: \"\\F0C2\"; }\n\n.wi-beafort-12:before {\n  content: \"\\F0C3\"; }\n\n.wi-wind-default:before {\n  content: \"\\F0B1\"; }\n\nwi-wind-default._0-deg {\n  -webkit-transform: rotate(0deg);\n  -ms-transform: rotate(0deg);\n  transform: rotate(0deg); }\n\nwi-wind-default._15-deg {\n  -webkit-transform: rotate(15deg);\n  -ms-transform: rotate(15deg);\n  transform: rotate(15deg); }\n\nwi-wind-default._30-deg {\n  -webkit-transform: rotate(30deg);\n  -ms-transform: rotate(30deg);\n  transform: rotate(30deg); }\n\nwi-wind-default._45-deg {\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg); }\n\nwi-wind-default._60-deg {\n  -webkit-transform: rotate(60deg);\n  -ms-transform: rotate(60deg);\n  transform: rotate(60deg); }\n\nwi-wind-default._75-deg {\n  -webkit-transform: rotate(75deg);\n  -ms-transform: rotate(75deg);\n  transform: rotate(75deg); }\n\nwi-wind-default._90-deg {\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg); }\n\nwi-wind-default._105-deg {\n  -webkit-transform: rotate(105deg);\n  -ms-transform: rotate(105deg);\n  transform: rotate(105deg); }\n\nwi-wind-default._120-deg {\n  -webkit-transform: rotate(120deg);\n  -ms-transform: rotate(120deg);\n  transform: rotate(120deg); }\n\nwi-wind-default._135-deg {\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg); }\n\nwi-wind-default._150-deg {\n  -webkit-transform: rotate(150deg);\n  -ms-transform: rotate(150deg);\n  transform: rotate(150deg); }\n\nwi-wind-default._165-deg {\n  -webkit-transform: rotate(165deg);\n  -ms-transform: rotate(165deg);\n  transform: rotate(165deg); }\n\nwi-wind-default._180-deg {\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotate(180deg); }\n\nwi-wind-default._195-deg {\n  -webkit-transform: rotate(195deg);\n  -ms-transform: rotate(195deg);\n  transform: rotate(195deg); }\n\nwi-wind-default._210-deg {\n  -webkit-transform: rotate(210deg);\n  -ms-transform: rotate(210deg);\n  transform: rotate(210deg); }\n\nwi-wind-default._225-deg {\n  -webkit-transform: rotate(225deg);\n  -ms-transform: rotate(225deg);\n  transform: rotate(225deg); }\n\nwi-wind-default._240-deg {\n  -webkit-transform: rotate(240deg);\n  -ms-transform: rotate(240deg);\n  transform: rotate(240deg); }\n\nwi-wind-default._255-deg {\n  -webkit-transform: rotate(255deg);\n  -ms-transform: rotate(255deg);\n  transform: rotate(255deg); }\n\nwi-wind-default._270-deg {\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  transform: rotate(270deg); }\n\nwi-wind-default._285-deg {\n  -webkit-transform: rotate(295deg);\n  -ms-transform: rotate(295deg);\n  transform: rotate(295deg); }\n\nwi-wind-default._300-deg {\n  -webkit-transform: rotate(300deg);\n  -ms-transform: rotate(300deg);\n  transform: rotate(300deg); }\n\nwi-wind-default._315-deg {\n  -webkit-transform: rotate(315deg);\n  -ms-transform: rotate(315deg);\n  transform: rotate(315deg); }\n\nwi-wind-default._330-deg {\n  -webkit-transform: rotate(330deg);\n  -ms-transform: rotate(330deg);\n  transform: rotate(330deg); }\n\nwi-wind-default._345-deg {\n  -webkit-transform: rotate(345deg);\n  -ms-transform: rotate(345deg);\n  transform: rotate(345deg); }\n\n.wi-moon-new:before {\n  content: \"\\F095\"; }\n\n.wi-moon-waxing-cresent-1:before {\n  content: \"\\F096\"; }\n\n.wi-moon-waxing-cresent-2:before {\n  content: \"\\F097\"; }\n\n.wi-moon-waxing-cresent-3:before {\n  content: \"\\F098\"; }\n\n.wi-moon-waxing-cresent-4:before {\n  content: \"\\F099\"; }\n\n.wi-moon-waxing-cresent-5:before {\n  content: \"\\F09A\"; }\n\n.wi-moon-waxing-cresent-6:before {\n  content: \"\\F09B\"; }\n\n.wi-moon-first-quarter:before {\n  content: \"\\F09C\"; }\n\n.wi-moon-waxing-gibbous-1:before {\n  content: \"\\F09D\"; }\n\n.wi-moon-waxing-gibbous-2:before {\n  content: \"\\F09E\"; }\n\n.wi-moon-waxing-gibbous-3:before {\n  content: \"\\F09F\"; }\n\n.wi-moon-waxing-gibbous-4:before {\n  content: \"\\F0A0\"; }\n\n.wi-moon-waxing-gibbous-5:before {\n  content: \"\\F0A1\"; }\n\n.wi-moon-waxing-gibbous-6:before {\n  content: \"\\F0A2\"; }\n\n.wi-moon-full:before {\n  content: \"\\F0A3\"; }\n\n.wi-moon-waning-gibbous-1:before {\n  content: \"\\F0A4\"; }\n\n.wi-moon-waning-gibbous-2:before {\n  content: \"\\F0A5\"; }\n\n.wi-moon-waning-gibbous-3:before {\n  content: \"\\F0A6\"; }\n\n.wi-moon-waning-gibbous-4:before {\n  content: \"\\F0A7\"; }\n\n.wi-moon-waning-gibbous-5:before {\n  content: \"\\F0A8\"; }\n\n.wi-moon-waning-gibbous-6:before {\n  content: \"\\F0A9\"; }\n\n.wi-moon-3rd-quarter:before {\n  content: \"\\F0AA\"; }\n\n.wi-moon-waning-crescent-1:before {\n  content: \"\\F0AB\"; }\n\n.wi-moon-waning-crescent-2:before {\n  content: \"\\F0AC\"; }\n\n.wi-moon-waning-crescent-3:before {\n  content: \"\\F0AD\"; }\n\n.wi-moon-waning-crescent-4:before {\n  content: \"\\F0AE\"; }\n\n.wi-moon-waning-crescent-5:before {\n  content: \"\\F0AF\"; }\n\n.wi-moon-waning-crescent-6:before {\n  content: \"\\F0B0\"; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(14)(false);
@@ -8447,7 +9187,7 @@ exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  le
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = function escape(url) {
@@ -8469,19 +9209,19 @@ module.exports = function escape(url) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/b2233bc1525939550405c87cffede242.svg";
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/2ca3df0981116e195ebc62dd1dcc8b9b.ttf";
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 /**
@@ -8537,7 +9277,7 @@ module.exports = function (random, alphabet, size) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8603,7 +9343,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8619,7 +9359,7 @@ module.exports = function() {
 var assign = __webpack_require__(2);
 
 var ReactPropTypesSecret = __webpack_require__(10);
-var checkPropTypes = __webpack_require__(3);
+var checkPropTypes = __webpack_require__(4);
 
 var printWarning = function() {};
 
@@ -9166,7 +9906,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -9191,17 +9931,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(37)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(38)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(36)();
+  module.exports = __webpack_require__(37)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9950,7 +10690,7 @@ Resizable.defaultProps = {
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9973,7 +10713,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var _assign = __webpack_require__(2);
 var React = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(3);
+var checkPropTypes = __webpack_require__(4);
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -13534,7 +14274,7 @@ module.exports = server_browser;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13586,7 +14326,7 @@ x){n=void 0;var k="",r="";for(n in l)if(l.hasOwnProperty(n)){var m=0===n.indexOf
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13609,9 +14349,9 @@ if (process.env.NODE_ENV !== "production") {
 
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(3);
+var checkPropTypes = __webpack_require__(4);
 var scheduler = __webpack_require__(17);
-var tracing = __webpack_require__(52);
+var tracing = __webpack_require__(53);
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -33679,7 +34419,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33935,11 +34675,11 @@ var li={default:ki},mi=li&&ki||li;module.exports=mi.default||mi;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
-	 true ? module.exports = factory(__webpack_require__(5), __webpack_require__(1)) :
+	 true ? module.exports = factory(__webpack_require__(6), __webpack_require__(1)) :
 	typeof define === 'function' && define.amd ? define(['react-dom', 'react'], factory) :
 	(global.ReactDraggable = factory(global.ReactDOM,global.React));
 }(this, (function (ReactDOM,React) { 'use strict';
@@ -36145,7 +36885,7 @@ var li={default:ki},mi=li&&ki||li;module.exports=mi.default||mi;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36167,7 +36907,7 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var _assign = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(3);
+var checkPropTypes = __webpack_require__(4);
 
 // TODO: this is special because it gets imported during build.
 
@@ -38036,7 +38776,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38067,692 +38807,15 @@ unstable_ConcurrentMode:x,unstable_Profiler:u,__SECRET_INTERNALS_DO_NOT_USE_OR_Y
 
 
 /***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	__webpack_require__(2);
-	
-	__webpack_require__(4);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _rescope2.default.spells; /*
-	                                             * Copyright (c)  2018 Wise Wild Web .
-	                                             *
-	                                             *  MIT License
-	                                             *
-	                                             *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                             *  of this software and associated documentation files (the "Software"), to deal
-	                                             *  in the Software without restriction, including without limitation the rights
-	                                             *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                             *  copies of the Software, and to permit persons to whom the Software is
-	                                             *  furnished to do so, subject to the following conditions:
-	                                             *
-	                                             *  The above copyright notice and this permission notice shall be included in all
-	                                             *  copies or substantial portions of the Software.
-	                                             *
-	                                             *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                             *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                             *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                             *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                             *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                             *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                             *  SOFTWARE.
-	                                             *
-	                                             * @author : Nathanael Braun
-	                                             * @contact : caipilabs@gmail.com
-	                                             */
-
-	module.exports = exports["default"];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(13);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// will use as external the index in dist
-	
-	/*
-	 * Copyright (c)  2018 Wise Wild Web .
-	 *
-	 *  MIT License
-	 *
-	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	 *  of this software and associated documentation files (the "Software"), to deal
-	 *  in the Software without restriction, including without limitation the rights
-	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 *  copies of the Software, and to permit persons to whom the Software is
-	 *  furnished to do so, subject to the following conditions:
-	 *
-	 *  The above copyright notice and this permission notice shall be included in all
-	 *  copies or substantial portions of the Software.
-	 *
-	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	 *  SOFTWARE.
-	 *
-	 * @author : Nathanael Braun
-	 * @contact : caipilabs@gmail.com
-	 */
-	var SimpleObjectProto = {}.constructor;
-	_rescope2.default.spells = {};
-	
-	var castTypesToAppliable = {};
-	var castTypes = {};
-	
-	_rescope2.default.isSpell = function caster() {
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-	
-		// are we decorating a member / without argz
-		if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-			argz[0][argz[1]] = argz[2].value = addCaster(argz[0][argz[1]], argz);
-			return argz[0];
-		} else if (!_is2.default.fn(argz[0])) {
-			return function () {
-				for (var _len2 = arguments.length, argz2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-					argz2[_key2] = arguments[_key2];
-				}
-	
-				// are we decorating a member / with argz
-				if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-					argz2[2].value = addCaster.apply(undefined, [argz2[0][argz2[1]]].concat(argz, [argz2]));
-					return argz2[0];
-				} else return caster.apply(undefined, [argz2[0]].concat(argz));
-			};
-		}
-		return addCaster.apply(undefined, argz);
-	};
-	
-	function addCaster() {
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-	
-		var cast = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift();
-		if (!cast) throw "ReScope cast : bad decorator function";
-		var typeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || cast.name || cast.displayName,
-		    test = (!argz[0] || _is2.default.fn(argz[0])) && argz.shift(),
-		    prefix = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || "as",
-		    memberDescr = (!argz[0] || _is2.default.bool(argz[0]) || _is2.default.array(argz[0])) && argz.shift() || true,
-		    casterName = typeName && prefix + typeName[0].toUpperCase() + typeName.substr(1);
-	
-		if (!castTypesToAppliable[typeName]) {
-			castTypesToAppliable[typeName] = [];
-	
-			_rescope2.default.spells[casterName] = castTypes[typeName] = function doCast() {
-				for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-					argz[_key4] = arguments[_key4];
-				}
-	
-				// are we decorating a member / without argz
-				if (argz[0] instanceof SimpleObjectProto && argz[2] instanceof SimpleObjectProto && argz[0].hasOwnProperty(argz[1])) {
-					argz[0][argz[1]] = applyCastableType(typeName, argz[0][argz[1]], [], argz);
-					return argz[0];
-				} else if (!isCastableType(typeName, argz[0])) {
-					return function () {
-						for (var _len5 = arguments.length, argz2 = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-							argz2[_key5] = arguments[_key5];
-						}
-	
-						// are we decorating a member / with argz
-						if (argz2[0] instanceof SimpleObjectProto && argz2[2] instanceof SimpleObjectProto && argz2[0].hasOwnProperty(argz2[1])) {
-							argz2[0][argz2[1]] = applyCastableType(typeName, argz2[0][argz2[1]], argz, argz2);
-							return argz2[0];
-						} else return doCast.apply(undefined, [argz2[0]].concat(argz));
-					};
-				}
-				return applyCastableType(typeName, argz[0], argz.slice(1));
-			};
-		}
-		castTypesToAppliable[typeName].unshift({
-			typeName: typeName, test: test, memberDescr: memberDescr, cast: cast
-		});
-		return castTypes[typeName];
-	}
-	
-	function isCastableType(typeName, Comp, member, stateScope) {
-		var castable = castTypesToAppliable[typeName];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i];
-		}return false;
-	}
-	
-	function applyCastableType(typeName, Comp, argz, member, stateScope) {
-	
-		var castable = castTypesToAppliable[typeName] || [];
-		for (var i = 0; i < castable.length; i++) {
-			if ((member === undefined || !!member == !!castable[i].memberDescr) && castable[i].test(Comp)) return castable[i].cast(Comp, argz, member);
-		}console.warn("reScope cast : Unknown type", typeName, Comp);
-		return false;
-	}
-	
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(9);
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _dec, _dec2, _class, _dec3, _dec4, _dec5, _dec6, _dec7, _desc, _value, _obj; /*
-	                                                                                  * Copyright (c)  2018 Wise Wild Web .
-	                                                                                  *
-	                                                                                  *  MIT License
-	                                                                                  *
-	                                                                                  *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                                                                  *  of this software and associated documentation files (the "Software"), to deal
-	                                                                                  *  in the Software without restriction, including without limitation the rights
-	                                                                                  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                                                                  *  copies of the Software, and to permit persons to whom the Software is
-	                                                                                  *  furnished to do so, subject to the following conditions:
-	                                                                                  *
-	                                                                                  *  The above copyright notice and this permission notice shall be included in all
-	                                                                                  *  copies or substantial portions of the Software.
-	                                                                                  *
-	                                                                                  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                                                                  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                                                                  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                                                                  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                                                                  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                                                                  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                                                                  *  SOFTWARE.
-	                                                                                  *
-	                                                                                  * @author : Nathanael Braun
-	                                                                                  * @contact : caipilabs@gmail.com
-	                                                                                  */
-	
-	
-	var _react = __webpack_require__(5);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _server = __webpack_require__(6);
-	
-	var _is = __webpack_require__(3);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	var _reactRescope = __webpack_require__(7);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-		var desc = {};
-		Object['ke' + 'ys'](descriptor).forEach(function (key) {
-			desc[key] = descriptor[key];
-		});
-		desc.enumerable = !!desc.enumerable;
-		desc.configurable = !!desc.configurable;
-	
-		if ('value' in desc || desc.initializer) {
-			desc.writable = true;
-		}
-	
-		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-			return decorator(target, property, desc) || desc;
-		}, desc);
-	
-		if (context && desc.initializer !== void 0) {
-			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-			desc.initializer = undefined;
-		}
-	
-		if (desc.initializer === void 0) {
-			Object['define' + 'Property'](target, property, desc);
-			desc = null;
-		}
-	
-		return desc;
-	}
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var RSComp = (_dec = (0, _reactRescope.propsToScope)(['props']), _dec2 = (0, _reactRescope.scopeToProps)(['props']), _dec(_class = _dec2(_class = function (_Component) {
-		_inherits(RSComp, _Component);
-	
-		function RSComp() {
-			_classCallCheck(this, RSComp);
-	
-			return _possibleConstructorReturn(this, (RSComp.__proto__ || Object.getPrototypeOf(RSComp)).apply(this, arguments));
-		}
-	
-		_createClass(RSComp, [{
-			key: "render",
-			value: function render() {
-				return this.props.children || [];
-			}
-		}]);
-	
-		return RSComp;
-	}(_reactRescope.Component)) || _class) || _class);
-	
-	
-	var Lib = (_dec3 = (0, _reactRescope.isSpell)("stateMap", function (v) {
-		return _is2.default.object(v) || _is2.default.string(v);
-	}), _dec4 = (0, _reactRescope.isSpell)("scope", function (v) {
-		return _is2.default.object(v);
-	}), _dec5 = (0, _reactRescope.isSpell)("renderer", function (v) {
-		return _is2.default.fn(v);
-	}), _dec6 = (0, _reactRescope.isSpell)("rootRenderer", function (v) {
-		return _is2.default.fn(v);
-	}), _dec7 = (0, _reactRescope.isSpell)("store", function (v) {
-		return _is2.default.fn(v);
-	}), (_obj = {
-		stateMap: function stateMap(obj, _ref, ref) {
-			var _class2, _temp2, _class3, _temp3;
-	
-			var cfg = _ref[0];
-	
-			var use = [],
-			    state = {},
-			    actions = {},
-			    applier = obj.$apply;
-			if (applier) obj = _extends({}, obj), delete obj.$apply;
-			_reactRescope.Scope.stateMapToRefList(obj, state, use, actions);
-			if (applier) return _temp2 = _class2 = function (_Store) {
-				_inherits(StateMapWA, _Store);
-	
-				function StateMapWA() {
-					var _ref2;
-	
-					var _temp, _this2, _ret;
-	
-					_classCallCheck(this, StateMapWA);
-	
-					for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-						args[_key] = arguments[_key];
-					}
-	
-					return _ret = (_temp = (_this2 = _possibleConstructorReturn(this, (_ref2 = StateMapWA.__proto__ || Object.getPrototypeOf(StateMapWA)).call.apply(_ref2, [this].concat(args))), _this2), _this2.apply = applier, _temp), _possibleConstructorReturn(_this2, _ret);
-				}
-	
-				return StateMapWA;
-			}(_reactRescope.Store), _class2.displayName = ref[1], _class2.use = use, _class2.state = state, _class2.actions = actions, _temp2;else return _temp3 = _class3 = function (_Store2) {
-				_inherits(StateMap, _Store2);
-	
-				function StateMap() {
-					_classCallCheck(this, StateMap);
-	
-					return _possibleConstructorReturn(this, (StateMap.__proto__ || Object.getPrototypeOf(StateMap)).apply(this, arguments));
-				}
-	
-				return StateMap;
-			}(_reactRescope.Store), _class3.displayName = ref[1], _class3.use = use, _class3.state = state, _class3.actions = actions, _temp3;
-		},
-		scope: function scope(obj, _ref3, ref) {
-			var cfg = _ref3[0];
-	
-			return function (_Scope) {
-				_inherits(childScope, _Scope);
-	
-				function childScope(map, cfg2) {
-					_classCallCheck(this, childScope);
-	
-					return _possibleConstructorReturn(this, (childScope.__proto__ || Object.getPrototypeOf(childScope)).call(this, _extends({}, obj, map), _extends({}, cfg, cfg2)));
-				}
-	
-				return childScope;
-			}(_reactRescope.Scope);
-		},
-		renderer: function renderer(obj, argz, ref) {
-			var _class4, _temp4;
-	
-			var use = void 0,
-			    state = void 0,
-			    scope = argz[1] && argz[0],
-			    sm = argz[1] || argz[0];
-			//if ( !argz[ 0 ] ) {
-			state = {};
-			//argz[ 0 ] = []
-			//}
-			//else if ( is.array(argz[ 0 ]) ) {
-			//    use   = argz[ 0 ];
-			//    state = !use.length && {};
-			//}
-			//else
-			//    argz[ 0 ] && Scope.stateMapToRefList(argz[ 0 ], state = {}, use = [],
-			// actions = {});
-	
-			//!use.includes('props') && use.push('props');
-			return _temp4 = _class4 = function (_Store3) {
-				_inherits(RSRenderer, _Store3);
-	
-				function RSRenderer(scope, cfg) {
-					_classCallCheck(this, RSRenderer);
-	
-					var _this5 = _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
-	
-					_this5._compScope = new _reactRescope.Scope({}, {
-						key: RSRenderer.displayName,
-						parent: _this5.$scope,
-						autoDestroy: true
-	
-					});
-	
-					_this5._compScope.retain("RSRenderer");
-					_this5.__snapshot = cfg.snapshot;
-					return _this5;
-				}
-				//static use         = use;
-	
-	
-				_createClass(RSRenderer, [{
-					key: "serialize",
-					value: function serialize(cfg, output) {
-						var _compScope;
-	
-						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "serialize", this).apply(this, arguments);
-						(_compScope = this._compScope).serialize.apply(_compScope, arguments);
-						return output;
-					}
-				}, {
-					key: "restore",
-					value: function restore() {
-						var _compScope2;
-	
-						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "restore", this).apply(this, arguments);
-						(_compScope2 = this._compScope).restore.apply(_compScope2, arguments);
-					}
-				}, {
-					key: "destroy",
-					value: function destroy() {
-						this._compScope.dispose("RSRenderer");
-						_get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "destroy", this).call(this);
-					}
-				}, {
-					key: "apply",
-					value: function apply(d, s, c) {
-						var _dec8,
-						    _this6 = this,
-						    _class5;
-	
-						if (d) {
-							//this._comp.setState(c);
-							return d;
-						}
-	
-						var RSCompRenderer = (_dec8 = (0, _reactRescope.scopeToState)(function (comp, props, ctx) {
-							var viewScope = new _reactRescope.Scope(_extends(_defineProperty({}, RSRenderer.displayName, Lib.rootRenderer(obj, [sm], [, RSRenderer.displayName])), scope || {}), {
-								key: "comp",
-								parent: _this6._compScope,
-								autoDestroy: true,
-	
-								state: _defineProperty({}, RSRenderer.displayName, { props: props })
-							});
-							return viewScope;
-						}, [RSRenderer.displayName]), _dec8(_class5 = function (_React$Component) {
-							_inherits(RSCompRenderer, _React$Component);
-	
-							function RSCompRenderer() {
-								_classCallCheck(this, RSCompRenderer);
-	
-								return _possibleConstructorReturn(this, (RSCompRenderer.__proto__ || Object.getPrototypeOf(RSCompRenderer)).apply(this, arguments));
-							}
-	
-							_createClass(RSCompRenderer, [{
-								key: "componentWillMount",
-								value: function componentWillMount() {
-									var props = this.props;
-									//this._ssrTest = setTimeout(
-									//    tm => this.$scope.then(
-									//        ( { [ RSRenderer.displayName ]: CMP } ) =>
-									//            renderToString(<RSCompRenderer { ...props }/>)
-									//    ))
-								}
-							}, {
-								key: "componentDidMount",
-								value: function componentDidMount() {
-									//clearTimeout(this._ssrTest);
-								}
-							}, {
-								key: "componentWillReceiveProps",
-								value: function componentWillReceiveProps(props) {
-									var Comp = this.$stores[RSRenderer.displayName];
-	
-									//Comp && Comp.setState({ props });
-								}
-							}, {
-								key: "render",
-								value: function render() {
-									var Comp = this.state[RSRenderer.displayName];
-									return Comp || _react2.default.createElement("span", { className: "__rsLoad" });
-								}
-							}]);
-	
-							return RSCompRenderer;
-						}(_react2.default.Component)) || _class5);
-	
-	
-						return RSCompRenderer;
-					}
-				}]);
-	
-				return RSRenderer;
-			}(_reactRescope.Store), _class4.displayName = ref[1], _class4.state = state, _temp4;
-		},
-		rootRenderer: function rootRenderer(obj, argz, ref) {
-			var _class6, _temp5;
-	
-			var use = void 0,
-			    state = void 0,
-			    actions = void 0;
-			if (!argz[0]) {
-				state = {};
-				//argz[ 0 ] = []
-			} else if (_is2.default.array(argz[0])) {
-				use = argz[0];
-				state = !use.length && {};
-			} else argz[0] && _reactRescope.Scope.stateMapToRefList(argz[0], state = {}, use = [], actions = {});
-	
-			//!use.includes('props') && use.push('props');
-			return _temp5 = _class6 = function (_Store4) {
-				_inherits(RSRenderer, _Store4);
-	
-				function RSRenderer() {
-					_classCallCheck(this, RSRenderer);
-	
-					return _possibleConstructorReturn(this, (RSRenderer.__proto__ || Object.getPrototypeOf(RSRenderer)).apply(this, arguments));
-				}
-	
-				_createClass(RSRenderer, [{
-					key: "serialize_ex",
-	
-	
-					//static actions     = actions;
-					value: function serialize_ex(cfg, output, sid, alias, exclude) {
-						output = _get(RSRenderer.prototype.__proto__ || Object.getPrototypeOf(RSRenderer.prototype), "serialize_ex", this).call(this, cfg, output, sid, alias, exclude);
-						var snap = this.scopeObj.getSnapshotByKeyExt(output, sid + '>' + this.name);
-						if (snap) {
-							snap.state && snap.state.props && delete snap.state.props;
-							delete snap.data;
-						}
-						return output;
-					}
-				}, {
-					key: "apply",
-					value: function apply(d, s, c) {
-						//if ( d ) {
-						//    //this._comp.setState(c);
-						//    return d;
-						//}
-						return obj(s, {
-							$actions: this.$actions,
-							$stores: this.$stores,
-							$scope: this.$scope,
-							$store: this
-						});
-					}
-				}]);
-	
-				return RSRenderer;
-			}(_reactRescope.Store), _class6.displayName = ref[1], _class6.use = use, _class6.state = state || {}, _class6.actions = actions, _temp5;
-		},
-		store: function store(obj, _ref4, ref) {
-			var cfg = _ref4[0];
-	
-			return _reactRescope.Store.bind(null, obj, _extends({}, cfg, { apply: function apply(d, s, c) {
-					return obj(d, s, c);
-				} }));
-		}
-	}, (_applyDecoratedDescriptor(_obj, "stateMap", [_dec3], Object.getOwnPropertyDescriptor(_obj, "stateMap"), _obj), _applyDecoratedDescriptor(_obj, "scope", [_dec4], Object.getOwnPropertyDescriptor(_obj, "scope"), _obj), _applyDecoratedDescriptor(_obj, "renderer", [_dec5], Object.getOwnPropertyDescriptor(_obj, "renderer"), _obj), _applyDecoratedDescriptor(_obj, "rootRenderer", [_dec6], Object.getOwnPropertyDescriptor(_obj, "rootRenderer"), _obj), _applyDecoratedDescriptor(_obj, "store", [_dec7], Object.getOwnPropertyDescriptor(_obj, "store"), _obj)), _obj));
-	
-	exports.default = Lib;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(1);
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(6);
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(16);
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=rescopeSpells.js.map
-
-/***/ }),
 /* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var rs       = __webpack_require__(3);
+
+module.exports = rs.spells;
+
+/***/ }),
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39183,7 +39246,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39200,7 +39263,7 @@ Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interac
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39911,7 +39974,7 @@ exports.unstable_getFirstCallbackNode = unstable_getFirstCallbackNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(11)))
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39940,29 +40003,29 @@ exports.unstable_shouldYield=function(){return!f&&(null!==c&&c.expirationTime<l|
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(49);
+  module.exports = __webpack_require__(50);
 } else {
-  module.exports = __webpack_require__(48);
+  module.exports = __webpack_require__(49);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var generate = __webpack_require__(54);
-var alphabet = __webpack_require__(4);
+var generate = __webpack_require__(55);
+var alphabet = __webpack_require__(5);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
 // This number should be updated every year or so to keep the generated id short.
@@ -40008,15 +40071,15 @@ module.exports = build;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var alphabet = __webpack_require__(4);
-var random = __webpack_require__(57);
-var format = __webpack_require__(35);
+var alphabet = __webpack_require__(5);
+var random = __webpack_require__(58);
+var format = __webpack_require__(36);
 
 function generate(number) {
     var loopCounter = 0;
@@ -40036,21 +40099,21 @@ module.exports = generate;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var alphabet = __webpack_require__(4);
-var build = __webpack_require__(53);
-var isValid = __webpack_require__(56);
+var alphabet = __webpack_require__(5);
+var build = __webpack_require__(54);
+var isValid = __webpack_require__(57);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(59) || 0;
+var clusterWorkerId = __webpack_require__(60) || 0;
 
 /**
  * Set the seed.
@@ -40105,12 +40168,12 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var alphabet = __webpack_require__(4);
+var alphabet = __webpack_require__(5);
 
 function isShortId(id) {
     if (!id || typeof id !== 'string' || id.length < 6 ) {
@@ -40127,7 +40190,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40155,7 +40218,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40187,7 +40250,7 @@ module.exports = {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40197,7 +40260,7 @@ module.exports = 0;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 
@@ -40292,7 +40355,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 function Agent() {
@@ -40318,7 +40381,7 @@ module.exports = Agent;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41019,7 +41082,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41029,7 +41092,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(64);
+var utils = __webpack_require__(65);
 
 /**
  * Expose `ResponseBase`.
@@ -41162,7 +41225,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41240,7 +41303,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/f5b0d0d9cb02e551003132e079435312.woff";

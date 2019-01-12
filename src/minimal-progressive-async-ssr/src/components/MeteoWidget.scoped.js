@@ -1,22 +1,22 @@
-import superagent       from "superagent";
-import MeteoWidget      from './MeteoWidget';
+import superagent          from "superagent";
+import MeteoWidget         from './MeteoWidget';
 import {
-	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
-}                       from "rscopes";
-import {renderToString} from "react-dom/server"
+	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope
+}                          from "rscopes";
+import {asStateMap, asRef} from "rscopes/spells";
+import {renderToString}    from "react-dom/server"
 
-let { asStateMap } = spells;
 
 @propsToScope(["record"])// put the record in the scope
 @reScope(
 	{
 		@asStateMap
 		DaSearch: {
-			@scopeRef
+			@asRef
 			record   : "record",// get props.record.searching as initial search value
-			@scopeRef
+			@asRef
 			searching: "record.searching",// get props.record.searching as initial search value
-			@scopeRef
+			@asRef
 			results  : "record.results",// get props.record.searching as initial search value
 			
 			src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
@@ -25,13 +25,12 @@ let { asStateMap } = spells;
 				if ( searching == data.searching && data.results )
 					return data;
 				
-				//
 				searching &&
 				(this.wait(), superagent
 					.get(state.src + searching)
 					.then(( res ) => {
-						this.release();
-						if ( searching != this.nextState.searching ) return;
+						if ( searching != this.nextState.searching )
+							return this.release();
 						try {
 							this.push({ results: res.body, searching })
 							this.$actions.updatePostIt(
@@ -43,6 +42,7 @@ let { asStateMap } = spells;
 						} catch ( e ) {
 							this.push({ results: null, searching });
 						}
+						this.release();
 						
 					}).catch(e => this.release()));
 				return state;
@@ -59,12 +59,6 @@ let { asStateMap } = spells;
 		}
 	}, { key: 'postIt' }
 )
-@scopeToProps(
-	{
-		@scopeRef
-		DaSearch: "DaSearch",
-		@scopeRef
-		record  : "record"
-	})
+@scopeToProps(["DaSearch","record"])
 export default class sMeteoWidget extends MeteoWidget {
 };
