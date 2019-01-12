@@ -7507,10 +7507,11 @@ module.exports =
 				var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
 				var sId = cfg.parentAlias || this.scopeObj._id,
+				    refsCount = 0,
 				    refs = !cfg.norefs && is.array(this._use) && this._use.reduce(function (map, key) {
 					var ref = _this6.$scope.parseRef(key),
 					    store = _this6.$stores[ref.storeId];
-					if (store && is.rsStore(store) && !store.scopeObj._.isLocalId) map[ref.alias] = ref.path;
+					if (store && is.rsStore(store) && !store.scopeObj._.isLocalId) refsCount++, map[ref.alias] = ref.path;
 
 					return map;
 				}, {}),
@@ -7518,9 +7519,10 @@ module.exports =
 				    stateRefs = stateKeys.map(function (k) {
 					return _this6.data[k];
 				}),
+				    inRefsCount = 0,
 				    inRefs = !cfg.norefs && Object.keys(this.data).reduce(function (map, key) {
 					var ref = stateRefs.indexOf(_this6.data[key]);
-					if (ref != -1) map[key] = stateKeys[ref];
+					if (ref != -1) inRefsCount++, map[key] = stateKeys[ref];
 					return map;
 				}, {}),
 				    snap = {
@@ -7533,8 +7535,8 @@ module.exports =
 
 				};
 
-				refs && (snap.refs = refs);
-				inRefs && (snap.inRefs = inRefs);
+				refs && refsCount && (snap.refs = refs);
+				inRefs && inRefsCount && (snap.inRefs = stateKeys.length === inRefsCount ? true : inRefs);
 
 				keyWalknSet(output, sId + '/' + this.name, snap);
 				return output;
@@ -7575,13 +7577,15 @@ module.exports =
 						_this7.state[key] = _this7.$scope.retrieve(snapshot.refs[key]);
 					});
 
-					this.data = snapshot.data;
-					snapshot.inRefs && Object.keys(snapshot.inRefs).forEach(function (key) {
-						//todo
-						_this7.data[key] = _this7.state[snapshot.inRefs[key]];
-						//else
-						//    console.warn('not found : ', key, snap && snap.refs[ key ])
-					});
+					if (snapshot.inRefs === true) this.data = this.state;else {
+						this.data = snapshot.data;
+						snapshot.inRefs && Object.keys(snapshot.inRefs).forEach(function (key) {
+							//todo
+							_this7.data[key] = _this7.state[snapshot.inRefs[key]];
+							//else
+							//    console.warn('not found : ', key, snap && snap.refs[ key ])
+						});
+					}
 				}
 			})
 
