@@ -396,12 +396,39 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var rsSpells = __webpack_require__(28);
-var rs = __webpack_require__(16);
+var rs = __webpack_require__(13);
 rsSpells;
 module.exports = rs;
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -500,7 +527,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -610,7 +637,7 @@ module.exports = {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -651,21 +678,6 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(44);
 } else {
   module.exports = __webpack_require__(43);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(42);
-} else {
-  module.exports = __webpack_require__(41);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -1525,30 +1537,18 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var g;
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
 
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(42);
+} else {
+  module.exports = __webpack_require__(41);
 }
 
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 12 */
@@ -1558,7 +1558,7 @@ module.exports = g;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_draggable__);
@@ -1974,6 +1974,883 @@ Rnd.defaultProps = {
 "use strict";
 
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2018 Wise Wild Web
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+module.exports =
+/******/function (modules) {
+	// webpackBootstrap
+	/******/ // The module cache
+	/******/var installedModules = {};
+	/******/
+	/******/ // The require function
+	/******/function __webpack_require__(moduleId) {
+		/******/
+		/******/ // Check if module is in cache
+		/******/if (installedModules[moduleId])
+			/******/return installedModules[moduleId].exports;
+		/******/
+		/******/ // Create a new module (and put it into the cache)
+		/******/var module = installedModules[moduleId] = {
+			/******/exports: {},
+			/******/id: moduleId,
+			/******/loaded: false
+			/******/ };
+		/******/
+		/******/ // Execute the module function
+		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+		/******/
+		/******/ // Flag the module as loaded
+		/******/module.loaded = true;
+		/******/
+		/******/ // Return the exports of the module
+		/******/return module.exports;
+		/******/
+	}
+	/******/
+	/******/
+	/******/ // expose the modules object (__webpack_modules__)
+	/******/__webpack_require__.m = modules;
+	/******/
+	/******/ // expose the module cache
+	/******/__webpack_require__.c = installedModules;
+	/******/
+	/******/ // __webpack_public_path__
+	/******/__webpack_require__.p = "/";
+	/******/
+	/******/ // Load entry module and return exports
+	/******/return __webpack_require__(0);
+	/******/
+}(
+/************************************************************************/
+/******/[
+/* 0 */
+/***/function (module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _rescope = __webpack_require__(1);
+
+	var _rescope2 = _interopRequireDefault(_rescope);
+
+	var _ReactHocs = __webpack_require__(2);
+
+	var RTools = _interopRequireWildcard(_ReactHocs);
+
+	function _interopRequireWildcard(obj) {
+		if (obj && obj.__esModule) {
+			return obj;
+		} else {
+			var newObj = {};if (obj != null) {
+				for (var key in obj) {
+					if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+				}
+			}newObj.default = obj;return newObj;
+		}
+	}
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	/*
+  * Copyright (c)  2018 Wise Wild Web .
+  *
+  *  MIT License
+  *
+  *  Permission is hereby granted, free of charge, to any person obtaining a copy
+  *  of this software and associated documentation files (the "Software"), to deal
+  *  in the Software without restriction, including without limitation the rights
+  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  *  copies of the Software, and to permit persons to whom the Software is
+  *  furnished to do so, subject to the following conditions:
+  *
+  *  The above copyright notice and this permission notice shall be included in all
+  *  copies or substantial portions of the Software.
+  *
+  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  *  SOFTWARE.
+  *
+  * @author : Nathanael Braun
+  * @contact : caipilabs@gmail.com
+  */
+
+	_rescope2.default.Component = RTools.Component;
+	_rescope2.default.reScopeProps = RTools.reScopeProps;
+	_rescope2.default.scopeToProps = RTools.reScopeProps;
+	_rescope2.default.propsToScope = RTools.propsToScope;
+	_rescope2.default.propsToStore = RTools.propsToStore;
+	exports.default = _rescope2.default;
+	module.exports = exports["default"];
+
+	/***/
+},
+/* 1 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(14);
+
+	/***/
+},
+/* 2 */
+/***/function (module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.propsToStore = exports.propsToScope = exports.reScopeProps = exports.Component = exports.default = undefined;
+
+	var _get = function get(object, property, receiver) {
+		if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+			var parent = Object.getPrototypeOf(object);if (parent === null) {
+				return undefined;
+			} else {
+				return get(parent, property, receiver);
+			}
+		} else if ("value" in desc) {
+			return desc.value;
+		} else {
+			var getter = desc.get;if (getter === undefined) {
+				return undefined;
+			}return getter.call(receiver);
+		}
+	};
+
+	var _extends = Object.assign || function (target) {
+		for (var i = 1; i < arguments.length; i++) {
+			var source = arguments[i];for (var key in source) {
+				if (Object.prototype.hasOwnProperty.call(source, key)) {
+					target[key] = source[key];
+				}
+			}
+		}return target;
+	};
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
+
+	var _rescope = __webpack_require__(1);
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _is = __webpack_require__(4);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	var _propTypes = __webpack_require__(5);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _defineProperty(obj, key, value) {
+		if (key in obj) {
+			Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+		} else {
+			obj[key] = value;
+		}return obj;
+	}
+
+	function _toConsumableArray(arr) {
+		if (Array.isArray(arr)) {
+			for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+				arr2[i] = arr[i];
+			}return arr2;
+		} else {
+			return Array.from(arr);
+		}
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	} /*
+    * Copyright (c)  2018 Wise Wild Web .
+    *
+    *  MIT License
+    *  
+    *  Permission is hereby granted, free of charge, to any person obtaining a copy
+    *  of this software and associated documentation files (the "Software"), to deal
+    *  in the Software without restriction, including without limitation the rights
+    *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    *  copies of the Software, and to permit persons to whom the Software is
+    *  furnished to do so, subject to the following conditions:
+    *  
+    *  The above copyright notice and this permission notice shall be included in all
+    *  copies or substantial portions of the Software.
+    *  
+    *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    *  SOFTWARE.
+    *  
+    * @author : Nathanael Braun
+    * @contact : caipilabs@gmail.com
+    */
+
+	var SimpleObjectProto = {}.constructor;
+
+	/**
+  * Return a React "HOC" (High Order Component) that :
+  *  - Inject & maintain the stores listed baseComponent::use and/or (use) in the
+  * instances props.
+  *  - Propag (scope) in the returned React Component context
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default :
+  *     React.Component )
+  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be
+  *     searched ( default : the default ReScope::Scope::scopes.static scope )
+  * @param use {array} the list of stores to inject from the current scope
+  * @returns {ReScopeProvider}
+  */
+	function reScopeProps() {
+		var _class, _temp;
+
+		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
+			argz[_key] = arguments[_key];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
+		    scope = (!argz[0] || argz[0] instanceof _rescope.Scope || _is2.default.fn(argz[0])) && argz.shift(),
+		    use = (!argz[0] || _is2.default.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
+
+		if (!(BaseComponent && (BaseComponent.prototype instanceof _react2.default.Component || BaseComponent === _react2.default.Component))) {
+			return function (BaseComponent) {
+				return reScopeProps(BaseComponent, scope, use);
+			};
+		}
+
+		var provider = reScopeToState((_temp = _class = function (_React$Component) {
+			_inherits(ReScopePropsProvider, _React$Component);
+
+			function ReScopePropsProvider() {
+				_classCallCheck(this, ReScopePropsProvider);
+
+				return _possibleConstructorReturn(this, (ReScopePropsProvider.__proto__ || Object.getPrototypeOf(ReScopePropsProvider)).apply(this, arguments));
+			}
+
+			_createClass(ReScopePropsProvider, [{
+				key: 'getChildContext',
+				value: function getChildContext() {
+					return this.context;
+				}
+			}, {
+				key: 'render',
+				value: function render() {
+					return _react2.default.createElement(BaseComponent, _extends({}, this.props, this.state, {
+						$dispatch: this.$dispatch,
+						$actions: this.$actions,
+						$scope: this.$scope,
+						$stores: this.$stores }));
+				}
+			}]);
+
+			return ReScopePropsProvider;
+		}(_react2.default.Component), _class._originComponent = BaseComponent._originComponent || BaseComponent, _class.use = BaseComponent.use, _class.childContextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _temp), scope, use);
+		provider.displayName = "s2p(" + (BaseComponent.displayName || BaseComponent.name) + ")";
+		return provider;
+	}
+
+	/**
+  * Return a React "HOC" (High Order Component) that :
+  *  - Inherit BaseComponent,
+  *  - Inject & maintain the stores in BaseComponent::use and/or (use) in the instances
+  * state.
+  *  - Propag (scope) in the returned React Component context
+  *
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default :
+  *     React.Component )
+  * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be
+  *     searched
+  * @param use {array} the list of stores injected from the current scope
+  * @param additionalContext {Object} context to be propagated
+  * @returns {ReScopeProvider}
+  */
+	function reScopeToState() {
+		var _class2, _temp2;
+
+		for (var _len2 = arguments.length, argz = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+			argz[_key2] = arguments[_key2];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
+		    scope = (!argz[0] || argz[0] instanceof _rescope.Scope || _is2.default.fn(argz[0])) && argz.shift(),
+		    use = _is2.default.array(argz[0]) && argz.shift(),
+		    stateMap = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
+		    additionalContext = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
+		    initialState = {};
+
+		use = [].concat(_toConsumableArray(BaseComponent.use || []), _toConsumableArray(use || []));
+		stateMap && _rescope.Scope.stateMapToRefList(stateMap, initialState, use);
+
+		additionalContext = additionalContext && Object.keys(additionalContext).reduce(function (h, k) {
+			return h[k] = _propTypes2.default.any, h;
+		}, {}) || {};
+
+		var ReScopeProvider = (_temp2 = _class2 = function (_BaseComponent) {
+			_inherits(ReScopeProvider, _BaseComponent);
+
+			function ReScopeProvider(p, ctx, q) {
+				_classCallCheck(this, ReScopeProvider);
+
+				var _this2 = _possibleConstructorReturn(this, (ReScopeProvider.__proto__ || Object.getPrototypeOf(ReScopeProvider)).call(this, p, ctx, q));
+
+				_this2._scopeWillUpdate = function (state) {
+					// trigger update hook
+					_this2.scopeWillUpdate && _this2.scopeWillUpdate(state, _this2.$stores);
+					if (_this2.applyScopeUpdate) state = _this2.applyScopeUpdate(state, _this2.$stores);else
+						// clone updated objects so react will propag them...
+						state = Object.keys(state).reduce(function (h, k) {
+							return h[k] = _is2.default.array(state[k]) ? [].concat(_toConsumableArray(state[k])) : state[k] instanceof SimpleObjectProto ? _extends({}, state[k]) : state[k], h;
+						}, {});
+					_this2.setState(state);
+				};
+
+				_this2.$scope = _this2.$scope || p.__scope || (_is2.default.fn(scope) ? scope(_this2, p, ctx) : scope) || ctx.rescope || _rescope.Store.staticScope;
+
+				if (_this2.$scope && _this2.$scope.dead) {
+					console.error("ReScoping using dead scope !");
+					_this2.$scope = null;
+				}
+
+				_this2.$stores = _this2.$scope && _this2.$scope.stores;
+				_this2.$actions = _this2.$scope && _this2.$scope.actions;
+				if (_this2.$scope && use.length) {
+					_this2.state = _extends({}, _this2.state, initialState, _this2.$scope.map(_this2, use, false));
+				} else if (!_this2.$scope) _this2.render = function () {
+					return _react2.default.createElement('div', null, 'No Scope found in ', BaseComponent.name);
+				};
+
+				_this2.$dispatch = _this2.$dispatch.bind(_this2);
+				return _this2;
+			}
+
+			_createClass(ReScopeProvider, [{
+				key: '$dispatch',
+				value: function $dispatch() {
+					var _$scope;
+
+					this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
+				}
+			}, {
+				key: 'componentDidMount',
+				value: function componentDidMount() {
+					if (use.length) {
+						this.$scope && this.$scope.bind(this._scopeWillUpdate, use, false);
+					}
+					this.$scope //&& is.fn(scope)
+					&& this.$scope.retain("hoc");
+					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentDidMount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentDidMount', this).call(this);
+				}
+			}, {
+				key: 'componentWillUnmount',
+				value: function componentWillUnmount() {
+					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+					if (this.$scope && !this.$scope.dead) {
+						use.length && this.$scope.unBind(this._scopeWillUpdate, use);
+						//is.fn(scope) &&
+						this.$scope.dispose("hoc");
+					}
+				}
+			}, {
+				key: 'componentWillReceiveProps',
+				value: function componentWillReceiveProps(np, nc) {
+					var nScope = np.__scope || (_is2.default.fn(scope) ? scope(this, np, nc || this.context) : scope) || nc.rescope || this.$scope || _rescope.Store.staticScope;
+
+					if (nScope !== this.$scope) {
+						use.length && this.$scope.unBind(this._scopeWillUpdate, use);
+
+						this.$scope && this.$scope.dispose("hoc");
+
+						this.$scope = nScope;
+
+						nScope && nScope.retain("hoc");
+
+						if (this.$scope && this.$scope.dead) {
+							console.error("ReScoping using dead scope");
+							this.$actions = this.$stores = this.$scope = null;
+						} else {
+							this.$actions = this.$scope.actions;
+							this.$stores = this.$scope.stores;
+							use.length && nScope.bind(this._scopeWillUpdate, use);
+						}
+					}
+					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this).call(this, np, nc);
+				}
+			}, {
+				key: 'getChildContext',
+				value: function getChildContext() {
+					var ctx = _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this).call(this) || {},
+					    scope = this.$scope || this.context.rescope || _rescope.Store.staticScope;
+					return _extends({}, ctx, {
+						rescope: scope,
+						$stores: scope.stores
+					});
+				}
+			}]);
+
+			return ReScopeProvider;
+		}(BaseComponent), _class2._originComponent = BaseComponent._originComponent || BaseComponent, _class2.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, additionalContext, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class2.contextTypes = _extends({}, BaseComponent.contextTypes || {}, additionalContext, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class2.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class2.displayName = "s2s(" + (BaseComponent.displayName || BaseComponent.name) + ")", _temp2);
+
+		return ReScopeProvider;
+	}
+
+	(0, _rescope.addScopableType)(function (Comp) {
+		return Comp && (Comp.prototype instanceof _react2.default.Component || Comp === _react2.default.Component);
+	}, reScopeToState, false, true);
+
+	/**
+  * Return a React "HOC" (High Order Component) that :
+  *  - Render BaseComponent with new scope that inherit the given scope or context scope
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default :
+  *     React.Component )
+  * @param storesMap {Object} the propagated Scope where the stores will be searched
+  * @param parentScope {Scope} the propagated Scope where the stores will be searched
+  * @param parentScopeId {string} the propagated Scope where the stores will be searched
+  * @param additionalContext {Object} context to be propagated
+  * @returns {*}
+  */
+	function reScope() {
+		var _class3, _temp3;
+
+		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			argz[_key3] = arguments[_key3];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
+		    scoped = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(argz[0] instanceof _rescope.Scope)) && argz.shift(),
+		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
+		    parent = (!argz[0] || argz[0] instanceof _rescope.Scope) && argz.shift(),
+		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
+
+		var compName = BaseComponent.displayName || BaseComponent.name;
+
+		var ScopeProvider = (_temp3 = _class3 = function (_React$Component2) {
+			_inherits(ScopeProvider, _React$Component2);
+
+			function ScopeProvider(p, ctx, q) {
+				_classCallCheck(this, ScopeProvider);
+
+				var _parent = parent || parentId && _rescope.Scope.getScope(parentId) || p.__scope || ctx.rescope,
+				    $scope = new _rescope.Scope(scoped || {}, _extends({
+					autoDestroy: true,
+					key: compName,
+					parent: _parent
+				}, scopeCfg));
+
+				var _this3 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
+
+				_this3.$scope = _this3.$scope || $scope;
+
+				if (!_this3.$scope) {
+					if (_this3.$scope && _this3.$scope.dead) {
+						console.error("Scoping using dead scope parent");
+						_this3.$scope = null;
+					}
+
+					_this3.$scope = new _rescope.Scope(scoped || {}, {
+						autoDestroy: true,
+						key: compName,
+						parent: _this3.$scope
+					});
+
+					_this3.$actions = _this3.$scope && _this3.$scope.actions;
+					_this3.$stores = _this3.$scope && _this3.$scope.stores;
+				}
+				return _this3;
+			}
+
+			_createClass(ScopeProvider, [{
+				key: 'componentDidMount',
+				value: function componentDidMount() {
+					this.$scope //&& is.fn(scope)
+					&& this.$scope.retain("hoc");
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentDidMount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentDidMount', this).call(this);
+				}
+			}, {
+				key: 'componentWillUnmount',
+				value: function componentWillUnmount() {
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+					this.$scope && this.$scope.dispose("hoc");
+				}
+			}, {
+				key: 'getChildContext',
+				value: function getChildContext() {
+					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+					return _extends({}, ctx, {
+						rescope: this.$scope,
+						$stores: this.$scope.stores
+					});
+				}
+			}, {
+				key: 'render',
+				value: function render() {
+					return _react2.default.createElement(BaseComponent, _extends({}, this.props, {
+						$dispatch: this.$dispatch,
+						$actions: this.$actions,
+						$scope: this.$scope,
+						$stores: this.$stores }));
+				}
+			}]);
+
+			return ScopeProvider;
+		}(_react2.default.Component), _class3._originComponent = BaseComponent._originComponent || BaseComponent, _class3.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class3.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class3.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class3.displayName = "rs(" + compName + ")", _temp3);
+
+		return ScopeProvider;
+	}
+
+	(0, _rescope.addScopableType)(function (Comp) {
+		return Comp && (Comp.prototype instanceof _react2.default.Component || Comp === _react2.default.Component);
+	}, reScope);
+
+	/**
+  * Map specified props to
+  * @param BaseComponent {React.Component} Base React Component ( default :
+  *     React.Component )
+  * @param storesMap {Object} the propagated Scope where the stores will be searched
+  * @param parentScope {Scope} the propagated Scope where the stores will be searched
+  * @param parentScopeId {string} the propagated Scope where the stores will be searched
+  * @param additionalContext {Object} context to be propagated
+  * @returns {*}
+  */
+	function propsToScope() {
+		var _class4, _temp4;
+
+		for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+			argz[_key4] = arguments[_key4];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
+		    scopedProps = (!argz[0] || _is2.default.array(argz[0])) && argz.shift() || [],
+		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
+		    parent = (!argz[0] || argz[0] instanceof _rescope.Scope) && argz.shift(),
+		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
+
+		var compName = BaseComponent.displayName || BaseComponent.name;
+
+		if (!(BaseComponent && (BaseComponent.prototype instanceof _react2.default.Component || BaseComponent === _react2.default.Component))) {
+			return function (BaseComponent) {
+				return propsToScope(BaseComponent, scopedProps, scopeCfg, parent, parentId);
+			};
+		}
+
+		var ScopeProvider = (_temp4 = _class4 = function (_React$Component3) {
+			_inherits(ScopeProvider, _React$Component3);
+
+			function ScopeProvider(p, ctx, q) {
+				_classCallCheck(this, ScopeProvider);
+
+				var _parent = parent || parentId && _rescope.Scope.getScope(parentId) || p.__scope || ctx.rescope,
+				    $scope = new _rescope.Scope(_extends({}, scopedProps.filter(function (k) {
+					return !_parent.stores[k];
+				}).reduce(function (h, k) {
+					return h[k] = _rescope.Store, h;
+				}, {})), _extends({
+					autoDestroy: true,
+					key: compName,
+					parent: _parent
+				}, scopeCfg));
+
+				var _this4 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
+
+				_this4.$scope = _this4.$scope || $scope;
+				_this4.$actions = _this4.$scope && _this4.$scope.actions;
+				_this4.$stores = _this4.$scope && _this4.$scope.stores;
+				scopedProps.forEach(function (k) {
+					return _this4.$scope.state[k] = p[k] || BaseComponent.defaultProps && BaseComponent.defaultProps[k];
+				});
+				return _this4;
+			}
+
+			_createClass(ScopeProvider, [{
+				key: 'componentWillReceiveProps',
+				value: function componentWillReceiveProps(np) {
+					var _this5 = this;
+
+					scopedProps.forEach(function (p) {
+						return _this5.props[p] !== np[p] && _this5.$stores[p].setState(np[p]);
+					});
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
+				}
+			}, {
+				key: 'componentDidMount',
+				value: function componentDidMount() {
+					this.$scope //&& is.fn(scope)
+					&& this.$scope.retain("hoc");
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentDidMount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentDidMount', this).call(this);
+				}
+			}, {
+				key: 'componentWillUnmount',
+				value: function componentWillUnmount() {
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+					this.$scope && this.$scope.dispose("hoc");
+				}
+			}, {
+				key: 'getChildContext',
+				value: function getChildContext() {
+					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+					return _extends({}, ctx, {
+						rescope: this.$scope,
+						$stores: this.$scope.stores
+					});
+				}
+			}, {
+				key: 'render',
+				value: function render() {
+					var _this6 = this;
+
+					var fProps = Object.keys(this.props).reduce(function (h, k) {
+						return !scopedProps.includes(k) && (h[k] = _this6.props[k]), h;
+					}, {});
+					return _react2.default.createElement(BaseComponent, _extends({}, fProps, this.state, {
+						$dispatch: this.$dispatch,
+						$actions: this.$actions,
+
+						$scope: this.$scope,
+						$stores: this.$stores }));
+				}
+			}]);
+
+			return ScopeProvider;
+		}(_react2.default.Component), _class4._originComponent = BaseComponent._originComponent || BaseComponent, _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class4.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class4.displayName = "p2sc(" + compName + ")", _temp4);
+
+		return ScopeProvider;
+	}
+
+	/**
+  * Bind a component props to the specified store,
+  * render with the specified store result data
+  *
+  * @param BaseComponent {React.Component} Base React Component ( default :
+  *     React.Component )
+  * @param storesMap {Object} the propagated Scope where the stores will be searched
+  * @param parentScope {Scope} the propagated Scope where the stores will be searched
+  * @param parentScopeId {string} the propagated Scope where the stores will be searched
+  * @param additionalContext {Object} context to be propagated
+  * @returns {*}
+  */
+	function propsToStore() {
+		var _class5, _temp5;
+
+		for (var _len5 = arguments.length, argz = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+			argz[_key5] = arguments[_key5];
+		}
+
+		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
+		    storeComp = (!argz[0] || argz[0] instanceof _rescope.Store) && argz.shift() || _rescope.Store,
+		    storeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || storeComp.displayName || "props",
+		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
+		    parent = (!argz[0] || argz[0] instanceof _rescope.Scope) && argz.shift(),
+		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
+
+		var compName = BaseComponent.displayName || BaseComponent.name;
+
+		if (!(BaseComponent && (BaseComponent.prototype instanceof _react2.default.Component || BaseComponent === _react2.default.Component))) {
+			return function (BaseComponent) {
+				return propsToStore(BaseComponent, storeComp, storeName, scopeCfg, parent, parentId);
+			};
+		}
+
+		var ScopeProvider = (_temp5 = _class5 = function (_reScopeToState) {
+			_inherits(ScopeProvider, _reScopeToState);
+
+			function ScopeProvider(p, ctx, q) {
+				_classCallCheck(this, ScopeProvider);
+
+				var _parent = parent || parentId && _rescope.Scope.getScope(parentId) || p.__scope || ctx.rescope,
+				    $scope = _parent && _parent.stores[storeName] && _parent || new _rescope.Scope(_defineProperty({}, storeName, storeComp), _extends({
+					autoDestroy: true,
+					key: compName,
+					parent: _parent
+				}, scopeCfg));
+
+				var _this7 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
+
+				_this7.$scope = _this7.$scope || $scope;
+				_this7.$actions = _this7.$scope && _this7.$scope.actions;
+				_this7.$stores = _this7.$scope && _this7.$scope.stores;
+				_this7.$scope.state[storeName] = _extends({}, BaseComponent.defaultProps || {}, p);
+				return _this7;
+			}
+
+			_createClass(ScopeProvider, [{
+				key: 'componentWillReceiveProps',
+				value: function componentWillReceiveProps(np) {
+					// @todo context switching
+					this.$stores && this.$stores[storeName] && this.$stores[storeName].setState(np);
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
+				}
+			}, {
+				key: 'componentDidMount',
+				value: function componentDidMount() {
+					this.$scope //&& is.fn(scope)
+					&& this.$scope.retain("hoc");
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentDidMount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentDidMount', this).call(this);
+				}
+			}, {
+				key: 'componentWillUnmount',
+				value: function componentWillUnmount() {
+					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
+					this.$scope && this.$scope.dispose("hoc");
+				}
+			}, {
+				key: 'getChildContext',
+				value: function getChildContext() {
+					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
+					return _extends({}, ctx, {
+						rescope: this.$scope,
+						$stores: this.$scope.stores
+					});
+				}
+			}, {
+				key: 'render',
+				value: function render() {
+					return _react2.default.createElement(BaseComponent, _extends({}, this.state && this.state[storeName] || {}, {
+						$dispatch: this.$dispatch,
+						$actions: this.$actions,
+						$scope: this.$scope,
+						$stores: this.$stores }));
+				}
+			}]);
+
+			return ScopeProvider;
+		}(reScopeToState(_react2.default.Component, [storeName])), _class5._originComponent = BaseComponent._originComponent || BaseComponent, _class5.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class5.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
+			rescope: _propTypes2.default.object,
+			$stores: _propTypes2.default.object
+		}), _class5.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class5.displayName = "p2st(" + compName + ")", _temp5);
+
+		return ScopeProvider;
+	}
+
+	var Component = reScopeToState(_react2.default.Component);
+
+	exports.default = Component;
+	exports.Component = Component;
+	exports.reScopeProps = reScopeProps;
+	exports.propsToScope = propsToScope;
+	exports.propsToStore = propsToStore;
+
+	/***/
+},
+/* 3 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(1);
+
+	/***/
+},
+/* 4 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(9);
+
+	/***/
+},
+/* 5 */
+/***/function (module, exports) {
+
+	module.exports = __webpack_require__(39);
+
+	/***/
+}]
+/******/);
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 //if ( process.env.NODE_ENV === 'production' ) {
 //	module.exports = require('../../dist/ReScope.min.js');
 //}
@@ -1983,7 +2860,7 @@ module.exports = __webpack_require__(29);
 //}
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 /*
@@ -2065,795 +2942,10 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/e7ef2b448d27cf5312a73ceb3e7841c4.eot";
-
-/***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*!
- * MIT License
- * 
- * Copyright (c) 2018 Wise Wild Web
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _rescope2 = _interopRequireDefault(_rescope);
-	
-	var _ReactHocs = __webpack_require__(2);
-	
-	var RTools = _interopRequireWildcard(_ReactHocs);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	/*
-	 * Copyright (c)  2018 Wise Wild Web .
-	 *
-	 *  MIT License
-	 *
-	 *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	 *  of this software and associated documentation files (the "Software"), to deal
-	 *  in the Software without restriction, including without limitation the rights
-	 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	 *  copies of the Software, and to permit persons to whom the Software is
-	 *  furnished to do so, subject to the following conditions:
-	 *
-	 *  The above copyright notice and this permission notice shall be included in all
-	 *  copies or substantial portions of the Software.
-	 *
-	 *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	 *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	 *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	 *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	 *  SOFTWARE.
-	 *
-	 * @author : Nathanael Braun
-	 * @contact : caipilabs@gmail.com
-	 */
-	
-	_rescope2.default.Component = RTools.Component;
-	_rescope2.default.reScopeProps = RTools.reScopeProps;
-	_rescope2.default.scopeToProps = RTools.reScopeProps;
-	_rescope2.default.propsToScope = RTools.propsToScope;
-	_rescope2.default.propsToStore = RTools.propsToStore;
-	exports.default = _rescope2.default;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(13);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.propsToStore = exports.propsToScope = exports.reScopeProps = exports.Component = exports.default = undefined;
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _rescope = __webpack_require__(1);
-	
-	var _react = __webpack_require__(3);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _is = __webpack_require__(4);
-	
-	var _is2 = _interopRequireDefault(_is);
-	
-	var _propTypes = __webpack_require__(5);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright (c)  2018 Wise Wild Web .
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  MIT License
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  Permission is hereby granted, free of charge, to any person obtaining a copy
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  of this software and associated documentation files (the "Software"), to deal
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  in the Software without restriction, including without limitation the rights
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  copies of the Software, and to permit persons to whom the Software is
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  furnished to do so, subject to the following conditions:
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  The above copyright notice and this permission notice shall be included in all
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  copies or substantial portions of the Software.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  SOFTWARE.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author : Nathanael Braun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @contact : caipilabs@gmail.com
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var SimpleObjectProto = {}.constructor;
-	
-	/**
-	 * Return a React "HOC" (High Order Component) that :
-	 *  - Inject & maintain the stores listed baseComponent::use and/or (use) in the
-	 * instances props.
-	 *  - Propag (scope) in the returned React Component context
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default :
-	 *     React.Component )
-	 * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be
-	 *     searched ( default : the default ReScope::Scope::scopes.static scope )
-	 * @param use {array} the list of stores to inject from the current scope
-	 * @returns {ReScopeProvider}
-	 */
-	function reScopeProps() {
-		var _class, _temp;
-	
-		for (var _len = arguments.length, argz = Array(_len), _key = 0; _key < _len; _key++) {
-			argz[_key] = arguments[_key];
-		}
-	
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
-		    scope = (!argz[0] || argz[0] instanceof _rescope.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-		    use = (!argz[0] || _is2.default.array(argz[0]) || argz[0] instanceof SimpleObjectProto) && argz.shift();
-	
-		if (!(BaseComponent && (BaseComponent.prototype instanceof _react2.default.Component || BaseComponent === _react2.default.Component))) {
-			return function (BaseComponent) {
-				return reScopeProps(BaseComponent, scope, use);
-			};
-		}
-	
-		var provider = reScopeToState((_temp = _class = function (_React$Component) {
-			_inherits(ReScopePropsProvider, _React$Component);
-	
-			function ReScopePropsProvider() {
-				_classCallCheck(this, ReScopePropsProvider);
-	
-				return _possibleConstructorReturn(this, (ReScopePropsProvider.__proto__ || Object.getPrototypeOf(ReScopePropsProvider)).apply(this, arguments));
-			}
-	
-			_createClass(ReScopePropsProvider, [{
-				key: 'getChildContext',
-				value: function getChildContext() {
-					return this.context;
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					return _react2.default.createElement(BaseComponent, _extends({}, this.props, this.state, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-						$scope: this.$scope,
-						$stores: this.$stores }));
-				}
-			}]);
-	
-			return ReScopePropsProvider;
-		}(_react2.default.Component), _class._originComponent = BaseComponent._originComponent || BaseComponent, _class.use = BaseComponent.use, _class.childContextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _temp), scope, use);
-		provider.displayName = "s2p(" + (BaseComponent.displayName || BaseComponent.name) + ")";
-		return provider;
-	}
-	
-	/**
-	 * Return a React "HOC" (High Order Component) that :
-	 *  - Inherit BaseComponent,
-	 *  - Inject & maintain the stores in BaseComponent::use and/or (use) in the instances
-	 * state.
-	 *  - Propag (scope) in the returned React Component context
-	 *
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default :
-	 *     React.Component )
-	 * @param scope {ReScope.Scope|function} the propagated Scope where the stores will be
-	 *     searched
-	 * @param use {array} the list of stores injected from the current scope
-	 * @param additionalContext {Object} context to be propagated
-	 * @returns {ReScopeProvider}
-	 */
-	function reScopeToState() {
-		var _class2, _temp2;
-	
-		for (var _len2 = arguments.length, argz = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-			argz[_key2] = arguments[_key2];
-		}
-	
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
-		    scope = (!argz[0] || argz[0] instanceof _rescope.Scope || _is2.default.fn(argz[0])) && argz.shift(),
-		    use = _is2.default.array(argz[0]) && argz.shift(),
-		    stateMap = !use && (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-		    additionalContext = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift(),
-		    initialState = {};
-	
-		use = [].concat(_toConsumableArray(BaseComponent.use || []), _toConsumableArray(use || []));
-		stateMap && _rescope.Scope.stateMapToRefList(stateMap, initialState, use);
-	
-		additionalContext = additionalContext && Object.keys(additionalContext).reduce(function (h, k) {
-			return h[k] = _propTypes2.default.any, h;
-		}, {}) || {};
-	
-		var ReScopeProvider = (_temp2 = _class2 = function (_BaseComponent) {
-			_inherits(ReScopeProvider, _BaseComponent);
-	
-			function ReScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ReScopeProvider);
-	
-				var _this2 = _possibleConstructorReturn(this, (ReScopeProvider.__proto__ || Object.getPrototypeOf(ReScopeProvider)).call(this, p, ctx, q));
-	
-				_this2._scopeWillUpdate = function (state) {
-					// trigger update hook
-					_this2.scopeWillUpdate && _this2.scopeWillUpdate(state, _this2.$stores);
-					if (_this2.applyScopeUpdate) state = _this2.applyScopeUpdate(state, _this2.$stores);else
-						// clone updated objects so react will propag them...
-						state = Object.keys(state).reduce(function (h, k) {
-							return h[k] = _is2.default.array(state[k]) ? [].concat(_toConsumableArray(state[k])) : state[k] instanceof SimpleObjectProto ? _extends({}, state[k]) : state[k], h;
-						}, {});
-					_this2.setState(state);
-				};
-	
-				_this2.$scope = _this2.$scope || p.__scope || (_is2.default.fn(scope) ? scope(_this2, p, ctx) : scope) || ctx.rescope || _rescope.Store.staticScope;
-	
-				if (_this2.$scope && _this2.$scope.dead) {
-					console.error("ReScoping using dead scope !");
-					_this2.$scope = null;
-				}
-	
-				_this2.$stores = _this2.$scope && _this2.$scope.stores;
-				_this2.$actions = _this2.$scope && _this2.$scope.actions;
-				if (_this2.$scope && use.length) {
-					_this2.state = _extends({}, _this2.state, initialState, _this2.$scope.map(_this2, use, false));
-				} else if (!_this2.$scope) _this2.render = function () {
-					return _react2.default.createElement(
-						'div',
-						null,
-						'No Scope found in ',
-						BaseComponent.name
-					);
-				};
-	
-				_this2.$dispatch = _this2.$dispatch.bind(_this2);
-				return _this2;
-			}
-	
-			_createClass(ReScopeProvider, [{
-				key: '$dispatch',
-				value: function $dispatch() {
-					var _$scope;
-	
-					this.$scope && (_$scope = this.$scope).dispatch.apply(_$scope, arguments);
-				}
-			}, {
-				key: 'componentDidMount',
-				value: function componentDidMount() {
-					if (use.length) {
-						this.$scope && this.$scope.bind(this._scopeWillUpdate, use, false);
-					}
-					this.$scope //&& is.fn(scope)
-					&& this.$scope.retain("hoc");
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentDidMount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentDidMount', this).call(this);
-				}
-			}, {
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					if (this.$scope && !this.$scope.dead) {
-						use.length && this.$scope.unBind(this._scopeWillUpdate, use);
-						//is.fn(scope) &&
-						this.$scope.dispose("hoc");
-					}
-				}
-			}, {
-				key: 'componentWillReceiveProps',
-				value: function componentWillReceiveProps(np, nc) {
-					var nScope = np.__scope || (_is2.default.fn(scope) ? scope(this, np, nc || this.context) : scope) || nc.rescope || this.$scope || _rescope.Store.staticScope;
-	
-					if (nScope !== this.$scope) {
-						use.length && this.$scope.unBind(this._scopeWillUpdate, use);
-	
-						this.$scope && this.$scope.dispose("hoc");
-	
-						this.$scope = nScope;
-	
-						nScope && nScope.retain("hoc");
-	
-						if (this.$scope && this.$scope.dead) {
-							console.error("ReScoping using dead scope");
-							this.$actions = this.$stores = this.$scope = null;
-						} else {
-							this.$actions = this.$scope.actions;
-							this.$stores = this.$scope.stores;
-							use.length && nScope.bind(this._scopeWillUpdate, use);
-						}
-					}
-					_get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'componentWillReceiveProps', this).call(this, np, nc);
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this) && _get(ReScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ReScopeProvider.prototype), 'getChildContext', this).call(this) || {},
-					    scope = this.$scope || this.context.rescope || _rescope.Store.staticScope;
-					return _extends({}, ctx, {
-						rescope: scope,
-						$stores: scope.stores
-					});
-				}
-			}]);
-	
-			return ReScopeProvider;
-		}(BaseComponent), _class2._originComponent = BaseComponent._originComponent || BaseComponent, _class2.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, additionalContext, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class2.contextTypes = _extends({}, BaseComponent.contextTypes || {}, additionalContext, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class2.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class2.displayName = "s2s(" + (BaseComponent.displayName || BaseComponent.name) + ")", _temp2);
-	
-	
-		return ReScopeProvider;
-	}
-	
-	(0, _rescope.addScopableType)(function (Comp) {
-		return Comp && (Comp.prototype instanceof _react2.default.Component || Comp === _react2.default.Component);
-	}, reScopeToState, false, true);
-	
-	/**
-	 * Return a React "HOC" (High Order Component) that :
-	 *  - Render BaseComponent with new scope that inherit the given scope or context scope
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default :
-	 *     React.Component )
-	 * @param storesMap {Object} the propagated Scope where the stores will be searched
-	 * @param parentScope {Scope} the propagated Scope where the stores will be searched
-	 * @param parentScopeId {string} the propagated Scope where the stores will be searched
-	 * @param additionalContext {Object} context to be propagated
-	 * @returns {*}
-	 */
-	function reScope() {
-		var _class3, _temp3;
-	
-		for (var _len3 = arguments.length, argz = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			argz[_key3] = arguments[_key3];
-		}
-	
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
-		    scoped = (!argz[0] || argz[0] instanceof SimpleObjectProto && !(argz[0] instanceof _rescope.Scope)) && argz.shift(),
-		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-		    parent = (!argz[0] || argz[0] instanceof _rescope.Scope) && argz.shift(),
-		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-	
-		var compName = BaseComponent.displayName || BaseComponent.name;
-	
-		var ScopeProvider = (_temp3 = _class3 = function (_React$Component2) {
-			_inherits(ScopeProvider, _React$Component2);
-	
-			function ScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ScopeProvider);
-	
-				var _parent = parent || parentId && _rescope.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-				    $scope = new _rescope.Scope(scoped || {}, _extends({
-					autoDestroy: true,
-					key: compName,
-					parent: _parent
-				}, scopeCfg));
-	
-				var _this3 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-	
-				_this3.$scope = _this3.$scope || $scope;
-	
-				if (!_this3.$scope) {
-					if (_this3.$scope && _this3.$scope.dead) {
-						console.error("Scoping using dead scope parent");
-						_this3.$scope = null;
-					}
-	
-					_this3.$scope = new _rescope.Scope(scoped || {}, {
-						autoDestroy: true,
-						key: compName,
-						parent: _this3.$scope
-					});
-	
-					_this3.$actions = _this3.$scope && _this3.$scope.actions;
-					_this3.$stores = _this3.$scope && _this3.$scope.stores;
-				}
-				_this3.$scope.retain();
-				return _this3;
-			}
-	
-			_createClass(ScopeProvider, [{
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					this.$scope && this.$scope.dispose();
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope,
-						$stores: this.$scope.stores
-					});
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					return _react2.default.createElement(BaseComponent, _extends({}, this.props, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-						$scope: this.$scope,
-						$stores: this.$stores }));
-				}
-			}]);
-	
-			return ScopeProvider;
-		}(_react2.default.Component), _class3._originComponent = BaseComponent._originComponent || BaseComponent, _class3.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class3.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class3.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class3.displayName = "rs(" + compName + ")", _temp3);
-	
-	
-		return ScopeProvider;
-	}
-	
-	(0, _rescope.addScopableType)(function (Comp) {
-		return Comp && (Comp.prototype instanceof _react2.default.Component || Comp === _react2.default.Component);
-	}, reScope);
-	
-	/**
-	 * Map specified props to
-	 * @param BaseComponent {React.Component} Base React Component ( default :
-	 *     React.Component )
-	 * @param storesMap {Object} the propagated Scope where the stores will be searched
-	 * @param parentScope {Scope} the propagated Scope where the stores will be searched
-	 * @param parentScopeId {string} the propagated Scope where the stores will be searched
-	 * @param additionalContext {Object} context to be propagated
-	 * @returns {*}
-	 */
-	function propsToScope() {
-		var _class4, _temp4;
-	
-		for (var _len4 = arguments.length, argz = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-			argz[_key4] = arguments[_key4];
-		}
-	
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
-		    scopedProps = (!argz[0] || _is2.default.array(argz[0])) && argz.shift() || [],
-		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-		    parent = (!argz[0] || argz[0] instanceof _rescope.Scope) && argz.shift(),
-		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-	
-		var compName = BaseComponent.displayName || BaseComponent.name;
-	
-		if (!(BaseComponent && (BaseComponent.prototype instanceof _react2.default.Component || BaseComponent === _react2.default.Component))) {
-			return function (BaseComponent) {
-				return propsToScope(BaseComponent, scopedProps, scopeCfg, parent, parentId);
-			};
-		}
-	
-		var ScopeProvider = (_temp4 = _class4 = function (_React$Component3) {
-			_inherits(ScopeProvider, _React$Component3);
-	
-			function ScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ScopeProvider);
-	
-				var _parent = parent || parentId && _rescope.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-				    $scope = new _rescope.Scope(_extends({}, scopedProps.filter(function (k) {
-					return !_parent.stores[k];
-				}).reduce(function (h, k) {
-					return h[k] = _rescope.Store, h;
-				}, {})), _extends({
-					autoDestroy: true,
-					key: compName,
-					parent: _parent
-				}, scopeCfg));
-	
-				var _this4 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-	
-				_this4.$scope = _this4.$scope || $scope;
-				_this4.$actions = _this4.$scope && _this4.$scope.actions;
-				_this4.$stores = _this4.$scope && _this4.$scope.stores;
-				_this4.$scope.retain();
-				scopedProps.forEach(function (k) {
-					return _this4.$scope.state[k] = p[k] || BaseComponent.defaultProps && BaseComponent.defaultProps[k];
-				});
-				return _this4;
-			}
-	
-			_createClass(ScopeProvider, [{
-				key: 'componentWillReceiveProps',
-				value: function componentWillReceiveProps(np) {
-					var _this5 = this;
-	
-					scopedProps.forEach(function (p) {
-						return _this5.props[p] !== np[p] && _this5.$stores[p].setState(np[p]);
-					});
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
-				}
-			}, {
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					this.$scope && this.$scope.dispose();
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope,
-						$stores: this.$scope.stores
-					});
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					var _this6 = this;
-	
-					var fProps = Object.keys(this.props).reduce(function (h, k) {
-						return !scopedProps.includes(k) && (h[k] = _this6.props[k]), h;
-					}, {});
-					return _react2.default.createElement(BaseComponent, _extends({}, fProps, this.state, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-	
-						$scope: this.$scope,
-						$stores: this.$stores }));
-				}
-			}]);
-	
-			return ScopeProvider;
-		}(_react2.default.Component), _class4._originComponent = BaseComponent._originComponent || BaseComponent, _class4.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class4.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class4.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class4.displayName = "p2sc(" + compName + ")", _temp4);
-	
-	
-		return ScopeProvider;
-	}
-	
-	/**
-	 * Bind a component props to the specified store,
-	 * render with the specified store result data
-	 *
-	 * @param BaseComponent {React.Component} Base React Component ( default :
-	 *     React.Component )
-	 * @param storesMap {Object} the propagated Scope where the stores will be searched
-	 * @param parentScope {Scope} the propagated Scope where the stores will be searched
-	 * @param parentScopeId {string} the propagated Scope where the stores will be searched
-	 * @param additionalContext {Object} context to be propagated
-	 * @returns {*}
-	 */
-	function propsToStore() {
-		var _class5, _temp5;
-	
-		for (var _len5 = arguments.length, argz = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-			argz[_key5] = arguments[_key5];
-		}
-	
-		var BaseComponent = (!argz[0] || argz[0].prototype instanceof _react2.default.Component || argz[0] === _react2.default.Component) && argz.shift(),
-		    storeComp = (!argz[0] || argz[0] instanceof _rescope.Store) && argz.shift() || _rescope.Store,
-		    storeName = (!argz[0] || _is2.default.string(argz[0])) && argz.shift() || storeComp.displayName || "props",
-		    scopeCfg = (!argz[0] || argz[0] instanceof SimpleObjectProto) && argz.shift() || {},
-		    parent = (!argz[0] || argz[0] instanceof _rescope.Scope) && argz.shift(),
-		    parentId = (!argz[0] || _is2.default.string(argz[0])) && argz.shift();
-	
-		var compName = BaseComponent.displayName || BaseComponent.name;
-	
-		if (!(BaseComponent && (BaseComponent.prototype instanceof _react2.default.Component || BaseComponent === _react2.default.Component))) {
-			return function (BaseComponent) {
-				return propsToStore(BaseComponent, storeComp, storeName, scopeCfg, parent, parentId);
-			};
-		}
-	
-		var ScopeProvider = (_temp5 = _class5 = function (_reScopeToState) {
-			_inherits(ScopeProvider, _reScopeToState);
-	
-			function ScopeProvider(p, ctx, q) {
-				_classCallCheck(this, ScopeProvider);
-	
-				var _parent = parent || parentId && _rescope.Scope.getScope(parentId) || p.__scope || ctx.rescope,
-				    $scope = _parent && _parent.stores[storeName] && _parent || new _rescope.Scope(_defineProperty({}, storeName, storeComp), _extends({
-					autoDestroy: true,
-					key: compName,
-					parent: _parent
-				}, scopeCfg));
-	
-				var _this7 = _possibleConstructorReturn(this, (ScopeProvider.__proto__ || Object.getPrototypeOf(ScopeProvider)).call(this, p, _extends({}, ctx, { rescope: $scope, $stores: $scope.stores }), q));
-	
-				_this7.$scope = _this7.$scope || $scope;
-				_this7.$actions = _this7.$scope && _this7.$scope.actions;
-				_this7.$stores = _this7.$scope && _this7.$scope.stores;
-				_this7.$scope.retain();
-				_this7.$scope.state[storeName] = _extends({}, BaseComponent.defaultProps || {}, p);
-				return _this7;
-			}
-	
-			_createClass(ScopeProvider, [{
-				key: 'componentWillReceiveProps',
-				value: function componentWillReceiveProps(np) {
-					// @todo context switching
-					this.$stores && this.$stores[storeName] && this.$stores[storeName].setState(np);
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillReceiveProps', this).apply(this, arguments);
-				}
-			}, {
-				key: 'componentWillUnmount',
-				value: function componentWillUnmount() {
-					_get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'componentWillUnmount', this).call(this);
-					this.$scope && this.$scope.dispose();
-				}
-			}, {
-				key: 'getChildContext',
-				value: function getChildContext() {
-					var ctx = _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this) && _get(ScopeProvider.prototype.__proto__ || Object.getPrototypeOf(ScopeProvider.prototype), 'getChildContext', this).call(this) || {};
-					return _extends({}, ctx, {
-						rescope: this.$scope,
-						$stores: this.$scope.stores
-					});
-				}
-			}, {
-				key: 'render',
-				value: function render() {
-					return _react2.default.createElement(BaseComponent, _extends({}, this.state && this.state[storeName] || {}, {
-						$dispatch: this.$dispatch,
-						$actions: this.$actions,
-						$scope: this.$scope,
-						$stores: this.$stores }));
-				}
-			}]);
-	
-			return ScopeProvider;
-		}(reScopeToState(_react2.default.Component, [storeName])), _class5._originComponent = BaseComponent._originComponent || BaseComponent, _class5.childContextTypes = _extends({}, BaseComponent.childContextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class5.contextTypes = _extends({}, BaseComponent.contextTypes || {}, {
-			rescope: _propTypes2.default.object,
-			$stores: _propTypes2.default.object
-		}), _class5.defaultProps = _extends({}, BaseComponent.defaultProps || {}), _class5.displayName = "p2st(" + compName + ")", _temp5);
-	
-	
-		return ScopeProvider;
-	}
-	
-	var Component = reScopeToState(_react2.default.Component);
-	
-	exports.default = Component;
-	exports.Component = Component;
-	exports.reScopeProps = reScopeProps;
-	exports.propsToScope = propsToScope;
-	exports.propsToStore = propsToStore;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(1);
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(9);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-	module.exports = __webpack_require__(39);
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay9ib290c3RyYXAgNzQ4YTRmNTI1ZDk2NDkwNjE5N2IiLCJ3ZWJwYWNrOi8vLy4vc3JjL2luZGV4LmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlc2NvcGVcIiIsIndlYnBhY2s6Ly8vLi9zcmMvUmVhY3RIb2NzLmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcInJlYWN0XCIiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIFwiaXNcIiIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJwcm9wLXR5cGVzXCIiXSwibmFtZXMiOlsiUlRvb2xzIiwiQ29tcG9uZW50IiwicmVTY29wZVByb3BzIiwic2NvcGVUb1Byb3BzIiwicHJvcHNUb1Njb3BlIiwicHJvcHNUb1N0b3JlIiwiU2ltcGxlT2JqZWN0UHJvdG8iLCJjb25zdHJ1Y3RvciIsImFyZ3oiLCJCYXNlQ29tcG9uZW50IiwicHJvdG90eXBlIiwic2hpZnQiLCJzY29wZSIsImZuIiwidXNlIiwiYXJyYXkiLCJwcm92aWRlciIsInJlU2NvcGVUb1N0YXRlIiwiY29udGV4dCIsInByb3BzIiwic3RhdGUiLCIkZGlzcGF0Y2giLCIkYWN0aW9ucyIsIiRzY29wZSIsIiRzdG9yZXMiLCJfb3JpZ2luQ29tcG9uZW50IiwiY2hpbGRDb250ZXh0VHlwZXMiLCJjb250ZXh0VHlwZXMiLCJyZXNjb3BlIiwib2JqZWN0IiwiZGlzcGxheU5hbWUiLCJuYW1lIiwic3RhdGVNYXAiLCJhZGRpdGlvbmFsQ29udGV4dCIsImluaXRpYWxTdGF0ZSIsInN0YXRlTWFwVG9SZWZMaXN0IiwiT2JqZWN0Iiwia2V5cyIsInJlZHVjZSIsImgiLCJrIiwiYW55IiwiUmVTY29wZVByb3ZpZGVyIiwicCIsImN0eCIsInEiLCJfc2NvcGVXaWxsVXBkYXRlIiwic2NvcGVXaWxsVXBkYXRlIiwiYXBwbHlTY29wZVVwZGF0ZSIsInNldFN0YXRlIiwiX19zY29wZSIsInN0YXRpY1Njb3BlIiwiZGVhZCIsImNvbnNvbGUiLCJlcnJvciIsInN0b3JlcyIsImFjdGlvbnMiLCJsZW5ndGgiLCJtYXAiLCJyZW5kZXIiLCJiaW5kIiwiZGlzcGF0Y2giLCJyZXRhaW4iLCJ1bkJpbmQiLCJkaXNwb3NlIiwibnAiLCJuYyIsIm5TY29wZSIsImRlZmF1bHRQcm9wcyIsIkNvbXAiLCJyZVNjb3BlIiwic2NvcGVkIiwic2NvcGVDZmciLCJwYXJlbnQiLCJwYXJlbnRJZCIsInN0cmluZyIsImNvbXBOYW1lIiwiU2NvcGVQcm92aWRlciIsIl9wYXJlbnQiLCJnZXRTY29wZSIsImF1dG9EZXN0cm95Iiwia2V5Iiwic2NvcGVkUHJvcHMiLCJmaWx0ZXIiLCJmb3JFYWNoIiwiYXJndW1lbnRzIiwiZlByb3BzIiwiaW5jbHVkZXMiLCJzdG9yZUNvbXAiLCJzdG9yZU5hbWUiLCJkZWZhdWx0Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EsdUJBQWU7QUFDZjtBQUNBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7O0FBR0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7Ozs7Ozs7Ozs7OztBQ1hBOzs7O0FBQ0E7O0tBQVlBLE07Ozs7OztBQTVCWjs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBOEJBLG1CQUFHQyxTQUFILEdBQWtCRCxPQUFPQyxTQUF6QjtBQUNBLG1CQUFHQyxZQUFILEdBQWtCRixPQUFPRSxZQUF6QjtBQUNBLG1CQUFHQyxZQUFILEdBQWtCSCxPQUFPRSxZQUF6QjtBQUNBLG1CQUFHRSxZQUFILEdBQWtCSixPQUFPSSxZQUF6QjtBQUNBLG1CQUFHQyxZQUFILEdBQWtCTCxPQUFPSyxZQUF6Qjs7Ozs7Ozs7QUNsQ0EscUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUMyQkE7O0FBQ0E7Ozs7QUFDQTs7OztBQUNBOzs7Ozs7Ozs7Ozs7OztnZkE5QkE7Ozs7Ozs7Ozs7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NkJ4QkYsWUE3QndCLGdCQThCMUJsQixjQUFja0IsWUFBZCxJQUE4QixFQTlCSjtBQStCOUJDLFlBQVMsb0JBQVVDLE1BL0JXO0FBZ0M5QkwsWUFBUyxvQkFBVUs7QUFoQ1csY0FrQ3hCdUMsWUFsQ3dCLGdCQW1DMUIzRCxjQUFjMkQsWUFBZCxJQUE4QixFQW5DSixXQXFDeEJ0QyxXQXJDd0IsR0FxQ0osVUFBVThDLFFBQVYsR0FBcUIsR0FyQ2pCOzs7QUFnR2hDLFNBQU9DLGFBQVA7QUFDQTs7QUFFRCxLQUFJNUUsWUFBWWdCLGVBQWUsZ0JBQU1oQixTQUFyQixDQUFoQjs7U0FHY3lGLE8sR0FBYnpGLFM7U0FDQUEsUyxHQUFBQSxTO1NBQ0FDLFksR0FBQUEsWTtTQUNBRSxZLEdBQUFBLFk7U0FDQUMsWSxHQUFBQSxZOzs7Ozs7QUNubEJELG1DOzs7Ozs7QUNBQSxnQzs7Ozs7O0FDQUEsd0MiLCJmaWxlIjoiZGlzdC9SZWFjdFJlU2NvcGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyIgXHQvLyBUaGUgbW9kdWxlIGNhY2hlXG4gXHR2YXIgaW5zdGFsbGVkTW9kdWxlcyA9IHt9O1xuXG4gXHQvLyBUaGUgcmVxdWlyZSBmdW5jdGlvblxuIFx0ZnVuY3Rpb24gX193ZWJwYWNrX3JlcXVpcmVfXyhtb2R1bGVJZCkge1xuXG4gXHRcdC8vIENoZWNrIGlmIG1vZHVsZSBpcyBpbiBjYWNoZVxuIFx0XHRpZihpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSlcbiBcdFx0XHRyZXR1cm4gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0uZXhwb3J0cztcblxuIFx0XHQvLyBDcmVhdGUgYSBuZXcgbW9kdWxlIChhbmQgcHV0IGl0IGludG8gdGhlIGNhY2hlKVxuIFx0XHR2YXIgbW9kdWxlID0gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0gPSB7XG4gXHRcdFx0ZXhwb3J0czoge30sXG4gXHRcdFx0aWQ6IG1vZHVsZUlkLFxuIFx0XHRcdGxvYWRlZDogZmFsc2VcbiBcdFx0fTtcblxuIFx0XHQvLyBFeGVjdXRlIHRoZSBtb2R1bGUgZnVuY3Rpb25cbiBcdFx0bW9kdWxlc1ttb2R1bGVJZF0uY2FsbChtb2R1bGUuZXhwb3J0cywgbW9kdWxlLCBtb2R1bGUuZXhwb3J0cywgX193ZWJwYWNrX3JlcXVpcmVfXyk7XG5cbiBcdFx0Ly8gRmxhZyB0aGUgbW9kdWxlIGFzIGxvYWRlZFxuIFx0XHRtb2R1bGUubG9hZGVkID0gdHJ1ZTtcblxuIFx0XHQvLyBSZXR1cm4gdGhlIGV4cG9ydHMgb2YgdGhlIG1vZHVsZVxuIFx0XHRyZXR1cm4gbW9kdWxlLmV4cG9ydHM7XG4gXHR9XG5cblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGVzIG9iamVjdCAoX193ZWJwYWNrX21vZHVsZXNfXylcbiBcdF9fd2VicGFja19yZXF1aXJlX18ubSA9IG1vZHVsZXM7XG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlIGNhY2hlXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLmMgPSBpbnN0YWxsZWRNb2R1bGVzO1xuXG4gXHQvLyBfX3dlYnBhY2tfcHVibGljX3BhdGhfX1xuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5wID0gXCIvXCI7XG5cbiBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oMCk7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gd2VicGFjay9ib290c3RyYXAgNzQ4YTRmNTI1ZDk2NDkwNjE5N2IiLCIvKlxuICogQ29weXJpZ2h0IChjKSAgMjAxOCBXaXNlIFdpbGQgV2ViIC5cbiAqXG4gKiAgTUlUIExpY2Vuc2VcbiAqXG4gKiAgUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weVxuICogIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcbiAqICBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4gKiAgdG8gdXNlLCBjb3B5LCBtb2RpZnksIG1lcmdlLCBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbFxuICogIGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuICogIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4gKlxuICogIFRoZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxsIGJlIGluY2x1ZGVkIGluIGFsbFxuICogIGNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuXG4gKlxuICogIFRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCBcIkFTIElTXCIsIFdJVEhPVVQgV0FSUkFOVFkgT0YgQU5ZIEtJTkQsIEVYUFJFU1MgT1JcbiAqICBJTVBMSUVELCBJTkNMVURJTkcgQlVUIE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSxcbiAqICBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQgTk9OSU5GUklOR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEVcbiAqICBBVVRIT1JTIE9SIENPUFlSSUdIVCBIT0xERVJTIEJFIExJQUJMRSBGT1IgQU5ZIENMQUlNLCBEQU1BR0VTIE9SIE9USEVSXG4gKiAgTElBQklMSVRZLCBXSEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUiBPVEhFUldJU0UsIEFSSVNJTkcgRlJPTSxcbiAqICBPVVQgT0YgT1IgSU4gQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOIFRIRVxuICogIFNPRlRXQVJFLlxuICpcbiAqIEBhdXRob3IgOiBOYXRoYW5hZWwgQnJhdW5cbiAqIEBjb250YWN0IDogY2FpcGlsYWJzQGdtYWlsLmNvbVxuICovXG5cbmltcG9ydCBSUyAgICAgICAgICBmcm9tIFwicmVzY29wZVwiO1xuaW1wb3J0ICogYXMgUlRvb2xzIGZyb20gXCIuL1JlYWN0SG9jc1wiO1xuXG5SUy5Db21wb25lbnQgICAgPSBSVG9vbHMuQ29tcG9uZW50O1xuUlMucmVTY29wZVByb3BzID0gUlRvb2xzLnJlU2NvcGVQcm9wcztcblJTLnNjb3BlVG9Qcm9wcyA9IFJUb29scy5yZVNjb3BlUHJvcHM7XG5SUy5wcm9wc1RvU2NvcGUgPSBSVG9vbHMucHJvcHNUb1Njb3BlO1xuUlMucHJvcHNUb1N0b3JlID0gUlRvb2xzLnByb3BzVG9TdG9yZTtcbmV4cG9ydCBkZWZhdWx0IFJTO1xuXG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9zcmMvaW5kZXguanMiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZXNjb3BlXCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicmVzY29wZVwiXG4vLyBtb2R1bGUgaWQgPSAxXG4vLyBtb2R1bGUgY2h1bmtzID0gMCIsIi8qXG4gKiBDb3B5cmlnaHQgKGMpICAyMDE4IFdpc2UgV2lsZCBXZWIgLlxuICpcbiAqICBNSVQgTGljZW5zZVxuICogIFxuICogIFBlcm1pc3Npb24gaXMgaGVyZWJ5IGdyYW50ZWQsIGZyZWUgb2YgY2hhcmdlLCB0byBhbnkgcGVyc29uIG9idGFpbmluZyBhIGNvcHlcbiAqICBvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZSBcIlNvZnR3YXJlXCIpLCB0byBkZWFsXG4gKiAgaW4gdGhlIFNvZnR3YXJlIHdpdGhvdXQgcmVzdHJpY3Rpb24sIGluY2x1ZGluZyB3aXRob3V0IGxpbWl0YXRpb24gdGhlIHJpZ2h0c1xuICogIHRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwgcHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGxcbiAqICBjb3BpZXMgb2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMgdG8gd2hvbSB0aGUgU29mdHdhcmUgaXNcbiAqICBmdXJuaXNoZWQgdG8gZG8gc28sIHN1YmplY3QgdG8gdGhlIGZvbGxvd2luZyBjb25kaXRpb25zOlxuICogIFxuICogIFRoZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxsIGJlIGluY2x1ZGVkIGluIGFsbFxuICogIGNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuXG4gKiAgXG4gKiAgVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuICogIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuICogIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRVxuICogIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcbiAqICBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuICogIE9VVCBPRiBPUiBJTiBDT05ORUNUSU9OIFdJVEggVEhFIFNPRlRXQVJFIE9SIFRIRSBVU0UgT1IgT1RIRVIgREVBTElOR1MgSU4gVEhFXG4gKiAgU09GVFdBUkUuXG4gKiAgXG4gKiBAYXV0aG9yIDogTmF0aGFuYWVsIEJyYXVuXG4gKiBAY29udGFjdCA6IGNhaXBpbGFic0BnbWFpbC5jb21cbiAqL1xuXG5pbXBvcnQge1Njb3BlLCBTdG9yZSwgYWRkU2NvcGFibGVUeXBlLCBzY29wZVRvU3RhdGV9IGZyb20gXCJyZXNjb3BlXCI7XG5pbXBvcnQgUmVhY3QgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZyb20gJ3JlYWN0J1xuaW1wb3J0IGlzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmcm9tICdpcydcbmltcG9ydCBQcm9wVHlwZXMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZnJvbSAncHJvcC10eXBlcyc7XG5cbmNvbnN0IFNpbXBsZU9iamVjdFByb3RvID0gKHt9KS5jb25zdHJ1Y3RvcjtcblxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIEluamVjdCAmIG1haW50YWluIHRoZSBzdG9yZXMgbGlzdGVkIGJhc2VDb21wb25lbnQ6OnVzZSBhbmQvb3IgKHVzZSkgaW4gdGhlXG4gKiBpbnN0YW5jZXMgcHJvcHMuXG4gKiAgLSBQcm9wYWcgKHNjb3BlKSBpbiB0aGUgcmV0dXJuZWQgUmVhY3QgQ29tcG9uZW50IGNvbnRleHRcbiAqXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOlxuICogICAgIFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc2NvcGUge1JlU2NvcGUuU2NvcGV8ZnVuY3Rpb259IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZVxuICogICAgIHNlYXJjaGVkICggZGVmYXVsdCA6IHRoZSBkZWZhdWx0IFJlU2NvcGU6OlNjb3BlOjpzY29wZXMuc3RhdGljIHNjb3BlIClcbiAqIEBwYXJhbSB1c2Uge2FycmF5fSB0aGUgbGlzdCBvZiBzdG9yZXMgdG8gaW5qZWN0IGZyb20gdGhlIGN1cnJlbnQgc2NvcGVcbiAqIEByZXR1cm5zIHtSZVNjb3BlUHJvdmlkZXJ9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGVQcm9wcyggLi4uYXJneiApIHtcblx0bGV0IEJhc2VDb21wb25lbnQgPSAoIWFyZ3pbMF0gfHwgYXJnelswXS5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQgfHwgYXJnelswXSA9PT0gUmVhY3QuQ29tcG9uZW50KSAmJiBhcmd6LnNoaWZ0KCksXG5cdCAgICBzY29wZSAgICAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTY29wZSB8fCBpcy5mbihhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuXHQgICAgdXNlICAgICAgICAgICA9ICghYXJnelswXSB8fCBpcy5hcnJheShhcmd6WzBdKSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKTtcblx0XG5cdGlmICggIShCYXNlQ29tcG9uZW50ICYmIChCYXNlQ29tcG9uZW50LnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCB8fCBCYXNlQ29tcG9uZW50ID09PSBSZWFjdC5Db21wb25lbnQpKSApIHtcblx0XHRyZXR1cm4gZnVuY3Rpb24gKCBCYXNlQ29tcG9uZW50ICkge1xuXHRcdFx0cmV0dXJuIHJlU2NvcGVQcm9wcyhCYXNlQ29tcG9uZW50LCBzY29wZSwgdXNlKVxuXHRcdH1cblx0fVxuXHRcblx0XG5cdGxldCBwcm92aWRlciA9IHJlU2NvcGVUb1N0YXRlKGNsYXNzIFJlU2NvcGVQcm9wc1Byb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcblx0XHRzdGF0aWMgX29yaWdpbkNvbXBvbmVudCAgPSBCYXNlQ29tcG9uZW50Ll9vcmlnaW5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudDtcblx0XHRzdGF0aWMgdXNlICAgICAgICAgICAgICAgPSBCYXNlQ29tcG9uZW50LnVzZTtcblx0XHRzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG5cdFx0XHQuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuXHRcdFx0cmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcblx0XHRcdCRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3Rcblx0XHR9O1xuXHRcdHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcblx0XHRcdC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG5cdFx0XHRyZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuXHRcdFx0JHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuXHRcdH07XG5cdFx0XG5cdFx0Z2V0Q2hpbGRDb250ZXh0KCkge1xuXHRcdFx0cmV0dXJuIHRoaXMuY29udGV4dDtcblx0XHR9XG5cdFx0XG5cdFx0cmVuZGVyKCkge1xuXHRcdFx0cmV0dXJuIDxCYXNlQ29tcG9uZW50IHsgLi4udGhpcy5wcm9wcyB9XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgeyAuLi50aGlzLnN0YXRlIH1cblx0XHRcdCAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cblx0XHRcdCAgICAgICAgICAgICAgICAgICAgICAkc2NvcGU9eyB0aGlzLiRzY29wZSB9XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgJHN0b3Jlcz17IHRoaXMuJHN0b3JlcyB9Lz5cblx0XHR9XG5cdH0sIHNjb3BlLCB1c2UpO1xuXHRwcm92aWRlci5kaXNwbGF5TmFtZSAgICAgICAgID0gXCJzMnAoXCIgKyAoQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWUpICsgXCIpXCI7XG5cdHJldHVybiBwcm92aWRlcjtcbn1cblxuLyoqXG4gKiBSZXR1cm4gYSBSZWFjdCBcIkhPQ1wiIChIaWdoIE9yZGVyIENvbXBvbmVudCkgdGhhdCA6XG4gKiAgLSBJbmhlcml0IEJhc2VDb21wb25lbnQsXG4gKiAgLSBJbmplY3QgJiBtYWludGFpbiB0aGUgc3RvcmVzIGluIEJhc2VDb21wb25lbnQ6OnVzZSBhbmQvb3IgKHVzZSkgaW4gdGhlIGluc3RhbmNlc1xuICogc3RhdGUuXG4gKiAgLSBQcm9wYWcgKHNjb3BlKSBpbiB0aGUgcmV0dXJuZWQgUmVhY3QgQ29tcG9uZW50IGNvbnRleHRcbiAqXG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDpcbiAqICAgICBSZWFjdC5Db21wb25lbnQgKVxuICogQHBhcmFtIHNjb3BlIHtSZVNjb3BlLlNjb3BlfGZ1bmN0aW9ufSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmVcbiAqICAgICBzZWFyY2hlZFxuICogQHBhcmFtIHVzZSB7YXJyYXl9IHRoZSBsaXN0IG9mIHN0b3JlcyBpbmplY3RlZCBmcm9tIHRoZSBjdXJyZW50IHNjb3BlXG4gKiBAcGFyYW0gYWRkaXRpb25hbENvbnRleHQge09iamVjdH0gY29udGV4dCB0byBiZSBwcm9wYWdhdGVkXG4gKiBAcmV0dXJucyB7UmVTY29wZVByb3ZpZGVyfVxuICovXG5mdW5jdGlvbiByZVNjb3BlVG9TdGF0ZSggLi4uYXJneiApIHtcblx0bGV0IEJhc2VDb21wb25lbnQgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbMF0gPT09IFJlYWN0LkNvbXBvbmVudCkgJiYgYXJnei5zaGlmdCgpLFxuXHQgICAgc2NvcGUgICAgICAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlIHx8IGlzLmZuKGFyZ3pbMF0pKSAmJiBhcmd6LnNoaWZ0KCksXG5cdCAgICB1c2UgICAgICAgICAgICAgICA9IChpcy5hcnJheShhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpLFxuXHQgICAgc3RhdGVNYXAgICAgICAgICAgPSAhdXNlICYmICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSxcblx0ICAgIGFkZGl0aW9uYWxDb250ZXh0ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpLFxuXHQgICAgaW5pdGlhbFN0YXRlICAgICAgPSB7fTtcblx0XG5cdHVzZSA9IFsuLi4oQmFzZUNvbXBvbmVudC51c2UgfHwgW10pLCAuLi4odXNlIHx8IFtdKV07XG5cdHN0YXRlTWFwICYmIFNjb3BlLnN0YXRlTWFwVG9SZWZMaXN0KHN0YXRlTWFwLCBpbml0aWFsU3RhdGUsIHVzZSk7XG5cdFxuXHRhZGRpdGlvbmFsQ29udGV4dCA9IGFkZGl0aW9uYWxDb250ZXh0ICYmIE9iamVjdC5rZXlzKGFkZGl0aW9uYWxDb250ZXh0KS5yZWR1Y2UoKCBoLCBrICkgPT4gKGhba10gPSBQcm9wVHlwZXMuYW55LCBoKSwge30pIHx8IHt9O1xuXHRcblx0Y2xhc3MgUmVTY29wZVByb3ZpZGVyIGV4dGVuZHMgQmFzZUNvbXBvbmVudCB7XG5cdFx0c3RhdGljIF9vcmlnaW5Db21wb25lbnQgID0gQmFzZUNvbXBvbmVudC5fb3JpZ2luQ29tcG9uZW50IHx8IEJhc2VDb21wb25lbnQ7XG5cdFx0c3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuXHRcdFx0Li4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuXHRcdFx0Li4uKGFkZGl0aW9uYWxDb250ZXh0KSxcblx0XHRcdHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG5cdFx0XHQkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG5cdFx0fVxuXHRcdHN0YXRpYyBjb250ZXh0VHlwZXMgICAgICA9IHtcblx0XHRcdC4uLihCYXNlQ29tcG9uZW50LmNvbnRleHRUeXBlcyB8fCB7fSksXG5cdFx0XHQuLi4oYWRkaXRpb25hbENvbnRleHQpLFxuXHRcdFx0cmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcblx0XHRcdCRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3Rcblx0XHR9XG5cdFx0c3RhdGljIGRlZmF1bHRQcm9wcyAgICAgID0ge1xuXHRcdFx0Li4uKEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzIHx8IHt9KSxcblx0XHR9XG5cdFx0c3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJzMnMoXCIgKyAoQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWUpICsgXCIpXCI7XG5cdFx0XG5cdFx0X3Njb3BlV2lsbFVwZGF0ZSA9ICggc3RhdGUgKSA9PiB7XG5cdFx0XHQvLyB0cmlnZ2VyIHVwZGF0ZSBob29rXG5cdFx0XHR0aGlzLnNjb3BlV2lsbFVwZGF0ZSAmJiB0aGlzLnNjb3BlV2lsbFVwZGF0ZShzdGF0ZSwgdGhpcy4kc3RvcmVzKTtcblx0XHRcdGlmICggdGhpcy5hcHBseVNjb3BlVXBkYXRlIClcblx0XHRcdFx0c3RhdGUgPSB0aGlzLmFwcGx5U2NvcGVVcGRhdGUoc3RhdGUsIHRoaXMuJHN0b3Jlcyk7XG5cdFx0XHRlbHNlXG5cdFx0XHQvLyBjbG9uZSB1cGRhdGVkIG9iamVjdHMgc28gcmVhY3Qgd2lsbCBwcm9wYWcgdGhlbS4uLlxuXHRcdFx0XHRzdGF0ZSA9IE9iamVjdC5rZXlzKHN0YXRlKVxuXHRcdFx0XHQgICAgICAgICAgICAgIC5yZWR1Y2UoXG5cdFx0XHRcdFx0ICAgICAgICAgICAgICAoIGgsIGsgKSA9PiAoXG5cdFx0XHRcdFx0XHQgICAgICAgICAgICAgIGhba10gPSBpcy5hcnJheShzdGF0ZVtrXSlcblx0XHRcdFx0XHRcdCAgICAgICAgICAgICAgICAgICAgID8gWy4uLnN0YXRlW2tdXVxuXHRcdFx0XHRcdFx0ICAgICAgICAgICAgICAgICAgICAgOiBzdGF0ZVtrXSBpbnN0YW5jZW9mIFNpbXBsZU9iamVjdFByb3RvXG5cdFx0XHRcdFx0XHQgICAgICAgICAgICAgICAgICAgICAgID8geyAuLi5zdGF0ZVtrXSB9XG5cdFx0XHRcdFx0XHQgICAgICAgICAgICAgICAgICAgICAgIDogc3RhdGVba10sXG5cdFx0XHRcdFx0XHRcdCAgICAgICAgICAgICAgaCksIHt9XG5cdFx0XHRcdCAgICAgICAgICAgICAgKVxuXHRcdFx0dGhpcy5zZXRTdGF0ZShzdGF0ZSk7XG5cdFx0fTtcblx0XHRcblx0XHRcblx0XHRjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuXHRcdFx0c3VwZXIocCwgY3R4LCBxKTtcblx0XHRcdHRoaXMuJHNjb3BlID0gdGhpcy4kc2NvcGUgfHxcblx0XHRcdFx0cC5fX3Njb3BlXG5cdFx0XHRcdHx8IChpcy5mbihzY29wZSkgPyBzY29wZSh0aGlzLCBwLCBjdHgpIDogc2NvcGUpXG5cdFx0XHRcdHx8IGN0eC5yZXNjb3BlIHx8IFN0b3JlLnN0YXRpY1Njb3BlO1xuXHRcdFx0XG5cdFx0XHRpZiAoIHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRlYWQgKSB7XG5cdFx0XHRcdGNvbnNvbGUuZXJyb3IoXCJSZVNjb3BpbmcgdXNpbmcgZGVhZCBzY29wZSAhXCIpXG5cdFx0XHRcdHRoaXMuJHNjb3BlID0gbnVsbDtcblx0XHRcdH1cblx0XHRcdFxuXHRcdFx0XG5cdFx0XHR0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuXHRcdFx0dGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmFjdGlvbnM7XG5cdFx0XHRpZiAoIHRoaXMuJHNjb3BlICYmIHVzZS5sZW5ndGggKSB7XG5cdFx0XHRcdHRoaXMuc3RhdGUgPSB7XG5cdFx0XHRcdFx0Li4udGhpcy5zdGF0ZSxcblx0XHRcdFx0XHQuLi5pbml0aWFsU3RhdGUsXG5cdFx0XHRcdFx0Li4udGhpcy4kc2NvcGUubWFwKHRoaXMsIHVzZSwgZmFsc2UpLy8gZG9uJ3QgYmluZCBub3cgZHVlIHRvIFNTUlxuXHRcdFx0XHR9XG5cdFx0XHR9XG5cdFx0XHRlbHNlIGlmICggIXRoaXMuJHNjb3BlIClcblx0XHRcdFx0dGhpcy5yZW5kZXIgPSAoKSA9PiA8ZGl2Pk5vIFNjb3BlIGZvdW5kIGluIHsgQmFzZUNvbXBvbmVudC5uYW1lIH08L2Rpdj5cblx0XHRcdFxuXHRcdFx0dGhpcy4kZGlzcGF0Y2ggPSB0aGlzLiRkaXNwYXRjaC5iaW5kKHRoaXMpO1xuXHRcdH1cblx0XHRcblx0XHQkZGlzcGF0Y2goIC4uLmFyZ3ogKSB7XG5cdFx0XHR0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kaXNwYXRjaCguLi5hcmd6KVxuXHRcdH1cblx0XHRcblx0XHRjb21wb25lbnREaWRNb3VudCgpIHtcblx0XHRcdGlmICggdXNlLmxlbmd0aCApIHtcblx0XHRcdFx0dGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYmluZCh0aGlzLl9zY29wZVdpbGxVcGRhdGUsIHVzZSwgZmFsc2UpXG5cdFx0XHR9XG5cdFx0XHR0aGlzLiRzY29wZSAvLyYmIGlzLmZuKHNjb3BlKVxuXHRcdFx0JiYgdGhpcy4kc2NvcGUucmV0YWluKFwiaG9jXCIpO1xuXHRcdFx0c3VwZXIuY29tcG9uZW50RGlkTW91bnQgJiYgc3VwZXIuY29tcG9uZW50RGlkTW91bnQoKVxuXHRcdH1cblx0XHRcblx0XHRjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcblx0XHRcdHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50ICYmIHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50KCk7XG5cdFx0XHRpZiAoIHRoaXMuJHNjb3BlICYmICF0aGlzLiRzY29wZS5kZWFkICkge1xuXHRcdFx0XHR1c2UubGVuZ3RoICYmIHRoaXMuJHNjb3BlLnVuQmluZCh0aGlzLl9zY29wZVdpbGxVcGRhdGUsIHVzZSk7XG5cdFx0XHRcdC8vaXMuZm4oc2NvcGUpICYmXG5cdFx0XHRcdHRoaXMuJHNjb3BlLmRpc3Bvc2UoXCJob2NcIik7XG5cdFx0XHR9XG5cdFx0fVxuXHRcdFxuXHRcdGNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoIG5wLCBuYyApIHtcblx0XHRcdGxldCBuU2NvcGUgPSBucC5fX3Njb3BlXG5cdFx0XHRcdHx8IChpcy5mbihzY29wZSkgPyBzY29wZSh0aGlzLCBucCwgbmMgfHwgdGhpcy5jb250ZXh0KSA6IHNjb3BlKVxuXHRcdFx0XHR8fCBuYy5yZXNjb3BlXG5cdFx0XHRcdHx8IHRoaXMuJHNjb3BlIHx8IFN0b3JlLnN0YXRpY1Njb3BlO1xuXHRcdFx0XG5cdFx0XHRpZiAoIG5TY29wZSAhPT0gdGhpcy4kc2NvcGUgKSB7XG5cdFx0XHRcdHVzZS5sZW5ndGggJiYgdGhpcy4kc2NvcGUudW5CaW5kKHRoaXMuX3Njb3BlV2lsbFVwZGF0ZSwgdXNlKTtcblx0XHRcdFx0XG5cdFx0XHRcdHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3Bvc2UoXCJob2NcIik7XG5cdFx0XHRcdFxuXHRcdFx0XHR0aGlzLiRzY29wZSA9IG5TY29wZTtcblx0XHRcdFx0XG5cdFx0XHRcdG5TY29wZSAmJiBuU2NvcGUucmV0YWluKFwiaG9jXCIpO1xuXHRcdFx0XHRcblx0XHRcdFx0aWYgKCB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kZWFkICkge1xuXHRcdFx0XHRcdGNvbnNvbGUuZXJyb3IoXCJSZVNjb3BpbmcgdXNpbmcgZGVhZCBzY29wZVwiKVxuXHRcdFx0XHRcdHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzdG9yZXMgPSB0aGlzLiRzY29wZSA9IG51bGw7XG5cdFx0XHRcdH1cblx0XHRcdFx0ZWxzZSB7XG5cdFx0XHRcdFx0dGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlLmFjdGlvbnM7XG5cdFx0XHRcdFx0dGhpcy4kc3RvcmVzICA9IHRoaXMuJHNjb3BlLnN0b3Jlcztcblx0XHRcdFx0XHR1c2UubGVuZ3RoICYmIG5TY29wZS5iaW5kKHRoaXMuX3Njb3BlV2lsbFVwZGF0ZSwgdXNlKTtcblx0XHRcdFx0fVxuXHRcdFx0fVxuXHRcdFx0c3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyAmJiBzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKG5wLCBuYyk7XG5cdFx0fVxuXHRcdFxuXHRcdGdldENoaWxkQ29udGV4dCgpIHtcblx0XHRcdGxldCBjdHggICA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fSxcblx0XHRcdCAgICBzY29wZSA9IHRoaXMuJHNjb3BlIHx8IHRoaXMuY29udGV4dC5yZXNjb3BlIHx8IFN0b3JlLnN0YXRpY1Njb3BlO1xuXHRcdFx0cmV0dXJuIHtcblx0XHRcdFx0Li4uY3R4LFxuXHRcdFx0XHRyZXNjb3BlOiBzY29wZSxcblx0XHRcdFx0JHN0b3Jlczogc2NvcGUuc3RvcmVzXG5cdFx0XHR9O1xuXHRcdH1cblx0fVxuXHRcblx0cmV0dXJuIFJlU2NvcGVQcm92aWRlcjtcbn1cblxuYWRkU2NvcGFibGVUeXBlKFxuXHQoIENvbXAgKSA9PiAoQ29tcCAmJiAoQ29tcC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQgfHwgQ29tcCA9PT0gUmVhY3QuQ29tcG9uZW50KSksXG5cdHJlU2NvcGVUb1N0YXRlLCBmYWxzZSwgdHJ1ZVxuKVxuXG4vKipcbiAqIFJldHVybiBhIFJlYWN0IFwiSE9DXCIgKEhpZ2ggT3JkZXIgQ29tcG9uZW50KSB0aGF0IDpcbiAqICAtIFJlbmRlciBCYXNlQ29tcG9uZW50IHdpdGggbmV3IHNjb3BlIHRoYXQgaW5oZXJpdCB0aGUgZ2l2ZW4gc2NvcGUgb3IgY29udGV4dCBzY29wZVxuICpcbiAqIEBwYXJhbSBCYXNlQ29tcG9uZW50IHtSZWFjdC5Db21wb25lbnR9IEJhc2UgUmVhY3QgQ29tcG9uZW50ICggZGVmYXVsdCA6XG4gKiAgICAgUmVhY3QuQ29tcG9uZW50IClcbiAqIEBwYXJhbSBzdG9yZXNNYXAge09iamVjdH0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGUge1Njb3BlfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZUlkIHtzdHJpbmd9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIGFkZGl0aW9uYWxDb250ZXh0IHtPYmplY3R9IGNvbnRleHQgdG8gYmUgcHJvcGFnYXRlZFxuICogQHJldHVybnMgeyp9XG4gKi9cbmZ1bmN0aW9uIHJlU2NvcGUoIC4uLmFyZ3ogKSB7XG5cdGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbMF0gPT09IFJlYWN0LkNvbXBvbmVudCkgJiYgYXJnei5zaGlmdCgpLFxuXHQgICAgc2NvcGVkICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8gJiYgIShhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUpKSAmJiBhcmd6LnNoaWZ0KCksXG5cdCAgICBzY29wZUNmZyAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpIHx8IHt9LFxuXHQgICAgcGFyZW50ICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUpICYmIGFyZ3ouc2hpZnQoKSxcblx0ICAgIHBhcmVudElkICAgICAgPSAoIWFyZ3pbMF0gfHwgaXMuc3RyaW5nKGFyZ3pbMF0pKSAmJiBhcmd6LnNoaWZ0KCk7XG5cdFxuXHRsZXQgY29tcE5hbWUgPSBCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZTtcblx0XG5cdFxuXHRjbGFzcyBTY29wZVByb3ZpZGVyIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcblx0XHRzdGF0aWMgX29yaWdpbkNvbXBvbmVudCAgPSBCYXNlQ29tcG9uZW50Ll9vcmlnaW5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudDtcblx0XHRzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG5cdFx0XHQuLi4oQmFzZUNvbXBvbmVudC5jaGlsZENvbnRleHRUeXBlcyB8fCB7fSksXG5cdFx0XHRyZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuXHRcdFx0JHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuXHRcdH1cblx0XHRzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG5cdFx0XHQuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuXHRcdFx0cmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcblx0XHRcdCRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3Rcblx0XHR9XG5cdFx0c3RhdGljIGRlZmF1bHRQcm9wcyAgICAgID0ge1xuXHRcdFx0Li4uKEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzIHx8IHt9KSxcblx0XHR9XG5cdFx0c3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJycyhcIiArIGNvbXBOYW1lICsgXCIpXCI7XG5cdFx0XG5cdFx0Y29uc3RydWN0b3IoIHAsIGN0eCwgcSApIHtcblx0XHRcdGxldCBfcGFyZW50ID0gcGFyZW50IHx8IHBhcmVudElkICYmIFNjb3BlLmdldFNjb3BlKHBhcmVudElkKSB8fCBwLl9fc2NvcGUgfHwgY3R4LnJlc2NvcGUsXG5cdFx0XHQgICAgJHNjb3BlICA9IG5ldyBTY29wZShcblx0XHRcdFx0ICAgIHNjb3BlZCB8fCB7fSxcblx0XHRcdFx0ICAgIHtcblx0XHRcdFx0XHQgICAgYXV0b0Rlc3Ryb3k6IHRydWUsXG5cdFx0XHRcdFx0ICAgIGtleSAgICAgICAgOiBjb21wTmFtZSxcblx0XHRcdFx0XHQgICAgcGFyZW50ICAgICA6IF9wYXJlbnQsXG5cdFx0XHRcdFx0ICAgIC4uLnNjb3BlQ2ZnXG5cdFx0XHRcdCAgICB9XG5cdFx0XHQgICAgKVxuXHRcdFx0XG5cdFx0XHRzdXBlcihwLCB7IC4uLmN0eCwgcmVzY29wZTogJHNjb3BlLCAkc3RvcmVzOiAkc2NvcGUuc3RvcmVzIH0sIHEpO1xuXHRcdFx0XG5cdFx0XHR0aGlzLiRzY29wZSA9IHRoaXMuJHNjb3BlIHx8ICRzY29wZTtcblx0XHRcdFxuXHRcdFx0aWYgKCAhdGhpcy4kc2NvcGUgKSB7XG5cdFx0XHRcdGlmICggdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGVhZCApIHtcblx0XHRcdFx0XHRjb25zb2xlLmVycm9yKFwiU2NvcGluZyB1c2luZyBkZWFkIHNjb3BlIHBhcmVudFwiKTtcblx0XHRcdFx0XHR0aGlzLiRzY29wZSA9IG51bGw7XG5cdFx0XHRcdH1cblx0XHRcdFx0XG5cdFx0XHRcdHRoaXMuJHNjb3BlID0gbmV3IFNjb3BlKFxuXHRcdFx0XHRcdHNjb3BlZCB8fCB7fSxcblx0XHRcdFx0XHR7XG5cdFx0XHRcdFx0XHRhdXRvRGVzdHJveTogdHJ1ZSxcblx0XHRcdFx0XHRcdGtleSAgICAgICAgOiBjb21wTmFtZSxcblx0XHRcdFx0XHRcdHBhcmVudCAgICAgOiB0aGlzLiRzY29wZVxuXHRcdFx0XHRcdH1cblx0XHRcdFx0KTtcblx0XHRcdFx0XG5cdFx0XHRcdHRoaXMuJGFjdGlvbnMgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5hY3Rpb25zO1xuXHRcdFx0XHR0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuXHRcdFx0fVxuXHRcdFx0dGhpcy4kc2NvcGUucmV0YWluKCk7XG5cdFx0fVxuXHRcdFxuXHRcdGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuXHRcdFx0c3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQgJiYgc3VwZXIuY29tcG9uZW50V2lsbFVubW91bnQoKTtcblx0XHRcdHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmRpc3Bvc2UoKTtcblx0XHR9XG5cdFx0XG5cdFx0Z2V0Q2hpbGRDb250ZXh0KCkge1xuXHRcdFx0bGV0IGN0eCA9IHN1cGVyLmdldENoaWxkQ29udGV4dCAmJiBzdXBlci5nZXRDaGlsZENvbnRleHQoKSB8fCB7fTtcblx0XHRcdHJldHVybiB7XG5cdFx0XHRcdC4uLmN0eCxcblx0XHRcdFx0cmVzY29wZTogdGhpcy4kc2NvcGUsXG5cdFx0XHRcdCRzdG9yZXM6IHRoaXMuJHNjb3BlLnN0b3Jlc1xuXHRcdFx0fTtcblx0XHR9XG5cdFx0XG5cdFx0cmVuZGVyKCkge1xuXHRcdFx0cmV0dXJuIDxCYXNlQ29tcG9uZW50IHsgLi4udGhpcy5wcm9wcyB9XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgJGRpc3BhdGNoPXsgdGhpcy4kZGlzcGF0Y2ggfVxuXHRcdFx0ICAgICAgICAgICAgICAgICAgICAgICRhY3Rpb25zPXsgdGhpcy4kYWN0aW9ucyB9XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgJHNjb3BlPXsgdGhpcy4kc2NvcGUgfVxuXHRcdFx0ICAgICAgICAgICAgICAgICAgICAgICRzdG9yZXM9eyB0aGlzLiRzdG9yZXMgfS8+XG5cdFx0fVxuXHR9XG5cdFxuXHRyZXR1cm4gU2NvcGVQcm92aWRlcjtcbn1cblxuYWRkU2NvcGFibGVUeXBlKFxuXHQoIENvbXAgKSA9PiAoQ29tcCAmJiAoQ29tcC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQgfHwgQ29tcCA9PT0gUmVhY3QuQ29tcG9uZW50KSksXG5cdHJlU2NvcGVcbilcblxuLyoqXG4gKiBNYXAgc3BlY2lmaWVkIHByb3BzIHRvXG4gKiBAcGFyYW0gQmFzZUNvbXBvbmVudCB7UmVhY3QuQ29tcG9uZW50fSBCYXNlIFJlYWN0IENvbXBvbmVudCAoIGRlZmF1bHQgOlxuICogICAgIFJlYWN0LkNvbXBvbmVudCApXG4gKiBAcGFyYW0gc3RvcmVzTWFwIHtPYmplY3R9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlIHtTY29wZX0gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gcGFyZW50U2NvcGVJZCB7c3RyaW5nfSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBhZGRpdGlvbmFsQ29udGV4dCB7T2JqZWN0fSBjb250ZXh0IHRvIGJlIHByb3BhZ2F0ZWRcbiAqIEByZXR1cm5zIHsqfVxuICovXG5mdW5jdGlvbiBwcm9wc1RvU2NvcGUoIC4uLmFyZ3ogKSB7XG5cdGxldCBCYXNlQ29tcG9uZW50ID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0ucHJvdG90eXBlIGluc3RhbmNlb2YgUmVhY3QuQ29tcG9uZW50IHx8IGFyZ3pbMF0gPT09IFJlYWN0LkNvbXBvbmVudCkgJiYgYXJnei5zaGlmdCgpLFxuXHQgICAgc2NvcGVkUHJvcHMgICA9ICghYXJnelswXSB8fCBpcy5hcnJheShhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpIHx8IFtdLFxuXHQgICAgc2NvcGVDZmcgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2ltcGxlT2JqZWN0UHJvdG8pICYmIGFyZ3ouc2hpZnQoKSB8fCB7fSxcblx0ICAgIHBhcmVudCAgICAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFNjb3BlKSAmJiBhcmd6LnNoaWZ0KCksXG5cdCAgICBwYXJlbnRJZCAgICAgID0gKCFhcmd6WzBdIHx8IGlzLnN0cmluZyhhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpO1xuXHRcblx0bGV0IGNvbXBOYW1lID0gQmFzZUNvbXBvbmVudC5kaXNwbGF5TmFtZSB8fCBCYXNlQ29tcG9uZW50Lm5hbWU7XG5cdFxuXHRpZiAoICEoQmFzZUNvbXBvbmVudCAmJiAoQmFzZUNvbXBvbmVudC5wcm90b3R5cGUgaW5zdGFuY2VvZiBSZWFjdC5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudCA9PT0gUmVhY3QuQ29tcG9uZW50KSkgKSB7XG5cdFx0cmV0dXJuIGZ1bmN0aW9uICggQmFzZUNvbXBvbmVudCApIHtcblx0XHRcdHJldHVybiBwcm9wc1RvU2NvcGUoQmFzZUNvbXBvbmVudCwgc2NvcGVkUHJvcHMsIHNjb3BlQ2ZnLCBwYXJlbnQsIHBhcmVudElkKVxuXHRcdH1cblx0fVxuXHRcblx0Y2xhc3MgU2NvcGVQcm92aWRlciBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG5cdFx0c3RhdGljIF9vcmlnaW5Db21wb25lbnQgID0gQmFzZUNvbXBvbmVudC5fb3JpZ2luQ29tcG9uZW50IHx8IEJhc2VDb21wb25lbnQ7XG5cdFx0c3RhdGljIGNoaWxkQ29udGV4dFR5cGVzID0ge1xuXHRcdFx0Li4uKEJhc2VDb21wb25lbnQuY2hpbGRDb250ZXh0VHlwZXMgfHwge30pLFxuXHRcdFx0cmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcblx0XHRcdCRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3Rcblx0XHR9XG5cdFx0c3RhdGljIGNvbnRleHRUeXBlcyAgICAgID0ge1xuXHRcdFx0Li4uKEJhc2VDb21wb25lbnQuY29udGV4dFR5cGVzIHx8IHt9KSxcblx0XHRcdHJlc2NvcGU6IFByb3BUeXBlcy5vYmplY3QsXG5cdFx0XHQkc3RvcmVzOiBQcm9wVHlwZXMub2JqZWN0XG5cdFx0fVxuXHRcdHN0YXRpYyBkZWZhdWx0UHJvcHMgICAgICA9IHtcblx0XHRcdC4uLihCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wcyB8fCB7fSksXG5cdFx0fVxuXHRcdHN0YXRpYyBkaXNwbGF5TmFtZSAgICAgICA9IFwicDJzYyhcIiArIGNvbXBOYW1lICsgXCIpXCI7XG5cdFx0XG5cdFx0Y29uc3RydWN0b3IoIHAsIGN0eCwgcSApIHtcblx0XHRcdGxldCBfcGFyZW50ID0gcGFyZW50IHx8IHBhcmVudElkICYmIFNjb3BlLmdldFNjb3BlKHBhcmVudElkKSB8fCBwLl9fc2NvcGUgfHwgY3R4LnJlc2NvcGUsXG5cdFx0XHQgICAgJHNjb3BlICA9IG5ldyBTY29wZShcblx0XHRcdFx0ICAgIHtcblx0XHRcdFx0XHQgICAgLi4uc2NvcGVkUHJvcHNcblx0XHRcdFx0XHRcdCAgICAuZmlsdGVyKGsgPT4gIV9wYXJlbnQuc3RvcmVzW2tdKVxuXHRcdFx0XHRcdFx0ICAgIC5yZWR1Y2UoXG5cdFx0XHRcdFx0XHRcdCAgICAoIGgsIGsgKSA9PiAoaFtrXSA9IFN0b3JlLCBoKSxcblx0XHRcdFx0XHRcdFx0ICAgIHt9XG5cdFx0XHRcdFx0XHQgICAgKSxcblx0XHRcdFx0ICAgIH0sXG5cdFx0XHRcdCAgICB7XG5cdFx0XHRcdFx0ICAgIGF1dG9EZXN0cm95OiB0cnVlLFxuXHRcdFx0XHRcdCAgICBrZXkgICAgICAgIDogY29tcE5hbWUsXG5cdFx0XHRcdFx0ICAgIHBhcmVudCAgICAgOiBfcGFyZW50LFxuXHRcdFx0XHRcdCAgICAuLi5zY29wZUNmZyxcblx0XHRcdFx0ICAgIH1cblx0XHRcdCAgICApXG5cdFx0XHRcblx0XHRcdHN1cGVyKHAsIHsgLi4uY3R4LCByZXNjb3BlOiAkc2NvcGUsICRzdG9yZXM6ICRzY29wZS5zdG9yZXMgfSwgcSk7XG5cdFx0XHRcblx0XHRcdHRoaXMuJHNjb3BlICAgPSB0aGlzLiRzY29wZSB8fCAkc2NvcGU7XG5cdFx0XHR0aGlzLiRhY3Rpb25zID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuYWN0aW9ucztcblx0XHRcdHRoaXMuJHN0b3JlcyAgPSB0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5zdG9yZXM7XG5cdFx0XHR0aGlzLiRzY29wZS5yZXRhaW4oKTtcblx0XHRcdHNjb3BlZFByb3BzLmZvckVhY2goXG5cdFx0XHRcdCggayApID0+IChcblx0XHRcdFx0XHR0aGlzLiRzY29wZS5zdGF0ZVtrXSA9IHBba11cblx0XHRcdFx0XHRcdHx8IEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzXG5cdFx0XHRcdFx0XHQmJiBCYXNlQ29tcG9uZW50LmRlZmF1bHRQcm9wc1trXVxuXHRcdFx0XHQpXG5cdFx0XHQpXG5cdFx0fVxuXHRcdFxuXHRcdGNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoIG5wICkge1xuXHRcdFx0c2NvcGVkUHJvcHMuZm9yRWFjaChcblx0XHRcdFx0cCA9PiAodGhpcy5wcm9wc1twXSAhPT0gbnBbcF0gJiYgdGhpcy4kc3RvcmVzW3BdLnNldFN0YXRlKG5wW3BdKSlcblx0XHRcdClcblx0XHRcdHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMgJiYgc3VwZXIuY29tcG9uZW50V2lsbFJlY2VpdmVQcm9wcyguLi5hcmd1bWVudHMpO1xuXHRcdH1cblx0XHRcblx0XHRcblx0XHRjb21wb25lbnRXaWxsVW5tb3VudCgpIHtcblx0XHRcdHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50ICYmIHN1cGVyLmNvbXBvbmVudFdpbGxVbm1vdW50KCk7XG5cdFx0XHR0aGlzLiRzY29wZSAmJiB0aGlzLiRzY29wZS5kaXNwb3NlKCk7XG5cdFx0fVxuXHRcdFxuXHRcdGdldENoaWxkQ29udGV4dCgpIHtcblx0XHRcdGxldCBjdHggPSBzdXBlci5nZXRDaGlsZENvbnRleHQgJiYgc3VwZXIuZ2V0Q2hpbGRDb250ZXh0KCkgfHwge307XG5cdFx0XHRyZXR1cm4ge1xuXHRcdFx0XHQuLi5jdHgsXG5cdFx0XHRcdHJlc2NvcGU6IHRoaXMuJHNjb3BlLFxuXHRcdFx0XHQkc3RvcmVzOiB0aGlzLiRzY29wZS5zdG9yZXNcblx0XHRcdH07XG5cdFx0fVxuXHRcdFxuXHRcdHJlbmRlcigpIHtcblx0XHRcdGxldCBmUHJvcHMgPSBPYmplY3Qua2V5cyh0aGlzLnByb3BzKS5yZWR1Y2UoKCBoLCBrICkgPT4gKCFzY29wZWRQcm9wcy5pbmNsdWRlcyhrKSAmJiAoaFtrXSA9IHRoaXMucHJvcHNba10pLCBoKSwge30pO1xuXHRcdFx0cmV0dXJuIDxCYXNlQ29tcG9uZW50IHsgLi4uZlByb3BzIH1cblx0XHRcdCAgICAgICAgICAgICAgICAgICAgICB7IC4uLnRoaXMuc3RhdGUgfVxuXHRcdFx0ICAgICAgICAgICAgICAgICAgICAgICRkaXNwYXRjaD17IHRoaXMuJGRpc3BhdGNoIH1cblx0XHRcdCAgICAgICAgICAgICAgICAgICAgICAkYWN0aW9ucz17IHRoaXMuJGFjdGlvbnMgfVxuXHRcdFx0XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgJHNjb3BlPXsgdGhpcy4kc2NvcGUgfVxuXHRcdFx0ICAgICAgICAgICAgICAgICAgICAgICRzdG9yZXM9eyB0aGlzLiRzdG9yZXMgfS8+XG5cdFx0fVxuXHR9XG5cdFxuXHRyZXR1cm4gU2NvcGVQcm92aWRlcjtcbn1cblxuLyoqXG4gKiBCaW5kIGEgY29tcG9uZW50IHByb3BzIHRvIHRoZSBzcGVjaWZpZWQgc3RvcmUsXG4gKiByZW5kZXIgd2l0aCB0aGUgc3BlY2lmaWVkIHN0b3JlIHJlc3VsdCBkYXRhXG4gKlxuICogQHBhcmFtIEJhc2VDb21wb25lbnQge1JlYWN0LkNvbXBvbmVudH0gQmFzZSBSZWFjdCBDb21wb25lbnQgKCBkZWZhdWx0IDpcbiAqICAgICBSZWFjdC5Db21wb25lbnQgKVxuICogQHBhcmFtIHN0b3Jlc01hcCB7T2JqZWN0fSB0aGUgcHJvcGFnYXRlZCBTY29wZSB3aGVyZSB0aGUgc3RvcmVzIHdpbGwgYmUgc2VhcmNoZWRcbiAqIEBwYXJhbSBwYXJlbnRTY29wZSB7U2NvcGV9IHRoZSBwcm9wYWdhdGVkIFNjb3BlIHdoZXJlIHRoZSBzdG9yZXMgd2lsbCBiZSBzZWFyY2hlZFxuICogQHBhcmFtIHBhcmVudFNjb3BlSWQge3N0cmluZ30gdGhlIHByb3BhZ2F0ZWQgU2NvcGUgd2hlcmUgdGhlIHN0b3JlcyB3aWxsIGJlIHNlYXJjaGVkXG4gKiBAcGFyYW0gYWRkaXRpb25hbENvbnRleHQge09iamVjdH0gY29udGV4dCB0byBiZSBwcm9wYWdhdGVkXG4gKiBAcmV0dXJucyB7Kn1cbiAqL1xuZnVuY3Rpb24gcHJvcHNUb1N0b3JlKCAuLi5hcmd6ICkge1xuXHRsZXQgQmFzZUNvbXBvbmVudCA9ICghYXJnelswXSB8fCBhcmd6WzBdLnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCB8fCBhcmd6WzBdID09PSBSZWFjdC5Db21wb25lbnQpICYmIGFyZ3ouc2hpZnQoKSxcblx0ICAgIHN0b3JlQ29tcCAgICAgPSAoIWFyZ3pbMF0gfHwgYXJnelswXSBpbnN0YW5jZW9mIFN0b3JlKSAmJiBhcmd6LnNoaWZ0KCkgfHwgU3RvcmUsXG5cdCAgICBzdG9yZU5hbWUgICAgID0gKCFhcmd6WzBdIHx8IGlzLnN0cmluZyhhcmd6WzBdKSkgJiYgYXJnei5zaGlmdCgpIHx8IHN0b3JlQ29tcC5kaXNwbGF5TmFtZSB8fCBcInByb3BzXCIsXG5cdCAgICBzY29wZUNmZyAgICAgID0gKCFhcmd6WzBdIHx8IGFyZ3pbMF0gaW5zdGFuY2VvZiBTaW1wbGVPYmplY3RQcm90bykgJiYgYXJnei5zaGlmdCgpIHx8IHt9LFxuXHQgICAgcGFyZW50ICAgICAgICA9ICghYXJnelswXSB8fCBhcmd6WzBdIGluc3RhbmNlb2YgU2NvcGUpICYmIGFyZ3ouc2hpZnQoKSxcblx0ICAgIHBhcmVudElkICAgICAgPSAoIWFyZ3pbMF0gfHwgaXMuc3RyaW5nKGFyZ3pbMF0pKSAmJiBhcmd6LnNoaWZ0KCk7XG5cdFxuXHRsZXQgY29tcE5hbWUgPSBCYXNlQ29tcG9uZW50LmRpc3BsYXlOYW1lIHx8IEJhc2VDb21wb25lbnQubmFtZTtcblx0XG5cdGlmICggIShCYXNlQ29tcG9uZW50ICYmIChCYXNlQ29tcG9uZW50LnByb3RvdHlwZSBpbnN0YW5jZW9mIFJlYWN0LkNvbXBvbmVudCB8fCBCYXNlQ29tcG9uZW50ID09PSBSZWFjdC5Db21wb25lbnQpKSApIHtcblx0XHRyZXR1cm4gZnVuY3Rpb24gKCBCYXNlQ29tcG9uZW50ICkge1xuXHRcdFx0cmV0dXJuIHByb3BzVG9TdG9yZShCYXNlQ29tcG9uZW50LFxuXHRcdFx0ICAgICAgICAgICAgICAgICAgICBzdG9yZUNvbXAsXG5cdFx0XHQgICAgICAgICAgICAgICAgICAgIHN0b3JlTmFtZSxcblx0XHRcdCAgICAgICAgICAgICAgICAgICAgc2NvcGVDZmcsXG5cdFx0XHQgICAgICAgICAgICAgICAgICAgIHBhcmVudCxcblx0XHRcdCAgICAgICAgICAgICAgICAgICAgcGFyZW50SWRcblx0XHRcdClcblx0XHR9XG5cdH1cblx0XG5cdGNsYXNzIFNjb3BlUHJvdmlkZXIgZXh0ZW5kcyAocmVTY29wZVRvU3RhdGUoUmVhY3QuQ29tcG9uZW50LCBbc3RvcmVOYW1lXSkpIHtcblx0XHRzdGF0aWMgX29yaWdpbkNvbXBvbmVudCAgPSBCYXNlQ29tcG9uZW50Ll9vcmlnaW5Db21wb25lbnQgfHwgQmFzZUNvbXBvbmVudDtcblx0XHRzdGF0aWMgY2hpbGRDb250ZXh0VHlwZXMgPSB7XG5cdFx0XHQuLi4oQmFzZUNvbXBvbmVudC5jaGlsZENvbnRleHRUeXBlcyB8fCB7fSksXG5cdFx0XHRyZXNjb3BlOiBQcm9wVHlwZXMub2JqZWN0LFxuXHRcdFx0JHN0b3JlczogUHJvcFR5cGVzLm9iamVjdFxuXHRcdH1cblx0XHRzdGF0aWMgY29udGV4dFR5cGVzICAgICAgPSB7XG5cdFx0XHQuLi4oQmFzZUNvbXBvbmVudC5jb250ZXh0VHlwZXMgfHwge30pLFxuXHRcdFx0cmVzY29wZTogUHJvcFR5cGVzLm9iamVjdCxcblx0XHRcdCRzdG9yZXM6IFByb3BUeXBlcy5vYmplY3Rcblx0XHR9XG5cdFx0c3RhdGljIGRlZmF1bHRQcm9wcyAgICAgID0ge1xuXHRcdFx0Li4uKEJhc2VDb21wb25lbnQuZGVmYXVsdFByb3BzIHx8IHt9KSxcblx0XHR9XG5cdFx0c3RhdGljIGRpc3BsYXlOYW1lICAgICAgID0gXCJwMnN0KFwiICsgY29tcE5hbWUgKyBcIilcIjtcblx0XHRcblx0XHRjb25zdHJ1Y3RvciggcCwgY3R4LCBxICkge1xuXHRcdFx0bGV0IF9wYXJlbnQgPSBwYXJlbnQgfHwgcGFyZW50SWQgJiYgU2NvcGUuZ2V0U2NvcGUocGFyZW50SWQpIHx8IHAuX19zY29wZSB8fCBjdHgucmVzY29wZSxcblx0XHRcdCAgICAkc2NvcGUgID0gX3BhcmVudCAmJiBfcGFyZW50LnN0b3Jlc1tzdG9yZU5hbWVdICYmIF9wYXJlbnRcblx0XHRcdFx0ICAgIHx8IG5ldyBTY29wZShcblx0XHRcdFx0XHQgICAge1xuXHRcdFx0XHRcdFx0ICAgIFtzdG9yZU5hbWVdOiBzdG9yZUNvbXBcblx0XHRcdFx0XHQgICAgfSxcblx0XHRcdFx0XHQgICAge1xuXHRcdFx0XHRcdFx0ICAgIGF1dG9EZXN0cm95OiB0cnVlLFxuXHRcdFx0XHRcdFx0ICAgIGtleSAgICAgICAgOiBjb21wTmFtZSxcblx0XHRcdFx0XHRcdCAgICBwYXJlbnQgICAgIDogX3BhcmVudCxcblx0XHRcdFx0XHRcdCAgICAuLi5zY29wZUNmZ1xuXHRcdFx0XHRcdCAgICB9XG5cdFx0XHRcdCAgICApO1xuXHRcdFx0XG5cdFx0XHRzdXBlcihwLCB7IC4uLmN0eCwgcmVzY29wZTogJHNjb3BlLCAkc3RvcmVzOiAkc2NvcGUuc3RvcmVzIH0sIHEpO1xuXHRcdFx0XG5cdFx0XHR0aGlzLiRzY29wZSAgID0gdGhpcy4kc2NvcGUgfHwgJHNjb3BlO1xuXHRcdFx0dGhpcy4kYWN0aW9ucyA9IHRoaXMuJHNjb3BlICYmIHRoaXMuJHNjb3BlLmFjdGlvbnM7XG5cdFx0XHR0aGlzLiRzdG9yZXMgID0gdGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuc3RvcmVzO1xuXHRcdFx0dGhpcy4kc2NvcGUucmV0YWluKCk7XG5cdFx0XHR0aGlzLiRzY29wZS5zdGF0ZVtzdG9yZU5hbWVdID0ge1xuXHRcdFx0XHQuLi4oQmFzZUNvbXBvbmVudC5kZWZhdWx0UHJvcHMgfHwge30pLFxuXHRcdFx0XHQuLi5wXG5cdFx0XHR9O1xuXHRcdH1cblx0XHRcblx0XHRjb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzKCBucCApIHtcblx0XHRcdC8vIEB0b2RvIGNvbnRleHQgc3dpdGNoaW5nXG5cdFx0XHR0aGlzLiRzdG9yZXMgJiYgdGhpcy4kc3RvcmVzW3N0b3JlTmFtZV0gJiYgdGhpcy4kc3RvcmVzW3N0b3JlTmFtZV0uc2V0U3RhdGUobnApXG5cdFx0XHRzdXBlci5jb21wb25lbnRXaWxsUmVjZWl2ZVByb3BzICYmIHN1cGVyLmNvbXBvbmVudFdpbGxSZWNlaXZlUHJvcHMoLi4uYXJndW1lbnRzKTtcblx0XHR9XG5cdFx0XG5cdFx0XG5cdFx0Y29tcG9uZW50V2lsbFVubW91bnQoKSB7XG5cdFx0XHRzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCAmJiBzdXBlci5jb21wb25lbnRXaWxsVW5tb3VudCgpO1xuXHRcdFx0dGhpcy4kc2NvcGUgJiYgdGhpcy4kc2NvcGUuZGlzcG9zZSgpO1xuXHRcdH1cblx0XHRcblx0XHRnZXRDaGlsZENvbnRleHQoKSB7XG5cdFx0XHRsZXQgY3R4ID0gc3VwZXIuZ2V0Q2hpbGRDb250ZXh0ICYmIHN1cGVyLmdldENoaWxkQ29udGV4dCgpIHx8IHt9O1xuXHRcdFx0cmV0dXJuIHtcblx0XHRcdFx0Li4uY3R4LFxuXHRcdFx0XHRyZXNjb3BlOiB0aGlzLiRzY29wZSxcblx0XHRcdFx0JHN0b3JlczogdGhpcy4kc2NvcGUuc3RvcmVzXG5cdFx0XHR9O1xuXHRcdH1cblx0XHRcblx0XHRyZW5kZXIoKSB7XG5cdFx0XHRyZXR1cm4gPEJhc2VDb21wb25lbnQgeyAuLi4odGhpcy5zdGF0ZSAmJiB0aGlzLnN0YXRlW3N0b3JlTmFtZV0gfHwge30pIH1cblx0XHRcdCAgICAgICAgICAgICAgICAgICAgICAkZGlzcGF0Y2g9eyB0aGlzLiRkaXNwYXRjaCB9XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgJGFjdGlvbnM9eyB0aGlzLiRhY3Rpb25zIH1cblx0XHRcdCAgICAgICAgICAgICAgICAgICAgICAkc2NvcGU9eyB0aGlzLiRzY29wZSB9XG5cdFx0XHQgICAgICAgICAgICAgICAgICAgICAgJHN0b3Jlcz17IHRoaXMuJHN0b3JlcyB9Lz5cblx0XHR9XG5cdH1cblx0XG5cdHJldHVybiBTY29wZVByb3ZpZGVyO1xufVxuXG5sZXQgQ29tcG9uZW50ID0gcmVTY29wZVRvU3RhdGUoUmVhY3QuQ29tcG9uZW50KTtcblxuZXhwb3J0IHtcblx0Q29tcG9uZW50IGFzIGRlZmF1bHQsXG5cdENvbXBvbmVudCxcblx0cmVTY29wZVByb3BzLFxuXHRwcm9wc1RvU2NvcGUsXG5cdHByb3BzVG9TdG9yZVxufTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9zcmMvUmVhY3RIb2NzLmpzIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVhY3RcIik7XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gZXh0ZXJuYWwgXCJyZWFjdFwiXG4vLyBtb2R1bGUgaWQgPSAzXG4vLyBtb2R1bGUgY2h1bmtzID0gMCIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcImlzXCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwiaXNcIlxuLy8gbW9kdWxlIGlkID0gNFxuLy8gbW9kdWxlIGNodW5rcyA9IDAiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJwcm9wLXR5cGVzXCIpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIGV4dGVybmFsIFwicHJvcC10eXBlc1wiXG4vLyBtb2R1bGUgaWQgPSA1XG4vLyBtb2R1bGUgY2h1bmtzID0gMCJdLCJzb3VyY2VSb290IjoiIn0=
+module.exports = __webpack_require__.p + "assets/e7ef2b448d27cf5312a73ceb3e7841c4.eot";
 
 /***/ }),
 /* 17 */
@@ -4620,7 +4712,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(global) {
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -4677,7 +4769,7 @@ var _MeteoWidget2 = _interopRequireDefault(_MeteoWidget);
 
 var _rscopes = __webpack_require__(3);
 
-var _server = __webpack_require__(7);
+var _server = __webpack_require__(11);
 
 __webpack_require__(24);
 
@@ -4695,7 +4787,7 @@ var asStateMap = _rscopes.spells.asStateMap;
 
 
 var indexTpl = __webpack_require__(23);
-var ReactDom = __webpack_require__(6);
+var ReactDom = __webpack_require__(7);
 
 var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_class = (_temp = _class2 = function (_React$Component) {
 	_inherits(App, _React$Component);
@@ -4758,9 +4850,12 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 	});
 }, _class2.renderSSR = function (cfg, cb) {
 	var rid = _shortid2.default.generate(),
-	    cScope = new _rscopes.Scope(_AppScope2.default, { id: rid });
+	    cScope = new _rscopes.Scope(_AppScope2.default, { id: rid, autoDestroy: true });
+	global.contexts = _rscopes.Scope.scopes;
 	cfg.state && cScope.restore(cfg.state, { alias: "App" });
-	//console.log(cfg)
+	cScope.once('destroy', function (d) {
+		return console.log('destroy ', rid, '; active ctx :', Object.keys(_rscopes.Scope.scopes));
+	});
 	cScope.mount(["appState", "someData"]).then(function (state) {
 		var html = void 0,
 		    appHtml = (0, _server.renderToString)(_react2.default.createElement(App, { __scope: cScope })),
@@ -4788,6 +4883,7 @@ if (typeof window != 'undefined') {
 }
 exports.default = App;
 module.exports = exports['default'];
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 27 */
@@ -5088,7 +5184,7 @@ module.exports =
 /* 1 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(13);
+	module.exports = __webpack_require__(14);
 
 	/***/
 },
@@ -5689,14 +5785,14 @@ module.exports =
 /* 6 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(7);
+	module.exports = __webpack_require__(11);
 
 	/***/
 },
 /* 7 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(16);
+	module.exports = __webpack_require__(13);
 
 	/***/
 }]
@@ -8984,7 +9080,7 @@ module.exports =
 	/***/
 }]
 /******/);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(0)))
 
 /***/ }),
 /* 30 */
@@ -9160,12 +9256,12 @@ Emitter.prototype.hasListeners = function(event){
 /***/ (function(module, exports, __webpack_require__) {
 
 var escape = __webpack_require__(33);
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(15)(false);
 // imports
 
 
 // module
-exports.push([module.i, "/*!\n *  Weather Icons 1.3\n *  Updated November 30th, 2014\n *  Weather themed icons for Bootstrap\n *  ------------------------------------------------------------------------------\n* Maintained at http://erikflowers.github.io/weather-icons\n *  http://twitter.com/Erik_UX\n *\n *  License\n *  ------------------------------------------------------------------------------\n *  - Fpmt licensed under SIL OFL 1.1 -\n *    http://scripts.sil.org/OFL\n *  - CSS and LESS are licensed under MIT License -\n *    http://opensource.org/licenses/mit-license.html\n *  - Documentation licensed under CC BY 3.0 -\n *    http://creativecommons.org/licenses/by/3.0/\n *  - Inspired by and works great as a companion with Font Awesome\n *    \"Font Awesome by Dave Gandy - http://fontawesome.io\"\n *\n *  Weather Icons Bootstrap Package Author - Erik Flowers - erik@helloerik.com\n *  ------------------------------------------------------------------------------\n *  Email: erik@helloerik.com\n *  Twitter: http://twitter.com/Erik_UX\n */\n@font-face {\n  font-family: 'weathericons';\n  src: url(" + escape(__webpack_require__(15)) + ");\n  src: url(" + escape(__webpack_require__(15)) + "?#iefix) format(\"embedded-opentype\"), url(" + escape(__webpack_require__(66)) + ") format(\"woff\"), url(" + escape(__webpack_require__(35)) + ") format(\"truetype\"), url(" + escape(__webpack_require__(34)) + "#weathericons-regular-webfontRg) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n.wi {\n  display: inline-block;\n  font-family: 'weathericons';\n  font-style: normal;\n  font-weight: normal;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.wi-day-cloudy-gusts:before {\n  content: \"\\F000\"; }\n\n.wi-day-cloudy-windy:before {\n  content: \"\\F001\"; }\n\n.wi-day-cloudy:before {\n  content: \"\\F002\"; }\n\n.wi-day-fog:before {\n  content: \"\\F003\"; }\n\n.wi-day-hail:before {\n  content: \"\\F004\"; }\n\n.wi-day-lightning:before {\n  content: \"\\F005\"; }\n\n.wi-day-rain-mix:before {\n  content: \"\\F006\"; }\n\n.wi-day-rain-wind:before {\n  content: \"\\F007\"; }\n\n.wi-day-rain:before {\n  content: \"\\F008\"; }\n\n.wi-day-showers:before {\n  content: \"\\F009\"; }\n\n.wi-day-snow:before {\n  content: \"\\F00A\"; }\n\n.wi-day-sprinkle:before {\n  content: \"\\F00B\"; }\n\n.wi-day-sunny-overcast:before {\n  content: \"\\F00C\"; }\n\n.wi-day-sunny:before {\n  content: \"\\F00D\"; }\n\n.wi-day-storm-showers:before {\n  content: \"\\F00E\"; }\n\n.wi-day-thunderstorm:before {\n  content: \"\\F010\"; }\n\n.wi-cloudy-gusts:before {\n  content: \"\\F011\"; }\n\n.wi-cloudy-windy:before {\n  content: \"\\F012\"; }\n\n.wi-cloudy:before {\n  content: \"\\F013\"; }\n\n.wi-fog:before {\n  content: \"\\F014\"; }\n\n.wi-hail:before {\n  content: \"\\F015\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-rain-mix:before {\n  content: \"\\F017\"; }\n\n.wi-rain-wind:before {\n  content: \"\\F018\"; }\n\n.wi-rain:before {\n  content: \"\\F019\"; }\n\n.wi-showers:before {\n  content: \"\\F01A\"; }\n\n.wi-snow:before {\n  content: \"\\F01B\"; }\n\n.wi-sprinkle:before {\n  content: \"\\F01C\"; }\n\n.wi-storm-showers:before {\n  content: \"\\F01D\"; }\n\n.wi-thunderstorm:before {\n  content: \"\\F01E\"; }\n\n.wi-windy:before {\n  content: \"\\F021\"; }\n\n.wi-night-alt-cloudy-gusts:before {\n  content: \"\\F022\"; }\n\n.wi-night-alt-cloudy-windy:before {\n  content: \"\\F023\"; }\n\n.wi-night-alt-hail:before {\n  content: \"\\F024\"; }\n\n.wi-night-alt-lightning:before {\n  content: \"\\F025\"; }\n\n.wi-night-alt-rain-mix:before {\n  content: \"\\F026\"; }\n\n.wi-night-alt-rain-wind:before {\n  content: \"\\F027\"; }\n\n.wi-night-alt-rain:before {\n  content: \"\\F028\"; }\n\n.wi-night-alt-showers:before {\n  content: \"\\F029\"; }\n\n.wi-night-alt-snow:before {\n  content: \"\\F02A\"; }\n\n.wi-night-alt-sprinkle:before {\n  content: \"\\F02B\"; }\n\n.wi-night-alt-storm-showers:before {\n  content: \"\\F02C\"; }\n\n.wi-night-alt-thunderstorm:before {\n  content: \"\\F02D\"; }\n\n.wi-night-clear:before {\n  content: \"\\F02E\"; }\n\n.wi-night-cloudy-gusts:before {\n  content: \"\\F02F\"; }\n\n.wi-night-cloudy-windy:before {\n  content: \"\\F030\"; }\n\n.wi-night-cloudy:before {\n  content: \"\\F031\"; }\n\n.wi-night-hail:before {\n  content: \"\\F032\"; }\n\n.wi-night-lightning:before {\n  content: \"\\F033\"; }\n\n.wi-night-rain-mix:before {\n  content: \"\\F034\"; }\n\n.wi-night-rain-wind:before {\n  content: \"\\F035\"; }\n\n.wi-night-rain:before {\n  content: \"\\F036\"; }\n\n.wi-night-showers:before {\n  content: \"\\F037\"; }\n\n.wi-night-snow:before {\n  content: \"\\F038\"; }\n\n.wi-night-sprinkle:before {\n  content: \"\\F039\"; }\n\n.wi-night-storm-showers:before {\n  content: \"\\F03A\"; }\n\n.wi-night-thunderstorm:before {\n  content: \"\\F03B\"; }\n\n.wi-celsius:before {\n  content: \"\\F03C\"; }\n\n.wi-cloud-down:before {\n  content: \"\\F03D\"; }\n\n.wi-cloud-refresh:before {\n  content: \"\\F03E\"; }\n\n.wi-cloud-up:before {\n  content: \"\\F040\"; }\n\n.wi-cloud:before {\n  content: \"\\F041\"; }\n\n.wi-degrees:before {\n  content: \"\\F042\"; }\n\n.wi-down-left:before {\n  content: \"\\F043\"; }\n\n.wi-down:before {\n  content: \"\\F044\"; }\n\n.wi-fahrenheit:before {\n  content: \"\\F045\"; }\n\n.wi-horizon-alt:before {\n  content: \"\\F046\"; }\n\n.wi-horizon:before {\n  content: \"\\F047\"; }\n\n.wi-left:before {\n  content: \"\\F048\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-night-fog:before {\n  content: \"\\F04A\"; }\n\n.wi-refresh-alt:before {\n  content: \"\\F04B\"; }\n\n.wi-refresh:before {\n  content: \"\\F04C\"; }\n\n.wi-right:before {\n  content: \"\\F04D\"; }\n\n.wi-sprinkles:before {\n  content: \"\\F04E\"; }\n\n.wi-strong-wind:before {\n  content: \"\\F050\"; }\n\n.wi-sunrise:before {\n  content: \"\\F051\"; }\n\n.wi-sunset:before {\n  content: \"\\F052\"; }\n\n.wi-thermometer-exterior:before {\n  content: \"\\F053\"; }\n\n.wi-thermometer-internal:before {\n  content: \"\\F054\"; }\n\n.wi-thermometer:before {\n  content: \"\\F055\"; }\n\n.wi-tornado:before {\n  content: \"\\F056\"; }\n\n.wi-up-right:before {\n  content: \"\\F057\"; }\n\n.wi-up:before {\n  content: \"\\F058\"; }\n\n.wi-wind-west:before {\n  content: \"\\F059\"; }\n\n.wi-wind-south-west:before {\n  content: \"\\F05A\"; }\n\n.wi-wind-south-east:before {\n  content: \"\\F05B\"; }\n\n.wi-wind-south:before {\n  content: \"\\F05C\"; }\n\n.wi-wind-north-west:before {\n  content: \"\\F05D\"; }\n\n.wi-wind-north-east:before {\n  content: \"\\F05E\"; }\n\n.wi-wind-north:before {\n  content: \"\\F060\"; }\n\n.wi-wind-east:before {\n  content: \"\\F061\"; }\n\n.wi-smoke:before {\n  content: \"\\F062\"; }\n\n.wi-dust:before {\n  content: \"\\F063\"; }\n\n.wi-snow-wind:before {\n  content: \"\\F064\"; }\n\n.wi-day-snow-wind:before {\n  content: \"\\F065\"; }\n\n.wi-night-snow-wind:before {\n  content: \"\\F066\"; }\n\n.wi-night-alt-snow-wind:before {\n  content: \"\\F067\"; }\n\n.wi-day-sleet-storm:before {\n  content: \"\\F068\"; }\n\n.wi-night-sleet-storm:before {\n  content: \"\\F069\"; }\n\n.wi-night-alt-sleet-storm:before {\n  content: \"\\F06A\"; }\n\n.wi-day-snow-thunderstorm:before {\n  content: \"\\F06B\"; }\n\n.wi-night-snow-thunderstorm:before {\n  content: \"\\F06C\"; }\n\n.wi-night-alt-snow-thunderstorm:before {\n  content: \"\\F06D\"; }\n\n.wi-solar-eclipse:before {\n  content: \"\\F06E\"; }\n\n.wi-lunar-eclipse:before {\n  content: \"\\F070\"; }\n\n.wi-meteor:before {\n  content: \"\\F071\"; }\n\n.wi-hot:before {\n  content: \"\\F072\"; }\n\n.wi-hurricane:before {\n  content: \"\\F073\"; }\n\n.wi-smog:before {\n  content: \"\\F074\"; }\n\n.wi-alien:before {\n  content: \"\\F075\"; }\n\n.wi-snowflake-cold:before {\n  content: \"\\F076\"; }\n\n.wi-stars:before {\n  content: \"\\F077\"; }\n\n.wi-night-partly-cloudy:before {\n  content: \"\\F083\"; }\n\n.wi-umbrella:before {\n  content: \"\\F084\"; }\n\n.wi-day-windy:before {\n  content: \"\\F085\"; }\n\n.wi-night-alt-cloudy:before {\n  content: \"\\F086\"; }\n\n.wi-up-left:before {\n  content: \"\\F087\"; }\n\n.wi-down-right:before {\n  content: \"\\F088\"; }\n\n.wi-time-12:before {\n  content: \"\\F089\"; }\n\n.wi-time-1:before {\n  content: \"\\F08A\"; }\n\n.wi-time-2:before {\n  content: \"\\F08B\"; }\n\n.wi-time-3:before {\n  content: \"\\F08C\"; }\n\n.wi-time-4:before {\n  content: \"\\F08D\"; }\n\n.wi-time-5:before {\n  content: \"\\F08E\"; }\n\n.wi-time-6:before {\n  content: \"\\F08F\"; }\n\n.wi-time-7:before {\n  content: \"\\F090\"; }\n\n.wi-time-8:before {\n  content: \"\\F091\"; }\n\n.wi-time-9:before {\n  content: \"\\F092\"; }\n\n.wi-time-10:before {\n  content: \"\\F093\"; }\n\n.wi-time-11:before {\n  content: \"\\F094\"; }\n\n.wi-day-sleet:before {\n  content: \"\\F0B2\"; }\n\n.wi-night-sleet:before {\n  content: \"\\F0B3\"; }\n\n.wi-night-alt-sleet:before {\n  content: \"\\F0B4\"; }\n\n.wi-sleet:before {\n  content: \"\\F0B5\"; }\n\n.wi-day-haze:before {\n  content: \"\\F0B6\"; }\n\n.wi-beafort-0:before {\n  content: \"\\F0B7\"; }\n\n.wi-beafort-1:before {\n  content: \"\\F0B8\"; }\n\n.wi-beafort-2:before {\n  content: \"\\F0B9\"; }\n\n.wi-beafort-3:before {\n  content: \"\\F0BA\"; }\n\n.wi-beafort-4:before {\n  content: \"\\F0BB\"; }\n\n.wi-beafort-5:before {\n  content: \"\\F0BC\"; }\n\n.wi-beafort-6:before {\n  content: \"\\F0BD\"; }\n\n.wi-beafort-7:before {\n  content: \"\\F0BE\"; }\n\n.wi-beafort-8:before {\n  content: \"\\F0BF\"; }\n\n.wi-beafort-9:before {\n  content: \"\\F0C0\"; }\n\n.wi-beafort-10:before {\n  content: \"\\F0C1\"; }\n\n.wi-beafort-11:before {\n  content: \"\\F0C2\"; }\n\n.wi-beafort-12:before {\n  content: \"\\F0C3\"; }\n\n.wi-wind-default:before {\n  content: \"\\F0B1\"; }\n\nwi-wind-default._0-deg {\n  -webkit-transform: rotate(0deg);\n  -ms-transform: rotate(0deg);\n  transform: rotate(0deg); }\n\nwi-wind-default._15-deg {\n  -webkit-transform: rotate(15deg);\n  -ms-transform: rotate(15deg);\n  transform: rotate(15deg); }\n\nwi-wind-default._30-deg {\n  -webkit-transform: rotate(30deg);\n  -ms-transform: rotate(30deg);\n  transform: rotate(30deg); }\n\nwi-wind-default._45-deg {\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg); }\n\nwi-wind-default._60-deg {\n  -webkit-transform: rotate(60deg);\n  -ms-transform: rotate(60deg);\n  transform: rotate(60deg); }\n\nwi-wind-default._75-deg {\n  -webkit-transform: rotate(75deg);\n  -ms-transform: rotate(75deg);\n  transform: rotate(75deg); }\n\nwi-wind-default._90-deg {\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg); }\n\nwi-wind-default._105-deg {\n  -webkit-transform: rotate(105deg);\n  -ms-transform: rotate(105deg);\n  transform: rotate(105deg); }\n\nwi-wind-default._120-deg {\n  -webkit-transform: rotate(120deg);\n  -ms-transform: rotate(120deg);\n  transform: rotate(120deg); }\n\nwi-wind-default._135-deg {\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg); }\n\nwi-wind-default._150-deg {\n  -webkit-transform: rotate(150deg);\n  -ms-transform: rotate(150deg);\n  transform: rotate(150deg); }\n\nwi-wind-default._165-deg {\n  -webkit-transform: rotate(165deg);\n  -ms-transform: rotate(165deg);\n  transform: rotate(165deg); }\n\nwi-wind-default._180-deg {\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotate(180deg); }\n\nwi-wind-default._195-deg {\n  -webkit-transform: rotate(195deg);\n  -ms-transform: rotate(195deg);\n  transform: rotate(195deg); }\n\nwi-wind-default._210-deg {\n  -webkit-transform: rotate(210deg);\n  -ms-transform: rotate(210deg);\n  transform: rotate(210deg); }\n\nwi-wind-default._225-deg {\n  -webkit-transform: rotate(225deg);\n  -ms-transform: rotate(225deg);\n  transform: rotate(225deg); }\n\nwi-wind-default._240-deg {\n  -webkit-transform: rotate(240deg);\n  -ms-transform: rotate(240deg);\n  transform: rotate(240deg); }\n\nwi-wind-default._255-deg {\n  -webkit-transform: rotate(255deg);\n  -ms-transform: rotate(255deg);\n  transform: rotate(255deg); }\n\nwi-wind-default._270-deg {\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  transform: rotate(270deg); }\n\nwi-wind-default._285-deg {\n  -webkit-transform: rotate(295deg);\n  -ms-transform: rotate(295deg);\n  transform: rotate(295deg); }\n\nwi-wind-default._300-deg {\n  -webkit-transform: rotate(300deg);\n  -ms-transform: rotate(300deg);\n  transform: rotate(300deg); }\n\nwi-wind-default._315-deg {\n  -webkit-transform: rotate(315deg);\n  -ms-transform: rotate(315deg);\n  transform: rotate(315deg); }\n\nwi-wind-default._330-deg {\n  -webkit-transform: rotate(330deg);\n  -ms-transform: rotate(330deg);\n  transform: rotate(330deg); }\n\nwi-wind-default._345-deg {\n  -webkit-transform: rotate(345deg);\n  -ms-transform: rotate(345deg);\n  transform: rotate(345deg); }\n\n.wi-moon-new:before {\n  content: \"\\F095\"; }\n\n.wi-moon-waxing-cresent-1:before {\n  content: \"\\F096\"; }\n\n.wi-moon-waxing-cresent-2:before {\n  content: \"\\F097\"; }\n\n.wi-moon-waxing-cresent-3:before {\n  content: \"\\F098\"; }\n\n.wi-moon-waxing-cresent-4:before {\n  content: \"\\F099\"; }\n\n.wi-moon-waxing-cresent-5:before {\n  content: \"\\F09A\"; }\n\n.wi-moon-waxing-cresent-6:before {\n  content: \"\\F09B\"; }\n\n.wi-moon-first-quarter:before {\n  content: \"\\F09C\"; }\n\n.wi-moon-waxing-gibbous-1:before {\n  content: \"\\F09D\"; }\n\n.wi-moon-waxing-gibbous-2:before {\n  content: \"\\F09E\"; }\n\n.wi-moon-waxing-gibbous-3:before {\n  content: \"\\F09F\"; }\n\n.wi-moon-waxing-gibbous-4:before {\n  content: \"\\F0A0\"; }\n\n.wi-moon-waxing-gibbous-5:before {\n  content: \"\\F0A1\"; }\n\n.wi-moon-waxing-gibbous-6:before {\n  content: \"\\F0A2\"; }\n\n.wi-moon-full:before {\n  content: \"\\F0A3\"; }\n\n.wi-moon-waning-gibbous-1:before {\n  content: \"\\F0A4\"; }\n\n.wi-moon-waning-gibbous-2:before {\n  content: \"\\F0A5\"; }\n\n.wi-moon-waning-gibbous-3:before {\n  content: \"\\F0A6\"; }\n\n.wi-moon-waning-gibbous-4:before {\n  content: \"\\F0A7\"; }\n\n.wi-moon-waning-gibbous-5:before {\n  content: \"\\F0A8\"; }\n\n.wi-moon-waning-gibbous-6:before {\n  content: \"\\F0A9\"; }\n\n.wi-moon-3rd-quarter:before {\n  content: \"\\F0AA\"; }\n\n.wi-moon-waning-crescent-1:before {\n  content: \"\\F0AB\"; }\n\n.wi-moon-waning-crescent-2:before {\n  content: \"\\F0AC\"; }\n\n.wi-moon-waning-crescent-3:before {\n  content: \"\\F0AD\"; }\n\n.wi-moon-waning-crescent-4:before {\n  content: \"\\F0AE\"; }\n\n.wi-moon-waning-crescent-5:before {\n  content: \"\\F0AF\"; }\n\n.wi-moon-waning-crescent-6:before {\n  content: \"\\F0B0\"; }\n", ""]);
+exports.push([module.i, "/*!\n *  Weather Icons 1.3\n *  Updated November 30th, 2014\n *  Weather themed icons for Bootstrap\n *  ------------------------------------------------------------------------------\n* Maintained at http://erikflowers.github.io/weather-icons\n *  http://twitter.com/Erik_UX\n *\n *  License\n *  ------------------------------------------------------------------------------\n *  - Fpmt licensed under SIL OFL 1.1 -\n *    http://scripts.sil.org/OFL\n *  - CSS and LESS are licensed under MIT License -\n *    http://opensource.org/licenses/mit-license.html\n *  - Documentation licensed under CC BY 3.0 -\n *    http://creativecommons.org/licenses/by/3.0/\n *  - Inspired by and works great as a companion with Font Awesome\n *    \"Font Awesome by Dave Gandy - http://fontawesome.io\"\n *\n *  Weather Icons Bootstrap Package Author - Erik Flowers - erik@helloerik.com\n *  ------------------------------------------------------------------------------\n *  Email: erik@helloerik.com\n *  Twitter: http://twitter.com/Erik_UX\n */\n@font-face {\n  font-family: 'weathericons';\n  src: url(" + escape(__webpack_require__(16)) + ");\n  src: url(" + escape(__webpack_require__(16)) + "?#iefix) format(\"embedded-opentype\"), url(" + escape(__webpack_require__(66)) + ") format(\"woff\"), url(" + escape(__webpack_require__(35)) + ") format(\"truetype\"), url(" + escape(__webpack_require__(34)) + "#weathericons-regular-webfontRg) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n.wi {\n  display: inline-block;\n  font-family: 'weathericons';\n  font-style: normal;\n  font-weight: normal;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.wi-day-cloudy-gusts:before {\n  content: \"\\F000\"; }\n\n.wi-day-cloudy-windy:before {\n  content: \"\\F001\"; }\n\n.wi-day-cloudy:before {\n  content: \"\\F002\"; }\n\n.wi-day-fog:before {\n  content: \"\\F003\"; }\n\n.wi-day-hail:before {\n  content: \"\\F004\"; }\n\n.wi-day-lightning:before {\n  content: \"\\F005\"; }\n\n.wi-day-rain-mix:before {\n  content: \"\\F006\"; }\n\n.wi-day-rain-wind:before {\n  content: \"\\F007\"; }\n\n.wi-day-rain:before {\n  content: \"\\F008\"; }\n\n.wi-day-showers:before {\n  content: \"\\F009\"; }\n\n.wi-day-snow:before {\n  content: \"\\F00A\"; }\n\n.wi-day-sprinkle:before {\n  content: \"\\F00B\"; }\n\n.wi-day-sunny-overcast:before {\n  content: \"\\F00C\"; }\n\n.wi-day-sunny:before {\n  content: \"\\F00D\"; }\n\n.wi-day-storm-showers:before {\n  content: \"\\F00E\"; }\n\n.wi-day-thunderstorm:before {\n  content: \"\\F010\"; }\n\n.wi-cloudy-gusts:before {\n  content: \"\\F011\"; }\n\n.wi-cloudy-windy:before {\n  content: \"\\F012\"; }\n\n.wi-cloudy:before {\n  content: \"\\F013\"; }\n\n.wi-fog:before {\n  content: \"\\F014\"; }\n\n.wi-hail:before {\n  content: \"\\F015\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-rain-mix:before {\n  content: \"\\F017\"; }\n\n.wi-rain-wind:before {\n  content: \"\\F018\"; }\n\n.wi-rain:before {\n  content: \"\\F019\"; }\n\n.wi-showers:before {\n  content: \"\\F01A\"; }\n\n.wi-snow:before {\n  content: \"\\F01B\"; }\n\n.wi-sprinkle:before {\n  content: \"\\F01C\"; }\n\n.wi-storm-showers:before {\n  content: \"\\F01D\"; }\n\n.wi-thunderstorm:before {\n  content: \"\\F01E\"; }\n\n.wi-windy:before {\n  content: \"\\F021\"; }\n\n.wi-night-alt-cloudy-gusts:before {\n  content: \"\\F022\"; }\n\n.wi-night-alt-cloudy-windy:before {\n  content: \"\\F023\"; }\n\n.wi-night-alt-hail:before {\n  content: \"\\F024\"; }\n\n.wi-night-alt-lightning:before {\n  content: \"\\F025\"; }\n\n.wi-night-alt-rain-mix:before {\n  content: \"\\F026\"; }\n\n.wi-night-alt-rain-wind:before {\n  content: \"\\F027\"; }\n\n.wi-night-alt-rain:before {\n  content: \"\\F028\"; }\n\n.wi-night-alt-showers:before {\n  content: \"\\F029\"; }\n\n.wi-night-alt-snow:before {\n  content: \"\\F02A\"; }\n\n.wi-night-alt-sprinkle:before {\n  content: \"\\F02B\"; }\n\n.wi-night-alt-storm-showers:before {\n  content: \"\\F02C\"; }\n\n.wi-night-alt-thunderstorm:before {\n  content: \"\\F02D\"; }\n\n.wi-night-clear:before {\n  content: \"\\F02E\"; }\n\n.wi-night-cloudy-gusts:before {\n  content: \"\\F02F\"; }\n\n.wi-night-cloudy-windy:before {\n  content: \"\\F030\"; }\n\n.wi-night-cloudy:before {\n  content: \"\\F031\"; }\n\n.wi-night-hail:before {\n  content: \"\\F032\"; }\n\n.wi-night-lightning:before {\n  content: \"\\F033\"; }\n\n.wi-night-rain-mix:before {\n  content: \"\\F034\"; }\n\n.wi-night-rain-wind:before {\n  content: \"\\F035\"; }\n\n.wi-night-rain:before {\n  content: \"\\F036\"; }\n\n.wi-night-showers:before {\n  content: \"\\F037\"; }\n\n.wi-night-snow:before {\n  content: \"\\F038\"; }\n\n.wi-night-sprinkle:before {\n  content: \"\\F039\"; }\n\n.wi-night-storm-showers:before {\n  content: \"\\F03A\"; }\n\n.wi-night-thunderstorm:before {\n  content: \"\\F03B\"; }\n\n.wi-celsius:before {\n  content: \"\\F03C\"; }\n\n.wi-cloud-down:before {\n  content: \"\\F03D\"; }\n\n.wi-cloud-refresh:before {\n  content: \"\\F03E\"; }\n\n.wi-cloud-up:before {\n  content: \"\\F040\"; }\n\n.wi-cloud:before {\n  content: \"\\F041\"; }\n\n.wi-degrees:before {\n  content: \"\\F042\"; }\n\n.wi-down-left:before {\n  content: \"\\F043\"; }\n\n.wi-down:before {\n  content: \"\\F044\"; }\n\n.wi-fahrenheit:before {\n  content: \"\\F045\"; }\n\n.wi-horizon-alt:before {\n  content: \"\\F046\"; }\n\n.wi-horizon:before {\n  content: \"\\F047\"; }\n\n.wi-left:before {\n  content: \"\\F048\"; }\n\n.wi-lightning:before {\n  content: \"\\F016\"; }\n\n.wi-night-fog:before {\n  content: \"\\F04A\"; }\n\n.wi-refresh-alt:before {\n  content: \"\\F04B\"; }\n\n.wi-refresh:before {\n  content: \"\\F04C\"; }\n\n.wi-right:before {\n  content: \"\\F04D\"; }\n\n.wi-sprinkles:before {\n  content: \"\\F04E\"; }\n\n.wi-strong-wind:before {\n  content: \"\\F050\"; }\n\n.wi-sunrise:before {\n  content: \"\\F051\"; }\n\n.wi-sunset:before {\n  content: \"\\F052\"; }\n\n.wi-thermometer-exterior:before {\n  content: \"\\F053\"; }\n\n.wi-thermometer-internal:before {\n  content: \"\\F054\"; }\n\n.wi-thermometer:before {\n  content: \"\\F055\"; }\n\n.wi-tornado:before {\n  content: \"\\F056\"; }\n\n.wi-up-right:before {\n  content: \"\\F057\"; }\n\n.wi-up:before {\n  content: \"\\F058\"; }\n\n.wi-wind-west:before {\n  content: \"\\F059\"; }\n\n.wi-wind-south-west:before {\n  content: \"\\F05A\"; }\n\n.wi-wind-south-east:before {\n  content: \"\\F05B\"; }\n\n.wi-wind-south:before {\n  content: \"\\F05C\"; }\n\n.wi-wind-north-west:before {\n  content: \"\\F05D\"; }\n\n.wi-wind-north-east:before {\n  content: \"\\F05E\"; }\n\n.wi-wind-north:before {\n  content: \"\\F060\"; }\n\n.wi-wind-east:before {\n  content: \"\\F061\"; }\n\n.wi-smoke:before {\n  content: \"\\F062\"; }\n\n.wi-dust:before {\n  content: \"\\F063\"; }\n\n.wi-snow-wind:before {\n  content: \"\\F064\"; }\n\n.wi-day-snow-wind:before {\n  content: \"\\F065\"; }\n\n.wi-night-snow-wind:before {\n  content: \"\\F066\"; }\n\n.wi-night-alt-snow-wind:before {\n  content: \"\\F067\"; }\n\n.wi-day-sleet-storm:before {\n  content: \"\\F068\"; }\n\n.wi-night-sleet-storm:before {\n  content: \"\\F069\"; }\n\n.wi-night-alt-sleet-storm:before {\n  content: \"\\F06A\"; }\n\n.wi-day-snow-thunderstorm:before {\n  content: \"\\F06B\"; }\n\n.wi-night-snow-thunderstorm:before {\n  content: \"\\F06C\"; }\n\n.wi-night-alt-snow-thunderstorm:before {\n  content: \"\\F06D\"; }\n\n.wi-solar-eclipse:before {\n  content: \"\\F06E\"; }\n\n.wi-lunar-eclipse:before {\n  content: \"\\F070\"; }\n\n.wi-meteor:before {\n  content: \"\\F071\"; }\n\n.wi-hot:before {\n  content: \"\\F072\"; }\n\n.wi-hurricane:before {\n  content: \"\\F073\"; }\n\n.wi-smog:before {\n  content: \"\\F074\"; }\n\n.wi-alien:before {\n  content: \"\\F075\"; }\n\n.wi-snowflake-cold:before {\n  content: \"\\F076\"; }\n\n.wi-stars:before {\n  content: \"\\F077\"; }\n\n.wi-night-partly-cloudy:before {\n  content: \"\\F083\"; }\n\n.wi-umbrella:before {\n  content: \"\\F084\"; }\n\n.wi-day-windy:before {\n  content: \"\\F085\"; }\n\n.wi-night-alt-cloudy:before {\n  content: \"\\F086\"; }\n\n.wi-up-left:before {\n  content: \"\\F087\"; }\n\n.wi-down-right:before {\n  content: \"\\F088\"; }\n\n.wi-time-12:before {\n  content: \"\\F089\"; }\n\n.wi-time-1:before {\n  content: \"\\F08A\"; }\n\n.wi-time-2:before {\n  content: \"\\F08B\"; }\n\n.wi-time-3:before {\n  content: \"\\F08C\"; }\n\n.wi-time-4:before {\n  content: \"\\F08D\"; }\n\n.wi-time-5:before {\n  content: \"\\F08E\"; }\n\n.wi-time-6:before {\n  content: \"\\F08F\"; }\n\n.wi-time-7:before {\n  content: \"\\F090\"; }\n\n.wi-time-8:before {\n  content: \"\\F091\"; }\n\n.wi-time-9:before {\n  content: \"\\F092\"; }\n\n.wi-time-10:before {\n  content: \"\\F093\"; }\n\n.wi-time-11:before {\n  content: \"\\F094\"; }\n\n.wi-day-sleet:before {\n  content: \"\\F0B2\"; }\n\n.wi-night-sleet:before {\n  content: \"\\F0B3\"; }\n\n.wi-night-alt-sleet:before {\n  content: \"\\F0B4\"; }\n\n.wi-sleet:before {\n  content: \"\\F0B5\"; }\n\n.wi-day-haze:before {\n  content: \"\\F0B6\"; }\n\n.wi-beafort-0:before {\n  content: \"\\F0B7\"; }\n\n.wi-beafort-1:before {\n  content: \"\\F0B8\"; }\n\n.wi-beafort-2:before {\n  content: \"\\F0B9\"; }\n\n.wi-beafort-3:before {\n  content: \"\\F0BA\"; }\n\n.wi-beafort-4:before {\n  content: \"\\F0BB\"; }\n\n.wi-beafort-5:before {\n  content: \"\\F0BC\"; }\n\n.wi-beafort-6:before {\n  content: \"\\F0BD\"; }\n\n.wi-beafort-7:before {\n  content: \"\\F0BE\"; }\n\n.wi-beafort-8:before {\n  content: \"\\F0BF\"; }\n\n.wi-beafort-9:before {\n  content: \"\\F0C0\"; }\n\n.wi-beafort-10:before {\n  content: \"\\F0C1\"; }\n\n.wi-beafort-11:before {\n  content: \"\\F0C2\"; }\n\n.wi-beafort-12:before {\n  content: \"\\F0C3\"; }\n\n.wi-wind-default:before {\n  content: \"\\F0B1\"; }\n\nwi-wind-default._0-deg {\n  -webkit-transform: rotate(0deg);\n  -ms-transform: rotate(0deg);\n  transform: rotate(0deg); }\n\nwi-wind-default._15-deg {\n  -webkit-transform: rotate(15deg);\n  -ms-transform: rotate(15deg);\n  transform: rotate(15deg); }\n\nwi-wind-default._30-deg {\n  -webkit-transform: rotate(30deg);\n  -ms-transform: rotate(30deg);\n  transform: rotate(30deg); }\n\nwi-wind-default._45-deg {\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg); }\n\nwi-wind-default._60-deg {\n  -webkit-transform: rotate(60deg);\n  -ms-transform: rotate(60deg);\n  transform: rotate(60deg); }\n\nwi-wind-default._75-deg {\n  -webkit-transform: rotate(75deg);\n  -ms-transform: rotate(75deg);\n  transform: rotate(75deg); }\n\nwi-wind-default._90-deg {\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg); }\n\nwi-wind-default._105-deg {\n  -webkit-transform: rotate(105deg);\n  -ms-transform: rotate(105deg);\n  transform: rotate(105deg); }\n\nwi-wind-default._120-deg {\n  -webkit-transform: rotate(120deg);\n  -ms-transform: rotate(120deg);\n  transform: rotate(120deg); }\n\nwi-wind-default._135-deg {\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg); }\n\nwi-wind-default._150-deg {\n  -webkit-transform: rotate(150deg);\n  -ms-transform: rotate(150deg);\n  transform: rotate(150deg); }\n\nwi-wind-default._165-deg {\n  -webkit-transform: rotate(165deg);\n  -ms-transform: rotate(165deg);\n  transform: rotate(165deg); }\n\nwi-wind-default._180-deg {\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotate(180deg); }\n\nwi-wind-default._195-deg {\n  -webkit-transform: rotate(195deg);\n  -ms-transform: rotate(195deg);\n  transform: rotate(195deg); }\n\nwi-wind-default._210-deg {\n  -webkit-transform: rotate(210deg);\n  -ms-transform: rotate(210deg);\n  transform: rotate(210deg); }\n\nwi-wind-default._225-deg {\n  -webkit-transform: rotate(225deg);\n  -ms-transform: rotate(225deg);\n  transform: rotate(225deg); }\n\nwi-wind-default._240-deg {\n  -webkit-transform: rotate(240deg);\n  -ms-transform: rotate(240deg);\n  transform: rotate(240deg); }\n\nwi-wind-default._255-deg {\n  -webkit-transform: rotate(255deg);\n  -ms-transform: rotate(255deg);\n  transform: rotate(255deg); }\n\nwi-wind-default._270-deg {\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  transform: rotate(270deg); }\n\nwi-wind-default._285-deg {\n  -webkit-transform: rotate(295deg);\n  -ms-transform: rotate(295deg);\n  transform: rotate(295deg); }\n\nwi-wind-default._300-deg {\n  -webkit-transform: rotate(300deg);\n  -ms-transform: rotate(300deg);\n  transform: rotate(300deg); }\n\nwi-wind-default._315-deg {\n  -webkit-transform: rotate(315deg);\n  -ms-transform: rotate(315deg);\n  transform: rotate(315deg); }\n\nwi-wind-default._330-deg {\n  -webkit-transform: rotate(330deg);\n  -ms-transform: rotate(330deg);\n  transform: rotate(330deg); }\n\nwi-wind-default._345-deg {\n  -webkit-transform: rotate(345deg);\n  -ms-transform: rotate(345deg);\n  transform: rotate(345deg); }\n\n.wi-moon-new:before {\n  content: \"\\F095\"; }\n\n.wi-moon-waxing-cresent-1:before {\n  content: \"\\F096\"; }\n\n.wi-moon-waxing-cresent-2:before {\n  content: \"\\F097\"; }\n\n.wi-moon-waxing-cresent-3:before {\n  content: \"\\F098\"; }\n\n.wi-moon-waxing-cresent-4:before {\n  content: \"\\F099\"; }\n\n.wi-moon-waxing-cresent-5:before {\n  content: \"\\F09A\"; }\n\n.wi-moon-waxing-cresent-6:before {\n  content: \"\\F09B\"; }\n\n.wi-moon-first-quarter:before {\n  content: \"\\F09C\"; }\n\n.wi-moon-waxing-gibbous-1:before {\n  content: \"\\F09D\"; }\n\n.wi-moon-waxing-gibbous-2:before {\n  content: \"\\F09E\"; }\n\n.wi-moon-waxing-gibbous-3:before {\n  content: \"\\F09F\"; }\n\n.wi-moon-waxing-gibbous-4:before {\n  content: \"\\F0A0\"; }\n\n.wi-moon-waxing-gibbous-5:before {\n  content: \"\\F0A1\"; }\n\n.wi-moon-waxing-gibbous-6:before {\n  content: \"\\F0A2\"; }\n\n.wi-moon-full:before {\n  content: \"\\F0A3\"; }\n\n.wi-moon-waning-gibbous-1:before {\n  content: \"\\F0A4\"; }\n\n.wi-moon-waning-gibbous-2:before {\n  content: \"\\F0A5\"; }\n\n.wi-moon-waning-gibbous-3:before {\n  content: \"\\F0A6\"; }\n\n.wi-moon-waning-gibbous-4:before {\n  content: \"\\F0A7\"; }\n\n.wi-moon-waning-gibbous-5:before {\n  content: \"\\F0A8\"; }\n\n.wi-moon-waning-gibbous-6:before {\n  content: \"\\F0A9\"; }\n\n.wi-moon-3rd-quarter:before {\n  content: \"\\F0AA\"; }\n\n.wi-moon-waning-crescent-1:before {\n  content: \"\\F0AB\"; }\n\n.wi-moon-waning-crescent-2:before {\n  content: \"\\F0AC\"; }\n\n.wi-moon-waning-crescent-3:before {\n  content: \"\\F0AD\"; }\n\n.wi-moon-waning-crescent-4:before {\n  content: \"\\F0AE\"; }\n\n.wi-moon-waning-crescent-5:before {\n  content: \"\\F0AF\"; }\n\n.wi-moon-waning-crescent-6:before {\n  content: \"\\F0B0\"; }\n", ""]);
 
 // exports
 
@@ -9174,7 +9270,7 @@ exports.push([module.i, "/*!\n *  Weather Icons 1.3\n *  Updated November 30th, 
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(15)(false);
 // imports
 
 
@@ -9357,7 +9453,7 @@ module.exports = function() {
 var assign = __webpack_require__(2);
 
 var ReactPropTypesSecret = __webpack_require__(10);
-var checkPropTypes = __webpack_require__(4);
+var checkPropTypes = __webpack_require__(5);
 
 var printWarning = function() {};
 
@@ -10711,7 +10807,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var _assign = __webpack_require__(2);
 var React = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(4);
+var checkPropTypes = __webpack_require__(5);
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -14347,7 +14443,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(4);
+var checkPropTypes = __webpack_require__(5);
 var scheduler = __webpack_require__(17);
 var tracing = __webpack_require__(53);
 
@@ -34677,7 +34773,7 @@ var li={default:ki},mi=li&&ki||li;module.exports=mi.default||mi;
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
-	 true ? module.exports = factory(__webpack_require__(6), __webpack_require__(1)) :
+	 true ? module.exports = factory(__webpack_require__(7), __webpack_require__(1)) :
 	typeof define === 'function' && define.amd ? define(['react-dom', 'react'], factory) :
 	(global.ReactDraggable = factory(global.ReactDOM,global.React));
 }(this, (function (ReactDOM,React) { 'use strict';
@@ -36905,7 +37001,7 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var _assign = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(4);
+var checkPropTypes = __webpack_require__(5);
 
 // TODO: this is special because it gets imported during build.
 
@@ -39969,7 +40065,7 @@ exports.unstable_getFirstCallbackNode = unstable_getFirstCallbackNode;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4)))
 
 /***/ }),
 /* 52 */
@@ -39998,7 +40094,7 @@ exports.unstable_scheduleCallback=function(a,b){var d=-1!==k?k:exports.unstable_
 b=d.previous;b.next=d.previous=a;a.next=d;a.previous=b}return a};exports.unstable_cancelCallback=function(a){var b=a.next;if(null!==b){if(b===a)c=null;else{a===c&&(c=b);var d=a.previous;d.next=b;b.previous=d}a.next=a.previous=null}};exports.unstable_wrapCallback=function(a){var b=h;return function(){var d=h,e=k;h=b;k=exports.unstable_now();try{return a.apply(this,arguments)}finally{h=d,k=e,v()}}};exports.unstable_getCurrentPriorityLevel=function(){return h};
 exports.unstable_shouldYield=function(){return!f&&(null!==c&&c.expirationTime<l||w())};exports.unstable_continueExecution=function(){null!==c&&p()};exports.unstable_pauseExecution=function(){};exports.unstable_getFirstCallbackNode=function(){return c};
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 53 */
@@ -40023,7 +40119,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 var generate = __webpack_require__(55);
-var alphabet = __webpack_require__(5);
+var alphabet = __webpack_require__(6);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
 // This number should be updated every year or so to keep the generated id short.
@@ -40075,7 +40171,7 @@ module.exports = build;
 "use strict";
 
 
-var alphabet = __webpack_require__(5);
+var alphabet = __webpack_require__(6);
 var random = __webpack_require__(58);
 var format = __webpack_require__(36);
 
@@ -40103,7 +40199,7 @@ module.exports = generate;
 "use strict";
 
 
-var alphabet = __webpack_require__(5);
+var alphabet = __webpack_require__(6);
 var build = __webpack_require__(54);
 var isValid = __webpack_require__(57);
 
@@ -40171,7 +40267,7 @@ module.exports.isValid = isValid;
 
 "use strict";
 
-var alphabet = __webpack_require__(5);
+var alphabet = __webpack_require__(6);
 
 function isShortId(id) {
     if (!id || typeof id !== 'string' || id.length < 6 ) {

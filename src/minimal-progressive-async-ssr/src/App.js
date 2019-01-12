@@ -59,9 +59,10 @@ class App extends React.Component {
 	}
 	static renderSSR = ( cfg, cb ) => {
 		let rid    = shortid.generate(),
-		    cScope = new Scope(AppScope, { id: rid });
+		    cScope = new Scope(AppScope, { id: rid, autoDestroy: true });
+		global.contexts = Scope.scopes;
 		cfg.state && cScope.restore(cfg.state, { alias: "App" })
-		//console.log(cfg)
+		cScope.once('destroy', d => console.log('destroy ', rid, '; active ctx :', Object.keys(Scope.scopes)))
 		cScope.mount(["appState", "someData"])
 		      .then(
 			      ( state ) => {
