@@ -29,14 +29,14 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 				
 				// do query meteo if needed
 				searching &&
-				(this.wait(), superagent
+				(this.wait(), console.log("query"), superagent
 					.get(state.src + searching)
 					.then(( res ) => {
+						console.log("result")
 						if ( searching != this.nextState.searching )
 							return this.release();
 						try {
 							this.push({ results: res.body, searching })
-							
 							// update the record
 							this.$actions.updatePostIt(
 								{

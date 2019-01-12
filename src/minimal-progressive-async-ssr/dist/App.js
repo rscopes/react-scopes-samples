@@ -2849,15 +2849,14 @@ module.exports =
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
 
-
-//if ( process.env.NODE_ENV === 'production' ) {
-//	module.exports = require('../../dist/ReScope.min.js');
-//}
-//else {
-
-module.exports = __webpack_require__(29);
-//}
+if (process.env.NODE_ENV === 'production') {
+	module.exports = __webpack_require__(67);
+} else {
+	module.exports = __webpack_require__(29);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 15 */
@@ -4520,11 +4519,11 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 			if (searching == data.searching && data.results) return data;
 
 			// do query meteo if needed
-			searching && (this.wait(), _superagent2.default.get(state.src + searching).then(function (res) {
+			searching && (this.wait(), console.log("query"), _superagent2.default.get(state.src + searching).then(function (res) {
+				console.log("result");
 				if (searching != _this.nextState.searching) return _this.release();
 				try {
 					_this.push({ results: res.body, searching: searching });
-
 					// update the record
 					_this.$actions.updatePostIt(_extends({}, state.record, {
 						results: res.body,
@@ -4850,7 +4849,7 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 	});
 }, _class2.renderSSR = function (cfg, cb) {
 	var rid = _shortid2.default.generate(),
-	    cScope = new _rscopes.Scope(_AppScope2.default, { id: rid, autoDestroy: true });
+	    cScope = new _rscopes.Scope(_AppScope2.default, { id: rid });
 	global.contexts = _rscopes.Scope.scopes;
 	cfg.state && cScope.restore(cfg.state, { alias: "App" });
 	cScope.once('destroy', function (d) {
@@ -4872,6 +4871,7 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 			}
 			console.log('Was ', stable ? 'stable' : 'not stable');
 			cb(null, html, !stable && nstate);
+			//cScope.destroy()
 		};
 		cScope.onceStableTree(complete);
 	});
@@ -7397,14 +7397,14 @@ module.exports =
 					if (this._.persistenceTm) {
 						this._.destroyTM && clearTimeout(this._.destroyTM);
 						this._.destroyTM = setTimeout(function (e) {
-							//this.then(s => {
-							!_this23.__retains.all && !_this23.dead && _this23.destroy();
-							//});
+							_this23.then(function (s) {
+								!_this23.__retains.all && !_this23.dead && _this23.destroy();
+							});
 						}, this._.persistenceTm);
 					} else {
-						//this.then(s =>
-						!this.__retains.all && !this.dead && this.destroy();
-						//);
+						this.then(function (s) {
+							return !_this23.__retains.all && !_this23.dead && _this23.destroy();
+						});
 					}
 				}
 			}
@@ -41401,6 +41401,858 @@ exports.cleanHeader = function(header, changesOrigin){
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/f5b0d0d9cb02e551003132e079435312.woff";
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, process) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+module.exports = function (t) {
+  function e(i) {
+    if (s[i]) return s[i].exports;var r = s[i] = { exports: {}, id: i, loaded: !1 };return t[i].call(r.exports, r, r.exports, e), r.loaded = !0, r.exports;
+  }var s = {};return e.m = t, e.c = s, e.p = "/", e(0);
+}([function (t, e, s) {
+  "use strict";
+  function i(t) {
+    return t && t.__esModule ? t : { default: t };
+  }Object.defineProperty(e, "__esModule", { value: !0 });var r = s(3),
+      n = i(r),
+      o = s(7),
+      a = i(o),
+      h = s(9),
+      u = "undefined" != typeof window ? window : global,
+      l = u.___rescope || {};u.___rescope || (u.___rescope = l, n.default.Store = a.default, l.Scope = n.default, l.Context = n.default, l.Store = a.default, l.reScope = h.reScope, l.scopeToState = h.scopeToState, l.reScopeState = h.scopeToState, l.addScopableType = h.addScopableType, l.scopeRef = function (t, e) {
+    return t[e] = new n.default.scopeRef(t[e]), t;
+  }), e.default = l, t.exports = e.default;
+}, function (t, e) {
+  t.exports = __webpack_require__(9);
+}, function (t, e, s) {
+  "use strict";
+  Object.defineProperty(e, "__esModule", { value: !0 });var i = Object.assign || function (t) {
+    for (var e = 1; e < arguments.length; e++) {
+      var s = arguments[e];for (var i in s) {
+        Object.prototype.hasOwnProperty.call(s, i) && (t[i] = s[i]);
+      }
+    }return t;
+  },
+      r = s(1);e.default = i({}, r), t.exports = e.default;
+}, function (t, e, s) {
+  "use strict";
+  function i(t) {
+    if (Array.isArray(t)) {
+      for (var e = 0, s = Array(t.length); e < t.length; e++) {
+        s[e] = t[e];
+      }return s;
+    }return Array.from(t);
+  }function r(t, e, s) {
+    return e in t ? Object.defineProperty(t, e, { value: s, enumerable: !0, configurable: !0, writable: !0 }) : t[e] = s, t;
+  }function n(t, e) {
+    if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
+  }function o(t, e) {
+    if (!t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !e || "object" != (typeof e === "undefined" ? "undefined" : _typeof(e)) && "function" != typeof e ? t : e;
+  }function a(t, e) {
+    if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + (typeof e === "undefined" ? "undefined" : _typeof(e)));t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e);
+  }Object.defineProperty(e, "__esModule", { value: !0 });var h,
+      u,
+      l = Object.assign || function (t) {
+    for (var e = 1; e < arguments.length; e++) {
+      var s = arguments[e];for (var i in s) {
+        Object.prototype.hasOwnProperty.call(s, i) && (t[i] = s[i]);
+      }
+    }return t;
+  },
+      c = function () {
+    function t(t, e) {
+      for (var s = 0; s < e.length; s++) {
+        var i = e[s];i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(t, i.key, i);
+      }
+    }return function (e, s, i) {
+      return s && t(e.prototype, s), i && t(e, i), e;
+    };
+  }(),
+      _ = s(2),
+      f = s(5),
+      p = f.walknSet,
+      d = (f.walknGet, f.keyWalknSet),
+      v = f.keyWalknGet,
+      y = s(4),
+      b = s(6),
+      g = function g(t, e, s) {
+    var i = function i() {};i.prototype = s ? new s._[e]() : t[e] || {}, t[e] = new i(), t._[e] = i;
+  },
+      m = {},
+      k = ({}.constructor, u = h = function (t) {
+    function e(t) {
+      var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+          i = s.parent,
+          r = s.upperScope,
+          a = s.key,
+          h = s.id,
+          u = s.snapshot,
+          l = s.state,
+          c = s.data,
+          f = s.incrementId,
+          p = void 0 === f ? !!a : f,
+          d = s.persistenceTm,
+          v = s.autoDestroy,
+          y = s.rootEmitter,
+          k = s.boundedActions;n(this, e);var S = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
+          w = { keyPID: r && r._id || i && i._id || b.generate(), key: a, incrementId: p, baseId: h };if (h = h || a && w.keyPID + ">" + a, w.isLocalId = !h, h = h || "_____" + b.generate(), m[h] && !p) {
+        var O;return S._id = h, m[h].register(t), O = m[h], o(S, O);
+      }if (m[h] && p) {
+        for (var j = -1; m[h + "[" + ++j + "]"];) {}h = h + "[" + j + "]";
+      }if (S._id = h, S._rev = 0, m[h] = S, w.persistenceTm = d || S.constructor.persistenceTm, S.actions = {}, S.stores = {}, S.state = {}, S.data = {}, S.parent = i, S._ = w, S._autoDestroy = v, i && i.dead) throw new Error("Can't use a dead scope as parent !");return g(S, "actions", i), g(S, "stores", i), g(S, "state", i), g(S, "data", i), S.sources = [], w.childScopes = [], w.childScopesList = [], w.unStableChilds = 0, w.seenChilds = 0, S.__retains = { all: 0 }, S.__locks = { all: 1 }, w._boundedActions = _.array(k) ? { test: k.includes.bind(k) } : k, w._listening = {}, w._scope = {}, w._mixed = [], w._mixedList = [], w.followers = [], i && (i.retain("isMyParent"), y ? i.on(w._parentList = { update: function update(t) {
+          return S._propag();
+        } }) : (!i._stable && S.wait("waitingParent"), i.on(w._parentList = { stable: function stable(t) {
+          return S.release("waitingParent");
+        }, unstable: function unstable(t) {
+          return S.wait("waitingParent");
+        }, update: function update(t) {
+          return S._propag();
+        } }))), S.register(t, l, c), S.__locks.all--, S._stable = !S.__locks.all, i && i._addChild(S), S.restore(u), v && setTimeout(function (t) {
+        S.retain("autoDestroy"), S.dispose("autoDestroy");
+      }), S;
+    }return a(e, t), c(e, null, [{ key: "getScope", value: function value(t) {
+        var s = _.array(t) ? t.sort(function (t, e) {
+          return t.firstname < e.firstname ? -1 : t.firstname > e.firstname ? 1 : 0;
+        }).join("+") : t;return m[s] = m[s] || new e({}, { id: s });
+      } }, { key: "stateMapToRefList", value: function value(t) {
+        var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : [],
+            r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : {},
+            n = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : "",
+            o = void 0;return Object.keys(t).forEach(function (a) {
+          var h = n ? n + "." + a : a;t[a] instanceof e.scopeRef ? i.push(t[a].path + ":" + h) : t[a] && t[a] instanceof Function ? "$apply" == a ? o = t[a] : r[a] = t[a] : t[a] && t[a].prototype instanceof e.Store ? i.push(t[a].as(h)) : s[h] = t[a];
+        }), o;
+      } }]), c(e, [{ key: "mount", value: function value(t, e, s, i) {
+        var r = this;return _.array(t) ? t.forEach(function (t) {
+          return r._mount(t, e, s, i);
+        }) : this._mount.apply(this, arguments), this;
+      } }, { key: "_mount", value: function value(t, e, s, i) {
+        var r = void 0;if (r = this.parseRef(t), "$parent" != t) {
+          if (!this._._scope[r.storeId]) {
+            var n;if (this._._mixed.reduceRight(function (r, n) {
+              return r || n._mount(t, e, s, i);
+            }, !1) || !this.parent) return;return (n = this.parent)._mount.apply(n, arguments);
+          }var o = this._._scope[r.storeId],
+              a = [];if (_.rsStoreClass(o)) for (this._._scope[r.storeId] = new o(this, { name: r.storeId, state: s, data: i }, a); a.length;) {
+            a.shift()();
+          } else _.rsScopeClass(o) && (o = this._._scope[r.storeId] = new o({ $parent: this }, { key: r.storeId, incrementId: !0, upperScope: this }), r.path.length > 1 && this._._scope[r.storeId].mount(r.path.slice(1).join("."), e, s, i));return _.rsStore(o) && (void 0 !== s && void 0 === i ? o.setState(s) : void 0 !== s && (o.state = s), void 0 !== i && o.push(i)), this._watchStore(r.storeId), this._._scope[r.storeId];
+        }
+      } }, { key: "_watchStore", value: function value(t, e, s) {
+        var i = this;return this._._listening[t] || _.fn(this._._scope[t]) || (!this._._scope[t]._autoDestroy && this._._scope[t].retain("scoped"), !this._._scope[t].isStable() && this.wait(t), this._._scope[t].on(this._._listening[t] = { destroy: function destroy(e) {
+            delete i._._listening[t], i._._scope[t] = i._._scope[t].constructor;
+          }, update: function update(t) {
+            return i.propag();
+          }, stable: function stable(e) {
+            return i.release(t);
+          }, unstable: function unstable(e) {
+            return i.wait(t);
+          } })), !0;
+      } }, { key: "mixin", value: function value(t) {
+        var e = this,
+            s = this.parent,
+            i = void 0;this._._mixed.push(t), t.retain("mixedTo"), t._stable || this.wait(t._id), this._._mixedList.push(i = { stable: function stable(s) {
+            return e.release(t._id);
+          }, unstable: function unstable(s) {
+            return e.wait(t._id);
+          }, update: function update(t) {
+            return e._propag();
+          } }), t.on(i), g(this, "actions", s), g(this, "stores", s), g(this, "state", s), g(this, "data", s), this.relink(this._._scope, this, !1, !0), this._._mixed.forEach(function (t) {
+          g(e, "actions"), g(e, "stores"), g(e, "state"), g(e, "data"), e.stores.__origin = "mixed " + t._id, t.relink(t._._scope, e, !0, !0);
+        });
+      } }, { key: "register", value: function value(t) {
+        var e = this,
+            s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};this.relink(t, this, !1, !1), Object.keys(t).forEach(function (r) {
+          "$parent" != r && (t[r].singleton || _.fn(t[r]) && (s[r] || i[r]) ? e._mount(r, void 0, s[r], i[r]) : s[r] || i[r] ? i[r] ? (s[r] && (e.stores[r].state = s[r]), e.stores[r].push(i[r])) : s[r] && e.stores[r].setState(s[r]) : e._watchStore(r));
+        });
+      } }, { key: "relink", value: function value(t) {
+        var s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this,
+            i = this,
+            r = arguments[2],
+            n = arguments[3],
+            o = s._.stores.prototype;Object.keys(t).forEach(function (a) {
+          if (!(!n && s._._scope[a] === t[a] || s._._scope[a] && s._._scope[a].constructor === t[a])) {
+            if (!n && s._._scope[a]) {
+              if (!r && !_.fn(s._._scope[a])) {
+                var h = s._._scope[a];s._._scope[a] = s._._scope[a].constructor, i._mount(a, null, h.state), h.destroy();
+              }return void (!r && _.fn(s._._scope[a]) && (s._._scope[a] = t[a]));
+            }if (n || r || (i._._scope[a] = t[a]), Object.defineProperty(o, a, { enumerable: !0, configurable: !0, get: function get() {
+                return i._._scope[a];
+              } }), "$parent" != a) {
+              Object.defineProperty(s._.state.prototype, a, { enumerable: !0, configurable: !0, get: function get() {
+                  return i._._scope[a] && i._._scope[a].state;
+                }, set: function set(t) {
+                  return i._mount(a, void 0, t);
+                } }), Object.defineProperty(s._.data.prototype, a, { enumerable: !0, configurable: !0, get: function get() {
+                  return i._._scope[a] && i._._scope[a].data;
+                }, set: function set(t) {
+                  return i._mount(a, void 0, void 0, t);
+                } });var u = t[a] instanceof e.Store ? t[a].constructor.actions : t[a].actions,
+                  l = s._.actions.prototype;_.rsScope(i._._scope[a].prototype) && i._mount(a), _.rsScope(i._._scope[a]) && (l[a] = i._._scope[a].actions), (_.rsStore(i._._scope[a]) || _.rsStoreClass(i._._scope[a])) && u && Object.keys(u).forEach(function (t) {
+                l.hasOwnProperty(t) ? l[t].__targetStores++ : (l[t] = i.dispatch.bind(i, t), l[t].__targetStores = 1);
+              });
+            }
+          }
+        });
+      } }, { key: "bind", value: function value(t, e, s) {
+        var i = this,
+            n = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3],
+            o = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : {},
+            a = void 0,
+            h = void 0,
+            u = void 0;if (e && !_.array(e) && (e = [e]), s !== !1 && s !== !0 || (n = s, s = null), u = e.map(function (t) {
+          return _.string(t) ? t : t.name;
+        }).map(function (t) {
+          return i.parseRef(t);
+        }), this._.followers.push([t, e, s || void 0, a = u.reduce(function (t, e) {
+          return t[e.storeId] = t[e.storeId] || { rev: 0, refs: [] }, t[e.storeId].refs.push(e), t;
+        }, o)]), this.mount(e), this.retainStores(Object.keys(a), "listeners"), n && this._stable) {
+          if (h = this.getUpdates(a), !h) return this;"function" != typeof t ? s ? t.setState(r({}, s, h)) : t.setState(h) : t(h);
+        }return this;
+      } }, { key: "unBind", value: function value(t, e, s) {
+        for (var i = this._.followers, r = i && i.length; i && r--;) {
+          if (i[r][0] === t && "" + i[r][1] == "" + e && i[r][2] == s) return this.disposeStores(Object.keys(i[r][3]), "listeners"), i.splice(r, 1);
+        }
+      } }, { key: "map", value: function value(t, e) {
+        var s = this,
+            i = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2],
+            r = arguments[3],
+            n = this.constructor.Store;e = _.array(e) ? e : [e];var o = e.map(this.parseRef);if (this.mount(e), i && t instanceof n) n.map(t, e, this, this, !1);else if (i) {
+          this.bind(t, e, void 0, !1);var a = void 0,
+              h = t.isReactComponent ? "componentWillUnmount" : "destroy";t.hasOwnProperty(h) && (a = t[h]), t[h] = function () {
+            return delete t[h], a && (t[h] = a), s.unBind(t, e), t[h] && t[h].apply(t, arguments);
+          };
+        }return r && this.getUpdates(r) || o.reduce(function (t, e) {
+          return p(t, e.alias || e.path, s.retrieve(e.path)), t;
+        }, {});
+      } }, { key: "retrieve", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";return t = _.string(t) ? t.split(".") : t, t && this.stores[t[0]] && this.stores[t[0]].retrieve && this.stores[t[0]].retrieve(t.slice(1));
+      } }, { key: "retrieveStore", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";return t = _.string(t) ? t.split(".") : t, t && t.length && (1 != t.length && this.stores[t[0]].retrieveStore ? this.stores[t[0]].retrieveStore(t.slice(1)) : 1 == t.length && this.stores[t[0]]);
+      } }, { key: "getStoresRevs", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            e = arguments[1],
+            s = this._._scope;return t || (t = {}), Object.keys(s).forEach(function (e) {
+          "$parent" != e && (_.fn(s[e]) ? t.hasOwnProperty(e) || (t[e] = !1) : t[e] = s[e]._rev);
+        }), e || (this._._mixed.reduce(function (e, s) {
+          return s.getStoresRevs(t), t;
+        }, t), this.parent && this.parent.getStoresRevs(t)), t;
+      } }, { key: "getRefsUpdates", value: function value(t, e, s) {
+        var i = this;return e = e || t.map(function (t) {
+          return _.string(t) ? t : t.name;
+        }).map(function (t) {
+          return i.parseRef(t);
+        }).reduce(function (t, e) {
+          return t[e.storeId] = t[e.storeId] || { rev: 0, refs: [] }, t[e.storeId].refs.push(e), t;
+        }, {}), this.getUpdates(e, s);
+      } }, { key: "getUpdates", value: function value(t, e, s) {
+        var i = this;return e = e || {}, t = t || this._getRevMap(), Object.keys(t).forEach(function (r) {
+          var n = i.stores[r];t[r] = t[r] || { rev: 0, refs: [] }, n && _.fn(n) ? (s = !0, e[r] = void 0) : n && n._rev > t[r].rev && (t[r].rev = n._rev, e[r] = n.data, s = !0);
+        }), s && e;
+      } }, { key: "_getRevMap", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            e = this._._scope;return Object.keys(e).forEach(function (s) {
+          "$parent" == s || t[s] || (t[s] = { rev: e[s]._rev, refs: [] });
+        }), this._._mixed.reduceRight(function (t, e) {
+          return e._getRevMap(t);
+        }, t), this.parent && this.parent._getRevMap(t), t;
+      } }, { key: "_getAllChilds", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];return t.push.apply(t, i(this._.childScopes)), this._.childScopes.forEach(function (e) {
+          e._getAllChilds(t);
+        }), t;
+      } }, { key: "serialize", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            s = (this._._scope, this._),
+            i = s.baseId,
+            r = s.key,
+            n = s.keyPID,
+            o = (s.incrementId, t.alias),
+            a = t.parentAlias,
+            h = r ? (a || n) + ">" + r : o || a && a + "/" + i || this._id;return this.serialize_ex(t, e, h, o, ["$parent"]);
+      } }, { key: "serialize_ex", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            s = arguments[2],
+            i = this,
+            r = arguments[3],
+            n = arguments[4],
+            o = this._._scope,
+            a = this._,
+            h = (a.baseId, a.key, a.keyPID, a.incrementId),
+            u = t.withChilds,
+            c = void 0 === u || u,
+            f = (t.withParents, t.withMixed),
+            p = void 0 === f || f,
+            y = t.norefs;if (t.parentAlias, t.aliases, v(e, s)) {
+          if (!h) return e;if (h) {
+            for (var b = -1; v(e, s + "[" + ++b + "]");) {}s = s + "[" + b + "]";
+          }
+        }return d(e, s, {}), Object.keys(o).forEach(function (i) {
+          n.includes(i) || _.rsStoreClass(o[i]) || _.rsScopeClass(o[i]) || o[i].serialize(l({}, t, { parentAlias: s }), e);
+        }), c && this._.childScopes.forEach(function (t) {
+          !t._.isLocalId && t.serialize({ withChild: !0, withParents: !1, parentAlias: s, withMixed: p, norefs: y }, e);
+        }), p && this._._mixed.forEach(function (t) {
+          !t._.isLocalId && t.serialize({ withChild: !1, withParents: !1, withMixed: p, norefs: y }, e);
+        }), r && (e = Object.keys(e).reduce(function (t, s) {
+          return t[s === i._id ? r : s] = e[s], t;
+        }, {})), e;
+      } }, { key: "restore", value: function value(t) {
+        var e = this,
+            s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : _.bool(s) && s,
+            n = this._._scope,
+            o = void 0;t && s && s.alias && s.alias != this._id && (o = l({}, t, r({}, this._id, t[s.alias])), delete o[s.alias], t = o), t = t && v(t, this._id) || this.takeSnapshotByKey(this._id), t && (this._.snapshot = l({}, t), o = t["/"], t["/"] = l({}, o), o && Object.keys(o).forEach(function (t) {
+          "$parent" != t && n[t] && (i && !_.fn(n[t]) && n[t].destroy(), e._mount(t));
+        }), this._._mixed.forEach(function (t) {
+          !t._.isLocalId && t.restore(void 0, i);
+        }), this._.childScopes.forEach(function (t) {
+          !t._.isLocalId && t.restore(void 0, i);
+        }));
+      } }, { key: "getSnapshotByKey", value: function value(t, e) {
+        if (this._.snapshot && t.startsWith(this._id)) {
+          var s = v(this._.snapshot, t.substr(this._id.length));return s;
+        }return !e && this.parent && this.parent.getSnapshotByKey(t) || this.stores.$parent && this.stores.$parent.getSnapshotByKey(t);
+      } }, { key: "getSnapshotByKeyExt", value: function value(t, e, s) {
+        if (t) {
+          var i = v(t, e);return i;
+        }
+      } }, { key: "takeSnapshotByKey", value: function value(t, e) {
+        if (this._.snapshot && t.startsWith(this._id)) {
+          var s = v(this._.snapshot, t.substr(this._id.length));return s && this.deleteSnapshotByKey(t, !0), s;
+        }return !e && this.parent && this.parent.takeSnapshotByKey(t) || this.stores.$parent && this.stores.$parent.takeSnapshotByKey(t);
+      } }, { key: "deleteSnapshotByKey", value: function value(t, e) {
+        if (this._.snapshot && t.startsWith(this._id)) {
+          var s = v(this._.snapshot, t.substr(this._id.length).replace(/^(.*[\>|\/])[^\>|\/]+$/gi, "$1"));s && delete s[t.replace(/^.*[\>|\/]([^\>|\/]+)$/gi, "$1")];
+        }return !e && this.parent && this.parent.deleteSnapshotByKey(t) || this.stores.$parent && this.stores.$parent.deleteSnapshotByKey(t);
+      } }, { key: "setState", value: function value(t) {
+        var e = this;Object.keys(t).forEach(function (s) {
+          return e.state[s] = t[s];
+        });
+      } }, { key: "parseRef", value: function value(t) {
+        "string" != typeof t && (this.register(r({}, t.name, t.store)), t = t.name);var e = t.split(":");return e[0] = e[0].split("."), { storeId: e[0][0], path: e[0], alias: e[1] || e[0][e[0].length - 1], ref: t };
+      } }, { key: "dispatch", value: function value(t) {
+        for (var e, s = this, i = arguments.length, r = Array(i > 1 ? i - 1 : 0), n = 1; n < i; n++) {
+          r[n - 1] = arguments[n];
+        }if (!this.dead) {
+          var o = this._._boundedActions;if (Object.keys(this._._scope).forEach(function (e) {
+            var i;"$parent" != e && (_.fn(s._._scope[e]) || (i = s._._scope[e]).trigger.apply(i, [t].concat(r)));
+          }), !o || !o.test(t)) return this._._mixed.forEach(function (e) {
+            return e.dispatch.apply(e, [t].concat(r));
+          }), this.parent && (e = this.parent).dispatch.apply(e, [t].concat(r)), this;
+        }
+      } }, { key: "trigger", value: function value() {
+        this.dispatch.apply(this, arguments);
+      } }, { key: "then", value: function value(t) {
+        var e = this;return this._stable ? t(this.data) : this.once("stable", function (s) {
+          return e.then(t);
+        });
+      } }, { key: "onceStableTree", value: function value(t) {
+        var e = this;return this._.unStableChilds ? this.once("stableTree", function (s) {
+          return e.onceStableTree(t);
+        }) : this._stable ? t(this.data) : this.once("stable", function (s) {
+          return e.onceStableTree(t);
+        });
+      } }, { key: "retainStores", value: function value() {
+        var t = this,
+            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+            s = arguments[1];e.forEach(function (e) {
+          return t.stores[e] && t.stores[e].retain && t.stores[e].retain(s);
+        });
+      } }, { key: "disposeStores", value: function value() {
+        var t = this,
+            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+            s = arguments[1];e.forEach(function (e) {
+          return t.stores[e] && t.stores[e].dispose && t.stores[e].dispose(s);
+        });
+      } }, { key: "wait", value: function value(t) {
+        this._stable && !this.__locks.all && this.emit("unstable", this), this._stable = !1, this.__locks.all++, t && (this.__locks[t] = this.__locks[t] || 0, this.__locks[t]++);
+      } }, { key: "release", value: function value(t) {
+        var e = this;t && (0 == this.__locks[t], this.__locks[t] = this.__locks[t] || 0, this.__locks[t]--), !t && 0 == this.__locks.all, this.__locks.all--, this.__locks.all || (this._.stabilizerTM && clearTimeout(this._.stabilizerTM), this._.stabilizerTM = setTimeout(function (t) {
+          e._.stabilizerTM = null, e.__locks.all || (e._.propagTM && clearTimeout(e._.propagTM), e._rev++, e._stable = !0, e.emit("stable", e), !e.dead && e._propag());
+        }));
+      } }, { key: "propag", value: function value() {
+        var t = this;this._.propagTM && clearTimeout(this._.propagTM), this._.propagTM = setTimeout(function (e) {
+          t._.propagTM = null, t._propag();
+        }, 2);
+      } }, { key: "_propag", value: function value() {
+        var t = this;this._.followers.length && this._.followers.forEach(function (e) {
+          var s = e[0],
+              n = (e[1], e[2]),
+              o = e[3],
+              a = (e[3], t.getUpdates(o));a && ("function" != typeof s ? n ? s.setState(r({}, n, a)) : s.setState(a) : s(a, o && [].concat(i(o)) || "no revs"));
+        }), this.emit("update", this.getUpdates());
+      } }, { key: "isStable", value: function value() {
+        return this._stable;
+      } }, { key: "isStableTree", value: function value() {
+        return this._stable && !this._.unStableChilds;
+      } }, { key: "_addChild", value: function value(t) {
+        var e = this;this._.childScopes.push(t), this._.seenChilds++;var s = { stable: function stable(t) {
+            e._.unStableChilds--, e._.unStableChilds || e.emit("stableTree", e);
+          }, unstable: function unstable(t) {
+            e._.unStableChilds++, 1 == e._.unStableChilds && e.emit("unstableTree", e);
+          }, stableTree: function stableTree(t) {
+            e._.unStableChilds--, e._.unStableChilds || e.emit("stableTree", e);
+          }, unstableTree: function unstableTree(t) {
+            e._.unStableChilds++, 1 == e._.unStableChilds && e.emit("unstableTree", e);
+          }, destroy: function destroy(t) {
+            t._.unStableChilds && e._.unStableChilds--, t.isStable() || e._.unStableChilds--, e._.unStableChilds || e.emit("stableTree", e);
+          } },
+            i = this._.unStableChilds;!t.isStable() && this._.unStableChilds++, t._.unStableChilds && this._.unStableChilds++, this._.childScopesList.push(s), !i && this._.unStableChilds && this.emit("unstableTree", this), t.on(s);
+      } }, { key: "_rmChild", value: function value(t) {
+        var e = this._.childScopes.indexOf(t),
+            s = this._.unStableChilds;e != -1 && (this._.childScopes.splice(e, 1), !t.isStable() && this._.unStableChilds--, t._.unStableChilds && this._.unStableChilds--, t.un(this._.childScopesList.splice(e, 1)[0]), s && !this._.unStableChilds && this.emit("stableTree"));
+      } }, { key: "retain", value: function value(t) {
+        this.__retains.all++, t && (this.__retains[t] = this.__retains[t] || 0, this.__retains[t]++);
+      } }, { key: "dispose", value: function value(t) {
+        var e = this;if (t) {
+          if (!this.__retains[t]) throw new Error("Dispose more than retaining : " + t);this.__retains[t]--;
+        }if (!this.__retains.all) throw new Error("Dispose more than retaining !");this.__retains.all--, this.__retains.all || (this._.persistenceTm ? (this._.destroyTM && clearTimeout(this._.destroyTM), this._.destroyTM = setTimeout(function (t) {
+          e.then(function (t) {
+            !e.__retains.all && !e.dead && e.destroy();
+          });
+        }, this._.persistenceTm)) : this.then(function (t) {
+          return !e.__retains.all && !e.dead && e.destroy();
+        }));
+      } }, { key: "destroy", value: function value() {
+        var t = this,
+            e = this._._scope;for (this._.stabilizerTM && clearTimeout(this._.stabilizerTM), this._.propagTM && clearTimeout(this._.propagTM), Object.keys(this._._listening).forEach(function (e) {
+          return "$parent" !== e && t._._scope[e].removeListener(t._._listening[e]);
+        }); this._._mixedList.length;) {
+          this._._mixed[0].removeListener(this._._mixedList.shift()), this._._mixed.shift().dispose("mixedTo");
+        }[].concat(i(this._.followers)).map(function (e) {
+          return t.unBind.apply(t, i(e));
+        });for (var s in e) {
+          if (!_.fn(e[s])) {
+            if ("$parent" == s) continue;!e[s]._autoDestroy && e[s].dispose("scoped");
+          }
+        }this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this.dead = !0, this.emit("destroy", this), delete m[this._id];
+      } }]), e;
+  }(y), h.persistenceTm = 1, h.Store = null, h.scopeRef = function (t) {
+    this.path = t;
+  }, h.scopes = m, u);_.rsScope = function (t) {
+    return t instanceof k;
+  }, _.rsScopeClass = function (t) {
+    return k.isPrototypeOf(t) || t === k;
+  }, e.default = k, t.exports = e.default;
+}, function (t, e, s) {
+  "use strict";
+  function i(t) {
+    if (Array.isArray(t)) {
+      for (var e = 0, s = Array(t.length); e < t.length; e++) {
+        s[e] = t[e];
+      }return s;
+    }return Array.from(t);
+  }function r(t, e) {
+    if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
+  }Object.defineProperty(e, "__esModule", { value: !0 });var n = function () {
+    function t(t, e) {
+      for (var s = 0; s < e.length; s++) {
+        var i = e[s];i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(t, i.key, i);
+      }
+    }return function (e, s, i) {
+      return s && t(e.prototype, s), i && t(e, i), e;
+    };
+  }(),
+      o = s(1),
+      a = function () {
+    function t() {
+      r(this, t), this._events = {};
+    }return n(t, [{ key: "on", value: function value(t, e) {
+        var s = this;return !o.string(t) && t ? Object.keys(t).forEach(function (e) {
+          return s.on(e, t[e]);
+        }) : (this._events[t] = this._events[t] || [], void this._events[t].push(e));
+      } }, { key: "un", value: function value(t, e) {
+        var s = this;if (!o.string(t) && t) return Object.keys(t).forEach(function (e) {
+          return s.un(e, t[e]);
+        });if (this._events[t]) {
+          var i = this._events[t].indexOf(e);this._events[t].splice(i, 1);
+        }
+      } }, { key: "emit", value: function value(t) {
+        if (this._events[t]) {
+          for (var e = [].concat(i(this._events[t])), s = arguments.length, r = Array(s > 1 ? s - 1 : 0), n = 1; n < s; n++) {
+            r[n - 1] = arguments[n];
+          }for (var o = 0; o < e.length; o++) {
+            e[o].apply(e, r);
+          }
+        }
+      } }, { key: "addListener", value: function value() {
+        this.on.apply(this, arguments);
+      } }, { key: "removeListener", value: function value() {
+        this.un.apply(this, arguments);
+      } }, { key: "removeAllListeners", value: function value() {
+        this._events = {};
+      } }, { key: "once", value: function value(t, e) {
+        var s = this,
+            _i = void 0;this.on(t, _i = function i() {
+          s.un(t, _i), e.apply(void 0, arguments);
+        });
+      } }]), t;
+  }();e.default = a, t.exports = e.default;
+}, function (t, e, s) {
+  "use strict";
+  function i(t) {
+    if (Array.isArray(t)) {
+      for (var e = 0, s = Array(t.length); e < t.length; e++) {
+        s[e] = t[e];
+      }return s;
+    }return Array.from(t);
+  }function r(t, e, s, n) {
+    return h.string(e) && (e = e.split(".")), !!e.length && (1 == e.length ? t[e[0]] = n ? [].concat(i(t[e[0]] || []), [s]) : s : r(t[e[0]] = t[e[0]] || {}, e.slice(1), s, n));
+  }function n(t, e, s) {
+    return h.string(e) && (e = e.split(".")), e.length ? t[e[0]] && n(t[e[0]], e.slice(1)) : t;
+  }function o(t, e, s, i) {
+    return h.string(e) && (e = e.split(/(\>|\/)/gi).filter(function (t) {
+      return ">" !== t && t;
+    })), r(t, e, s);
+  }function a(t, e, s) {
+    return h.string(e) && (e = e.split(/(\>|\/)/gi).filter(function (t) {
+      return ">" !== t && t;
+    })), e.length ? t[e[0]] && n(t[e[0]], e.slice(1)) : t;
+  }Object.defineProperty(e, "__esModule", { value: !0 }), e.walknSet = r, e.walknGet = n, e.keyWalknSet = o, e.keyWalknGet = a;var h = s(2);
+}, function (t, e) {
+  t.exports = __webpack_require__(8);
+}, function (t, e, s) {
+  "use strict";
+  function i(t, e, s) {
+    return e in t ? Object.defineProperty(t, e, { value: s, enumerable: !0, configurable: !0, writable: !0 }) : t[e] = s, t;
+  }function r(t) {
+    if (Array.isArray(t)) {
+      for (var e = 0, s = Array(t.length); e < t.length; e++) {
+        s[e] = t[e];
+      }return s;
+    }return Array.from(t);
+  }function n(t, e) {
+    if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
+  }function o(t, e) {
+    if (!t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !e || "object" != (typeof e === "undefined" ? "undefined" : _typeof(e)) && "function" != typeof e ? t : e;
+  }function a(t, e) {
+    if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + (typeof e === "undefined" ? "undefined" : _typeof(e)));t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e);
+  }Object.defineProperty(e, "__esModule", { value: !0 });var h,
+      u,
+      l = Object.assign || function (t) {
+    for (var e = 1; e < arguments.length; e++) {
+      var s = arguments[e];for (var i in s) {
+        Object.prototype.hasOwnProperty.call(s, i) && (t[i] = s[i]);
+      }
+    }return t;
+  },
+      c = function () {
+    function t(t, e) {
+      for (var s = 0; s < e.length; s++) {
+        var i = e[s];i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(t, i.key, i);
+      }
+    }return function (e, s, i) {
+      return s && t(e.prototype, s), i && t(e, i), e;
+    };
+  }(),
+      _ = function t(e, s, i) {
+    null === e && (e = Function.prototype);var r = Object.getOwnPropertyDescriptor(e, s);if (void 0 === r) {
+      var n = Object.getPrototypeOf(e);return null === n ? void 0 : t(n, s, i);
+    }if ("value" in r) return r.value;var o = r.get;return void 0 !== o ? o.call(i) : void 0;
+  },
+      f = s(2),
+      p = s(3),
+      d = s(5),
+      v = d.keyWalknSet,
+      y = d.keyWalknGet,
+      b = s(4),
+      g = s(8),
+      m = s(6),
+      k = Object.getPrototypeOf({}),
+      S = (u = h = function (t) {
+    function e() {
+      var t, s;n(this, e);var i = o(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this)),
+          a = [].concat(Array.prototype.slice.call(arguments)),
+          h = i.constructor,
+          u = a[0] instanceof p ? a.shift() : h.scope ? p.getScope(h.scope) : f.string(a[0]) ? p.getScope(a.shift()) : h.staticScope,
+          l = !a[0] || f.array(a[0]) || f.string(a[0]) ? {} : a.shift(),
+          c = f.array(a[0]) ? a.shift() : null,
+          _ = l.name || h.name,
+          d = l.use || [],
+          v = l.apply || null,
+          y = h.state || h.initialState || h.defaultState;return i._uid = l._uid || m.generate(), i.__retains = { all: 0 }, i.__locks = { all: 0 }, i._onStabilize = [], i._autoDestroy = !!i._persistenceTm, i._persistenceTm = l.persistenceTm || h.persistenceTm || (l.autoDestroy || h.autoDestroy) && 5, i._cfg = l, l && l.on && i.on(l.on), i.name = _, u.stores ? (i.scopeObj = u, i.scope = u.stores) : (i.scopeObj = new p(u), i.scope = u.stores), i.$scope = i.scopeObj, i.$stores = i.scopeObj.stores, i.$actions = i.scopeObj.actions, i.$dispatch = i.scopeObj.dispatch.bind(i.scopeObj), i._rev = i.constructor._rev || 0, i._revs = {}, i.stores = {}, i._require = [], i._sources = [_], f.array(h.use) ? i._use = [].concat(r(d), r((h.use || []).map(function (t) {
+        var e = t.match(/^(\!?)([^\:]*)(?:\:(.*))?$/);if (e[1]) {
+          var s = e[2].split(".");i._require.push(e[3] || s[s.length - 1]);
+        }return e[2];
+      }))) : i._use = [].concat(r(d), r(h.use ? Object.keys(h.use).map(function (t) {
+        var e = t.match(/^(\!?)(.*)$/);return e[1] && i._require.push(h.use[t]), e[2] + (h.use[t] === !0 ? "" : ":" + h.use[t]);
+      }) : [])), h.require && (t = i._require).push.apply(t, r(h.require)), l.require && (s = i._require).push.apply(s, r(l.require)), i._followers = [], i._changesSW = y || {}, i.state = y && {}, v && (i.apply = v), c ? c.push(i._afterConstructor.bind(i)) : setTimeout(i._afterConstructor.bind(i)), i;
+    }return a(e, t), c(e, [{ key: "_afterConstructor", value: function value() {
+        var t = this._cfg,
+            e = this.constructor,
+            s = (this.restore(void 0, !0), this.state),
+            i = this.data,
+            r = void 0;i ? this.data = i : void 0 !== e.data ? this.data = l({}, e.data) : t.hasOwnProperty("data") && (this.data = t.data), t.hasOwnProperty("state") && void 0 !== t.state && (s = l({}, s, t.state)), void 0 === this.data ? (s || this._use.length) && (this._changesSW = l({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this.state = {}, this.shouldApply(this._changesSW) && void 0 === this.data && (this.data = this.apply(this.data, this._changesSW, this._changesSW), r = !0, this.state = this._changesSW, this._changesSW = {})) : (r = !0, this.state = l({}, this._changesSW, s || {}, this.$scope.map(this, this._use)), this._changesSW = {}), void 0 === this.data && !r || this.__locks.all ? (this._stable = !1, !(e.managed || this.state || this._use && this._use.length)) : (this._stable = !0, this._rev++), !this._stable && this.emit("unstable", this.state);
+      } }, { key: "shouldPropag", value: function value(t) {
+        return !0;
+      } }, { key: "hasDataChange", value: function value(t) {
+        var e,
+            s = (this.constructor, this.data);return e = !s && t || s !== t, !e && s && Object.keys(s).forEach(function (i) {
+          e = e || (t ? s[i] !== t[i] : s && s[i]);
+        }), !e && t && Object.keys(t).forEach(function (i) {
+          e = e || (t ? s[i] !== t[i] : s && s[i]);
+        }), e;
+      } }, { key: "shouldApply", value: function value() {
+        var t = this,
+            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.state,
+            s = this.constructor;return !!this.isComplete(e) && (f.array(s.follow) ? s.follow.reduce(function (t, s) {
+          return t || e && e[s];
+        }, !1) : !s.follow || Object.keys(s.follow).reduce(function (i, r) {
+          return i || e && f.fn(s.follow[r]) && s.follow[r].call(t, e[r]) || s.follow[r] && e[r] !== t.state[r];
+        }, !1));
+      } }, { key: "apply", value: function value(t, e, s) {
+        return e = e || this.state, this.refine ? this.refine.apply(this, arguments) : t && t.__proto__ === k && e.__proto__ === k ? l({}, t, e) : e;
+      } }, { key: "refine", value: function value(t, e, s) {
+        return e = e || this.state, t && t.__proto__ === k && e.__proto__ === k ? l({}, t, e) : e;
+      } }, { key: "stabilize", value: function value(t) {
+        t && this.once("stable", t), this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this._stabilizer || (this._stabilizer = g.pushTask(this, "pushState"));
+      } }, { key: "retrieve", value: function value(t) {
+        var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
+            s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : this.data;return t = f.string(t) ? t.split(".") : t, s && t && t.length ? t.length == e + 1 ? s[t[e]] : this.retrieve(t, e + 1, s[t[e]]) : s;
+      } }, { key: "dispatch", value: function value(t) {
+        for (var e, s = arguments.length, i = Array(s > 1 ? s - 1 : 0), r = 1; r < s; r++) {
+          i[r - 1] = arguments[r];
+        }(e = this.scopeObj).dispatch.apply(e, [t].concat(i));
+      } }, { key: "trigger", value: function value(t) {
+        var e = this.constructor.actions;if (e && e[t]) {
+          for (var s, i = arguments.length, r = Array(i > 1 ? i - 1 : 0), n = 1; n < i; n++) {
+            r[n - 1] = arguments[n];
+          }var o = (s = e[t]).call.apply(s, [this].concat(r));o && this.setState(o);
+        }
+      } }, { key: "pull", value: function value(t, e, s) {
+        var i = this,
+            r = this.scopeObj.map(this, t);return e && (this.wait(), t.forEach(function (t) {
+          return i.scope[t] && i.wait(i.scope[t]);
+        }), this.release()), r;
+      } }, { key: "push", value: function value(t, e, s) {
+        if (s = e === !0 ? s : e, e = e === !0, !e && !this.hasDataChange(t)) {
+          if (s && s(), !this.__locks.all) {
+            var i = this._stable;this._stable = !0, !i && this.emit("stable", this.state, this.data), this._stabilizer = null;
+          }return !1;
+        }this.data = t, this.wait(), this.release(s);
+      } }, { key: "pushState", value: function value(t) {
+        if (t || this._changesSW || !this.data) {
+          var e = this._nextState || l({}, this.state, this._changesSW || {}),
+              s = this.apply(this.data, e, this._changesSW);if (this._stabilizer = null, this.state = e, this._changesSW = null, !t && !this.hasDataChange(s)) {
+            if (!this.__locks.all) {
+              var i = this._stable;this._stable = !0, !i && this.emit("stable", this.state, this.data), this._stabilizer = null;
+            }return !1;
+          }this.data = s, this.wait(), this.release();
+        }
+      } }, { key: "setState", value: function value(t, e, s) {
+        var i,
+            r = this._changesSW = this._changesSW || {};for (var n in t) {
+          (!this.state || r.hasOwnProperty(n) && t[n] !== r[n] || t.hasOwnProperty(n) && (t[n] !== this.state[n] || this.state[n] && t[n] && t[n]._rev != this._revs[n])) && (i = !0, this._revs[n] = t[n] && t[n]._rev || !0, r[n] = t[n]);
+        }if (this._nextState = l({}, this.state, r), this.shouldApply(this._nextState)) return s ? (this.pushState(), e && e()) : i ? this.stabilize(e) : e && e(), this;
+      } }, { key: "setStateSync", value: function value(t) {
+        var e,
+            s = this._changesSW = this._changesSW || {};for (var i in t) {
+          (!this.state || t.hasOwnProperty(i) && (t[i] != this.state[i] || this.state[i] && t[i] && t[i]._rev != this._revs[i])) && (e = !0, this._revs[i] = t[i] && t[i]._rev || !0, s[i] = t[i]);
+        }return this.shouldApply(l({}, this.state || {}, s)) && this.pushState(), this.data;
+      } }, { key: "as", value: function value(t) {
+        return { store: this, name: t };
+      } }, { key: "on", value: function value(t) {
+        var s = this;!f.string(t) && t ? Object.keys(t).forEach(function (i) {
+          return _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", s).call(s, i, t[i]);
+        }) : _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "on", this).apply(this, arguments);
+      } }, { key: "removeListener", value: function value(t) {
+        var s = this;!f.string(t) && t ? Object.keys(t).forEach(function (i) {
+          return _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", s).call(s, i, t[i]);
+        }) : _(e.prototype.__proto__ || Object.getPrototypeOf(e.prototype), "removeListener", this).apply(this, arguments);
+      } }, { key: "isComplete", value: function value() {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.state;return this.constructor, !this._require || !this._require.length || t && this._require.reduce(function (e, s) {
+          return e && t[s];
+        }, !0);
+      } }, { key: "isStable", value: function value() {
+        return this._stable;
+      } }, { key: "serialize", value: function value() {
+        var t = this,
+            e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+            i = e.parentAlias || this.scopeObj._id,
+            r = 0,
+            n = !e.norefs && f.array(this._use) && this._use.reduce(function (e, s) {
+          var i = t.$scope.parseRef(s),
+              n = t.$stores[i.storeId];return n && f.rsStore(n) && !n.scopeObj._.isLocalId && (r++, e[i.alias] = i.path), e;
+        }, {}),
+            o = Object.keys(this.data),
+            a = o.map(function (e) {
+          return t.data[e];
+        }),
+            h = 0,
+            u = !e.norefs && Object.keys(this.data).reduce(function (e, s) {
+          var i = a.indexOf(t.data[s]);return i != -1 && (h++, e[s] = o[i]), e;
+        }, {}),
+            c = { state: this.state && (e.norefs ? l({}, this.state) : Object.keys(this.state).reduce(function (e, s) {
+            return !n[s] && (e[s] = t.state[s]), e;
+          }, {})), data: (this.data && this.data.__proto__ === k ? Object.keys(this.data).reduce(function (e, s) {
+            return !u[s] && (e[s] = t.data[s]), e;
+          }, {}) : (f.bool(this.data) || f.number(this.data) || f.string(this.data)) && this.data) || void 0 };return n && r && (c.refs = n), u && h && (c.inRefs = o.length === h || u), v(s, i + "/" + this.name, c), s;
+      } }, { key: "restore", value: function (t) {
+        function e(e, s) {
+          return t.apply(this, arguments);
+        }return e.toString = function () {
+          return t.toString();
+        }, e;
+      }(function (t, e) {
+        var s = this;t = t && y(t, this.scopeObj._id + "/" + this.name) || this.$scope.takeSnapshotByKey(this.scopeObj._id + "/" + this.name), t && t && (this.isStable() || e || this.then(function () {
+          return restore(t);
+        }), this.state = l({}, t.state), t.refs && Object.keys(t.refs).forEach(function (e) {
+          s.state[e] = s.$scope.retrieve(t.refs[e]);
+        }), t.inRefs === !0 ? this.data = this.state : (this.data = t.data, t.inRefs && Object.keys(t.inRefs).forEach(function (e) {
+          s.data[e] = s.state[t.inRefs[e]];
+        })));
+      }) }, { key: "unBind", value: function value(t, e, s) {
+        for (var i = this._followers, r = i && i.length; i && r--;) {
+          if (i[r][0] === t && i[r][1] === e && i[r][2] === s) return i.splice(r, 1);
+        }
+      } }, { key: "bind", value: function value(t, e) {
+        var s = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2],
+            r = arguments[3];if (this._followers.push([t, e, r]), s && this.data && this._stable) {
+          var n = r ? this.retrieve(r) : this.data;"function" != typeof t ? e ? t.setState(i({}, e, n)) : t.setState(n) : t(n);
+        }
+      } }, { key: "then", value: function value(t) {
+        var e = this;return this._stable ? t(this.data) : void this.once("stable", function (s) {
+          return t(e.data);
+        });
+      } }, { key: "wait", value: function value(t) {
+        if ("number" == typeof t) return this.__locks.all += t;if (f.array(t)) return t.map(this.wait.bind(this));this._stable && this.emit("unstable", this.state, this.data), this._stable = !1, this.__locks.all++;var e = f.string(t) ? t : null;return e && (this.__locks[e] = this.__locks[e] || 0, this.__locks[e]++), t && f.fn(t.then) && t.then(this.release.bind(this, null)), this;
+      } }, { key: "release", value: function value(t, e) {
+        var s = (this.constructor, this),
+            r = this._stable;if (f.fn(t) && (e = t, t = null), t && (0 == this.__locks[t], this.__locks[t] = this.__locks[t] || 0, this.__locks[t]--), !t && 0 == this.__locks.all, ! --this.__locks.all && this.isComplete()) {
+          var n = this.shouldPropag(this.data);this._stable = !0, n && this._rev++, n && this._followers.length && this._followers.forEach(function (t) {
+            var e = t[2] ? s.retrieve(t[2]) : s.data;"function" == typeof t[0] ? t[0](e) : t[0].setState(t[1] ? i({}, t[1], e) : e);
+          }), !r && this.emit("stable", this.data), n && this.emit("update", this.data), e && e();
+        } else e && this.then(e);return this;
+      } }, { key: "propag", value: function value(t) {
+        this.emit("update", t);
+      } }, { key: "retain", value: function value(t) {
+        this.__retains.all++, t && (this.__retains[t] = this.__retains[t] || 0, this.__retains[t]++);
+      } }, { key: "dispose", value: function value(t) {
+        var e = this;if (t) {
+          if (!this.__retains[t]) throw new Error("RS : Dispose more than retaining on store '" + this.name + "' : " + t);this.__retains[t]--;
+        }if (0 == this.__retains.all) throw new Error("RS : Dispose more than retaining on store " + this.name);this.__retains.all--, this.__retains.all || (this._persistenceTm ? (this._destroyTM && clearTimeout(this._destroyTM), this._destroyTM = setTimeout(function (t) {
+          e._destroyTM = null, !e.__retains.all && !e.dead && e.destroy();
+        }, this._persistenceTm)) : !this.__retains.all && !this.dead && this.destroy());
+      } }, { key: "destroy", value: function value() {
+        this.emit("destroy", this), this._stabilizer && clearTimeout(this._stabilizer), this._followers.length && this._followers.forEach(function (t) {
+          "function" != typeof t[0] && t[0].stores && delete t[0].stores[t[1]];
+        }), this._followers.length = 0, this.constructor._rev = this.rev, this.dead = !0, this._revs = this.data = this.state = this.scope = null, this.removeAllListeners();
+      } }, { key: "nextState", get: function get() {
+        return this._changesSW && l({}, this.state, this._changesSW) || this.state;
+      } }]), e;
+  }(b), h.staticScope = new p({}, { id: "static" }), h.state = void 0, h.persistenceTm = !1, u);S.as = function (t) {
+    return { store: this, name: t };
+  }, S.map = function (t, e, s, i) {
+    var n = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
+        o = t._revs || {},
+        a = t.stores || (t.stores = {}),
+        h = {};return e = f.array(e) ? [].concat(r(e)) : [e], s = s || S.staticScope, e = e.filter(function (e) {
+      var i;if (!e) return !1;var u = void 0,
+          l = void 0,
+          c = void 0,
+          _ = void 0,
+          p = void 0;if (e.store && e.name ? (l = u = e.name, _ = e.store) : f.fn(e) ? (u = l = e.name || e.defaultName, _ = e) : (p = e.match(/([^\.\:]+)((?:\.[^\.\:]+)*)(?:\:([^\.\:]+))?/), u = p[1], c = p[2] && p[2].substr(1), _ = s.stores[p[1]], l = p[3] || c && c.match(/([^\.]*)$/)[0] || p[1]), !_) {
+        var d = [];for (var v in s.stores) {
+          d.push(v);
+        }return !1;
+      }if (f.rsScopeClass(_) && s._mount(u), f.rsScope(_)) _ = s._mount(e);else if (o[u]) return !1;return f.fn(_) ? (s._mount(u), s.stores[u].bind(t, l, n, c)) : _.bind(t, l, n, c), s.stores[u]._sources && (i = t._sources).push.apply(i, r(s.stores[u]._sources)), o[l] = o[l] || !0, !a[u] && (a[u] = s.stores[u]), s.stores[u].hasOwnProperty("data") && (h[u] = s.data[u]), !0;
+    }), t.once("destroy", function () {
+      e.map(function (e) {
+        var i = void 0,
+            r = void 0,
+            n = void 0,
+            o = void 0;e.store && e.name ? (r = i = e.name, o = e.store) : f.fn(e) ? (i = r = e.name || e.defaultName, o = s.stores[i]) : (e = e.match(/([^\.\:]+)((?:\.[^\.\:]+)*)(?:\:([^\.\:]+))?/), i = e[1], n = e[2] && e[2].substr(1), o = s.stores[e[1]], r = e[3] || n && n.match(/([^\.]*)$/)[0] || e[1]), o && !f.fn(o) && o.unBind(t, r, n);
+      });
+    }), h;
+  }, f.rsStore = function (t) {
+    return t instanceof S;
+  }, f.rsStoreClass = function (t) {
+    return S.isPrototypeOf(t) || t === S;
+  }, e.default = S, t.exports = e.default;
+}, function (t, e, s) {
+  "use strict";
+  function i(t) {
+    return t && t.__esModule ? t : { default: t };
+  }function r() {
+    _ || n();
+  }function n() {
+    for (Date.now(), _ = !0, f.enable(); l;) {
+      for (; !a[h] || !a[h].length;) {
+        h++;
+      }l--, c = a[h].shift(), c[0][c[1]].apply(c[0], c[2]);
+    }c = void 0, f.disable(), _ = !1, l && setTimeout(r);
+  }Object.defineProperty(e, "__esModule", { value: !0 });var o = s(1),
+      a = (i(o), []),
+      h = 0,
+      u = 0,
+      l = 0,
+      c = void 0,
+      _ = void 0,
+      f = { lastError: null, dispatch: function dispatch(t) {
+      f.disable(), c && c[0].handleError && c[0].handleError(t, c), _ = !1, c = null, r();
+    }, enable: "undefined" != typeof window ? function () {
+      window.addEventListener("error", f.dispatch);
+    } : function () {
+      process.on("uncaughtException", f.dispatch);
+    }, disable: "undefined" != typeof window ? function () {
+      window.removeEventListener("error", f.dispatch);
+    } : function () {
+      process.removeListener("uncaughtException", f.dispatch);
+    } };e.default = { pushTask: function pushTask(t, e, s) {
+      var i = t._sources && t._sources.length || 1,
+          n = a[i] = a[i] || [];return u = Math.max(u, i), h = Math.min(h, i), l++, n.push([t, e, s]), setTimeout(r, 0), n.length;
+    } }, t.exports = e.default;
+}, function (t, e, s) {
+  "use strict";
+  function i(t) {
+    return t && t.__esModule ? t : { default: t };
+  }function r(t) {
+    if (Array.isArray(t)) {
+      for (var e = 0, s = Array(t.length); e < t.length; e++) {
+        s[e] = t[e];
+      }return s;
+    }return Array.from(t);
+  }function n(t, e) {
+    var s = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+        i = arguments.length > 3 && void 0 !== arguments[3] && arguments[3];_.push({ test: t, member: s, stateScope: i, handle: e });
+  }function o(t, e, s) {
+    for (var i = 0; i < _.length; i++) {
+      if ((void 0 === e || e == _[i].member) && s == _[i].stateScope && _[i].test(t)) return !0;
+    }return !1;
+  }function a(t, e, s, i) {
+    for (var n = 0; n < _.length; n++) {
+      var o;if (s == _[n].member && i == _[n].stateScope && _[n].test(t)) return (o = _[n]).handle.apply(o, [t].concat(r(e)));
+    }return !1;
+  }function h() {
+    for (var t = arguments.length, e = Array(t), s = 0; s < t; s++) {
+      e[s] = arguments[s];
+    }return e[0] instanceof c && e[2] instanceof c && e[0].hasOwnProperty(e[1]) ? (e[2].value = a(e[0], [], !0, !1), e[0]) : o(e[0], void 0, !1) ? a(e[0], e.slice(1), !1, !1) : function () {
+      for (var t = arguments.length, s = Array(t), i = 0; i < t; i++) {
+        s[i] = arguments[i];
+      }return s[0] instanceof c && s[2] instanceof c && s[0].hasOwnProperty(s[1]) ? (s[2].value = a(s[0], e, !0, !1), s[0]) : h.apply(void 0, [s[0]].concat(e));
+    };
+  }function u() {
+    for (var t = arguments.length, e = Array(t), s = 0; s < t; s++) {
+      e[s] = arguments[s];
+    }return e[0] instanceof c && e[2] instanceof c && e[0].hasOwnProperty(e[1]) ? (e[2].value = a(e[0], [], !0, !0), e[0]) : o(e[0], void 0, !0) ? a(e[0], e.slice(1), !1, !0) : function () {
+      for (var t = arguments.length, s = Array(t), i = 0; i < t; i++) {
+        s[i] = arguments[i];
+      }return s[0] instanceof c && s[2] instanceof c && s[0].hasOwnProperty(s[1]) ? (s[2].value = a(s[0], e, !0, !0), s[0]) : u.apply(void 0, [s[0]].concat(e));
+    };
+  }Object.defineProperty(e, "__esModule", { value: !0 }), e.scopeToState = e.reScope = e.addScopableType = void 0;var l = s(1),
+      c = (i(l), {}.constructor),
+      _ = [];e.addScopableType = n, e.reScope = h, e.scopeToState = u;
+}]);
+//# sourceMappingURL=ReScope.min.js.map
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

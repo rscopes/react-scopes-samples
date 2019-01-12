@@ -58,8 +58,8 @@ class App extends React.Component {
 		      )
 	}
 	static renderSSR = ( cfg, cb ) => {
-		let rid    = shortid.generate(),
-		    cScope = new Scope(AppScope, { id: rid, autoDestroy: true });
+		let rid         = shortid.generate(),
+		    cScope      = new Scope(AppScope, { id: rid });
 		global.contexts = Scope.scopes;
 		cfg.state && cScope.restore(cfg.state, { alias: "App" })
 		cScope.once('destroy', d => console.log('destroy ', rid, '; active ctx :', Object.keys(Scope.scopes)))
@@ -81,6 +81,7 @@ class App extends React.Component {
 					          }
 					          console.log('Was ', stable ? 'stable' : 'not stable');
 					          cb(null, html, !stable && nstate)
+					          //cScope.destroy()
 				          };
 				      cScope.onceStableTree(complete)
 			      }
