@@ -6310,10 +6310,10 @@ module.exports =
 				var _this16 = this;
 
 				if (this._.unStableChilds) return this.once('stableTree', function (e) {
-					return _this16.then(cb);
+					return _this16.onceStableTree(cb);
 				});
 				if (!this._stable) return this.once('stable', function (e) {
-					return _this16.then(cb);
+					return _this16.onceStableTree(cb);
 				});
 
 				return cb(this.data);
@@ -8343,7 +8343,7 @@ module.exports = function (t) {
           w = { keyPID: r && r._id || i && i._id || b.generate(), key: a, incrementId: f, baseId: h };if (h = h || a && w.keyPID + ">" + a, w.isLocalId = !h, h = h || "_____" + b.generate(), m[h] && !f) {
         var O;return k._id = h, m[h].register(t), O = m[h], o(k, O);
       }if (m[h] && f) {
-        for (var j = -1; m[h + "[" + ++j + "]"];) {}h = h + "[" + j + "]";
+        for (var T = -1; m[h + "[" + ++T + "]"];) {}h = h + "[" + T + "]";
       }if (k._id = h, k._rev = 0, m[h] = k, w.persistenceTm = d || k.constructor.persistenceTm, k.actions = {}, k.stores = {}, k.state = {}, k.data = {}, k.parent = i, k._ = w, k._autoDestroy = v, i && i.dead) throw new Error("Can't use a dead scope as parent !");return g(k, "actions", i), g(k, "stores", i), g(k, "state", i), g(k, "data", i), k.sources = [], w.childScopes = [], w.childScopesList = [], w.unStableChilds = 0, w.seenChilds = 0, k.__retains = { all: 0 }, k.__locks = { all: 1 }, w._boundedActions = _.array(S) ? { test: S.includes.bind(S) } : S, w._listening = {}, w._scope = {}, w._mixed = [], w._mixedList = [], w.followers = [], i && (i.retain("isMyParent"), y ? i.on(w._parentList = { update: function update(t) {
           return k._propag();
         } }) : (!i._stable && k.wait("waitingParent"), i.on(w._parentList = { stable: function stable(t) {
@@ -8594,9 +8594,9 @@ module.exports = function (t) {
         });
       } }, { key: "onceStableTree", value: function value(t) {
         var e = this;return this._.unStableChilds ? this.once("stableTree", function (s) {
-          return e.then(t);
+          return e.onceStableTree(t);
         }) : this._stable ? t(this.data) : this.once("stable", function (s) {
-          return e.then(t);
+          return e.onceStableTree(t);
         });
       } }, { key: "retainStores", value: function value() {
         var t = this,
