@@ -4854,7 +4854,6 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 		    nstate = void 0,
 		    stable = cScope.isStableTree(),
 		    complete = function complete(state) {
-			//cScope.release();
 			try {
 				html = indexTpl.render({
 					app: appHtml,
@@ -4867,7 +4866,6 @@ var App = (_dec = (0, _rscopes.scopeToState)(["appState", "someData"]), _dec(_cl
 			cb(null, html, !stable && nstate);
 			cScope.destroy();
 		};
-		//cScope.wait();
 		cScope.onceStableTree(complete);
 	});
 }, _temp)) || _class);

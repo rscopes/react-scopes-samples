@@ -24,17 +24,16 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 				
 				if ( location == data.location && data.results )
 					return data;
-				//if ( location != state.record.location )
-				//	return { location: state.record.location, results: state.record.results };
 				
 				// do query meteo if needed
 				if ( location ) {
 					this.wait();
 					console.log("query")
-					//this._query && this._query.abort();
 					superagent
 						.get(state.src + location)
 						.then(( res ) => {
+							if ( location !== data.location )
+								return;
 							console.log("result")
 							try {
 								this.push({ results: res.body, location })

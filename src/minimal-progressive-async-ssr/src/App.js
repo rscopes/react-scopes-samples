@@ -28,6 +28,7 @@
 import React            from 'react';
 import Rnd              from 'react-rnd';
 import shortid          from 'shortid';
+import ReactDom         from 'react-dom';
 import AppScope         from './AppScope';
 import MeteoWidget      from './components/MeteoWidget.scoped';
 import {
@@ -35,14 +36,9 @@ import {
 }                       from "rscopes";
 import {renderToString} from "react-dom/server"
 
-
-let { asStateMap } = spells;
-
-import "weather-icons/css/weather-icons.css"
 import "./App.scss"
 
-var indexTpl = require('./index.html.tpl');
-let ReactDom = require('react-dom');
+const indexTpl = require('./index.html.tpl');
 
 @scopeToState(["appState", "someData"])
 class App extends React.Component {
@@ -60,34 +56,31 @@ class App extends React.Component {
 	static renderSSR = ( cfg, cb ) => {
 		let rid    = shortid.generate(),
 		    cScope = new Scope(AppScope, { id: rid, autoDestroy: false });
-		//global.contexts = Scope.scopes;
 		cfg.state && cScope.restore(cfg.state, { alias: "App" })
 		cScope.once('destroy', d => console.log('destroy ', rid, '; active ctx :', Object.keys(Scope.scopes)))
 		cScope.mount(["appState", "someData"])
 		      .then(
 			      ( state ) => {
 				      let html,
-				          appHtml  = renderToString(<App __scope={ cScope }/>),
+				          appHtml = renderToString(<App __scope={ cScope }/>),
 				          nstate,
-				          stable   = cScope.isStableTree(),
-				          complete = state => {
-					          //cScope.release();
-					          try {
-						          html = indexTpl.render(
-							          {
-								          app  : appHtml,
-								          state: JSON.stringify(nstate = cScope.serialize({ alias: "App" }))
-							          }
-						          );
-					          } catch ( e ) {
-						          return cb(e)
-					          }
-					          console.log('Was ', stable ? 'stable' : 'not stable', nstate);
-					          cb(null, html, !stable && nstate)
-					          cScope.destroy()
-				          };
-				      //cScope.wait();
-				      cScope.onceStableTree(complete)
+				          stable  = cScope.isStableTree();
+				
+				      cScope.onceStableTree(state => {
+					      try {
+						      html = indexTpl.render(
+							      {
+								      app  : appHtml,
+								      state: JSON.stringify(nstate = cScope.serialize({ alias: "App" }))
+							      }
+						      );
+					      } catch ( e ) {
+						      return cb(e)
+					      }
+					      console.log('Was ', stable ? 'stable' : 'not stable', nstate);
+					      cb(null, html, !stable && nstate)
+					      cScope.destroy()
+				      })
 			      }
 		      );
 	}
@@ -98,11 +91,13 @@ class App extends React.Component {
 		    } = this.state;
 		return <React.Fragment>
 			<h1>Really basic drafty rescope SSR example</h1>
-			{ someData.items.map(
-				note => <MeteoWidget key={ note._id } record={ note }
-				                     onSelect={ e => this.$actions.selectPostIt(note._id) }
-				                     selected={ note._id == appState.selectedPostItId }/>
-			) }
+			{
+				someData.items.map(
+					note => <MeteoWidget key={ note._id } record={ note }
+					                     onSelect={ e => this.$actions.selectPostIt(note._id) }
+					                     selected={ note._id == appState.selectedPostItId }/>
+				)
+			}
 			<div
 				className={ "newBtn button" }
 				onClick={ this.$actions.newPostIt }>
