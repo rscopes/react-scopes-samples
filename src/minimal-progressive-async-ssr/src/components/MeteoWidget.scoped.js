@@ -10,62 +10,66 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 @reScope(
 	{
 		@asStore
-		DaSearch: {
+		MeteoSearch: {
 			// bind record values as initial values
 			@asRef
-			record   : "record",
-			@asRef
-			searching: "record.searching",
-			@asRef
-			results  : "record.results",
+			record: "record",
 			
 			// initial state value
 			src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
 			
 			// the function that apply changes in the state, if needed
-			$apply( data = {}, state, { searching = state.searching } ) {
-				if ( searching == data.searching && data.results )
+			$apply( data = {}, state, { location, results, record } ) {
+				location = location || record.location;
+				
+				if ( location == data.location && data.results )
 					return data;
+				//if ( location != state.record.location )
+				//	return { location: state.record.location, results: state.record.results };
 				
 				// do query meteo if needed
-				searching &&
-				(this.wait(), console.log("query"), superagent
-					.get(state.src + searching)
-					.then(( res ) => {
-						console.log("result")
-						if ( searching != this.nextState.searching )
-							return this.release();
-						try {
-							this.push({ results: res.body, searching })
-							// update the record
-							this.$actions.updatePostIt(
-								{
-									...state.record,
-									results: res.body,
-									searching
-								});
+				if ( location ) {
+					this.wait();
+					console.log("query")
+					//this._query && this._query.abort();
+					superagent
+						.get(state.src + location)
+						.then(( res ) => {
+							console.log("result")
+							try {
+								this.push({ results: res.body, location })
+								// update the record
+								
+								this.$actions.updatePostIt(
+									{
+										...state.record,
+										//results: res.body,
+										location
+									});
+							} catch ( e ) {
+								this.push({ results: null, location });
+							}
 							
-						} catch ( e ) {
-							this.push({ results: null, searching });
-						}
-						this.release();
-						
-					}).catch(e => this.release()));
+						})
+						.then(e => this.release())
+						.catch(e => this.release())
+				}
+				;
 				return state;
 			},
 			// $actions.updateSearch
-			updateSearch( searching ) {
+			updateSearch( location ) {
 				let state = this.nextState, results = {};
 				
-				if ( searching == state.searching ) return;
-				if ( searching.length < 4 )
-					return { searching };
+				if ( location == state.location ) return;
+				if ( location.length < 4 )
+					return { location };
 				
-				return { searching };
+				return { location };
 			}
 		}
 	}, { key: 'postIt' }
 )
-@scopeToProps(["DaSearch", "record"])
+@scopeToProps(["MeteoSearch", "record"])
 export default class sMeteoWidget extends MeteoWidget {
 };

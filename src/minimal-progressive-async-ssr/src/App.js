@@ -58,17 +58,20 @@ class App extends React.Component {
 		      )
 	}
 	static renderSSR = ( cfg, cb ) => {
-		let rid         = shortid.generate(),
-		    cScope      = new Scope(AppScope, { id: rid });
-		global.contexts = Scope.scopes;
+		let rid    = shortid.generate(),
+		    cScope = new Scope(AppScope, { id: rid, autoDestroy: false });
+		//global.contexts = Scope.scopes;
 		cfg.state && cScope.restore(cfg.state, { alias: "App" })
 		cScope.once('destroy', d => console.log('destroy ', rid, '; active ctx :', Object.keys(Scope.scopes)))
 		cScope.mount(["appState", "someData"])
 		      .then(
 			      ( state ) => {
-				      let html, appHtml = renderToString(<App __scope={ cScope }/>), nstate,
-				          stable        = cScope.isStableTree(),
-				          complete      = state => {
+				      let html,
+				          appHtml  = renderToString(<App __scope={ cScope }/>),
+				          nstate,
+				          stable   = cScope.isStableTree(),
+				          complete = state => {
+					          //cScope.release();
 					          try {
 						          html = indexTpl.render(
 							          {
@@ -79,13 +82,14 @@ class App extends React.Component {
 					          } catch ( e ) {
 						          return cb(e)
 					          }
-					          console.log('Was ', stable ? 'stable' : 'not stable');
+					          console.log('Was ', stable ? 'stable' : 'not stable', nstate);
 					          cb(null, html, !stable && nstate)
-					          //cScope.destroy()
+					          cScope.destroy()
 				          };
+				      //cScope.wait();
 				      cScope.onceStableTree(complete)
 			      }
-		      )
+		      );
 	}
 	
 	render() {

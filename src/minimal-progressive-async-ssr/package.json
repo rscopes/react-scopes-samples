@@ -1,17 +1,15 @@
 {
-  "name": "minimal-ssr",
+  "name": "minimal-progressive-async-ssr",
   "version": "1.0.0",
+  "private": true,
   "license": "MIT",
-  "main": "./App.js",
-  "mainNode": "./Server.js",
-  "mainBash": "./Server",
-  "mainCmd": "./Server.cmd",
+  "main": "./Server.js",
   "author": "Nathan Braun <caipilabs@gmail.com>",
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
     "run": "node ./Server.js -p 9001",
-    "runDebug": "node --inspect=[::]:9230 ./Server.js -p 9001",
+    "runDebug": "node --inspect=[::]:9229 ./Server.js -p 9001",
     "runBrowser": "start http://localhost:9001&node ./Server.js -p 9001"
   },
   "dependencies": {

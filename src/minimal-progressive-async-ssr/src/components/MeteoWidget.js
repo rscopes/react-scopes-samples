@@ -6,21 +6,21 @@ export default class PostIt extends React.Component {
 	state = {};
 	
 	saveState = ( e, d ) => {
-		let { $actions, DaSearch, record } = this.props;
+		let { $actions, MeteoSearch, record } = this.props;
 		$actions.updatePostIt(
 			{
 				...record,
-				searching: DaSearch.searching,
-				size     : this.state.size || record.size,
-				position : this.state.position || record.position
+				location: MeteoSearch.location,
+				size    : this.state.size || record.size,
+				position: this.state.position || record.position
 			});
 	};
 	
 	render() {
 		let {
-			    record: { position, text, size } = {},
+			    record: { position, results, size, location } = {},
 			    record,
-			    DaSearch,
+			    MeteoSearch,
 			    $actions, onSelect, selected
 		    }     = this.props,
 		    state = this.state;
@@ -53,12 +53,12 @@ export default class PostIt extends React.Component {
 					{
 						!this.state.editing &&
 						<div className={ "text" }>
-							{ DaSearch.searching }
+							{ MeteoSearch.location }
 							{
-								DaSearch.results &&
-								DaSearch.results.weather[0] &&
+								MeteoSearch.results &&
+								MeteoSearch.results.weather[0] &&
 								<img
-									src={ "http://openweathermap.org/img/w/" + DaSearch.results.weather[0].icon + '.png' }></img>
+									src={ "http://openweathermap.org/img/w/" + MeteoSearch.results.weather[0].icon + '.png' }></img>
 							}
 							<button onClick={ e => this.setState({ editing: true }) }
 							        className={ "edit" }>🖋
@@ -76,15 +76,15 @@ export default class PostIt extends React.Component {
 										       this.setState({ searching: e.target.value })
 										       $actions.updateSearch(e.target.value);
 									       } }
-									       value={ this.state.searching || DaSearch.searching }
+									       value={ this.state.searching || MeteoSearch.location }
 									       onMouseDown={ e => e.stopPropagation() }/>
 								</div>
 							}
 							{
-								DaSearch.results &&
-								DaSearch.results.weather[0] &&
+								MeteoSearch.results &&
+								MeteoSearch.results.weather[0] &&
 								<img
-									src={ "http://openweathermap.org/img/w/" + DaSearch.results.weather[0].icon + '.png' }></img>
+									src={ "http://openweathermap.org/img/w/" + MeteoSearch.results.weather[0].icon + '.png' }></img>
 							}
 							<button
 								onClick={ e => this.setState({ editing: false }) }>💾
