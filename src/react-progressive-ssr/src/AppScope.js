@@ -12,7 +12,6 @@ export default {
 	appState: {
 		selectedPostItId: null,
 		selectPostIt( selectedPostItId ) {
-			//debugger
 			return { selectedPostItId };
 		}
 	},
@@ -67,7 +66,7 @@ export default {
 			}
 		},
 		saveState() {
-			superagent.post('/', window.state = this.scopeObj.serialize())
+			superagent.post('/', this.scopeObj.serialize())
 			          .then(( e, r ) => {
 				          console.log(e, r)
 			          })

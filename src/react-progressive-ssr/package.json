@@ -1,17 +1,15 @@
 {
-  "name": "minimal-ssr",
+  "name": "react-progressive-ssr",
   "version": "1.0.0",
+  "private": true,
   "license": "MIT",
-  "main": "./App.js",
-  "mainNode": "./Server.js",
-  "mainBash": "./Server",
-  "mainCmd": "./Server.cmd",
+  "main": "./Server.js",
   "author": "Nathan Braun <caipilabs@gmail.com>",
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
     "run": "node ./Server.js -p 9001",
-    "runDebug": "node --inspect=[::]:9230 ./Server.js -p 9001",
+    "runDebug": "node --inspect=[::]:9229 ./Server.js -p 9001",
     "runBrowser": "start http://localhost:9001&node ./Server.js -p 9001"
   },
   "dependencies": {
@@ -24,7 +22,7 @@
     "react-dom": "^16.2.0",
     "react-rnd": "git+https://github.com/CaipiLabs/react-rnd.git#master",
     "request": "^2.85.0",
-    "rscopes": "^1.2.0",
+    "rscopes": "^1.2.1",
     "shortid": "^2.2.8",
     "superagent": "^3.8.2",
     "url-loader": "^1.1.2",
