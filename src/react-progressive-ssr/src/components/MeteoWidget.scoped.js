@@ -18,7 +18,7 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 			// initial state value
 			src: "http://api.openweathermap.org/data/2.5/weather?&APPID=ecff7b21b7305a6f88ca6c9bc4f07027&q=",
 			
-			// the function that apply changes in the state, if needed
+			// the function that apply changes in MeteoSearch state, if needed
 			$apply( data = {}, state, { location, results, record } ) {
 				location = location || record.location;
 				

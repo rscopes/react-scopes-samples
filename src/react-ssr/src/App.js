@@ -29,14 +29,13 @@ import React            from 'react';
 import Rnd              from 'react-rnd';
 import shortid          from 'shortid';
 import AppScope         from './AppScope';
-import MeteoWidget      from './components/MeteoWidget.scoped';
 import {
 	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
 }                       from "rscopes";
 import {renderToString} from "react-dom/server"
 
 
-let { asStateMap } = spells;
+let { asRef } = spells;
 
 import "weather-icons/css/weather-icons.css"
 import "./App.scss"
@@ -47,7 +46,10 @@ let ReactDom = require('react-dom');
 @scopeToState(["appState", "someData"])
 class App extends React.Component {
 	static renderTo  = ( node ) => {
-		let cScope      = new Scope(AppScope, { id: "App" });
+		let cScope      = new Scope(AppScope, {
+			id         : "App",
+			autoDestroy: true
+		});
 		window.contexts = Scope.scopes;
 		window.__scopesState && cScope.restore(window.__scopesState)
 		cScope.mount(["appState", "someData"])
@@ -77,6 +79,7 @@ class App extends React.Component {
 					      return cb(e)
 				      }
 				      cb(null, html)
+				      cScope.destroy()
 			      }
 		      )
 	}
@@ -88,9 +91,9 @@ class App extends React.Component {
 		return <React.Fragment>
 			<h1>Really basic drafty rescope SSR example</h1>
 			{ someData.items.map(
-				note => <MeteoWidget key={ note._id } record={ note }
-				                     onSelect={ e => this.$actions.selectPostIt(note._id) }
-				                     selected={ note._id == appState.selectedPostItId }/>
+				note => <PostIt key={ note._id } record={ note }
+				                onSelect={ e => this.$actions.selectPostIt(note._id) }
+				                selected={ note._id == appState.selectedPostItId }/>
 			) }
 			<div
 				className={ "newBtn button" }
@@ -106,6 +109,87 @@ class App extends React.Component {
 	}
 }
 
+@scopeToProps
+class PostIt extends React.Component {
+	
+	state = {};
+	
+	saveState = ( e, d ) => {
+		let { $actions, record } = this.props;
+		$actions.updatePostIt(
+			{
+				...record,
+				size    : this.state.size || record.size,
+				position: this.state.position || record.position
+			});
+	};
+	
+	render() {
+		let {
+			    record: { position, text, size },
+			    record,
+			    $actions, onSelect, selected
+		    }     = this.props,
+		    state = this.state;
+		return (
+			<Rnd
+				absolutePos
+				z={ selected ? 2000 : 1 }
+				size={ state.size || size }
+				position={ state.position || position }
+				onDragStop={ this.saveState }
+				onResizeStop={ this.saveState }
+				onDrag={ ( e, d ) => {
+					!selected && onSelect(record)
+					this.setState(
+						{
+							position: { x: d.x, y: d.y }
+						});
+				} }
+				onResize={ ( e, direction, ref, delta, position ) => {
+					this.setState(
+						{
+							position,
+							size: {
+								width : ref.offsetWidth,
+								height: ref.offsetHeight
+							}
+						});
+				} }>
+				<div className={ "postit handle" }>
+					{
+						!this.state.editing &&
+						<div className={ "text" }>
+							{ text }
+							<button onClick={ e => this.setState({ editing: true }) }
+							        className={ "edit" }>🖋
+							</button>
+							<button onClick={ e => $actions.rmPostIt(record) }
+							        className={ "delete" }>🖾
+							</button>
+						</div>
+						||
+						<div className={ "editor" }>
+                            <textarea
+	                            onChange={ e => {
+		                            $actions.updatePostIt(
+			                            {
+				                            ...record,
+				                            text: e.target.value
+			                            });
+	                            } }
+	                            onMouseDown={ e => e.stopPropagation() }
+	                            value={ record.text }/>
+							<button
+								onClick={ e => this.setState({ editing: false }) }>💾
+							</button>
+						</div>
+					}
+				</div>
+			</Rnd>
+		);
+	}
+}
 
 if ( typeof window != 'undefined' ) {
 	window.App = App;

@@ -25,16 +25,13 @@
  * @contact : caipilabs@gmail.com
  */
 
-import React            from 'react';
-import Rnd              from 'react-rnd';
-import shortid          from 'shortid';
-import ReactDom         from 'react-dom';
-import AppScope         from './AppScope';
-import MeteoWidget      from './components/MeteoWidget.scoped';
-import {
-	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
-}                       from "rscopes";
-import {renderToString} from "react-dom/server"
+import React                 from 'react';
+import shortid               from 'shortid';
+import ReactDom              from 'react-dom';
+import AppScope              from './AppScope';
+import MeteoWidget           from './components/MeteoWidget.scoped';
+import {scopeToState, Scope} from "rscopes";
+import {renderToString}      from "react-dom/server"
 
 import "./App.scss"
 
@@ -43,7 +40,10 @@ const indexTpl = require('./index.html.tpl');
 @scopeToState(["appState", "someData"])
 class App extends React.Component {
 	static renderTo  = ( node ) => {
-		let cScope      = new Scope(AppScope, { id: "App" });
+		let cScope      = new Scope(AppScope, {
+			id         : "App",
+			autoDestroy: true
+		});
 		window.contexts = Scope.scopes;
 		window.__scopesState && cScope.restore(window.__scopesState)
 		cScope.mount(["appState", "someData"])
@@ -55,7 +55,10 @@ class App extends React.Component {
 	}
 	static renderSSR = ( cfg, cb ) => {
 		let rid    = shortid.generate(),
-		    cScope = new Scope(AppScope, { id: rid, autoDestroy: false });
+		    cScope = new Scope(AppScope, {
+			    id         : rid,
+			    autoDestroy: false
+		    });
 		cfg.state && cScope.restore(cfg.state, { alias: "App" })
 		cScope.once('destroy', d => console.log('destroy ', rid, '; active ctx :', Object.keys(Scope.scopes)))
 		cScope.mount(["appState", "someData"])

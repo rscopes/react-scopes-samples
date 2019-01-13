@@ -23,7 +23,6 @@ export default {
 		src  : "/api/hello",
 		items: [{
 			"_id"      : "rkUQHZrqM",
-			"searching": "paris",
 			"size"     : { "width": 200, "height": 200 },
 			"text"     : "New Post It #0 somewhere we wait some new shit out there !",
 			"position" : { "x": 321, "y": 167 }

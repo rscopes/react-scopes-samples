@@ -18,7 +18,7 @@ export default class PostIt extends React.Component {
 	
 	render() {
 		let {
-			    record: { position, results, size, location } = {},
+			    record: { position, size } = {},
 			    record,
 			    MeteoSearch,
 			    $actions, onSelect, selected
