@@ -11,7 +11,7 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 	{
 		@asStore
 		MeteoSearch: {
-			// bind record values as initial values
+			// bind record from the store
 			@asRef
 			record: "record",
 			
@@ -27,40 +27,36 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 				
 				// do query meteo if needed
 				if ( location ) {
-					this.wait();
-					console.log("query")
+					
+					this.wait();// so the whole scope tree will wait for SSR
+					
 					superagent
 						.get(state.src + location)
 						.then(( res ) => {
+							
 							if ( location !== data.location )
 								return;
-							console.log("result")
-							try {
-								this.push({ results: res.body, location })
-								// update the record
-								
-								this.$actions.updatePostIt(
-									{
-										...state.record,
-										//results: res.body,
-										location
-									});
-							} catch ( e ) {
-								this.push({ results: null, location });
-							}
 							
+							// update the store data
+							this.push({ results: res.body, location });
+							
+							// update the record location
+							this.$actions.updatePostIt(
+								{
+									...state.record,
+									location
+								});
 						})
+						// release anyway
 						.then(e => this.release())
 						.catch(e => this.release())
 				}
-				;
-				return state;
+				
+				return data;
 			},
+			
 			// $actions.updateSearch
 			updateSearch( location ) {
-				let state = this.nextState, results = {};
-				
-				if ( location == state.location ) return;
 				if ( location.length < 4 )
 					return { location };
 				
@@ -69,6 +65,7 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 		}
 	}, { key: 'postIt' }
 )
+// finally inject the stores
 @scopeToProps(["MeteoSearch", "record"])
 export default class sMeteoWidget extends MeteoWidget {
 };
