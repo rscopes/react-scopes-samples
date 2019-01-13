@@ -393,33 +393,6 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var rsSpells = __webpack_require__(28);
@@ -428,7 +401,7 @@ rsSpells;
 module.exports = rs;
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -437,7 +410,7 @@ module.exports = __webpack_require__(57);
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1262,7 +1235,7 @@ module.exports = is;
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1361,7 +1334,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1468,6 +1441,33 @@ module.exports = {
     lookup: lookup,
     shuffled: getShuffled
 };
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
@@ -2831,7 +2831,7 @@ module.exports =
 /* 4 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(5);
 
 	/***/
 },
@@ -4308,11 +4308,11 @@ var _superagent = __webpack_require__(19);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _shortid = __webpack_require__(5);
+var _shortid = __webpack_require__(4);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _rscopes = __webpack_require__(4);
+var _rscopes = __webpack_require__(3);
 
 var _rscopes2 = _interopRequireDefault(_rscopes);
 
@@ -4452,7 +4452,7 @@ var _MeteoWidget2 = __webpack_require__(27);
 
 var _MeteoWidget3 = _interopRequireDefault(_MeteoWidget2);
 
-var _rscopes = __webpack_require__(4);
+var _rscopes = __webpack_require__(3);
 
 var _spells = __webpack_require__(49);
 
@@ -4747,7 +4747,7 @@ var _reactRnd = __webpack_require__(12);
 
 var _reactRnd2 = _interopRequireDefault(_reactRnd);
 
-var _shortid = __webpack_require__(5);
+var _shortid = __webpack_require__(4);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
@@ -4759,7 +4759,7 @@ var _MeteoWidget = __webpack_require__(22);
 
 var _MeteoWidget2 = _interopRequireDefault(_MeteoWidget);
 
-var _rscopes = __webpack_require__(4);
+var _rscopes = __webpack_require__(3);
 
 var _server = __webpack_require__(11);
 
@@ -5334,7 +5334,7 @@ module.exports =
 /* 3 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(5);
 
 	/***/
 },
@@ -6116,21 +6116,20 @@ module.exports =
    * @param storesMap {Object} Object with the initial stores definition / instances
    * @param config {Object} Scope config
    * {
-   *  parent {scope} @optional parent scope
+   *     parent {scope} @optional parent scope
    *
-   *  id {string} @optional id ( if this id exist storesMap will be merge on the 'id'
-   *     scope) key {string} @optional key of the scope ( if no id is set, the scope id
-   *     will be (parent.id+'>'+key) incrementId {bool} @optional true to add a suffix
-   *     id, if the provided key or id globally exist
+   *     id {string} @optional id ( if this id exist storesMap will be merge on the 'id'
+   *     scope)
+   *     key {string} @optional key of the scope ( if no id is set, the scope id will be (parent.id+'>'+key)
+   *     incrementId {bool} @optional true to add a suffix id, if the provided key or id globally exist
    *
-   *  state {Object} @optional initial state by store alias
-   *  data {Object} @optional initial data by store alias
+   *     state {Object} @optional initial state by store alias
+   *     data {Object} @optional initial data by store alias
    *
-   *  rootEmitter {bool} @optional true to not being destabilized by parent
-   *  boundedActions {array | regexp} @optional list or regexp of actions not
-   *     propagated to the parent
-   *
-   *  persistenceTm {number) if > 0, will wait 'persistenceTm' ms before destroy when
+   *     rootEmitter {bool} @optional true to not being destabilized by parent
+   *     boundedActions {array | regexp} @optional list or regexp of actions not propagated to the parent
+   *     autoDestroy {true | false | 'inherit'}
+   *     persistenceTm {number) if > 0, will wait 'persistenceTm' ms before destroy when
    *     dispose reach 0 autoDestroy  {bool} will trigger retain & dispose after start
    *  }
    * @returns {Scope}
@@ -7444,9 +7443,8 @@ module.exports =
 					this._._parentList = null;
 				}
 				this.dead = true;
-				this.emit("destroy", this);
-
 				delete openScopes[this._id];
+				this.emit("destroy", this);
 			}
 		}]);
 
@@ -7496,7 +7494,7 @@ module.exports =
 /* 3 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(5);
 
 	/***/
 },
@@ -7700,7 +7698,7 @@ module.exports =
 /* 6 */
 /***/function (module, exports) {
 
-	module.exports = __webpack_require__(5);
+	module.exports = __webpack_require__(4);
 
 	/***/
 },
@@ -9077,7 +9075,7 @@ module.exports =
 	/***/
 }]
 /******/);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(0)))
 
 /***/ }),
 /* 30 */
@@ -9106,7 +9104,7 @@ module.exports = function (t) {
     return t[e] = new n.default.scopeRef(t[e]), t;
   }), e.default = l, t.exports = e.default;
 }, function (t, e) {
-  t.exports = __webpack_require__(6);
+  t.exports = __webpack_require__(5);
 }, function (t, e, s) {
   "use strict";
   Object.defineProperty(e, "__esModule", { value: !0 });var i = Object.assign || function (t) {
@@ -9509,7 +9507,7 @@ module.exports = function (t) {
           this._._mixed[0].removeListener(this._._mixedList.shift()), this._._mixed.shift().dispose("mixedTo");
         }[].concat(i(this._.followers)).map(function (e) {
           return t.unBind.apply(t, i(e));
-        }), this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this.dead = !0, this.emit("destroy", this), delete m[this._id];
+        }), this._._parentList && (this.parent._rmChild(this), this.parent.removeListener(this._._parentList), this.parent.dispose("isMyParent"), this._._parentList = null), this.dead = !0, delete m[this._id], this.emit("destroy", this);
       } }]), e;
   }(y), h.persistenceTm = 1, h.Store = null, h.scopeRef = function (t) {
     this.path = t;
@@ -9594,7 +9592,7 @@ module.exports = function (t) {
     })), e.length ? t[e[0]] && n(t[e[0]], e.slice(1)) : t;
   }Object.defineProperty(e, "__esModule", { value: !0 }), e.walknSet = r, e.walknGet = n, e.keyWalknSet = o, e.keyWalknGet = a;var h = s(2);
 }, function (t, e) {
-  t.exports = __webpack_require__(5);
+  t.exports = __webpack_require__(4);
 }, function (t, e, s) {
   "use strict";
   function i(t, e, s) {
@@ -9929,7 +9927,7 @@ module.exports = function (t) {
       _ = [];e.addScopableType = n, e.reScope = h, e.scopeToState = u;
 }]);
 //# sourceMappingURL=ReScope.min.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(0)))
 
 /***/ }),
 /* 31 */
@@ -10302,7 +10300,7 @@ module.exports = function() {
 var assign = __webpack_require__(2);
 
 var ReactPropTypesSecret = __webpack_require__(10);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(6);
 
 var printWarning = function() {};
 
@@ -11656,7 +11654,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var _assign = __webpack_require__(2);
 var React = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(6);
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -15292,7 +15290,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(6);
 var scheduler = __webpack_require__(17);
 var tracing = __webpack_require__(54);
 
@@ -37850,7 +37848,7 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var _assign = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(6);
 
 // TODO: this is special because it gets imported during build.
 
@@ -39753,7 +39751,7 @@ unstable_ConcurrentMode:x,unstable_Profiler:u,__SECRET_INTERNALS_DO_NOT_USE_OR_Y
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rs       = __webpack_require__(4);
+var rs       = __webpack_require__(3);
 
 module.exports = rs.spells;
 
@@ -40914,7 +40912,7 @@ exports.unstable_getFirstCallbackNode = unstable_getFirstCallbackNode;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(8)))
 
 /***/ }),
 /* 53 */
@@ -40943,7 +40941,7 @@ exports.unstable_scheduleCallback=function(a,b){var d=-1!==k?k:exports.unstable_
 b=d.previous;b.next=d.previous=a;a.next=d;a.previous=b}return a};exports.unstable_cancelCallback=function(a){var b=a.next;if(null!==b){if(b===a)c=null;else{a===c&&(c=b);var d=a.previous;d.next=b;b.previous=d}a.next=a.previous=null}};exports.unstable_wrapCallback=function(a){var b=h;return function(){var d=h,e=k;h=b;k=exports.unstable_now();try{return a.apply(this,arguments)}finally{h=d,k=e,v()}}};exports.unstable_getCurrentPriorityLevel=function(){return h};
 exports.unstable_shouldYield=function(){return!f&&(null!==c&&c.expirationTime<l||w())};exports.unstable_continueExecution=function(){null!==c&&p()};exports.unstable_pauseExecution=function(){};exports.unstable_getFirstCallbackNode=function(){return c};
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
 /* 54 */
@@ -40968,7 +40966,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 var generate = __webpack_require__(56);
-var alphabet = __webpack_require__(8);
+var alphabet = __webpack_require__(7);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
 // This number should be updated every year or so to keep the generated id short.
@@ -41020,7 +41018,7 @@ module.exports = build;
 "use strict";
 
 
-var alphabet = __webpack_require__(8);
+var alphabet = __webpack_require__(7);
 var random = __webpack_require__(59);
 var format = __webpack_require__(37);
 
@@ -41048,7 +41046,7 @@ module.exports = generate;
 "use strict";
 
 
-var alphabet = __webpack_require__(8);
+var alphabet = __webpack_require__(7);
 var build = __webpack_require__(55);
 var isValid = __webpack_require__(58);
 
@@ -41116,7 +41114,7 @@ module.exports.isValid = isValid;
 
 "use strict";
 
-var alphabet = __webpack_require__(8);
+var alphabet = __webpack_require__(7);
 
 function isShortId(id) {
     if (!id || typeof id !== 'string' || id.length < 6 ) {
