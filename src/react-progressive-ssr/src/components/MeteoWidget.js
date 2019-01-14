@@ -76,7 +76,7 @@ export default class PostIt extends React.Component {
 										       this.setState({ searching: e.target.value })
 										       $actions.updateSearch(e.target.value);
 									       } }
-									       value={ this.state.searching || MeteoSearch.location }
+									       value={ state.searching }
 									       onMouseDown={ e => e.stopPropagation() }/>
 								</div>
 							}
