@@ -3552,7 +3552,7 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 			    results = _ref.results,
 			    record = _ref.record;
 
-			location = location || record.location;
+			location = location || state.record.location;
 
 			if (location == data.location && data.results) return data;
 

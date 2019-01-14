@@ -20,7 +20,7 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 			
 			// the function that apply changes in MeteoSearch state, if needed
 			$apply( data = {}, state, { location, results, record } ) {
-				location = location || record.location;
+				location = location || state.record.location;
 				
 				if ( location == data.location && data.results )
 					return data;
