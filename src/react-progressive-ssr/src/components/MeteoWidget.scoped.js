@@ -34,7 +34,7 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 						.get(state.src + location)
 						.then(( res ) => {
 							
-							if ( location !== data.location )
+							if ( location !== this.data.location )
 								return;
 							
 							// update the store data
@@ -52,7 +52,7 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 						.catch(e => this.release())
 				}
 				
-				return data;
+				return {location};
 			},
 			
 			// $actions.updateSearch
