@@ -109,7 +109,19 @@ class App extends React.Component {
 	}
 }
 
-@scopeToProps
+// remap record for fun (not usefull here)
+@propsToScope(["record"], { key: 'postIt' })
+@scopeToProps(
+	{
+		@asRef
+		size    : "record.size",
+		@asRef
+		position: "record.position",
+		@asRef
+		text    : "record.text",
+		@asRef
+		record  : "record"
+	})
 class PostIt extends React.Component {
 	
 	state = {};
@@ -126,35 +138,27 @@ class PostIt extends React.Component {
 	
 	render() {
 		let {
-			    record: { position, text, size },
-			    record,
-			    $actions, onSelect, selected
+			    position, size, text, $actions, record, onSelect, selected
 		    }     = this.props,
 		    state = this.state;
 		return (
 			<Rnd
 				absolutePos
 				z={ selected ? 2000 : 1 }
-				size={ state.size || size }
-				position={ state.position || position }
+				size={ state.size||size }
+				position={ state.position||position }
 				onDragStop={ this.saveState }
 				onResizeStop={ this.saveState }
 				onDrag={ ( e, d ) => {
 					!selected && onSelect(record)
-					this.setState(
-						{
-							position: { x: d.x, y: d.y }
-						});
+					this.setState({position : { x: d.x, y: d.y }})
 				} }
 				onResize={ ( e, direction, ref, delta, position ) => {
-					this.setState(
-						{
-							position,
-							size: {
-								width : ref.offsetWidth,
-								height: ref.offsetHeight
-							}
-						});
+					!selected && onSelect(record)
+					this.setState({size : {
+							width : ref.offsetWidth,
+							height: ref.offsetHeight
+						}})
 				} }>
 				<div className={ "postit handle" }>
 					{
@@ -179,7 +183,7 @@ class PostIt extends React.Component {
 			                            });
 	                            } }
 	                            onMouseDown={ e => e.stopPropagation() }
-	                            value={ record.text }/>
+	                            >{ text }</textarea>
 							<button
 								onClick={ e => this.setState({ editing: false }) }>💾
 							</button>
