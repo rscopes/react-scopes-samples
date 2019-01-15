@@ -1,5 +1,34 @@
-import React from "react";
-import Rnd   from "react-rnd";
+import React  from "react";
+import Rnd    from "react-rnd";
+import moment from "moment";
+
+
+const MeteoInfos = ( { meteoData } ) =>
+	<div className={ "MeteoInfos" }>
+		<div className={ "location" }>
+			{ meteoData.name }&nbsp;
+			(&nbsp;
+			{
+				meteoData.weather[0] &&
+				meteoData.weather[0].description
+			}
+			&nbsp;)
+		</div>
+		<div className={ "picto" }>
+			{
+				meteoData.weather[0] &&
+				<img
+					src={ "http://openweathermap.org/img/w/" + meteoData.weather[0].icon + '.png' }></img>
+			}
+		</div>
+		<div className={ "infos" }>
+			<div className={ "dt" }>
+			</div>
+			<div className={ "dt" }>{ moment(meteoData.dt * 1000).format('MMMM Do YYYY, h:mm:ss a') }</div>
+			<div className={ "wind" }>{ meteoData.wind.speed }mh</div>
+		</div>
+	</div>;
+
 
 export default class PostIt extends React.Component {
 	
@@ -53,13 +82,7 @@ export default class PostIt extends React.Component {
 					{
 						!this.state.editing &&
 						<div className={ "text" }>
-							{ MeteoSearch.location }
-							{
-								MeteoSearch.results &&
-								MeteoSearch.results.weather[0] &&
-								<img
-									src={ "http://openweathermap.org/img/w/" + MeteoSearch.results.weather[0].icon + '.png' }></img>
-							}
+							{ MeteoSearch.results && <MeteoInfos meteoData={ MeteoSearch.results }/> || "Edit me !"}
 							<button onClick={ e => this.setState({ editing: true }) }
 							        className={ "edit" }>🖋
 							</button>
@@ -73,22 +96,16 @@ export default class PostIt extends React.Component {
 								<div className={ "search" }>
 									<input type="text"
 									       onChange={ e => {
-										       this.setState({ searching: e.target.value })
+										       this.setState({ searching: e.target.value });
 										       $actions.updateSearch(e.target.value);
 									       } }
-									       value={ state.searching }
-									       defaultValue={ record.location }
+									       value={ state.searching !== undefined ? state.searching : record.location }
 									       onMouseDown={ e => e.stopPropagation() }/>
 								</div>
 							}
 							{
-								MeteoSearch.results &&
-								MeteoSearch.results.weather[0] &&
-								<img
-									src={ "http://openweathermap.org/img/w/" + MeteoSearch.results.weather[0].icon + '.png' }></img>
-							}
-							{
-								MeteoSearch.fetching && "Loading...." || ""
+								MeteoSearch.fetching && "Loading...." ||
+								<MeteoInfos meteoData={ MeteoSearch.results }/>
 							}
 							<button
 								disabled={ MeteoSearch.fetching }

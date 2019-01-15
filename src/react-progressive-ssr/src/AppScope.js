@@ -22,12 +22,12 @@ export default {
 		items: [{
 			"_id"     : "rkUQHZrqM",
 			"location": "paris",
-			"size"    : { "width": 200, "height": 200 },
+			"size"    : { "width": 350, "height": 200 },
 			"position": { "x": 321, "y": 167 }
 		}, {
 			"_id"     : "r1bcuMrcM",
 			"location": "rio",
-			"size"    : { "width": 200, "height": 200 },
+			"size"    : { "width": 350, "height": 200 },
 			"position": { "x": 260, "y": 576 }
 		}],
 		// actions
@@ -35,10 +35,7 @@ export default {
 			return {
 				items: [...this.nextState.items, {
 					_id     : shortid.generate(),
-					size    : {
-						width : 200,
-						height: 200
-					},
+					size    : { width: 350, height: 200 },
 					position: {
 						x: 100 + ~~(Math.random() * 600),
 						y: 100 + ~~(Math.random() * 600)
