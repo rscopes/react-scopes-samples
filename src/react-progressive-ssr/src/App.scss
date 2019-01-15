@@ -54,13 +54,10 @@
   height: 100%;
   top: 0px;
   left: 0;
-  border: 1px solid #E8E8E8;
-  border-top: 1px solid #fdfd86;
-  font-family: 'Reenie Beanie';
   font-size: 22px;
-  border-bottom-right-radius: 60px 5px;
   display: inline-block;
-  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* W3C */
+  border: 1px solid #E8E8E8;
+  border-radius: 10px;
   .text {
     margin-top: 40px;
     .edit {

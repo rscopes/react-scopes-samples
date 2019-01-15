@@ -50,9 +50,11 @@ import {asStore, asRef, asRefTpl} from "rscopes/spells";
 						// release anyway
 						.then(e => this.release())
 						.catch(e => this.release())
+					
+					return { location, fetching: true };
 				}
 				
-				return {location};
+				return data;
 			},
 			
 			// $actions.updateSearch

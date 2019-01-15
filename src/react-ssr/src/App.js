@@ -145,20 +145,22 @@ class PostIt extends React.Component {
 			<Rnd
 				absolutePos
 				z={ selected ? 2000 : 1 }
-				size={ state.size||size }
-				position={ state.position||position }
+				size={ state.size || size }
+				position={ state.position || position }
 				onDragStop={ this.saveState }
 				onResizeStop={ this.saveState }
 				onDrag={ ( e, d ) => {
 					!selected && onSelect(record)
-					this.setState({position : { x: d.x, y: d.y }})
+					this.setState({ position: { x: d.x, y: d.y } })
 				} }
 				onResize={ ( e, direction, ref, delta, position ) => {
 					!selected && onSelect(record)
-					this.setState({size : {
-							width : ref.offsetWidth,
-							height: ref.offsetHeight
-						}})
+					this.setState({
+						              size: {
+							              width : ref.offsetWidth,
+							              height: ref.offsetHeight
+						              }
+					              })
 				} }>
 				<div className={ "postit handle" }>
 					{
@@ -183,7 +185,7 @@ class PostIt extends React.Component {
 			                            });
 	                            } }
 	                            onMouseDown={ e => e.stopPropagation() }
-	                            >{ text }</textarea>
+                            >{ text }</textarea>
 							<button
 								onClick={ e => this.setState({ editing: false }) }>💾
 							</button>

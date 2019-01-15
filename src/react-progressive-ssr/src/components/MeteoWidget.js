@@ -77,6 +77,7 @@ export default class PostIt extends React.Component {
 										       $actions.updateSearch(e.target.value);
 									       } }
 									       value={ state.searching }
+									       defaultValue={ record.location }
 									       onMouseDown={ e => e.stopPropagation() }/>
 								</div>
 							}
@@ -86,7 +87,11 @@ export default class PostIt extends React.Component {
 								<img
 									src={ "http://openweathermap.org/img/w/" + MeteoSearch.results.weather[0].icon + '.png' }></img>
 							}
+							{
+								MeteoSearch.fetching && "Loading...." || ""
+							}
 							<button
+								disabled={ MeteoSearch.fetching }
 								onClick={ e => this.setState({ editing: false }) }>💾
 							</button>
 						</div>

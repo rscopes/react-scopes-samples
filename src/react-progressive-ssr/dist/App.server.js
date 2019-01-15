@@ -2417,9 +2417,11 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 				}).catch(function (e) {
 					return _this.release();
 				});
+
+				return { location: location, fetching: true };
 			}
 
-			return { location: location };
+			return data;
 		},
 
 
@@ -2793,15 +2795,18 @@ var PostIt = function (_React$Component) {
 									$actions.updateSearch(e.target.value);
 								},
 								value: state.searching,
+								defaultValue: record.location,
 								onMouseDown: function onMouseDown(e) {
 									return e.stopPropagation();
 								} })
 						),
 						MeteoSearch.results && MeteoSearch.results.weather[0] && _react2.default.createElement("img", {
 							src: "http://openweathermap.org/img/w/" + MeteoSearch.results.weather[0].icon + '.png' }),
+						MeteoSearch.fetching && "Loading...." || "",
 						_react2.default.createElement(
 							"button",
 							{
+								disabled: MeteoSearch.fetching,
 								onClick: function onClick(e) {
 									return _this2.setState({ editing: false });
 								} },

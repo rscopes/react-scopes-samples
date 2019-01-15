@@ -3579,9 +3579,11 @@ var sMeteoWidget = (_dec = (0, _rscopes.propsToScope)(["record"]), _dec2 = (0, _
 				}).catch(function (e) {
 					return _this.release();
 				});
+
+				return { location: location, fetching: true };
 			}
 
-			return { location: location };
+			return data;
 		},
 
 
@@ -3999,15 +4001,18 @@ var PostIt = function (_React$Component) {
 									$actions.updateSearch(e.target.value);
 								},
 								value: state.searching,
+								defaultValue: record.location,
 								onMouseDown: function onMouseDown(e) {
 									return e.stopPropagation();
 								} })
 						),
 						MeteoSearch.results && MeteoSearch.results.weather[0] && _react2.default.createElement("img", {
 							src: "http://openweathermap.org/img/w/" + MeteoSearch.results.weather[0].icon + '.png' }),
+						MeteoSearch.fetching && "Loading...." || "",
 						_react2.default.createElement(
 							"button",
 							{
+								disabled: MeteoSearch.fetching,
 								onClick: function onClick(e) {
 									return _this2.setState({ editing: false });
 								} },
@@ -4203,7 +4208,7 @@ exports = module.exports = __webpack_require__(25)(false);
 
 
 // module
-exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  border: 1px solid #E8E8E8;\n  border-top: 1px solid #fdfd86;\n  font-family: 'Reenie Beanie';\n  font-size: 22px;\n  border-bottom-right-radius: 60px 5px;\n  display: inline-block;\n  background: -webkit-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: -o-linear-gradient(315deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);\n  /* W3C */ }\n  .postit .text {\n    margin-top: 40px; }\n    .postit .text .edit {\n      position: absolute;\n      bottom: 5px;\n      left: 5px; }\n    .postit .text .delete {\n      position: absolute;\n      bottom: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
+exports.push([module.i, ".newBtn {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  display: inline-block; }\n\n.saveBtn {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n  display: inline-block; }\n\n#app {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n\n.button {\n  background-color: #3bb3e0;\n  padding: 10px;\n  font-family: 'Open Sans', sans-serif;\n  font-size: 12px;\n  text-decoration: none;\n  color: #fff;\n  border: solid 1px #186f8f;\n  background-image: -webkit-gradient(linear, left bottom, left top, from(#2ca0ca), to(#3eb8e5));\n  background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);\n  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n          box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;\n  border-radius: 5px; }\n  .button:active {\n    padding-bottom: 9px;\n    padding-left: 10px;\n    padding-right: 10px;\n    padding-top: 11px;\n    background-image: -webkit-gradient(linear, left bottom, left top, from(#3eb8e5), to(#2ca0ca));\n    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);\n    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%); }\n\n.postit {\n  line-height: 1;\n  text-align: center;\n  margin: -10px;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0;\n  font-size: 22px;\n  display: inline-block;\n  border: 1px solid #E8E8E8;\n  border-radius: 10px; }\n  .postit .text {\n    margin-top: 40px; }\n    .postit .text .edit {\n      position: absolute;\n      bottom: 5px;\n      left: 5px; }\n    .postit .text .delete {\n      position: absolute;\n      bottom: 5px;\n      right: 5px; }\n  .postit .editor {\n    position: absolute;\n    bottom: 30px;\n    right: 10px;\n    top: 30px;\n    left: 10px; }\n    .postit .editor textarea {\n      margin: 0;\n      padding: 0;\n      width: 100%;\n      height: 100%; }\n    .postit .editor button {\n      position: absolute;\n      bottom: -25px;\n      left: 0px;\n      width: 100%; }\n", ""]);
 
 // exports
 
