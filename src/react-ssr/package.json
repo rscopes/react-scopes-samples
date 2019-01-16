@@ -22,7 +22,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-rnd": "git+https://github.com/rScopes/react-rnd.git#master",
+    "react-rnd": "9.0.4",
     "request": "^2.85.0",
     "rscopes": "^1.2.0",
     "shortid": "^2.2.8",

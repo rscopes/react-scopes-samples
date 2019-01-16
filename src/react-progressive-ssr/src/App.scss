@@ -1,3 +1,17 @@
+/*!
+ * The MIT License (MIT)
+ * Copyright (c) 2019. Wise Wild Web
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *  @author : Nathanael Braun
+ *  @contact : caipilabs@gmail.com
+ */
+
 .newBtn {
   position: absolute;
   bottom: 10px;
@@ -19,13 +33,6 @@
   top: 0px;
   left: 0;
   user-select: none;
-  > div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0;
-  }
 }
 
 .button {
@@ -52,28 +59,24 @@
 }
 
 .postit {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   line-height: 1;
   text-align: center;
   margin: -10px;
+  //padding-top: 35px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0px;
   left: 0;
-  border: 1px solid #E8E8E8;
-  border-top: 1px solid #fdfd86;
-  font-family: 'Reenie Beanie';
   font-size: 22px;
-  border-bottom-right-radius: 60px 5px;
   display: inline-block;
-  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* W3C */
+  border: 1px solid #E8E8E8;
+  border-radius: 10px;
+  background: white;
+
   .text {
-    padding-top: 40px;
-    overflow: auto;
-    position: absolute;
-    width: 100%;
-    top: 40px;
-    bottom: 0;
+    margin-top: 40px;
+
     .edit {
 
       position: absolute;
@@ -85,6 +88,7 @@
       //  display: block;
       //}
     }
+
     .delete {
 
       position: absolute;
@@ -97,6 +101,7 @@
       //}
     }
   }
+
   .editor {
     position: absolute;
     bottom: 30px;
@@ -111,6 +116,7 @@
       width: 100%;
       height: 100%;
     }
+
     button {
 
       position: absolute;

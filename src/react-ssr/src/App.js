@@ -26,18 +26,18 @@
  */
 
 import React            from 'react';
-import Rnd              from 'react-rnd';
+import {Rnd}            from "react-rnd";
 import shortid          from 'shortid';
 import AppScope         from './AppScope';
 import {
-	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope, spells
+	Store, reScope, scopeRef, scopeToProps, propsToStore, scopeToState, propsToScope, Scope
 }                       from "rscopes";
+import {
+	asRef
+}                       from "rscopes/spells";
 import {renderToString} from "react-dom/server"
 
 
-let { asRef } = spells;
-
-import "weather-icons/css/weather-icons.css"
 import "./App.scss"
 
 var indexTpl = require('./index.html.tpl');
