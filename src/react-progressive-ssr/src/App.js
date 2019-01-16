@@ -29,7 +29,7 @@ import React                 from 'react';
 import shortid               from 'shortid';
 import ReactDom              from 'react-dom';
 import AppScope              from './AppScope';
-import MeteoWidget           from './containers/MeteoWidget.scoped';
+import MeteoWidget           from './containers/MeteoWidget';
 import {scopeToState, Scope} from "rscopes";
 import {renderToString}      from "react-dom/server"
 

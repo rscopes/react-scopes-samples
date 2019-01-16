@@ -1,36 +1,36 @@
-import React  from "react";
-import Rnd    from "react-rnd";
-import moment from "moment";
+/*
+ * The MIT License (MIT)
+ * Copyright (c) 2019. Wise Wild Web
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *  @author : Nathanael Braun
+ *  @contact : caipilabs@gmail.com
+ */
+
+import React                                 from "react";
+import {Rnd}                                 from "react-rnd";
+import {reScope, scopeToProps, propsToScope} from "rscopes";
+import {asRef, asStore}                      from "rscopes/spells";
+
+import MeteoInfos  from "./MeteoInfos";
+import MeteoSearch from "../stores/MeteoSearch";
 
 
-const MeteoInfos = ( { meteoData } ) =>
-	<div className={ "MeteoInfos" }>
-		<div className={ "location" }>
-			{ meteoData.name }&nbsp;
-			(&nbsp;
-			{
-				meteoData.weather[0] &&
-				meteoData.weather[0].description
-			}
-			&nbsp;)
-		</div>
-		<div className={ "picto" }>
-			{
-				meteoData.weather[0] &&
-				<img
-					src={ "http://openweathermap.org/img/w/" + meteoData.weather[0].icon + '.png' }></img>
-			}
-		</div>
-		<div className={ "infos" }>
-			<div className={ "dt" }>
-			</div>
-			<div className={ "dt" }>{ moment(meteoData.dt * 1000).format('MMMM Do YYYY, h:mm:ss a') }</div>
-			<div className={ "wind" }>{ meteoData.wind.speed }mh</div>
-		</div>
-	</div>;
-
-
-export default class PostIt extends React.Component {
+@reScope(
+	{
+		MeteoSearch
+	}, { key: 'postIt' }
+)
+// map the record location as the default value in the MeteoSearch store state
+@propsToScope(["record.location:MeteoSearch.defaultLocation"])
+// finally inject the stores
+@scopeToProps(["MeteoSearch"])
+export default class MeteoWidget extends React.Component {
 	
 	state = {};
 	
@@ -55,7 +55,6 @@ export default class PostIt extends React.Component {
 		    state = this.state;
 		return (
 			<Rnd
-				absolutePos
 				z={ selected ? 2000 : 1 }
 				size={ state.size || size }
 				position={ state.position || position }
@@ -105,7 +104,7 @@ export default class PostIt extends React.Component {
 							}
 							{
 								MeteoSearch.fetching && "Loading...." ||
-								<MeteoInfos meteoData={ MeteoSearch.results }/>
+								MeteoSearch.results && <MeteoInfos meteoData={ MeteoSearch.results }/>
 							}
 							<button
 								disabled={ MeteoSearch.fetching }
