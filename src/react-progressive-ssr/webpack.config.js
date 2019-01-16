@@ -30,8 +30,8 @@ var webpack = require("webpack");
 var path    = require("path");
 
 var nodeExternals = require('webpack-node-externals');
-var autoprefixer = require('autoprefixer');
-var production   = process.argv.indexOf("--production") > -1
+var autoprefixer  = require('autoprefixer');
+var production    = process.argv.indexOf("--production") > -1
 	|| process.argv.indexOf("-p") > -1;
 
 module.exports = [
@@ -171,20 +171,20 @@ module.exports = [
 		},
 	},
 	{
-		entry  : {
+		entry    : {
 			App: './src/App.js'
 		},
-		target : 'node',
-		output : {
+		target   : 'node',
+		output   : {
 			path         : __dirname + "/dist/",
 			filename     : "[name].server.js",
 			publicPath   : "/",
 			libraryTarget: "commonjs2"
 		},
-		devtool: 'source-map',
+		devtool  : 'source-map',
 		externals: ["superagent"],
-		resolve: {
-			symlinks: false,
+		resolve  : {
+			symlinks  : false,
 			extensions: [
 				".",
 				".js",
