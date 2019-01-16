@@ -2,7 +2,7 @@
   "name": "rescope-samples",
   "version": "1.0.0",
   "description": "rescope samples",
-  "repository": "https://github.com/CaipiLabs/rescope-samples.git",
+  "repository": "https://github.com/rScopes/rescope-samples.git",
   "license": "MIT",
   "author": "Nathan Braun <caipilabs@gmail.com>",
   "scripts": {
