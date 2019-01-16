@@ -143,7 +143,6 @@ class PostIt extends React.Component {
 		    state = this.state;
 		return (
 			<Rnd
-				absolutePos
 				z={ selected ? 2000 : 1 }
 				size={ state.size || size }
 				position={ state.position || position }
