@@ -17,7 +17,7 @@ import AppScope                from './AppScope';
 import MeteoWidget             from './containers/MeteoWidget';
 import {scopeToState, reScope} from "rscopes";
 
-import "./App.scss"
+import "./App.css"
 
 @reScope(AppScope)
 @scopeToState(["appState", "someData"])
