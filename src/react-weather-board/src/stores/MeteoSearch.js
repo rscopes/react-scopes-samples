@@ -13,9 +13,8 @@
  */
 
 
-import {reScope, scopeToProps, Store} from "rscopes";
-import {asRef, asStore}               from "rscopes/spells";
-import superagent                     from "superagent";
+import {Store}    from "rscopes";
+import superagent from "superagent";
 
 export default class MeteoSearch extends Store {
 	static state   = {
@@ -37,7 +36,7 @@ export default class MeteoSearch extends Store {
 	apply( data = {}, state, { location, results, record } ) {
 		location = location || state.defaultLocation;
 		
-		if ( location == data.location && data.results )
+		if ( location === data.location && data.results )
 			return data;
 		
 		// do query meteo if needed

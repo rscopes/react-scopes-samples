@@ -15,7 +15,6 @@
 import React                                 from "react";
 import {Rnd}                                 from "react-rnd";
 import {reScope, scopeToProps, propsToScope} from "rscopes";
-import {asRef, asStore}                      from "rscopes/spells";
 
 import MeteoInfos  from "./MeteoInfos";
 import MeteoSearch from "../stores/MeteoSearch";
