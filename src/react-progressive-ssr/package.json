@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
-    "start": "node ./Server.js -p 9001",
+    "start": "nodemon ./index.js localhost 8000",
     "runDebug": "node --inspect=[::]:9229 ./Server.js -p 9001",
     "runBrowser": "start http://localhost:9001&node ./Server.js -p 9001"
   },
@@ -29,6 +29,7 @@
     "url-loader": "^1.1.2"
   },
   "devDependencies": {
+    "nodemon": "1.18.4",
     "autoprefixer": "^8.2.0",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.3.17",

@@ -18959,7 +18959,7 @@ var MeteoWidget = (_dec = (0, _rscopes.reScope)({
 					!this.state.editing && _react2.default.createElement(
 						"div",
 						{ className: "text" },
-						MeteoSearch.results && _react2.default.createElement(_MeteoInfos2.default, { meteoData: MeteoSearch.results }) || "Edit me !",
+						MeteoSearch.fetching && "Loading...." || MeteoSearch.results && _react2.default.createElement(_MeteoInfos2.default, { meteoData: MeteoSearch.results }) || "Edit me !",
 						_react2.default.createElement(
 							"button",
 							{ onClick: function onClick(e) {
