@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
-    "start": "nodemon ./index.js localhost 8000",
+    "start": "node ./Server.js -p 9001",
     "runDebug": "node --inspect=[::]:9229 ./Server.js -p 9001",
     "runBrowser": "start http://localhost:9001&node ./Server.js -p 9001"
   },
