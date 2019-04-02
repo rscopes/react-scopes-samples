@@ -18,7 +18,7 @@ import rscopes, {
 	spells
 }                 from "rscopes";
 
-let { asStore, asScope } = spells;
+import {asStore, asScope} from "rescope-spells";
 
 
 export default {
