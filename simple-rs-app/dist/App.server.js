@@ -445,24 +445,34 @@ var req,
 req = __webpack_require__("./App/api sync recursive ^\\.\\/([^\\\\\\/]+)\\.js$");
 req.keys().forEach(function (key) {
   var mod,
-      name = key.match(/^\.\/([^\\\/]+)\.js$/);
+      name = key.match(/^\.\/([^\\\/]+)\.js$/),
+      i = 0,
+      modExport = _exports;
   name = name && name[1] || key.substr(2);
+  name = name.split('/');
+  mod = req(key);
 
-  if (!_exports[name]) {
-    mod = req(key);
-    _exports[name] = Object.keys(mod).length === 1 && mod.default || mod;
+  while (i < name.length - 1) {
+    modExport = modExport[name[i]] = modExport[name[i]] || {}, i++;
   }
+
+  modExport[name[i]] = Object.keys(mod).length === 1 && mod["default"] || mod;
 });
 req = __webpack_require__("./node_modules/wpi-react-hmr-ssr/App/api sync recursive ^\\.\\/([^\\\\\\/]+)\\.js$");
 req.keys().forEach(function (key) {
   var mod,
-      name = key.match(/^\.\/([^\\\/]+)\.js$/);
+      name = key.match(/^\.\/([^\\\/]+)\.js$/),
+      i = 0,
+      modExport = _exports;
   name = name && name[1] || key.substr(2);
+  name = name.split('/');
+  mod = req(key);
 
-  if (!_exports[name]) {
-    mod = req(key);
-    _exports[name] = Object.keys(mod).length === 1 && mod.default || mod;
+  while (i < name.length - 1) {
+    modExport = modExport[name[i]] = modExport[name[i]] || {}, i++;
   }
+
+  modExport[name[i]] = Object.keys(mod).length === 1 && mod["default"] || mod;
 });
 var index = _exports.index;
 /* harmony default export */ __webpack_exports__["default"] = (_exports);
@@ -563,8 +573,8 @@ try {
       res.send(200, html);
     });
   });
-  server.use(express.static(wpiConf.projectRoot + '/dist'));
-  server.use("/medias", express.static(wpiConf.projectRoot + '/public'));
+  server.use(express["static"](wpiConf.projectRoot + '/dist'));
+  server.use("/medias", express["static"](wpiConf.projectRoot + '/public'));
   server.post('/', function (req, res, next) {
     console.log("New state pushed");
     currentState = req.body;
@@ -642,7 +652,7 @@ var ctrl = {
       id: "App",
       autoDestroy: true
     }),
-        App = Object(react_rescope__WEBPACK_IMPORTED_MODULE_5__["reScope"])(cScope)(__webpack_require__(/*! ./App */ "./App/App.js").default);
+        App = Object(react_rescope__WEBPACK_IMPORTED_MODULE_5__["reScope"])(cScope)(__webpack_require__(/*! ./App */ "./App/App.js")["default"]);
     window.contexts = react_rescope__WEBPACK_IMPORTED_MODULE_5__["Scope"].scopes;
     state && cScope.restore(state);
     react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(App, null), node);
@@ -657,7 +667,7 @@ var ctrl = {
       id: rid,
       autoDestroy: false
     }),
-        App = Object(react_rescope__WEBPACK_IMPORTED_MODULE_5__["reScope"])(cScope)(__webpack_require__(/*! ./App */ "./App/App.js").default);
+        App = Object(react_rescope__WEBPACK_IMPORTED_MODULE_5__["reScope"])(cScope)(__webpack_require__(/*! ./App */ "./App/App.js")["default"]);
     cfg.state && cScope.restore(cfg.state, {
       alias: "App"
     });
@@ -833,7 +843,7 @@ function (_Store) {
       }) // release anyway
       .then(function (e) {
         return _this2.release();
-      }).catch(function (e) {
+      })["catch"](function (e) {
         return _this2.release();
       });
       this.push({
@@ -1542,7 +1552,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var debug = __webpack_require__(/*! App/console */ "./node_modules/wpi-react-hmr-ssr/App/console.js").default("server");
+var debug = __webpack_require__(/*! App/console */ "./node_modules/wpi-react-hmr-ssr/App/console.js")["default"]("server");
 
 /* harmony default export */ __webpack_exports__["default"] = (function (server, http) {
   return Object.keys(_api_js__WEBPACK_IMPORTED_MODULE_1__["default"]).map(function (service) {
@@ -1596,7 +1606,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 var cfg = __webpack_require__(/*! App/.wpiConfig.json */ "./App/.wpiConfig.json"),
     debug = __webpack_require__(/*! debug-logger */ "undefined?63f7"),
-    isFunction = __webpack_require__(/*! is */ "undefined?63a5").function,
+    isFunction = __webpack_require__(/*! is */ "undefined?63a5")["function"],
     isBrowserSide = new Function("try {return this===window;}catch(e){ return false;}")(),
     debounce = __webpack_require__(/*! debounce */ "undefined?508e"),
     _console = !isBrowserSide && function _console(ns) {
@@ -1787,7 +1797,7 @@ var express = __webpack_require__(/*! express */ "undefined?22fe"),
     http = __webpack_require__(/*! http */ "http").Server(server),
     argz = __webpack_require__(/*! minimist */ "undefined?2efa")(process.argv.slice(2)),
     wpiConf = __webpack_require__(/*! App/.wpiConfig */ "./App/.wpiConfig.json"),
-    debug = __webpack_require__(/*! App/console */ "./node_modules/wpi-react-hmr-ssr/App/console.js").default("server");
+    debug = __webpack_require__(/*! App/console */ "./node_modules/wpi-react-hmr-ssr/App/console.js")["default"]("server");
 
 process.title = wpiConf.project.name + '::server';
 debug.warn("process.env.DEBUG : ", process.env.DEBUG);
