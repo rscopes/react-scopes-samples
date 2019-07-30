@@ -1,7 +1,5 @@
-/** wpi externals - add module path **/
-{
-let ___wpi_amp = require('webpack-inherit/etc/node/loadModulePaths.js')(["G:\\n8tz\\libs\\rScopes\\rescope-samples\\simple-rs-app\\node_modules"]);
-}
+/** wi externals **/
+require('webpack-inherit/etc/node/loadModulePaths.js').loadPaths({allModulePath:["node_modules"],cDir:__dirname+'/..'},"dist");/** /wi externals **/
 
 /*!
  * MIT License
@@ -122,7 +120,7 @@ module.exports =
 /*! exports provided: project, projectRoot, vars, allCfg, allModId, default */
 /***/ (function(module) {
 
-module.exports = {"project":{"name":"simple-rs-app-alone","author":"Nathan Braun <n8tz.js@gmail.com>","version":"1.0.0"},"projectRoot":"G:\\n8tz\\libs\\rScopes\\rescope-samples\\simple-rs-app","vars":{"rootAlias":"App","externals":true},"allCfg":[{"rootFolder":"App","vars":{"externals":true},"extend":["wpi-react-rs-sass-ssr"]},{"rootFolder":"App","extend":["wpi-react-hmr-ssr"]},{"rootFolder":"App","config":"./etc/wp/webpack.config.api.js","extend":[]}],"allModId":["wpi-react-rs-sass-ssr","wpi-react-hmr-ssr"]};
+module.exports = JSON.parse("{\"project\":{\"name\":\"simple-rs-app-alone\",\"author\":\"Nathan Braun <n8tz.js@gmail.com>\",\"version\":\"1.0.0\"},\"projectRoot\":\"G:\\\\n8tz\\\\libs\\\\rScopes\\\\rescope-samples\\\\simple-rs-app\",\"vars\":{\"rootAlias\":\"App\",\"externals\":true},\"allCfg\":[{\"rootFolder\":\"App\",\"vars\":{\"externals\":true},\"extend\":[\"wpi-react-rs-sass-ssr\"]},{\"rootFolder\":\"App\",\"extend\":[\"wpi-react-hmr-ssr\"]},{\"rootFolder\":\"App\",\"config\":\"./etc/wp/webpack.config.api.js\",\"extend\":[]}],\"allModId\":[\"wpi-react-rs-sass-ssr\",\"wpi-react-hmr-ssr\"]}");
 
 /***/ }),
 
@@ -714,8 +712,8 @@ var ctrl = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return WeatherSearch; });
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "undefined?e108");
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "undefined?188d");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "undefined?24b3");
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "undefined?36a1");
@@ -730,10 +728,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var rscopes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rscopes */ "undefined?05b7");
 /* harmony import */ var rscopes__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(rscopes__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var rscopes_spells__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rscopes/spells */ "undefined?8ec2");
-/* harmony import */ var rscopes_spells__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(rscopes_spells__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! superagent */ "undefined?a026");
-/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! superagent */ "undefined?a026");
+/* harmony import */ var superagent__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(superagent__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -741,6 +737,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 /*
  * The MIT License (MIT)
@@ -755,7 +755,6 @@ __webpack_require__.r(__webpack_exports__);
  *  @author : Nathanael Braun
  *  @contact : n8tz.js@gmail.com
  */
-
 
 
 
@@ -826,7 +825,7 @@ function (_Store) {
       var state = this.nextState;
       this.wait(); // so the whole scope tree will wait for SSR
 
-      superagent__WEBPACK_IMPORTED_MODULE_9___default.a.get(state.src + location).then(function (res) {
+      superagent__WEBPACK_IMPORTED_MODULE_8___default.a.get(state.src + location).then(function (res) {
         if (location !== _this2.data.location) return; // update the store data
 
         _this2.push({
@@ -837,7 +836,7 @@ function (_Store) {
         }); // update the record location
 
 
-        state.record && _this2.$actions.updateWidget(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, state.record, {
+        state.record && _this2.$actions.updateWidget(_objectSpread({}, state.record, {
           location: location
         }));
       }) // release anyway
@@ -1099,8 +1098,8 @@ function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Widget; });
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "undefined?e108");
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "undefined?188d");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "undefined?24b3");
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "undefined?36a1");
@@ -1127,6 +1126,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _class, _class2, _temp;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 /*
  * The MIT License (MIT)
@@ -1169,7 +1172,7 @@ function (_React$Component) {
       var _this$props = _this.props,
           $actions = _this$props.$actions,
           record = _this$props.record;
-      $actions.updateWidget(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, record, {
+      $actions.updateWidget(_objectSpread({}, record, {
         size: _this.state.size || record.size,
         position: _this.state.position || record.position
       }));
@@ -1912,6 +1915,17 @@ module.exports = require("@material-ui/icons/Save");
 
 /***/ }),
 
+/***/ "undefined?188d":
+/*!********************************************************!*\
+  !*** external "@babel/runtime/helpers/defineProperty" ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@babel/runtime/helpers/defineProperty");
+
+/***/ }),
+
 /***/ "undefined?20a8":
 /*!********************************************************!*\
   !*** external "@babel/runtime/helpers/getPrototypeOf" ***!
@@ -2187,17 +2201,6 @@ module.exports = require("react-rnd");
 
 /***/ }),
 
-/***/ "undefined?8ec2":
-/*!*********************************!*\
-  !*** external "rscopes/spells" ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("rscopes/spells");
-
-/***/ }),
-
 /***/ "undefined?91cd":
 /*!*******************************************!*\
   !*** external "@material-ui/core/AppBar" ***!
@@ -2272,17 +2275,6 @@ module.exports = require("moment");
 /***/ (function(module, exports) {
 
 module.exports = require("shortid");
-
-/***/ }),
-
-/***/ "undefined?e108":
-/*!******************************************************!*\
-  !*** external "@babel/runtime/helpers/objectSpread" ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@babel/runtime/helpers/objectSpread");
 
 /***/ })
 

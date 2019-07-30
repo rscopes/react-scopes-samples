@@ -14,7 +14,6 @@
 
 
 import {reScope, scopeToProps, Store} from "rscopes";
-import {asRef, asStore}               from "rscopes/spells";
 import superagent                     from "superagent";
 
 export default class WeatherSearch extends Store {
