@@ -1,0 +1,37 @@
+{
+  "default": {
+    "rootFolder": "App",
+    "vars": {
+      "production": true
+    },
+    "extend": [
+      "wpi-react-rs-sass-ssr"
+    ]
+  },
+  "devClient": {
+    "rootFolder": "App",
+    "basedOn": "default",
+    "extend": [
+      "wpi-react-rs-sass-ssr"
+    ]
+  },
+  "devApi": {
+    "rootFolder": "App",
+    "vars": {
+      "externals": true
+    },
+    "extend": [
+      "wpi-react-rs-sass-ssr"
+    ]
+  },
+  "api": {
+    "rootFolder": "App",
+    "vars": {
+      "production": true,
+      "externals": true
+    },
+    "extend": [
+      "wpi-react-rs-sass-ssr"
+    ]
+  }
+}

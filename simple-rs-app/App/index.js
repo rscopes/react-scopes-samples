@@ -11,23 +11,23 @@
  *  @author : Nathanael Braun
  *  @contact : n8tz.js@gmail.com
  */
-import AppScope         from './App.scope';
-import shortid          from 'shortid';
-import ReactDom         from 'react-dom';
 import React            from "react";
+import ReactDom         from 'react-dom';
 import {renderToString} from "react-dom/server";
-import {Scope, reScope} from "react-rescope";
+import {reScope, Scope} from "react-rescope";
+import shortid          from 'shortid';
+import AppScope         from './App.scope';
 
 
 const ctrl = {
-	renderTo( node, state ) {
+	renderTo( node, state = __STATE__ ) {
 		let cScope      = new Scope(AppScope, {
 			    id         : "App",
 			    autoDestroy: true
 		    }),
 		    App         = reScope(cScope)(require('./App').default);
 		window.contexts = Scope.scopes;
-		state && cScope.restore(state);
+		__STATE__ && cScope.restore(__STATE__);
 		ReactDom.render(<App/>, node);
 		
 		if ( process.env.NODE_ENV !== 'production' && module.hot ) {
@@ -50,12 +50,13 @@ const ctrl = {
 		cfg.state && cScope.restore(cfg.state, { alias: "App" });
 		
 		let html,
-		    appHtml = renderToString(<App location={ cfg.location }/>),
+		    appHtml = renderToString(<App location={cfg.location}/>),
 		    stable  = cScope.isStableTree();
 		
 		cScope.onceStableTree(state => {
 			let nstate = cScope.serialize({ alias: "App" });
-			if ( !stable && _attempts < 0 ) {
+			if ( !stable && _attempts < 2 ) {
+				cfg.state = nstate;
 				ctrl.renderSSR(cfg, cb, ++_attempts);
 			}
 			else {
