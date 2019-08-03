@@ -24,22 +24,16 @@
  *   @contact : n8tz.js@gmail.com
  */
 
-import superagent from "superagent";
+import {asStore}  from "rescope-spells";
 import shortid    from "shortid";
-import rscopes, {
-	spells
-}                 from "rscopes";
-
-import {asStore, asScope} from "rescope-spells";
+import superagent from "superagent";
 
 
 export default {
 	@asStore
 	appState: {
 		selectedWidgetId: "rkUQHZrqM",
-		selectWidget( selectedWidgetId ) {
-			return { selectedWidgetId };
-		}
+		selectWidget    : selectedWidgetId => ({ selectedWidgetId })
 	},
 	@asStore
 	widgets : {
@@ -72,36 +66,30 @@ export default {
 		}],
 		
 		// actions
-		newWidget() {
-			return {
-				items: [...this.nextState.items, {
-					_id     : shortid.generate(),
-					size    : { width: 350, height: 200 },
-					position: {
-						x: 100 + ~~(Math.random() * 600),
-						y: 100 + ~~(Math.random() * 600)
-					},
-				}]
-			}
-		},
-		updateWidget( widget ) {
-			return {
-				items: this.nextState.items
-				           .map(
-					           it => (it._id === widget._id)
-					                 ? widget
-					                 : it
-				           )
-			}
-		},
-		rmWidget( id ) {
-			return {
-				items: this.nextState.items
-				           .filter(
-					           it => (it._id !== id)
-				           )
-			}
-		},
+		newWidget   : () => state => ({
+			items: [...state.items, {
+				_id     : shortid.generate(),
+				size    : { width: 350, height: 200 },
+				position: {
+					x: 100 + ~~(Math.random() * 600),
+					y: 100 + ~~(Math.random() * 600)
+				},
+			}]
+		}),
+		updateWidget: widget => state => ({
+			items: state.items
+			            .map(
+				            it => (it._id === widget._id)
+				                  ? widget
+				                  : it
+			            )
+		}),
+		rmWidget    : ( id ) => state => ({
+			items: state.items
+			            .filter(
+				            it => (it._id !== id)
+			            )
+		}),
 		saveState() {
 			superagent.post('/', this.scopeObj.serialize())
 			          .then(( e, r ) => {
