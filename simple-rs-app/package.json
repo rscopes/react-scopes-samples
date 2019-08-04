@@ -1,5 +1,5 @@
 {
-  "name": "simple-rs-app-alone",
+  "name": "simple-rs-app",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
@@ -40,6 +40,6 @@
   },
   "devDependencies": {
     "wpi-react-rs-sass-ssr": "^1.0.7",
-    "webpack-inherit": "^1.6.7"
+    "webpack-inherit": "^1.6.9"
   }
 }

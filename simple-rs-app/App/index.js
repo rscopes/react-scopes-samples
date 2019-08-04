@@ -38,7 +38,9 @@ const ctrl = {
 			    autoDestroy: true
 		    }),
 		    App         = reScope(cScope)(require('./App').default);
+		
 		window.contexts = Scope.scopes;
+		
 		__STATE__ && cScope.restore(__STATE__);
 		ReactDom.render(<App/>, node);
 		
@@ -55,7 +57,9 @@ const ctrl = {
 	renderSSR( cfg, cb, _attempts = 0 ) {
 		let rid     = shortid.generate(),
 		    cScope  = new Scope(AppScope, {
+		    	// all scope require unique id ( or key to make id basing the parent scope )
 			    id         : rid,
+			    // when rendering from ssr React components don't retain theirs scopes so :
 			    autoDestroy: false
 		    }), App = reScope(cScope)(require('./App').default);
 		
@@ -65,9 +69,11 @@ const ctrl = {
 		    appHtml = renderToString(<App location={cfg.location}/>),
 		    stable  = cScope.isStableTree();
 		
+		// should happen when all all stores are stabilized
 		cScope.onceStableTree(state => {
 			let nstate = cScope.serialize({ alias: "App" });
-			if ( !stable && _attempts < 2 ) {
+			
+			if ( !stable && _attempts < 2 ) {// render 2 time is enough to render async data based on async data
 				cfg.state = nstate;
 				ctrl.renderSSR(cfg, cb, ++_attempts);
 			}
@@ -82,6 +88,7 @@ const ctrl = {
 				} catch ( e ) {
 					return cb(e)
 				}
+				
 				cb(null, html, !stable && nstate)
 			}
 			cScope.destroy()

@@ -23,20 +23,20 @@
  *   @author : Nathanael Braun
  *   @contact : n8tz.js@gmail.com
  */
-import PropTypes                             from "prop-types";
-import React                                 from "react";
-import Fab                                   from '@material-ui/core/Fab';
-import DeleteIcon                            from '@material-ui/icons/Delete';
-import EditIcon                              from '@material-ui/icons/Edit';
-import SaveIcon                              from '@material-ui/icons/Save';
-import {reScope, scopeToProps, propsToScope} from "rscopes";
-import WeatherSearch                         from "App/stores/WeatherSearch";
-import WeatherInfos                          from "App/ui/components/WeatherInfos";
+import Fab                                     from '@material-ui/core/Fab';
+import DeleteIcon                              from '@material-ui/icons/Delete';
+import EditIcon                                from '@material-ui/icons/Edit';
+import SaveIcon                                from '@material-ui/icons/Save';
+import WeatherSearch                           from "App/stores/WeatherSearch";
+import WeatherInfos                            from "App/ui/components/WeatherInfos";
+import PropTypes                               from "prop-types";
+import React                                   from "react";
+import {propsToScope, scopeToProps, withScope} from "rscopes";
 
 
-@reScope(
+@withScope(
 	{
-		// will keep separate instances for each instance of WeatherWidget
+		// will make a WeatherSearch instances for each instance of WeatherWidget
 		// WeatherSearch can still require stores in the parents scopes
 		WeatherSearch
 	}
@@ -63,24 +63,24 @@ export default class WeatherBlock extends React.Component {
 		    state = this.state;
 		
 		return (
-			<div className={ "WeatherBlock" }>
+			<div className={"WeatherBlock"}>
 				{
 					!this.state.editing &&
 					<React.Fragment>
 						{
-							WeatherSearch.results && <WeatherInfos weatherData={ WeatherSearch.results }/>
+							WeatherSearch.results && <WeatherInfos weatherData={WeatherSearch.results}/>
 							|| WeatherSearch.fetching && "Loading...."
 							|| "Edit me !"
 						}
 						{
 							!disabled &&
 							<React.Fragment>
-								<Fab aria-label="edit" className={ "edit" }
-								     onClick={ e => this.setState({ editing: true }) }>
+								<Fab aria-label="edit" className={"edit"}
+								     onClick={e => this.setState({ editing: true })}>
 									<EditIcon/>
 								</Fab>
-								<Fab aria-label="Delete" className={ "delete" }
-								     onClick={ e => $actions.rmWidget(record._id) }>
+								<Fab aria-label="Delete" className={"delete"}
+								     onClick={e => $actions.rmWidget(record._id)}>
 									<DeleteIcon/>
 								</Fab>
 							</React.Fragment>
@@ -89,25 +89,25 @@ export default class WeatherBlock extends React.Component {
 					||
 					<React.Fragment>
 						{
-							<div className={ "search" }>
+							<div className={"search"}>
 								<input type="text"
-								       onChange={ e => {
+								       onChange={e => {
 									       this.setState({ searching: e.target.value });
 									       if ( e.target.value.length > 2 )
 										       $actions.updateWeatherSearch(e.target.value);
-								       } }
-								       value={ state.searching !== undefined ? state.searching : record.location }
-								       onMouseDown={ e => e.stopPropagation() }/>
+								       }}
+								       value={state.searching !== undefined ? state.searching : record.location}
+								       onMouseDown={e => e.stopPropagation()}/>
 							</div>
 						}
 						{
 							WeatherSearch.fetching && "Loading...." ||
-							WeatherSearch.results && <WeatherInfos weatherData={ WeatherSearch.results }/>
+							WeatherSearch.results && <WeatherInfos weatherData={WeatherSearch.results}/>
 						}
 						
-						<Fab aria-label="Save" className={ "save" }
-						     disabled={ record.fetching }
-						     onClick={ e => this.setState({ editing: false }) }>
+						<Fab aria-label="Save" className={"save"}
+						     disabled={record.fetching}
+						     onClick={e => this.setState({ editing: false })}>
 							<SaveIcon/>
 						</Fab>
 					</React.Fragment>

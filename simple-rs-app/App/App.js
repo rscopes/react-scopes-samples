@@ -51,7 +51,7 @@ export default class App extends React.Component {
 				<AppBar position="static" className={ "AppBar" }>
 					<Toolbar>
 						<Typography cvariant="h6" color="inherit" noWrap>
-							Weather desk
+							Weather desk ( watch window.contexts to see scopes & stores )
 						</Typography>
 						<div className={ "tools" }>
 							<Link to={ "/" } className={ "homeBtn" }>

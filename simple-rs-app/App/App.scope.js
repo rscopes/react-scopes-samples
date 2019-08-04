@@ -76,20 +76,9 @@ export default {
 				},
 			}]
 		}),
-		updateWidget: widget => state => ({
-			items: state.items
-			            .map(
-				            it => (it._id === widget._id)
-				                  ? widget
-				                  : it
-			            )
-		}),
-		rmWidget    : ( id ) => state => ({
-			items: state.items
-			            .filter(
-				            it => (it._id !== id)
-			            )
-		}),
+		updateWidget: widget => state => ({ items: state.items.map(it => (it._id === widget._id) ? widget : it) }),
+		rmWidget    : ( id ) => state => ({ items: state.items.filter(it => (it._id !== id)) }),
+		
 		saveState() {
 			superagent.post('/', this.scopeObj.serialize())
 			          .then(( e, r ) => {
