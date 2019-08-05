@@ -1,6 +1,6 @@
-# rScopes samples
+# react-scopes samples
 
-Simple samples for [rScopes](https://github.com/rscopes/rScopes)
+Simple samples for [react-scopes](https://github.com/rscopes/react-scopes)
 
 ## Available :
 
