@@ -25,7 +25,7 @@
  */
 
 
-import {reScope, scopeToProps, Store} from "rscopes";
+import {reScope, scopeToProps, Store} from "react-scopes";
 import superagent                     from "superagent";
 
 export default class WeatherSearch extends Store {

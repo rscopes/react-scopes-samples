@@ -31,7 +31,7 @@ import WeatherSearch                           from "App/stores/WeatherSearch";
 import WeatherInfos                            from "App/ui/components/WeatherInfos";
 import PropTypes                               from "prop-types";
 import React                                   from "react";
-import {propsToScope, scopeToProps, withScope} from "rscopes";
+import {propsToScope, scopeToProps, withScope} from "react-scopes";
 
 
 @withScope(

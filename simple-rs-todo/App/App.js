@@ -25,7 +25,7 @@
  */
 
 import React                              from 'react';
-import {asStore, scopeToProps, withScope} from "rscopes";
+import {asStore, scopeToProps, withScope} from "react-scopes";
 import shortId                            from 'shortid';
 
 import "./App.scss"
@@ -35,7 +35,7 @@ import "./App.scss"
 	{
 		@asStore
 		todo: {
-			tasks  : [{id:"someId", text:"somethink todo"}],
+			tasks  : [{ id: "someId", text: "somethink todo" }],
 			addTask: ( task ) => state => ({ tasks: [{ ...task, id: shortId.generate() }, ...state.tasks] }),
 			rmTask : ( taskId ) => state => ({ tasks: state.tasks.filter(task => (task.id !== taskId)) })
 		}

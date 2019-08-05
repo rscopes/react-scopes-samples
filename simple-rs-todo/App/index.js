@@ -23,12 +23,12 @@
  *   @author : Nathanael Braun
  *   @contact : n8tz.js@gmail.com
  */
-import AppScope         from './App.scope';
-import shortid          from 'shortid';
-import ReactDom         from 'react-dom';
 import React            from "react";
+import ReactDom         from 'react-dom';
 import {renderToString} from "react-dom/server";
-import {Scope, reScope} from "react-rescope";
+import {reScope, Scope} from "react-rescope";
+import shortid          from 'shortid';
+import AppScope         from './App.scope';
 
 
 const ctrl = {
@@ -62,7 +62,7 @@ const ctrl = {
 		cfg.state && cScope.restore(cfg.state, { alias: "App" });
 		
 		let html,
-		    appHtml = renderToString(<App location={ cfg.location }/>),
+		    appHtml = renderToString(<App location={cfg.location}/>),
 		    stable  = cScope.isStableTree();
 		
 		cScope.onceStableTree(state => {

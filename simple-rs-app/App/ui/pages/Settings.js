@@ -30,7 +30,7 @@ import WeatherBlock                          from 'App/ui/containers/WeatherBloc
 import Fab                                   from '@material-ui/core/Fab';
 import CreateIcon                            from '@material-ui/icons/Add';
 import SaveIcon                              from '@material-ui/icons/Save';
-import {reScope, scopeToProps, propsToScope} from "rscopes";
+import {reScope, scopeToProps, propsToScope} from "react-scopes";
 
 
 @scopeToProps("widgets", "appState")

@@ -24,31 +24,5 @@
  *   @contact : n8tz.js@gmail.com
  */
 
-import React                                 from 'react';
-import Widget                                from 'App/ui/containers/Widget.js';
-import WeatherBlock                          from 'App/ui/containers/WeatherBlock';
-import {reScope, scopeToProps, propsToScope} from "react-scopes";
 
-
-@scopeToProps("widgets", "appState")
-export default class Home extends React.Component {
-	state = {};
-	
-	render() {
-		let { widgets = { items: [] }, appState } = this.props;
-		return <div>
-			<div className={ "desk" }>
-				{
-					widgets.items.map(
-						widget => <Widget key={ widget._id } record={ widget }
-						                  disabled={ true }
-						                  selected={ widget._id == appState.selectedWidgetId }>
-							<WeatherBlock record={ widget }
-							              disabled={ true }/>
-						</Widget>
-					)
-				}
-			</div>
-		</div>
-	}
-}
+export default {}

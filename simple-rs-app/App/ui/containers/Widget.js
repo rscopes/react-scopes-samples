@@ -26,7 +26,7 @@
 import PropTypes                             from "prop-types";
 import React                                 from "react";
 import {Rnd}                                 from "react-rnd";
-import {reScope, scopeToProps, propsToScope} from "rscopes";
+import {reScope, scopeToProps, propsToScope} from "react-scopes";
 
 
 @reScope

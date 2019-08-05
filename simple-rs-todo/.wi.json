@@ -1,37 +1,27 @@
 {
   "default": {
-    "rootFolder": "App",
-    "vars": {
-      "production": true
-    },
+    "rootFolder": "App"
+  },
+  "dev": {
     "extend": [
-      "wpi-react-rs-sass-ssr"
+      "wi-layer-react-express"
     ]
   },
-  "devClient": {
-    "rootFolder": "App",
-    "basedOn": "default",
+  "prod": {
     "extend": [
-      "wpi-react-rs-sass-ssr"
+      "wi-layer-react-express"
     ]
   },
-  "devApi": {
+  "www": {
     "rootFolder": "App",
-    "vars": {
-      "externals": true
-    },
     "extend": [
-      "wpi-react-rs-sass-ssr"
+      "wi-layer-react-express"
     ]
   },
   "api": {
     "rootFolder": "App",
-    "vars": {
-      "production": true,
-      "externals": true
-    },
     "extend": [
-      "wpi-react-rs-sass-ssr"
+      "wi-layer-react-express"
     ]
   }
 }
