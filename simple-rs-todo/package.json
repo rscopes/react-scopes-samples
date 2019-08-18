@@ -26,7 +26,7 @@
     "shortid": "^2.2.8"
   },
   "devDependencies": {
-    "wi-layer-react-express": "^1.0.4",
-    "webpack-inherit": "^1.6.10"
+    "wi-layer-react-express": "^1.1.4",
+    "webpack-inherit": "^1.8.0"
   }
 }

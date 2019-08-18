@@ -45,7 +45,11 @@ import "./App.scss"
 class TodoList extends React.Component {
 	input = React.createRef();
 	
-	addTask = ( e ) => {
+	catchEnter = ( e ) => {
+		if ( e.keyCode == 13 )
+			this.addTask()
+	};
+	addTask    = ( e ) => {
 		let text = this.input.current.value;
 		this.props.$actions.addTask({ text });
 		this.input.current.value = "";
@@ -53,32 +57,67 @@ class TodoList extends React.Component {
 	};
 	
 	render() {
-		let { todo, $actions } = this.props;
+		let { todo, title, $actions } = this.props;
 		return <div className={"TodoList"}>
-			<div>
-				<input type={"text"} ref={this.input}/>
+			<div className={"title"}>
+				{title}
+			</div>
+			<div className={"addTaskInput"}>
+				<input type={"text"} ref={this.input} placeholder={"Add some stuff todo"} onKeyUp={this.catchEnter}/>
 				<button onClick={this.addTask}>Add task</button>
 			</div>
-			<ul>
+			<div className={"items"}>
 				{
 					todo.tasks.map(
 						task =>
-							<li key={task.id}>
+							<div key={task.id}>
 								{task.text}&nbsp;
 								<button onClick={$actions.rmTask.bind(null, task.id)}>X</button>
-							</li>
+							</div>
 					)
 				}
-			</ul>
+			</div>
 		</div>
 	}
 }
 
+@withScope({
+	           @asStore
+	           appState: {
+		           columns: [{ label: "Todo" }, { label: "inProgress" }, { label: "complete" }],
+		           saveState() {
+			           debugger
+			           console.log(this.$scope.serialize({ alias: "App" }));
+			           localStorage.setItem("todo", JSON.stringify(this.$scope.serialize({ alias: "App" })))
+		           },
+	           }
+           },
+           __IS_SERVER__ ?
+           {}
+                         :
+           {
+	           snapshot: localStorage.getItem("todo") && JSON.parse(localStorage.getItem("todo"))
+           }
+)
+@scopeToProps("appState")
 export default class App extends React.Component {
 	
 	render() {
+		let { appState, $actions } = this.props;
+		debugger;
 		return <div>
-			<TodoList/>
+			<div className={"appBar"}>
+				<div className={"title"}>Todo App</div>
+				<button onClick={$actions.saveState}>Save</button>
+			</div>
+			
+			{
+				//appState&&
+				//appState.columns&&
+				appState.columns.map(
+					( { label } ) => <TodoList key={label} title={label}/>
+				)
+			}
 		</div>
 	}
 }

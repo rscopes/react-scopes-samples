@@ -23,68 +23,57 @@
  *   @author : Nathanael Braun
  *   @contact : n8tz.js@gmail.com
  */
-import React            from "react";
-import ReactDom         from 'react-dom';
-import {renderToString} from "react-dom/server";
-import {reScope, Scope} from "react-rescope";
-import shortid          from 'shortid';
-import AppScope         from './App.scope';
+import Index              from "App/index.html";
+import React              from "react";
+import ReactDom           from 'react-dom';
+import {renderToString}   from "react-dom/server";
+import {Helmet}           from "react-helmet";
+import {Scope, withScope} from "react-scopes";
+import shortid            from "shortid";
 
+
+@withScope()
+class ScopeProvider extends React.Component {
+	render() {
+		return this.props.children;
+	}
+}
 
 const ctrl = {
 	renderTo( node, state ) {
-		let cScope      = new Scope(AppScope, {
-			    id         : "App",
-			    autoDestroy: true
-		    }),
-		    App         = reScope(cScope)(require('./App').default);
-		window.contexts = Scope.scopes;
-		state && cScope.restore(state);
+		let App = require('./App').default;
+		//window.contexts = Scope.scopes;
+		//state && cScope.restore(state);
 		ReactDom.render(<App/>, node);
+		window.ctrl = this;
 		
 		if ( process.env.NODE_ENV !== 'production' && module.hot ) {
 			module.hot.accept('App/App', () => {
 				//ReactDom.render(<App/>, node)
 				ctrl.renderTo(node, state)
 			});
-			module.hot.accept('App/App.scope', () => {
-				cScope.register(AppScope)
-			});
 		}
 	},
-	renderSSR( cfg, cb, _attempts = 0 ) {
-		let rid     = shortid.generate(),
-		    cScope  = new Scope(AppScope, {
+	
+	renderSSR( { state, tpl }, cb ) {
+		let content = "",
+		    App     = require('App/App.js').default,
+		    rid     = shortid.generate(),
+		    cScope  = new Scope({}, {
 			    id         : rid,
 			    autoDestroy: false
-		    }), App = reScope(cScope)(require('./App').default);
+		    }),
+		    html;
 		
-		cfg.state && cScope.restore(cfg.state, { alias: "App" });
-		
-		let html,
-		    appHtml = renderToString(<App location={cfg.location}/>),
-		    stable  = cScope.isStableTree();
-		
-		cScope.onceStableTree(state => {
-			let nstate = cScope.serialize({ alias: "App" });
-			if ( !stable && _attempts < 0 ) {
-				ctrl.renderSSR(cfg, cb, ++_attempts);
-			}
-			else {
-				try {
-					html = cfg.tpl.render(
-						{
-							app  : appHtml,
-							state: JSON.stringify(nstate)
-						}
-					);
-				} catch ( e ) {
-					return cb(e)
-				}
-				cb(null, html, !stable && nstate)
-			}
-			cScope.destroy()
-		})
+		try {
+			content = renderToString(<ScopeProvider $scope={cScope}><App/></ScopeProvider>);
+			
+			html = "<!doctype html>\n" + renderToString(<Index helmet={Helmet.renderStatic()} content={content}
+			                                                   state={cScope.serialize({ alias: "ClientState" }).ClientState}/>);
+		} catch ( e ) {
+			return cb(e, "<pre>" + e + "\n\n" + e.stack + "<pre>")
+		}
+		cb(null, html)
 	}
 }
 
