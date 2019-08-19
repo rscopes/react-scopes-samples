@@ -86,8 +86,6 @@ class TodoList extends React.Component {
 	           appState: {
 		           columns: [{ label: "Todo" }, { label: "inProgress" }, { label: "complete" }],
 		           saveState() {
-			           debugger
-			           console.log(this.$scope.serialize({ alias: "App" }));
 			           localStorage.setItem("todo", JSON.stringify(this.$scope.serialize({ alias: "App" })))
 		           },
 	           }
@@ -104,7 +102,6 @@ export default class App extends React.Component {
 	
 	render() {
 		let { appState, $actions } = this.props;
-		debugger;
 		return <div>
 			<div className={"appBar"}>
 				<div className={"title"}>Todo App</div>
@@ -112,8 +109,6 @@ export default class App extends React.Component {
 			</div>
 			
 			{
-				//appState&&
-				//appState.columns&&
 				appState.columns.map(
 					( { label } ) => <TodoList key={label} title={label}/>
 				)
