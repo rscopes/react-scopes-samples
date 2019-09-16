@@ -26,10 +26,10 @@
 import PropTypes                             from "prop-types";
 import React                                 from "react";
 import {Rnd}                                 from "react-rnd";
-import {reScope, scopeToProps, propsToScope} from "react-scopes";
+import {withScope, scopeToProps, propsToScope} from "react-scopes";
 
 
-@reScope
+@withScope
 export default class Widget extends React.Component {
 	static propTypes = {
 		selected: PropTypes.bool,

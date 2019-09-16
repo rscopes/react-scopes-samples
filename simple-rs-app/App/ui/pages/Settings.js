@@ -40,6 +40,7 @@ export default class Settings extends React.Component {
 	render() {
 		let { widgets = { items: [] }, $actions, appState } = this.props,
 		    {}                                              = this.state;
+		debugger
 		return <div>
 			<div className={ "desk" }>
 				{

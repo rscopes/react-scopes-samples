@@ -41,8 +41,9 @@ try {
 } catch ( e ) {
 	currentState = undefined;
 }
-
-export default ( server ) => {
+export const name          = "Rendering";
+export const priorityLevel = 100000;
+export const service       = ( server ) =>{
 	
 	server.get(
 		'/',

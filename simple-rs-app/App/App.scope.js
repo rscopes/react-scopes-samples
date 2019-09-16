@@ -24,7 +24,7 @@
  *   @contact : n8tz.js@gmail.com
  */
 
-import {asStore}  from "rescope-spells";
+import {asStore}  from "react-scopes";
 import shortid    from "shortid";
 import superagent from "superagent";
 

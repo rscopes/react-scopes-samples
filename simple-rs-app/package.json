@@ -6,6 +6,7 @@
   "main": "./Server.js",
   "author": "Nathan Braun <n8tz.js@gmail.com>",
   "scripts": {
+    "test": "mocha --require @babel/register ./tests/*.test.jsx -b",
     "build": "wpi :www&&wpi :api",
     "start-dev": "wi-run :dev start",
     "start": "wi-run :prod start",
@@ -29,12 +30,22 @@
     "react-rnd": "^9.0.4",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scopes": "^1.0.5",
+    "react-scopes": "^1.0.10",
     "shortid": "^2.2.8",
     "superagent": "^3.8.2"
   },
   "devDependencies": {
-    "wi-layer-react-express": "^1.0.4",
-    "webpack-inherit": "^1.6.10"
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/register": "^7.4.4",
+    "babel-loader": "^8.0.6",
+    "is-port-reachable": "^2.0.1",
+    "fkill": "^6.2.0",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "zombie": "^6.1.4",
+    "mocha": "^6.2.0",
+    "wi-layer-react-express": "^1.1.11",
+    "webpack-inherit": "^1.8.6"
   }
 }

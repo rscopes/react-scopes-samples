@@ -24,19 +24,17 @@
  *   @contact : n8tz.js@gmail.com
  */
 
+import AppBar                                     from '@material-ui/core/AppBar';
+import IconButton                                 from '@material-ui/core/IconButton';
+import Toolbar                                    from '@material-ui/core/Toolbar';
+import Typography                                 from '@material-ui/core/Typography';
+import HomeIcon                                   from '@material-ui/icons/Home';
+import SettingsIcon                               from '@material-ui/icons/Settings';
 import React                                      from 'react';
+import {BrowserRouter, Link, Route, StaticRouter} from "react-router-dom";
 import Home                                       from './ui/pages/Home';
 import Settings                                   from './ui/pages/Settings';
-import {BrowserRouter, StaticRouter, Route, Link} from "react-router-dom";
-import AppBar                                     from '@material-ui/core/AppBar';
-import Toolbar                                    from '@material-ui/core/Toolbar';
-import IconButton                                 from '@material-ui/core/IconButton';
-import Typography                                 from '@material-ui/core/Typography';
-import SettingsIcon                               from '@material-ui/icons/Settings';
-import HomeIcon                                   from '@material-ui/icons/Home';
 import "./ui/styles/index.scss"
-
-
 
 
 export default class App extends React.Component {
@@ -46,22 +44,22 @@ export default class App extends React.Component {
 		let Router = BrowserRouter;
 		if ( this.props.location )
 			Router = StaticRouter;
-		return <Router location={ this.props.location }>
+		return <Router location={this.props.location}>
 			<React.Fragment>
-				<AppBar position="static" className={ "AppBar" }>
+				<AppBar position="static" className={"AppBar"}>
 					<Toolbar>
 						<Typography cvariant="h6" color="inherit" noWrap>
 							Weather desk ( watch window.contexts to see scopes & stores )
 						</Typography>
-						<div className={ "tools" }>
-							<Link to={ "/" } className={ "homeBtn" }>
+						<div className={"tools"}>
+							<Link to={"/"} className={"homeBtn"}>
 								<IconButton aria-label="home"
 								            color="inherit">
 									<HomeIcon/>
 								</IconButton>
 							</Link>
 							
-							<Link to={ "/settings" } className={ "settingsBtn" }>
+							<Link to={"/settings"} className={"settingsBtn"}>
 								<IconButton aria-label="settings"
 								            color="inherit">
 									<SettingsIcon/>
@@ -72,8 +70,8 @@ export default class App extends React.Component {
 				</AppBar>
 				
 				
-				<Route path="/" exact component={ Home }/>
-				<Route path="/settings" component={ Settings }/>
+				<Route path="/" exact component={Home}/>
+				<Route path="/settings" component={Settings}/>
 			</React.Fragment>
 		</Router>
 	}

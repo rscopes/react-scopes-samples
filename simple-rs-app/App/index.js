@@ -26,24 +26,24 @@
 import React            from "react";
 import ReactDom         from 'react-dom';
 import {renderToString} from "react-dom/server";
-import {reScope, Scope} from "react-rescope";
+import {withScope, Scope} from "react-scopes";
 import shortid          from 'shortid';
 import AppScope         from './App.scope';
 
-
+console.log(AppScope);
 const ctrl = {
 	renderTo( node, state = __STATE__ ) {
-		let cScope      = new Scope(AppScope, {
+		let cScope = new Scope(AppScope, {
 			    id         : "App",
 			    autoDestroy: true
 		    }),
-		    App         = reScope(cScope)(require('./App').default);
+		    App    = withScope(cScope)(require('./App').default);
 		
 		window.contexts = Scope.scopes;
-		
 		__STATE__ && cScope.restore(__STATE__);
 		ReactDom.render(<App/>, node);
 		
+		debugger
 		if ( process.env.NODE_ENV !== 'production' && module.hot ) {
 			module.hot.accept('App/App', () => {
 				//ReactDom.render(<App/>, node)
@@ -57,11 +57,11 @@ const ctrl = {
 	renderSSR( cfg, cb, _attempts = 0 ) {
 		let rid     = shortid.generate(),
 		    cScope  = new Scope(AppScope, {
-		    	// all scope require unique id ( or key to make id basing the parent scope )
+			    // all scope require unique id ( or key to make id basing the parent scope )
 			    id         : rid,
 			    // when rendering from ssr React components don't retain theirs scopes so :
 			    autoDestroy: false
-		    }), App = reScope(cScope)(require('./App').default);
+		    }), App = withScope(cScope)(require('./App').default);
 		
 		cfg.state && cScope.restore(cfg.state, { alias: "App" });
 		
