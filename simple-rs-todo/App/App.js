@@ -24,14 +24,14 @@
  *   @contact : n8tz.js@gmail.com
  */
 
-import React                              from 'react';
-import {asStore, scopeToProps, withScope} from "react-scopes";
-import shortId                            from 'shortid';
+import React         from 'react';
+import RS, {asStore} from "react-scopes";
+import shortId       from 'shortid';
 
 import "./App.scss"
 
 
-@withScope(
+@RS(
 	{
 		@asStore
 		todo: {
@@ -41,7 +41,7 @@ import "./App.scss"
 		}
 	}
 )
-@scopeToProps("todo")
+@RS.connect("todo")
 class TodoList extends React.Component {
 	input = React.createRef();
 	
@@ -81,23 +81,23 @@ class TodoList extends React.Component {
 	}
 }
 
-@withScope({
-	           @asStore
-	           appState: {
-		           columns: [{ label: "Todo" }, { label: "inProgress" }, { label: "complete" }],
-		           saveState() {
-			           localStorage.setItem("todo", JSON.stringify(this.$scope.serialize({ alias: "App" })))
-		           },
-	           }
-           },
-           __IS_SERVER__ ?
-           {}
-                         :
-           {
-	           snapshot: localStorage.getItem("todo") && JSON.parse(localStorage.getItem("todo"))
-           }
+@RS({
+	    @asStore
+	    appState: {
+		    columns: [{ label: "Todo" }, { label: "inProgress" }, { label: "complete" }],
+		    saveState() {
+			    localStorage.setItem("todo", JSON.stringify(this.$scope.serialize({ alias: "App" })))
+		    },
+	    }
+    },
+    __IS_SERVER__ ?
+    {}
+                  :
+    {
+	    snapshot: localStorage.getItem("todo") && JSON.parse(localStorage.getItem("todo"))
+    }
 )
-@scopeToProps("appState")
+@RS.connect("appState")
 export default class App extends React.Component {
 	
 	render() {

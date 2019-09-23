@@ -7,7 +7,7 @@
   "scripts": {
     "build": "wpi :www&&wpi :api",
     "start-dev": "wi-run :dev start",
-    "start": "wi-run :prod start",
+    "start": "node dist/api/App.server.js -p 8080",
     "runBrowser": "start http://localhost:8080"
   },
   "dependencies": {
@@ -20,13 +20,13 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scopes": "^1.0.10",
+    "react-scopes": "^1.0.14",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
-    "wi-layer-react-express": "^1.1.4",
-    "webpack-inherit": "^1.8.0"
+    "wi-layer-react-express": "^1.1.11",
+    "webpack-inherit": "^1.8.6"
   }
 }

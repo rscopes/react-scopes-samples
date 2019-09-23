@@ -30,11 +30,12 @@ import Toolbar                                    from '@material-ui/core/Toolba
 import Typography                                 from '@material-ui/core/Typography';
 import HomeIcon                                   from '@material-ui/icons/Home';
 import SettingsIcon                               from '@material-ui/icons/Settings';
+import "App/ui/styles/index.scss"
 import React                                      from 'react';
+import {Helmet}                                   from "react-helmet";
 import {BrowserRouter, Link, Route, StaticRouter} from "react-router-dom";
 import Home                                       from './ui/pages/Home';
 import Settings                                   from './ui/pages/Settings';
-import "./ui/styles/index.scss"
 
 
 export default class App extends React.Component {
@@ -42,10 +43,24 @@ export default class App extends React.Component {
 	
 	render() {
 		let Router = BrowserRouter;
-		if ( this.props.location )
+		if ( __IS_SERVER__ )
 			Router = StaticRouter;
-		return <Router location={this.props.location}>
+		return <Router location={__IS_SERVER__ && this.props.location}>
 			<React.Fragment>
+				<Helmet>
+					<meta charSet="UTF-8"/>
+					<meta name="viewport"
+					      content="width=device-width, initial-scale=1.01, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+					<meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=11;IE=Edge,chrome=1"/>
+					<meta name="apple-mobile-web-app-capable" content="yes"/>
+					<meta name="apple-touch-fullscreen" content="yes"/>
+					<title>Weather desk</title>
+					<link rel="stylesheet"
+					      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
+					<link
+						href="https://fonts.googleapis.com/icon?family=Material+Icons"
+						rel="stylesheet"/>
+				</Helmet>
 				<AppBar position="static" className={"AppBar"}>
 					<Toolbar>
 						<Typography cvariant="h6" color="inherit" noWrap>

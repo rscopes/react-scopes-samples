@@ -26,30 +26,39 @@
 import React            from "react";
 import ReactDom         from 'react-dom';
 import {renderToString} from "react-dom/server";
-import {withScope, Scope} from "react-scopes";
-import shortid          from 'shortid';
-import AppScope         from './App.scope';
 
-console.log(AppScope);
+import {Helmet}           from "react-helmet";
+import {Scope, withScope} from "react-scopes";
+import shortid            from 'shortid';
+import AppScope           from './App.scope';
+import Index              from "./index.html";
+
 const ctrl = {
-	renderTo( node, state = __STATE__ ) {
-		let cScope = new Scope(AppScope, {
+	
+	renderTo( node, state ) {
+		let cScope      = new Scope(AppScope, {
 			    id         : "App",
 			    autoDestroy: true
 		    }),
-		    App    = withScope(cScope)(require('./App').default);
-		
+		    App         = withScope(cScope)(require('./App').default);
 		window.contexts = Scope.scopes;
-		__STATE__ && cScope.restore(__STATE__);
+		if ( window.__STATE__ )
+			cScope.restore(window.__STATE__);
 		ReactDom.render(<App/>, node);
 		
-		debugger
 		if ( process.env.NODE_ENV !== 'production' && module.hot ) {
-			module.hot.accept('App/App', () => {
-				//ReactDom.render(<App/>, node)
-				ctrl.renderTo(node, state)
+			module.hot.accept('./App', () => {
+				state = cScope.serialize({ alias: "App" });
+				cScope.destroy();
+				cScope = new Scope(AppScope, {
+					id         : "App",
+					autoDestroy: true
+				});
+				App    = withScope(cScope)(require('./App').default);
+				cScope.restore(state);
+				ReactDom.render(<App/>, node);
 			});
-			module.hot.accept('App/App.scope', () => {
+			module.hot.accept('./App.scope', () => {
 				cScope.register(AppScope)
 			});
 		}
@@ -57,43 +66,42 @@ const ctrl = {
 	renderSSR( cfg, cb, _attempts = 0 ) {
 		let rid     = shortid.generate(),
 		    cScope  = new Scope(AppScope, {
-			    // all scope require unique id ( or key to make id basing the parent scope )
 			    id         : rid,
-			    // when rendering from ssr React components don't retain theirs scopes so :
 			    autoDestroy: false
 		    }), App = withScope(cScope)(require('./App').default);
 		
-		cfg.state && cScope.restore(cfg.state, { alias: "App" });
+		if ( cfg.state ) {
+			cScope.restore(cfg.state, { alias: "App" });
+		}
 		
 		let html,
-		    appHtml = renderToString(<App location={cfg.location}/>),
-		    stable  = cScope.isStableTree();
+		    appHtml     = renderToString(<App location={cfg.location}/>),
+		    stable      = cScope.isStableTree();
 		
-		// should happen when all all stores are stabilized
+		global.contexts = Scope.scopes;
+		
 		cScope.onceStableTree(state => {
 			let nstate = cScope.serialize({ alias: "App" });
-			
-			if ( !stable && _attempts < 2 ) {// render 2 time is enough to render async data based on async data
+			cScope.destroy()
+			if ( !_attempts || !stable && _attempts < 3 ) {
 				cfg.state = nstate;
 				ctrl.renderSSR(cfg, cb, ++_attempts);
 			}
 			else {
 				try {
-					html = cfg.tpl.render(
-						{
-							app  : appHtml,
-							state: JSON.stringify(nstate)
-						}
-					);
+					html = "<!doctype html>\n" +
+						renderToString(<Index
+							helmet={Helmet.renderStatic()}
+							css={cfg.css}
+							state={nstate}
+							content={appHtml}/>);
+					
 				} catch ( e ) {
 					return cb(e)
 				}
-				
-				cb(null, html, !stable && nstate)
+				cb(null, html)
 			}
-			cScope.destroy()
 		})
 	}
 }
-
 export default ctrl;

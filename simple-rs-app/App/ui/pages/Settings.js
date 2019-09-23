@@ -24,42 +24,41 @@
  *   @contact : n8tz.js@gmail.com
  */
 
-import React                                 from 'react';
-import Widget                                from 'App/ui/containers/Widget.js';
-import WeatherBlock                          from 'App/ui/containers/WeatherBlock';
-import Fab                                   from '@material-ui/core/Fab';
-import CreateIcon                            from '@material-ui/icons/Add';
-import SaveIcon                              from '@material-ui/icons/Save';
-import {reScope, scopeToProps, propsToScope} from "react-scopes";
+import Fab          from '@material-ui/core/Fab';
+import CreateIcon   from '@material-ui/icons/Add';
+import SaveIcon     from '@material-ui/icons/Save';
+import WeatherBlock from 'App/ui/containers/WeatherBlock';
+import Widget       from 'App/ui/containers/Widget.js';
+import React        from 'react';
+import RS           from "react-scopes";
 
 
-@scopeToProps("widgets", "appState")
+@RS.connect("widgets", "appState")
 export default class Settings extends React.Component {
 	state = {};
 	
 	render() {
 		let { widgets = { items: [] }, $actions, appState } = this.props,
 		    {}                                              = this.state;
-		debugger
 		return <div>
-			<div className={ "desk" }>
+			<div className={"desk"}>
 				{
 					widgets.items.map(
-						widget => <Widget key={ widget._id } record={ widget }
-						                  onSelect={ e => $actions.selectWidget(widget._id) }
-						                  selected={ widget._id == appState.selectedWidgetId }>
-							<WeatherBlock record={ widget }/>
+						widget => <Widget key={widget._id} record={widget}
+						                  onSelect={e => $actions.selectWidget(widget._id)}
+						                  selected={widget._id == appState.selectedWidgetId}>
+							<WeatherBlock record={widget}/>
 						</Widget>
 					)
 				}
 			</div>
 			
-			<Fab aria-label="edit" className={ "newBtn button" }
-			     onClick={ e => $actions.newWidget() }>
+			<Fab aria-label="edit" className={"newBtn button"}
+			     onClick={e => $actions.newWidget()}>
 				<CreateIcon/>
 			</Fab>
-			<Fab aria-label="Delete" className={ "saveBtn button" }
-			     onClick={ e => $actions.saveState() }>
+			<Fab aria-label="Delete" className={"saveBtn button"}
+			     onClick={e => $actions.saveState()}>
 				<SaveIcon/>
 			</Fab>
 		</div>

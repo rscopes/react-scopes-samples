@@ -23,13 +23,13 @@
  *   @author : Nathanael Braun
  *   @contact : n8tz.js@gmail.com
  */
-import PropTypes                             from "prop-types";
-import React                                 from "react";
-import {Rnd}                                 from "react-rnd";
-import {withScope, scopeToProps, propsToScope} from "react-scopes";
+import PropTypes from "prop-types";
+import React     from "react";
+import {Rnd}     from "react-rnd";
+import RS        from "react-scopes";
 
 
-@withScope
+@RS
 export default class Widget extends React.Component {
 	static propTypes = {
 		selected: PropTypes.bool,
@@ -58,23 +58,23 @@ export default class Widget extends React.Component {
 		    state = this.state;
 		return (
 			<Rnd
-				className={ "Widget" }
-				disableDragging={ !!disabled }
-				enableResizing={ disabled }
+				className={"Widget"}
+				disableDragging={!!disabled}
+				enableResizing={disabled}
 				//dragHandleClassName={ "handle" }
-				style={ selected ? { zIndex: 2000 } : undefined }
-				size={ state.size || size }
-				position={ state.position || position }
-				onDragStop={ this.saveState }
-				onResizeStop={ this.saveState }
-				onDrag={ ( e, d ) => {
+				style={selected ? { zIndex: 2000 } : undefined}
+				size={state.size || size}
+				position={state.position || position}
+				onDragStop={this.saveState}
+				onResizeStop={this.saveState}
+				onDrag={( e, d ) => {
 					!selected && onSelect(record)
 					this.setState(
 						{
 							position: { x: d.x, y: d.y }
 						});
-				} }
-				onResize={ ( e, direction, ref, delta, position ) => {
+				}}
+				onResize={( e, direction, ref, delta, position ) => {
 					this.setState(
 						{
 							position,
@@ -83,9 +83,9 @@ export default class Widget extends React.Component {
 								height: ref.offsetHeight
 							}
 						});
-				} }>
-				<div className={ " content" }>
-					{ children }
+				}}>
+				<div className={" content"}>
+					{children}
 				</div>
 			</Rnd>
 		);

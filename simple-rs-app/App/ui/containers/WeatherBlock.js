@@ -23,18 +23,18 @@
  *   @author : Nathanael Braun
  *   @contact : n8tz.js@gmail.com
  */
-import Fab                                     from '@material-ui/core/Fab';
-import DeleteIcon                              from '@material-ui/icons/Delete';
-import EditIcon                                from '@material-ui/icons/Edit';
-import SaveIcon                                from '@material-ui/icons/Save';
-import WeatherSearch                           from "App/stores/WeatherSearch";
-import WeatherInfos                            from "App/ui/components/WeatherInfos";
-import PropTypes                               from "prop-types";
-import React                                   from "react";
-import {propsToScope, scopeToProps, withScope} from "react-scopes";
+import Fab           from '@material-ui/core/Fab';
+import DeleteIcon    from '@material-ui/icons/Delete';
+import EditIcon      from '@material-ui/icons/Edit';
+import SaveIcon      from '@material-ui/icons/Save';
+import WeatherSearch from "App/stores/WeatherSearch";
+import WeatherInfos  from "App/ui/components/WeatherInfos";
+import PropTypes     from "prop-types";
+import React         from "react";
+import RS            from "react-scopes";
 
 
-@withScope(
+@RS(
 	{
 		// will make a WeatherSearch instances for each instance of WeatherWidget
 		// WeatherSearch can still require stores in the parents scopes
@@ -42,13 +42,12 @@ import {propsToScope, scopeToProps, withScope} from "react-scopes";
 	}
 )
 // map the record location as the default value in the WeatherSearch store state
-@propsToScope(
-	[
-		"record.location:WeatherSearch.defaultLocation",
-		"record:WeatherSearch.record"
-	])
+@RS.fromProps(
+	"record.location:WeatherSearch.defaultLocation",
+	"record:WeatherSearch.record"
+)
 // finally inject the stores
-@scopeToProps("WeatherSearch")
+@RS.connect("WeatherSearch")
 export default class WeatherBlock extends React.Component {
 	static propTypes = {
 		record  : PropTypes.object.isRequired,
