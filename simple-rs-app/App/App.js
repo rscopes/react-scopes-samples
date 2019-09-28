@@ -38,56 +38,52 @@ import Home                                       from './ui/pages/Home';
 import Settings                                   from './ui/pages/Settings';
 
 
-export default class App extends React.Component {
-	state = {};
-	
-	render() {
-		let Router = BrowserRouter;
-		if ( __IS_SERVER__ )
-			Router = StaticRouter;
-		return <Router location={__IS_SERVER__ && this.props.location}>
-			<React.Fragment>
-				<Helmet>
-					<meta charSet="UTF-8"/>
-					<meta name="viewport"
-					      content="width=device-width, initial-scale=1.01, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
-					<meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=11;IE=Edge,chrome=1"/>
-					<meta name="apple-mobile-web-app-capable" content="yes"/>
-					<meta name="apple-touch-fullscreen" content="yes"/>
-					<title>Weather desk</title>
-					<link rel="stylesheet"
-					      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
-					<link
-						href="https://fonts.googleapis.com/icon?family=Material+Icons"
-						rel="stylesheet"/>
-				</Helmet>
-				<AppBar position="static" className={"AppBar"}>
-					<Toolbar>
-						<Typography cvariant="h6" color="inherit" noWrap>
-							Weather desk ( watch window.contexts to see scopes & stores )
-						</Typography>
-						<div className={"tools"}>
-							<Link to={"/"} className={"homeBtn"}>
-								<IconButton aria-label="home"
-								            color="inherit">
-									<HomeIcon/>
-								</IconButton>
-							</Link>
-							
-							<Link to={"/settings"} className={"settingsBtn"}>
-								<IconButton aria-label="settings"
-								            color="inherit">
-									<SettingsIcon/>
-								</IconButton>
-							</Link>
-						</div>
-					</Toolbar>
-				</AppBar>
-				
-				
-				<Route path="/" exact component={Home}/>
-				<Route path="/settings" component={Settings}/>
-			</React.Fragment>
-		</Router>
-	}
+export default (props) => {
+	let Router = BrowserRouter;
+	if ( __IS_SERVER__ )
+		Router = StaticRouter;
+	return <Router location={__IS_SERVER__ && props.location}>
+		<React.Fragment>
+			<Helmet>
+				<meta charSet="UTF-8"/>
+				<meta name="viewport"
+				      content="width=device-width, initial-scale=1.01, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+				<meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=11;IE=Edge,chrome=1"/>
+				<meta name="apple-mobile-web-app-capable" content="yes"/>
+				<meta name="apple-touch-fullscreen" content="yes"/>
+				<title>Weather desk</title>
+				<link rel="stylesheet"
+				      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
+				<link
+					href="https://fonts.googleapis.com/icon?family=Material+Icons"
+					rel="stylesheet"/>
+			</Helmet>
+			<AppBar position="static" className={"AppBar"}>
+				<Toolbar>
+					<Typography cvariant="h6" color="inherit" noWrap>
+						Weather desk ( watch window.contexts to see scopes & stores )
+					</Typography>
+					<div className={"tools"}>
+						<Link to={"/"} className={"homeBtn"}>
+							<IconButton aria-label="home"
+							            color="inherit">
+								<HomeIcon/>
+							</IconButton>
+						</Link>
+						
+						<Link to={"/settings"} className={"settingsBtn"}>
+							<IconButton aria-label="settings"
+							            color="inherit">
+								<SettingsIcon/>
+							</IconButton>
+						</Link>
+					</div>
+				</Toolbar>
+			</AppBar>
+			
+			
+			<Route path="/" exact component={Home}/>
+			<Route path="/settings" component={Settings}/>
+		</React.Fragment>
+	</Router>
 }
